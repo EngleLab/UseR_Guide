@@ -110,12 +110,14 @@ The `bin.score()` function will calculate bin scores. These are the arguments yo
 
 * __baseline.condition__: The values that specify the baseline condition (e.g. "congruent")
 
+* __type__: How should Bin trials be aggregated, "sum" or "mean" (Default: "mean")
+
 * __id__: Column name in dataframe that contains the subject identifiers
 
 The default argument values are:
 
 ```{r eval = FALSE}
-bin.score(x, rt.col = "RT", accuracy.col = "Accuracy", condition.col = "Condition", baseline.condition = "congruent", id = "Subject")
+bin.score(x, rt.col = "RT", accuracy.col = "Accuracy", condition.col = "Condition", baseline.condition = "congruent", type = "mean", id = "Subject")
 ```
 
 Your data file may already be setup with these default value column names. If so, then you just need to specify the dataframe.
@@ -245,7 +247,7 @@ The function `center()` will create either unstandardized or standardized (z-sco
 
 * __variables__: c() of columns to center
 
-* __standardized__: Logical. Do you want to calculate zscores? (Default = FALSE)
+* __standardize__: Logical. Do you want to calculate zscores? (Default = FALSE)
 
 Example:
 
@@ -254,7 +256,7 @@ library(datawrangling)
 
 center(data, 
        variables = c("RT"),
-       standardized = TRUE)
+       standardize = TRUE)
 ```
 
 ********
