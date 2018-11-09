@@ -49,7 +49,7 @@ For the complex span tasks you need to specify the number of blocks administered
 
 The output of the raw functions will also contain columns for the subject's final score on the task. This is why it is suggested to just use the raw functions, you can still easily grab the final score on the task from the outputed file.
 
-### Example
+#### Example
 
 Here is an example script that uses the `raw.ospan()` function to import an E-merged data file and output a "tidy" raw data file.
 
@@ -122,7 +122,7 @@ Your data file may already be setup with these default value column names. If so
 
 ### Reliability functions
 
-`cronbach.alpha()`
+#### `cronbach.alpha()`
 
 This function takes as input a "tidy" raw trial-level dataframe.
 
@@ -142,7 +142,7 @@ For most of our tasks, the values that will be assessed over are the individual 
 
 You should be able to take your "tidy" raw data as input to `cronbach.alpha()`. The output of `cronbach.alpha()` is a single value representing Cronbach's Alpha.
 
-`splithalf()`
+#### `splithalf()`
 
 This function takes as input a "tidy" raw trial-level dataframe.
 
@@ -202,79 +202,136 @@ Here are the arguments that can be specified:
 
 * __bind__: The type of bind to perform (default = "rows"). **ONLY for `files.bind()`**
 
-### Transformations and Data Cleaning
+### Transformations
 
 There are a set of function is `datawrangling` to allow you to more easily transform column values into new variables and to do data cleaning.
 
 #### Create Composites
 
+The function `composite()` will create composite scores out of specified columns. Right now you can only create "mean" composite scores. In the future I plan on adding "sum" and "factor score" composite types. 
 
+Here is a list of the arguments you can specifiy:
 
-## Binding Individual Subject Files
+* __x__: dataframe
 
-Now I want to go over how bind individual subject files into one file.
+* __variables__: c() of columns to create the composite from
 
-The `subj` folder contains individual files for each subject. You will use these files to learn how to bind multiple subject files into one file. In E-Prime you can use the E-Merge software to bind individual subject .edat2 files, so this is actually not always necessary. 
+* __type__: What type of composite should be calculated?, i.e. mean or sum. (Default = "mean").
 
-However, you may have a task running in a different program othan E-Prime. Also, in E-Prime 3.0 there is the option to save the .edat2 file as a .txt file. **This can allow you to bypass using E-Merge and simply create an R script to bind all the .txt files)**. I have created individual subject files in the `subj` folder for the sake of this tutorial. 
+* __standardize__: Logical. Do you want to calculate the composite based on standardized (z-score) values? (Default = TRUE)
 
-You can "bind" either the rows or columns of a dataframe together. A column "bind" means the dataframes have different column (same rows) and you are simply binding the columns together. A row "bind" means the dataframes have different rows (same columns) and you are simply binding the rows of the dataframes ontop of one another.
+* __name__: Name of the new composite variable to be created
 
-For our purspose here, what we want to do is a row "bind". Since each subject has the same columns but different rows. We basically want to stack the files ontop of each other.
+* __missing.allowed__: Criteria for the number of variables that can having missing values and still calculate a composite for that subject
 
-This requires several steps and the use of a for loop. Luckily, I created a function to do this for us so it will be very simple! 
+Example:
 
-The function we will use is `files.bindr()` from my `datawrangling` package.
-
-Remember you can use `?files.bind` to see documentation about how to use a function
-
-```{r eval=FALSE}
-devtools::install_github("dr-JT/datawrangling")
+```{r eval = FALSE}
 library(datawrangling)
-data_merged <- files.bind(path = "data/subj", pattern = "_Flanker.txt", delim = "\t", na = "", bind = "rows", output.file = "data/Flanker_merged.txt")
+
+composite(data, 
+          variables = c("RAPM", "NumberSeries", "LetterSets"), 
+          type = "mean",
+          standardize = TRUE,
+          name = "Gf",
+          missing.allowed = 1)
 ```
 
-There are a few arguments you need to specify. 
+#### Centering and Z-scoring
 
-`path` specifies the folder in which all the files are located. 
+The function `center()` will create either unstandardized or standardized (z-scored) centered variables. The list of arguments that can be passed onto the function are:
 
-`pattern` is a certain patter of letters that every file has in common. If there are other files in the same folder you want to make sure this pattern is unique to only the files you want to merge. 
+* __x__: dataframe
 
-`delim` specifies both the delimiter that the individual files have and what the final merged file should have. 
+* __variables__: c() of columns to center
 
-`na` is how missing values should be specified. 
+* __standardized__: Logical. Do you want to calculate zscores? (Default = FALSE)
 
-`bind` what type of bind do you wan to perform. "rows" or "columns" or "cols".
+Example:
 
-`output.file` is the file path and name to save the merged file to.
+```{r eval = FALSE}
+library(datawrangling)
 
-Here is the function for `files.bind()`. You can let me know if you have any questions about this.
-
-```{r eval=FALSE}
-files.bind <- function(path = "", pattern = "", delim = "\t", na = "", output.file = "", bind = "rows"){
-  filelist <- list.files(path = path, pattern = pattern, full.names = TRUE)
-  import <- list()
-  for (i in seq_along(filelist)){
-    import[[i]] <- readr::read_delim(filelist[[i]], delim, escape_double = FALSE, trim_ws = TRUE, na = na)
-  }
-
-  if (bind=="rows"){
-    bound <- dplyr::bind_rows(import)
-  }
-  if (bind=="columns"|bind=="cols"){
-    bound <- dplyr::bind_cols(import)
-  }
-
-
-  if (output.file!=""){
-    readr::write_delim(bound, path = output.file, delim, na = na)
-  }
-  return(bound)
-}
+center(data, 
+       variables = c("RT"),
+       standardized = TRUE)
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-rm(list=ls())
+********
+
+### Data Cleaning
+
+#### Trimming
+
+The function `trim()` will replace outlier scores that exceed a certain z-score cutoff.
+
+There are several options for how to replace the outlier scores. Replace with
+
+* "NA" (missing value)
+
+* "cutoff" (the z-score cutoff value, e.g. 3.5 SDs)
+
+* "mean" 
+
+* "median"
+
+The arguments that can be specified are:
+
+* __x__: dataframe
+
+* __variables__: c() of variables to be trimmed. option to set `variables = "all"` to trim all variables in a dataframe. But then must specify `id = `
+
+* __cutoff__: z-score cutoff to use for trimming (default: 3.5)
+
+* __replace__: What value should the outlier values be replaced with. (default: replace = "NA")
+
+* __id__: Column name that contains subject IDs. **ONLY needs to be used if `variables = "all"`
+
+Example:
+
+```{r eval = FALSE}
+library(datawrangling)
+
+trim(data, 
+     variables = "RT",
+     cutoff = 3.5
+     replace = "cutoff")
+```
+
+********
+
+#### Latent variable criteria
+
+The function `remove.latent()` will remove subjects who have missing data on too many tasks for a construct(s). 
+
+The factor structure needs to be specified in the `factor.list` argument. For example,
+
+`factor.list = list(WMC = c("OSpan", "SymSpan", "RotSpan"), Gf = c("RAPM", "LetterSets", "NumberSeries"))`
+
+The arguments that can be specified are:
+
+* __x__: dataframe
+
+* __factor.list__: list of factors and tasks
+
+* __missing.allowed__: Proportion of tasks allowed to be missing
+
+* __id__: Subject ID variable
+
+* __output.dir__: File directory to save removed subjects to [OPTIONAL]
+
+* __output.file__: File name to save removed subjects to [OPTIONAL]
+
+Example:
+
+```{r eval = FALSE}
+library(datawrangling)
+
+remove.latent(data,
+              factor.list = list(WMC = c("OSpan", "SymSpan", "RotSpan"), 
+                                 Gf = c("RAPM", "LetterSets", "NumberSeries")),
+              missing.allowed = .5,
+              id = "Subject")
 ```
 
 ********
