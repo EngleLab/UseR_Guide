@@ -1,0 +1,19 @@
+# Workflow
+
+The image below represents a general workflow I like to use when going from raw data files to statistical analyses.
+
+```{r echo=FALSE}
+knitr::include_graphics(rep("images/workflow.png"))
+```
+
+1. The first step of the data processing workflow is to convert **"messy" raw data** files to **"tidy" raw data** files. The experiment software will produce a "messy" data file. In this file there are usually more rows and columns than you would ever be interested in, variable or values are named incoherently (i.e. stimSlide2.RT), or there may be separate files for each subject. It will be easier to work with a "tidy" raw data file. A "tidy" raw data file has only the rows and columns that are relevant (one row for each trial), variable and values are named coherently (i.e. RT), and there is one file that contains data for all subjects.
+
+2. The next step is to **score the data**. For most statistical analyses you will want to aggregate the trial-level data into one or more dependent measures for that task. The scored data file will have one row per subject (or possibly one row per subject per experimental conditions).
+
+3. Finally, you are now ready to create **figures and tables** and to do **statistical analyses** on the scored data file to produce outputed results. You can do these statistical analyses in any program you like, but I will show you how to do them in R.
+
+   I am working on making it easy to produce output for several statistical analyses that are commonly used in our lab. I have discovered that doing SEM in R is ridiculously easy and so much better than EQS.
+
+********
+
+**First thing is you will need to install R and R Studio on your computer.**

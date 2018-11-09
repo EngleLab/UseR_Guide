@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R Tutorial for the EngleLab</title>
+  <meta name="description" content="This is a short R Tutorial for the EngleLab">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R Tutorial for the EngleLab" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a short R Tutorial for the EngleLab" />
+  <meta name="github-repo" content="dr-JT" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R Tutorial for the EngleLab" />
+  
+  <meta name="twitter:description" content="This is a short R Tutorial for the EngleLab" />
+  
+
+<meta name="author" content="Jason Tsukahara">
+
+
+<meta name="date" content="2018-10-17">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="messy-to-tidy-raw-data.html">
+<link rel="next" href="my-templates.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
+<li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
+<li class="chapter" data-level="1.2" data-path="installation.html"><a href="installation.html#installing-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R Studio</a></li>
+<li class="chapter" data-level="1.3" data-path="installation.html"><a href="installation.html#the-r-studio-environemnt"><i class="fa fa-check"></i><b>1.3</b> The R Studio Environemnt</a></li>
+<li class="chapter" data-level="1.4" data-path="installation.html"><a href="installation.html#r-studio-settings"><i class="fa fa-check"></i><b>1.4</b> R Studio Settings</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Basics</a><ul>
+<li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#creating-r-objects"><i class="fa fa-check"></i><b>2.1</b> Creating R objects</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="basics.html"><a href="basics.html#classes"><i class="fa fa-check"></i><b>2.1.1</b> Classes</a></li>
+<li class="chapter" data-level="2.1.2" data-path="basics.html"><a href="basics.html#vectors"><i class="fa fa-check"></i><b>2.1.2</b> Vectors</a></li>
+<li class="chapter" data-level="2.1.3" data-path="basics.html"><a href="basics.html#factors"><i class="fa fa-check"></i><b>2.1.3</b> Factors</a></li>
+<li class="chapter" data-level="2.1.4" data-path="basics.html"><a href="basics.html#lists"><i class="fa fa-check"></i><b>2.1.4</b> Lists</a></li>
+<li class="chapter" data-level="2.1.5" data-path="basics.html"><a href="basics.html#data-frames"><i class="fa fa-check"></i><b>2.1.5</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#ifthen-statements"><i class="fa fa-check"></i><b>2.2</b> If…then Statements</a></li>
+<li class="chapter" data-level="2.3" data-path="basics.html"><a href="basics.html#for-loops"><i class="fa fa-check"></i><b>2.3</b> For Loops</a></li>
+<li class="chapter" data-level="2.4" data-path="basics.html"><a href="basics.html#functions"><i class="fa fa-check"></i><b>2.4</b> Functions</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="basics.html"><a href="basics.html#creating-your-own-functions"><i class="fa fa-check"></i><b>2.4.1</b> Creating Your Own Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="basics.html"><a href="basics.html#r-packages"><i class="fa fa-check"></i><b>2.5</b> R Packages</a></li>
+<li class="chapter" data-level="2.6" data-path="basics.html"><a href="basics.html#installing-and-loading-r-packages"><i class="fa fa-check"></i><b>2.6</b> Installing and Loading R Packages</a></li>
+<li class="chapter" data-level="2.7" data-path="basics.html"><a href="basics.html#more-r-basic-resources"><i class="fa fa-check"></i><b>2.7</b> More R Basic Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>3</b> Workflow</a></li>
+<li class="chapter" data-level="4" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i><b>4</b> The tidyverse</a><ul>
+<li class="chapter" data-level="4.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#readr---import"><i class="fa fa-check"></i><b>4.1</b> readr - import</a></li>
+<li class="chapter" data-level="4.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#dplyr"><i class="fa fa-check"></i><b>4.2</b> dplyr</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#rename"><i class="fa fa-check"></i><b>4.2.1</b> rename()</a></li>
+<li class="chapter" data-level="4.2.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#filter"><i class="fa fa-check"></i><b>4.2.2</b> filter()</a></li>
+<li class="chapter" data-level="4.2.3" data-path="the-tidyverse.html"><a href="the-tidyverse.html#select"><i class="fa fa-check"></i><b>4.2.3</b> select()</a></li>
+<li class="chapter" data-level="4.2.4" data-path="the-tidyverse.html"><a href="the-tidyverse.html#mutate"><i class="fa fa-check"></i><b>4.2.4</b> mutate()</a></li>
+<li class="chapter" data-level="4.2.5" data-path="the-tidyverse.html"><a href="the-tidyverse.html#group_by"><i class="fa fa-check"></i><b>4.2.5</b> group_by()</a></li>
+<li class="chapter" data-level="4.2.6" data-path="the-tidyverse.html"><a href="the-tidyverse.html#summarise"><i class="fa fa-check"></i><b>4.2.6</b> summarise()</a></li>
+<li class="chapter" data-level="4.2.7" data-path="the-tidyverse.html"><a href="the-tidyverse.html#pipe-operator"><i class="fa fa-check"></i><b>4.2.7</b> Pipe Operator %&gt;%</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="the-tidyverse.html"><a href="the-tidyverse.html#readr---export"><i class="fa fa-check"></i><b>4.3</b> readr - export</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html"><i class="fa fa-check"></i><b>5</b> Organization and Good Practices</a><ul>
+<li class="chapter" data-level="5.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#r-scripts"><i class="fa fa-check"></i><b>5.1</b> R Scripts</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#general-workflow"><i class="fa fa-check"></i><b>5.1.1</b> General Workflow</a></li>
+<li class="chapter" data-level="5.1.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#building-a-template-workflow"><i class="fa fa-check"></i><b>5.1.2</b> Building a Template Workflow</a></li>
+<li class="chapter" data-level="5.1.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#rmlistls"><i class="fa fa-check"></i><b>5.1.3</b> rm(list=ls())</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#working-directory"><i class="fa fa-check"></i><b>5.2</b> Working Directory</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#r-projects"><i class="fa fa-check"></i><b>5.2.1</b> R Projects</a></li>
+<li class="chapter" data-level="5.2.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#here"><i class="fa fa-check"></i><b>5.2.2</b> here()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#the-masterscript"><i class="fa fa-check"></i><b>5.3</b> The masterscript</a></li>
+<li class="chapter" data-level="5.4" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#folder-organization"><i class="fa fa-check"></i><b>5.4</b> Folder Organization</a></li>
+<li class="chapter" data-level="5.5" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#naming-r-scripts"><i class="fa fa-check"></i><b>5.5</b> Naming R Scripts</a></li>
+<li class="chapter" data-level="5.6" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#summary"><i class="fa fa-check"></i><b>5.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html"><i class="fa fa-check"></i><b>6</b> Messy to Tidy Raw Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#what-to-include"><i class="fa fa-check"></i><b>6.1</b> What to Include</a></li>
+<li class="chapter" data-level="6.2" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#flanker-example"><i class="fa fa-check"></i><b>6.2</b> Flanker Example</a></li>
+<li class="chapter" data-level="6.3" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#import-messy-data"><i class="fa fa-check"></i><b>6.3</b> Import “messy” data</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#remove-duplicate-subjects"><i class="fa fa-check"></i><b>6.3.1</b> Remove Duplicate Subjects</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#tidy-up"><i class="fa fa-check"></i><b>6.4</b> “Tidy” Up</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#filter-1"><i class="fa fa-check"></i><b>6.4.1</b> Filter</a></li>
+<li class="chapter" data-level="6.4.2" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#rename-1"><i class="fa fa-check"></i><b>6.4.2</b> Rename</a></li>
+<li class="chapter" data-level="6.4.3" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#mutate-1"><i class="fa fa-check"></i><b>6.4.3</b> Mutate</a></li>
+<li class="chapter" data-level="6.4.4" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#select-1"><i class="fa fa-check"></i><b>6.4.4</b> Select</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#save-to-file"><i class="fa fa-check"></i><b>6.5</b> Save to File</a></li>
+<li class="chapter" data-level="6.6" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#stroop-example-optional"><i class="fa fa-check"></i><b>6.6</b> Stroop Example <strong>[OPTIONAL]</strong></a></li>
+<li class="chapter" data-level="6.7" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#binding-individual-subject-files"><i class="fa fa-check"></i><b>6.7</b> Binding Individual Subject Files</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html"><i class="fa fa-check"></i><b>7</b> Tidy Raw to Scored Data</a><ul>
+<li class="chapter" data-level="7.1" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#flanker-example-1"><i class="fa fa-check"></i><b>7.1</b> Flanker Example</a></li>
+<li class="chapter" data-level="7.2" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#import-raw-data"><i class="fa fa-check"></i><b>7.2</b> Import “raw” data</a></li>
+<li class="chapter" data-level="7.3" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#aggregating-performance"><i class="fa fa-check"></i><b>7.3</b> Aggregating Performance</a></li>
+<li class="chapter" data-level="7.4" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#reshape-dataframes"><i class="fa fa-check"></i><b>7.4</b> Reshape Dataframes</a></li>
+<li class="chapter" data-level="7.5" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#calculate-scores"><i class="fa fa-check"></i><b>7.5</b> Calculate Scores</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#flanker-effect"><i class="fa fa-check"></i><b>7.5.1</b> Flanker Effect</a></li>
+<li class="chapter" data-level="7.5.2" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#binned-scores"><i class="fa fa-check"></i><b>7.5.2</b> Binned Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#data-cleaning"><i class="fa fa-check"></i><b>7.6</b> Data Cleaning</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#minimum-rt-criteria"><i class="fa fa-check"></i><b>7.6.1</b> Minimum RT Criteria</a></li>
+<li class="chapter" data-level="7.6.2" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#sds-on-rt-criteria"><i class="fa fa-check"></i><b>7.6.2</b> SDs on RT Criteria</a></li>
+<li class="chapter" data-level="7.6.3" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#sds-on-accuracy"><i class="fa fa-check"></i><b>7.6.3</b> SDs on Accuracy</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#merging-data-files"><i class="fa fa-check"></i><b>7.7</b> Merging Data Files</a></li>
+<li class="chapter" data-level="7.8" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#save-dataframe-to-file"><i class="fa fa-check"></i><b>7.8</b> Save dataframe to File</a></li>
+<li class="chapter" data-level="7.9" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#finalize-your-script"><i class="fa fa-check"></i><b>7.9</b> Finalize Your Script</a></li>
+<li class="chapter" data-level="7.10" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#stroop-example"><i class="fa fa-check"></i><b>7.10</b> Stroop Example</a></li>
+<li class="chapter" data-level="7.11" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#conclusions"><i class="fa fa-check"></i><b>7.11</b> Conclusions</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="my-templates.html"><a href="my-templates.html"><i class="fa fa-check"></i><b>8</b> My Templates</a><ul>
+<li class="chapter" data-level="8.1" data-path="my-templates.html"><a href="my-templates.html#masterscript-template"><i class="fa fa-check"></i><b>8.1</b> masterscript Template</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="my-templates.html"><a href="my-templates.html#directories.rds"><i class="fa fa-check"></i><b>8.1.1</b> directories.rds</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Tutorial for the EngleLab</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tidy-raw-to-scored-data" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Tidy Raw to Scored Data</h1>
+<p><img src="images/workflow.png" width="1276" /></p>
+<p>This Chapter will cover the functions that will be used to convert a “tidy” raw data file to a scored data file.</p>
+<p>You should save the code you write in this Chapter to a new R script. Do not use the same R script from the previous Chapter.</p>
+<div id="flanker-example-1" class="section level2">
+<h2><span class="header-section-number">7.1</span> Flanker Example</h2>
+<p>Again we will continue using the Flanker data set as an example. If you do not have the “tidy” raw data file from the previous Chapter, then download the example Flanker data and run the following script <strong>(You will have to change the import and save directories, in <code>read_delim()</code> and <code>write_delim()</code></strong>. Save the “tidy” raw data file as “Flanker_raw.txt”.</p>
+<p><a href="http://englelab.gatech.edu/R/example_data/Flanker.zip">Download Example Flanker Data</a></p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1">data_flanker &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/Flanker.txt&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb119-2" data-line-number="2"><span class="st">  </span><span class="kw">duplicates.remove</span>(<span class="dt">taskname =</span> <span class="st">&quot;Flanker&quot;</span>, <span class="dt">output.folder =</span> <span class="st">&quot;data/duplicates&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb119-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb119-4" data-line-number="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb119-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;TrialProc&quot;</span>, <span class="st">&quot;real&quot;</span>, <span class="st">&quot;practice&quot;</span>),</a>
+<a class="sourceLine" id="cb119-6" data-line-number="6">         <span class="dt">Trial =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, TrialList.Sample, PracTrialList.Sample),</a>
+<a class="sourceLine" id="cb119-7" data-line-number="7">         <span class="dt">RT =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, SlideTarget.RT, PracSlideTarget.RT),</a>
+<a class="sourceLine" id="cb119-8" data-line-number="8">         <span class="dt">ACC =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, SlideTarget.ACC, PracSlideTarget.ACC),</a>
+<a class="sourceLine" id="cb119-9" data-line-number="9">         <span class="dt">Response =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, SlideTarget.RESP, PracSlideTarget.RESP),</a>
+<a class="sourceLine" id="cb119-10" data-line-number="10">         <span class="dt">Response =</span> <span class="kw">ifelse</span>(Response<span class="op">==</span><span class="st">&quot;{LEFTARROW}&quot;</span>, <span class="st">&quot;left&quot;</span>, <span class="kw">ifelse</span>(Response<span class="op">==</span><span class="st">&quot;{RIGHTARROW}&quot;</span>, <span class="st">&quot;right&quot;</span>, <span class="ot">NA</span>)),</a>
+<a class="sourceLine" id="cb119-11" data-line-number="11">         <span class="dt">TargetArrowDirection =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, TargetDirection, TargerDirection)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb119-12" data-line-number="12"><span class="st">  </span><span class="kw">select</span>(Subject, TrialProc, Trial, <span class="dt">TrialType =</span> FlankerType, RT, ACC, Response, TargetArrowDirection, SessionDate, SessionTime)</a>
+<a class="sourceLine" id="cb119-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb119-14" data-line-number="14"><span class="kw">write_delim</span>(data_flanker, <span class="dt">path =</span> <span class="st">&quot;data/Flanker_raw.txt&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;&quot;</span>)</a></code></pre></div>
+<p>In the EngleLab we typically use one of two scores for the Flanker task. The Reaction time <strong>FlankerEffect</strong> or the <strong>FlankerBinned</strong> score.</p>
+<p><strong>FlankerEffect</strong>: The difference between mean RTs on congruent and incongruent trials</p>
+<p><strong>FlankerBinned</strong>: A procedure to take into account both reaction time and accuracy in a single score. (We prefer this score since it avoids the problem of RT difference scores)</p>
+<p>In this Chapter we will mainly cover how to calcualte the <strong>FlankerEffect</strong> and how to implement certain data cleaning practices.</p>
+</div>
+<div id="import-raw-data" class="section level2">
+<h2><span class="header-section-number">7.2</span> Import “raw” data</h2>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" data-line-number="1"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb120-2" data-line-number="2">import &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/Flanker_raw.txt&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>Before you start calculating any performance variable you need to remove the practice trials</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb121-2" data-line-number="2">import &lt;-<span class="st"> </span><span class="kw">filter</span>(import, TrialProc<span class="op">!=</span><span class="st">&quot;practice&quot;</span>)</a></code></pre></div>
+</div>
+<div id="aggregating-performance" class="section level2">
+<h2><span class="header-section-number">7.3</span> Aggregating Performance</h2>
+<p>Typically, the dependent measure in a cognitive task is some aggregate of performance across the trials in the task. The exception to this are adaptive tasks that arrives at a single score at the end of the task.</p>
+<p>Some common aggregate performance measures we use in our lab are:</p>
+<p><strong>Mean RT</strong>: average reaction time on trials (will usually filter out inaccurate trials).</p>
+<p><strong>Mean Accuracy</strong>: average accuracy on the task</p>
+<p><strong>Sum of Correct Responses</strong>: total number of correct responses</p>
+<p>The <code>dplyr</code> package provides a convenient way to calculate aggregate scores with the <code>group_by()</code> and <code>summarise()</code> functions.</p>
+<p>In the Flanker task, we will need to calculate, for each subject, their <strong>Mean RT</strong> seperately for congruent and incongruent trials.</p>
+<p>Essentially, we are aggregating performance grouped at two levels: subject and TrialType. For each different subject and each different TrialType we need to cacluate a <strong>Mean RT</strong>. This is where the <code>group_by()</code> function comes in. The <code>group_by()</code> function will group the dataframe based on specified columns. Any further functions performed on the dataframe (such as a <code>summarise()</code> or <code>mutate()</code> function) will be performed seperately for each group.</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb122-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Subject, TrialType)</a></code></pre></div>
+<p>Now that you have grouped the imported dataframe by Subject and TrialType, you can calculate each Subject’s <strong>Mean RT</strong> on congruent and incongruent trials. Let’s also go ahead and calculate the <strong>SD RT</strong> (standard deviation of reaction times) and <strong>Mean Accuracy</strong>.</p>
+<p>To do so you will use the <code>summarise()</code> function from the <code>dplyr</code> package. What the <code>summarise()</code> function does is creates new columns based on a specified computation (such as a mean or standard deviation). You will need to specify the name of the new column <code>RT.mean</code> followed by <code>=</code> then the function of the computation you want to use on certain columns <code>mean(RT)</code>. Recall that reaction time and accuracy data are stored in the columns, <code>RT</code> and <code>ACC</code>.</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb123-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Subject, TrialType) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb123-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">RT.mean =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb123-4" data-line-number="4">            <span class="dt">RT.sd =</span> <span class="kw">sd</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb123-5" data-line-number="5">            <span class="dt">ACC.mean =</span> <span class="kw">mean</span>(ACC, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
+<p>The functions used to calculate the aggreate scores, <code>mean()</code> and <code>sd()</code> are part of the <code>basic</code> R functions. They are pretty self explanatory but I should mention the <code>na.rm = TRUE</code>. This simply specifies that trials with missing values should be removed when calculating the aggregate score. There really are not any scenarios I have ran into where I don’t want to remove missing values, so every time I use any aggregate function I specify, <code>na.rm = TRUE</code>.</p>
+<p>Take a look at the dataframe you just created. It should have two rows for each Subject, one for congruent and the other for incongruent trials. You can see that this is a reduced dataframe from <code>import</code>, that is because we just aggregated performance across the trials. The only information that was preserved are the grouped variables (Subject and TrialType) and the new aggregate variables.</p>
+<p>Let’s say we also want to calculate the <strong>Sum of Correct Responses</strong>. We don’t actually need to in the Flanker task but in other tasks you may need to, so I will show it you here. It is real simple, just use the <code>sum()</code> function and specify <code>na.rm = TRUE</code>.</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" data-line-number="1">data_sum &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb124-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Subject, TrialType) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb124-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">ACC.total =</span> <span class="kw">sum</span>(ACC, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
+<p>Now you know how to calculate aggregate means <code>mean()</code>, standard deviations <code>sd()</code>, and sums <code>sum()</code>, using the <code>summarise()</code> function.</p>
+<p>Play around with using different arguments for <code>group_by()</code> and <code>summaris()</code>. What happens if you only include <code>group_by(Subject)</code>, or don’t used <code>group_by()</code> at all?</p>
+<p><strong>Now we actually need to do one extra thing before we calculate aggegate performance</strong></p>
+<p>We want to calculate the <strong>Flanker Effect</strong> using only reaction times from accurate trials; therefore, we need to calcuate aggregate <strong>Mean RT</strong>s based on only accurate trials.</p>
+<p>There are several ways of doing this. The simplest is to set reaction times to missing <code>NA</code> on inaccurate trials. Remember the <code>na.rm = TRUE</code> agrument? This will come in handy here becuase now we only have values for reaction times on accurate trials, and want to remove (ignore) innaccurate trials.</p>
+<p>To set reaction times to missing <code>NA</code> on inaccurate trials you can use the <code>mutate()</code> function that you learned about in the previous Chapter.</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb125-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(ACC<span class="op">==</span><span class="dv">0</span>, <span class="ot">NA</span>, RT))</a></code></pre></div>
+<p>Now add the <code>group_by()</code> and <code>summarise()</code> function to get</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" data-line-number="1">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb126-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(ACC<span class="op">==</span><span class="dv">0</span>, <span class="ot">NA</span>, RT)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb126-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Subject, TrialType) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb126-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">RT.mean =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb126-5" data-line-number="5">            <span class="dt">RT.sd =</span> <span class="kw">sd</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb126-6" data-line-number="6">            <span class="dt">ACC.mean =</span> <span class="kw">mean</span>(ACC, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
+</div>
+<div id="reshape-dataframes" class="section level2">
+<h2><span class="header-section-number">7.4</span> Reshape Dataframes</h2>
+<p>The next step is to calculate the difference between congruent and incongruent trials. The dataframe currently is not in the right format to do this. We need just one row per Subject, with columns for <strong>congruent RT.mean</strong> and <strong>incongruent RT.mean</strong>, as well as the other aggregate variables. In other wrods, we need to spread the values in the column <code>TrialType</code> across the three aggregate variables.</p>
+<p>There are various functions in R that allow us to <strong>reshape</strong> the dataframe. The <code>dplyr</code> package provides the handy <code>spread()</code> function. However, <code>spread()</code> will only work on one of the aggregated variables not all three. What I have gone and done is create a function (that uses <code>spread()</code>) to spread multiple columns across multiple aggregated variables. The function is <code>reshape()</code> and is part of my <code>datawrangling</code> package.</p>
+<p>You will need to include the following arguments in <code>reshape()</code>:</p>
+<p><strong>key</strong>: The column used for spreading across other columns</p>
+<p><strong>values</strong>: The columns that contain the values to be spread on</p>
+<p><strong>by</strong>: What column is not being reorganized and needs to be preserved. Usually “Subject”.</p>
+<p>Recall that you can use <code>help()</code> to see documentation on how to use a function.</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1"><span class="kw">library</span>(datawrangling)</a>
+<a class="sourceLine" id="cb127-2" data-line-number="2">data_flanker &lt;-<span class="st"> </span>data_flanker <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb127-3" data-line-number="3"><span class="st">  </span><span class="kw">reshape</span>(<span class="dt">key =</span> <span class="st">&quot;TrialType&quot;</span>, <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;ACC.mean&quot;</span>, <span class="st">&quot;RT.mean&quot;</span>, <span class="st">&quot;RT.sd&quot;</span>), <span class="dt">by =</span> <span class="st">&quot;Subject&quot;</span>)</a></code></pre></div>
+<p>If you compare the previous dataframe with the reshaped dataframe you will see that you have simply spread “congruent” and “incongruent” across the aggregate variables. There is now one row per Subject.</p>
+</div>
+<div id="calculate-scores" class="section level2">
+<h2><span class="header-section-number">7.5</span> Calculate Scores</h2>
+<div id="flanker-effect" class="section level3">
+<h3><span class="header-section-number">7.5.1</span> Flanker Effect</h3>
+<p>Now you can calculate the <strong>Flanker Effect</strong> by subtracting the two columns, <strong>congruent_RT.mean</strong> and <strong>incongruent_RT.mean</strong>. Use the <code>mutate()</code> function to do this.</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1">data_flanker &lt;-<span class="st"> </span>data_flanker <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb128-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">FlankerEffect =</span> incongruent_RT.mean <span class="op">-</span><span class="st"> </span>congruent_RT.mean)</a></code></pre></div>
+<p>Nice! You have now calculated scores on the Flanker task for each Subject!</p>
+<p>You can feel free to pipe all the function together to get something like</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" data-line-number="1"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb129-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb129-3" data-line-number="3"><span class="kw">library</span>(datawrangling)</a>
+<a class="sourceLine" id="cb129-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb129-5" data-line-number="5">import &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/Flanker_raw.txt&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb129-6" data-line-number="6"><span class="st">  </span><span class="kw">filter</span>(TrialProc<span class="op">!=</span><span class="st">&quot;practice&quot;</span>)</a>
+<a class="sourceLine" id="cb129-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb129-8" data-line-number="8">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb129-9" data-line-number="9"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(ACC<span class="op">==</span><span class="dv">0</span>, <span class="ot">NA</span>, RT)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb129-10" data-line-number="10"><span class="st">  </span><span class="kw">group_by</span>(Subject, TrialType) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb129-11" data-line-number="11"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">RT.mean =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb129-12" data-line-number="12">            <span class="dt">RT.sd =</span> <span class="kw">sd</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb129-13" data-line-number="13">            <span class="dt">ACC.mean =</span> <span class="kw">mean</span>(ACC, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb129-14" data-line-number="14"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb129-15" data-line-number="15"><span class="st">  </span><span class="kw">reshape</span>(<span class="dt">key =</span> <span class="st">&quot;TrialType&quot;</span>, <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;ACC.mean&quot;</span>, <span class="st">&quot;RT.mean&quot;</span>, <span class="st">&quot;RT.sd&quot;</span>), <span class="dt">by =</span> <span class="st">&quot;Subject&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb129-16" data-line-number="16"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">FlankerEffect =</span> incongruent_RT.mean <span class="op">-</span><span class="st"> </span>congruent_RT.mean)</a></code></pre></div>
+<p>Notice that I added an <code>ungroup()</code> function after summarise. You should be somewhat careful about using the <code>group_by()</code> function. In this case, we only needed the <code>group_by()</code> for the <code>summarise()</code> function. However, the <code>group_by()</code> function is preserved until otherwise specified. This means you can accidentally pass <code>group_by()</code> onto a function you don’t intend to. In this case it actually does not make a difference, but as a good practice I like to <code>ungroup()</code> if I no longer need to preserve the groups.</p>
+<p>If you want to get rid of the other columns and keep only the <code>Subject</code> and <code>FlankerEffect</code> columns then you can add the <code>select()</code> function you learned about in the previous Chapter at the end, after <code>mutate()</code>.</p>
+</div>
+<div id="binned-scores" class="section level3">
+<h3><span class="header-section-number">7.5.2</span> Binned Scores</h3>
+<p>At the beginning I mentioned that we also want to calculate the binned Flanker scores.</p>
+<p>The process of calculating binned scores requires a lot of steps. Fortunate for you, I have created a function to calculate bin scores on any task. The function is <code>bin.score()</code> from the <code>englelab</code> package.</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="kw">library</span>(englelab)</a>
+<a class="sourceLine" id="cb130-2" data-line-number="2">data_flanker.bin &lt;-<span class="st"> </span><span class="kw">bin.score</span>(import)</a></code></pre></div>
+<p>Wow that was easy! There are actually several arguments that we did not have to specify because we just need the default values. If you want to use the <code>bin.score</code> function for other tasks use <code>help(&quot;bin.score&quot;)</code> to see all the arguments you can specify.</p>
+</div>
+</div>
+<div id="data-cleaning" class="section level2">
+<h2><span class="header-section-number">7.6</span> Data Cleaning</h2>
+<p>Sorry, we are not done with data scoring yet! We need to cover one more important step. This is not as necessary if you plan on looking at relationships at the latent level, however it is a good rule of thumb to remove as much unsystematic “noise” from your data as possible.</p>
+<p>The reality of doing psychological research is that our research subjects may not always understand the nature of the task or are just not trying at all. If this is the case we probably are not measuring their “true” score for that task. Therefore, it can be a good idea to remove scores on tasks for those subjects that show indications of this type of performance.</p>
+<p>What indicators you actually decide on using may vary from one task or study to the next. As I am writing this, we in the EngleLab currently do not have a standard wasy of data cleaning for a lot of our tasks including the Flanker.</p>
+<p>Most recently, we talked about a few criteria we would like to try.</p>
+<p><strong>Minimum RT Criteria</strong>: Any trials that have less than 200ms reaction times are removed.</p>
+<p><strong>SDs on RT Criteria</strong>: Any trials that are 3.5 SDs above or below the mean, for that Subject, are removed (or replaced with 3.5 SDs above or below the mean).</p>
+<p><strong>SDs on Accuracy Criteria</strong>: Any subjects that are below 3.5 SDs of the mean on accuracy are removed.</p>
+<p>I will cover how to do data cleaning using these criteria. This should provide a pretty general basis on how to write R code for other criteria not covered here.</p>
+<p>I will also only cover data cleaning for calculating the FlankerEffect and not the Bin Scores.</p>
+<div id="minimum-rt-criteria" class="section level3">
+<h3><span class="header-section-number">7.6.1</span> Minimum RT Criteria</h3>
+<p>The first two criteria are cleaning data at the trial-level. Therefore, we will start with the original imported dataframe.</p>
+<p>For this approach you will want to remove trials with less than 200ms before you aggregate a <strong>Mean RT</strong> using the <code>summarise()</code> function.</p>
+<p>Recall that we also wanted to remove inaccurate trials before aggregating. The way did this was by using the <code>mutate()</code> function to set inaccurate RT’s to <code>NA</code>. The reason we don’t use <code>filter()</code> to completely remove the trial is that it will make it harder to calculate <code>Mean Accuracy</code>. So the better way to remove the trial is to set the RT to <code>NA</code>.</p>
+<p>This will be simple since we already did this for inaccurate trials. We just need to add an extra statement that we also want to set RT to <code>NA</code> for trials that have an RT of less than 200.</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb131-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(ACC<span class="op">==</span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>RT <span class="op">&lt;</span><span class="st"> </span><span class="dv">200</span>, <span class="ot">NA</span>, RT))</a></code></pre></div>
+<p>All we did was add an OR statement <code>|</code> and <code>RT &lt; 200</code>. Easy peasy, Japanesy! Hey I am Japanese, well half Japanese. :)</p>
+<p>Because this is a criteria we might want to adjust if we change our minds about it, it is good practice to set this value of <code>200</code> to a variable at the top of the script. Now we can add the script to calculate the FlankerEffect.</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1">min_RT.criteria &lt;-<span class="st"> </span><span class="dv">200</span></a>
+<a class="sourceLine" id="cb132-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb132-3" data-line-number="3">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb132-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(ACC<span class="op">==</span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>RT <span class="op">&lt;</span><span class="st"> </span>min_RT.criteria, <span class="ot">NA</span>, RT)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb132-5" data-line-number="5"><span class="st">  </span><span class="kw">group_by</span>(Subject, TrialType) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb132-6" data-line-number="6"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">RT.mean =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb132-7" data-line-number="7">            <span class="dt">RT.sd =</span> <span class="kw">sd</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb132-8" data-line-number="8">            <span class="dt">ACC.mean =</span> <span class="kw">mean</span>(ACC, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb132-9" data-line-number="9"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb132-10" data-line-number="10"><span class="st">  </span><span class="kw">reshape</span>(<span class="dt">key =</span> <span class="st">&quot;TrialType&quot;</span>, <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;ACC.mean&quot;</span>, <span class="st">&quot;RT.mean&quot;</span>, <span class="st">&quot;RT.sd&quot;</span>), <span class="dt">by =</span> <span class="st">&quot;Subject&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb132-11" data-line-number="11"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">FlankerEffect =</span> incongruent_RT.mean <span class="op">-</span><span class="st"> </span>congruent_RT.mean)</a></code></pre></div>
+<p>Now if you want to go back and change this criteria you do not have to search through the script to find where you had set the criteria. You know it will be at the top of the script. Also I won’t talk about naming conventions, but it is a good idea to be clear when naming variables. The name <code>min_RT.criteria</code> is clear that this variable holds information for the minimum RT criteria.</p>
+</div>
+<div id="sds-on-rt-criteria" class="section level3">
+<h3><span class="header-section-number">7.6.2</span> SDs on RT Criteria</h3>
+<p>For this approach, what you will need to do is:</p>
+<ol style="list-style-type: decimal">
+<li><p>Calculate z-scores to determine which trials are 3.5 SDs above or below the mean.</p></li>
+<li><p>Calculate the mean and SD of each TrialType for each Subject seperately.</p></li>
+<li><p>Set RT values that are 3.5 SDs above or below the means to 3.5 SDs above or below the mean.</p></li>
+</ol>
+<div id="calculate-z-scores" class="section level4">
+<h4><span class="header-section-number">7.6.2.1</span> Calculate Z-scores</h4>
+<p>This actually takes several steps but I create a function to make it easy for you!. The function is <code>center()</code> from my <code>datawrangling</code> package.</p>
+<p><code>center()</code> is a pretty simple function that takes 4 possible arguments:</p>
+<p><strong>x</strong>: the dataframe to be passed onto the function</p>
+<p><strong>variables</strong>: the columns to be centered</p>
+<p><strong>context</strong>: if you want to center within context, specify the grouping column</p>
+<p><strong>standardized</strong>: Do you want to standardize (calculate z-scores)? Logical argument.</p>
+<p>Again, you can just type <code>help(&quot;center&quot;)</code> in the console to get this information.</p>
+<p>You will want to calculate z-scores within each subject and for each TrialType (congruent and incongruent). This means we need to specify the context to calculate z-scores as <code>context = c(&quot;Subject&quot;, &quot;TrialType&quot;)</code>.</p>
+<p>Remember we are starting with the orginal imported data frame <code>import</code></p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb133-2" data-line-number="2"><span class="st">  </span><span class="kw">center</span>(<span class="dt">variables =</span> <span class="st">&quot;RT&quot;</span>, <span class="dt">context =</span> <span class="kw">c</span>(<span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;TrialType&quot;</span>), <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>If you look at the dataframe, you should see a new column labeled <code>RT_zwc</code>. The reason it has <code>_zwc</code> is to let you know that z-scores were calculated within-context.</p>
+</div>
+<div id="calculate-mean-and-sds" class="section level4">
+<h4><span class="header-section-number">7.6.2.2</span> Calculate Mean and SDs</h4>
+<p>Now on to applying the data clearning procedure. What we want to do is replace trials above or below 3.5 SDs of the mean with 3.5 SDs above or below the mean. (We could simply remove the trials like we did before setting RTs to <code>NA</code>, but we will try something different here).</p>
+<p>In order to change the RT to 3.5 SDs above or below the mean we need to know what the RT values at 3.5 SDs above and below the mean are. To do this we need the mean and SD values. You might be thinking that we can use <code>summarise()</code> to aggregate and calculate the mean and SD values. The problem with this is that <code>summaris()</code> reduces the dataframe and we will no longer have trial-level data. Shoot.</p>
+<p>What we want is to preserve the trial-level data while creating new columns with the mean and SD values. Feel free to take some time to think why this is a little challenging and why <code>summarise()</code> will not work. Maybe you can think of a way to make <code>summarise()</code> work but it requires several steps. What we want is to do this one single step.</p>
+<p>As it turns out, there is a way to do this in a single step! We will need to use a combination of the <code>group_by()</code>, <code>mutate()</code>, <code>mean()</code>, and <code>sd()</code> functions.</p>
+<p>We can use <code>group_by()</code> to group within Subject and within TrialType. Then use <code>mutate()</code> to create a new columns to calculate mean and SDs on RTs for each Subject within each TrialType.</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb134-2" data-line-number="2"><span class="st">  </span><span class="kw">center</span>(<span class="dt">variables =</span> <span class="st">&quot;RT&quot;</span>, <span class="dt">context =</span> <span class="kw">c</span>(<span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;TrialType&quot;</span>), <span class="dt">standardized =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb134-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Subject, TrialType) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb134-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT.mean =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb134-5" data-line-number="5">         <span class="dt">RT.sd =</span> <span class="kw">sd</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
+<p>Look at the dataframe to make sure everything seems to be about right. All congruent trials, for a given Subject, should have the same RT.mean and RT.sd values. Same for incongruent.</p>
+</div>
+<div id="replace-outlier-rt-values" class="section level4">
+<h4><span class="header-section-number">7.6.2.3</span> Replace Outlier RT Values</h4>
+<p>Alright, we have all the information we need now to replace RTs 3.5 SDs above or below the mean.</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb135-2" data-line-number="2"><span class="st">  </span><span class="kw">center</span>(<span class="dt">variables =</span> <span class="st">&quot;RT&quot;</span>, <span class="dt">context =</span> <span class="kw">c</span>(<span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;TrialType&quot;</span>), <span class="dt">standardized =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb135-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Subject, TrialType) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb135-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT.mean =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb135-5" data-line-number="5">         <span class="dt">RT.sd =</span> <span class="kw">sd</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb135-6" data-line-number="6">         <span class="dt">RT =</span> <span class="kw">ifelse</span>(RT_zwc <span class="op">&gt;</span><span class="st"> </span><span class="fl">3.5</span>, RT.mean<span class="op">+</span>(<span class="fl">3.5</span><span class="op">*</span>RT.sd), <span class="kw">ifelse</span>(RT_zwc <span class="op">&lt;</span><span class="st"> </span><span class="fl">-3.5</span>, RT.mean<span class="op">-</span>(<span class="fl">3.5</span><span class="op">*</span>RT.sd), RT)))</a></code></pre></div>
+<p>If we put it all together with the <strong>Minimum RT Criteria</strong> approach, you will get something like this</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1">sd_RT.criteria &lt;-<span class="st"> </span><span class="fl">3.5</span></a>
+<a class="sourceLine" id="cb136-2" data-line-number="2">min_RT.criteria &lt;-<span class="st"> </span><span class="dv">200</span></a>
+<a class="sourceLine" id="cb136-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb136-4" data-line-number="4">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb136-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(ACC<span class="op">==</span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>RT <span class="op">&lt;</span><span class="st"> </span>min_RT.criteria, <span class="ot">NA</span>, RT)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb136-6" data-line-number="6"><span class="st">  </span><span class="kw">center</span>(<span class="dt">variables =</span> <span class="st">&quot;RT&quot;</span>, <span class="dt">context =</span> <span class="kw">c</span>(<span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;TrialType&quot;</span>), <span class="dt">standardized =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb136-7" data-line-number="7"><span class="st">  </span><span class="kw">group_by</span>(Subject, TrialType) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb136-8" data-line-number="8"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT.mean =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb136-9" data-line-number="9">         <span class="dt">RT.sd =</span> <span class="kw">sd</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb136-10" data-line-number="10">         <span class="dt">RT =</span> <span class="kw">ifelse</span>(RT_zwc <span class="op">&gt;</span><span class="st"> </span>sd_RT.criteria, RT.mean<span class="op">+</span>(sd_RT.criteria<span class="op">*</span>RT.sd), <span class="kw">ifelse</span>(RT_zwc <span class="op">&lt;</span><span class="st"> </span>(<span class="op">-</span><span class="dv">1</span><span class="op">*</span>sd_RT.criteria), RT.mean<span class="op">-</span>(sd_RT.criteria<span class="op">*</span>RT.sd), RT))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb136-11" data-line-number="11"><span class="st">  </span><span class="kw">group_by</span>(Subject, TrialType) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb136-12" data-line-number="12"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">RT.mean =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb136-13" data-line-number="13">            <span class="dt">RT.sd =</span> <span class="kw">sd</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb136-14" data-line-number="14">            <span class="dt">ACC.mean =</span> <span class="kw">mean</span>(ACC, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb136-15" data-line-number="15"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb136-16" data-line-number="16"><span class="st">  </span><span class="kw">reshape</span>(<span class="dt">key =</span> <span class="st">&quot;TrialType&quot;</span>, <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;ACC.mean&quot;</span>, <span class="st">&quot;RT.mean&quot;</span>, <span class="st">&quot;RT.sd&quot;</span>), <span class="dt">by =</span> <span class="st">&quot;Subject&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb136-17" data-line-number="17"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">FlankerEffect =</span> incongruent_RT.mean <span class="op">-</span><span class="st"> </span>congruent_RT.mean)</a></code></pre></div>
+<p>Wow, that got pretty heavy! I hope your head is not spinning. Go get some water and take a short break if you need to.</p>
+<p>But you learned a useful technique to calculate aggregate variables without losing the trial-level structure. You do so using a combination of <code>group_by()</code> and <code>mutate()</code>, instead of <code>group_by()</code> and <code>summarise()</code>.</p>
+</div>
+</div>
+<div id="sds-on-accuracy" class="section level3">
+<h3><span class="header-section-number">7.6.3</span> SDs on Accuracy</h3>
+<p>This criteria is applied at the task-level. What we want to do is remove subjects who are 3.5 SDs below the mean on task-level accuracy.</p>
+<p>This will be easy because we already calculated mean accuracy for congruent and incongruent trials. We just need to z-score those columns and remove subjects that are above 3.5 or below -3.5. It wouldn’t be too difficult to do this just for two variables, but imagine if you had to do this for a bunch of variables! That would get quite tedious to create a <code>filter()</code> for all those variables.</p>
+<p>Well, I come to the rescue again! I created a function to trim subjects who are 3.5 SDs above or below the mean on a list of variables. Now insated of calculating z-scores for each variable and filtering on each variables, we can specify all this in one line of code using the function.</p>
+<p>The function is <code>trim()</code> from my <code>datawrangling</code> package. It is a simple function, you just need to specify:</p>
+<p><strong>x</strong>: the dataframe to be passed onto the function</p>
+<p><strong>variables</strong>: list of columns to be trimmed</p>
+<p><strong>cutoff</strong>: zscore cutoff to use for trimming (default: 3.5)</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" data-line-number="1">data_flanker &lt;-<span class="st"> </span><span class="kw">trim</span>(data_flanker, <span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;congruent_ACC.mean&quot;</span>, <span class="st">&quot;incongruent_ACC.mean&quot;</span>))</a></code></pre></div>
+<p>Now this isn’t quite finished yet. If you look at the dataframe you will see that those subjects who got trimmed have either <code>congruent_ACC.mean</code> or <code>incongruent_ACC.mean</code> set as <code>NA</code>. The next step is to completely remove these subjects from the dataframe useing <code>filter()</code>.</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1">data_flanker &lt;-<span class="st"> </span><span class="kw">filter</span>(data_flanker, <span class="op">!</span><span class="kw">is.na</span>(congruent_ACC.mean), <span class="op">!</span><span class="kw">is.na</span>(incongruent_ACC.mean))</a></code></pre></div>
+<p>We want to keep only those subjects that do not have missing values on congruent AND incongruent. <code>is.na()</code> is a way of evaluating missing values. <code>!</code> means “not”. So <code>!is.na()</code> means “is NOT missing”.</p>
+</div>
+</div>
+<div id="merging-data-files" class="section level2">
+<h2><span class="header-section-number">7.7</span> Merging Data Files</h2>
+<p>You should now have two dataframes with scores on the Flanker tasks, <code>data_flanker</code> and <code>data_flanker.bin</code>. Now I will go over how to merge these two files into a single dataframe.</p>
+<p>We want to make sure we match the subjects in the two dataframes together; we will merge the two dataframes <code>by</code> using the <code>Subject</code> column as a reference. The code for this is pretty simple. We will use the <code>merge()</code> function from the <code>basic</code> R functions.</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" data-line-number="1">data_flanker &lt;-<span class="st"> </span><span class="kw">merge</span>(data_flanker, data_flanker.bin, <span class="dt">by =</span> <span class="st">&quot;Subject&quot;</span>)</a></code></pre></div>
+<p>By default <code>merge()</code> will retain all subjects from both dataframes. If you only want to keep subjects from one of the dataframes then you need to add some arguments. The first dataframe listed is the <code>x</code> dataframe, and the second is the <code>y</code> dataframe Let’s say you only want to keep Subjects from the <code>x</code> dataframe. Then you need to specify the two arguments, <code>all.x = TRUE, all.y = FALSE</code>. And vice versa if you only want to keep subjects from the <code>y</code> dataframe.</p>
+</div>
+<div id="save-dataframe-to-file" class="section level2">
+<h2><span class="header-section-number">7.8</span> Save dataframe to File</h2>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1"><span class="kw">write_delim</span>(data_flanker, <span class="dt">path =</span> <span class="st">&quot;data/Flanker_scores.txt&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;&quot;</span>)</a></code></pre></div>
+</div>
+<div id="finalize-your-script" class="section level2">
+<h2><span class="header-section-number">7.9</span> Finalize Your Script</h2>
+<p>Now that you have completed all the components for data cleaning and calculating the FlankerEffect an BinScores, put it all together in an organized script file and save it. You might have something that looks like this</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" data-line-number="1">sd_RT.criteria &lt;-<span class="st"> </span><span class="fl">3.5</span></a>
+<a class="sourceLine" id="cb141-2" data-line-number="2">min_RT.criteria &lt;-<span class="st"> </span><span class="dv">200</span></a>
+<a class="sourceLine" id="cb141-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb141-4" data-line-number="4"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb141-5" data-line-number="5"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb141-6" data-line-number="6"><span class="kw">library</span>(datawrangling)</a>
+<a class="sourceLine" id="cb141-7" data-line-number="7"><span class="kw">library</span>(englelab)</a>
+<a class="sourceLine" id="cb141-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb141-9" data-line-number="9">import &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/Flanker_raw.txt&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb141-10" data-line-number="10"><span class="st">  </span><span class="kw">filter</span>(TrialProc<span class="op">!=</span><span class="st">&quot;practice&quot;</span>)</a>
+<a class="sourceLine" id="cb141-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb141-12" data-line-number="12">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb141-13" data-line-number="13"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(ACC<span class="op">==</span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>RT <span class="op">&lt;</span><span class="st"> </span>min_RT.criteria, <span class="ot">NA</span>, RT)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb141-14" data-line-number="14"><span class="st">  </span><span class="kw">center</span>(<span class="dt">variables =</span> <span class="st">&quot;RT&quot;</span>, <span class="dt">context =</span> <span class="kw">c</span>(<span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;TrialType&quot;</span>), <span class="dt">standardized =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb141-15" data-line-number="15"><span class="st">  </span><span class="kw">group_by</span>(Subject, TrialType) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb141-16" data-line-number="16"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT.mean =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb141-17" data-line-number="17">         <span class="dt">RT.sd =</span> <span class="kw">sd</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb141-18" data-line-number="18">         <span class="dt">RT =</span> <span class="kw">ifelse</span>(RT_zwc <span class="op">&gt;</span><span class="st"> </span>sd_RT.criteria, RT.mean<span class="op">+</span>(sd_RT.criteria<span class="op">*</span>RT.sd), <span class="kw">ifelse</span>(RT_zwc <span class="op">&lt;</span><span class="st"> </span>(<span class="op">-</span><span class="dv">1</span><span class="op">*</span>sd_RT.criteria), RT.mean<span class="op">-</span>(sd_RT.criteria<span class="op">*</span>RT.sd), RT))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb141-19" data-line-number="19"><span class="st">  </span><span class="kw">group_by</span>(Subject, TrialType) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb141-20" data-line-number="20"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">RT.mean =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb141-21" data-line-number="21">            <span class="dt">RT.sd =</span> <span class="kw">sd</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb141-22" data-line-number="22">            <span class="dt">ACC.mean =</span> <span class="kw">mean</span>(ACC, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb141-23" data-line-number="23"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb141-24" data-line-number="24"><span class="st">  </span><span class="kw">reshape</span>(<span class="dt">key =</span> <span class="st">&quot;TrialType&quot;</span>, <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;ACC.mean&quot;</span>, <span class="st">&quot;RT.mean&quot;</span>, <span class="st">&quot;RT.sd&quot;</span>), <span class="dt">by =</span> <span class="st">&quot;Subject&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb141-25" data-line-number="25"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">FlankerEffect =</span> incongruent_RT.mean <span class="op">-</span><span class="st"> </span>congruent_RT.mean) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb141-26" data-line-number="26"><span class="st">  </span><span class="kw">trim</span>(<span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;congruent_ACC.mean&quot;</span>, <span class="st">&quot;incongruent_ACC.mean&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb141-27" data-line-number="27"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(congruent_ACC.mean), <span class="op">!</span><span class="kw">is.na</span>(incongruent_ACC.mean))</a>
+<a class="sourceLine" id="cb141-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb141-29" data-line-number="29">data_flanker.bin &lt;-<span class="st"> </span><span class="kw">bin.score</span>(import)</a>
+<a class="sourceLine" id="cb141-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb141-31" data-line-number="31">data_flanker &lt;-<span class="st"> </span><span class="kw">merge</span>(data_flanker, data_flanker.bin, <span class="dt">by =</span> <span class="st">&quot;Subject&quot;</span>)</a>
+<a class="sourceLine" id="cb141-32" data-line-number="32"></a>
+<a class="sourceLine" id="cb141-33" data-line-number="33"><span class="kw">write_delim</span>(data_flanker, <span class="dt">path =</span> <span class="st">&quot;data/Flanker_scores.txt&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb141-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb141-35" data-line-number="35"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</a></code></pre></div>
+</div>
+<div id="stroop-example" class="section level2">
+<h2><span class="header-section-number">7.10</span> Stroop Example</h2>
+<p>Now that you have learned how to calculate the <strong>FlankerEffect</strong> and <strong>FlankerBin</strong> scores, try to calculate the <strong>StroopEffect</strong> and <strong>StroopBin</strong> scores using the examle Stroop data from the previous Chapter. If you have not done so already, first you will need to a convert the “messy” raw data to “tidy” raw data. See the previous Chapter for what information you need to know about the “messy” raw data and to download the file.</p>
+<p>Once you have .txt file of a “tidy” raw data file for the Stroop task saved on your computer you are ready to continue.</p>
+<p>The StroopEffect is calculated the same way as the FlankerEffect: Mean reaction time on incongruent trials - congruent trials</p>
+<p>You can use the same functio, <code>bin.score()</code>, to calculate StroopBin scores.</p>
+<p>Save your scripts for the Flanker and Stroop tasks.</p>
+</div>
+<div id="conclusions" class="section level2">
+<h2><span class="header-section-number">7.11</span> Conclusions</h2>
+<p>There you have it. That was pretty dense but you made it through to the end. The Flanker and Stroop tasks is one of the more challenging tasks to score, so good job!</p>
+<hr />
+<p><strong>Now before we get onto the really fun stuff, we need to discuss organization</strong></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="messy-to-tidy-raw-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="my-templates.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>

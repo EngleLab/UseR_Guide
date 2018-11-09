@@ -1,0 +1,283 @@
+# EngleLab Packages
+
+I have created R packages that contain functions to more easily score tasks, transform variables, and clean data.
+
+In this chapter you will learn about the functions from these two packages
+
+* englelab https://github.com/EngleLab/englelab
+
+* datawrangling https://dr-jt.github.io/datawrangling
+
+I am hosting these packages on GitHub and can be downloaded using the `devtools` package
+
+```{r eval = FALSE}
+install.packages("devtools")
+
+devtools::install_github("EngleLab/englelab")
+devtools::install_github("dr-JT/datawrangling")
+```
+
+********
+
+## englelab
+
+The functions in the `englelab` package are to create "tidy" raw data files and scored data files from the complex span and fluid intelligence tasks we frequently use. It also contains a function to calculate scores using the binning method from [insert citation here]. There are also functions to calcualte the reliability measures; cronbach's alpha and split-half reliability.
+
+This package is intended to eventually share with other researchers who download the tasks from our website and use R to do data analysis. 
+
+### "tidy" raw data functions
+
+It is suggested to only use the "tidy" raw functions rather than the scoring functions. The reason for this is that the scoring function does not create a "tidy" raw data file - which is useful for doing internal consitency analyses, and is just a good idea to have a "tidy" raw data file for trial-by-trial performance. 
+
+Here is the list of "tidy" raw data functions:
+
+* `raw.ospan()`
+
+* `raw.symspan()`
+
+* `raw.rotspan()`
+
+* `raw.rapm()`
+
+* `raw.numberseries()`
+
+* `raw.lettersets()`
+
+These functions take as input an imported **E-Merged** or **edat** file. 
+
+For the complex span tasks you need to specify the number of blocks administered with the `blocks` argument. ex. `raw.ospan(data, blocks = 2)`
+
+The output of the raw functions will also contain columns for the subject's final score on the task. This is why it is suggested to just use the raw functions, you can still easily grab the final score on the task from the outputed file.
+
+### Example
+
+Here is an example script that uses the `raw.ospan()` function to import an E-merged data file and output a "tidy" raw data file.
+
+```{r eval = FALSE}
+## Set up ####
+## Load packages
+library(readr)
+library(englelab)
+
+## Set import/output directories
+import.file <- "data/raw/emerge/ospan.txt"
+output.file <- "data/raw/ospan_raw.txt"
+##############
+
+## Import
+import <- read_delim(import.file), "\t", escape_double = FALSE, trim_ws = TRUE)
+
+## Clean up raw data file and save
+data_raw <- raw.ospan(import, blocks = 2)
+
+## Save data file
+write_delim(data_raw, path = output.file, "\t", na = "")
+```
+
+********
+
+### score data functions
+
+Again, it is suggested to use the raw functions instead of the score functions. Here is the list of the score functions:
+
+* `score.ospan()`
+
+* `score.symspan()`
+
+* `score.rotspan()`
+
+* `score.rapm()`
+
+* `score.numberseries()`
+
+* `score.lettersets()`
+
+Like the raw functions the score functions take as input a "messy" raw **E-Merged** or **edat** file. For the complex span tasks you need to specify the number of blocks adminestered.
+
+********
+
+### Calculating Bin Scores
+
+The `bin.score()` function will calculate bin scores. These are the arguments you will need to specify:
+
+* __x__: a dataframe with trial level data. Needs to have RT and Accuracy DVs
+
+* __rt.col__: Column name in dataframe that contains the reaction time data
+
+* __accuracy.col__: Column name in dataframe that contains the accuracy data
+
+* __condition.col__: Column name in dataframe that contains the trial condition values
+
+* __baseline.condition__: The values that specify the baseline condition (e.g. "congruent")
+
+* __id__: Column name in dataframe that contains the subject identifiers
+
+The default argument values are:
+
+```{r eval = FALSE}
+bin.score(x, rt.col = "RT", accuracy.col = "Accuracy", condition.col = "Condition", baseline.condition = "congruent", id = "Subject")
+```
+
+Your data file may already be setup with these default value column names. If so, then you just need to specify the dataframe.
+
+### Reliability functions
+
+`cronbach.alpha()`
+
+This function takes as input a "tidy" raw trial-level dataframe.
+
+* __x__: x a dataframe with trial level data
+
+* __trial.col__: The column name that identifies trial number
+
+* __value__: The column name that identifies the values to be used
+
+* __id__: The column name that identifies the Subject IDs.
+
+Cronbach's alpha is calculated using the `alpha()` function from the `psych` package. 
+
+The difficulty in simply using the `alpha()` function is getting the dataframe in the correct structure. To use `alpha()` the values that reliability is going to be assessed over need to be in columns. The dataframe, then is one subject per row with a column for each value.
+
+For most of our tasks, the values that will be assessed over are the individual Trial level DV (RT or Accuracy). So there needs to be one column for each Trial. This is an unusual data structure and is really only useful for calculating reliability. `cronbach.alpha()` will save you time by creating the correct data structure for you based on a more common structure that is contained in your "tidy" raw data files (one row per trial per subject, with RT and Accuracy as columns).
+
+You should be able to take your "tidy" raw data as input to `cronbach.alpha()`. The output of `cronbach.alpha()` is a single value representing Cronbach's Alpha.
+
+`splithalf()`
+
+This function takes as input a "tidy" raw trial-level dataframe.
+
+* __x__: x a dataframe with trial level data
+
+* __trial.col__: The column name that identifies trial number
+
+* __value__: The column name that identifies the values to be used
+
+* __id__: The column name that identifies the Subject IDs.
+
+The default values are 
+
+`splithalf(data, trial.col = "Trial", value = NULL, id = "Subject")`
+
+The data is split in half by even and odd trials.
+
+You should be able to take your "tidy" raw data as input to `splithalf()`. The output of `splithalf()` is a single value representing split-half reliability.
+
+********
+
+## datawrangling
+
+It would take too long to cover each of the functions in this package one-by-one. I will cover just a few that are the most commonly used functions. For a descriptions of each function see https://dr-jt.github.io/datawrangling/reference/index.html
+
+### Merging Data Files
+
+You might find yourself in a situation where you need to merge multiple text files together. There are two types of merge operations that can be performed. 
+
+In R, a "join" is merging dataframes together that have at least some rows in common (e.g. Same Subject IDs) and have at least one column that is different. The rows that are common serve as the reference for how to "join" the dataframes together. 
+
+In R, a "bind" is combining datarames together by staking either the rows or columns. It is unlikely that we you will need to do a column bind so we can skip that. A row "bind" takes dataframes that have the same columns but different rows. This will happen if you have separate data files for each subject from the same task. Each subject data file will have their unique rows (subject by trial level data) but they will all have the same columns. 
+
+The E-Merge software program is performing a row "bind" of each subject .edat file. In E-Prime 2 we have to go through E-Merge to do this process. However, in E-Prime 3.0 there is the option to output an exported .edat file as a tab-delimited .txt file. Using the `files.bind()` function from the `datawrangling` package will allow us to skip the E-Merge step.
+
+The `datawrangling` package contains two functions to merge data files together:
+
+* `files.join()`
+
+* `files.bind()`
+
+They both work in a similar way. The files you want to merge need to be in the same folder on your computer. You specify the location of this folder using the `path = ` argument. You need to specify a pattern that uniquely identifies the files you want to merge (e.g. ".txt", or "Flanker") using the `pattern = ` argument. Then specify the directory and filename you want to save the merge file to using the `output.file = ` argument.
+
+Here are the arguments that can be specified:
+
+* __path__: Folder location of files to be merged
+
+* __pattern__: Pattern to identify files to be merged
+
+* __delim__: Delimiter used in files. Passed onto `readr::read_delim()`
+
+* __na__: How are missing values defined in files to be merged. Passed to `readr::write_delim()`
+
+* __output.file__: File name and path to be saved to.
+
+* __id__: Subject ID column name. Passed onto `plyr::join_all(by = id)`. **ONLY for `files.join()`**
+
+* __bind__: The type of bind to perform (default = "rows"). **ONLY for `files.bind()`**
+
+### Transformations and Data Cleaning
+
+There are a set of function is `datawrangling` to allow you to more easily transform column values into new variables and to do data cleaning.
+
+#### Create Composites
+
+
+
+## Binding Individual Subject Files
+
+Now I want to go over how bind individual subject files into one file.
+
+The `subj` folder contains individual files for each subject. You will use these files to learn how to bind multiple subject files into one file. In E-Prime you can use the E-Merge software to bind individual subject .edat2 files, so this is actually not always necessary. 
+
+However, you may have a task running in a different program othan E-Prime. Also, in E-Prime 3.0 there is the option to save the .edat2 file as a .txt file. **This can allow you to bypass using E-Merge and simply create an R script to bind all the .txt files)**. I have created individual subject files in the `subj` folder for the sake of this tutorial. 
+
+You can "bind" either the rows or columns of a dataframe together. A column "bind" means the dataframes have different column (same rows) and you are simply binding the columns together. A row "bind" means the dataframes have different rows (same columns) and you are simply binding the rows of the dataframes ontop of one another.
+
+For our purspose here, what we want to do is a row "bind". Since each subject has the same columns but different rows. We basically want to stack the files ontop of each other.
+
+This requires several steps and the use of a for loop. Luckily, I created a function to do this for us so it will be very simple! 
+
+The function we will use is `files.bindr()` from my `datawrangling` package.
+
+Remember you can use `?files.bind` to see documentation about how to use a function
+
+```{r eval=FALSE}
+devtools::install_github("dr-JT/datawrangling")
+library(datawrangling)
+data_merged <- files.bind(path = "data/subj", pattern = "_Flanker.txt", delim = "\t", na = "", bind = "rows", output.file = "data/Flanker_merged.txt")
+```
+
+There are a few arguments you need to specify. 
+
+`path` specifies the folder in which all the files are located. 
+
+`pattern` is a certain patter of letters that every file has in common. If there are other files in the same folder you want to make sure this pattern is unique to only the files you want to merge. 
+
+`delim` specifies both the delimiter that the individual files have and what the final merged file should have. 
+
+`na` is how missing values should be specified. 
+
+`bind` what type of bind do you wan to perform. "rows" or "columns" or "cols".
+
+`output.file` is the file path and name to save the merged file to.
+
+Here is the function for `files.bind()`. You can let me know if you have any questions about this.
+
+```{r eval=FALSE}
+files.bind <- function(path = "", pattern = "", delim = "\t", na = "", output.file = "", bind = "rows"){
+  filelist <- list.files(path = path, pattern = pattern, full.names = TRUE)
+  import <- list()
+  for (i in seq_along(filelist)){
+    import[[i]] <- readr::read_delim(filelist[[i]], delim, escape_double = FALSE, trim_ws = TRUE, na = na)
+  }
+
+  if (bind=="rows"){
+    bound <- dplyr::bind_rows(import)
+  }
+  if (bind=="columns"|bind=="cols"){
+    bound <- dplyr::bind_cols(import)
+  }
+
+
+  if (output.file!=""){
+    readr::write_delim(bound, path = output.file, delim, na = na)
+  }
+  return(bound)
+}
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=ls())
+```
+
+********
+
+**Now on to scoring the "tidy" raw data file**
+

@@ -1,0 +1,304 @@
+# Organization and Good Practices
+
+Having organziation and implementing "good" practices will make working with and executing your R scripts much easier.
+
+This is the workflow process of getting from "messy" raw data files to beautiful looking output of figures and statistical analyses. 
+
+```{r echo=FALSE}
+knitr::include_graphics(rep("images/workflow.png"))
+```
+
+Steps **1** and **2** will use a very similar workflow process and be implemented in R Scripts, which have the file extension `.R`. Step **3** will actually use what is called an R Markdown document, which has the file extension `.Rmd`.
+
+## R Scripts
+
+Steps **1** and **2** are all about transforming data files to create a final output file that is ready for statistical analysis.
+
+### General Workflow
+
+Every R script you create for steps 1 and 2 import a file -> do stuff to the dataframe -> output a saved file, **no more, and no less**. The general workdflow in every script will look like
+
+1) **Load** required packages using `library()`
+
+2) **Import** data file using `read_delim()` from the `readr` package
+
+3) **Do stuff** to the imported dataframe using `dplyr` functions, such as
+
+   `filter()`, `select()`, `group_by()`, `mutate()`, and `summarise()`
+   
+4) **Save** dataframe to a file using `write_delim()` from `readr` or `write_sav()` from `haven`
+
+Honestly there is not much more to it then that. And because your R scripts for steps 1 and 2 have the same workflow process this makes it very easy to implement a standard organization in your scripts. 
+
+### Building a Template Workflow
+
+**It is good practice to load required packages at the top of your R script**.
+
+After loading any required packages **it is good practice to assign the import and output file path directories to an object**. I use the same object name for the import file path and output file path in every R script I write. This does a couple of things:
+
+1) You can easily see what the import and output directories are for an R script since it occurs at the top and in the same location with the same names for every R script. 
+
+2) You can use the exact same or nearly the same `read_delim()` and `write_delim()` lines of code for every R script. Just copy and paste. This allow me to focus on writing the meat of the R script - the **Do stuff** step in the general workfolow process.
+
+A template R script might look something like
+
+```{r eval=FALSE}
+## Set up ####
+## Load required packages
+library(readr)
+library(dplyr)
+
+## Set import and output directories
+import.dir <- "data/import"
+import.file <- "task.txt"
+output.dir <- "data/output"
+output.file <- "task_score.txt"
+##############
+
+## Import data
+import <- read_delim(paste(import.dir, import.file, sep="/"), "\t", escape_double = FALSE, trim_ws = TRUE)
+
+## Do Stuff
+data <- import %>%
+  filter() %>%
+  group_by() %>%
+  mutate() %>%
+  select()
+
+## Save data
+write_delim(data, path = paste(ouptut.dir, output.file, sep = "/"), delim = "\t", na = "")
+
+rm(list=ls())
+```
+
+Notice how I use comments to help organize the R script. `#` is how you can insert comments in the script. You can even have a hierchical structure in your comments where it will allow you to "fold" chunks of code. This is helpful if your R script is getting really long and you would like to temporarily hide chunks of code.
+
+To do this you need to have a certain number of `#` at the top of the code chunk. See how I use four `####` after the `## Set up` comment. Four `#`s is usually enough. Then at the end of the code chunk I place a bunch more `#########`. You can put as many as you want, but again usually 4 is enough. I like to make it the same length as the the top of the code chunk.
+
+### rm(list=ls())
+
+**It is good practice to clear out any objects in the Enviroment window before or after running a script.**
+
+To do this you can use `rm(list=ls())`. Use this as either the first or last line of code in every R Script.
+
+********
+
+Every R script you write can have this same layout That is, everything on the "left" side (of the assignment operator `<-`) can stay the exactly same. Whereas what happens on the "right" side depends on what data file you are working with. But even what is happening on the "right" side is similar and may only require the `readr` and `dplyr` packages. 
+My actual template R script looks slightly different but I have to first explain working directories and more good practices to use when writing scripts in R.
+
+## Working Directory
+
+We need to go over the idea of a "working directory". In R, and many other programming languages, a "working directory" is a point of reference that can be used to create "relative" file paths. Instead of having to specify the entire file path to a directory ("User/Documents/DropBox/Projects/Study 1/Data Files/Raw Data") you can use a "relative" file path starting from the "working directory". 
+
+This is useful because it allows scripts to be reproducible across different systems, computers, and users. Every computer has different absolute file paths. Therefore, **it is essential to use only relative file paths**.
+
+In this examlple, if the "working directory" was the Study 1 folder - `"User/Documents/DropBox/Projects/Study 1/Data Files/Raw Data"` - then a relative file path might look like `"Data Files/Raw Data"`
+
+If you need to go back one folder - into the "Projects" folder - you tpye two dots `"../Study 2/Data Files/Raw Data"` would take you to `"User/Documents/DropBox/Projects/Study 2/Data Files/Raw Data"`
+
+You can set the working directoy either using the R Studio GUI or using the function `setwd()`. 
+
+But... **_DO NOT DO THIS!_**
+
+This is not a good workflow practice. Especially if you use the R Studio GUI (which I won't even tell you how to do). But even `setwd()` is a bad idea. The reason boils down to:
+
+1) **You want to avoid any manual steps in your workflow process** (using the GUI is a manual process)
+
+2) Absolute file paths are computer and user specific. When you use `setwd()` you need to use an absolute file path. **This makes your script not reproducible. And reproducibility is one of the main advantages to learning R in the first place, so don't undermine yourself!**
+
+Okay okay... well what are **good** practices to set a working directory then?
+
+There are two **good** practices that I know of and they are best used in combination.
+
+* R Projects
+* here()
+
+### R Projects
+
+1) Use **R Projects**
+
+   R Projects are a great way to have the working directory be automatically set. [Visit this page](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) for more information on how to use R Projects.
+   
+   Basically an R Project allows you to open a fresh session of R that automatically sets the working directory to the directory where the R Project is saved. R Projects have the file extension `.Rproj`.
+   
+   Go ahead and create an R Project for this tutorial. Navigate to File -> New Project... -> 
+   
+   Choose Existing Directory if you already created an R Tutorial folder on your computer or New Directory -> New Project if you have not. Create the R Project in the root folder of your R Tutorial. 
+   
+   Now exit out of R Studio. Then open R Studio by opening the R Project. You can evaluate what the working directory is by `getwd()`.
+   
+   In your R Scripts you can now simply use relative paths from the working directory. And it doesn't matter what directory you save your R scripts to. **As long as you open the R Studio from the `.Rproj` file and not one of the script `.R` files.**
+   
+   Try exiting out of R Studio and then opening R Studio by opening one of your `.R` script files that are not saved in the same location as your `.Rproj` file. Now evaluate the working directory `getwd()`. Oops... you see the working directory is no longer where the `.Rproj` file is saved. This is where the `here` package comes in handy.
+   
+   
+### here()
+
+2) Use the `here()` function from the **here** package.
+
+   This method is simple to use and is a great way to specify relative paths. It will allow you to open R Studio using any of your `.R` script files and maintain the some working directory as your `.Rproj` file. 
+   
+   First go ahead and install the `here` package, `install.packages("here")`.
+   
+   For a passionate ode to the `here` package see: https://github.com/jennybc/here_here
+   
+   Basically, when `here` is loaded, `library(here)`, it will search for one of two files to locate the working directory. 1) a hidden `.here` file or 2) an `.Rproj` file. It will recursively keep going backwards in directories to locate a root directory that contains one of these files.
+   
+   The `.here` file can be created by `set_here()`, but is unnecessary if you are using the **R Project** method.
+   
+   What this allows is pretty cool. Let's say your working directory is `"R Tutorial"`, which is the directory where your `.Rproj` file is saved. Even if you have an `.R` script saved in `"R Tutorial/A folder/R scripts/scriptexample.R"`, you can open a new fresh session of R by opening the file. If you load `library(here)` at the top of the `scriptexample.R` file then it will automatically set the working directory to `"R Tutorial"` since it will detect an `.Rproj` file in that directory. Then tomorrow maybe you want to work on a different `.R` script located somewhere else but still within this same project. Let's say it is located at `"R Tutorial/B folder/something dumb/scripts/thisisascript.R"`. Again, you can open a new fresh session of R by opening this file **AND** still have the same working directory set when you load `library(here)`. 
+   
+   Then to reference a relative file path you can use `here()`. For instance 
+   
+```{r eval=FALSE}
+here("B folder", "somethingdumb", "scripts", "thisisascript.R")
+
+# Or
+
+here("B folder/somethingdumb/scripts", "thisisascript.R")
+```
+   
+   
+Bothe of these will give you the same relative file path 
+
+```{r eval = FALSE}
+"B folder/somethingdumb/scripts/thisisascript.R"
+```
+   
+   I think this is pretty amazing because, again, it allows you to focus on the meat of your script rather than fidling around with file paths and working directories. You don't have to remember to open the `.Rproj` every time you want to work on writing a `.R` script. You can sipmly open the `.R` script and it just works.
+   
+   This also makes it much easier to share projects with others or to collaborate on R scripts for a project with your colleagues. 
+
+   Using `here()` we can slightly modify the R script template from above to look like
+
+```{r eval=FALSE}
+## Set up ####
+## Load required packages
+library(readr)
+library(dplyr)
+
+## Set import and output directories
+import.dir <- "data/import"
+import.file <- "task.txt"
+output.dir <- "data/output"
+output.dir <- "task_score.txt"
+##############
+
+## Import data
+import <- read_delim(here(import.dir, import.file), "\t", escape_double = FALSE, trim_ws = TRUE)
+
+## Do Stuff
+data <- import %>%
+  filter() %>%
+  group_by() %>%
+  mutate() %>%
+  select()
+
+## Save data
+write_delim(data, path = here(ouptut.dir, output.file), delim = "\t", na = "")
+
+rm(list=ls())
+```
+
+Rather than using `paste()` you can simply use `here()`. And if you are using the **R Project** method, then it will automatically set the working directory based on where `.Rproj` is saved. 
+
+Go ahead and set up an R Tutorial `.Rproj` file and modify your R script from the previous chapter to implement `here()`. 
+
+## The masterscript
+
+I like to use a masterscript that runs multiple R scripts one after another. I started doing this just to keep my sanity. In our lab we often times have many many tasks that we need to analyze data from. Well it can get a little crazy trying to keep all the R scripts organized and running the scripts in the correct order. Using a masterscript can help with this.
+
+The `source()` function will execute all the lines of code in an R script. You simply specify the file path of the R script, such as `source("scripts/A_script.R")`. 
+
+Your masterscript might simply contain only lines of code using `source()`.
+
+## Folder Organization
+
+I suggest adopting a consistent folder organization for all your research projects. Again, this is just about allowing you to focus on the meat of your R scripts.
+
+This is my organization:
+
+_Working Directory_
+
+* Data Files
+    + Raw Data
+        - E-Merge
+    + Scored Data
+* R Scripts
+* Results
+
+In the *Data Files/Raw Data/E-Merge* folder are the **"messy" raw data** files
+
+In the *Data Files/Raw Data* folder are the **"tidy" raw data** files
+
+In the *Data Files/Scored Data* folder are the **scored data** files
+
+In the *Results* folder are the outpued **results**
+
+In the *R Scripts* folder are ALL the R Scripts that are used
+
+You can see how this organization corresponds to the data processing workflow I introduced earlier
+
+```{r echo=FALSE}
+knitr::include_graphics(rep("images/workflow.png"))
+```
+
+## Naming R Scripts
+
+If you have a lot of R Scripts for a project it can make it easier to use a certain naming convention to organize the scripts. **First of all, I definitely reccomend putting all your scripts into one folder.** There is nothing more annoying then having to search all of your computer for the script you are looking for.
+
+I personally like to name my R scripts with a number prefix folowed by an underscore and end it with the name of the data processing step it belongs to (i.e. `1_taskname_raw.R`). 
+
+The numbered prefix denotes what step in the data processing procedure given the organization of the masterscript.
+
+This makes it SO MUCH easier to search for the script you need to work on. For instance, my R Script directory might look like
+
+```{r echo=FALSE}
+knitr::include_graphics(rep("images/folder-organization.png"), dpi = 80)
+```
+
+Where all the scripts that create "tidy" raw data files have the prefix `1` and the suffix `_raw` whereas the scripts for scoring data files has the prefix `2` and the suffix `_score`. The prefix number will order the scripts by their data processing workflow step.
+
+## Summary
+
+* Every R Script should import a file -> Do stuff to the dataframe -> output a saved file. No more, no less than that.
+
+* At the top of your R script:
+
+    Load required packages with `library()`
+    
+    Set the import and output directories (and optionally import and output filenames)
+   
+* Clear out all objects in the Environment using `rm(list=ls())`
+
+* Make your R Scripts reproducible by:
+
+    Avoid using manual steps
+
+    Use only relative file paths
+
+    Using **R Projects**
+   
+    Using `here()`
+   
+* Create your own template or use my template workflow (See Chapter 11)
+   
+* Use a masterscript
+
+* Put all R Scripts for a project in one file
+
+* Create naming conventions that match the data processing steps in the masterscript
+
+********
+   
+In the next two chapters we will go over an example of writing R Scripts for steps 1 and 2 of the general data processing workflow.
+
+If you have not doen so already, you should create an `.Rproj` and organize your folders. 
+
+If you would like to use a similar workflow in your R Scripts as I do, you can check out the [R Script templates I have created for the Engle lab](https://github.com/dr-JT/englelab/tree/master/rscript_templates).
+
+For more information on the templates and how they work see Chapter 11.
+
+********
+
+

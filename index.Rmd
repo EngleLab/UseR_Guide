@@ -1,0 +1,40 @@
+--- 
+title: "R Tutorial for the EngleLab"
+author: "Jason Tsukahara"
+date: "`r Sys.Date()`"
+bibliography:
+- book.bib
+- packages.bib
+description: This is a short R Tutorial for the EngleLab
+documentclass: book
+link-citations: yes
+site: bookdown::bookdown_site
+biblio-style: apalike
+github-repo: "dr-JT"
+---
+
+# Preface {-}
+
+This is an R Tutorial designed specifically for the EngleLab.
+
+This tutorial is specific to what you would need to know to do most data processing and analyses that are common in our lab. Hopefully this will mean less time learning R and more time using R. And as you start using R, you can learn more about it as you go.
+
+There are more detailed tutorials and resources mentioned throughout this guide. If you want to become more proficient in R it is a good idea to go through those as well.
+
+I essentially learned R by using it and Googling how to do certain things in R. There are a lot of forums where people have asked the same questions as you and someone has provided a clear answer. I suggest taking advantage of Google in this way.
+
+R is becoming a popular tool for doing statistical analyses across many scientific disciplines. It has many advantages but it does also takes some time to learn.
+
+**Chapters 1 and 2** go over the basics of what you need to know to start using R.
+
+**Chapter 3** introduces the general data processing workflow in our lab.
+
+**Chapter 4** covers the basics of working with dataframes, including how to do transformations, computations, creating new variables, filtering, renaming, merging and more. This will give you the skills you need to go from raw data files to a data file that is organized and ready for statistical analyses.
+
+**Chapter 5** will cover principles of how you should structure and organize the workflow in your R scripts. **This chapter is very important**
+
+In **Chapters 6 and 7** you will use a Flanker data set as an example of how to go from a "messy" raw data file to a "tidy" raw data file and finally to a scored task file that is ready for statistical analysis.
+
+********
+
+**Before getting into using R, let's talk about how R scripts can automate our workflow.**

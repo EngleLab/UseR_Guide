@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R Tutorial for the EngleLab</title>
+  <meta name="description" content="This is a short R Tutorial for the EngleLab">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R Tutorial for the EngleLab" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a short R Tutorial for the EngleLab" />
+  <meta name="github-repo" content="dr-JT" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R Tutorial for the EngleLab" />
+  
+  <meta name="twitter:description" content="This is a short R Tutorial for the EngleLab" />
+  
+
+<meta name="author" content="Jason Tsukahara">
+
+
+<meta name="date" content="2018-11-08">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="organization-and-good-practices.html">
+<link rel="next" href="messy-to-tidy-raw-data.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
+<li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
+<li class="chapter" data-level="1.2" data-path="installation.html"><a href="installation.html#installing-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R Studio</a></li>
+<li class="chapter" data-level="1.3" data-path="installation.html"><a href="installation.html#the-r-studio-environemnt"><i class="fa fa-check"></i><b>1.3</b> The R Studio Environemnt</a></li>
+<li class="chapter" data-level="1.4" data-path="installation.html"><a href="installation.html#r-studio-settings"><i class="fa fa-check"></i><b>1.4</b> R Studio Settings</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Basics</a><ul>
+<li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#creating-r-objects"><i class="fa fa-check"></i><b>2.1</b> Creating R objects</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="basics.html"><a href="basics.html#classes"><i class="fa fa-check"></i><b>2.1.1</b> Classes</a></li>
+<li class="chapter" data-level="2.1.2" data-path="basics.html"><a href="basics.html#vectors"><i class="fa fa-check"></i><b>2.1.2</b> Vectors</a></li>
+<li class="chapter" data-level="2.1.3" data-path="basics.html"><a href="basics.html#factors"><i class="fa fa-check"></i><b>2.1.3</b> Factors</a></li>
+<li class="chapter" data-level="2.1.4" data-path="basics.html"><a href="basics.html#lists"><i class="fa fa-check"></i><b>2.1.4</b> Lists</a></li>
+<li class="chapter" data-level="2.1.5" data-path="basics.html"><a href="basics.html#data-frames"><i class="fa fa-check"></i><b>2.1.5</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#ifthen-statements"><i class="fa fa-check"></i><b>2.2</b> If…then Statements</a></li>
+<li class="chapter" data-level="2.3" data-path="basics.html"><a href="basics.html#for-loops"><i class="fa fa-check"></i><b>2.3</b> For Loops</a></li>
+<li class="chapter" data-level="2.4" data-path="basics.html"><a href="basics.html#functions"><i class="fa fa-check"></i><b>2.4</b> Functions</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="basics.html"><a href="basics.html#creating-your-own-functions"><i class="fa fa-check"></i><b>2.4.1</b> Creating Your Own Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="basics.html"><a href="basics.html#r-packages"><i class="fa fa-check"></i><b>2.5</b> R Packages</a></li>
+<li class="chapter" data-level="2.6" data-path="basics.html"><a href="basics.html#installing-and-loading-r-packages"><i class="fa fa-check"></i><b>2.6</b> Installing and Loading R Packages</a></li>
+<li class="chapter" data-level="2.7" data-path="basics.html"><a href="basics.html#more-r-basic-resources"><i class="fa fa-check"></i><b>2.7</b> More R Basic Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>3</b> Workflow</a></li>
+<li class="chapter" data-level="4" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i><b>4</b> The tidyverse</a><ul>
+<li class="chapter" data-level="4.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#readr---import"><i class="fa fa-check"></i><b>4.1</b> readr - import</a></li>
+<li class="chapter" data-level="4.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#dplyr"><i class="fa fa-check"></i><b>4.2</b> dplyr</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#rename"><i class="fa fa-check"></i><b>4.2.1</b> rename()</a></li>
+<li class="chapter" data-level="4.2.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#filter"><i class="fa fa-check"></i><b>4.2.2</b> filter()</a></li>
+<li class="chapter" data-level="4.2.3" data-path="the-tidyverse.html"><a href="the-tidyverse.html#select"><i class="fa fa-check"></i><b>4.2.3</b> select()</a></li>
+<li class="chapter" data-level="4.2.4" data-path="the-tidyverse.html"><a href="the-tidyverse.html#mutate"><i class="fa fa-check"></i><b>4.2.4</b> mutate()</a></li>
+<li class="chapter" data-level="4.2.5" data-path="the-tidyverse.html"><a href="the-tidyverse.html#group_by"><i class="fa fa-check"></i><b>4.2.5</b> group_by()</a></li>
+<li class="chapter" data-level="4.2.6" data-path="the-tidyverse.html"><a href="the-tidyverse.html#summarise"><i class="fa fa-check"></i><b>4.2.6</b> summarise()</a></li>
+<li class="chapter" data-level="4.2.7" data-path="the-tidyverse.html"><a href="the-tidyverse.html#pipe-operator"><i class="fa fa-check"></i><b>4.2.7</b> Pipe Operator %&gt;%</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="the-tidyverse.html"><a href="the-tidyverse.html#readr---export"><i class="fa fa-check"></i><b>4.3</b> readr - export</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html"><i class="fa fa-check"></i><b>5</b> Organization and Good Practices</a><ul>
+<li class="chapter" data-level="5.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#r-scripts"><i class="fa fa-check"></i><b>5.1</b> R Scripts</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#general-workflow"><i class="fa fa-check"></i><b>5.1.1</b> General Workflow</a></li>
+<li class="chapter" data-level="5.1.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#building-a-template-workflow"><i class="fa fa-check"></i><b>5.1.2</b> Building a Template Workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#set-up"><i class="fa fa-check"></i><b>5.2</b> Set up</a></li>
+<li class="chapter" data-level="5.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#load-required-packages"><i class="fa fa-check"></i><b>5.3</b> Load required packages</a></li>
+<li class="chapter" data-level="5.4" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#set-import-and-output-directories"><i class="fa fa-check"></i><b>5.4</b> Set import and output directories</a></li>
+<li class="chapter" data-level="5.5" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#import-data"><i class="fa fa-check"></i><b>5.5</b> Import data</a></li>
+<li class="chapter" data-level="5.6" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#do-stuff"><i class="fa fa-check"></i><b>5.6</b> Do Stuff</a></li>
+<li class="chapter" data-level="5.7" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#save-data"><i class="fa fa-check"></i><b>5.7</b> Save data</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#rmlistls"><i class="fa fa-check"></i><b>5.7.1</b> rm(list=ls())</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#working-directory"><i class="fa fa-check"></i><b>5.8</b> Working Directory</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#r-projects"><i class="fa fa-check"></i><b>5.8.1</b> R Projects</a></li>
+<li class="chapter" data-level="5.8.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#here"><i class="fa fa-check"></i><b>5.8.2</b> here()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#set-up-1"><i class="fa fa-check"></i><b>5.9</b> Set up</a></li>
+<li class="chapter" data-level="5.10" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#load-required-packages-1"><i class="fa fa-check"></i><b>5.10</b> Load required packages</a></li>
+<li class="chapter" data-level="5.11" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#set-import-and-output-directories-1"><i class="fa fa-check"></i><b>5.11</b> Set import and output directories</a></li>
+<li class="chapter" data-level="5.12" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#import-data-1"><i class="fa fa-check"></i><b>5.12</b> Import data</a></li>
+<li class="chapter" data-level="5.13" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#do-stuff-1"><i class="fa fa-check"></i><b>5.13</b> Do Stuff</a></li>
+<li class="chapter" data-level="5.14" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#save-data-1"><i class="fa fa-check"></i><b>5.14</b> Save data</a></li>
+<li class="chapter" data-level="5.15" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#the-masterscript"><i class="fa fa-check"></i><b>5.15</b> The masterscript</a></li>
+<li class="chapter" data-level="5.16" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#folder-organization"><i class="fa fa-check"></i><b>5.16</b> Folder Organization</a></li>
+<li class="chapter" data-level="5.17" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#naming-r-scripts"><i class="fa fa-check"></i><b>5.17</b> Naming R Scripts</a></li>
+<li class="chapter" data-level="5.18" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#summary"><i class="fa fa-check"></i><b>5.18</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="englelab-packages.html"><a href="englelab-packages.html"><i class="fa fa-check"></i><b>6</b> EngleLab Packages</a><ul>
+<li class="chapter" data-level="6.1" data-path="englelab-packages.html"><a href="englelab-packages.html#englelab"><i class="fa fa-check"></i><b>6.1</b> englelab</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="englelab-packages.html"><a href="englelab-packages.html#tidy-raw-data-functions"><i class="fa fa-check"></i><b>6.1.1</b> “tidy” raw data functions</a></li>
+<li class="chapter" data-level="6.1.2" data-path="englelab-packages.html"><a href="englelab-packages.html#example"><i class="fa fa-check"></i><b>6.1.2</b> Example</a></li>
+<li class="chapter" data-level="6.1.3" data-path="englelab-packages.html"><a href="englelab-packages.html#score-data-functions"><i class="fa fa-check"></i><b>6.1.3</b> score data functions</a></li>
+<li class="chapter" data-level="6.1.4" data-path="englelab-packages.html"><a href="englelab-packages.html#calculating-bin-scores"><i class="fa fa-check"></i><b>6.1.4</b> Calculating Bin Scores</a></li>
+<li class="chapter" data-level="6.1.5" data-path="englelab-packages.html"><a href="englelab-packages.html#reliability-functions"><i class="fa fa-check"></i><b>6.1.5</b> Reliability functions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="englelab-packages.html"><a href="englelab-packages.html#datawrangling"><i class="fa fa-check"></i><b>6.2</b> datawrangling</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="englelab-packages.html"><a href="englelab-packages.html#merging-data-files"><i class="fa fa-check"></i><b>6.2.1</b> Merging Data Files</a></li>
+<li class="chapter" data-level="6.2.2" data-path="englelab-packages.html"><a href="englelab-packages.html#transformations-and-data-cleaning"><i class="fa fa-check"></i><b>6.2.2</b> Transformations and Data Cleaning</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="englelab-packages.html"><a href="englelab-packages.html#binding-individual-subject-files"><i class="fa fa-check"></i><b>6.3</b> Binding Individual Subject Files</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html"><i class="fa fa-check"></i><b>7</b> Messy to Tidy Raw Data</a><ul>
+<li class="chapter" data-level="7.1" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#what-to-include"><i class="fa fa-check"></i><b>7.1</b> What to Include</a></li>
+<li class="chapter" data-level="7.2" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#flanker-example"><i class="fa fa-check"></i><b>7.2</b> Flanker Example</a></li>
+<li class="chapter" data-level="7.3" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#import-messy-data"><i class="fa fa-check"></i><b>7.3</b> Import “messy” data</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#remove-duplicate-subjects"><i class="fa fa-check"></i><b>7.3.1</b> Remove Duplicate Subjects</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#tidy-up"><i class="fa fa-check"></i><b>7.4</b> “Tidy” Up</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#filter-1"><i class="fa fa-check"></i><b>7.4.1</b> Filter</a></li>
+<li class="chapter" data-level="7.4.2" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#rename-1"><i class="fa fa-check"></i><b>7.4.2</b> Rename</a></li>
+<li class="chapter" data-level="7.4.3" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#mutate-1"><i class="fa fa-check"></i><b>7.4.3</b> Mutate</a></li>
+<li class="chapter" data-level="7.4.4" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#select-1"><i class="fa fa-check"></i><b>7.4.4</b> Select</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#save-to-file"><i class="fa fa-check"></i><b>7.5</b> Save to File</a></li>
+<li class="chapter" data-level="7.6" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#set-up-2"><i class="fa fa-check"></i><b>7.6</b> Set up</a></li>
+<li class="chapter" data-level="7.7" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#load-required-packages-2"><i class="fa fa-check"></i><b>7.7</b> Load required packages</a></li>
+<li class="chapter" data-level="7.8" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#set-import-and-output-directories-2"><i class="fa fa-check"></i><b>7.8</b> Set import and output directories</a></li>
+<li class="chapter" data-level="7.9" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#import-data-2"><i class="fa fa-check"></i><b>7.9</b> Import data</a></li>
+<li class="chapter" data-level="7.10" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#tidy"><i class="fa fa-check"></i><b>7.10</b> Tidy</a></li>
+<li class="chapter" data-level="7.11" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#save-data-2"><i class="fa fa-check"></i><b>7.11</b> Save Data</a></li>
+<li class="chapter" data-level="7.12" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#binding-individual-subject-files-1"><i class="fa fa-check"></i><b>7.12</b> Binding Individual Subject Files</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html"><i class="fa fa-check"></i><b>8</b> Tidy Raw to Scored Data</a><ul>
+<li class="chapter" data-level="8.1" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#flanker-example-1"><i class="fa fa-check"></i><b>8.1</b> Flanker Example</a></li>
+<li class="chapter" data-level="8.2" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#import-raw-data"><i class="fa fa-check"></i><b>8.2</b> Import “raw” data</a></li>
+<li class="chapter" data-level="8.3" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#aggregating-performance"><i class="fa fa-check"></i><b>8.3</b> Aggregating Performance</a></li>
+<li class="chapter" data-level="8.4" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#reshape-dataframes"><i class="fa fa-check"></i><b>8.4</b> Reshape Dataframes</a></li>
+<li class="chapter" data-level="8.5" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#calculate-scores"><i class="fa fa-check"></i><b>8.5</b> Calculate Scores</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#flanker-effect"><i class="fa fa-check"></i><b>8.5.1</b> Flanker Effect</a></li>
+<li class="chapter" data-level="8.5.2" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#binned-scores"><i class="fa fa-check"></i><b>8.5.2</b> Binned Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#data-cleaning"><i class="fa fa-check"></i><b>8.6</b> Data Cleaning</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#minimum-rt-criteria"><i class="fa fa-check"></i><b>8.6.1</b> Minimum RT Criteria</a></li>
+<li class="chapter" data-level="8.6.2" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#sds-on-rt-criteria"><i class="fa fa-check"></i><b>8.6.2</b> SDs on RT Criteria</a></li>
+<li class="chapter" data-level="8.6.3" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#sds-on-accuracy"><i class="fa fa-check"></i><b>8.6.3</b> SDs on Accuracy</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#merging-data-files-1"><i class="fa fa-check"></i><b>8.7</b> Merging Data Files</a></li>
+<li class="chapter" data-level="8.8" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#save-dataframe-to-file"><i class="fa fa-check"></i><b>8.8</b> Save dataframe to File</a></li>
+<li class="chapter" data-level="8.9" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#finalize-your-script"><i class="fa fa-check"></i><b>8.9</b> Finalize Your Script</a></li>
+<li class="chapter" data-level="8.10" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#stroop-example"><i class="fa fa-check"></i><b>8.10</b> Stroop Example</a></li>
+<li class="chapter" data-level="8.11" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#conclusions"><i class="fa fa-check"></i><b>8.11</b> Conclusions</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="my-templates.html"><a href="my-templates.html"><i class="fa fa-check"></i><b>9</b> My Templates</a><ul>
+<li class="chapter" data-level="9.1" data-path="my-templates.html"><a href="my-templates.html#masterscript-template"><i class="fa fa-check"></i><b>9.1</b> masterscript Template</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="my-templates.html"><a href="my-templates.html#directories.rds"><i class="fa fa-check"></i><b>9.1.1</b> directories.rds</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="my-templates.html"><a href="my-templates.html#specify-the-directory-tree"><i class="fa fa-check"></i><b>9.2</b> Specify the directory tree</a></li>
+<li class="chapter" data-level="9.3" data-path="my-templates.html"><a href="my-templates.html#setup"><i class="fa fa-check"></i><b>9.3</b> Setup</a></li>
+<li class="chapter" data-level="9.4" data-path="my-templates.html"><a href="my-templates.html#load-packages"><i class="fa fa-check"></i><b>9.4</b> Load Packages</a></li>
+<li class="chapter" data-level="9.5" data-path="my-templates.html"><a href="my-templates.html#specify-the-directory-tree-1"><i class="fa fa-check"></i><b>9.5</b> Specify the directory tree</a></li>
+<li class="chapter" data-level="9.6" data-path="my-templates.html"><a href="my-templates.html#score-task-data-from-raw-data-files"><i class="fa fa-check"></i><b>9.6</b> Score task data from raw data files</a></li>
+<li class="chapter" data-level="9.7" data-path="my-templates.html"><a href="my-templates.html#set-up-3"><i class="fa fa-check"></i><b>9.7</b> Set up</a></li>
+<li class="chapter" data-level="9.8" data-path="my-templates.html"><a href="my-templates.html#load-required-packages-3"><i class="fa fa-check"></i><b>9.8</b> Load required packages</a></li>
+<li class="chapter" data-level="9.9" data-path="my-templates.html"><a href="my-templates.html#set-import-and-output-directories-3"><i class="fa fa-check"></i><b>9.9</b> Set import and output directories</a></li>
+<li class="chapter" data-level="9.10" data-path="my-templates.html"><a href="my-templates.html#import-data-3"><i class="fa fa-check"></i><b>9.10</b> Import data</a></li>
+<li class="chapter" data-level="9.11" data-path="my-templates.html"><a href="my-templates.html#do-stuff-2"><i class="fa fa-check"></i><b>9.11</b> Do Stuff</a></li>
+<li class="chapter" data-level="9.12" data-path="my-templates.html"><a href="my-templates.html#save-data-3"><i class="fa fa-check"></i><b>9.12</b> Save data</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Tutorial for the EngleLab</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="englelab-packages" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> EngleLab Packages</h1>
+<p>I have created R packages that contain functions to more easily score tasks, transform variables, and clean data.</p>
+<p>In this chapter you will learn about the functions from these two packages</p>
+<ul>
+<li><p>englelab <a href="https://github.com/EngleLab/englelab" class="uri">https://github.com/EngleLab/englelab</a></p></li>
+<li><p>datawrangling <a href="https://dr-jt.github.io/datawrangling" class="uri">https://dr-jt.github.io/datawrangling</a></p></li>
+</ul>
+<p>I am hosting these packages on GitHub and can be downloaded using the <code>devtools</code> package</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
+
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;EngleLab/englelab&quot;</span>)
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/datawrangling&quot;</span>)</code></pre></div>
+<hr />
+<div id="englelab" class="section level2">
+<h2><span class="header-section-number">6.1</span> englelab</h2>
+<p>The functions in the <code>englelab</code> package are to create “tidy” raw data files and scored data files from the complex span and fluid intelligence tasks we frequently use. It also contains a function to calculate scores using the binning method from [insert citation here]. There are also functions to calcualte the reliability measures; cronbach’s alpha and split-half reliability.</p>
+<p>This package is intended to eventually share with other researchers who download the tasks from our website and use R to do data analysis.</p>
+<div id="tidy-raw-data-functions" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> “tidy” raw data functions</h3>
+<p>It is suggested to only use the “tidy” raw functions rather than the scoring functions. The reason for this is that the scoring function does not create a “tidy” raw data file - which is useful for doing internal consitency analyses, and is just a good idea to have a “tidy” raw data file for trial-by-trial performance.</p>
+<p>Here is the list of “tidy” raw data functions:</p>
+<ul>
+<li><p><code>raw.ospan()</code></p></li>
+<li><p><code>raw.symspan()</code></p></li>
+<li><p><code>raw.rotspan()</code></p></li>
+<li><p><code>raw.rapm()</code></p></li>
+<li><p><code>raw.numberseries()</code></p></li>
+<li><p><code>raw.lettersets()</code></p></li>
+</ul>
+<p>These functions take as input an imported <strong>E-Merged</strong> or <strong>edat</strong> file.</p>
+<p>For the complex span tasks you need to specify the number of blocks administered with the <code>blocks</code> argument. ex. <code>raw.ospan(data, blocks = 2)</code></p>
+<p>The output of the raw functions will also contain columns for the subject’s final score on the task. This is why it is suggested to just use the raw functions, you can still easily grab the final score on the task from the outputed file.</p>
+</div>
+<div id="example" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Example</h3>
+<p>Here is an example script that uses the <code>raw.ospan()</code> function to import an E-merged data file and output a “tidy” raw data file.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Set up ####
+## Load packages
+<span class="kw">library</span>(readr)
+<span class="kw">library</span>(englelab)
+
+## Set import/output directories
+import.file &lt;-<span class="st"> &quot;data/raw/emerge/ospan.txt&quot;</span>
+output.file &lt;-<span class="st"> &quot;data/raw/ospan_raw.txt&quot;</span>
+##############
+
+## Import
+import &lt;-<span class="st"> </span><span class="kw">read_delim</span>(import.file), <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, escape_double =<span class="st"> </span><span class="ot">FALSE</span>, trim_ws =<span class="st"> </span><span class="ot">TRUE</span><span class="er">)</span>
+
+## Clean up raw data file and save
+data_raw &lt;-<span class="st"> </span><span class="kw">raw.ospan</span>(import, <span class="dt">blocks =</span> <span class="dv">2</span>)
+
+## Save data file
+<span class="kw">write_delim</span>(data_raw, <span class="dt">path =</span> output.file, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;&quot;</span>)</code></pre></div>
+<hr />
+</div>
+<div id="score-data-functions" class="section level3">
+<h3><span class="header-section-number">6.1.3</span> score data functions</h3>
+<p>Again, it is suggested to use the raw functions instead of the score functions. Here is the list of the score functions:</p>
+<ul>
+<li><p><code>score.ospan()</code></p></li>
+<li><p><code>score.symspan()</code></p></li>
+<li><p><code>score.rotspan()</code></p></li>
+<li><p><code>score.rapm()</code></p></li>
+<li><p><code>score.numberseries()</code></p></li>
+<li><p><code>score.lettersets()</code></p></li>
+</ul>
+<p>Like the raw functions the score functions take as input a “messy” raw <strong>E-Merged</strong> or <strong>edat</strong> file. For the complex span tasks you need to specify the number of blocks adminestered.</p>
+<hr />
+</div>
+<div id="calculating-bin-scores" class="section level3">
+<h3><span class="header-section-number">6.1.4</span> Calculating Bin Scores</h3>
+<p>The <code>bin.score()</code> function will calculate bin scores. These are the arguments you will need to specify:</p>
+<ul>
+<li><p><strong>x</strong>: a dataframe with trial level data. Needs to have RT and Accuracy DVs</p></li>
+<li><p><strong>rt.col</strong>: Column name in dataframe that contains the reaction time data</p></li>
+<li><p><strong>accuracy.col</strong>: Column name in dataframe that contains the accuracy data</p></li>
+<li><p><strong>condition.col</strong>: Column name in dataframe that contains the trial condition values</p></li>
+<li><p><strong>baseline.condition</strong>: The values that specify the baseline condition (e.g. “congruent”)</p></li>
+<li><p><strong>id</strong>: Column name in dataframe that contains the subject identifiers</p></li>
+</ul>
+<p>The default argument values are:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bin.score</span>(x, <span class="dt">rt.col =</span> <span class="st">&quot;RT&quot;</span>, <span class="dt">accuracy.col =</span> <span class="st">&quot;Accuracy&quot;</span>, <span class="dt">condition.col =</span> <span class="st">&quot;Condition&quot;</span>, <span class="dt">baseline.condition =</span> <span class="st">&quot;congruent&quot;</span>, <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>)</code></pre></div>
+<p>Your data file may already be setup with these default value column names. If so, then you just need to specify the dataframe.</p>
+</div>
+<div id="reliability-functions" class="section level3">
+<h3><span class="header-section-number">6.1.5</span> Reliability functions</h3>
+<p><code>cronbach.alpha()</code></p>
+<p>This function takes as input a “tidy” raw trial-level dataframe.</p>
+<ul>
+<li><p><strong>x</strong>: x a dataframe with trial level data</p></li>
+<li><p><strong>trial.col</strong>: The column name that identifies trial number</p></li>
+<li><p><strong>value</strong>: The column name that identifies the values to be used</p></li>
+<li><p><strong>id</strong>: The column name that identifies the Subject IDs.</p></li>
+</ul>
+<p>Cronbach’s alpha is calculated using the <code>alpha()</code> function from the <code>psych</code> package.</p>
+<p>The difficulty in simply using the <code>alpha()</code> function is getting the dataframe in the correct structure. To use <code>alpha()</code> the values that reliability is going to be assessed over need to be in columns. The dataframe, then is one subject per row with a column for each value.</p>
+<p>For most of our tasks, the values that will be assessed over are the individual Trial level DV (RT or Accuracy). So there needs to be one column for each Trial. This is an unusual data structure and is really only useful for calculating reliability. <code>cronbach.alpha()</code> will save you time by creating the correct data structure for you based on a more common structure that is contained in your “tidy” raw data files (one row per trial per subject, with RT and Accuracy as columns).</p>
+<p>You should be able to take your “tidy” raw data as input to <code>cronbach.alpha()</code>. The output of <code>cronbach.alpha()</code> is a single value representing Cronbach’s Alpha.</p>
+<p><code>splithalf()</code></p>
+<p>This function takes as input a “tidy” raw trial-level dataframe.</p>
+<ul>
+<li><p><strong>x</strong>: x a dataframe with trial level data</p></li>
+<li><p><strong>trial.col</strong>: The column name that identifies trial number</p></li>
+<li><p><strong>value</strong>: The column name that identifies the values to be used</p></li>
+<li><p><strong>id</strong>: The column name that identifies the Subject IDs.</p></li>
+</ul>
+<p>The default values are</p>
+<p><code>splithalf(data, trial.col = &quot;Trial&quot;, value = NULL, id = &quot;Subject&quot;)</code></p>
+<p>The data is split in half by even and odd trials.</p>
+<p>You should be able to take your “tidy” raw data as input to <code>splithalf()</code>. The output of <code>splithalf()</code> is a single value representing split-half reliability.</p>
+<hr />
+</div>
+</div>
+<div id="datawrangling" class="section level2">
+<h2><span class="header-section-number">6.2</span> datawrangling</h2>
+<p>It would take too long to cover each of the functions in this package one-by-one. I will cover just a few that are the most commonly used functions. For a descriptions of each function see <a href="https://dr-jt.github.io/datawrangling/reference/index.html" class="uri">https://dr-jt.github.io/datawrangling/reference/index.html</a></p>
+<div id="merging-data-files" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Merging Data Files</h3>
+<p>You might find yourself in a situation where you need to merge multiple text files together. There are two types of merge operations that can be performed.</p>
+<p>In R, a “join” is merging dataframes together that have at least some rows in common (e.g. Same Subject IDs) and have at least one column that is different. The rows that are common serve as the reference for how to “join” the dataframes together.</p>
+<p>In R, a “bind” is combining datarames together by staking either the rows or columns. It is unlikely that we you will need to do a column bind so we can skip that. A row “bind” takes dataframes that have the same columns but different rows. This will happen if you have separate data files for each subject from the same task. Each subject data file will have their unique rows (subject by trial level data) but they will all have the same columns.</p>
+<p>The E-Merge software program is performing a row “bind” of each subject .edat file. In E-Prime 2 we have to go through E-Merge to do this process. However, in E-Prime 3.0 there is the option to output an exported .edat file as a tab-delimited .txt file. Using the <code>files.bind()</code> function from the <code>datawrangling</code> package will allow us to skip the E-Merge step.</p>
+<p>The <code>datawrangling</code> package contains two functions to merge data files together:</p>
+<ul>
+<li><p><code>files.join()</code></p></li>
+<li><p><code>files.bind()</code></p></li>
+</ul>
+<p>They both work in a similar way. The files you want to merge need to be in the same folder on your computer. You specify the location of this folder using the <code>path =</code> argument. You need to specify a pattern that uniquely identifies the files you want to merge (e.g. “.txt”, or “Flanker”) using the <code>pattern =</code> argument. Then specify the directory and filename you want to save the merge file to using the <code>output.file =</code> argument.</p>
+<p>Here are the arguments that can be specified:</p>
+<ul>
+<li><p><strong>path</strong>: Folder location of files to be merged</p></li>
+<li><p><strong>pattern</strong>: Pattern to identify files to be merged</p></li>
+<li><p><strong>delim</strong>: Delimiter used in files. Passed onto <code>readr::read_delim()</code></p></li>
+<li><p><strong>na</strong>: How are missing values defined in files to be merged. Passed to <code>readr::write_delim()</code></p></li>
+<li><p><strong>output.file</strong>: File name and path to be saved to.</p></li>
+<li><p><strong>id</strong>: Subject ID column name. Passed onto <code>plyr::join_all(by = id)</code>. <strong>ONLY for <code>files.join()</code></strong></p></li>
+<li><p><strong>bind</strong>: The type of bind to perform (default = “rows”). <strong>ONLY for <code>files.bind()</code></strong></p></li>
+</ul>
+</div>
+<div id="transformations-and-data-cleaning" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Transformations and Data Cleaning</h3>
+<p>There are a set of function is <code>datawrangling</code> to allow you to more easily transform column values into new variables and to do data cleaning.</p>
+<div id="create-composites" class="section level4">
+<h4><span class="header-section-number">6.2.2.1</span> Create Composites</h4>
+</div>
+</div>
+</div>
+<div id="binding-individual-subject-files" class="section level2">
+<h2><span class="header-section-number">6.3</span> Binding Individual Subject Files</h2>
+<p>Now I want to go over how bind individual subject files into one file.</p>
+<p>The <code>subj</code> folder contains individual files for each subject. You will use these files to learn how to bind multiple subject files into one file. In E-Prime you can use the E-Merge software to bind individual subject .edat2 files, so this is actually not always necessary.</p>
+<p>However, you may have a task running in a different program othan E-Prime. Also, in E-Prime 3.0 there is the option to save the .edat2 file as a .txt file. <strong>This can allow you to bypass using E-Merge and simply create an R script to bind all the .txt files)</strong>. I have created individual subject files in the <code>subj</code> folder for the sake of this tutorial.</p>
+<p>You can “bind” either the rows or columns of a dataframe together. A column “bind” means the dataframes have different column (same rows) and you are simply binding the columns together. A row “bind” means the dataframes have different rows (same columns) and you are simply binding the rows of the dataframes ontop of one another.</p>
+<p>For our purspose here, what we want to do is a row “bind”. Since each subject has the same columns but different rows. We basically want to stack the files ontop of each other.</p>
+<p>This requires several steps and the use of a for loop. Luckily, I created a function to do this for us so it will be very simple!</p>
+<p>The function we will use is <code>files.bindr()</code> from my <code>datawrangling</code> package.</p>
+<p>Remember you can use <code>?files.bind</code> to see documentation about how to use a function</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/datawrangling&quot;</span>)
+<span class="kw">library</span>(datawrangling)
+data_merged &lt;-<span class="st"> </span><span class="kw">files.bind</span>(<span class="dt">path =</span> <span class="st">&quot;data/subj&quot;</span>, <span class="dt">pattern =</span> <span class="st">&quot;_Flanker.txt&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;&quot;</span>, <span class="dt">bind =</span> <span class="st">&quot;rows&quot;</span>, <span class="dt">output.file =</span> <span class="st">&quot;data/Flanker_merged.txt&quot;</span>)</code></pre></div>
+<p>There are a few arguments you need to specify.</p>
+<p><code>path</code> specifies the folder in which all the files are located.</p>
+<p><code>pattern</code> is a certain patter of letters that every file has in common. If there are other files in the same folder you want to make sure this pattern is unique to only the files you want to merge.</p>
+<p><code>delim</code> specifies both the delimiter that the individual files have and what the final merged file should have.</p>
+<p><code>na</code> is how missing values should be specified.</p>
+<p><code>bind</code> what type of bind do you wan to perform. “rows” or “columns” or “cols”.</p>
+<p><code>output.file</code> is the file path and name to save the merged file to.</p>
+<p>Here is the function for <code>files.bind()</code>. You can let me know if you have any questions about this.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">files.bind &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">path =</span> <span class="st">&quot;&quot;</span>, <span class="dt">pattern =</span> <span class="st">&quot;&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;&quot;</span>, <span class="dt">output.file =</span> <span class="st">&quot;&quot;</span>, <span class="dt">bind =</span> <span class="st">&quot;rows&quot;</span>){
+  filelist &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">path =</span> path, <span class="dt">pattern =</span> pattern, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
+  import &lt;-<span class="st"> </span><span class="kw">list</span>()
+  <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(filelist)){
+    import[[i]] &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_delim</span>(filelist[[i]], delim, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>, <span class="dt">na =</span> na)
+  }
+
+  <span class="cf">if</span> (bind<span class="op">==</span><span class="st">&quot;rows&quot;</span>){
+    bound &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">bind_rows</span>(import)
+  }
+  <span class="cf">if</span> (bind<span class="op">==</span><span class="st">&quot;columns&quot;</span><span class="op">|</span>bind<span class="op">==</span><span class="st">&quot;cols&quot;</span>){
+    bound &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">bind_cols</span>(import)
+  }
+
+
+  <span class="cf">if</span> (output.file<span class="op">!=</span><span class="st">&quot;&quot;</span>){
+    readr<span class="op">::</span><span class="kw">write_delim</span>(bound, <span class="dt">path =</span> output.file, delim, <span class="dt">na =</span> na)
+  }
+  <span class="kw">return</span>(bound)
+}</code></pre></div>
+<hr />
+<p><strong>Now on to scoring the “tidy” raw data file</strong></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="organization-and-good-practices.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="messy-to-tidy-raw-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>

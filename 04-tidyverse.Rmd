@@ -1,0 +1,432 @@
+# The tidyverse
+
+The tidyverse is a collection of R packages that share an underlying design philosophy, grammar, and data structures. [Hadley Wickham](http://hadley.nz) has been the main contributor to developing the tidyverse.
+
+Although you will be learning R in this tutorial, it might be more appropriate to say that you are learning the tidyverse.
+
+The tidyverse consists of packages that are simple and intuitive to use and will take you from importing data (with **readr**), to transforming and manipulating data structures (with **dplyr** and **tidyr**), and to data vizualisation (with **ggplot2**).
+
+This chapter will cover the two primary packages you will use in every R script you write, the **readr** and the **dplyr** packages.
+
+## readr - import
+
+Every R script you write will require you to import a data file and create/save a new data file. 
+
+The readr package contains useful functions for importing and saving data files. Go ahead and install the **readr** package. In the console type:
+
+```{r eval=FALSE}
+install.packages("readr")
+```
+
+If you have not done so already, open a new R script file. To create a new R script go to 
+
+**File** -> **New File** -> **R Script**
+
+This should have opened a blank **Script** window called **Untitled**.
+
+The **Script** window is your workspace. This is where you will write, edit, delete, re-write, your code. To execute a line of code in the script, place the cursor anywhere on that line and press `Ctrl + Enter`
+
+Now load the package into your R session by typing this at the top of your R script file. Execute the line of code by placing the cursor anywhere on the line and press **Ctrl + Enter**
+
+```{r collapse=TRUE, warning=FALSE, message=FALSE}
+library(readr)
+```
+
+The nice thing about R Studio is that there is a GUI for importing data files. This makes it easier to figure what code you need to use in order to import a data file. Once you install **readr**, you will be able to access this package in the import GUI.
+
+In the **Environment** window click on "Import Dataset". You will see several options available, these options all rely on different packages. For most data files the readr package will be adequate. Occasionally you may want to import excel or other data files that are not supported by readr. 
+
+To illustrate how **readr** and **dplyr** work we will use an example data set from an Arrow Flanker task.
+
+[Download Example Tidyverse Data](http://englelab.gatech.edu/R/example_data/tidyverse_example.zip)
+
+For this tutorial, it will be a good idea to create a folder somewhere to save all your R scripts and example data files. 
+
+Now let's actually import the data file using the readr package.
+
+Click on "Import Dataset" -> select "From Text (readr)..."
+
+You will see a data import window open up that looks like this
+
+```{r echo=FALSE, dpi = 50}
+knitr::include_graphics(rep("images/rstudioGUI-readr.png"))
+```
+
+Select "Browse" on the top right and select the data file you want to import.
+
+The "Data Preview" window will let you see if it is importing it in the right format. You might have to change some of the agruments at the bottom. It is likely you will have to change "Delimeter" to "Tab".
+
+You might want to change the "Name" but you can always do this later in the R Script.
+
+Make sure all the settings are correct by assessing the "Data Preview" window. Does the dataframe look as you would expect it to?
+
+Finally, copy the code you need in the "Code Preview" box at the bottom right. You might not always need the `library(readr)` or `View(data)` lines.
+
+Rather than selecting "Import" I suggest just closing out of the window and pasting the code into your R script. You might have something like
+
+```{r collapse=TRUE, warning=FALSE, message=FALSE}
+library(readr)
+import <- read_delim("data/Flanker_raw.txt", "\t", escape_double = FALSE, trim_ws = TRUE)
+```
+
+When I import a data file I typically assign it to an R object called `import`. You can use whatever name you like but I suggest being consistent across your R scripts. 
+
+You can then view the data file with
+
+```{r collapse=TRUE, eval=FALSE}
+View(import)
+```
+
+Take some time to get familiar with this data file. Notice that there is one row per trial per subject. There are also rows for practice trials and real trials. Then there are columns for their reaction time, accuracy, what the Condition is, and even the date and time of they performed the task.
+
+We will cover saving data files at the end of this chapter.
+
+## dplyr
+
+Every R script you write will involve transforming and manipulating a dataframe. Some refer to this process as **data wrangling**.
+
+The dplyr package will serve as the underlying framework for how you will think about wrangling a data set. You can do most tasks using the dplyr package with the occasional help from other packages. 
+
+dplyr uses intuitive langauge that you are already familiar with. As with any R function, you can think of functions in the dplyr package as verbs - that refer to performing a particular action on a dataframe. The core dplyr functions are:
+
+* `rename()`  renames columns
+
+* `filter()`  filters rows based on their values in specified columns
+
+* `select()`  selects (or removes) columns
+
+* `mutate()`  creates new columns based on transformation from other columns, edits values within existing columns
+
+* `group_by()`  splits dataframe into separate groups based on specified columns
+
+* `summarise()`  aggregates across rows to create a summary statistic (means, standard deviations, etc.)
+
+For more information on these functions [Visit the dplyr webpage](https://dplyr.tidyverse.org)
+
+If you have not done so already, install and load the dplyr package
+
+```{r eval=FALSE}
+install.packages("readr")
+```
+
+```{r warning=FALSE, collapse=TRUE, message=FALSE}
+library(dplyr)
+```
+
+
+Let's see a quick example of all these functions with the example dataframe you just imported.
+
+********
+
+You should always have in mind the final resulting dataframe you want to create. In this case, we want to calculate the mean and standard deviation reaction times (RT) for congruent and incongruent trials and for each subject individually. What we will end up with is a dataframe where each subject has two rows of data, one for congruent and one for incongruent conditions. Then columns specifying the Subject number, Condition, mean RT, and mean SD. That is four columns. The number of rows should be two times the number of subjects. Let's first evaluate how many subjects we have - so we can know exactly how many rows to expect. 
+
+The function `unique()` will create an array of all unique values in a column. Recall that to access a column in a dataframe we can use `$`. So we can get an array of all unique subject ids.
+
+```{r collapse=TRUE}
+unique(import$Subject)
+```
+
+Rather than counting how many elements there are we can just use `length()` evaluate how many elements there are in the array.
+
+```{r collapse=TRUE}
+length(unique(import$Subject))
+```
+
+Notice how you just wrapped a function around another function. This is allowed, and can make your script more concise.
+
+Cool, so in our final dataframe at the end of the R script we should expect to have **`r 2*length(unique(import$Subject))`** rows and **4** columns
+
+### rename()
+
+We do not really need to, but let's go ahead and `rename()` a column. How about instead of `ACC` let's label it as `Accuracy`. Pretty simple
+
+```{r collapse=TRUE, eval=TRUE}
+data <- rename(import, Accuracy = ACC)
+```
+
+`rename()` is really only useful if you are not also using `select()` or `mutate()`. In `select()` you can also rename columns as you select them to keep. I'll illustrate this later
+
+### filter()
+
+We do not want to include practice trials when calculating the mean and standard deviation on RTs. In other words we want to remove rows that correspond to practice trials. We will use `filter()` to do remove these rows. To do so we first need to know the name of the column that contains this information and the values in that column which identifies practice trials.
+
+  The column name is `TrialProc`
+
+```{r collapse=TRUE}
+unique(import$TrialProc)
+```
+  
+   And the value that identifies practice trials is `practice`. Real trials are identified as `real`
+  
+  `filter()` is inclusive so we can either specify
+
+```{r collapse=TRUE, eval=FALSE}
+data <- filter(data, TrialProc != "practice")
+```
+
+or
+
+```{r collapse=TRUE, eval=TRUE}
+data <- filter(data, TrialProc == "real")
+```
+
+There is a lot of consistency of how you specify arguments in the dplyr package. 1) You always first specify the dataframe that the function is being performed on, followed by the arguments for that function. 2) Column names can be called just like regular R objects, that is without putting the column name in `" "` like you do with strings. If all you know is dplyr, then this might not seem like anything special but it is. Most non-tidyverse functions will require you to put `" "` around column names.
+
+A filter is basically a logical statement. What we want to do is; If TrialProc is not equal to "practice" (or alternatively is equal to "real"), Then keep (include) the row - otherwise remove it.
+
+Notice that I passed the output of this function to a new object `data`. I like to keep the object `import` as the original imported file and any changes will be passed onto a new dataframe, such as `data`. This makes it easy to go back and see what the original data is. Because if we were to overwrite `import` then we would have to execute the `read_delim()` import function again to be able to see the original data file, just a little more tedious.
+
+Go ahead and view `data`. Did it properly remove `practice` trials? It can be hard to be certain about this when there are so many rows! To be certain evaulate unique values in `data$TrialProc`.
+
+```{r collapse=TRUE}
+unique(data$TrialProc)
+```
+
+Only "real" trials! Good.
+
+Now that I think of it, let's only calculate mean and standard deviation RTs on accurate trials. The column `ACC` contains information about whether the trial was accurate `1` or inaccurate `0`. Go ahead and filter on accuracy.
+
+To make your script more concise you should include both filters in the same function
+
+```{r collapse=TRUE}
+data <- filter(data, TrialProc == "real", Accuracy==1)
+```
+
+We are filtering on only real and accurate trials.
+
+### select()
+
+Let's see an example of `select()`. This step is actually not necessary because `summarise()` will end up removing irrelevant columns anyways. Let's keep at least one irrelevant column but remove the rest, so we can illustrate this when we get to `summarise()`.
+
+Let's keep `Subject`, `Condition`, `RT`, `Trial`, and `ACC` and remove `Response`, `TrialProc`, `TargetArrowDirection`, `SessionDate`, and `SessionTime`.
+
+`select()` is actually quite versatile - you can remove columns by specifying certain patterns. I will only cover a couple here, but to learn more [Visit the select() webpage](https://dplyr.tidyverse.org/reference/select.html)
+
+We could just simply select all the columns we want to keep
+
+```{r collapse=TRUE, eval=FALSE}
+data <- select(data, Subject, Condition, RT, Trial, Accuracy)
+```
+
+alternatively we can specify which columns we want to remove by placing a `-` in front of the columns
+
+```{r collapse=TRUE, eval=FALSE}
+data <- select(data, -Response, -TrialProc, -TargetArrowDirection, -SessionDate, -SessionTime)
+```
+
+or we can remove (or keep) columns based on a pattern. For instance `SessionDate` and `SessionTime` both start with `Session`
+
+```{r collapse=TRUE, eval=FALSE}
+data <- select(data, -Response, -TrialProc, -TargetArrowDirection, -starts_with("Session"))
+```
+
+You might start realizing that there is always more than one way to perform the same operation. It is good to be aware of all the ways you can use a function because there might be certain scenarios where it is better or even required to use one method over another. In this example, you only need to know the most straightfoward method of simply selecting which columns to keep. 
+
+You can also rename variables as you `select()` them... let's change `Accuracy` back to `ACC`... just beacuse we are crazy!
+
+```{r collapse=TRUE}
+data <- select(data, Subject, Condition, RT, Trial, ACC = Accuracy)
+```
+
+We are keeping `Subject`, `Condition`, `RT`, `Trial`, and renaming `ACC` to `Accuracy`.
+
+### mutate()
+
+`mutate()` is a very powerful function. It basically allows you to do any computation or transformation on the values in the dataframe. You can create new columns based on transformations of other columns or simply change the values in already existing columns. Let's see an example of both. 
+
+#### Changing values in an existing column
+
+Reaction times that are less than 200 milliseconds most likely do not reflect actual processing of the task. Therefore, it would be a good idea to not include these when calculating mean and standard deviations. We could use `filter()` to do this - and that might be the better way to do it but for the sake of the tutorial let's use `mutate()`. 
+
+What we are going to do is is set any RTs that are less than `200` milliseconds to missing, `NA`. First let's make sure we even have trials that are less than `200` milliseconds. Two ways to do this. 1) View the dataframe and click on the `RT` column to sort by RT. You can see there are RTs that are as small as 1 millisecond! Oh my, that is definitely not a real reaction time. 2) you can just evaluate the minimum value in the RT column:
+
+```{r collapse=TRUE}
+min(data$RT)
+```
+
+Now lets `mutate()`
+
+```{r collapse=TRUE, eval=TRUE}
+data <- mutate(data, RT = ifelse(RT<200, NA, RT))
+```
+
+Since we are replacing values in an already existing column we can just specify that column name, `RT = ` followed by the transformation. Here we need to specify an if...then... else statment. To do so within the `mutate()` function we use the function called `ifelse()`. 
+
+`ifelse()` evaluates a logical statement specified in the first argument, `RT<200`. `mutate()` works on a row-by-row basis. So for each row it will evaluate whether `RT` is less than 200. If this logical statement is `TRUE` then it will perform the next agrument, in this case sets `RT = NA`. If the logical statement is false then it will perform the last argument, in this case sets `RT = RT` (leaves the value unchanged). 
+
+#### Creating a new column
+
+Let's say for whatever reason we want to calculate the difference between the RT on a trial minus the overall grand mean RT (for now, accross all subjects and all trials). This is not necessary for what we want in the end but what the heck, let's be a little crazy. (I just need a good example to illustrate what `mutate()` can do.)
+
+So first we will want to calculate a "grand" mean RT. We can use the `mean()` function to calculate a mean. 
+
+```{r collapse=TRUE}
+mean(data$RT, na.rm = TRUE)
+```
+
+Since we replaced some of the `RT` values with `NA` we need to make sure we specify in the `mean()` function to remove `NAs` by setting `na.rm = TRUE`.
+
+We can use the `mean()` function inside of a `mutate()` function. Let's put this "grand" mean in a column labeled `grandRT`.
+
+First take note of how many columns there are in `data`
+
+```{r collapse=TRUE}
+ncol(data)
+```
+
+So after calculating the grandRT we should expect there to be one additional column for a total of `r ncol(data) + 1` columns
+
+```{r collapse=TRUE, eval=FALSE}
+data <- mutate(data, grandRT = mean(RT, na.rm=TRUE))
+```
+
+Cool! 
+
+Now let's calculate another column that is the difference between `RT` and `grandRT`.
+
+```{r collapse=TRUE, eval=FALSE}
+data <- mutate(data, RTdiff = RT - grandRT)
+```
+
+We can put all these `mutate()s` into one `mutate()`
+
+```{r collapse=TRUE}
+data <- mutate(data, 
+               RT = ifelse(RT<200, NA, RT),
+               grandRT = mean(RT, na.rm=TRUE),
+               RTdiff = RT - grandRT)
+```
+
+Notice how I put each one on a seperate line. This is just for ease of reading and so the line doesn't extend too far off the page. Just make sure the commas are still there at the end of each line.
+
+### group_by()
+
+This function is very handy if we want to perform functions seperately on different groups or splits of the dataframe. For instance, maybe instead of calculating an overall "grand" mean we want to calculate a "grand" mean for each Subject seperately. Instead of manually breaking the dataframe up by Subject, the `group_by()` function does this automatically in the background. Like this...
+
+```{r collapse=TRUE, eval=FALSE}
+data <- group_by(data, Subject)
+data <- mutate(data, 
+               RT = ifelse(RT<200, NA, RT),
+               grandRT = mean(RT, na.rm=TRUE),
+               RTdiff = RT - grandRT)
+```
+
+You will now notice that each subject has a different `grandRT`, simply because we specified `group_by(data, Subject)`. Let's say we want to do it not just grouped by Subject, but also Condition.
+
+```{r collapse=TRUE, eval=FALSE}
+data <- group_by(data, Subject, Condition)
+data <- mutate(data, 
+               RT = ifelse(RT<200, NA, RT),
+               grandRT = mean(RT, na.rm=TRUE),
+               RTdiff = RT - grandRT)
+```
+
+`group_by()` does not only work on `mutate()` - it will work on any other functions you specify after `group_by()`. I suggest exercising caution when using `group_by()` because the grouping will be maintained until you specify a different `group_by()` or until you ungroup it using `ungroup()`. So I always like to `ungroup()` immediately after I am done with it.
+
+```{r collapse=TRUE, eval=TRUE}
+data <- group_by(data, Subject, Condition)
+data <- mutate(data, 
+               RT = ifelse(RT<200, NA, RT),
+               grandRT = mean(RT, na.rm=TRUE),
+               RTdiff = RT - grandRT)
+data <- ungroup(data)
+```
+
+### summarise()
+
+Finally we arrive at `summarise()`. We've done our filtering, selecting, mutating, now let's aggergate RTs accross `Condition` to calculate mean and standard deviations. We will use a combo of `group_by()` and `summarise()`. `summarise()` is almost always used in conjunction with `group_by()`. 
+
+```{r collapse=TRUE}
+data <- group_by(data, Subject, Condition)
+data <- summarise(data, 
+                  RT.mean = mean(RT, na.rm = TRUE),
+                  RT.sd = sd(RT, na.rm = TRUE))
+```
+To `summarise()` you need to create new column names that will contain the aggregate values. `RT.mean` and `RT.sd` seem to make sense to me.
+
+How many rows and columns does `data` have? Recall we were expecting 820 rows with 4 columns. Is that right? Does each subject have two rows as expected?
+
+Also notice how irrelevant columns got removed: `Trial`, and `ACC`.
+
+Aweseome!
+
+### Pipe Operator %>%
+
+One last thing about the dplyr package. dplyr allows for passing the output from one function to another using what is called a pipe operatior.
+
+The pipe operator is: `%>%`
+
+This makes code more concise, easier to read, and easier to edit. When you pass the output of one function to another with `%>%` you do not need to specify the dataframe (input) on the next function. `%>%` implies that the input is the output from the previous funciton, so this is made implicit.
+
+We can pipe all the functions in the chapter together as such
+
+```{r collapse=TRUE, message=FALSE}
+library(readr)
+library(dplyr)
+
+import <- read_delim("data/Flanker_raw.txt", "\t", escape_double = FALSE, trim_ws = TRUE)
+
+data <- import %>%
+  rename(Accuracy = ACC) %>%
+  filter(TrialProc == "real") %>%
+  select(Subject, Condition, RT, Trial, ACC = Accuracy) %>%
+  group_by(Subject, Condition) %>%
+  mutate(RT = ifelse(RT<200, NA, RT),
+         grandRT = mean(RT, na.rm=TRUE),
+         RTdiff = RT - grandRT) %>%
+  summarise(RT.mean = mean(RT, na.rm = TRUE),
+            RT.sd = sd(RT, na.rm = TRUE)) %>%
+  ungroup()
+```
+
+## readr - export
+
+The point of an R script is not to create a dataframe in your **Environment**. The purpose is to 1) import a file (readr), 2) do some stuff to it (dplyr), then 3) save a file to your computer (readr).
+
+You have done the first two steps. Now, you need to save this created dataframe `data` to a file. Again we will utilize the readr package.
+
+```{r collapse=TRUE, eval=FALSE}
+write_delim(data, path = "data/Flanker_Scored.txt", delim = "\t", na = "")
+```
+
+This is the standard function and arguments I will use when saving to a file.
+
+The first argument is the object or dataframe that you want to save. 
+
+`path` is the entire file path to save to, including filename and extension.
+
+`delim` is how you want to delimit the text file. As a lab, we have a standard to save files in a tab delimited format, `"\t"`
+
+`na` is what value to use for missing `NA` values. As a lab, we have a standard to use blanks `""` for missing values. This is not always necessary but I put it in just to be safe. 
+
+Alternatively, you might like to use SPSS to do statistical analyses. If your dataframe is ready to be imported to SPSS for statistical analyses then you can save the file as a .sav file using the `haven` package. Go ahead and install `haven`
+
+```{r eval=FALSE}
+install.packages("haven")
+```
+
+```{r message=FALSE, collapse=TRUE}
+library(haven)
+```
+
+To save as .sav is sipmle
+
+```{r eval=FALSE}
+write_sav(data, path = "data/Flanker_Scored.sav")
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=ls())
+```
+
+
+********
+
+Virtually all the R scripts you write will require the `dplyr` package. The more you know what it can do, the easier it will be for you to write R Scripts. I highly suggest checking out these introductions to `dplyr`. 
+
+https://dplyr.tidyverse.org
+https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html
+
+********
+
+**Cool! Before moving on to writing more R scripts, we need to talk about organization and workflow**

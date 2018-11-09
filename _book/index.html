@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R Tutorial for the EngleLab</title>
+  <meta name="description" content="This is a short R Tutorial for the EngleLab">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R Tutorial for the EngleLab" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a short R Tutorial for the EngleLab" />
+  <meta name="github-repo" content="dr-JT" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R Tutorial for the EngleLab" />
+  
+  <meta name="twitter:description" content="This is a short R Tutorial for the EngleLab" />
+  
+
+<meta name="author" content="Jason Tsukahara">
+
+
+<meta name="date" content="2018-10-17">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="installation.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
+<li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
+<li class="chapter" data-level="1.2" data-path="installation.html"><a href="installation.html#installing-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R Studio</a></li>
+<li class="chapter" data-level="1.3" data-path="installation.html"><a href="installation.html#the-r-studio-environemnt"><i class="fa fa-check"></i><b>1.3</b> The R Studio Environemnt</a></li>
+<li class="chapter" data-level="1.4" data-path="installation.html"><a href="installation.html#r-studio-settings"><i class="fa fa-check"></i><b>1.4</b> R Studio Settings</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Basics</a><ul>
+<li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#creating-r-objects"><i class="fa fa-check"></i><b>2.1</b> Creating R objects</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="basics.html"><a href="basics.html#classes"><i class="fa fa-check"></i><b>2.1.1</b> Classes</a></li>
+<li class="chapter" data-level="2.1.2" data-path="basics.html"><a href="basics.html#vectors"><i class="fa fa-check"></i><b>2.1.2</b> Vectors</a></li>
+<li class="chapter" data-level="2.1.3" data-path="basics.html"><a href="basics.html#factors"><i class="fa fa-check"></i><b>2.1.3</b> Factors</a></li>
+<li class="chapter" data-level="2.1.4" data-path="basics.html"><a href="basics.html#lists"><i class="fa fa-check"></i><b>2.1.4</b> Lists</a></li>
+<li class="chapter" data-level="2.1.5" data-path="basics.html"><a href="basics.html#data-frames"><i class="fa fa-check"></i><b>2.1.5</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#ifthen-statements"><i class="fa fa-check"></i><b>2.2</b> If…then Statements</a></li>
+<li class="chapter" data-level="2.3" data-path="basics.html"><a href="basics.html#for-loops"><i class="fa fa-check"></i><b>2.3</b> For Loops</a></li>
+<li class="chapter" data-level="2.4" data-path="basics.html"><a href="basics.html#functions"><i class="fa fa-check"></i><b>2.4</b> Functions</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="basics.html"><a href="basics.html#creating-your-own-functions"><i class="fa fa-check"></i><b>2.4.1</b> Creating Your Own Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="basics.html"><a href="basics.html#r-packages"><i class="fa fa-check"></i><b>2.5</b> R Packages</a></li>
+<li class="chapter" data-level="2.6" data-path="basics.html"><a href="basics.html#installing-and-loading-r-packages"><i class="fa fa-check"></i><b>2.6</b> Installing and Loading R Packages</a></li>
+<li class="chapter" data-level="2.7" data-path="basics.html"><a href="basics.html#more-r-basic-resources"><i class="fa fa-check"></i><b>2.7</b> More R Basic Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>3</b> Workflow</a></li>
+<li class="chapter" data-level="4" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i><b>4</b> The tidyverse</a><ul>
+<li class="chapter" data-level="4.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#readr---import"><i class="fa fa-check"></i><b>4.1</b> readr - import</a></li>
+<li class="chapter" data-level="4.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#dplyr"><i class="fa fa-check"></i><b>4.2</b> dplyr</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#rename"><i class="fa fa-check"></i><b>4.2.1</b> rename()</a></li>
+<li class="chapter" data-level="4.2.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#filter"><i class="fa fa-check"></i><b>4.2.2</b> filter()</a></li>
+<li class="chapter" data-level="4.2.3" data-path="the-tidyverse.html"><a href="the-tidyverse.html#select"><i class="fa fa-check"></i><b>4.2.3</b> select()</a></li>
+<li class="chapter" data-level="4.2.4" data-path="the-tidyverse.html"><a href="the-tidyverse.html#mutate"><i class="fa fa-check"></i><b>4.2.4</b> mutate()</a></li>
+<li class="chapter" data-level="4.2.5" data-path="the-tidyverse.html"><a href="the-tidyverse.html#group_by"><i class="fa fa-check"></i><b>4.2.5</b> group_by()</a></li>
+<li class="chapter" data-level="4.2.6" data-path="the-tidyverse.html"><a href="the-tidyverse.html#summarise"><i class="fa fa-check"></i><b>4.2.6</b> summarise()</a></li>
+<li class="chapter" data-level="4.2.7" data-path="the-tidyverse.html"><a href="the-tidyverse.html#pipe-operator"><i class="fa fa-check"></i><b>4.2.7</b> Pipe Operator %&gt;%</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="the-tidyverse.html"><a href="the-tidyverse.html#readr---export"><i class="fa fa-check"></i><b>4.3</b> readr - export</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html"><i class="fa fa-check"></i><b>5</b> Organization and Good Practices</a><ul>
+<li class="chapter" data-level="5.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#r-scripts"><i class="fa fa-check"></i><b>5.1</b> R Scripts</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#general-workflow"><i class="fa fa-check"></i><b>5.1.1</b> General Workflow</a></li>
+<li class="chapter" data-level="5.1.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#building-a-template-workflow"><i class="fa fa-check"></i><b>5.1.2</b> Building a Template Workflow</a></li>
+<li class="chapter" data-level="5.1.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#rmlistls"><i class="fa fa-check"></i><b>5.1.3</b> rm(list=ls())</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#working-directory"><i class="fa fa-check"></i><b>5.2</b> Working Directory</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#r-projects"><i class="fa fa-check"></i><b>5.2.1</b> R Projects</a></li>
+<li class="chapter" data-level="5.2.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#here"><i class="fa fa-check"></i><b>5.2.2</b> here()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#the-masterscript"><i class="fa fa-check"></i><b>5.3</b> The masterscript</a></li>
+<li class="chapter" data-level="5.4" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#folder-organization"><i class="fa fa-check"></i><b>5.4</b> Folder Organization</a></li>
+<li class="chapter" data-level="5.5" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#naming-r-scripts"><i class="fa fa-check"></i><b>5.5</b> Naming R Scripts</a></li>
+<li class="chapter" data-level="5.6" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#summary"><i class="fa fa-check"></i><b>5.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html"><i class="fa fa-check"></i><b>6</b> Messy to Tidy Raw Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#what-to-include"><i class="fa fa-check"></i><b>6.1</b> What to Include</a></li>
+<li class="chapter" data-level="6.2" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#flanker-example"><i class="fa fa-check"></i><b>6.2</b> Flanker Example</a></li>
+<li class="chapter" data-level="6.3" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#import-messy-data"><i class="fa fa-check"></i><b>6.3</b> Import “messy” data</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#remove-duplicate-subjects"><i class="fa fa-check"></i><b>6.3.1</b> Remove Duplicate Subjects</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#tidy-up"><i class="fa fa-check"></i><b>6.4</b> “Tidy” Up</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#filter-1"><i class="fa fa-check"></i><b>6.4.1</b> Filter</a></li>
+<li class="chapter" data-level="6.4.2" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#rename-1"><i class="fa fa-check"></i><b>6.4.2</b> Rename</a></li>
+<li class="chapter" data-level="6.4.3" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#mutate-1"><i class="fa fa-check"></i><b>6.4.3</b> Mutate</a></li>
+<li class="chapter" data-level="6.4.4" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#select-1"><i class="fa fa-check"></i><b>6.4.4</b> Select</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#save-to-file"><i class="fa fa-check"></i><b>6.5</b> Save to File</a></li>
+<li class="chapter" data-level="6.6" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#stroop-example-optional"><i class="fa fa-check"></i><b>6.6</b> Stroop Example <strong>[OPTIONAL]</strong></a></li>
+<li class="chapter" data-level="6.7" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#binding-individual-subject-files"><i class="fa fa-check"></i><b>6.7</b> Binding Individual Subject Files</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html"><i class="fa fa-check"></i><b>7</b> Tidy Raw to Scored Data</a><ul>
+<li class="chapter" data-level="7.1" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#flanker-example-1"><i class="fa fa-check"></i><b>7.1</b> Flanker Example</a></li>
+<li class="chapter" data-level="7.2" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#import-raw-data"><i class="fa fa-check"></i><b>7.2</b> Import “raw” data</a></li>
+<li class="chapter" data-level="7.3" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#aggregating-performance"><i class="fa fa-check"></i><b>7.3</b> Aggregating Performance</a></li>
+<li class="chapter" data-level="7.4" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#reshape-dataframes"><i class="fa fa-check"></i><b>7.4</b> Reshape Dataframes</a></li>
+<li class="chapter" data-level="7.5" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#calculate-scores"><i class="fa fa-check"></i><b>7.5</b> Calculate Scores</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#flanker-effect"><i class="fa fa-check"></i><b>7.5.1</b> Flanker Effect</a></li>
+<li class="chapter" data-level="7.5.2" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#binned-scores"><i class="fa fa-check"></i><b>7.5.2</b> Binned Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#data-cleaning"><i class="fa fa-check"></i><b>7.6</b> Data Cleaning</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#minimum-rt-criteria"><i class="fa fa-check"></i><b>7.6.1</b> Minimum RT Criteria</a></li>
+<li class="chapter" data-level="7.6.2" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#sds-on-rt-criteria"><i class="fa fa-check"></i><b>7.6.2</b> SDs on RT Criteria</a></li>
+<li class="chapter" data-level="7.6.3" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#sds-on-accuracy"><i class="fa fa-check"></i><b>7.6.3</b> SDs on Accuracy</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#merging-data-files"><i class="fa fa-check"></i><b>7.7</b> Merging Data Files</a></li>
+<li class="chapter" data-level="7.8" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#save-dataframe-to-file"><i class="fa fa-check"></i><b>7.8</b> Save dataframe to File</a></li>
+<li class="chapter" data-level="7.9" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#finalize-your-script"><i class="fa fa-check"></i><b>7.9</b> Finalize Your Script</a></li>
+<li class="chapter" data-level="7.10" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#stroop-example"><i class="fa fa-check"></i><b>7.10</b> Stroop Example</a></li>
+<li class="chapter" data-level="7.11" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#conclusions"><i class="fa fa-check"></i><b>7.11</b> Conclusions</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="my-templates.html"><a href="my-templates.html"><i class="fa fa-check"></i><b>8</b> My Templates</a><ul>
+<li class="chapter" data-level="8.1" data-path="my-templates.html"><a href="my-templates.html#masterscript-template"><i class="fa fa-check"></i><b>8.1</b> masterscript Template</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="my-templates.html"><a href="my-templates.html#directories.rds"><i class="fa fa-check"></i><b>8.1.1</b> directories.rds</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Tutorial for the EngleLab</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">R Tutorial for the EngleLab</h1>
+<h4 class="author"><em>Jason Tsukahara</em></h4>
+<h4 class="date"><em>2018-10-17</em></h4>
+</div>
+<div id="preface" class="section level1 unnumbered">
+<h1>Preface</h1>
+<p>This is an R Tutorial designed specifically for the EngleLab.</p>
+<p>This tutorial is specific to what you would need to know to do most data processing and analyses that are common in our lab. Hopefully this will mean less time learning R and more time using R. And as you start using R, you can learn more about it as you go.</p>
+<p>There are more detailed tutorials and resources mentioned throughout this guide. If you want to become more proficient in R it is a good idea to go through those as well.</p>
+<p>I essentially learned R by using it and Googling how to do certain things in R. There are a lot of forums where people have asked the same questions as you and someone has provided a clear answer. I suggest taking advantage of Google in this way.</p>
+<p>R is becoming a popular tool for doing statistical analyses across many scientific disciplines. It has many advantages but it does also takes some time to learn.</p>
+<p><strong>Chapters 1 and 2</strong> go over the basics of what you need to know to start using R.</p>
+<p><strong>Chapter 3</strong> introduces the general data processing workflow in our lab.</p>
+<p><strong>Chapter 4</strong> covers the basics of working with dataframes, including how to do transformations, computations, creating new variables, filtering, renaming, merging and more. This will give you the skills you need to go from raw data files to a data file that is organized and ready for statistical analyses.</p>
+<p><strong>Chapter 5</strong> will cover principles of how you should structure and organize the workflow in your R scripts. <strong>This chapter is very important</strong></p>
+<p>In <strong>Chapters 6 and 7</strong> you will use a Flanker data set as an example of how to go from a “messy” raw data file to a “tidy” raw data file and finally to a scored task file that is ready for statistical analysis.</p>
+<hr />
+<p><strong>Before getting into using R, let’s talk about how R scripts can automate our workflow.</strong></p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="installation.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>

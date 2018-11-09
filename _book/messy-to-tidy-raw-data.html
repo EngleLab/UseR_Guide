@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R Tutorial for the EngleLab</title>
+  <meta name="description" content="This is a short R Tutorial for the EngleLab">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R Tutorial for the EngleLab" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a short R Tutorial for the EngleLab" />
+  <meta name="github-repo" content="dr-JT" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R Tutorial for the EngleLab" />
+  
+  <meta name="twitter:description" content="This is a short R Tutorial for the EngleLab" />
+  
+
+<meta name="author" content="Jason Tsukahara">
+
+
+<meta name="date" content="2018-10-17">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="organization-and-good-practices.html">
+<link rel="next" href="tidy-raw-to-scored-data.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
+<li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
+<li class="chapter" data-level="1.2" data-path="installation.html"><a href="installation.html#installing-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R Studio</a></li>
+<li class="chapter" data-level="1.3" data-path="installation.html"><a href="installation.html#the-r-studio-environemnt"><i class="fa fa-check"></i><b>1.3</b> The R Studio Environemnt</a></li>
+<li class="chapter" data-level="1.4" data-path="installation.html"><a href="installation.html#r-studio-settings"><i class="fa fa-check"></i><b>1.4</b> R Studio Settings</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Basics</a><ul>
+<li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#creating-r-objects"><i class="fa fa-check"></i><b>2.1</b> Creating R objects</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="basics.html"><a href="basics.html#classes"><i class="fa fa-check"></i><b>2.1.1</b> Classes</a></li>
+<li class="chapter" data-level="2.1.2" data-path="basics.html"><a href="basics.html#vectors"><i class="fa fa-check"></i><b>2.1.2</b> Vectors</a></li>
+<li class="chapter" data-level="2.1.3" data-path="basics.html"><a href="basics.html#factors"><i class="fa fa-check"></i><b>2.1.3</b> Factors</a></li>
+<li class="chapter" data-level="2.1.4" data-path="basics.html"><a href="basics.html#lists"><i class="fa fa-check"></i><b>2.1.4</b> Lists</a></li>
+<li class="chapter" data-level="2.1.5" data-path="basics.html"><a href="basics.html#data-frames"><i class="fa fa-check"></i><b>2.1.5</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#ifthen-statements"><i class="fa fa-check"></i><b>2.2</b> If…then Statements</a></li>
+<li class="chapter" data-level="2.3" data-path="basics.html"><a href="basics.html#for-loops"><i class="fa fa-check"></i><b>2.3</b> For Loops</a></li>
+<li class="chapter" data-level="2.4" data-path="basics.html"><a href="basics.html#functions"><i class="fa fa-check"></i><b>2.4</b> Functions</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="basics.html"><a href="basics.html#creating-your-own-functions"><i class="fa fa-check"></i><b>2.4.1</b> Creating Your Own Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="basics.html"><a href="basics.html#r-packages"><i class="fa fa-check"></i><b>2.5</b> R Packages</a></li>
+<li class="chapter" data-level="2.6" data-path="basics.html"><a href="basics.html#installing-and-loading-r-packages"><i class="fa fa-check"></i><b>2.6</b> Installing and Loading R Packages</a></li>
+<li class="chapter" data-level="2.7" data-path="basics.html"><a href="basics.html#more-r-basic-resources"><i class="fa fa-check"></i><b>2.7</b> More R Basic Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>3</b> Workflow</a></li>
+<li class="chapter" data-level="4" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i><b>4</b> The tidyverse</a><ul>
+<li class="chapter" data-level="4.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#readr---import"><i class="fa fa-check"></i><b>4.1</b> readr - import</a></li>
+<li class="chapter" data-level="4.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#dplyr"><i class="fa fa-check"></i><b>4.2</b> dplyr</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#rename"><i class="fa fa-check"></i><b>4.2.1</b> rename()</a></li>
+<li class="chapter" data-level="4.2.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#filter"><i class="fa fa-check"></i><b>4.2.2</b> filter()</a></li>
+<li class="chapter" data-level="4.2.3" data-path="the-tidyverse.html"><a href="the-tidyverse.html#select"><i class="fa fa-check"></i><b>4.2.3</b> select()</a></li>
+<li class="chapter" data-level="4.2.4" data-path="the-tidyverse.html"><a href="the-tidyverse.html#mutate"><i class="fa fa-check"></i><b>4.2.4</b> mutate()</a></li>
+<li class="chapter" data-level="4.2.5" data-path="the-tidyverse.html"><a href="the-tidyverse.html#group_by"><i class="fa fa-check"></i><b>4.2.5</b> group_by()</a></li>
+<li class="chapter" data-level="4.2.6" data-path="the-tidyverse.html"><a href="the-tidyverse.html#summarise"><i class="fa fa-check"></i><b>4.2.6</b> summarise()</a></li>
+<li class="chapter" data-level="4.2.7" data-path="the-tidyverse.html"><a href="the-tidyverse.html#pipe-operator"><i class="fa fa-check"></i><b>4.2.7</b> Pipe Operator %&gt;%</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="the-tidyverse.html"><a href="the-tidyverse.html#readr---export"><i class="fa fa-check"></i><b>4.3</b> readr - export</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html"><i class="fa fa-check"></i><b>5</b> Organization and Good Practices</a><ul>
+<li class="chapter" data-level="5.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#r-scripts"><i class="fa fa-check"></i><b>5.1</b> R Scripts</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#general-workflow"><i class="fa fa-check"></i><b>5.1.1</b> General Workflow</a></li>
+<li class="chapter" data-level="5.1.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#building-a-template-workflow"><i class="fa fa-check"></i><b>5.1.2</b> Building a Template Workflow</a></li>
+<li class="chapter" data-level="5.1.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#rmlistls"><i class="fa fa-check"></i><b>5.1.3</b> rm(list=ls())</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#working-directory"><i class="fa fa-check"></i><b>5.2</b> Working Directory</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#r-projects"><i class="fa fa-check"></i><b>5.2.1</b> R Projects</a></li>
+<li class="chapter" data-level="5.2.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#here"><i class="fa fa-check"></i><b>5.2.2</b> here()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#the-masterscript"><i class="fa fa-check"></i><b>5.3</b> The masterscript</a></li>
+<li class="chapter" data-level="5.4" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#folder-organization"><i class="fa fa-check"></i><b>5.4</b> Folder Organization</a></li>
+<li class="chapter" data-level="5.5" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#naming-r-scripts"><i class="fa fa-check"></i><b>5.5</b> Naming R Scripts</a></li>
+<li class="chapter" data-level="5.6" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#summary"><i class="fa fa-check"></i><b>5.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html"><i class="fa fa-check"></i><b>6</b> Messy to Tidy Raw Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#what-to-include"><i class="fa fa-check"></i><b>6.1</b> What to Include</a></li>
+<li class="chapter" data-level="6.2" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#flanker-example"><i class="fa fa-check"></i><b>6.2</b> Flanker Example</a></li>
+<li class="chapter" data-level="6.3" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#import-messy-data"><i class="fa fa-check"></i><b>6.3</b> Import “messy” data</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#remove-duplicate-subjects"><i class="fa fa-check"></i><b>6.3.1</b> Remove Duplicate Subjects</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#tidy-up"><i class="fa fa-check"></i><b>6.4</b> “Tidy” Up</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#filter-1"><i class="fa fa-check"></i><b>6.4.1</b> Filter</a></li>
+<li class="chapter" data-level="6.4.2" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#rename-1"><i class="fa fa-check"></i><b>6.4.2</b> Rename</a></li>
+<li class="chapter" data-level="6.4.3" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#mutate-1"><i class="fa fa-check"></i><b>6.4.3</b> Mutate</a></li>
+<li class="chapter" data-level="6.4.4" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#select-1"><i class="fa fa-check"></i><b>6.4.4</b> Select</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#save-to-file"><i class="fa fa-check"></i><b>6.5</b> Save to File</a></li>
+<li class="chapter" data-level="6.6" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#stroop-example-optional"><i class="fa fa-check"></i><b>6.6</b> Stroop Example <strong>[OPTIONAL]</strong></a></li>
+<li class="chapter" data-level="6.7" data-path="messy-to-tidy-raw-data.html"><a href="messy-to-tidy-raw-data.html#binding-individual-subject-files"><i class="fa fa-check"></i><b>6.7</b> Binding Individual Subject Files</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html"><i class="fa fa-check"></i><b>7</b> Tidy Raw to Scored Data</a><ul>
+<li class="chapter" data-level="7.1" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#flanker-example-1"><i class="fa fa-check"></i><b>7.1</b> Flanker Example</a></li>
+<li class="chapter" data-level="7.2" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#import-raw-data"><i class="fa fa-check"></i><b>7.2</b> Import “raw” data</a></li>
+<li class="chapter" data-level="7.3" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#aggregating-performance"><i class="fa fa-check"></i><b>7.3</b> Aggregating Performance</a></li>
+<li class="chapter" data-level="7.4" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#reshape-dataframes"><i class="fa fa-check"></i><b>7.4</b> Reshape Dataframes</a></li>
+<li class="chapter" data-level="7.5" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#calculate-scores"><i class="fa fa-check"></i><b>7.5</b> Calculate Scores</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#flanker-effect"><i class="fa fa-check"></i><b>7.5.1</b> Flanker Effect</a></li>
+<li class="chapter" data-level="7.5.2" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#binned-scores"><i class="fa fa-check"></i><b>7.5.2</b> Binned Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#data-cleaning"><i class="fa fa-check"></i><b>7.6</b> Data Cleaning</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#minimum-rt-criteria"><i class="fa fa-check"></i><b>7.6.1</b> Minimum RT Criteria</a></li>
+<li class="chapter" data-level="7.6.2" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#sds-on-rt-criteria"><i class="fa fa-check"></i><b>7.6.2</b> SDs on RT Criteria</a></li>
+<li class="chapter" data-level="7.6.3" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#sds-on-accuracy"><i class="fa fa-check"></i><b>7.6.3</b> SDs on Accuracy</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#merging-data-files"><i class="fa fa-check"></i><b>7.7</b> Merging Data Files</a></li>
+<li class="chapter" data-level="7.8" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#save-dataframe-to-file"><i class="fa fa-check"></i><b>7.8</b> Save dataframe to File</a></li>
+<li class="chapter" data-level="7.9" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#finalize-your-script"><i class="fa fa-check"></i><b>7.9</b> Finalize Your Script</a></li>
+<li class="chapter" data-level="7.10" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#stroop-example"><i class="fa fa-check"></i><b>7.10</b> Stroop Example</a></li>
+<li class="chapter" data-level="7.11" data-path="tidy-raw-to-scored-data.html"><a href="tidy-raw-to-scored-data.html#conclusions"><i class="fa fa-check"></i><b>7.11</b> Conclusions</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="my-templates.html"><a href="my-templates.html"><i class="fa fa-check"></i><b>8</b> My Templates</a><ul>
+<li class="chapter" data-level="8.1" data-path="my-templates.html"><a href="my-templates.html#masterscript-template"><i class="fa fa-check"></i><b>8.1</b> masterscript Template</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="my-templates.html"><a href="my-templates.html#directories.rds"><i class="fa fa-check"></i><b>8.1.1</b> directories.rds</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Tutorial for the EngleLab</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="messy-to-tidy-raw-data" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Messy to Tidy Raw Data</h1>
+<p><img src="images/workflow.png" width="1276" /></p>
+<p>This Chapter will cover the functions that will be used to convert a “messy” raw data file to a “tidy” raw data file.</p>
+<p>I <strong>highly</strong> reccommend doing this for every task you use in all your studies. This will make it much easier to go back and look at raw data when you need to.</p>
+<hr />
+<div id="what-to-include" class="section level2">
+<h2><span class="header-section-number">6.1</span> What to Include</h2>
+<p>Creating a “tidy” raw data file is essentialy a process of elimination. Getting rid of columns and rows that have no value. You may also want to rename variables and values.</p>
+<p>So what should you keep?</p>
+<p>You want to keep all variables (columns) that are essential to the design of the task. This might include a column that specifies the condition for each trial, a column that specifies a feature of the target stimulus, performance variables, and more.</p>
+<p>As for rows, I suggest keeping both practice and real trials. It is easy to filter out practice trials later. The “tidy” raw data file should contain only one row per trial per subject.</p>
+<p>You should probably rename variables and values to be easy for those unfamiliar with how the task was programmed to understand. Also if you have similar tasks (<em>Flanker</em> and <em>Stroop</em>) it is probably a good idea to give similar names to variables and values. For instance, give the same name to the column that contains the condition (<em>congruent</em>, <em>incongruent</em>). Also use the same value names for each condition (not <em>congruent</em> for one task, and <em>cong</em> for another). Use a standard name for columns with reaction time and accuracy values (RT, Accuracy).</p>
+</div>
+<div id="flanker-example" class="section level2">
+<h2><span class="header-section-number">6.2</span> Flanker Example</h2>
+<p>For this tutorial we will use an example data set from the Arrow Flanker task. If you wish to follow along using a different data set that is okay too.</p>
+<p>You can download this example data set here</p>
+<p><a href="http://englelab.gatech.edu/R/example_data/Flanker.zip">Download Example Flanker Data</a></p>
+<p>One of the files is an E-Merged file, the other is the E-Merged file exported to a tab-delimited .txt file.</p>
+<p>Typically, when you are doing a study there are a couple of steps you need to do in order to get these two files.</p>
+<ol style="list-style-type: decimal">
+<li><p>You need to create an E-Merged file using the E-Merge software.</p></li>
+<li><p>You need to export that E-Merged file to a .txt file.</p></li>
+</ol>
+<p>I have done these two steps for you already.</p>
+</div>
+<div id="import-messy-data" class="section level2">
+<h2><span class="header-section-number">6.3</span> Import “messy” data</h2>
+<p>The first step is importing the E-merged .txt data file. To do this use the <code>read_delim</code> function from the <code>readr</code> package.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb99-2" data-line-number="2">import &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/Flanker.txt&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>You can then view the data file with</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="kw">View</span>(import)</a></code></pre></div>
+<p>Notice the dataframe <code>import</code> in the environment window now. You can also click on the dataframe in the environemnt window to view it.</p>
+<p>It is a mess, right? Here are some things you need to know about the “messy” raw data file. These are the columns and what type of values they contain:</p>
+<hr />
+<p><strong>Subject</strong>: Subject number</p>
+<p><strong>Procedure[Trial]</strong>: Procedure type (keep: TrialProc and PracTrialProc)</p>
+<p><strong>PracTrialList.Sample</strong>: Trial number for practice trials</p>
+<p><strong>TrialList.Sample</strong>: Trial number for real trials</p>
+<p><strong>FlankerType</strong>: condition for real and practice trials (Values are: congruent, incongruent)</p>
+<p><strong>PracSlideTarget.RT</strong>: Reaction time for practice trials</p>
+<p><strong>PracSlideTarget.ACC</strong>: Accuracy for practice trials</p>
+<p><strong>PracSlideTarget.RESP</strong>: Response for practice trials ({LEFTARROW} = left and {RIGHTARROW} = right)</p>
+<p><strong>SlideTarget.RT</strong>: Reaction time for real trials</p>
+<p><strong>SlideTarget.ACC</strong>: Accuracy for real trials</p>
+<p><strong>SlideTarget.RESP</strong>: Response for real trials ({LEFTARROW} = left and {RIGHTARROW} = right)</p>
+<p><strong>TargerDirection</strong>: direction of the target arrow for practice trials</p>
+<p><strong>TargetDirection</strong>: direction of the target arrow for real trials</p>
+<p><strong>SessionDate</strong>: Date of session</p>
+<p><strong>SessionTime</strong>: Time of session</p>
+<hr />
+<div id="remove-duplicate-subjects" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Remove Duplicate Subjects</h3>
+<p>Now it happens on occasion that the wrong subject number is entered in when an RA is starting up a task. This can result in duplicate Subject numbers in the E-Merge file. Luckily I have created a function to remove the duplicate subjects, and put their information (with session date and time) into a specific file. This file will be created in a new folder called “duplicates”.</p>
+<p>The function is <code>duplicates.remove()</code> from the <code>datawrangling</code> package on my GitHub.</p>
+<p>It can be difficult to remember what arguments you need to include in a function. To see helpful documentation about a function you can type in the console</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="kw">library</span>(datawrangling)</a>
+<a class="sourceLine" id="cb101-2" data-line-number="2">?duplicates.remove</a></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb102-2" data-line-number="2"><span class="kw">library</span>(datawrangling)</a>
+<a class="sourceLine" id="cb102-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb102-4" data-line-number="4">import &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/Flanker.txt&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb102-5" data-line-number="5">import &lt;-<span class="st"> </span><span class="kw">duplicates.remove</span>(import, <span class="dt">taskname =</span> <span class="st">&quot;Flanker&quot;</span>, <span class="dt">output.folder =</span> <span class="st">&quot;data/duplicates&quot;</span>)</a></code></pre></div>
+</div>
+</div>
+<div id="tidy-up" class="section level2">
+<h2><span class="header-section-number">6.4</span> “Tidy” Up</h2>
+<div id="filter-1" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Filter</h3>
+<p><a href="https://dplyr.tidyverse.org/reference/filter.html" class="uri">https://dplyr.tidyverse.org/reference/filter.html</a></p>
+<p>Filter only relevant rows. We want to keep only the rows that contain trials from the practice and real trials. To do this we use the <code>filter()</code> function of the <code>dplyr</code> package.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb103-2" data-line-number="2">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb103-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>)</a></code></pre></div>
+<p>The first argrument is the dataframe that should be passed to the function, in this case <code>import</code>. The second argument specifies what kind of filter we want to apply. We are stating that we want to include only rows in which <code>Procedure[Trial]</code> equals <code>&quot;TrialProc&quot;</code> or <code>|</code> <code>Procedure[Trial]</code> equals <code>&quot;PracTrialProc&quot;</code>. These are the rows that contain practice and real trials.</p>
+<p>You are allowed to specify as many filter arguments as you like (seperated by commas). When filter arguments are seperated by commas instead of <code>|</code>, then this amounts to the statement <code>AND</code> rather than <code>OR</code>.</p>
+<p>Also the column names are contained in single quotes because the names contain the special characters <code>[ ]</code>. There are certain characters R does not like to use as variable names and one of them is square brackets.</p>
+</div>
+<div id="rename-1" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> Rename</h3>
+<p>Now the column specifying real vs practice trials is a little tedious to keep typing out since it requires the single quotes and brackets. We will also want to rename this column to be more coherent in the final “tidy” data format anyways. To rename columns we can use <code>rename()</code> function in <code>dplyr</code>.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb104-2" data-line-number="2">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb104-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb104-4" data-line-number="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>)</a></code></pre></div>
+</div>
+<div id="mutate-1" class="section level3">
+<h3><span class="header-section-number">6.4.3</span> Mutate</h3>
+<p><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="uri">https://dplyr.tidyverse.org/reference/mutate.html</a></p>
+<p>We will use <code>mutate()</code> to clean up the “messy” raw data file.</p>
+<p>First let’s change the values in <code>TrialProc</code>. Right now real trials have the value of “TrialProc”. The same name as the column, not good! And the “practice” trials have the value of “PractTrialProc”. Let’s simply change these values to “real” and “practice”, respectively.</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb105-2" data-line-number="2">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb105-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb105-4" data-line-number="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb105-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;TrialProc&quot;</span>, <span class="st">&quot;real&quot;</span>, <span class="st">&quot;practice&quot;</span>))</a></code></pre></div>
+<p>So the <code>TrialProc</code> gets set to either “real” or “practice” depending on whether the current value is equal to “TrialProc” or not.</p>
+<p>Note that we are not being very specific with <code>ifelse()</code>. Rows that do not equal <code>&quot;TrialProc&quot;</code> get set as <code>&quot;practice&quot;</code>. This is okay ONLY because we already applied a filter to only include rows with the value <code>&quot;TrialProc&quot;</code> or with the value <code>&quot;PracTrialProc&quot;</code>. If we did not apply this filter, or if there were more than two values for the column <code>TrialProc</code>, then we rows that were not <code>&quot;PracTrialProc&quot;</code> will get set to <code>&quot;practice&quot;</code>.</p>
+<p>The point is, be careful how you are using <code>ifelse()</code>.</p>
+<hr />
+<p>Okay now let’s move on to figuring out what other columns we want to keep and if we need to do any more computations on them.</p>
+<p>We want to keep the columns that specify the following information</p>
+<ul>
+<li>Subject number</li>
+<li>TrialProc (real vs practice)</li>
+<li>Trial number</li>
+<li>Condition (congruent vs incongruent)</li>
+<li>Reaction time</li>
+<li>Accuracy</li>
+<li>Response</li>
+<li>Target arrow direction (left or right)</li>
+<li>Session Date</li>
+<li>Session Time</li>
+</ul>
+<p>This gets a little more tricky here because the information for some of these variables are in one column for practice trials and a different column for real trials. That means we need to merge the information from these two columns into one. We can do this using the<code>mutate()</code> function from the <code>dplyr</code> package.</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb106-2" data-line-number="2">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb106-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb106-4" data-line-number="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb106-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;TrialProc&quot;</span>, <span class="st">&quot;real&quot;</span>, <span class="st">&quot;practice&quot;</span>),</a>
+<a class="sourceLine" id="cb106-6" data-line-number="6">         <span class="dt">RT =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, SlideTarget.RT, PracSlideTarget.RT))</a></code></pre></div>
+<p>So the new column RT gets set to the value that is contained in SlideTarget.RT if it is a real trial, if not then the RT gets a value contained in PracSlideTarget.RT</p>
+<p>We can do the same thing for trial, accuracy, response, and target arrow direction. Combining them all into one <code>mutate()</code> function</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb107-2" data-line-number="2">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb107-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb107-4" data-line-number="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb107-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;TrialProc&quot;</span>, <span class="st">&quot;real&quot;</span>, <span class="st">&quot;practice&quot;</span>),</a>
+<a class="sourceLine" id="cb107-6" data-line-number="6">         <span class="dt">RT =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, SlideTarget.RT, PracSlideTarget.RT),</a>
+<a class="sourceLine" id="cb107-7" data-line-number="7">         <span class="dt">ACC =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, SlideTarget.ACC, PracSlideTarget.ACC),</a>
+<a class="sourceLine" id="cb107-8" data-line-number="8">         <span class="dt">Response =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, SlideTarget.RESP, PracSlideTarget.RESP),</a>
+<a class="sourceLine" id="cb107-9" data-line-number="9">         <span class="dt">TargetArrowDirection =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, TargetDirection, TargerDirection))</a></code></pre></div>
+<p>You might want to change the values in the Response and CorrectResponse columns to be more clear (left and right).</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb108-2" data-line-number="2">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb108-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb108-4" data-line-number="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb108-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;TrialProc&quot;</span>, <span class="st">&quot;real&quot;</span>, <span class="st">&quot;practice&quot;</span>),</a>
+<a class="sourceLine" id="cb108-6" data-line-number="6">         <span class="dt">RT =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, SlideTarget.RT, PracSlideTarget.RT),</a>
+<a class="sourceLine" id="cb108-7" data-line-number="7">         <span class="dt">ACC =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, SlideTarget.ACC, PracSlideTarget.ACC),</a>
+<a class="sourceLine" id="cb108-8" data-line-number="8">         <span class="dt">Response =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, SlideTarget.RESP, PracSlideTarget.RESP),</a>
+<a class="sourceLine" id="cb108-9" data-line-number="9">         <span class="dt">TargetArrowDirection =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, TargetDirection, TargerDirection),</a>
+<a class="sourceLine" id="cb108-10" data-line-number="10">         <span class="dt">Response =</span> <span class="kw">ifelse</span>(Response<span class="op">==</span><span class="st">&quot;{LEFTARROW}&quot;</span>, <span class="st">&quot;left&quot;</span>, <span class="kw">ifelse</span>(Response<span class="op">==</span><span class="st">&quot;{RIGHTARROW}&quot;</span>, <span class="st">&quot;right&quot;</span>, <span class="ot">NA</span>)))</a></code></pre></div>
+<p>Notice how I included an <code>ifelse()</code> function inside of an <code>ifelse()</code> function. The inner <code>ifelse()</code> will occur if <code>Response</code> does not equal <code>&quot;{LEFTARROW}&quot;</code>.</p>
+<p>You have to be careful with <code>ifelse()</code> statements because sometimes it does something you do not expect it to. <strong>That is why it is always important to check to make sure your code is performing as you want it to.</strong> View the dataframe to make sure everything is good. The new columns will be added at the end of the dataframe.</p>
+</div>
+<div id="select-1" class="section level3">
+<h3><span class="header-section-number">6.4.4</span> Select</h3>
+<p><a href="https://dplyr.tidyverse.org/reference/select.html" class="uri">https://dplyr.tidyverse.org/reference/select.html</a></p>
+<p>We are getting closer to a “tidy” raw data file. The only thing left is to select only the columns we want to keep. We do this by using the <code>select()</code> function from the <code>dplyr</code> package.</p>
+<p>Remember we want to only select columns with the following information</p>
+<ul>
+<li>Subject number</li>
+<li>Trial number</li>
+<li>Condition</li>
+<li>Reaction time</li>
+<li>Accuracy</li>
+<li>Response</li>
+<li>Correct Response</li>
+<li>Target arrow direction</li>
+<li>Session Date</li>
+<li>Session Time</li>
+</ul>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb109-2" data-line-number="2">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb109-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb109-4" data-line-number="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb109-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;TrialProc&quot;</span>, <span class="st">&quot;real&quot;</span>, <span class="st">&quot;practice&quot;</span>),</a>
+<a class="sourceLine" id="cb109-6" data-line-number="6">         <span class="dt">RT =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, SlideTarget.RT, PracSlideTarget.RT),</a>
+<a class="sourceLine" id="cb109-7" data-line-number="7">         <span class="dt">ACC =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, SlideTarget.ACC, PracSlideTarget.ACC),</a>
+<a class="sourceLine" id="cb109-8" data-line-number="8">         <span class="dt">Response =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, SlideTarget.RESP, PracSlideTarget.RESP),</a>
+<a class="sourceLine" id="cb109-9" data-line-number="9">         <span class="dt">TargetArrowDirection =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, TargetDirection, TargerDirection),</a>
+<a class="sourceLine" id="cb109-10" data-line-number="10">         <span class="dt">Response =</span> <span class="kw">ifelse</span>(Response<span class="op">==</span><span class="st">&quot;{LEFTARROW}&quot;</span>, <span class="st">&quot;left&quot;</span>, <span class="kw">ifelse</span>(Response<span class="op">==</span><span class="st">&quot;{RIGHTARROW}&quot;</span>, <span class="st">&quot;right&quot;</span>, <span class="ot">NA</span>))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb109-11" data-line-number="11"><span class="st">  </span><span class="kw">select</span>(Subject, TrialProc, Trial, <span class="dt">TrialType =</span> FlankerType, RT, ACC, Response, TargetArrowDirection)</a></code></pre></div>
+</div>
+</div>
+<div id="save-to-file" class="section level2">
+<h2><span class="header-section-number">6.5</span> Save to File</h2>
+<p>The function of an R script is to import a dataframe -&gt; transform or analyze the dataframe -&gt; output a final product (a new dataframe or analysis output). The objects which an R script creates (which you can see in the <strong>Environemnt</strong> window) are not the final end point. These are just temporary objects that are used to go from an input -&gt; output.</p>
+<p>You have done the importing and transforming; now you need to output the final product - which is a saved .txt file of the “tidy” raw data.</p>
+<p>To save the dataframe to a .txt file you will use the <code>write_delim()</code> function of the <code>readr</code> package.</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1"><span class="kw">write_delim</span>(data_flanker, <span class="dt">path =</span> <span class="st">&quot;data/Flanker_raw.txt&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;&quot;</span>)</a></code></pre></div>
+<hr />
+<p>Then if we were to put it all together, using the template from the previous chapter:</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1"><span class="co">## Set up ####</span></a>
+<a class="sourceLine" id="cb111-2" data-line-number="2"><span class="co">## Load required packages</span></a>
+<a class="sourceLine" id="cb111-3" data-line-number="3"><span class="kw">library</span>(here)</a></code></pre></div>
+<pre><code>## here() starts at /Volumes/Engle Lab/R/R Tutorial</code></pre>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb113-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb113-3" data-line-number="3"><span class="kw">library</span>(datawrangling)</a>
+<a class="sourceLine" id="cb113-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb113-5" data-line-number="5"><span class="co">## Set import and output directories</span></a>
+<a class="sourceLine" id="cb113-6" data-line-number="6">import.dir &lt;-<span class="st"> &quot;data/&quot;</span></a>
+<a class="sourceLine" id="cb113-7" data-line-number="7">output.dir &lt;-<span class="st"> &quot;data/&quot;</span></a>
+<a class="sourceLine" id="cb113-8" data-line-number="8"><span class="co">##############</span></a>
+<a class="sourceLine" id="cb113-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb113-10" data-line-number="10"><span class="co">## Import data</span></a>
+<a class="sourceLine" id="cb113-11" data-line-number="11">import &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="kw">here</span>(import.dir, <span class="st">&quot;Flanker.txt&quot;</span>), <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb113-12" data-line-number="12"><span class="st">  </span><span class="kw">duplicates.remove</span>(<span class="dt">taskname =</span> <span class="st">&quot;Flanker&quot;</span>, <span class="dt">output.folder =</span> <span class="st">&quot;data/duplicates&quot;</span>)</a></code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_integer(),
+##   ExperimentName = col_character(),
+##   Clock.Information = col_character(),
+##   DataFile.Basename = col_character(),
+##   Display.RefreshRate = col_double(),
+##   ExperimentVersion = col_character(),
+##   RuntimeCapabilities = col_character(),
+##   RuntimeVersion = col_character(),
+##   RuntimeVersionExpected = col_character(),
+##   SessionDate = col_character(),
+##   SessionStartDateTimeUtc = col_character(),
+##   SessionTime = col_time(format = &quot;&quot;),
+##   StudioVersion = col_character(),
+##   CongMeanRT = col_double(),
+##   IncongMeanRT = col_double(),
+##   NeutralMeanRT = col_double(),
+##   `Procedure[Block]` = col_character(),
+##   `Running[Block]` = col_character(),
+##   CorrectAnswer = col_character(),
+##   FlankerType = col_character(),
+##   PracSlideTarget.CRESP = col_character()
+##   # ... with 12 more columns
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" data-line-number="1"><span class="co">## Tidy </span></a>
+<a class="sourceLine" id="cb116-2" data-line-number="2">data_flanker &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb116-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb116-4" data-line-number="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb116-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;TrialProc&quot;</span>, <span class="st">&quot;real&quot;</span>, <span class="st">&quot;practice&quot;</span>),</a>
+<a class="sourceLine" id="cb116-6" data-line-number="6">         <span class="dt">RT =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, SlideTarget.RT, PracSlideTarget.RT),</a>
+<a class="sourceLine" id="cb116-7" data-line-number="7">         <span class="dt">ACC =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, SlideTarget.ACC, PracSlideTarget.ACC),</a>
+<a class="sourceLine" id="cb116-8" data-line-number="8">         <span class="dt">Response =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, SlideTarget.RESP, PracSlideTarget.RESP),</a>
+<a class="sourceLine" id="cb116-9" data-line-number="9">         <span class="dt">TargetArrowDirection =</span> <span class="kw">ifelse</span>(TrialProc<span class="op">==</span><span class="st">&quot;real&quot;</span>, TargetDirection, TargerDirection),</a>
+<a class="sourceLine" id="cb116-10" data-line-number="10">         <span class="dt">Response =</span> <span class="kw">ifelse</span>(Response<span class="op">==</span><span class="st">&quot;{LEFTARROW}&quot;</span>, <span class="st">&quot;left&quot;</span>, <span class="kw">ifelse</span>(Response<span class="op">==</span><span class="st">&quot;{RIGHTARROW}&quot;</span>, <span class="st">&quot;right&quot;</span>, <span class="ot">NA</span>))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb116-11" data-line-number="11"><span class="st">  </span><span class="kw">select</span>(Subject, TrialProc, Trial, <span class="dt">TrialType =</span> FlankerType, RT, ACC, Response, TargetArrowDirection)</a>
+<a class="sourceLine" id="cb116-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb116-13" data-line-number="13"><span class="co">## Save Data</span></a>
+<a class="sourceLine" id="cb116-14" data-line-number="14"><span class="kw">write_delim</span>(data_flanker, <span class="dt">path =</span> <span class="kw">here</span>(output.dir, <span class="st">&quot;Flanker_raw.txt&quot;</span>), <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb116-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb116-16" data-line-number="16"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</a></code></pre></div>
+<hr />
+</div>
+<div id="stroop-example-optional" class="section level2">
+<h2><span class="header-section-number">6.6</span> Stroop Example <strong>[OPTIONAL]</strong></h2>
+<p>Now take what you learned in the Flanker example and apply it to another example data set. This data set comes from the Stroop task. Take this “messy” raw data file and convert it to a “tidy” raw data file.</p>
+<p><a href="http://englelab.gatech.edu/R/example_data/Stroop.zip">Download Example Stroop Data</a></p>
+<hr />
+<p>Here is what you need to know about the “messy” raw data file:</p>
+<p><strong>Subject</strong>: Subject number</p>
+<p><strong>Procedure[Trial]</strong>: Procedure type (keep: stroopPRAC2 and StroopTrial)</p>
+<p><strong>List5.Sample</strong>: Trial number for practice trials</p>
+<p><strong>List2.Sample</strong>: Trial number for real trials</p>
+<p><strong>pracTYPE</strong>: condition for practice trials (values are: Cong, Incong, and Filler. Filler = Cong)</p>
+<p><strong>trialType</strong>: condition for real trials (Values are: Cong, Incong, and Filler. Filler = Cong)</p>
+<p><strong>PracStim2.RT</strong>: Reaction time for practice trials</p>
+<p><strong>PracStim2.ACC</strong>: Accuracy for practice trials</p>
+<p><strong>PracSTim2.RESP</strong>: Response for practice trials (1 = GREEN, 2 = BLUE, 3 = RED)</p>
+<p><strong>stim.RT</strong>: Reaction time for real trials</p>
+<p><strong>stim.ACC</strong>: Accuracy for real trials</p>
+<p><strong>stim.RESP</strong>: Response for real trials (1 = GREEN, 2 = BLUE, 3 = RED)</p>
+<p><strong>pracWORD</strong>: letters of the target word for practice trials</p>
+<p><strong>pracHUE</strong>: color of the word for practice trials</p>
+<p><strong>word</strong>: letters of the target word for real trials</p>
+<p><strong>hue</strong>: color of the word for the real trials</p>
+<p><strong>SessionDate</strong>: Date of session</p>
+<p><strong>SessionTime</strong>: Time of session</p>
+<hr />
+<p>If you are having a hard time converting the Stroop “messy” raw data file to a “tidy” raw data file, see Jason for help.</p>
+<hr />
+</div>
+<div id="binding-individual-subject-files" class="section level2">
+<h2><span class="header-section-number">6.7</span> Binding Individual Subject Files</h2>
+<p>Now I want to go over how bind individual subject files into one file.</p>
+<p>The <code>subj</code> folder contains individual files for each subject. You will use these files to learn how to bind multiple subject files into one file. In E-Prime you can use the E-Merge software to bind individual subject .edat2 files, so this is actually not always necessary.</p>
+<p>However, you may have a task running in a different program othan E-Prime. Also, in E-Prime 3.0 there is the option to save the .edat2 file as a .txt file. <strong>This can allow you to bypass using E-Merge and simply create an R script to bind all the .txt files)</strong>. I have created individual subject files in the <code>subj</code> folder for the sake of this tutorial.</p>
+<p>You can “bind” either the rows or columns of a dataframe together. A column “bind” means the dataframes have different column (same rows) and you are simply binding the columns together. A row “bind” means the dataframes have different rows (same columns) and you are simply binding the rows of the dataframes ontop of one another.</p>
+<p>For our purspose here, what we want to do is a row “bind”. Since each subject has the same columns but different rows. We basically want to stack the files ontop of each other.</p>
+<p>This requires several steps and the use of a for loop. Luckily, I created a function to do this for us so it will be very simple!</p>
+<p>The function we will use is <code>files.bindr()</code> from my <code>datawrangling</code> package.</p>
+<p>Remember you can use <code>?files.bind</code> to see documentation about how to use a function</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/datawrangling&quot;</span>)</a>
+<a class="sourceLine" id="cb117-2" data-line-number="2"><span class="kw">library</span>(datawrangling)</a>
+<a class="sourceLine" id="cb117-3" data-line-number="3">data_merged &lt;-<span class="st"> </span><span class="kw">files.bind</span>(<span class="dt">path =</span> <span class="st">&quot;data/subj&quot;</span>, <span class="dt">pattern =</span> <span class="st">&quot;_Flanker.txt&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;&quot;</span>, <span class="dt">bind =</span> <span class="st">&quot;rows&quot;</span>, <span class="dt">output.file =</span> <span class="st">&quot;data/Flanker_merged.txt&quot;</span>)</a></code></pre></div>
+<p>There are a few arguments you need to specify.</p>
+<p><code>path</code> specifies the folder in which all the files are located.</p>
+<p><code>pattern</code> is a certain patter of letters that every file has in common. If there are other files in the same folder you want to make sure this pattern is unique to only the files you want to merge.</p>
+<p><code>delim</code> specifies both the delimiter that the individual files have and what the final merged file should have.</p>
+<p><code>na</code> is how missing values should be specified.</p>
+<p><code>bind</code> what type of bind do you wan to perform. “rows” or “columns” or “cols”.</p>
+<p><code>output.file</code> is the file path and name to save the merged file to.</p>
+<p>Here is the function for <code>files.bind()</code>. You can let me know if you have any questions about this.</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" data-line-number="1">files.bind &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">path =</span> <span class="st">&quot;&quot;</span>, <span class="dt">pattern =</span> <span class="st">&quot;&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;&quot;</span>, <span class="dt">output.file =</span> <span class="st">&quot;&quot;</span>, <span class="dt">bind =</span> <span class="st">&quot;rows&quot;</span>){</a>
+<a class="sourceLine" id="cb118-2" data-line-number="2">  filelist &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">path =</span> path, <span class="dt">pattern =</span> pattern, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb118-3" data-line-number="3">  import &lt;-<span class="st"> </span><span class="kw">list</span>()</a>
+<a class="sourceLine" id="cb118-4" data-line-number="4">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(filelist)){</a>
+<a class="sourceLine" id="cb118-5" data-line-number="5">    import[[i]] &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_delim</span>(filelist[[i]], delim, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>, <span class="dt">na =</span> na)</a>
+<a class="sourceLine" id="cb118-6" data-line-number="6">  }</a>
+<a class="sourceLine" id="cb118-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb118-8" data-line-number="8">  <span class="cf">if</span> (bind<span class="op">==</span><span class="st">&quot;rows&quot;</span>){</a>
+<a class="sourceLine" id="cb118-9" data-line-number="9">    bound &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">bind_rows</span>(import)</a>
+<a class="sourceLine" id="cb118-10" data-line-number="10">  }</a>
+<a class="sourceLine" id="cb118-11" data-line-number="11">  <span class="cf">if</span> (bind<span class="op">==</span><span class="st">&quot;columns&quot;</span><span class="op">|</span>bind<span class="op">==</span><span class="st">&quot;cols&quot;</span>){</a>
+<a class="sourceLine" id="cb118-12" data-line-number="12">    bound &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">bind_cols</span>(import)</a>
+<a class="sourceLine" id="cb118-13" data-line-number="13">  }</a>
+<a class="sourceLine" id="cb118-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb118-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb118-16" data-line-number="16">  <span class="cf">if</span> (output.file<span class="op">!=</span><span class="st">&quot;&quot;</span>){</a>
+<a class="sourceLine" id="cb118-17" data-line-number="17">    readr<span class="op">::</span><span class="kw">write_delim</span>(bound, <span class="dt">path =</span> output.file, delim, <span class="dt">na =</span> na)</a>
+<a class="sourceLine" id="cb118-18" data-line-number="18">  }</a>
+<a class="sourceLine" id="cb118-19" data-line-number="19">  <span class="kw">return</span>(bound)</a>
+<a class="sourceLine" id="cb118-20" data-line-number="20">}</a></code></pre></div>
+<hr />
+<p><strong>Now on to scoring the “tidy” raw data file</strong></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="organization-and-good-practices.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tidy-raw-to-scored-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>
