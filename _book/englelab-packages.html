@@ -25,7 +25,7 @@
 <meta name="author" content="Jason Tsukahara">
 
 
-<meta name="date" content="2018-11-08">
+<meta name="date" content="2018-11-09">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -332,10 +332,11 @@ data_raw &lt;-<span class="st"> </span><span class="kw">raw.ospan</span>(import,
 <li><p><strong>accuracy.col</strong>: Column name in dataframe that contains the accuracy data</p></li>
 <li><p><strong>condition.col</strong>: Column name in dataframe that contains the trial condition values</p></li>
 <li><p><strong>baseline.condition</strong>: The values that specify the baseline condition (e.g. “congruent”)</p></li>
+<li><p><strong>type</strong>: How should Bin trials be aggregated, “sum” or “mean” (Default: “mean”)</p></li>
 <li><p><strong>id</strong>: Column name in dataframe that contains the subject identifiers</p></li>
 </ul>
 <p>The default argument values are:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bin.score</span>(x, <span class="dt">rt.col =</span> <span class="st">&quot;RT&quot;</span>, <span class="dt">accuracy.col =</span> <span class="st">&quot;Accuracy&quot;</span>, <span class="dt">condition.col =</span> <span class="st">&quot;Condition&quot;</span>, <span class="dt">baseline.condition =</span> <span class="st">&quot;congruent&quot;</span>, <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bin.score</span>(x, <span class="dt">rt.col =</span> <span class="st">&quot;RT&quot;</span>, <span class="dt">accuracy.col =</span> <span class="st">&quot;Accuracy&quot;</span>, <span class="dt">condition.col =</span> <span class="st">&quot;Condition&quot;</span>, <span class="dt">baseline.condition =</span> <span class="st">&quot;congruent&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>)</code></pre></div>
 <p>Your data file may already be setup with these default value column names. If so, then you just need to specify the dataframe.</p>
 </div>
 <div id="reliability-functions" class="section level3">
@@ -428,14 +429,14 @@ data_raw &lt;-<span class="st"> </span><span class="kw">raw.ospan</span>(import,
 <ul>
 <li><p><strong>x</strong>: dataframe</p></li>
 <li><p><strong>variables</strong>: c() of columns to center</p></li>
-<li><p><strong>standardized</strong>: Logical. Do you want to calculate zscores? (Default = FALSE)</p></li>
+<li><p><strong>standardize</strong>: Logical. Do you want to calculate zscores? (Default = FALSE)</p></li>
 </ul>
 <p>Example:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(datawrangling)
 
 <span class="kw">center</span>(data, 
        <span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;RT&quot;</span>),
-       <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</code></pre></div>
+       <span class="dt">standardize =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <hr />
 </div>
 </div>

@@ -316,69 +316,6 @@ rm(list=ls())
 
 ********
 
-## Binding Individual Subject Files
-
-Now I want to go over how bind individual subject files into one file.
-
-The `subj` folder contains individual files for each subject. You will use these files to learn how to bind multiple subject files into one file. In E-Prime you can use the E-Merge software to bind individual subject .edat2 files, so this is actually not always necessary. 
-
-However, you may have a task running in a different program othan E-Prime. Also, in E-Prime 3.0 there is the option to save the .edat2 file as a .txt file. **This can allow you to bypass using E-Merge and simply create an R script to bind all the .txt files)**. I have created individual subject files in the `subj` folder for the sake of this tutorial. 
-
-You can "bind" either the rows or columns of a dataframe together. A column "bind" means the dataframes have different column (same rows) and you are simply binding the columns together. A row "bind" means the dataframes have different rows (same columns) and you are simply binding the rows of the dataframes ontop of one another.
-
-For our purspose here, what we want to do is a row "bind". Since each subject has the same columns but different rows. We basically want to stack the files ontop of each other.
-
-This requires several steps and the use of a for loop. Luckily, I created a function to do this for us so it will be very simple! 
-
-The function we will use is `files.bindr()` from my `datawrangling` package.
-
-Remember you can use `?files.bind` to see documentation about how to use a function
-
-```{r eval=FALSE}
-devtools::install_github("dr-JT/datawrangling")
-library(datawrangling)
-data_merged <- files.bind(path = "data/subj", pattern = "_Flanker.txt", delim = "\t", na = "", bind = "rows", output.file = "data/Flanker_merged.txt")
-```
-
-There are a few arguments you need to specify. 
-
-`path` specifies the folder in which all the files are located. 
-
-`pattern` is a certain patter of letters that every file has in common. If there are other files in the same folder you want to make sure this pattern is unique to only the files you want to merge. 
-
-`delim` specifies both the delimiter that the individual files have and what the final merged file should have. 
-
-`na` is how missing values should be specified. 
-
-`bind` what type of bind do you wan to perform. "rows" or "columns" or "cols".
-
-`output.file` is the file path and name to save the merged file to.
-
-Here is the function for `files.bind()`. You can let me know if you have any questions about this.
-
-```{r eval=FALSE}
-files.bind <- function(path = "", pattern = "", delim = "\t", na = "", output.file = "", bind = "rows"){
-  filelist <- list.files(path = path, pattern = pattern, full.names = TRUE)
-  import <- list()
-  for (i in seq_along(filelist)){
-    import[[i]] <- readr::read_delim(filelist[[i]], delim, escape_double = FALSE, trim_ws = TRUE, na = na)
-  }
-
-  if (bind=="rows"){
-    bound <- dplyr::bind_rows(import)
-  }
-  if (bind=="columns"|bind=="cols"){
-    bound <- dplyr::bind_cols(import)
-  }
-
-
-  if (output.file!=""){
-    readr::write_delim(bound, path = output.file, delim, na = na)
-  }
-  return(bound)
-}
-```
-
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 rm(list=ls())
 ```

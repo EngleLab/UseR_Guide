@@ -12,7 +12,7 @@ You should save the code you write in this Chapter to a new R script. Do not use
 
 Again we will continue using the Flanker data set as an example. If you do not have the "tidy" raw data file from the previous Chapter, then download the example Flanker data and run the following script **(You will have to change the import and save directories, in `read_delim()` and `write_delim()`**. Save the "tidy" raw data file as "Flanker_raw.txt".
 
-[Download Example Flanker Data](http://englelab.gatech.edu/R/example_data/Flanker.zip)
+[Download Example Flanker Data](http://englelab.gatech.edu/R/example_data/Flanker_Example.zip)
 
 ```{r eval=FALSE}
 data_flanker <- read_delim("data/Flanker.txt", "\t", escape_double = FALSE, trim_ws = TRUE) %>%
@@ -36,8 +36,6 @@ In the EngleLab we typically use one of two scores for the Flanker task. The Rea
 **FlankerEffect**: The difference between mean RTs on congruent and incongruent trials
 
 **FlankerBinned**: A procedure to take into account both reaction time and accuracy in a single score. (We prefer this score since it avoids the problem of RT difference scores)
-
-In this Chapter we will mainly cover how to calcualte the **FlankerEffect** and how to implement certain data cleaning practices.
 
 ## Import "raw" data
 
@@ -65,20 +63,13 @@ Some common aggregate performance measures we use in our lab are:
 
 **Sum of Correct Responses**: total number of correct responses
 
-The `dplyr` package provides a convenient way to calculate aggregate scores with the `group_by()` and `summarise()` functions.
+If you remember from Chapter 4, the `dplyr` package provides a convenient way to calculate aggregate scores with the `group_by()` and `summarise()` functions.
 
 In the Flanker task, we will need to calculate, for each subject, their **Mean RT** seperately for congruent and incongruent trials. 
 
-Essentially, we are aggregating performance grouped at two levels: subject and Condition. For each different subject and each different Condition we need to cacluate a **Mean RT**. This is where the `group_by()` function comes in. The `group_by()` function will group the dataframe based on specified columns. Any further functions performed on the dataframe (such as a `summarise()` or `mutate()` function) will be performed seperately for each group. 
+Essentially, we are aggregating performance grouped at two levels: subject and Condition. For each subject and each Condition we need to cacluate a **Mean RT**. This is where the `group_by()` function comes in. 
 
-```{r collapse=TRUE, message=FALSE, warning=FALSE}
-data_flanker <- import %>%
-  group_by(Subject, Condition)
-```
-
-Now that you have grouped the imported dataframe by Subject and Condition, you can calculate each Subject's **Mean RT** on congruent and incongruent trials. Let's also go ahead and calculate the **SD RT** (standard deviation of reaction times) and **Mean Accuracy**.
-
-To do so you will use the `summarise()` function from the `dplyr` package. What the `summarise()` function does is creates new columns based on a specified computation (such as a mean or standard deviation). You will need to specify the name of the new column `RT.mean` followed by `=` then the function of the computation you want to use on certain columns `mean(RT)`. Recall that reaction time and accuracy data are stored in the columns, `RT` and `ACC`. 
+We can also calculate the **Standard deviation on RT** and **Mean Accuracy**.
 
 ```{r collapse=TRUE, message=FALSE, warning=FALSE}
 data_flanker <- import %>%
@@ -91,18 +82,6 @@ data_flanker <- import %>%
 The functions used to calculate the aggreate scores, `mean()` and `sd()` are part of the `basic` R functions. They are pretty self explanatory but I should mention the `na.rm = TRUE`. This simply specifies that trials with missing values should be removed when calculating the aggregate score. There really are not any scenarios I have ran into where I don't want to remove missing values, so every time I use any aggregate function I specify, `na.rm = TRUE`. 
 
 Take a look at the dataframe you just created. It should have two rows for each Subject, one for congruent and the other for incongruent trials. You can see that this is a reduced dataframe from `import`, that is because we just aggregated performance across the trials. The only information that was preserved are the grouped variables (Subject and Condition) and the new aggregate variables.
-
-Let's say we also want to calculate the **Sum of Correct Responses**. We don't actually need to in the Flanker task but in other tasks you may need to, so I will show it you here. It is real simple, just use the `sum()` function and specify `na.rm = TRUE`.
-
-```{r collapse=TRUE, message=FALSE, warning=FALSE}
-data_sum <- import %>%
-  group_by(Subject, Condition) %>%
-  summarise(ACC.total = sum(ACC, na.rm = TRUE))
-```
-
-Now you know how to calculate aggregate means `mean()`, standard deviations `sd()`, and sums `sum()`, using the `summarise()` function.
-
-Play around with using different arguments for `group_by()` and `summaris()`. What happens if you only include `group_by(Subject)`, or don't used `group_by()` at all?
 
 **Now we actually need to do one extra thing before we calculate aggegate performance**
 
@@ -279,9 +258,7 @@ This actually takes several steps but I create a function to make it easy for yo
 
 **variables**: the columns to be centered
 
-**context**: if you want to center within context, specify the grouping column
-
-**standardized**: Do you want to standardize (calculate z-scores)? Logical argument.
+**standardize**: Do you want to standardize (calculate z-scores)? Logical argument.
 
 Again, you can just type `help("center")` in the console to get this information.
 
@@ -291,7 +268,7 @@ Remember we are starting with the orginal imported data frame `import`
 
 ```{r collapse=TRUE, message=FALSE, warning=FALSE}
 data_flanker <- import %>%
-  center(variables = "RT", context = c("Subject", "Condition"), standardized = TRUE)
+  center(variables = "RT", context = c("Subject", "Condition"), standardize = TRUE)
 ```
 
 If you look at the dataframe, you should see a new column labeled `RT_zwc`. The reason it has `_zwc` is to let you know that z-scores were calculated within-context. 
@@ -310,7 +287,7 @@ We can use `group_by()` to group within Subject and within Condition. Then use `
 
 ```{r collapse=TRUE, message=FALSE, warning=FALSE}
 data_flanker <- import %>%
-  center(variables = "RT", context = c("Subject", "Condition"), standardized = TRUE) %>%
+  center(variables = "RT", context = c("Subject", "Condition"), standardize = TRUE) %>%
   group_by(Subject, Condition) %>%
   mutate(RT.mean = mean(RT, na.rm = TRUE),
          RT.sd = sd(RT, na.rm = TRUE))
@@ -324,7 +301,7 @@ Alright, we have all the information we need now to replace RTs 3.5 SDs above or
 
 ```{r collapse=TRUE, message=FALSE, warning=FALSE}
 data_flanker <- import %>%
-  center(variables = "RT", context = c("Subject", "Condition"), standardized = TRUE) %>%
+  center(variables = "RT", context = c("Subject", "Condition"), standardize = TRUE) %>%
   group_by(Subject, Condition) %>%
   mutate(RT.mean = mean(RT, na.rm = TRUE),
          RT.sd = sd(RT, na.rm = TRUE),
@@ -339,7 +316,7 @@ min_RT.criteria <- 200
 
 data_flanker <- import %>%
   mutate(RT = ifelse(ACC==0 | RT < min_RT.criteria, NA, RT)) %>%
-  center(variables = "RT", context = c("Subject", "Condition"), standardized = TRUE) %>%
+  center(variables = "RT", context = c("Subject", "Condition"), standardize = TRUE) %>%
   group_by(Subject, Condition) %>%
   mutate(RT.mean = mean(RT, na.rm = TRUE),
          RT.sd = sd(RT, na.rm = TRUE),
@@ -373,8 +350,10 @@ The function is `trim()` from my `datawrangling` package. It is a simple functio
 
 **cutoff**: zscore cutoff to use for trimming (default: 3.5)
 
+**replace**: 
+
 ```{r collapse=TRUE, message=FALSE, warning=FALSE}
-data_flanker <- trim(data_flanker, variables = c("congruent_ACC.mean", "incongruent_ACC.mean"))
+data_flanker <- trim(data_flanker, variables = c("congruent_ACC.mean", "incongruent_ACC.mean"), cutoff = 3.5, replace = "NA")
 ```
 
 Now this isn't quite finished yet. If you look at the dataframe you will see that those subjects who got trimmed have either `congruent_ACC.mean` or `incongruent_ACC.mean` set as `NA`. The next step is to completely remove these subjects from the dataframe useing `filter()`.
@@ -421,7 +400,7 @@ import <- read_delim("data/Flanker_raw.txt", "\t", escape_double = FALSE, trim_w
 
 data_flanker <- import %>%
   mutate(RT = ifelse(ACC==0 | RT < min_RT.criteria, NA, RT)) %>%
-  center(variables = "RT", context = c("Subject", "Condition"), standardized = TRUE) %>%
+  center(variables = "RT", context = c("Subject", "Condition"), standardize = TRUE) %>%
   group_by(Subject, Condition) %>%
   mutate(RT.mean = mean(RT, na.rm = TRUE),
          RT.sd = sd(RT, na.rm = TRUE),
@@ -444,18 +423,6 @@ write_delim(data_flanker, path = "data/Flanker_scores.txt", delim = "\t", na = "
 
 rm(list=ls())
 ```
-
-## Stroop Example
-
-Now that you have learned how to calculate the **FlankerEffect** and **FlankerBin** scores, try to calculate the **StroopEffect** and **StroopBin** scores using the examle Stroop data from the previous Chapter. If you have not done so already, first you will need to a convert the "messy" raw data to "tidy" raw data. See the previous Chapter for what information you need to know about the "messy" raw data and to download the file. 
-
-Once you have .txt file of a "tidy" raw data file for the Stroop task saved on your computer you are ready to continue.
-
-The StroopEffect is calculated the same way as the FlankerEffect: Mean reaction time on incongruent trials - congruent trials
-
-You can use the same functio, `bin.score()`, to calculate StroopBin scores.
-
-Save your scripts for the Flanker and Stroop tasks.
 
 ## Conclusions
 

@@ -212,6 +212,77 @@ The `source()` function will execute all the lines of code in an R script. You s
 
 Your masterscript might simply contain only lines of code using `source()`.
 
+I like to also create an object called `directories` that contains a list of the relative file paths (from the working directory).
+
+A typical masterscript of mine will look like
+
+```{r eval = FALSE}
+## Setup ####
+## Load Packages
+library(here)
+library(rmarkdown)
+
+## Specify the directory tree
+directories <- list(scripts = "Data Files/R Scripts",
+                    data = "Data Files",
+                    raw = "Data Files/Raw Data",
+                    emerge = "Data Files/Raw Data/E-Merge",
+                    scored = "Data Files/Scored Data")
+
+saveRDS(directories, here("directories.rds"))
+rm(directories)
+#############
+
+#################################
+#------ "messy" to "tidy" ------#
+#################################
+
+## Create raw data file from e-merged files ####
+source(here("Data Files/R Scripts", "1_wmc_raw.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "1_gf_raw.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "1_gda_raw.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "1_antisaccade_raw.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "1_avc_raw.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "1_flanker_raw.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "1_flankerDL_raw.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "1_flankerPR_raw.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "1_stroop_raw.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "1_stroopDL_raw.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "1_va4_raw.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "1_pvt_raw.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "1_sact_raw.R"), echo=TRUE)
+################################################
+
+#################################
+#------ Task Scoring ------#
+#################################
+
+## Score task data from raw data files ####
+source(here("Data Files/R Scripts", "2_wmc_score.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "2_gf_score.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "2_gda_score.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "2_antisaccade_score.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "2_avc_score.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "2_flanker_score.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "2_flankerDL_score.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "2_flankerPR_score.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "2_stroop_score.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "2_stroopDL_score.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "2_va4_score.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "2_pvt_score.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "2_sact_score.R"), echo=TRUE)
+source(here("Data Files/R Scripts", "2_demographics_score.R"), echo=TRUE)
+###########################################
+
+## Merge scored files to create a single data file ####
+source(here("Data Files/R Scripts", "3_merge.R"), echo=TRUE)
+###################################################
+
+rm(list=ls())
+
+```
+
+
 ## Folder Organization
 
 I suggest adopting a consistent folder organization for all your research projects. Again, this is just about allowing you to focus on the meat of your R scripts.
