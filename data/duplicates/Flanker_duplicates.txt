@@ -1,3 +1,0 @@
-Subject	SessionStartDateTimeUtc
-12119	3/10/2015 8:00:27 PM
-12119	3/11/2015 2:52:34 PM

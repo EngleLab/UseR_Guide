@@ -1,0 +1,372 @@
+# EngleLab Packages
+
+I have created R packages that contain functions to more easily prepare your data for statistical analysis.
+
+In this chapter you will learn about the functions from two packages I created:
+
+* __englelab__ https://github.com/EngleLab/englelab
+
+* __datawrangling__ https://dr-jt.github.io/datawrangling
+
+I am hosting these packages on GitHub and can be downloaded using the `devtools` package
+
+```{r eval = FALSE}
+install.packages("devtools")
+
+devtools::install_github("EngleLab/englelab")
+devtools::install_github("dr-JT/datawrangling")
+```
+
+********
+
+## englelab
+
+The functions in the `englelab` package are to create "tidy" raw data files and scored data files from the complex span and fluid intelligence tasks we frequently use. It also contains a function to calculate scores using the binning method from [insert citation here]. There are also functions to calcualte the reliability measures; cronbach's alpha and split-half reliability.
+
+This package is intended to eventually share with other researchers who download the tasks from our website and use R to do data analysis. 
+
+### "tidy" raw data functions
+
+I suggest to only use the "tidy" raw functions rather than the scoring functions. The reason for this is that the scoring function does not create a "tidy" raw data file - which is useful for doing internal consitency analyses, and is just a good idea to have a "tidy" raw data file for trial-by-trial performance. 
+
+Here is the list of "tidy" raw data functions:
+
+* `raw.ospan()`
+
+* `raw.symspan()`
+
+* `raw.rotspan()`
+
+* `raw.rapm()`
+
+* `raw.numberseries()`
+
+* `raw.lettersets()`
+
+These functions take as input an imported **E-Merged** or **edat** file. 
+
+For the complex span tasks you need to specify the number of blocks administered with the `blocks` argument. ex. `raw.ospan(data, blocks = 2)`
+
+The output of the raw functions will also contain columns for the subject's final score on the task. This is why it is suggested to just use the raw functions, you can still easily grab the final score on the task from the outputed file.
+
+#### Example
+
+Here is an example script that uses the `raw.ospan()` function to import an E-merged data file and output a "tidy" raw data file.
+
+```{r eval = FALSE}
+## Set up ####
+## Load packages
+library(readr)
+library(englelab)
+
+## Set import/output directories
+import.file <- "data/raw/emerge/ospan.txt"
+output.file <- "data/raw/ospan_raw.txt"
+##############
+
+## Import
+import <- read_delim(import.file), "\t", escape_double = FALSE, trim_ws = TRUE)
+
+## Clean up raw data file and save
+data_raw <- raw.ospan(import, blocks = 2)
+
+## Save data file
+write_delim(data_raw, path = output.file, "\t", na = "")
+```
+
+********
+
+### score data functions
+
+Again, it is suggested to use the raw functions instead of the score functions. However, here is the list of the score functions:
+
+* `score.ospan()`
+
+* `score.symspan()`
+
+* `score.rotspan()`
+
+* `score.rapm()`
+
+* `score.numberseries()`
+
+* `score.lettersets()`
+
+Like the raw functions the score functions take as input a "messy" raw **E-Merged** or **edat** file. For the complex span tasks you need to specify the number of blocks adminestered.
+
+********
+
+### Calculating Bin Scores
+
+The `bin.score()` function will calculate bin scores. These are the arguments you will need to specify:
+
+* __x__: a dataframe with trial level data. Needs to have RT and Accuracy DVs
+
+* __rt.col__: Column name in dataframe that contains the reaction time data
+
+* __accuracy.col__: Column name in dataframe that contains the accuracy data
+
+* __condition.col__: Column name in dataframe that contains the trial condition values
+
+* __baseline.condition__: The values that specify the baseline condition (e.g. "congruent")
+
+* __type__: How should Bin trials be aggregated, "sum" or "mean" (Default: "mean")
+
+* __id__: Column name in dataframe that contains the subject identifiers
+
+The default argument values are:
+
+```{r eval = FALSE}
+bin.score(x, rt.col = "RT", accuracy.col = "Accuracy", condition.col = "Condition", baseline.condition = "congruent", type = "mean", id = "Subject")
+```
+
+Your data file may already be setup with these default value column names. If so, then you just need to specify the dataframe.
+
+### Reliability functions
+
+#### `cronbach.alpha()`
+
+This function takes as input a "tidy" raw trial-level dataframe.
+
+* __x__: x a dataframe with trial level data
+
+* __trial.col__: The column name that identifies trial number
+
+* __value__: The column name that identifies the values to be used
+
+* __id__: The column name that identifies the Subject IDs.
+
+Cronbach's alpha is calculated using the `alpha()` function from the `psych` package. 
+
+The difficulty in simply using the `alpha()` function is getting the dataframe in the correct structure. To use `alpha()` the values that reliability is going to be assessed over need to be in columns. The dataframe, then is one subject per row with a column for each value.
+
+For most of our tasks, the values that will be assessed over are the individual Trial level DV (RT or Accuracy). So there needs to be one column for each Trial. This is an unusual data structure and is really only useful for calculating reliability. `cronbach.alpha()` will save you time by creating the correct data structure for you based on a more common structure that is contained in your "tidy" raw data files (one row per trial per subject, with RT and Accuracy as columns).
+
+You should be able to take your "tidy" raw data as input to `cronbach.alpha()`. The output of `cronbach.alpha()` is a single value representing Cronbach's Alpha.
+
+#### `splithalf()`
+
+This function takes as input a "tidy" raw trial-level dataframe.
+
+* __x__: x a dataframe with trial level data
+
+* __trial.col__: The column name that identifies trial number
+
+* __value__: The column name that identifies the values to be used
+
+* __id__: The column name that identifies the Subject IDs.
+
+The default values are 
+
+`splithalf(data, trial.col = "Trial", value = NULL, id = "Subject")`
+
+The data is split in half by even and odd trials.
+
+You should be able to take your "tidy" raw data as input to `splithalf()`. The output of `splithalf()` is a single value representing split-half reliability.
+
+********
+
+## datawrangling
+
+It would take too long to cover each of the functions in this package one-by-one. I will cover just a few that are the most commonly used functions. For a descriptions of each function see https://dr-jt.github.io/datawrangling/reference/index.html
+
+### Merging Data Files
+
+You might find yourself in a situation where you need to merge multiple text files together. There are two types of merge operations that can be performed. 
+
+In R, a "join" is merging dataframes together that have at least some rows in common (e.g. Same Subject IDs) and have at least one column that is different. The rows that are common serve as the reference for how to "join" the dataframes together. 
+
+In R, a "bind" is combining datarames together by staking either the rows or columns. It is unlikely that we you will need to do a column bind so we can skip that. A row "bind" takes dataframes that have the same columns but different rows. This will happen if you have separate data files for each subject from the same task. Each subject data file will have their unique rows (subject by trial level data) but they will all have the same columns. 
+
+The E-Merge software program is performing a row "bind" of each subject .edat file. In E-Prime 2 we have to go through E-Merge to do this process. However, in E-Prime 3.0 there is the option to output an exported .edat file as a tab-delimited .txt file. Using the `files.bind()` function from the `datawrangling` package will allow us to skip the E-Merge step.
+
+The `datawrangling` package contains two functions to merge data files together:
+
+* `files.join()`
+
+* `files.bind()`
+
+They both work in a similar way. The files you want to merge need to be in the same folder on your computer. You specify the location of this folder using the `path = ` argument. You need to specify a pattern that uniquely identifies the files you want to merge (e.g. ".txt", or "Flanker") using the `pattern = ` argument. Then specify the directory and filename you want to save the merge file to using the `output.file = ` argument.
+
+Here are the arguments that can be specified:
+
+* __path__: Folder location of files to be merged
+
+* __pattern__: Pattern to identify files to be merged
+
+* __delim__: Delimiter used in files. Passed onto `readr::read_delim()`
+
+* __na__: How are missing values defined in files to be merged. Passed to `readr::write_delim()`
+
+* __output.file__: File name and path to be saved to.
+
+* __id__: Subject ID column name. Passed onto `plyr::join_all(by = id)`. **ONLY for `files.join()`**
+
+* __bind__: The type of bind to perform (default = "rows"). **ONLY for `files.bind()`**
+
+### Reshpaing Data
+
+To run a statistical test usually requires your data is in the right format. For instance, to run a correlation or regression, you should have only one subject per row, and the columns contain values of each variable. The "messy" or "tidy" raw trial level data you start with are not in this format and so it is likely you will have to reshape your data to prepare it for statistical analyses. 
+
+In Chapter 4 you saw how to do this using the `spread()` function from the `tidyr` package. One limitation of `spread()` is that you can only spread on one key column or value column at a time.
+
+The `reshape.spread()` function allows you to `spred()` on multiple key columns or value colunns. If you are spreading on multiple key columns you need to specify how you want the names of those values to be merged.
+
+The arguments you can specify for `reshape.spread()` are:
+
+* __x__: dataframe
+
+* __variables__: The variable used for spreading
+
+* __variables_combine.name__: If using more than one variables column then specify name of a new combined column
+
+* __variables_combine.sep__: if using more than one variables column then specifiy how values should be seperated when combine
+
+* __values__: A vector of columns that contain the values to be spread on
+
+* __id__: What column is not being reorganized and needs to be preserved. Usually "Subject"
+
+* __fill__: Passed to spread() fill parameter
+
+For example, if you had a dataframe two rows per subject containing mean RT and mean Accuracy on congruent and incongruent trials, and you want to spread on both RT and Accuracy by Condition.
+
+```{r eval = FALSE}
+data <- reshape.spread(data, variables = "Condition", values = c("RT.mean", "Accuracy.mean"), id = "Subject")
+```
+
+### Transformations
+
+There are a set of function is `datawrangling` to allow you to more easily transform column values into new variables and to do data cleaning.
+
+#### Create Composites
+
+The function `composite()` will create composite scores out of specified columns. Right now you can only create "mean" composite scores. In the future I plan on adding "sum" and "factor score" composite types. 
+
+Here is a list of the arguments you can specifiy:
+
+* __x__: dataframe
+
+* __variables__: c() of columns to create the composite from
+
+* __type__: What type of composite should be calculated?, i.e. mean or sum. (Default = "mean").
+
+* __standardize__: Logical. Do you want to calculate the composite based on standardized (z-score) values? (Default = TRUE)
+
+* __name__: Name of the new composite variable to be created
+
+* __missing.allowed__: Criteria for the number of variables that can having missing values and still calculate a composite for that subject
+
+Example:
+
+```{r eval = FALSE}
+library(datawrangling)
+
+composite(data, 
+          variables = c("RAPM", "NumberSeries", "LetterSets"), 
+          type = "mean",
+          standardize = TRUE,
+          name = "Gf",
+          missing.allowed = 1)
+```
+
+#### Centering and Z-scoring
+
+The function `center()` will create either unstandardized or standardized (z-scored) centered variables. The list of arguments that can be passed onto the function are:
+
+* __x__: dataframe
+
+* __variables__: c() of columns to center
+
+* __standardize__: Logical. Do you want to calculate zscores? (Default = FALSE)
+
+Example:
+
+```{r eval = FALSE}
+library(datawrangling)
+
+center(data, 
+       variables = c("RT"),
+       standardize = TRUE)
+```
+
+********
+
+### Data Cleaning
+
+#### Trimming
+
+The function `trim()` will replace outlier scores that exceed a certain z-score cutoff.
+
+There are several options for how to replace the outlier scores. Replace with
+
+* "NA" (missing value)
+
+* "cutoff" (the z-score cutoff value, e.g. 3.5 SDs)
+
+* "mean" 
+
+* "median"
+
+The arguments that can be specified are:
+
+* __x__: dataframe
+
+* __variables__: c() of variables to be trimmed. option to set `variables = "all"` to trim all variables in a dataframe. But then must specify `id = `
+
+* __cutoff__: z-score cutoff to use for trimming (default: 3.5)
+
+* __replace__: What value should the outlier values be replaced with. (default: replace = "NA")
+
+* __id__: Column name that contains subject IDs. **ONLY needs to be used if `variables = "all"`
+
+Example:
+
+```{r eval = FALSE}
+library(datawrangling)
+
+trim(data, 
+     variables = "RT",
+     cutoff = 3.5
+     replace = "cutoff")
+```
+
+********
+
+#### Latent variable criteria
+
+The function `remove.latent()` will remove subjects who have missing data on too many tasks for a construct(s). 
+
+The factor structure needs to be specified in the `factor.list` argument. For example,
+
+`factor.list = list(WMC = c("OSpan", "SymSpan", "RotSpan"), Gf = c("RAPM", "LetterSets", "NumberSeries"))`
+
+The arguments that can be specified are:
+
+* __x__: dataframe
+
+* __factor.list__: list of factors and tasks
+
+* __missing.allowed__: Proportion of tasks allowed to be missing
+
+* __id__: Subject ID variable
+
+* __output.dir__: File directory to save removed subjects to [OPTIONAL]
+
+* __output.file__: File name to save removed subjects to [OPTIONAL]
+
+Example:
+
+```{r eval = FALSE}
+library(datawrangling)
+
+remove.latent(data,
+              factor.list = list(WMC = c("OSpan", "SymSpan", "RotSpan"), 
+                                 Gf = c("RAPM", "LetterSets", "NumberSeries")),
+              missing.allowed = .5,
+              id = "Subject")
+```
+
+********
+
+**Now on to scoring the "tidy" raw data file**
+

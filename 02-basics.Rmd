@@ -538,13 +538,15 @@ Let's label this argument `na.ignore`. We could label it `na.rm` like the `sum()
 
 Before we write the function let's think about what we need to change inside the function. Basically we want our new argument `na.ignore` to change the value of `na.rm` in the `sum()` function. If `na.ignore` is `TRUE` then we want `na.rm = TRUE`. Remember that arguments become objects inside of a function. So we will want to change:
 
-```{r collapse=TRUE}
+
+```{r collapse=TRUE, eval=FALSE}
 avg <- sum(x)/length(x)
 ```
 
 to
 
-```{r collapse=TRUE}
+
+```{r collapse=TRUE, eval=FALSE}
 avg <- sum(x, na.rm = na.ignore)/length(x)
 ```
 
@@ -582,7 +584,7 @@ to get
 
 ```{r collapse=TRUE}
 average <- function(x, na.ignore = FALSE){
-  avg <- sum(b, na.rm = na.ignore)/length(b[!is.na(b)])
+  avg <- sum(x, na.rm = na.ignore)/length(x[!is.na(x)])
   return(avg)
 }
 ```

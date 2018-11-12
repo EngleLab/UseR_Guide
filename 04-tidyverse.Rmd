@@ -10,7 +10,7 @@ This chapter will cover the two primary packages you will use in every R script 
 
 ## readr - import
 
-Every R script you write will require you to import a data file and create/save a new data file. 
+Every R script you write to do data preparation will require you to import a data file and create/save a new data file.
 
 The readr package contains useful functions for importing and saving data files. Go ahead and install the **readr** package. In the console type:
 
@@ -118,7 +118,11 @@ Let's see a quick example of all these functions with the example dataframe you 
 
 ********
 
-You should always have in mind the final resulting dataframe you want to create. In this case, we want to calculate the mean and standard deviation reaction times (RT) for congruent and incongruent trials and for each subject individually. What we will end up with is a dataframe where each subject has two rows of data, one for congruent and one for incongruent conditions. Then columns specifying the Subject number, Condition, mean RT, and mean SD. That is four columns. The number of rows should be two times the number of subjects. Let's first evaluate how many subjects we have - so we can know exactly how many rows to expect. 
+You should always have in mind the final resulting dataframe you want to create. 
+
+In this case, what we will want to do is calculate a Flanker Effect for each subject. This means the resulting dataframe will have one row per subject and a column that contains values on the Flanker Effect. 
+
+Right now the example data set has one row per trial per subject. There are `r nrow(import)` rows in the dataframe. It is important to evaluate that our script is working correctly. One way we can do this is to make sure the resulting data frame has the expected number of rows. Since we are creating a dataframe with one row per subject the number of rows should be equal to the number of subjects. 
 
 The function `unique()` will create an array of all unique values in a column. Recall that to access a column in a dataframe we can use `$`. So we can get an array of all unique subject ids.
 
@@ -134,9 +138,9 @@ length(unique(import$Subject))
 
 Notice how you just wrapped a function around another function. This is allowed, and can make your script more concise.
 
-Cool, so in our final dataframe at the end of the R script we should expect to have **`r 2*length(unique(import$Subject))`** rows and **4** columns
+Cool, so in our final dataframe at the end of the R script we should expect to have **`r length(unique(import$Subject))`** rows
 
-### rename()
+### `rename()`
 
 We do not really need to, but let's go ahead and `rename()` a column. How about instead of `ACC` let's label it as `Accuracy`. Pretty simple
 
@@ -146,7 +150,7 @@ data <- rename(import, Accuracy = ACC)
 
 `rename()` is really only useful if you are not also using `select()` or `mutate()`. In `select()` you can also rename columns as you select them to keep. I'll illustrate this later
 
-### filter()
+### `filter()`
 
 We do not want to include practice trials when calculating the mean and standard deviation on RTs. In other words we want to remove rows that correspond to practice trials. We will use `filter()` to do remove these rows. To do so we first need to know the name of the column that contains this information and the values in that column which identifies practice trials.
 
@@ -194,7 +198,7 @@ data <- filter(data, TrialProc == "real", Accuracy==1)
 
 We are filtering on only real and accurate trials.
 
-### select()
+### `select()`
 
 Let's see an example of `select()`. This step is actually not necessary because `summarise()` will end up removing irrelevant columns anyways. Let's keep at least one irrelevant column but remove the rest, so we can illustrate this when we get to `summarise()`.
 
@@ -230,7 +234,7 @@ data <- select(data, Subject, Condition, RT, Trial, ACC = Accuracy)
 
 We are keeping `Subject`, `Condition`, `RT`, `Trial`, and renaming `ACC` to `Accuracy`.
 
-### mutate()
+### `mutate()`
 
 `mutate()` is a very powerful function. It basically allows you to do any computation or transformation on the values in the dataframe. You can create new columns based on transformations of other columns or simply change the values in already existing columns. Let's see an example of both. 
 
@@ -299,7 +303,7 @@ data <- mutate(data,
 
 Notice how I put each one on a seperate line. This is just for ease of reading and so the line doesn't extend too far off the page. Just make sure the commas are still there at the end of each line.
 
-### group_by()
+### `group_by()`
 
 This function is very handy if we want to perform functions seperately on different groups or splits of the dataframe. For instance, maybe instead of calculating an overall "grand" mean we want to calculate a "grand" mean for each Subject seperately. Instead of manually breaking the dataframe up by Subject, the `group_by()` function does this automatically in the background. Like this...
 
@@ -332,27 +336,66 @@ data <- mutate(data,
 data <- ungroup(data)
 ```
 
-### summarise()
+### `summarise()`
 
-Finally we arrive at `summarise()`. We've done our filtering, selecting, mutating, now let's aggergate RTs accross `Condition` to calculate mean and standard deviations. We will use a combo of `group_by()` and `summarise()`. `summarise()` is almost always used in conjunction with `group_by()`. 
+The `summarise()` function will **reduce** a data frame by summarising values in one or multiple columns. The values will be summarised on some statistical value, such as a mean, median, or standard deviation. 
+
+Remember that in order to calculate the Flanker Effect for each subject, we first need to calculate each subject's mean RT on incongruent trials and their mean RT on congruent trials
+
+We've done our filtering, selecting, mutating, now let's aggergate RTs accross `Condition` to calculate mean and standard deviations. We will use a combo of `group_by()` and `summarise()`. `summarise()` is almost always used in conjunction with `group_by()`. 
 
 ```{r collapse=TRUE}
 data <- group_by(data, Subject, Condition)
-data <- summarise(data, 
-                  RT.mean = mean(RT, na.rm = TRUE),
-                  RT.sd = sd(RT, na.rm = TRUE))
+data <- summarise(data,
+                  RT.mean = mean(RT, na.rm = TRUE)) %>%
+  ungroup()
 ```
-To `summarise()` you need to create new column names that will contain the aggregate values. `RT.mean` and `RT.sd` seem to make sense to me.
 
-How many rows and columns does `data` have? Recall we were expecting 820 rows with 4 columns. Is that right? Does each subject have two rows as expected?
+To `summarise()` you need to create new column names that will contain the aggregate values. `RT.mean` seems to make sense to me.
 
-Also notice how irrelevant columns got removed: `Trial`, and `ACC`.
+What does the resulting data frame look like? There should be three rows per subject, one for incongruent trials, one for congruent trials, and one for neutral trials. You can see that we now have mean RTs on all conditions for each subject. 
 
-Aweseome!
+Also, notice how non-grouped by columns got removed: `Trial`, and `ACC`.
+
+### `spread()`
+
+Ultimately, we want to have one row per subject and to calculate the difference in mean RT between incongruent and congruent conditions. It is easier to calculate the difference between two values when they are in the same row. Currently, the mean RT for each condition is on a different row. What we need to do is reshape the dataframe. To do so we will use the `spread()` function from the `tidyr` package.
+
+The `tidyr` package, like `readr` and `dplyr`, is from the **tidyverse** set of packages. The `spread()` function will convert a long data frame to a wide dataframe. In other words, it will spread values on different rows to being on the same row but different columns. 
+
+In our example, what we want to do is `spread()` the mean RT values for the two conditions across different columns. So we will end up with is one row per subject and one column for each condition. Rather than incongruent, congruent, and neutral trials being represented across rows we are spreading them across columns (widening the data frame).
+
+The two main arguments to specify in `spread()` are
+
+* __key__: The column name that contains the variables to create new columns by (e.g. "Condition")
+
+* __value__: The colunn name that contains the values (e.g. "RT")
+
+First of all if you have not done so, install the `tidyr` package
+
+```{r eval= FALSE}
+install.package("tidyr")
+```
+
+```{r collapse = TRUE}
+library(tidyr)
+
+data <- spread(data, key = Condition, value = RT.mean)
+```
+
+View the dataframe. There are now three columns for each condition that contain the RT.mean values. 
+
+From here it is pretty easy, we just need to create a new column that is the difference between incongruent and congruent columns. We can use the `mutate()` function to do this
+
+```{r collapse = TRUE}
+data <- mutate(data, FlankerEffect = incongruent - congruent)
+```
+
+Perfect! Using the `readr`, `dplyr`, and `tidyr` packages we have gone from a "tidy" raw data file (one-row per trial) to a dataframe with one row per subject and a column of FlankerEffect scores. 
 
 ### Pipe Operator %>%
 
-One last thing about the dplyr package. dplyr allows for passing the output from one function to another using what is called a pipe operatior.
+One last thing about the `dplyr` package. `dplyr` allows for passing the output from one function to another using what is called a pipe operatior.
 
 The pipe operator is: `%>%`
 
@@ -374,9 +417,9 @@ data <- import %>%
   mutate(RT = ifelse(RT<200, NA, RT),
          grandRT = mean(RT, na.rm=TRUE),
          RTdiff = RT - grandRT) %>%
-  summarise(RT.mean = mean(RT, na.rm = TRUE),
-            RT.sd = sd(RT, na.rm = TRUE)) %>%
-  ungroup()
+  summarise(RT.mean = mean(RT, na.rm = TRUE)) %>%
+  ungroup() %>%
+  spread(key = Condition, value = RT.mean)
 ```
 
 ## readr - export
