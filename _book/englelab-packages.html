@@ -25,7 +25,7 @@
 <meta name="author" content="Jason Tsukahara">
 
 
-<meta name="date" content="2018-11-12">
+<meta name="date" content="2018-11-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,67 +50,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 </head>
@@ -220,6 +194,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.6" data-path="example-data-preparation.html"><a href="example-data-preparation.html#source-in-masterscript"><i class="fa fa-check"></i><b>7.6</b> <code>source()</code> in Masterscript</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html"><i class="fa fa-check"></i><b>8</b> Analyzing Data in R</a><ul>
+<li class="chapter" data-level="8.1" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html#r-markdown"><i class="fa fa-check"></i><b>8.1</b> R Markdown</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html#yaml-header"><i class="fa fa-check"></i><b>8.1.1</b> YAML header</a></li>
+<li class="chapter" data-level="8.1.2" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html#r-code-chunks"><i class="fa fa-check"></i><b>8.1.2</b> R code chunks</a></li>
+<li class="chapter" data-level="8.1.3" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html#formatted-text"><i class="fa fa-check"></i><b>8.1.3</b> Formatted text</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -246,10 +227,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>datawrangling</strong> <a href="https://dr-jt.github.io/datawrangling" class="uri">https://dr-jt.github.io/datawrangling</a></p></li>
 </ul>
 <p>I am hosting these packages on GitHub and can be downloaded using the <code>devtools</code> package</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</a>
-<a class="sourceLine" id="cb108-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb108-3" data-line-number="3">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;EngleLab/englelab&quot;</span>)</a>
-<a class="sourceLine" id="cb108-4" data-line-number="4">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/datawrangling&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
+
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;EngleLab/englelab&quot;</span>)
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/datawrangling&quot;</span>)</code></pre></div>
 <hr />
 <div id="englelab" class="section level2">
 <h2><span class="header-section-number">5.1</span> englelab</h2>
@@ -260,37 +241,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>I suggest to only use the “tidy” raw functions rather than the scoring functions. The reason for this is that the scoring function does not create a “tidy” raw data file - which is useful for doing internal consitency analyses, and is just a good idea to have a “tidy” raw data file for trial-by-trial performance.</p>
 <p>Here is the list of “tidy” raw data functions:</p>
 <ul>
-<li><p><code>raw.ospan()</code></p></li>
-<li><p><code>raw.symspan()</code></p></li>
-<li><p><code>raw.rotspan()</code></p></li>
-<li><p><code>raw.rapm()</code></p></li>
-<li><p><code>raw.numberseries()</code></p></li>
-<li><p><code>raw.lettersets()</code></p></li>
+<li><p><code>raw_ospan()</code></p></li>
+<li><p><code>raw_symspan()</code></p></li>
+<li><p><code>raw_rotspan()</code></p></li>
+<li><p><code>raw_rapm()</code></p></li>
+<li><p><code>raw_numberseries()</code></p></li>
+<li><p><code>raw_lettersets()</code></p></li>
 </ul>
 <p>These functions take as input an imported <strong>E-Merged</strong> or <strong>edat</strong> file.</p>
-<p>For the complex span tasks you need to specify the number of blocks administered with the <code>blocks</code> argument. ex. <code>raw.ospan(data, blocks = 2)</code></p>
+<p>For the complex span tasks you need to specify the number of blocks administered with the <code>blocks</code> argument. ex. <code>raw_ospan(data, blocks = 2)</code></p>
 <p>The output of the raw functions will also contain columns for the subject’s final score on the task. This is why it is suggested to just use the raw functions, you can still easily grab the final score on the task from the outputed file.</p>
 <div id="example" class="section level4">
 <h4><span class="header-section-number">5.1.1.1</span> Example</h4>
-<p>Here is an example script that uses the <code>raw.ospan()</code> function to import an E-merged data file and output a “tidy” raw data file.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="co">## Set up ####</span></a>
-<a class="sourceLine" id="cb109-2" data-line-number="2"><span class="co">## Load packages</span></a>
-<a class="sourceLine" id="cb109-3" data-line-number="3"><span class="kw">library</span>(readr)</a>
-<a class="sourceLine" id="cb109-4" data-line-number="4"><span class="kw">library</span>(englelab)</a>
-<a class="sourceLine" id="cb109-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb109-6" data-line-number="6"><span class="co">## Set import/output directories</span></a>
-<a class="sourceLine" id="cb109-7" data-line-number="7">import.file &lt;-<span class="st"> &quot;data/raw/emerge/ospan.txt&quot;</span></a>
-<a class="sourceLine" id="cb109-8" data-line-number="8">output.file &lt;-<span class="st"> &quot;data/raw/ospan_raw.txt&quot;</span></a>
-<a class="sourceLine" id="cb109-9" data-line-number="9"><span class="co">##############</span></a>
-<a class="sourceLine" id="cb109-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb109-11" data-line-number="11"><span class="co">## Import</span></a>
-<a class="sourceLine" id="cb109-12" data-line-number="12">import &lt;-<span class="st"> </span><span class="kw">read_delim</span>(import.file), <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, escape_double =<span class="st"> </span><span class="ot">FALSE</span>, trim_ws =<span class="st"> </span><span class="ot">TRUE</span><span class="er">)</span></a>
-<a class="sourceLine" id="cb109-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb109-14" data-line-number="14"><span class="co">## Clean up raw data file and save</span></a>
-<a class="sourceLine" id="cb109-15" data-line-number="15">data_raw &lt;-<span class="st"> </span><span class="kw">raw.ospan</span>(import, <span class="dt">blocks =</span> <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb109-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb109-17" data-line-number="17"><span class="co">## Save data file</span></a>
-<a class="sourceLine" id="cb109-18" data-line-number="18"><span class="kw">write_delim</span>(data_raw, <span class="dt">path =</span> output.file, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;&quot;</span>)</a></code></pre></div>
+<p>Here is an example script that uses the <code>raw_ospan()</code> function to import an E-merged data file and output a “tidy” raw data file.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Set up ####
+## Load packages
+<span class="kw">library</span>(readr)
+<span class="kw">library</span>(englelab)
+
+## Set import/output directories
+import.file &lt;-<span class="st"> &quot;data/raw/emerge/ospan.txt&quot;</span>
+output.file &lt;-<span class="st"> &quot;data/raw/ospan_raw.txt&quot;</span>
+##############
+
+## Import
+import &lt;-<span class="st"> </span><span class="kw">read_delim</span>(import.file), <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, escape_double =<span class="st"> </span><span class="ot">FALSE</span>, trim_ws =<span class="st"> </span><span class="ot">TRUE</span><span class="er">)</span>
+
+## Clean up raw data file and save
+data_raw &lt;-<span class="st"> </span><span class="kw">raw_ospan</span>(import, <span class="dt">blocks =</span> <span class="dv">2</span>)
+
+## Save data file
+<span class="kw">write_delim</span>(data_raw, <span class="dt">path =</span> output.file, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;&quot;</span>)</code></pre></div>
 <hr />
 </div>
 </div>
@@ -298,19 +279,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">5.1.2</span> score data functions</h3>
 <p>Again, it is suggested to use the raw functions instead of the score functions. However, here is the list of the score functions:</p>
 <ul>
-<li><p><code>score.ospan()</code></p></li>
-<li><p><code>score.symspan()</code></p></li>
-<li><p><code>score.rotspan()</code></p></li>
-<li><p><code>score.rapm()</code></p></li>
-<li><p><code>score.numberseries()</code></p></li>
-<li><p><code>score.lettersets()</code></p></li>
+<li><p><code>score_ospan()</code></p></li>
+<li><p><code>score_symspan()</code></p></li>
+<li><p><code>score_rotspan()</code></p></li>
+<li><p><code>score_rapm()</code></p></li>
+<li><p><code>score_numberseries()</code></p></li>
+<li><p><code>score_lettersets()</code></p></li>
 </ul>
 <p>Like the raw functions the score functions take as input a “messy” raw <strong>E-Merged</strong> or <strong>edat</strong> file. For the complex span tasks you need to specify the number of blocks adminestered.</p>
 <hr />
 </div>
 <div id="calculating-bin-scores" class="section level3">
 <h3><span class="header-section-number">5.1.3</span> Calculating Bin Scores</h3>
-<p>The <code>bin.score()</code> function will calculate bin scores. These are the arguments you will need to specify:</p>
+<p>The <code>bin_score()</code> function will calculate bin scores. These are the arguments you will need to specify:</p>
 <ul>
 <li><p><strong>x</strong>: a dataframe with trial level data. Needs to have RT and Accuracy DVs</p></li>
 <li><p><strong>rt.col</strong>: Column name in dataframe that contains the reaction time data</p></li>
@@ -321,13 +302,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>id</strong>: Column name in dataframe that contains the subject identifiers</p></li>
 </ul>
 <p>The default argument values are:</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1"><span class="kw">bin.score</span>(x, <span class="dt">rt.col =</span> <span class="st">&quot;RT&quot;</span>, <span class="dt">accuracy.col =</span> <span class="st">&quot;Accuracy&quot;</span>, <span class="dt">condition.col =</span> <span class="st">&quot;Condition&quot;</span>, <span class="dt">baseline.condition =</span> <span class="st">&quot;congruent&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bin_score</span>(x, <span class="dt">rt.col =</span> <span class="st">&quot;RT&quot;</span>, <span class="dt">accuracy.col =</span> <span class="st">&quot;Accuracy&quot;</span>, <span class="dt">condition.col =</span> <span class="st">&quot;Condition&quot;</span>, <span class="dt">baseline.condition =</span> <span class="st">&quot;congruent&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>)</code></pre></div>
 <p>Your data file may already be setup with these default value column names. If so, then you just need to specify the dataframe.</p>
 </div>
 <div id="reliability-functions" class="section level3">
 <h3><span class="header-section-number">5.1.4</span> Reliability functions</h3>
-<div id="cronbach.alpha" class="section level4">
-<h4><span class="header-section-number">5.1.4.1</span> <code>cronbach.alpha()</code></h4>
+<div id="cronbach_alpha" class="section level4">
+<h4><span class="header-section-number">5.1.4.1</span> <code>cronbach_alpha()</code></h4>
 <p>This function takes as input a “tidy” raw trial-level dataframe.</p>
 <ul>
 <li><p><strong>x</strong>: x a dataframe with trial level data</p></li>
@@ -337,8 +318,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Cronbach’s alpha is calculated using the <code>alpha()</code> function from the <code>psych</code> package.</p>
 <p>The difficulty in simply using the <code>alpha()</code> function is getting the dataframe in the correct structure. To use <code>alpha()</code> the values that reliability is going to be assessed over need to be in columns. The dataframe, then is one subject per row with a column for each value.</p>
-<p>For most of our tasks, the values that will be assessed over are the individual Trial level DV (RT or Accuracy). So there needs to be one column for each Trial. This is an unusual data structure and is really only useful for calculating reliability. <code>cronbach.alpha()</code> will save you time by creating the correct data structure for you based on a more common structure that is contained in your “tidy” raw data files (one row per trial per subject, with RT and Accuracy as columns).</p>
-<p>You should be able to take your “tidy” raw data as input to <code>cronbach.alpha()</code>. The output of <code>cronbach.alpha()</code> is a single value representing Cronbach’s Alpha.</p>
+<p>For most of our tasks, the values that will be assessed over are the individual Trial level DV (RT or Accuracy). So there needs to be one column for each Trial. This is an unusual data structure and is really only useful for calculating reliability. <code>cronbach_alpha()</code> will save you time by creating the correct data structure for you based on a more common structure that is contained in your “tidy” raw data files (one row per trial per subject, with RT and Accuracy as columns).</p>
+<p>You should be able to take your “tidy” raw data as input to <code>cronbach_alpha()</code>. The output of <code>cronbach_alpha()</code> is a single value representing Cronbach’s Alpha.</p>
 </div>
 <div id="splithalf" class="section level4">
 <h4><span class="header-section-number">5.1.4.2</span> <code>splithalf()</code></h4>
@@ -365,11 +346,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You might find yourself in a situation where you need to merge multiple text files together. There are two types of merge operations that can be performed.</p>
 <p>In R, a “join” is merging dataframes together that have at least some rows in common (e.g. Same Subject IDs) and have at least one column that is different. The rows that are common serve as the reference for how to “join” the dataframes together.</p>
 <p>In R, a “bind” is combining datarames together by staking either the rows or columns. It is unlikely that we you will need to do a column bind so we can skip that. A row “bind” takes dataframes that have the same columns but different rows. This will happen if you have separate data files for each subject from the same task. Each subject data file will have their unique rows (subject by trial level data) but they will all have the same columns.</p>
-<p>The E-Merge software program is performing a row “bind” of each subject .edat file. In E-Prime 2 we have to go through E-Merge to do this process. However, in E-Prime 3.0 there is the option to output an exported .edat file as a tab-delimited .txt file. Using the <code>files.bind()</code> function from the <code>datawrangling</code> package will allow us to skip the E-Merge step.</p>
+<p>The E-Merge software program is performing a row “bind” of each subject .edat file. In E-Prime 2 we have to go through E-Merge to do this process. However, in E-Prime 3.0 there is the option to output an exported .edat file as a tab-delimited .txt file. Using the <code>files_bind()</code> function from the <code>datawrangling</code> package will allow us to skip the E-Merge step.</p>
 <p>The <code>datawrangling</code> package contains two functions to merge data files together:</p>
 <ul>
-<li><p><code>files.join()</code></p></li>
-<li><p><code>files.bind()</code></p></li>
+<li><p><code>files_join()</code></p></li>
+<li><p><code>files_bind()</code></p></li>
 </ul>
 <p>They both work in a similar way. The files you want to merge need to be in the same folder on your computer. You specify the location of this folder using the <code>path =</code> argument. You need to specify a pattern that uniquely identifies the files you want to merge (e.g. “.txt”, or “Flanker”) using the <code>pattern =</code> argument. Then specify the directory and filename you want to save the merge file to using the <code>output.file =</code> argument.</p>
 <p>Here are the arguments that can be specified:</p>
@@ -379,16 +360,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>delim</strong>: Delimiter used in files. Passed onto <code>readr::read_delim()</code></p></li>
 <li><p><strong>na</strong>: How are missing values defined in files to be merged. Passed to <code>readr::write_delim()</code></p></li>
 <li><p><strong>output.file</strong>: File name and path to be saved to.</p></li>
-<li><p><strong>id</strong>: Subject ID column name. Passed onto <code>plyr::join_all(by = id)</code>. <strong>ONLY for <code>files.join()</code></strong></p></li>
-<li><p><strong>bind</strong>: The type of bind to perform (default = “rows”). <strong>ONLY for <code>files.bind()</code></strong></p></li>
+<li><p><strong>id</strong>: Subject ID column name. Passed onto <code>plyr::join_all(by = id)</code>. <strong>ONLY for <code>files_join()</code></strong></p></li>
+<li><p><strong>bind</strong>: The type of bind to perform (default = “rows”). <strong>ONLY for <code>files_bind()</code></strong></p></li>
 </ul>
 </div>
 <div id="reshpaing-data" class="section level3">
 <h3><span class="header-section-number">5.2.2</span> Reshpaing Data</h3>
 <p>To run a statistical test usually requires your data is in the right format. For instance, to run a correlation or regression, you should have only one subject per row, and the columns contain values of each variable. The “messy” or “tidy” raw trial level data you start with are not in this format and so it is likely you will have to reshape your data to prepare it for statistical analyses.</p>
 <p>In Chapter 4 you saw how to do this using the <code>spread()</code> function from the <code>tidyr</code> package. One limitation of <code>spread()</code> is that you can only spread on one key column or value column at a time.</p>
-<p>The <code>reshape.spread()</code> function allows you to <code>spred()</code> on multiple key columns or value colunns. If you are spreading on multiple key columns you need to specify how you want the names of those values to be merged.</p>
-<p>The arguments you can specify for <code>reshape.spread()</code> are:</p>
+<p>The <code>reshape_spread()</code> function allows you to <code>spred()</code> on multiple key columns or value colunns. If you are spreading on multiple key columns you need to specify how you want the names of those values to be merged.</p>
+<p>The arguments you can specify for <code>reshape_spread()</code> are:</p>
 <ul>
 <li><p><strong>x</strong>: dataframe</p></li>
 <li><p><strong>variables</strong>: The variable used for spreading</p></li>
@@ -399,7 +380,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>fill</strong>: Passed to spread() fill parameter</p></li>
 </ul>
 <p>For example, if you had a dataframe two rows per subject containing mean RT and mean Accuracy on congruent and incongruent trials, and you want to spread on both RT and Accuracy by Condition.</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1">data &lt;-<span class="st"> </span><span class="kw">reshape.spread</span>(data, <span class="dt">variables =</span> <span class="st">&quot;Condition&quot;</span>, <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;RT.mean&quot;</span>, <span class="st">&quot;Accuracy.mean&quot;</span>), <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span><span class="kw">reshape_spread</span>(data, <span class="dt">variables =</span> <span class="st">&quot;Condition&quot;</span>, <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;RT.mean&quot;</span>, <span class="st">&quot;Accuracy.mean&quot;</span>), <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>)</code></pre></div>
 </div>
 <div id="transformations" class="section level3">
 <h3><span class="header-section-number">5.2.3</span> Transformations</h3>
@@ -417,14 +398,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>missing.allowed</strong>: Criteria for the number of variables that can having missing values and still calculate a composite for that subject</p></li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" data-line-number="1"><span class="kw">library</span>(datawrangling)</a>
-<a class="sourceLine" id="cb112-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb112-3" data-line-number="3"><span class="kw">composite</span>(data, </a>
-<a class="sourceLine" id="cb112-4" data-line-number="4">          <span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;RAPM&quot;</span>, <span class="st">&quot;NumberSeries&quot;</span>, <span class="st">&quot;LetterSets&quot;</span>), </a>
-<a class="sourceLine" id="cb112-5" data-line-number="5">          <span class="dt">type =</span> <span class="st">&quot;mean&quot;</span>,</a>
-<a class="sourceLine" id="cb112-6" data-line-number="6">          <span class="dt">standardize =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb112-7" data-line-number="7">          <span class="dt">name =</span> <span class="st">&quot;Gf&quot;</span>,</a>
-<a class="sourceLine" id="cb112-8" data-line-number="8">          <span class="dt">missing.allowed =</span> <span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(datawrangling)
+
+<span class="kw">composite</span>(data, 
+          <span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;RAPM&quot;</span>, <span class="st">&quot;NumberSeries&quot;</span>, <span class="st">&quot;LetterSets&quot;</span>), 
+          <span class="dt">type =</span> <span class="st">&quot;mean&quot;</span>,
+          <span class="dt">standardize =</span> <span class="ot">TRUE</span>,
+          <span class="dt">name =</span> <span class="st">&quot;Gf&quot;</span>,
+          <span class="dt">missing.allowed =</span> <span class="dv">1</span>)</code></pre></div>
 </div>
 <div id="centering-and-z-scoring" class="section level4">
 <h4><span class="header-section-number">5.2.3.2</span> Centering and Z-scoring</h4>
@@ -435,11 +416,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>standardize</strong>: Logical. Do you want to calculate zscores? (Default = FALSE)</p></li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1"><span class="kw">library</span>(datawrangling)</a>
-<a class="sourceLine" id="cb113-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb113-3" data-line-number="3"><span class="kw">center</span>(data, </a>
-<a class="sourceLine" id="cb113-4" data-line-number="4">       <span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;RT&quot;</span>),</a>
-<a class="sourceLine" id="cb113-5" data-line-number="5">       <span class="dt">standardize =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(datawrangling)
+
+<span class="kw">center</span>(data, 
+       <span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;RT&quot;</span>),
+       <span class="dt">standardize =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <hr />
 </div>
 </div>
@@ -464,17 +445,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>id</strong>: Column name that contains subject IDs. **ONLY needs to be used if <code>variables = &quot;all&quot;</code></p></li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1"><span class="kw">library</span>(datawrangling)</a>
-<a class="sourceLine" id="cb114-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb114-3" data-line-number="3"><span class="kw">trim</span>(data, </a>
-<a class="sourceLine" id="cb114-4" data-line-number="4">     <span class="dt">variables =</span> <span class="st">&quot;RT&quot;</span>,</a>
-<a class="sourceLine" id="cb114-5" data-line-number="5">     <span class="dt">cutoff =</span> <span class="fl">3.5</span></a>
-<a class="sourceLine" id="cb114-6" data-line-number="6">     <span class="dt">replace =</span> <span class="st">&quot;cutoff&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(datawrangling)
+
+<span class="kw">trim</span>(data, 
+     <span class="dt">variables =</span> <span class="st">&quot;RT&quot;</span>,
+     <span class="dt">cutoff =</span> <span class="fl">3.5</span>
+     <span class="dt">replace =</span> <span class="st">&quot;cutoff&quot;</span>)</code></pre></div>
 <hr />
 </div>
 <div id="latent-variable-criteria" class="section level4">
 <h4><span class="header-section-number">5.2.4.2</span> Latent variable criteria</h4>
-<p>The function <code>remove.latent()</code> will remove subjects who have missing data on too many tasks for a construct(s).</p>
+<p>The function <code>remove_latent()</code> will remove subjects who have missing data on too many tasks for a construct(s).</p>
 <p>The factor structure needs to be specified in the <code>factor.list</code> argument. For example,</p>
 <p><code>factor.list = list(WMC = c(&quot;OSpan&quot;, &quot;SymSpan&quot;, &quot;RotSpan&quot;), Gf = c(&quot;RAPM&quot;, &quot;LetterSets&quot;, &quot;NumberSeries&quot;))</code></p>
 <p>The arguments that can be specified are:</p>
@@ -487,13 +468,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>output.file</strong>: File name to save removed subjects to [OPTIONAL]</p></li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1"><span class="kw">library</span>(datawrangling)</a>
-<a class="sourceLine" id="cb115-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb115-3" data-line-number="3"><span class="kw">remove.latent</span>(data,</a>
-<a class="sourceLine" id="cb115-4" data-line-number="4">              <span class="dt">factor.list =</span> <span class="kw">list</span>(<span class="dt">WMC =</span> <span class="kw">c</span>(<span class="st">&quot;OSpan&quot;</span>, <span class="st">&quot;SymSpan&quot;</span>, <span class="st">&quot;RotSpan&quot;</span>), </a>
-<a class="sourceLine" id="cb115-5" data-line-number="5">                                 <span class="dt">Gf =</span> <span class="kw">c</span>(<span class="st">&quot;RAPM&quot;</span>, <span class="st">&quot;LetterSets&quot;</span>, <span class="st">&quot;NumberSeries&quot;</span>)),</a>
-<a class="sourceLine" id="cb115-6" data-line-number="6">              <span class="dt">missing.allowed =</span> <span class="fl">.5</span>,</a>
-<a class="sourceLine" id="cb115-7" data-line-number="7">              <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(datawrangling)
+
+<span class="kw">remove_latent</span>(data,
+              <span class="dt">factor.list =</span> <span class="kw">list</span>(<span class="dt">WMC =</span> <span class="kw">c</span>(<span class="st">&quot;OSpan&quot;</span>, <span class="st">&quot;SymSpan&quot;</span>, <span class="st">&quot;RotSpan&quot;</span>), 
+                                 <span class="dt">Gf =</span> <span class="kw">c</span>(<span class="st">&quot;RAPM&quot;</span>, <span class="st">&quot;LetterSets&quot;</span>, <span class="st">&quot;NumberSeries&quot;</span>)),
+              <span class="dt">missing.allowed =</span> .<span class="dv">5</span>,
+              <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>)</code></pre></div>
 <hr />
 <p><strong>Now on to scoring the “tidy” raw data file</strong></p>
 

@@ -147,11 +147,11 @@ output.dir <- directories$messy
 #############
 ```
 
-We will use the `files.bind()` function from the `datawrangling` package to stack each subject file ontop of one another.
+We will use the `files_bind()` function from the `datawrangling` package to stack each subject file ontop of one another.
 
 ```{r collapse = TRUE, message = FALSE, warning = FALSE, eval = FALSE}
 ## Merge data files
-files.bind(path = here(import.dir), pattern = "Flanker", output.file = here(output.dir, "Flanker.txt"))
+files_bind(path = here(import.dir), pattern = "Flanker", output.file = here(output.dir, "Flanker.txt"))
 ```
 
 This should do it. So your entire script should look something like
@@ -169,7 +169,7 @@ output.dir <- directories$messy
 #############
 
 ## Merge data files
-files.bind(path = here(import.dir), pattern = "Flanker", output.file = here(output.dir, "Flanker.txt"))
+files_bind(path = here(import.dir), pattern = "Flanker", output.file = here(output.dir, "Flanker.txt"))
 
 rm(list=ls())
 ```
@@ -273,20 +273,20 @@ It is a mess, right? Here are some things you need to know about the "messy" raw
 
 Now it happens on occasion that the wrong subject number is entered in when an RA is starting up a task. This can result in duplicate Subject numbers in the E-Merge file. Luckily I have created a function to remove the duplicate subjects, and put their information (with session date and time) into a specific file. This file will be created in a new folder called "duplicates".
 
-The function is `duplicates.remove()` from the `datawrangling` package on my GitHub.
+The function is `duplicates_remove()` from the `datawrangling` package on my GitHub.
 
 It can be difficult to remember what arguments you need to include in a function. To see helpful documentation about a function you can type in the console
 
 ```{r eval=FALSE}
 library(datawrangling)
-?duplicates.remove
+?duplicates_remove
 ```
 
 
 ```{r warning=FALSE, collapse=TRUE, message=FALSE}
 ## Import
 import <- read_delim(here(import.dir, "Flanker.txt"), "\t", escape_double = FALSE, trim_ws = TRUE)
-import <- duplicates.remove(import, taskname = "Flanker", output.folder = here(output.dir))
+import <- duplicates_remove(import, taskname = "Flanker", output.folder = here(output.dir))
 ```
 
 ### Filter
@@ -478,7 +478,7 @@ output.dir <- directories$raw
 
 ## Import
 import <- read_delim(here(import.dir, "Flanker.txt"), "\t", escape_double = FALSE, trim_ws = TRUE) %>%
-  duplicates.remove(taskname = "Flanker", output.folder = here(output.dir))
+  duplicates_remove(taskname = "Flanker", output.folder = here(output.dir))
 
 ## Tidy
 data_flanker <- import %>%
@@ -640,7 +640,7 @@ data_flanker <- import %>%
   summarise(RT.mean = mean(RT, na.rm = TRUE),
             Accuracy.mean = mean(Accuracy, na.rm = TRUE)) %>%
   ungroup() %>%
-  reshape.spread(variables = "Condition", values = c("RT.mean", "Accuracy.mean"), id = "Subject")
+  reshape_spread(variables = "Condition", values = c("RT.mean", "Accuracy.mean"), id = "Subject")
 ```
 
 And we might as well calaculate the FlankerEffects
@@ -655,14 +655,14 @@ data_flanker <- import %>%
   summarise(RT.mean = mean(RT, na.rm = TRUE),
             Accuracy.mean = mean(Accuracy, na.rm = TRUE)) %>%
   ungroup() %>%
-  reshape.spread(variables = "Condition", values = c("RT.mean", "Accuracy.mean"), id = "Subject") %>%
+  reshape_spread(variables = "Condition", values = c("RT.mean", "Accuracy.mean"), id = "Subject") %>%
   mutate(FlankerEffect_RT = incongruent_RT.mean - congruent_RT.mean,
          FlankerEffect_ACC = incongruent_Accuracy.mean - congruent_Accuracy.mean)
 ```
 
 #### Remove poor performing subjects
 
-The approach I like to take with entirely removing subjects is to keep a record of those subjects in a data file somewhere. To do this we will create a new dataframe of subjects that will be removed. We will then use a function I created, `remove.save()` from the `datawrangling` package. This function is a short hand way of doing two things at one. 
+The approach I like to take with entirely removing subjects is to keep a record of those subjects in a data file somewhere. To do this we will create a new dataframe of subjects that will be removed. We will then use a function I created, `remove_save()` from the `datawrangling` package. This function is a short hand way of doing two things at one. 
 
 1. Removing the subjects from the full data file
 
@@ -682,10 +682,10 @@ data_remove <- data_flanker %>%
            neutral_Accuracy.mean_z > sd.criteria | neutral_Accuracy.mean_z < (-1*sd.criteria))
 ```
 
-Then use `remove.save()`
+Then use `remove_save()`
 
 ```{r}
-data_flanker <- remove.save(data_flanker, data_remove, 
+data_flanker <- remove_save(data_flanker, data_remove, 
                             output.dir = here(output.dir, "removed"), 
                             output.file = "Flanker_removed.txt")
 ```
@@ -731,7 +731,7 @@ data_binned <- import %>%
   filter(!(Subject %in% data_remove$Subject), Condition != "neutral")
 ```
 
-And finally calculate bin scores using `bin.score()` from the `englelab` package.
+And finally calculate bin scores using `bin_score()` from the `englelab` package.
 
 ```{r}
 ## Calculate Binned scores
@@ -741,7 +741,7 @@ data_binned <- import %>%
   trim(variables = "RT", cutoff = sd.criteria, replace = "cutoff") %>%
   ungroup() %>%
   filter(!(Subject %in% data_remove$Subject), Condition != "neutral") %>%
-  bin.score(rt.col = "RT", accuracy.col = "Accuracy", type = "mean",
+  bin_score(rt.col = "RT", accuracy.col = "Accuracy", type = "mean",
             condition.col = "Condition", baseline.condition = "congruent", id = "Subject") %>%
   rename(FlankerBin = "BinScore")
 ```
@@ -796,7 +796,7 @@ data_flanker <- import %>%
   summarise(RT.mean = mean(RT, na.rm = TRUE),
             Accuracy.mean = mean(Accuracy, na.rm = TRUE)) %>%
   ungroup() %>%
-  reshape.spread(variables = "Condition", values = c("RT.mean", "Accuracy.mean"), id = "Subject") %>%
+  reshape_spread(variables = "Condition", values = c("RT.mean", "Accuracy.mean"), id = "Subject") %>%
   mutate(FlankerEffect_RT = incongruent_RT.mean - congruent_RT.mean,
          FlankerEffect_ACC = incongruent_Accuracy.mean - congruent_Accuracy.mean)
 
@@ -810,7 +810,7 @@ data_remove <- data_flanker %>%
            incongruent_Accuracy.mean_z > sd.criteria | incongruent_Accuracy.mean_z < (-1*sd.criteria) | 
            neutral_Accuracy.mean_z > sd.criteria | neutral_Accuracy.mean_z < (-1*sd.criteria))
 
-data_flanker <- remove.save(data_flanker, data_remove, 
+data_flanker <- remove_save(data_flanker, data_remove, 
                             output.dir = here(output.dir, "removed"), 
                             output.file = "Flanker_removed.txt")
 
@@ -821,7 +821,7 @@ data_binned <- import %>%
   trim(variables = "RT", cutoff = sd.criteria, replace = "cutoff") %>%
   ungroup() %>%
   filter(!(Subject %in% data_remove$Subject), Condition != "neutral") %>%
-  bin.score(rt.col = "RT", accuracy.col = "Accuracy", type = "mean",
+  bin_score(rt.col = "RT", accuracy.col = "Accuracy", type = "mean",
             condition.col = "Condition", baseline.condition = "congruent", id = "Subject") %>%
   rename(FlankerBin = "BinScore")
 

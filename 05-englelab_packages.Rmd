@@ -31,27 +31,27 @@ I suggest to only use the "tidy" raw functions rather than the scoring functions
 
 Here is the list of "tidy" raw data functions:
 
-* `raw.ospan()`
+* `raw_ospan()`
 
-* `raw.symspan()`
+* `raw_symspan()`
 
-* `raw.rotspan()`
+* `raw_rotspan()`
 
-* `raw.rapm()`
+* `raw_rapm()`
 
-* `raw.numberseries()`
+* `raw_numberseries()`
 
-* `raw.lettersets()`
+* `raw_lettersets()`
 
 These functions take as input an imported **E-Merged** or **edat** file. 
 
-For the complex span tasks you need to specify the number of blocks administered with the `blocks` argument. ex. `raw.ospan(data, blocks = 2)`
+For the complex span tasks you need to specify the number of blocks administered with the `blocks` argument. ex. `raw_ospan(data, blocks = 2)`
 
 The output of the raw functions will also contain columns for the subject's final score on the task. This is why it is suggested to just use the raw functions, you can still easily grab the final score on the task from the outputed file.
 
 #### Example
 
-Here is an example script that uses the `raw.ospan()` function to import an E-merged data file and output a "tidy" raw data file.
+Here is an example script that uses the `raw_ospan()` function to import an E-merged data file and output a "tidy" raw data file.
 
 ```{r eval = FALSE}
 ## Set up ####
@@ -68,7 +68,7 @@ output.file <- "data/raw/ospan_raw.txt"
 import <- read_delim(import.file), "\t", escape_double = FALSE, trim_ws = TRUE)
 
 ## Clean up raw data file and save
-data_raw <- raw.ospan(import, blocks = 2)
+data_raw <- raw_ospan(import, blocks = 2)
 
 ## Save data file
 write_delim(data_raw, path = output.file, "\t", na = "")
@@ -80,17 +80,17 @@ write_delim(data_raw, path = output.file, "\t", na = "")
 
 Again, it is suggested to use the raw functions instead of the score functions. However, here is the list of the score functions:
 
-* `score.ospan()`
+* `score_ospan()`
 
-* `score.symspan()`
+* `score_symspan()`
 
-* `score.rotspan()`
+* `score_rotspan()`
 
-* `score.rapm()`
+* `score_rapm()`
 
-* `score.numberseries()`
+* `score_numberseries()`
 
-* `score.lettersets()`
+* `score_lettersets()`
 
 Like the raw functions the score functions take as input a "messy" raw **E-Merged** or **edat** file. For the complex span tasks you need to specify the number of blocks adminestered.
 
@@ -98,7 +98,7 @@ Like the raw functions the score functions take as input a "messy" raw **E-Merge
 
 ### Calculating Bin Scores
 
-The `bin.score()` function will calculate bin scores. These are the arguments you will need to specify:
+The `bin_score()` function will calculate bin scores. These are the arguments you will need to specify:
 
 * __x__: a dataframe with trial level data. Needs to have RT and Accuracy DVs
 
@@ -117,14 +117,14 @@ The `bin.score()` function will calculate bin scores. These are the arguments yo
 The default argument values are:
 
 ```{r eval = FALSE}
-bin.score(x, rt.col = "RT", accuracy.col = "Accuracy", condition.col = "Condition", baseline.condition = "congruent", type = "mean", id = "Subject")
+bin_score(x, rt.col = "RT", accuracy.col = "Accuracy", condition.col = "Condition", baseline.condition = "congruent", type = "mean", id = "Subject")
 ```
 
 Your data file may already be setup with these default value column names. If so, then you just need to specify the dataframe.
 
 ### Reliability functions
 
-#### `cronbach.alpha()`
+#### `cronbach_alpha()`
 
 This function takes as input a "tidy" raw trial-level dataframe.
 
@@ -140,9 +140,9 @@ Cronbach's alpha is calculated using the `alpha()` function from the `psych` pac
 
 The difficulty in simply using the `alpha()` function is getting the dataframe in the correct structure. To use `alpha()` the values that reliability is going to be assessed over need to be in columns. The dataframe, then is one subject per row with a column for each value.
 
-For most of our tasks, the values that will be assessed over are the individual Trial level DV (RT or Accuracy). So there needs to be one column for each Trial. This is an unusual data structure and is really only useful for calculating reliability. `cronbach.alpha()` will save you time by creating the correct data structure for you based on a more common structure that is contained in your "tidy" raw data files (one row per trial per subject, with RT and Accuracy as columns).
+For most of our tasks, the values that will be assessed over are the individual Trial level DV (RT or Accuracy). So there needs to be one column for each Trial. This is an unusual data structure and is really only useful for calculating reliability. `cronbach_alpha()` will save you time by creating the correct data structure for you based on a more common structure that is contained in your "tidy" raw data files (one row per trial per subject, with RT and Accuracy as columns).
 
-You should be able to take your "tidy" raw data as input to `cronbach.alpha()`. The output of `cronbach.alpha()` is a single value representing Cronbach's Alpha.
+You should be able to take your "tidy" raw data as input to `cronbach_alpha()`. The output of `cronbach_alpha()` is a single value representing Cronbach's Alpha.
 
 #### `splithalf()`
 
@@ -178,13 +178,13 @@ In R, a "join" is merging dataframes together that have at least some rows in co
 
 In R, a "bind" is combining datarames together by staking either the rows or columns. It is unlikely that we you will need to do a column bind so we can skip that. A row "bind" takes dataframes that have the same columns but different rows. This will happen if you have separate data files for each subject from the same task. Each subject data file will have their unique rows (subject by trial level data) but they will all have the same columns. 
 
-The E-Merge software program is performing a row "bind" of each subject .edat file. In E-Prime 2 we have to go through E-Merge to do this process. However, in E-Prime 3.0 there is the option to output an exported .edat file as a tab-delimited .txt file. Using the `files.bind()` function from the `datawrangling` package will allow us to skip the E-Merge step.
+The E-Merge software program is performing a row "bind" of each subject .edat file. In E-Prime 2 we have to go through E-Merge to do this process. However, in E-Prime 3.0 there is the option to output an exported .edat file as a tab-delimited .txt file. Using the `files_bind()` function from the `datawrangling` package will allow us to skip the E-Merge step.
 
 The `datawrangling` package contains two functions to merge data files together:
 
-* `files.join()`
+* `files_join()`
 
-* `files.bind()`
+* `files_bind()`
 
 They both work in a similar way. The files you want to merge need to be in the same folder on your computer. You specify the location of this folder using the `path = ` argument. You need to specify a pattern that uniquely identifies the files you want to merge (e.g. ".txt", or "Flanker") using the `pattern = ` argument. Then specify the directory and filename you want to save the merge file to using the `output.file = ` argument.
 
@@ -200,9 +200,9 @@ Here are the arguments that can be specified:
 
 * __output.file__: File name and path to be saved to.
 
-* __id__: Subject ID column name. Passed onto `plyr::join_all(by = id)`. **ONLY for `files.join()`**
+* __id__: Subject ID column name. Passed onto `plyr::join_all(by = id)`. **ONLY for `files_join()`**
 
-* __bind__: The type of bind to perform (default = "rows"). **ONLY for `files.bind()`**
+* __bind__: The type of bind to perform (default = "rows"). **ONLY for `files_bind()`**
 
 ### Reshpaing Data
 
@@ -210,9 +210,9 @@ To run a statistical test usually requires your data is in the right format. For
 
 In Chapter 4 you saw how to do this using the `spread()` function from the `tidyr` package. One limitation of `spread()` is that you can only spread on one key column or value column at a time.
 
-The `reshape.spread()` function allows you to `spred()` on multiple key columns or value colunns. If you are spreading on multiple key columns you need to specify how you want the names of those values to be merged.
+The `reshape_spread()` function allows you to `spred()` on multiple key columns or value colunns. If you are spreading on multiple key columns you need to specify how you want the names of those values to be merged.
 
-The arguments you can specify for `reshape.spread()` are:
+The arguments you can specify for `reshape_spread()` are:
 
 * __x__: dataframe
 
@@ -231,7 +231,7 @@ The arguments you can specify for `reshape.spread()` are:
 For example, if you had a dataframe two rows per subject containing mean RT and mean Accuracy on congruent and incongruent trials, and you want to spread on both RT and Accuracy by Condition.
 
 ```{r eval = FALSE}
-data <- reshape.spread(data, variables = "Condition", values = c("RT.mean", "Accuracy.mean"), id = "Subject")
+data <- reshape_spread(data, variables = "Condition", values = c("RT.mean", "Accuracy.mean"), id = "Subject")
 ```
 
 ### Transformations
@@ -334,7 +334,7 @@ trim(data,
 
 #### Latent variable criteria
 
-The function `remove.latent()` will remove subjects who have missing data on too many tasks for a construct(s). 
+The function `remove_latent()` will remove subjects who have missing data on too many tasks for a construct(s). 
 
 The factor structure needs to be specified in the `factor.list` argument. For example,
 
@@ -359,7 +359,7 @@ Example:
 ```{r eval = FALSE}
 library(datawrangling)
 
-remove.latent(data,
+remove_latent(data,
               factor.list = list(WMC = c("OSpan", "SymSpan", "RotSpan"), 
                                  Gf = c("RAPM", "LetterSets", "NumberSeries")),
               missing.allowed = .5,
