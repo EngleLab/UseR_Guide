@@ -208,7 +208,7 @@ Here are the arguments that can be specified:
 
 To run a statistical test usually requires your data is in the right format. For instance, to run a correlation or regression, you should have only one subject per row, and the columns contain values of each variable. The "messy" or "tidy" raw trial level data you start with are not in this format and so it is likely you will have to reshape your data to prepare it for statistical analyses. 
 
-In Chapter 4 you saw how to do this using the `spread()` function from the `tidyr` package. One limitation of `spread()` is that you can only spread on one key column or value column at a time.
+In Chapter 5 you saw how to do this using the `spread()` function from the `tidyr` package. One limitation of `spread()` is that you can only spread on one key column or value column at a time.
 
 The `reshape_spread()` function allows you to `spred()` on multiple key columns or value colunns. If you are spreading on multiple key columns you need to specify how you want the names of those values to be merged.
 

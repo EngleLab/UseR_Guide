@@ -34,7 +34,7 @@ Honestly there is not much more to it then that. And because your R scripts for 
 
 **It is good practice to load required packages at the top of your R script**.
 
-After loading any required packages **it is good practice to assign the import and output file path directories to an object**. I use the same object name for the import file path and output file path in every R script I write. This does a couple of things:
+After loading any required packages **it is good practice to assign the import and output file path directories and file names to an object at the top of your script**. I use the same object name for the import file path and output file path in every R script I write. This does a couple of things:
 
 1) You can easily see what the import and output directories are for an R script since it occurs at the top and in the same location with the same names for every R script. 
 
@@ -50,9 +50,11 @@ library(dplyr)
 
 ## Set import and output directories
 import.dir <- "data/import"
-import.file <- "task.txt"
 output.dir <- "data/output"
-output.file <- "task_score.txt"
+
+## Set import and output file names
+import.file <- "task.txt"
+output.file <- "task_Scores.txt"
 ##############
 
 ## Import data
@@ -179,9 +181,11 @@ library(dplyr)
 
 ## Set import and output directories
 import.dir <- "data/import"
-import.file <- "task.txt"
 output.dir <- "data/output"
-output.dir <- "task_score.txt"
+
+## Set import and output file names
+import.file <- "task.txt"
+output.file <- "task_Scores.txt"
 ##############
 
 ## Import data
@@ -241,17 +245,9 @@ saveRDS(directories, here("directories.rds"))
 ## Create raw data file from e-merged files ####
 source(here("Data Files/R Scripts", "1_wmc_raw.R"), echo=TRUE)
 source(here("Data Files/R Scripts", "1_gf_raw.R"), echo=TRUE)
-source(here("Data Files/R Scripts", "1_gda_raw.R"), echo=TRUE)
 source(here("Data Files/R Scripts", "1_antisaccade_raw.R"), echo=TRUE)
-source(here("Data Files/R Scripts", "1_avc_raw.R"), echo=TRUE)
 source(here("Data Files/R Scripts", "1_flanker_raw.R"), echo=TRUE)
-source(here("Data Files/R Scripts", "1_flankerDL_raw.R"), echo=TRUE)
-source(here("Data Files/R Scripts", "1_flankerPR_raw.R"), echo=TRUE)
 source(here("Data Files/R Scripts", "1_stroop_raw.R"), echo=TRUE)
-source(here("Data Files/R Scripts", "1_stroopDL_raw.R"), echo=TRUE)
-source(here("Data Files/R Scripts", "1_va4_raw.R"), echo=TRUE)
-source(here("Data Files/R Scripts", "1_pvt_raw.R"), echo=TRUE)
-source(here("Data Files/R Scripts", "1_sact_raw.R"), echo=TRUE)
 ################################################
 
 #################################
@@ -261,17 +257,9 @@ source(here("Data Files/R Scripts", "1_sact_raw.R"), echo=TRUE)
 ## Score task data from raw data files ####
 source(here("Data Files/R Scripts", "2_wmc_score.R"), echo=TRUE)
 source(here("Data Files/R Scripts", "2_gf_score.R"), echo=TRUE)
-source(here("Data Files/R Scripts", "2_gda_score.R"), echo=TRUE)
 source(here("Data Files/R Scripts", "2_antisaccade_score.R"), echo=TRUE)
-source(here("Data Files/R Scripts", "2_avc_score.R"), echo=TRUE)
 source(here("Data Files/R Scripts", "2_flanker_score.R"), echo=TRUE)
-source(here("Data Files/R Scripts", "2_flankerDL_score.R"), echo=TRUE)
-source(here("Data Files/R Scripts", "2_flankerPR_score.R"), echo=TRUE)
 source(here("Data Files/R Scripts", "2_stroop_score.R"), echo=TRUE)
-source(here("Data Files/R Scripts", "2_stroopDL_score.R"), echo=TRUE)
-source(here("Data Files/R Scripts", "2_va4_score.R"), echo=TRUE)
-source(here("Data Files/R Scripts", "2_pvt_score.R"), echo=TRUE)
-source(here("Data Files/R Scripts", "2_sact_score.R"), echo=TRUE)
 source(here("Data Files/R Scripts", "2_demographics_score.R"), echo=TRUE)
 ###########################################
 
@@ -339,7 +327,7 @@ Where all the scripts that create "tidy" raw data files have the prefix `1` and 
 
     Load required packages with `library()`
     
-    Set the import and output directories (and optionally import and output filenames)
+    Set the import and output directories and filenames
    
 * Clear out all objects in the Environment using `rm(list=ls())`
 
@@ -353,7 +341,7 @@ Where all the scripts that create "tidy" raw data files have the prefix `1` and 
    
     Using `here()`
    
-* Create your own template or use my template workflow (See Chapter 11)
+* Create your own template or use my template workflow
    
 * Use a masterscript
 
@@ -368,8 +356,6 @@ In the next two chapters we will go over an example of writing R Scripts for ste
 If you have not doen so already, you should create an `.Rproj` and organize your folders. 
 
 If you would like to use a similar workflow in your R Scripts as I do, you can check out the [R Script templates I have created for the Engle lab](https://github.com/dr-JT/englelab/tree/master/rscript_templates).
-
-For more information on the templates and how they work see Chapter 11.
 
 ********
 

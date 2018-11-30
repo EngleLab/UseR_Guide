@@ -10,9 +10,11 @@ knitr::include_graphics(rep("images/workflow.png"))
 
 2. The next step is to **score the data**. For most statistical analyses you will want to aggregate the trial-level data into one or more dependent measures for that task. The scored data file will have one row per subject (or possibly one row per subject per experimental conditions).
 
-These first two steps are all about **Data Preparation**. Getting your data prepared for your planned statistical analyses. 
+These first two steps are all about **Data Preparation**. Getting your data prepared for your planned statistical analyses. These steps will be covered in Chapters 5 - 8.
 
-3. Finally, you are now ready for the fun part, **statistical analyses**. This involves evaluating the univariate descriptive statistics of your data set, running statistical tests, and creating tables and figures to interpret and present your results.
+3. Finally, you are now ready for the fun part, **statistical analyses** and **data visualization**. This involves evaluating the univariate descriptive statistics of your data set, running statistical tests, and creating tables and figures to interpret and present your results.
+
+This third step of statistical analysis and data visualization will be covered in Chapters 9 - .
 
 ********
 

@@ -4,9 +4,13 @@
 knitr::include_graphics(rep("images/workflow.png"))
 ```
 
-Chapters 4 through 6 should have provided you all you need to know in order to start writing scripts to get your data ready for statistical analysis. The data preparation steps include **1)** converting "messy" raw data to "tidy" raw data and **2)** creating data file with task scores that have gone through data cleaning.
+Chapters 5 through 7 should have provided you all you need to know in order to start writing scripts to get your data ready for statistical analysis. The data preparation steps include **1)** converting "messy" raw data to "tidy" raw data and **2)** creating data file with task scores that have gone through data cleaning.
 
-Based on the information from Chapters 4 through 6. **This Chapter** will go over step-by-step how to create R scripts to do data preparation using an example data set from the Flanker task. 
+Based on the information from Chapters 5 through 7. **This Chapter** will go over step-by-step how to create R scripts to do data preparation using an example data set from the Flanker task. 
+
+You can download this example data set here 
+
+[Download Example Flanker Data](http://englelab.gatech.edu/R/example_data/Flanker_Example.zip)
 
 ********
 
@@ -46,9 +50,15 @@ This structure helps to keep clear where we are importing and outputing data fil
 
 Our R Scripts should be able to completely (100%) recreate ALL files in the **Raw Data** and **Scored Data** files based on what is in the **E-Merge** folder. 
 
+Unzip the Example Flanker data to the **E-Merge** folder.
+
+One of the files is an E-Merged file, the other is the E-Merged file exported to a tab-delimited .txt file. There is also a folder labled **subj**. 
+
+We will come back to what these files are later.
+
 ## Masterscript
 
-In Chapter 6, you saw an example masterscript. Lets' go over how to begin creating one.
+In Chapter 7, you saw an example masterscript. Lets' go over how to begin creating one.
 
 First open a new script window **File -> New File -> R Script**
 
@@ -102,33 +112,27 @@ Go ahead and source the masterscript to create the directories object file.
 
 ## Creating "messy" Merged File
 
-### Flanker Data Set
+Before performing the data preparation procedures, you will need to create a "messy" raw data file that is a merge of the individual subject files. 
 
-For this tutorial we will use an example data set from the Arrow Flanker task.
+* If the data files were created with E-Prime 2.0 you HAVE to do this using the E-Merge software program. 
 
-You can download this example data set here 
+* If the data files were created with E-Prime 3.0 AND the option to export as .txt is enabled, then you have to choice to by-pass the E-Merge software program and perform the merge in R instead,
 
-[Download Example Flanker Data](http://englelab.gatech.edu/R/example_data/Flanker_Example.zip)
+### E-Prime 2.0
 
-Unzip the file to the **E-Merge** folder.
+Individual subject data files created from tasks in E-Prime 2.0, HAVE to be merged together by
 
-One of the files is an E-Merged file, the other is the E-Merged file exported to a tab-delimited .txt file. There is also a folder labled **subj**. 
+1. Creatingt an E-Merged file using the E-Merge software. 
 
-Before we can begin the data preparation procedures, we need to create a "messy" raw data file that is a merge of the individual subject files. 
-
-Typically, when you are doing a study there are a couple of steps you need to do in order to create this file.
-
-1. You need to create an E-Merged file using the E-Merge software. 
-
-2. You need to export that E-Merged file to a .txt file. 
+2. Exporting that E-Merged file to a .txt file. 
 
 I've already done these two steps for you. 
 
-Altenratively, in E-Prime 3.0 we will have the option to skip over these two steps completely. In E-Prime 3.0 there is the option to output a .txt version of the .edat file that is created when a subject finishes a task. This means we will be able to directly import the individual subject data files into R without going through E-Prime software. 
+### Skipping E-Merge with E-Prime 3.0
 
-#### Skipping E-Merge with E-Prime 3.0
+Altenratively, in E-Prime 3.0 we have the option to skip over these two steps completely. In E-Prime 3.0 there is the option to output a .txt version of the .edat file that is created when a subject finishes a task. This means we will be able to directly import the individual subject data files into R without going through E-Prime software. 
 
-The **subj** folder, in the zip folder you downloaded, contains individual subject .edat files exported as a .txt file. We will cover how to merge these individual files into one Merged file (which has typically been done through E-Merge software).
+The **subj** folder, in the zip folder you downloaded, contains individual subject .edat files exported as a .txt file. We will cover how to merge these individual files into one Merged file.
 
 Create a new script and save it as "._study_finish.txt" in the **R Scripts** folder. The purpose of this script is to get to a single Merged file for all subject. This is a step that is typically only done once or as few times as possible. Because of this will not put it into the masterscript and we do not assign the script name a number (use "." in place).
 
@@ -144,6 +148,9 @@ library(readr)
 directories <- readRDS(here("directories.rds"))
 import.dir <- paste(directories$messy, "subj", sep = "/")
 output.dir <- directories$messy
+
+## Set import and output file names
+output.file <- "Flanker.txt"
 #############
 ```
 
@@ -151,7 +158,7 @@ We will use the `files_bind()` function from the `datawrangling` package to stac
 
 ```{r collapse = TRUE, message = FALSE, warning = FALSE, eval = FALSE}
 ## Merge data files
-files_bind(path = here(import.dir), pattern = "Flanker", output.file = here(output.dir, "Flanker.txt"))
+files_bind(path = here(import.dir), pattern = "Flanker", output.file = here(output.dir, output.file))
 ```
 
 This should do it. So your entire script should look something like
@@ -169,7 +176,7 @@ output.dir <- directories$messy
 #############
 
 ## Merge data files
-files_bind(path = here(import.dir), pattern = "Flanker", output.file = here(output.dir, "Flanker.txt"))
+files_bind(path = here(import.dir), pattern = "Flanker", output.file = here(output.dir, output.file))
 
 rm(list=ls())
 ```
@@ -182,21 +189,21 @@ Source and save your script.
 
 ********
 
-## "messy" to "tidy"
+## Step 1: "messy" to "tidy"
 
-The next step in the data preparation procedure is to creat a "tidy" raw data file from the "messy" raw data file.
+The first step in the data preparation procedure is to creat a "tidy" raw data file from the "messy" raw data file.
 
 ### What to Include
 
 Creating a "tidy" raw data file is essentialy a process of elimination. Getting rid of columns and rows that have no value. You may also want to rename columns and values.
 
-So what should you keep? 
+**So what should you keep?** 
 
-You want to keep all columns that are essential to the design of the task. This might include a column that specifies the condition for each trial, a column that specifies a feature of the target stimulus, performance variables, and more. 
+You want to keep all **columns** that are essential to the design of the task. This might include a column that specifies the condition for each trial, a column that specifies a feature of the target stimulus, performance variables, and more. 
 
-As for rows, I suggest keeping both practice and real trials. It is easy to filter out practice trials later. The "tidy" raw data file should contain only one row per trial per subject. 
+As for **rows**, I suggest keeping both practice and real trials. It is easy to filter out practice trials later. The "tidy" raw data file should contain only one row per trial per subject. 
 
-You should probably rename variables and values to be easy for those unfamiliar with how the task was programmed to understand. Also if you have similar tasks (_Flanker_ and _Stroop_) it is probably a good idea to give similar names to variables and values. For instance, give the same name to the column that contains the condition type. Also use the same value names for each condition (not _congruent_ for one task, and _cong_ for another). Use a standard name for columns with reaction time and accuracy values (RT, Accuracy).
+You should probably **rename variables and values** to be easy for those unfamiliar with how the task was programmed to understand. Also if you have similar tasks (_Flanker_ and _Stroop_) it is probably a good idea to give similar names to variables and values. For instance, give the same name to the column that contains the condition type. Also use the same value names for each condition (not _congruent_ for one task, and _cong_ for another). Use a standard name for columns with reaction time and accuracy values (RT, Accuracy).
 
 ### Import "messy" data
 
@@ -217,6 +224,10 @@ library(datawrangling)
 directories <- readRDS(here("directories.rds"))
 import.dir <- directories$messy
 output.dir <- directories$raw
+
+## Set import and output file names
+import.file <- "Flanker.txt"
+output.file <- "Flanker_raw.txt"
 #############
 ```
 
@@ -224,7 +235,7 @@ Okay, first thing is to import the "messy" merged .txt data file. To do this use
 
 ```{r collapse=TRUE, warning=FALSE, message=FALSE}
 ## Import
-import <- read_delim(here(import.dir, "Flanker.txt"), "\t", escape_double = FALSE, trim_ws = TRUE)
+import <- read_delim(here(import.dir, import.file), "\t", escape_double = FALSE, trim_ws = TRUE)
 ```
 
 You can then view the data file with
@@ -285,11 +296,11 @@ library(datawrangling)
 
 ```{r warning=FALSE, collapse=TRUE, message=FALSE}
 ## Import
-import <- read_delim(here(import.dir, "Flanker.txt"), "\t", escape_double = FALSE, trim_ws = TRUE)
+import <- read_delim(here(import.dir, import.file), "\t", escape_double = FALSE, trim_ws = TRUE)
 import <- duplicates_remove(import, taskname = "Flanker", output.folder = here(output.dir))
 ```
 
-### Filter
+### Filter Rows
 
 Filter only relevant rows. We want to keep only the rows that contain trials from the practice and real trials. To do this we use the `filter()` function of the `dplyr` package. 
 
@@ -301,7 +312,7 @@ data_flanker <- import %>%
 
 The column names are contained in single quotes because the names contain the special characters `[ ]`. There are certain characters R does not like to use as variable names and one of them is square brackets.
 
-### Rename
+### Rename Variables
 
 Now the column specifying real vs practice trials is a little tedious to keep typing out since it requires the single quotes and brackets. We will also want to rename this column to be more coherent in the final "tidy" data format anyways. To rename columns we can use `rename()` function in `dplyr`.
 
@@ -312,7 +323,7 @@ data_flanker <- import %>%
   rename(TrialProc = `Procedure[Trial]`)
 ```
 
-### Mutate
+### Rename Values
 
 Let's change the values in `TrialProc`. Right now real trials have the value of "TrialProc". The same name as the column, not good! And the "practice" trials have the value of "PractTrialProc". Let's simply change these values to "real" and "practice", respectively. 
 
@@ -329,7 +340,6 @@ Note that we are not being very specific with `ifelse()`. Rows that do not equal
 The point is, be careful how you are using `ifelse()`.
 
 An alternative to `ifelse()` that I like is the `case_when()` function from `dplyr`. You can be more specific with `case_when()`. 
-
 ```{r collapse = TRUE, message=FALSE, warning=FALSE}
 ## Tidy
 data_flanker <- import %>%
@@ -413,7 +423,7 @@ Notice how I included an `ifelse()` function inside of an `ifelse()` function. T
 
 You have to be careful with `ifelse()` statements because sometimes it does something you do not expect it to. **That is why it is always important to check to make sure your code is performing as you want it to.** View the dataframe to make sure everything is good. The new columns will be added at the end of the dataframe.
 
-### Select
+### Select Columns
 
 We are getting closer to a "tidy" raw data file. The only thing left is to select the columns we want to keep. We do this by using the `select()` function from the `dplyr` package.
 
@@ -456,7 +466,7 @@ To save the dataframe to a .txt file you will use the `write_delim()` function o
 
 ```{r collapse=TRUE, message=FALSE, warning=FALSE, eval = FALSE}
 ## Save
-write_delim(data_flanker, path = here(output.dir, "Flanker_raw.txt"), delim = "\t", na = "")
+write_delim(data_flanker, path = here(output.dir, output.file), delim = "\t", na = "")
 ```
 
 ********
@@ -474,10 +484,14 @@ library(datawrangling)
 directories <- readRDS(here("directories.rds"))
 import.dir <- directories$messy
 output.dir <- directories$raw
+
+## Set import and output file names
+import.file <- "Flanker.txt"
+output.file <- "Flanker_raw.txt"
 #############
 
 ## Import
-import <- read_delim(here(import.dir, "Flanker.txt"), "\t", escape_double = FALSE, trim_ws = TRUE) %>%
+import <- read_delim(here(import.dir, import.file), "\t", escape_double = FALSE, trim_ws = TRUE) %>%
   duplicates_remove(taskname = "Flanker", output.folder = here(output.dir))
 
 ## Tidy
@@ -495,10 +509,12 @@ data_flanker <- import %>%
   select(Subject, TrialProc, Trial, Condition = FlankerType, RT, Accuracy, Response, TargetArrowDirection, SessionDate, SessionTime)
 
 ## Save
-write_delim(data_flanker, path = here(output.dir, "Flanker_raw.txt"), delim = "\t", na = "")
+write_delim(data_flanker, path = here(output.dir, output.file), delim = "\t", na = "")
 
 rm(list=ls())
 ```
+
+Great! You have written an R script for the first step in Data Preparation, converting a "messy" raw data file to a "tidy" raw data file. 
 
 ********
 
@@ -506,15 +522,13 @@ rm(list=ls())
 
 ********
 
-## "tidy" raw to scored
+## Step 2: raw "tidy" to scored
 
-Great! You have written an R script for the first step in Data Preparation, converting a "messy" raw data file to a "tidy" raw data file. 
-
-Next we will go over how to write an R script for the second step - which involves data cleaning and task scoring.
+Next we will go over how to write an R script for the second step - which involves **data cleaning and task scoring**.
 
 This step is more complicated and often times requires some forethought. But we don't always have the best forethought so you will likely re-write previous lines of code.
 
-One thing you must think about before writing the script for this stage is the statistical analyses you eventually plan on conducting. This is because the final resulting dataframe will depend on what analyses you do. The data structure required for conducting a between-subject mean comparison (t-tests or ANOVA) will be different from the data structure required for a regression. The type of statistical analyses you plan on conducting will determine the final dataframe you want to end up at in this stage of data preparation.
+One thing you must think about before writing the script for this stage is the statistical analyses you eventually plan on conducting. This is because the final resulting dataframe will depend on what analyses you do. The data structure required for conducting a between-subject mean comparison will be different from the data structure required for a within-subject mean comparison or regression. The type of statistical analyses you plan on conducting will determine the final dataframe you want to end up at in this stage of data preparation.
 
 Another thing you must think about before hand are the final dependent variables (or task scores) you want to calaculate. For instance, in the Flanker task there are several task scores we might want to calculate (in a regression context). 
 
@@ -525,16 +539,6 @@ Another thing you must think about before hand are the final dependent variables
 * __Flanker Binned Scores__: A scoring method to combine accuracy and reaction time (an alternative to difference scores)
 
 Finally, you should also think about what sort of data cleaning procedures you want to use. For instance, maybe you only want to calculate the FlankerEffect on RT for accurate trials and not innaccurate trials. Or perhaps you want to remove trials that are less than 200ms (too fast of responding to reflect cognitive processing).
-
-In the example we are about to go through we will implement the following data cleaning procedures when calculating the three scores listed above. They will be implemented in the following order
-
-1. Remove trials with less than 200ms reaction time
-
-2. In order to calculate FlankerEffect on RT for accurate trials, - Set RT on innacurate trials to missing `NA`.
-
-3. Trim RTs. Replace Outlier RTs that are above or below **3.5 SDs** of the mean, with values exactly at **3.5 SDs** above or below the mean. This is evaluated for each Subject by each condition seprately.
-
-4. Finally remove subjects that on any Trial condition (congruent, incongruent, neutral) performed less than **3.5 standard deviations** below the mean on that condition.
 
 ********
 
@@ -557,73 +561,100 @@ directories <- readRDS(here("directories.rds"))
 import.dir <- directories$raw
 output.dir <- directories$scored
 
-## Set data cleaning parameters
-min_RT.criteria <- 200
-sd.criteria <- 3.5
+## Set import and output files
+import.file <- "Flanker_raw.txt"
+output.file <- "Flanker_Scores.txt"
 #############
 ```
 
-Import directory is the **Raw Data** folder where the "tidy" raw file is located. The output directory is the **Scored Data** folder. `min_RT.criteria` for data cleaning procedure **1** above. `sd.criteria` for data cleaning procedures **3** and **4**
+Import directory is the **Raw Data** folder where the "tidy" raw file is located. The output directory is the **Scored Data** folder.
 
 ### Import
 
 ```{r message = FALSE}
-## Import
-import <- read_delim(here(import.dir, "Flanker_raw.txt"), "\t", escape_double = FALSE, trim_ws = TRUE)
+## Import ####
+import <- read_delim(here(import.dir, import.file), "\t", escape_double = FALSE, trim_ws = TRUE)
+##############
 ```
 
-### Calculate FlankerEffect on RT and Accuracy
+### Data Cleaning
 
-The general strategy we will take is to create two different dataframes. 1) `data_flanker` in which we calculate the FlankerEffect on RT and Accuracy and 2) `data_binned` in which we calculate the Flanker Binned scores.
+In the example we are about to go through we will implement the following data cleaning procedures when calculating the three scores listed above. They will be implemented in the following order
 
-In calculating the FlankerEffect, we first need to do some data cleaning
+1. Set RTs less than 200ms to missing (`NA`)
 
-#### Data Cleaning
+2. Trim RTs. Replace Outlier RTs that are above or below **3.5 SDs** of the mean, with values exactly at **3.5 SDs** above or below the mean. This is evaluated for each Subject by each condition seprately.
 
-1. First we we should remove too fast of RTs
+3. Finally remove subjects that on any Trial condition (congruent, incongruent, neutral) performed less than **3.5 standard deviations** below the mean on that condition.
+
+First we need to get rid of **practice trials** / keep only **real trials**.
 
 ```{r}
-## Calculate FlankerEffect on RT and Accuracy
-data_flanker <- import %>%
-  filter(RT >= min_RT.criteria)
+## Trim RTs ####
+data_trim <- import %>%
+  filter(TrialProc == "real")
+#################
 ```
 
-2. Then set RTs to `NA` on innacurate trials
+Then, 
+
+1. set RTs less than 200ms to missing (`NA`) using `mutate()`
 
 ```{r}
-## Calculate FlankerEffect on RT and Accuracy
-data_flanker <- import %>%
-  filter(RT >= min_RT.criteria) %>%
-  mutate(RT = ifelse(Accuracy==0, NA, RT))
+## Trim RTs ####
+data_trim <- import %>%
+  filter(TrialProc == "real") %>%
+  mutate(RT = ifelse(RT < 200, NA, RT))
+#################
 ```
 
-3. Trim RTs individual per subject per condition. To do this we will use the `group_by()` (from Chapter 4) and `trim()` (from Chapter 6) functions
+And,
+
+2. Trim RTs, grouped by **Subject** and **Condition** using the `trim()` function from the `datawrangling` package.
 
 ```{r}
-## Calculate FlankerEffect on RT and Accuracy
-data_flanker <- import %>%
-  filter(RT >= min_RT.criteria) %>%
-  mutate(RT = ifelse(Accuracy==0, NA, RT)) %>%
+## Trim RTs ####
+data_trim <- import %>%
+  filter(TrialProc == "real") %>%
+  mutate(RT = ifelse(RT < 200, NA, RT)) %>%
   group_by(Subject, Condition) %>%
-  trim(variables = "RT", cutoff = sd.criteria, replace = "cutoff")
+  trim(variables = "RT", cutoff = 3.5, replace = "cutoff") %>%
+  ungroup()
+#################
 ```
+
+**Always be sure to `ungroup()` aftewards.**
 
 Note the `replace` argument in `trim()`. Outliers are being replaced with the value at 3.5 SDs of the mean (the cutoff value). Outliers can also be replaced with the `"mean"`, `"median"`, or `"NA"`.
 
+We will implement the third data cleaning procedure later.
+
+### Calculate FlankerEffect on RT and Accuracy
+
+The general strategy we will take is to create two different dataframes. 1) `data_flanker` in which we calculate the FlankerEffect on RT and Accuracy and 2) `data_binned` in which we calculate the Flanker Binned scores. Then we will merge the two dataframes together.
+
 #### Calculate Mean RTs and Mean Accuracy
 
-Before removing subjects with too low accuracy for each condition we need to calculate mean Accuracy for each condition.
+We will want to calculate the Flanker Effect on RT for accurate trials only. So let's set RTs on innacurate trials to `NA`.
 
 ```{r}
-## Calculate FlankerEffect on RT and Accuracy
-data_flanker <- import %>%
-  filter(RT >= min_RT.criteria) %>%
+## Calculate FlankerEffect on RT and Accuracy ####
+data_flanker <- data_trim %>%
+  mutate(RT = ifelse(Accuracy==0, NA, RT))
+##################################################
+```
+
+Now we can calculate mean RTs and Accuracy for each condition per subject using `group_by()` and `summarise()`
+
+```{r}
+## Calculate FlankerEffect on RT and Accuracy ####
+data_flanker <- data_trim %>%
   mutate(RT = ifelse(Accuracy==0, NA, RT)) %>%
   group_by(Subject, Condition) %>%
-  trim(variables = "RT", cutoff = sd.criteria, replace = "cutoff") %>%
   summarise(RT.mean = mean(RT, na.rm = TRUE),
             Accuracy.mean = mean(Accuracy, na.rm = TRUE)) %>%
   ungroup()
+##################################################
 ```
 
 Be sure to `ungroup()` when you are done with it!
@@ -631,38 +662,36 @@ Be sure to `ungroup()` when you are done with it!
 And then spread "RT" and "Accuracy" across conditions. Creating columns for mean RT and mean Accuracy for each separate condition.
 
 ```{r}
-## Calculate FlankerEffect on RT and Accuracy
-data_flanker <- import %>%
-  filter(RT >= min_RT.criteria) %>%
+## Calculate FlankerEffect on RT and Accuracy ####
+data_flanker <- data_trim %>%
   mutate(RT = ifelse(Accuracy==0, NA, RT)) %>%
   group_by(Subject, Condition) %>%
-  trim(variables = "RT", cutoff = sd.criteria, replace = "cutoff") %>%
   summarise(RT.mean = mean(RT, na.rm = TRUE),
             Accuracy.mean = mean(Accuracy, na.rm = TRUE)) %>%
   ungroup() %>%
   reshape_spread(variables = "Condition", values = c("RT.mean", "Accuracy.mean"), id = "Subject")
+##################################################
 ```
 
-And we might as well calaculate the FlankerEffects
+Now the dataframe is setup to calculate Flanker Effects.
 
 ```{r}
-## Calculate FlankerEffect on RT and Accuracy
-data_flanker <- import %>%
-  filter(RT >= min_RT.criteria) %>%
+## Calculate FlankerEffect on RT and Accuracy ####
+data_flanker <- data_trim %>%
   mutate(RT = ifelse(Accuracy==0, NA, RT)) %>%
   group_by(Subject, Condition) %>%
-  trim(variables = "RT", cutoff = sd.criteria, replace = "cutoff") %>%
   summarise(RT.mean = mean(RT, na.rm = TRUE),
             Accuracy.mean = mean(Accuracy, na.rm = TRUE)) %>%
   ungroup() %>%
   reshape_spread(variables = "Condition", values = c("RT.mean", "Accuracy.mean"), id = "Subject") %>%
   mutate(FlankerEffect_RT = incongruent_RT.mean - congruent_RT.mean,
          FlankerEffect_ACC = incongruent_Accuracy.mean - congruent_Accuracy.mean)
+##################################################
 ```
 
-#### Remove poor performing subjects
+### Remove Subjects
 
-The approach I like to take with entirely removing subjects is to keep a record of those subjects in a data file somewhere. To do this we will create a new dataframe of subjects that will be removed. We will then use a function I created, `remove_save()` from the `datawrangling` package. This function is a short hand way of doing two things at one. 
+The approach I like to take with entirely removing subjects is to keep a record of those subjects in a data file somewhere. To do this we will 1) create a new dataframe of subjects that will be removed and then 2) use a function I created, `remove_save()` from the `datawrangling` package. This function is a short hand way of doing two things at once. 
 
 1. Removing the subjects from the full data file
 
@@ -671,15 +700,15 @@ The approach I like to take with entirely removing subjects is to keep a record 
 The criteria we are removing subjects based on are those who performed 3.5 SDs below the mean. So we first need to calaculate a column of z-scores (on SD units), then filter those who are below 3.5 z-scores.
 
 ```{r}
-## Remove poor performing subjects
+## Remove poor performing subjects ####
 data_remove <- data_flanker %>%
   center(variables = c("congruent_Accuracy.mean", 
                        "incongruent_Accuracy.mean", 
                        "neutral_Accuracy.mean"), 
          standardize = TRUE) %>%
-  filter(congruent_Accuracy.mean_z > sd.criteria | congruent_Accuracy.mean_z < (-1*sd.criteria) |
-           incongruent_Accuracy.mean_z > sd.criteria | incongruent_Accuracy.mean_z < (-1*sd.criteria) | 
-           neutral_Accuracy.mean_z > sd.criteria | neutral_Accuracy.mean_z < (-1*sd.criteria))
+  filter(congruent_Accuracy.mean_z < (-3.5) |
+           incongruent_Accuracy.mean_z < (-3.5) | 
+           neutral_Accuracy.mean_z < (-3.5))
 ```
 
 Then use `remove_save()`
@@ -688,69 +717,51 @@ Then use `remove_save()`
 data_flanker <- remove_save(data_flanker, data_remove, 
                             output.dir = here(output.dir, "removed"), 
                             output.file = "Flanker_removed.txt")
+#######################################
 ```
 
 The first argument is the full data frame (`data_flanker`) and the second argument is the dataframe that contains the subjects to be removed (`data_remove`). You should now see a folder called **removed** in the **Scored Data** folder with a file called "Flanker_removed.txt".
 
 ### Calculate Binned Scores
 
-Great! We have now calculated FlankerEffects scores and perfomred the data cleaning procedures. Now we need to calculate Binned scores. The `data_flanker` dataframe is no longer in a formate that we can calculate bin scores. We need to the original import dataframe that has trial level data. 
+Great! We have now calculated FlankerEffects scores and perfomred the data cleaning procedures. Now we need to calculate Binned scores. The `data_flanker` dataframe is no longer in a formate that we can calculate bin scores. We need to the trimmed dataframe that has trial level data. 
 
-First, We should do the same RT data cleaning procedures as we did for calculating FlankerEffect on RT. Let's call this new dataframe `data_binned`.
-
-```{r}
-## Calculate Binned scores
-data_binned <- import %>%
-  filter(RT >= min_RT.criteria) %>%
-  group_by(Subject, Condition) %>%
-  trim(variables = "RT", cutoff = sd.criteria, replace = "cutoff") %>%
-  ungroup()
-```
-
-We should also remove the poor performing subjects. This step is actually really important for the binning procedure because bin scores are relative to other subjects in the data.
+We should remove the poor performing subjects and Missing RTs. **This step is actually really important for the binning procedure because bin scores are relative to other subjects in the data.**
 
 ```{r}
-## Calculate Binned scores
-data_binned <- import %>%
-  filter(RT >= min_RT.criteria) %>%
-  group_by(Subject, Condition) %>%
-  trim(variables = "RT", cutoff = sd.criteria, replace = "cutoff") %>%
-  ungroup() %>%
-  filter(!(Subject %in% data_remove$Subject))
+## Calculate Binned scores ####
+data_binned <- data_trim %>%
+  filter(!is.na(RT), !(Subject %in% data_remove$Subject))
+###############################
 ```
 
 We also need to remove neutral trials to calculate bin scores. Bin scores are based on comparing one condition to a baseline condition. In this case we want to compare the incongruent condition to the baseline congruent condition. So we need to get rid of neutral conditions.
 
 ```{r}
-## Calculate Binned scores
-data_binned <- import %>%
-  filter(RT >= min_RT.criteria) %>%
-  group_by(Subject, Condition) %>%
-  trim(variables = "RT", cutoff = sd.criteria, replace = "cutoff") %>%
-  ungroup() %>%
-  filter(!(Subject %in% data_remove$Subject), Condition != "neutral")
+## Calculate Binned scores ####
+data_binned <- data_trim %>%
+  filter(!is.na(RT), !(Subject %in% data_remove$Subject), Condition != "neutral")
+###############################
 ```
 
 And finally calculate bin scores using `bin_score()` from the `englelab` package.
 
 ```{r}
-## Calculate Binned scores
-data_binned <- import %>%
-  filter(RT >= min_RT.criteria) %>%
-  group_by(Subject, Condition) %>%
-  trim(variables = "RT", cutoff = sd.criteria, replace = "cutoff") %>%
-  ungroup() %>%
-  filter(!(Subject %in% data_remove$Subject), Condition != "neutral") %>%
+## Calculate Binned scores ####
+data_binned <- data_trim %>%
+  filter(!is.na(RT), !(Subject %in% data_remove$Subject), Condition != "neutral") %>%
   bin_score(rt.col = "RT", accuracy.col = "Accuracy", type = "mean",
             condition.col = "Condition", baseline.condition = "congruent", id = "Subject") %>%
   rename(FlankerBin = "BinScore")
+###############################
 ```
 
 Awesome! Now we have two dataframes, one, `data_flanker`, with FlankerEffect scores and another, `data_binned` with FlankerBin scores. They both have one row per subject. Now we can merge these two dataframes together using the `merge()` function from base R.
 
-```{r}
-## Merge dataframes
+```{r eval = FALSE}
+## Merge dataframes and save ####
 data_flanker <- merge(data_flanker, data_binned, by = "Subject", all = TRUE)
+#################################
 ```
 
 ### Save data file
@@ -758,10 +769,10 @@ data_flanker <- merge(data_flanker, data_binned, by = "Subject", all = TRUE)
 And finally save the datafile
 
 ```{r}
-## Save data
-write_delim(data_flanker, path = here(output.dir, "Flanker_Scores.txt"), delim = "\t", na = "")
-
-rm(list=ls())
+## Merge dataframes and save ####
+data_flanker <- merge(data_flanker, data_binned, by = "Subject", all = TRUE)
+write_delim(data_flanker, path = here(output.dir, output.file), delim = "\t", na = "")
+#################################
 ```
 
 If we put it all together your R script should look something like:
@@ -779,61 +790,166 @@ directories <- readRDS(here("directories.rds"))
 import.dir <- directories$raw
 output.dir <- directories$scored
 
-## Set data cleaning parameters
-min_RT.criteria <- 200
-sd.criteria <- 3.5
+## Set import and output files
+import.file <- "Flanker_raw.txt"
+output.file <- "Flanker_Scores.txt"
 #############
 
-## Import
+## Import ####
 import <- read_delim(here(import.dir, "Flanker_raw.txt"), "\t", escape_double = FALSE, trim_ws = TRUE)
+##############
 
-## Calculate FlankerEffect on RT and Accuracy
-data_flanker <- import %>%
-  filter(RT >= min_RT.criteria) %>%
+## Trim RTs ####
+data_trim <- import %>%
+  filter(TrialProc == "real") %>%
+  mutate(RT = ifelse(RT < 200, NA, RT)) %>%
+  group_by(Subject, Condition) %>%
+  trim(variables = "RT", cutoff = 3.5, replace = "cutoff") %>%
+  ungroup()
+#################
+
+## Calculate FlankerEffect on RT and Accuracy ####
+data_flanker <- data_trim %>%
   mutate(RT = ifelse(Accuracy==0, NA, RT)) %>%
   group_by(Subject, Condition) %>%
-  trim(variables = "RT", cutoff = sd.criteria, replace = "cutoff") %>%
   summarise(RT.mean = mean(RT, na.rm = TRUE),
             Accuracy.mean = mean(Accuracy, na.rm = TRUE)) %>%
   ungroup() %>%
   reshape_spread(variables = "Condition", values = c("RT.mean", "Accuracy.mean"), id = "Subject") %>%
   mutate(FlankerEffect_RT = incongruent_RT.mean - congruent_RT.mean,
          FlankerEffect_ACC = incongruent_Accuracy.mean - congruent_Accuracy.mean)
+##################################################
 
-## Remove poor performing subjects
+## Remove poor performing subjects ####
 data_remove <- data_flanker %>%
   center(variables = c("congruent_Accuracy.mean", 
                        "incongruent_Accuracy.mean", 
                        "neutral_Accuracy.mean"), 
          standardize = TRUE) %>%
-  filter(congruent_Accuracy.mean_z > sd.criteria | congruent_Accuracy.mean_z < (-1*sd.criteria) |
-           incongruent_Accuracy.mean_z > sd.criteria | incongruent_Accuracy.mean_z < (-1*sd.criteria) | 
-           neutral_Accuracy.mean_z > sd.criteria | neutral_Accuracy.mean_z < (-1*sd.criteria))
+  filter(congruent_Accuracy.mean_z < (-3.5) |
+           incongruent_Accuracy.mean_z < (-3.5) | 
+           neutral_Accuracy.mean_z < (-3.5))
 
 data_flanker <- remove_save(data_flanker, data_remove, 
                             output.dir = here(output.dir, "removed"), 
                             output.file = "Flanker_removed.txt")
+#######################################
 
-## Calculate Binned scores
-data_binned <- import %>%
-  filter(RT >= min_RT.criteria) %>%
-  group_by(Subject, Condition) %>%
-  trim(variables = "RT", cutoff = sd.criteria, replace = "cutoff") %>%
-  ungroup() %>%
-  filter(!(Subject %in% data_remove$Subject), Condition != "neutral") %>%
+## Calculate Binned scores ####
+data_binned <- data_trim %>%
+  filter(!is.na(RT), !(Subject %in% data_remove$Subject), Condition != "neutral") %>%
   bin_score(rt.col = "RT", accuracy.col = "Accuracy", type = "mean",
             condition.col = "Condition", baseline.condition = "congruent", id = "Subject") %>%
   rename(FlankerBin = "BinScore")
+###############################
 
-## Merge dataframes
+## Merge dataframes and save ####
 data_flanker <- merge(data_flanker, data_binned, by = "Subject", all = TRUE)
-
-## Save data
-write_delim(data_flanker, path = here(output.dir, "Flanker_Scores.txt"), delim = "\t", na = "")
+write_delim(data_flanker, path = here(output.dir, output.file), delim = "\t", na = "")
+#################################
 
 rm(list=ls())
 ```
 
+You can see that with the way the script is written it is not immediately obvious what data cleaning criteria we decided to use. The values are embedded in the middle of a lot of other code. If we want to make our script more transparent and easier to read we can set the data cleaning criteria as objects at the top of the script in the **Set up** section. This will, at the same time, make it easier to change the criteria if we decide to do so.
+
+We can add the following code to the setup section
+
+```{r}
+## Set Trimming criteria
+rt.min <- 200
+rt.trim <- 3.5
+acc.criteria <- -3.5
+```
+
+* __rt.min__: The minimum value on RT allowed. Set at 200 ms
+
+* __rt.trim__: RT trimming criteria. Set at 3.5 SDs
+
+* __acc.criteria__: Accuracy performance criteria for removing poor performing subjects. Set at -3.5 SDs
+
+Then we will need to replace the values in the script that correspond to these data cleaning steps.
+
+Doing so results in a final script that looks like:
+
+```{r eval = FALSE}
+## Setup ####
+library(here)
+library(readr)
+library(dplyr)
+library(datawrangling)
+library(englelab)
+
+## Set import and output directories
+directories <- readRDS(here("directories.rds"))
+import.dir <- directories$raw
+output.dir <- directories$scored
+
+## Set import and output files
+import.file <- "Flanker_raw.txt"
+output.file <- "Flanker_Scores.txt"
+
+## Set Trimming criteria
+rt.min <- 200
+rt.trim <- 3.5
+acc.criteria <- -3.5
+#############
+
+## Import ####
+import <- read_delim(here(import.dir, "Flanker_raw.txt"), "\t", escape_double = FALSE, trim_ws = TRUE)
+##############
+
+## Trim RTs ####
+data_trim <- import %>%
+  filter(TrialProc == "real") %>%
+  mutate(RT = ifelse(RT < rt.min, NA, RT)) %>%
+  group_by(Subject, Condition) %>%
+  trim(variables = "RT", cutoff = rt.trim, replace = "cutoff") %>%
+  ungroup()
+#################
+
+## Calculate FlankerEffect on RT and Accuracy ####
+data_flanker <- data_trim %>%
+  mutate(RT = ifelse(Accuracy==0, NA, RT)) %>%
+  group_by(Subject, Condition) %>%
+  summarise(RT.mean = mean(RT, na.rm = TRUE),
+            Accuracy.mean = mean(Accuracy, na.rm = TRUE)) %>%
+  ungroup() %>%
+  reshape_spread(variables = "Condition", values = c("RT.mean", "Accuracy.mean"), id = "Subject") %>%
+  mutate(FlankerEffect_RT = incongruent_RT.mean - congruent_RT.mean,
+         FlankerEffect_ACC = incongruent_Accuracy.mean - congruent_Accuracy.mean)
+##################################################
+
+## Remove poor performing subjects ####
+data_remove <- data_flanker %>%
+  center(variables = c("congruent_Accuracy.mean", 
+                       "incongruent_Accuracy.mean", 
+                       "neutral_Accuracy.mean"), 
+         standardize = TRUE) %>%
+  filter(congruent_Accuracy.mean_z < (acc.criteria) |
+           incongruent_Accuracy.mean_z < (acc.criteria) | 
+           neutral_Accuracy.mean_z < (acc.criteria))
+
+data_flanker <- remove_save(data_flanker, data_remove, 
+                            output.dir = here(output.dir, "removed"), 
+                            output.file = "Flanker_removed.txt")
+#######################################
+
+## Calculate Binned scores ####
+data_binned <- data_trim %>%
+  filter(!is.na(RT), !(Subject %in% data_remove$Subject), Condition != "neutral") %>%
+  bin_score(rt.col = "RT", accuracy.col = "Accuracy", type = "mean",
+            condition.col = "Condition", baseline.condition = "congruent", id = "Subject") %>%
+  rename(FlankerBin = "BinScore")
+###############################
+
+## Merge dataframes and save ####
+data_flanker <- merge(data_flanker, data_binned, by = "Subject", all = TRUE)
+write_delim(data_flanker, path = here(output.dir, output.file), delim = "\t", na = "")
+#################################
+
+rm(list=ls())
+```
 
 ## `source()` in Masterscript
 
