@@ -359,4 +359,4 @@ If you would like to use a similar workflow in your R Scripts as I do, you can c
 
 ********
 
-
+**Now let's apply everything you have learned so far using an example data set**

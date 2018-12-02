@@ -989,5 +989,5 @@ rm(list=ls())
 
 ********
 
-**Now on to scoring the "tidy" raw data file**
+**Now onto the really fun stuff, data visualization and statistical analysis!**
 

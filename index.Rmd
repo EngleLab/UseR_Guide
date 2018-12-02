@@ -10,7 +10,7 @@ documentclass: book
 link-citations: yes
 site: bookdown::bookdown_site
 biblio-style: apalike
-github-repo: "dr-JT"
+github-repo: "EngleLab"
 ---
 
 # Preface {-}
@@ -27,14 +27,20 @@ R is becoming a popular tool for doing statistical analyses across many scientif
 
 **Chapters 1 and 2** go over the basics of what you need to know to start using R.
 
-**Chapter 3** introduces the general data processing workflow in our lab.
+**Chapter 3** covers more intermediate R programming and is optional.
 
-**Chapter 4** covers the basics of working with dataframes, including how to do transformations, computations, creating new variables, filtering, renaming, merging and more. This will give you the skills you need to go from raw data files to a data file that is organized and ready for statistical analyses.
+In **Chapter 4** I introduce the general data analysis workflow.
 
-**Chapter 5** will cover principles of how you should structure and organize the workflow in your R scripts. **This chapter is very important**
+In **Chapter 5** you will learn the basics of working with dataframes, including how to do transformations, computations, creating new variables, filtering, renaming, merging and more. This will give you the skills you need to go from raw data files to a data file that is organized and ready for statistical analyses.
 
-In **Chapters 6 and 7** you will use a Flanker data set as an example of how to go from a "messy" raw data file to a "tidy" raw data file and finally to a scored task file that is ready for statistical analysis.
+**Chapter 6** introduces two R packages I have created that contain functions that make it easier to implement a lot of data analysis procedures we commonly do in our lab.
+
+**Chapter 7** will cover principles of how you should structure and organize the workflow in your R scripts. **This chapter is very important**
+
+In **Chapter 8** you will use a Flanker data set as an example of how to go from a "messy" raw data file to a "tidy" raw data file and finally to a scored task file that is ready for statistical analysis.
+
+**Chapters 9 and beyond** have not been created yet but will cover data visualization and statistical analyses.
 
 ********
 
-**Before getting into using R, let's talk about how R scripts can automate our workflow.**
+**Before getting into using R, you need to install the required programs**

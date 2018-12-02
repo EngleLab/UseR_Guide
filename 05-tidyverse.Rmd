@@ -472,4 +472,4 @@ https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html
 
 ********
 
-**Cool! Before moving on to writing more R scripts, we need to talk about organization and workflow**
+**The next chapter covers two more important packages**

@@ -18,4 +18,4 @@ This third step of statistical analysis and data visualization will be covered i
 
 ********
 
-**First thing is you will need to install R and R Studio on your computer.**
+**Great! Now let's actually start working with some data in R**

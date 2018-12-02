@@ -368,5 +368,5 @@ remove_latent(data,
 
 ********
 
-**Now on to scoring the "tidy" raw data file**
+**Let's talk about organization!**
 

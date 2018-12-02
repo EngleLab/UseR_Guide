@@ -1,78 +1,6 @@
 # Intermediate R
 
-This chapter will cover more intermediate R programming, such as if... then statements, for loops, and functions.
-
-The only required section of this Chapter is If .. then statements. The other sections are more optional but will allow you to do a lot more in R and write more efficient scripts.
-
-## If...then Statements
-
-If…then statements are useful for when you need to execute code only if a certain statement is TRUE. For instance,…
-
-First we need to know how to perform logical operations in R
-
-Okay, we have this variable `a`
-
-```{r collapse=TRUE}
-a <- 5
-```
-
-Now let’s say we want to determine if the value of `a` is greater than 3
-
-```{r collapse=TRUE}
-a > 3
-```
-
-You can see that the output of this statement `a > 3` is `TRUE`
-
-Here is a list of logical operations in R
-
-```{r echo=FALSE, out.width=200}
-knitr::include_graphics(rep("images/logical-operations.png"))
-```
-
-Now let's write an if...then statement. If `a` is greater than 3, then multiply `a` by 2.
-
-```{r collapse=TRUE}
-if (a>3){
-  a <- a*2
-}
-a
-```
-
-The expression that is being tested is contained in parentheses, right after the `if` statement. If this expression is evaluated as `TRUE` then it will perform the next line(s) of code.
-
-The `{` is just a way of encasing multiple lines of code within one if statement. The lines of code then need to be closed of with `}`. In this case, since we only had one line of code `b <- a*2` we could have just written it as.
-
-```{r collapse=TRUE}
-a <- 5
-if (a>3) a <- a*2
-a
-```
-
-What if we want to do something to `a` if `a` is NOT greater than 3? In other words... if `a` is greater than 3, then multiple `a` by 2 else set `a` to `missing`
-
-```{r collapse=TRUE}
-a <- 5
-if (a>3){
-  a <- a*2
-} else {
-  a <- NA
-}
-a
-```
-
-You can keep on chaining if...then... else... if... then statements together.
-
-```{r collapse=TRUE}
-a <- 5
-if (is.na(a)){
-  print("Missing Value")
-} else if (a<0){
-  print("A is less than 0")
-} else if (a>3){
-  print("A is greater than 3")
-}
-```
+This chapter will cover more intermediate R programming, such as for loops, and functions.
 
 ## For Loops
 
@@ -371,4 +299,4 @@ Walla! You did it. You created a function. Notice that we set the default value 
 
 ********
 
-**We are almost ready to start working with some data, but first we need to go over functions and R packages**
+**The next chapter introduces the workflow process of data analysis in R**
