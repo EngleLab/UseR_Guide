@@ -4,16 +4,35 @@ This chapter will cover the basics of how to assign values to objects, create an
 
 ## Creating R objects
 
-In R, everything that exists is an object and everything you do to objects are functions. You can define an object using the operator `<-`. For instance,
+In R, everything that exists is an object and everything you do to objects are functions. You can define an object using the assignment operator `<-`. For instance,
+
+Everything on the left hand side of the `<-` assignment operator is a newly defined object. Everything on the right hand side of `<-` are functions or values. 
 
 ```{r collapse=TRUE}
 string <- "hello"
 string
 ```
 
-In this example, the first line defines the object `string` with a value of "`r string`". The second line simply prints the output of `string` to the Console window.
+In this example, the first line creates a new object called `string` with a value of "`r string`". The second line simply prints the output of `string` to the Console window. In the second line there is no assignment operator. When there is no `<-` this means you are essentially just printing to the console. You can't do anything with stuff that is just printed to the console, it is just for viewing purposes.
 
-Notice how I included `" "` around `r string`. This tells R that `r string` is a string, not an object. If I were to not include `" "`, then R would think I am calling an object. And since there is no object with the name `r string` it will print an error
+For instance, if I wanted to calculate `1 + 2` I could do this by printing it to the console
+
+```{r collapse=TRUE}
+1 + 2
+```
+
+However, if I wanted to do something else with the result of that calculation then I would not be able to unless I assigned the result to an object.
+
+```{r collapse=TRUE}
+result <- 1 + 2
+result <- result * 5
+
+result
+```
+
+The point is, you are almost always going to assign the result of some function or value to an object. Printing to the console is not very useful. Every line of code, then, will have an object name on the left hand side of `<-` and a function or value on the right hand side of `<-`
+
+In the first example above, notice how I included `" "` around `r string`. This tells R that `r string` is a string, not an object. If I were to not include `" "`, then R would think I am calling an object. And since there is no object with the name `r string` it will print an error
 
 ```{r collapse=TRUE, error=TRUE}
 string <- hello
@@ -21,12 +40,11 @@ string <- hello
 
 Do not use `" "` for Numerical values
 
-```{r collapse=TRUE}
-a <- 5
-a
+```{r collapse=TRUE, error=TRUE}
+a <- "5" + "1"
 ```
 
-You can execute commands by:
+You can execute lines of code by:
 
 1. Typing them directly into the Console window
 
@@ -34,14 +52,18 @@ You can execute commands by:
 
 Go ahead and define an object with a value and print it to the Console window. You should now see an object with the value you assigned to it in the **Environment** window.
 
-It is important to know that EVERYTHING in R is **case sensitive**. That means you can’t use A in place of a
+It is important to know that EVERYTHING in R is **case sensitive**.
 
 ```{r collapse=TRUE, error=TRUE}
-A + 5
+a <- 5
+
 a + 5
+A + 5
 ```
 
 ### Classes
+
+Classes are types of values that exist in R:
 
 * character `"hello"`, `"19"`
 
@@ -218,7 +240,7 @@ data
 
 You can view the Data Frame by clicking on the object in the **Environment** window or by executing the command `View(data)`
 
-Notice that it created three columns labeled "id", "x", and "y". Also notice that since we only specified a vector of length 2 for "x" this column is coerced into 10 rows of repeateding "a" and "b". All columns in a dataframe need to have the same number of rows.
+Notice that it created three columns labeled "id", "x", and "y". Also notice that since we only specified a vector of length 2 for "x" this column is coerced into 10 rows of repeateding "a" and "b". All columns in a dataframe must have the same number of rows.
 
 You can use the `$` notation to reference just one of the columns in the dataframe
 

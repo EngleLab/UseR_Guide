@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R Tutorial for the EngleLab</title>
+  <meta name="description" content="This is a short R Tutorial for the EngleLab">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R Tutorial for the EngleLab" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a short R Tutorial for the EngleLab" />
+  <meta name="github-repo" content="EngleLab" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R Tutorial for the EngleLab" />
+  
+  <meta name="twitter:description" content="This is a short R Tutorial for the EngleLab" />
+  
+
+<meta name="author" content="Jason Tsukahara">
+
+
+<meta name="date" content="2018-12-12">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="englelab-packages.html">
+<link rel="next" href="organization-and-good-practices.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
+<li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
+<li class="chapter" data-level="1.2" data-path="installation.html"><a href="installation.html#installing-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R Studio</a></li>
+<li class="chapter" data-level="1.3" data-path="installation.html"><a href="installation.html#the-r-studio-environemnt"><i class="fa fa-check"></i><b>1.3</b> The R Studio Environemnt</a></li>
+<li class="chapter" data-level="1.4" data-path="installation.html"><a href="installation.html#r-studio-settings"><i class="fa fa-check"></i><b>1.4</b> R Studio Settings</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-r.html"><a href="basic-r.html"><i class="fa fa-check"></i><b>2</b> Basic R</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-r.html"><a href="basic-r.html#creating-r-objects"><i class="fa fa-check"></i><b>2.1</b> Creating R objects</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="basic-r.html"><a href="basic-r.html#classes"><i class="fa fa-check"></i><b>2.1.1</b> Classes</a></li>
+<li class="chapter" data-level="2.1.2" data-path="basic-r.html"><a href="basic-r.html#vectors"><i class="fa fa-check"></i><b>2.1.2</b> Vectors</a></li>
+<li class="chapter" data-level="2.1.3" data-path="basic-r.html"><a href="basic-r.html#factors"><i class="fa fa-check"></i><b>2.1.3</b> Factors</a></li>
+<li class="chapter" data-level="2.1.4" data-path="basic-r.html"><a href="basic-r.html#lists"><i class="fa fa-check"></i><b>2.1.4</b> Lists</a></li>
+<li class="chapter" data-level="2.1.5" data-path="basic-r.html"><a href="basic-r.html#data-frames"><i class="fa fa-check"></i><b>2.1.5</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="basic-r.html"><a href="basic-r.html#ifthen-statements"><i class="fa fa-check"></i><b>2.2</b> If…then Statements</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-r.html"><a href="basic-r.html#r-packages"><i class="fa fa-check"></i><b>2.3</b> R Packages</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="basic-r.html"><a href="basic-r.html#installing-and-loading-r-packages"><i class="fa fa-check"></i><b>2.3.1</b> Installing and Loading R Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="basic-r.html"><a href="basic-r.html#more-r-basic-resources"><i class="fa fa-check"></i><b>2.4</b> More R Basic Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="intermediate-r.html"><a href="intermediate-r.html"><i class="fa fa-check"></i><b>3</b> Intermediate R</a><ul>
+<li class="chapter" data-level="3.1" data-path="intermediate-r.html"><a href="intermediate-r.html#for-loops"><i class="fa fa-check"></i><b>3.1</b> For Loops</a></li>
+<li class="chapter" data-level="3.2" data-path="intermediate-r.html"><a href="intermediate-r.html#functions"><i class="fa fa-check"></i><b>3.2</b> Functions</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="intermediate-r.html"><a href="intermediate-r.html#creating-your-own-functions"><i class="fa fa-check"></i><b>3.2.1</b> Creating Your Own Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>4</b> Workflow</a></li>
+<li class="chapter" data-level="5" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i><b>5</b> The tidyverse</a><ul>
+<li class="chapter" data-level="5.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#readr---import"><i class="fa fa-check"></i><b>5.1</b> readr - import</a></li>
+<li class="chapter" data-level="5.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#dplyr"><i class="fa fa-check"></i><b>5.2</b> dplyr</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#rename"><i class="fa fa-check"></i><b>5.2.1</b> <code>rename()</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#filter"><i class="fa fa-check"></i><b>5.2.2</b> <code>filter()</code></a></li>
+<li class="chapter" data-level="5.2.3" data-path="the-tidyverse.html"><a href="the-tidyverse.html#select"><i class="fa fa-check"></i><b>5.2.3</b> <code>select()</code></a></li>
+<li class="chapter" data-level="5.2.4" data-path="the-tidyverse.html"><a href="the-tidyverse.html#mutate"><i class="fa fa-check"></i><b>5.2.4</b> <code>mutate()</code></a></li>
+<li class="chapter" data-level="5.2.5" data-path="the-tidyverse.html"><a href="the-tidyverse.html#group_by"><i class="fa fa-check"></i><b>5.2.5</b> <code>group_by()</code></a></li>
+<li class="chapter" data-level="5.2.6" data-path="the-tidyverse.html"><a href="the-tidyverse.html#summarise"><i class="fa fa-check"></i><b>5.2.6</b> <code>summarise()</code></a></li>
+<li class="chapter" data-level="5.2.7" data-path="the-tidyverse.html"><a href="the-tidyverse.html#spread"><i class="fa fa-check"></i><b>5.2.7</b> <code>spread()</code></a></li>
+<li class="chapter" data-level="5.2.8" data-path="the-tidyverse.html"><a href="the-tidyverse.html#pipe-operator"><i class="fa fa-check"></i><b>5.2.8</b> Pipe Operator %&gt;%</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="the-tidyverse.html"><a href="the-tidyverse.html#readr---export"><i class="fa fa-check"></i><b>5.3</b> readr - export</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="englelab-packages.html"><a href="englelab-packages.html"><i class="fa fa-check"></i><b>6</b> EngleLab Packages</a><ul>
+<li class="chapter" data-level="6.1" data-path="englelab-packages.html"><a href="englelab-packages.html#englelab"><i class="fa fa-check"></i><b>6.1</b> englelab</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="englelab-packages.html"><a href="englelab-packages.html#tidy-raw-data-functions"><i class="fa fa-check"></i><b>6.1.1</b> “tidy” raw data functions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="englelab-packages.html"><a href="englelab-packages.html#set-up"><i class="fa fa-check"></i><b>6.2</b> Set up</a></li>
+<li class="chapter" data-level="6.3" data-path="englelab-packages.html"><a href="englelab-packages.html#load-packages"><i class="fa fa-check"></i><b>6.3</b> Load packages</a></li>
+<li class="chapter" data-level="6.4" data-path="englelab-packages.html"><a href="englelab-packages.html#set-importoutput-directories"><i class="fa fa-check"></i><b>6.4</b> Set import/output directories</a></li>
+<li class="chapter" data-level="6.5" data-path="englelab-packages.html"><a href="englelab-packages.html#import"><i class="fa fa-check"></i><b>6.5</b> Import</a></li>
+<li class="chapter" data-level="6.6" data-path="englelab-packages.html"><a href="englelab-packages.html#clean-up-raw-data-file-and-save"><i class="fa fa-check"></i><b>6.6</b> Clean up raw data file and save</a></li>
+<li class="chapter" data-level="6.7" data-path="englelab-packages.html"><a href="englelab-packages.html#save-data-file"><i class="fa fa-check"></i><b>6.7</b> Save data file</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="englelab-packages.html"><a href="englelab-packages.html#score-data-functions"><i class="fa fa-check"></i><b>6.7.1</b> score data functions</a></li>
+<li class="chapter" data-level="6.7.2" data-path="englelab-packages.html"><a href="englelab-packages.html#calculating-bin-scores"><i class="fa fa-check"></i><b>6.7.2</b> Calculating Bin Scores</a></li>
+<li class="chapter" data-level="6.7.3" data-path="englelab-packages.html"><a href="englelab-packages.html#reliability-functions"><i class="fa fa-check"></i><b>6.7.3</b> Reliability functions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="englelab-packages.html"><a href="englelab-packages.html#datawrangling"><i class="fa fa-check"></i><b>6.8</b> datawrangling</a><ul>
+<li class="chapter" data-level="6.8.1" data-path="englelab-packages.html"><a href="englelab-packages.html#merging-data-files"><i class="fa fa-check"></i><b>6.8.1</b> Merging Data Files</a></li>
+<li class="chapter" data-level="6.8.2" data-path="englelab-packages.html"><a href="englelab-packages.html#reshpaing-data"><i class="fa fa-check"></i><b>6.8.2</b> Reshpaing Data</a></li>
+<li class="chapter" data-level="6.8.3" data-path="englelab-packages.html"><a href="englelab-packages.html#transformations"><i class="fa fa-check"></i><b>6.8.3</b> Transformations</a></li>
+<li class="chapter" data-level="6.8.4" data-path="englelab-packages.html"><a href="englelab-packages.html#data-cleaning"><i class="fa fa-check"></i><b>6.8.4</b> Data Cleaning</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="transformations-1.html"><a href="transformations-1.html"><i class="fa fa-check"></i><b>7</b> Transformations</a><ul>
+<li class="chapter" data-level="7.1" data-path="transformations-1.html"><a href="transformations-1.html#descriptive-statistics"><i class="fa fa-check"></i><b>7.1</b> Descriptive Statistics</a></li>
+<li class="chapter" data-level="7.2" data-path="transformations-1.html"><a href="transformations-1.html#centering-and-standardizing-variables"><i class="fa fa-check"></i><b>7.2</b> Centering and Standardizing Variables</a></li>
+<li class="chapter" data-level="7.3" data-path="transformations-1.html"><a href="transformations-1.html#transformations-2"><i class="fa fa-check"></i><b>7.3</b> Transformations</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="transformations-1.html"><a href="transformations-1.html#log"><i class="fa fa-check"></i><b>7.3.1</b> log</a></li>
+<li class="chapter" data-level="7.3.2" data-path="transformations-1.html"><a href="transformations-1.html#polynomial"><i class="fa fa-check"></i><b>7.3.2</b> polynomial</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="transformations-1.html"><a href="transformations-1.html#composites"><i class="fa fa-check"></i><b>7.4</b> Composites</a></li>
+<li class="chapter" data-level="7.5" data-path="transformations-1.html"><a href="transformations-1.html#custom-transformations"><i class="fa fa-check"></i><b>7.5</b> Custom Transformations</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html"><i class="fa fa-check"></i><b>8</b> Organization and Good Practices</a><ul>
+<li class="chapter" data-level="8.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#r-scripts"><i class="fa fa-check"></i><b>8.1</b> R Scripts</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#general-workflow"><i class="fa fa-check"></i><b>8.1.1</b> General Workflow</a></li>
+<li class="chapter" data-level="8.1.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#building-a-template-workflow"><i class="fa fa-check"></i><b>8.1.2</b> Building a Template Workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#set-up-1"><i class="fa fa-check"></i><b>8.2</b> Set up</a></li>
+<li class="chapter" data-level="8.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#load-required-packages"><i class="fa fa-check"></i><b>8.3</b> Load required packages</a></li>
+<li class="chapter" data-level="8.4" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#set-import-and-output-directories"><i class="fa fa-check"></i><b>8.4</b> Set import and output directories</a></li>
+<li class="chapter" data-level="8.5" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#set-import-and-output-file-names"><i class="fa fa-check"></i><b>8.5</b> Set import and output file names</a></li>
+<li class="chapter" data-level="8.6" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#import-data"><i class="fa fa-check"></i><b>8.6</b> Import data</a></li>
+<li class="chapter" data-level="8.7" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#do-stuff"><i class="fa fa-check"></i><b>8.7</b> Do Stuff</a></li>
+<li class="chapter" data-level="8.8" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#save-data"><i class="fa fa-check"></i><b>8.8</b> Save data</a><ul>
+<li class="chapter" data-level="8.8.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#rmlistls"><i class="fa fa-check"></i><b>8.8.1</b> rm(list=ls())</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#working-directory"><i class="fa fa-check"></i><b>8.9</b> Working Directory</a><ul>
+<li class="chapter" data-level="8.9.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#r-projects"><i class="fa fa-check"></i><b>8.9.1</b> R Projects</a></li>
+<li class="chapter" data-level="8.9.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#here"><i class="fa fa-check"></i><b>8.9.2</b> here()</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#set-up-2"><i class="fa fa-check"></i><b>8.10</b> Set up</a></li>
+<li class="chapter" data-level="8.11" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#load-required-packages-1"><i class="fa fa-check"></i><b>8.11</b> Load required packages</a></li>
+<li class="chapter" data-level="8.12" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#set-import-and-output-directories-1"><i class="fa fa-check"></i><b>8.12</b> Set import and output directories</a></li>
+<li class="chapter" data-level="8.13" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#set-import-and-output-file-names-1"><i class="fa fa-check"></i><b>8.13</b> Set import and output file names</a></li>
+<li class="chapter" data-level="8.14" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#import-data-1"><i class="fa fa-check"></i><b>8.14</b> Import data</a></li>
+<li class="chapter" data-level="8.15" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#do-stuff-1"><i class="fa fa-check"></i><b>8.15</b> Do Stuff</a></li>
+<li class="chapter" data-level="8.16" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#save-data-1"><i class="fa fa-check"></i><b>8.16</b> Save data</a></li>
+<li class="chapter" data-level="8.17" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#the-masterscript"><i class="fa fa-check"></i><b>8.17</b> The masterscript</a></li>
+<li class="chapter" data-level="8.18" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#setup"><i class="fa fa-check"></i><b>8.18</b> Setup</a></li>
+<li class="chapter" data-level="8.19" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#load-packages-1"><i class="fa fa-check"></i><b>8.19</b> Load Packages</a></li>
+<li class="chapter" data-level="8.20" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#specify-the-directory-tree"><i class="fa fa-check"></i><b>8.20</b> Specify the directory tree</a></li>
+<li class="chapter" data-level="8.21" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#create-raw-data-file-from-e-merged-files"><i class="fa fa-check"></i><b>8.21</b> Create raw data file from e-merged files</a></li>
+<li class="chapter" data-level="8.22" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#score-task-data-from-raw-data-files"><i class="fa fa-check"></i><b>8.22</b> Score task data from raw data files</a></li>
+<li class="chapter" data-level="8.23" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#merge-scored-files-to-create-a-single-data-file"><i class="fa fa-check"></i><b>8.23</b> Merge scored files to create a single data file</a></li>
+<li class="chapter" data-level="8.24" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#folder-organization"><i class="fa fa-check"></i><b>8.24</b> Folder Organization</a></li>
+<li class="chapter" data-level="8.25" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#naming-r-scripts"><i class="fa fa-check"></i><b>8.25</b> Naming R Scripts</a></li>
+<li class="chapter" data-level="8.26" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#summary"><i class="fa fa-check"></i><b>8.26</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="example-data-preparation.html"><a href="example-data-preparation.html"><i class="fa fa-check"></i><b>9</b> Example: Data Preparation</a><ul>
+<li class="chapter" data-level="9.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#initial-setup"><i class="fa fa-check"></i><b>9.1</b> Initial Setup</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-up-directory-structure"><i class="fa fa-check"></i><b>9.1.1</b> Set up directory structure</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#masterscript"><i class="fa fa-check"></i><b>9.2</b> Masterscript</a></li>
+<li class="chapter" data-level="9.3" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-1"><i class="fa fa-check"></i><b>9.3</b> Setup</a></li>
+<li class="chapter" data-level="9.4" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-the-directory-tree"><i class="fa fa-check"></i><b>9.4</b> Set the directory tree</a></li>
+<li class="chapter" data-level="9.5" data-path="example-data-preparation.html"><a href="example-data-preparation.html#creating-messy-merged-file"><i class="fa fa-check"></i><b>9.5</b> Creating “messy” Merged File</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#e-prime-2.0"><i class="fa fa-check"></i><b>9.5.1</b> E-Prime 2.0</a></li>
+<li class="chapter" data-level="9.5.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#skipping-e-merge-with-e-prime-3.0"><i class="fa fa-check"></i><b>9.5.2</b> Skipping E-Merge with E-Prime 3.0</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-2"><i class="fa fa-check"></i><b>9.6</b> Setup</a></li>
+<li class="chapter" data-level="9.7" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-2"><i class="fa fa-check"></i><b>9.7</b> Set import and output directories</a></li>
+<li class="chapter" data-level="9.8" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-file-names-2"><i class="fa fa-check"></i><b>9.8</b> Set import and output file names</a></li>
+<li class="chapter" data-level="9.9" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-data-files"><i class="fa fa-check"></i><b>9.9</b> Merge data files</a></li>
+<li class="chapter" data-level="9.10" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-3"><i class="fa fa-check"></i><b>9.10</b> Setup</a></li>
+<li class="chapter" data-level="9.11" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-3"><i class="fa fa-check"></i><b>9.11</b> Set import and output directories</a></li>
+<li class="chapter" data-level="9.12" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-data-files-1"><i class="fa fa-check"></i><b>9.12</b> Merge data files</a></li>
+<li class="chapter" data-level="9.13" data-path="example-data-preparation.html"><a href="example-data-preparation.html#step-1-messy-to-tidy"><i class="fa fa-check"></i><b>9.13</b> Step 1: “messy” to “tidy”</a><ul>
+<li class="chapter" data-level="9.13.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#what-to-include"><i class="fa fa-check"></i><b>9.13.1</b> What to Include</a></li>
+<li class="chapter" data-level="9.13.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-messy-data"><i class="fa fa-check"></i><b>9.13.2</b> Import “messy” data</a></li>
+</ul></li>
+<li class="chapter" data-level="9.14" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-4"><i class="fa fa-check"></i><b>9.14</b> Setup</a></li>
+<li class="chapter" data-level="9.15" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-4"><i class="fa fa-check"></i><b>9.15</b> Set import and output directories</a></li>
+<li class="chapter" data-level="9.16" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-file-names-3"><i class="fa fa-check"></i><b>9.16</b> Set import and output file names</a></li>
+<li class="chapter" data-level="9.17" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-1"><i class="fa fa-check"></i><b>9.17</b> Import</a><ul>
+<li class="chapter" data-level="9.17.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-duplicate-subjects"><i class="fa fa-check"></i><b>9.17.1</b> Remove Duplicate Subjects</a></li>
+</ul></li>
+<li class="chapter" data-level="9.18" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-2"><i class="fa fa-check"></i><b>9.18</b> Import</a><ul>
+<li class="chapter" data-level="9.18.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#filter-rows"><i class="fa fa-check"></i><b>9.18.1</b> Filter Rows</a></li>
+</ul></li>
+<li class="chapter" data-level="9.19" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy"><i class="fa fa-check"></i><b>9.19</b> Tidy</a><ul>
+<li class="chapter" data-level="9.19.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#rename-variables"><i class="fa fa-check"></i><b>9.19.1</b> Rename Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="9.20" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-1"><i class="fa fa-check"></i><b>9.20</b> Tidy</a><ul>
+<li class="chapter" data-level="9.20.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#rename-values"><i class="fa fa-check"></i><b>9.20.1</b> Rename Values</a></li>
+</ul></li>
+<li class="chapter" data-level="9.21" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-2"><i class="fa fa-check"></i><b>9.21</b> Tidy</a></li>
+<li class="chapter" data-level="9.22" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-3"><i class="fa fa-check"></i><b>9.22</b> Tidy</a></li>
+<li class="chapter" data-level="9.23" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-4"><i class="fa fa-check"></i><b>9.23</b> Tidy</a></li>
+<li class="chapter" data-level="9.24" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-5"><i class="fa fa-check"></i><b>9.24</b> Tidy</a></li>
+<li class="chapter" data-level="9.25" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-6"><i class="fa fa-check"></i><b>9.25</b> Tidy</a><ul>
+<li class="chapter" data-level="9.25.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#select-columns"><i class="fa fa-check"></i><b>9.25.1</b> Select Columns</a></li>
+</ul></li>
+<li class="chapter" data-level="9.26" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-7"><i class="fa fa-check"></i><b>9.26</b> Tidy</a><ul>
+<li class="chapter" data-level="9.26.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-to-file"><i class="fa fa-check"></i><b>9.26.1</b> Save to File</a></li>
+</ul></li>
+<li class="chapter" data-level="9.27" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save"><i class="fa fa-check"></i><b>9.27</b> Save</a></li>
+<li class="chapter" data-level="9.28" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-5"><i class="fa fa-check"></i><b>9.28</b> Setup</a></li>
+<li class="chapter" data-level="9.29" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-5"><i class="fa fa-check"></i><b>9.29</b> Set import and output directories</a></li>
+<li class="chapter" data-level="9.30" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-file-names-4"><i class="fa fa-check"></i><b>9.30</b> Set import and output file names</a></li>
+<li class="chapter" data-level="9.31" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-3"><i class="fa fa-check"></i><b>9.31</b> Import</a></li>
+<li class="chapter" data-level="9.32" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-8"><i class="fa fa-check"></i><b>9.32</b> Tidy</a></li>
+<li class="chapter" data-level="9.33" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-1"><i class="fa fa-check"></i><b>9.33</b> Save</a></li>
+<li class="chapter" data-level="9.34" data-path="example-data-preparation.html"><a href="example-data-preparation.html#step-2-raw-tidy-to-scored"><i class="fa fa-check"></i><b>9.34</b> Step 2: raw “tidy” to scored</a><ul>
+<li class="chapter" data-level="9.34.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-up-3"><i class="fa fa-check"></i><b>9.34.1</b> Set up</a></li>
+</ul></li>
+<li class="chapter" data-level="9.35" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-6"><i class="fa fa-check"></i><b>9.35</b> Setup</a></li>
+<li class="chapter" data-level="9.36" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-6"><i class="fa fa-check"></i><b>9.36</b> Set import and output directories</a></li>
+<li class="chapter" data-level="9.37" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-files"><i class="fa fa-check"></i><b>9.37</b> Set import and output files</a><ul>
+<li class="chapter" data-level="9.37.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-4"><i class="fa fa-check"></i><b>9.37.1</b> Import</a></li>
+</ul></li>
+<li class="chapter" data-level="9.38" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-5"><i class="fa fa-check"></i><b>9.38</b> Import</a><ul>
+<li class="chapter" data-level="9.38.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#data-cleaning-1"><i class="fa fa-check"></i><b>9.38.1</b> Data Cleaning</a></li>
+</ul></li>
+<li class="chapter" data-level="9.39" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts"><i class="fa fa-check"></i><b>9.39</b> Trim RTs</a></li>
+<li class="chapter" data-level="9.40" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts-1"><i class="fa fa-check"></i><b>9.40</b> Trim RTs</a></li>
+<li class="chapter" data-level="9.41" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts-2"><i class="fa fa-check"></i><b>9.41</b> Trim RTs</a><ul>
+<li class="chapter" data-level="9.41.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy"><i class="fa fa-check"></i><b>9.41.1</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+</ul></li>
+<li class="chapter" data-level="9.42" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-1"><i class="fa fa-check"></i><b>9.42</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+<li class="chapter" data-level="9.43" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-2"><i class="fa fa-check"></i><b>9.43</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+<li class="chapter" data-level="9.44" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-3"><i class="fa fa-check"></i><b>9.44</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+<li class="chapter" data-level="9.45" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-4"><i class="fa fa-check"></i><b>9.45</b> Calculate FlankerEffect on RT and Accuracy</a><ul>
+<li class="chapter" data-level="9.45.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-subjects"><i class="fa fa-check"></i><b>9.45.1</b> Remove Subjects</a></li>
+</ul></li>
+<li class="chapter" data-level="9.46" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-poor-performing-subjects"><i class="fa fa-check"></i><b>9.46</b> Remove poor performing subjects</a><ul>
+<li class="chapter" data-level="9.46.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores"><i class="fa fa-check"></i><b>9.46.1</b> Calculate Binned Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="9.47" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-1"><i class="fa fa-check"></i><b>9.47</b> Calculate Binned scores</a></li>
+<li class="chapter" data-level="9.48" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-2"><i class="fa fa-check"></i><b>9.48</b> Calculate Binned scores</a></li>
+<li class="chapter" data-level="9.49" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-3"><i class="fa fa-check"></i><b>9.49</b> Calculate Binned scores</a></li>
+<li class="chapter" data-level="9.50" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-dataframes-and-save"><i class="fa fa-check"></i><b>9.50</b> Merge dataframes and save</a><ul>
+<li class="chapter" data-level="9.50.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-data-file-1"><i class="fa fa-check"></i><b>9.50.1</b> Save data file</a></li>
+</ul></li>
+<li class="chapter" data-level="9.51" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-dataframes-and-save-1"><i class="fa fa-check"></i><b>9.51</b> Merge dataframes and save</a></li>
+<li class="chapter" data-level="9.52" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-7"><i class="fa fa-check"></i><b>9.52</b> Setup</a></li>
+<li class="chapter" data-level="9.53" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-7"><i class="fa fa-check"></i><b>9.53</b> Set import and output directories</a></li>
+<li class="chapter" data-level="9.54" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-files-1"><i class="fa fa-check"></i><b>9.54</b> Set import and output files</a></li>
+<li class="chapter" data-level="9.55" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-6"><i class="fa fa-check"></i><b>9.55</b> Import</a></li>
+<li class="chapter" data-level="9.56" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts-3"><i class="fa fa-check"></i><b>9.56</b> Trim RTs</a></li>
+<li class="chapter" data-level="9.57" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-5"><i class="fa fa-check"></i><b>9.57</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+<li class="chapter" data-level="9.58" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-poor-performing-subjects-1"><i class="fa fa-check"></i><b>9.58</b> Remove poor performing subjects</a></li>
+<li class="chapter" data-level="9.59" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-4"><i class="fa fa-check"></i><b>9.59</b> Calculate Binned scores</a></li>
+<li class="chapter" data-level="9.60" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-dataframes-and-save-2"><i class="fa fa-check"></i><b>9.60</b> Merge dataframes and save</a></li>
+<li class="chapter" data-level="9.61" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-trimming-criteria"><i class="fa fa-check"></i><b>9.61</b> Set Trimming criteria</a></li>
+<li class="chapter" data-level="9.62" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-8"><i class="fa fa-check"></i><b>9.62</b> Setup</a></li>
+<li class="chapter" data-level="9.63" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-8"><i class="fa fa-check"></i><b>9.63</b> Set import and output directories</a></li>
+<li class="chapter" data-level="9.64" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-files-2"><i class="fa fa-check"></i><b>9.64</b> Set import and output files</a></li>
+<li class="chapter" data-level="9.65" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-trimming-criteria-1"><i class="fa fa-check"></i><b>9.65</b> Set Trimming criteria</a></li>
+<li class="chapter" data-level="9.66" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-7"><i class="fa fa-check"></i><b>9.66</b> Import</a></li>
+<li class="chapter" data-level="9.67" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts-4"><i class="fa fa-check"></i><b>9.67</b> Trim RTs</a></li>
+<li class="chapter" data-level="9.68" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-6"><i class="fa fa-check"></i><b>9.68</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+<li class="chapter" data-level="9.69" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-poor-performing-subjects-2"><i class="fa fa-check"></i><b>9.69</b> Remove poor performing subjects</a></li>
+<li class="chapter" data-level="9.70" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-5"><i class="fa fa-check"></i><b>9.70</b> Calculate Binned scores</a></li>
+<li class="chapter" data-level="9.71" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-dataframes-and-save-3"><i class="fa fa-check"></i><b>9.71</b> Merge dataframes and save</a></li>
+<li class="chapter" data-level="9.72" data-path="example-data-preparation.html"><a href="example-data-preparation.html#source-in-masterscript"><i class="fa fa-check"></i><b>9.72</b> <code>source()</code> in Masterscript</a></li>
+<li class="chapter" data-level="9.73" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-9"><i class="fa fa-check"></i><b>9.73</b> Setup</a></li>
+<li class="chapter" data-level="9.74" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-the-directory-tree-1"><i class="fa fa-check"></i><b>9.74</b> Set the directory tree</a></li>
+<li class="chapter" data-level="9.75" data-path="example-data-preparation.html"><a href="example-data-preparation.html#messy-to-tidy-raw-data"><i class="fa fa-check"></i><b>9.75</b> “messy” to “tidy” raw data</a></li>
+<li class="chapter" data-level="9.76" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-to-scored-data"><i class="fa fa-check"></i><b>9.76</b> “tidy” to scored data</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html"><i class="fa fa-check"></i><b>10</b> Analyzing Data in R</a><ul>
+<li class="chapter" data-level="10.1" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html#r-markdown"><i class="fa fa-check"></i><b>10.1</b> R Markdown</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html#yaml-header"><i class="fa fa-check"></i><b>10.1.1</b> YAML header</a></li>
+<li class="chapter" data-level="10.1.2" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html#r-code-chunks"><i class="fa fa-check"></i><b>10.1.2</b> R code chunks</a></li>
+<li class="chapter" data-level="10.1.3" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html#formatted-text"><i class="fa fa-check"></i><b>10.1.3</b> Formatted text</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Tutorial for the EngleLab</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="transformations-1" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Transformations</h1>
+<p>The previous chapter covered how to use the <code>dplyr</code> functions to easily manipulate a dataframe. This chapter will cover specific transformations you might need to perform on variables in a data set. It will heavily utlize the <code>mutate()</code> function from <code>dplyr</code>.</p>
+<p>Let’s create a dataframe to use as an example for this chapter. Don’t worry about what this code means for now, just copy it into your script and run it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data.orig &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ID =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>), <span class="dt">Score1 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> .<span class="dv">8</span>), <span class="dt">Score2 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">7</span>, <span class="dt">sd =</span> <span class="fl">1.1</span>), <span class="dt">Score3 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="fl">1.8</span>), <span class="dt">Score4 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">20</span>, <span class="dt">sd =</span> <span class="fl">2.3</span>))
+
+<span class="kw">head</span>(data.orig)
+##   ID   Score1   Score2    Score3   Score4
+## 1  1 3.319175 8.134650  8.593313 19.57705
+## 2  2 1.187408 7.480671  8.961993 14.67749
+## 3  3 1.129330 4.628690  9.190875 20.74278
+## 4  4 1.996775 7.203441  8.288092 21.57811
+## 5  5 2.519410 7.204908  8.516447 21.64503
+## 6  6 2.183950 5.906168 10.903768 20.97755</code></pre></div>
+<div id="descriptive-statistics" class="section level2">
+<h2><span class="header-section-number">7.1</span> Descriptive Statistics</h2>
+<p>Basic descriptive statistics include mean, median, standard deviation, max, min, skew, kurtosis, etc…</p>
+<p>The functions to calculate these are pretty straightforward:</p>
+<p><em>Base R</em></p>
+<ul>
+<li><p><strong>maximum</strong>: max()</p></li>
+<li><p><strong>minimum</strong>: min()</p></li>
+<li><p><strong>count</strong>: n()</p></li>
+<li><p><strong>mean</strong>: mean()</p></li>
+<li><p><strong>median</strong>: median()</p></li>
+<li><p><strong>standard deviation</strong>: sd()</p></li>
+<li><p><strong>variance</strong>: var()</p></li>
+<li><p><strong>quantiles (percentiles)</strong>: quantile()</p>
+<p>specify the percentiles with the argument <code>probs =</code> (default is c(0, .25, .5, .75, 1))</p></li>
+</ul>
+<p><em>e1071</em> package</p>
+<ul>
+<li><p><strong>skewness</strong>: skewness(variable, na.rm = TRUE, type = 2)</p></li>
+<li><p><strong>kurtosis</strong>: kurtosis(variable, na.rm = TRUE, type = 2)</p></li>
+</ul>
+<p>For all of these you need to specify <code>na.rm = TRUE</code> if the variable column has missing data. It is best to just always set <code>na.rm = TRUE</code>. For example,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(variable, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>To calculate the overall mean on <code>Score1</code> would look like</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span>data.orig <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score1.mean =</span> <span class="kw">mean</span>(Score1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</code></pre></div>
+</div>
+<div id="centering-and-standardizing-variables" class="section level2">
+<h2><span class="header-section-number">7.2</span> Centering and Standardizing Variables</h2>
+<p>To standardize a variable is rather simple. Use <code>scale()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+data &lt;-<span class="st"> </span>data.orig <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score1.centered =</span> <span class="kw">scale</span>(Score1, <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale =</span> <span class="ot">FALSE</span>))</code></pre></div>
+<p>This will center scores around the mean (which just means subtacting each score by the mean).</p>
+<p>We can check that this is true. Mean should be 0 and standard deviation should equal the original standard deviation</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">mean</span>(data<span class="op">$</span>Score1.centered),<span class="dv">1</span>) <span class="op">==</span><span class="st"> </span><span class="dv">0</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(data<span class="op">$</span>Score1) <span class="op">==</span><span class="st"> </span><span class="kw">sd</span>(data<span class="op">$</span>Score1.centered)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>To standardize a variable (create z-scores) you can use the same <code>scale()</code> function and just specify <code>scale = TRUE</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+data &lt;-<span class="st"> </span>data.orig <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score1.centered =</span> <span class="kw">scale</span>(Score1, <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale =</span> <span class="ot">TRUE</span>))</code></pre></div>
+<p>Now the mean should be 0 and the standard deviation 1.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">mean</span>(data<span class="op">$</span>Score1.centered),<span class="dv">1</span>) <span class="op">==</span><span class="st"> </span><span class="dv">0</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">sd</span>(data<span class="op">$</span>Score1.centered),<span class="dv">1</span>) <span class="op">==</span><span class="st"> </span><span class="dv">1</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>For an easy way to calculate centered and standardized scores on multiple variables at one time see the <code>center()</code> function from the <code>datawrangling</code> package presented in the next Chapter.</p>
+</div>
+<div id="transformations-2" class="section level2">
+<h2><span class="header-section-number">7.3</span> Transformations</h2>
+<div id="log" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> log</h3>
+<p>[insert base off of Field]</p>
+</div>
+<div id="polynomial" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> polynomial</h3>
+<p>You can create orthogonal polynomials of variables using the <code>poly()</code> function and specify the degree of polynomial to go up to with <code>degree =</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">poly</span>(data.orig<span class="op">$</span>Score1, <span class="dt">degree =</span> <span class="dv">3</span>)</code></pre></div>
+<pre><code>##                   1           2             3
+##   [1,]  0.157915697  0.05753846 -0.1340441852
+##   [2,] -0.106024540  0.03467672  0.0669837818
+##   [3,] -0.113215356  0.04673563  0.0570384595
+##   [4,] -0.005814515 -0.06336734  0.0426739912
+##   [5,]  0.058894475 -0.05726206 -0.0534926004
+##   [6,]  0.017360189 -0.06744180  0.0102495984
+##   [7,]  0.037356636 -0.06534223 -0.0203570640
+##   [8,] -0.052216919 -0.03420865  0.0850012945
+##   [9,] -0.163419697  0.14967065 -0.0760549109
+##  [10,] -0.047030726 -0.03885798  0.0823740221
+##  [11,] -0.223500091  0.31595404 -0.4160638587
+##  [12,] -0.010759512 -0.06159346  0.0488739163
+##  [13,]  0.052639374 -0.06023054 -0.0439999697
+##  [14,]  0.002123262 -0.06554964  0.0321244327
+##  [15,] -0.200953557  0.24804783 -0.2621077497
+##  [16,]  0.191691724  0.12587238 -0.1039950656
+##  [17,]  0.013987274 -0.06728323  0.0152410324
+##  [18,] -0.068076109 -0.01782015  0.0888338651
+##  [19,] -0.152873575  0.12532722 -0.0379922548
+##  [20,]  0.009288532 -0.06681564  0.0220651601
+##  [21,] -0.125667383  0.06920850  0.0348205478
+##  [22,] -0.022697057 -0.05600027  0.0624429012
+##  [23,] -0.136025598  0.08943943  0.0111996603
+##  [24,] -0.061950577 -0.02453795  0.0881433823
+##  [25,]  0.093662370 -0.03148482 -0.1007611309
+##  [26,] -0.094459047  0.01669255  0.0788474277
+##  [27,]  0.036364546 -0.06556904 -0.0188162450
+##  [28,]  0.202098465  0.14991757 -0.0859336652
+##  [29,]  0.032541152 -0.06632336 -0.0128875742
+##  [30,]  0.037877436 -0.06521805 -0.0211661413
+##  [31,]  0.321335351  0.52596962  0.5284514925
+##  [32,] -0.124088851  0.06624799  0.0380013679
+##  [33,] -0.047616645 -0.03835025  0.0827023398
+##  [34,] -0.034105432 -0.04892259  0.0732302791
+##  [35,] -0.021146694 -0.05683142  0.0608032662
+##  [36,]  0.077980672 -0.04505823 -0.0809289356
+##  [37,] -0.099000900  0.02354757  0.0747761292
+##  [38,]  0.002932301 -0.06572603  0.0310121331
+##  [39,] -0.011211115 -0.06141560  0.0494244552
+##  [40,]  0.191147124  0.12465285 -0.1048173128
+##  [41,] -0.113451423  0.04714291  0.0566770982
+##  [42,]  0.019967928 -0.06746295  0.0063446790
+##  [43,] -0.049251880 -0.03690959  0.0835766696
+##  [44,] -0.032944153 -0.04972044  0.0722412690
+##  [45,] -0.133805508  0.08498579  0.0166717373
+##  [46,] -0.119912643  0.05857190  0.0458994778
+##  [47,]  0.062183881 -0.05549679 -0.0584072135
+##  [48,]  0.052100169 -0.06046260 -0.0431742882
+##  [49,]  0.055305684 -0.05902743 -0.0480669791
+##  [50,]  0.046131443 -0.06277873 -0.0339779036
+##  [51,] -0.029712923 -0.05184813  0.0693549025
+##  [52,]  0.043672251 -0.06359819 -0.0301669245
+##  [53,] -0.147019330  0.11243848 -0.0193261895
+##  [54,]  0.009792617 -0.06687956  0.0213409799
+##  [55,]  0.139226418  0.02610531 -0.1346193919
+##  [56,] -0.066684888 -0.01938873  0.0887684994
+##  [57,]  0.098137853 -0.02702423 -0.1058164673
+##  [58,] -0.010440454 -0.06171751  0.0484833280
+##  [59,]  0.021953075 -0.06741974  0.0033484606
+##  [60,]  0.060532913 -0.05640038 -0.0559481526
+##  [61,]  0.025199763 -0.06723859 -0.0015898973
+##  [62,] -0.034707845 -0.04850179  0.0737330275
+##  [63,]  0.079350528 -0.04400007 -0.0827765064
+##  [64,]  0.026662068 -0.06711221 -0.0038275288
+##  [65,]  0.271741181  0.34709225  0.1696724244
+##  [66,] -0.116639986  0.05271516  0.0515739179
+##  [67,]  0.184020310  0.10904936 -0.1144942356
+##  [68,] -0.110331304  0.04181831  0.0612725737
+##  [69,] -0.031883037 -0.05043414  0.0713149947
+##  [70,]  0.006533689 -0.06640793  0.0259862681
+##  [71,]  0.075809775 -0.04668518 -0.0779618821
+##  [72,]  0.043335936 -0.06370415 -0.0296451097
+##  [73,]  0.003998531 -0.06594550  0.0295366307
+##  [74,]  0.023874793 -0.06732908  0.0004307102
+##  [75,] -0.036711679 -0.04706810  0.0753538435
+##  [76,] -0.032975666 -0.04969902  0.0722684495
+##  [77,]  0.083464881 -0.04067511 -0.0882032955
+##  [78,] -0.090725803  0.01125892  0.0816456671
+##  [79,] -0.029037127 -0.05227595  0.0687268081
+##  [80,]  0.002062396 -0.06553602  0.0322078553
+##  [81,] -0.168789743  0.16262218 -0.0977108446
+##  [82,] -0.150466670  0.11997419 -0.0301098198
+##  [83,]  0.110400443 -0.01346736 -0.1179983894
+##  [84,]  0.034899536 -0.06588054 -0.0165424047
+##  [85,]  0.068765069 -0.05154243 -0.0680337513
+##  [86,] -0.172233385  0.17112502 -0.1124317654
+##  [87,] -0.042647041 -0.04251501  0.0796722747
+##  [88,]  0.112144030 -0.01138089 -0.1195119570
+##  [89,]  0.151891517  0.04691022 -0.1353445887
+##  [90,]  0.001448866 -0.06539609  0.0330467017
+##  [91,]  0.001814206 -0.06548001  0.0325476421
+##  [92,] -0.020846411 -0.05698879  0.0604812149
+##  [93,] -0.035946608 -0.04762165  0.0747444326
+##  [94,]  0.142288419  0.03094398 -0.1352041579
+##  [95,] -0.098726275  0.02312545  0.0750435118
+##  [96,]  0.075350045 -0.04702185 -0.0773276123
+##  [97,] -0.008672913 -0.06238076  0.0462954676
+##  [98,]  0.111939247 -0.01162799 -0.1193372016
+##  [99,]  0.013540981 -0.06725117  0.0158959894
+## [100,]  0.009681573 -0.06686576  0.0215006789
+## attr(,&quot;coefs&quot;)
+## attr(,&quot;coefs&quot;)$alpha
+## [1] 2.043737 2.355295 2.684482
+## 
+## attr(,&quot;coefs&quot;)$norm2
+## [1]   1.00000 100.00000  65.23314 100.57561 142.51450
+## 
+## attr(,&quot;degree&quot;)
+## [1] 1 2 3
+## attr(,&quot;class&quot;)
+## [1] &quot;poly&quot;   &quot;matrix&quot;</code></pre>
+<p>You can see it creates up to three degrees of polynomials on the Score1 variable. The first degree is a linear, second is a quadratic, and third is cubic. Let’s say we want to create three new columns with each of these three polynomials. To do so we need to individually access each vector such as</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">poly</span>(data.orig<span class="op">$</span>Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[,<span class="dv">1</span>]</code></pre></div>
+<pre><code>##   [1]  0.157915697 -0.106024540 -0.113215356 -0.005814515  0.058894475
+##   [6]  0.017360189  0.037356636 -0.052216919 -0.163419697 -0.047030726
+##  [11] -0.223500091 -0.010759512  0.052639374  0.002123262 -0.200953557
+##  [16]  0.191691724  0.013987274 -0.068076109 -0.152873575  0.009288532
+##  [21] -0.125667383 -0.022697057 -0.136025598 -0.061950577  0.093662370
+##  [26] -0.094459047  0.036364546  0.202098465  0.032541152  0.037877436
+##  [31]  0.321335351 -0.124088851 -0.047616645 -0.034105432 -0.021146694
+##  [36]  0.077980672 -0.099000900  0.002932301 -0.011211115  0.191147124
+##  [41] -0.113451423  0.019967928 -0.049251880 -0.032944153 -0.133805508
+##  [46] -0.119912643  0.062183881  0.052100169  0.055305684  0.046131443
+##  [51] -0.029712923  0.043672251 -0.147019330  0.009792617  0.139226418
+##  [56] -0.066684888  0.098137853 -0.010440454  0.021953075  0.060532913
+##  [61]  0.025199763 -0.034707845  0.079350528  0.026662068  0.271741181
+##  [66] -0.116639986  0.184020310 -0.110331304 -0.031883037  0.006533689
+##  [71]  0.075809775  0.043335936  0.003998531  0.023874793 -0.036711679
+##  [76] -0.032975666  0.083464881 -0.090725803 -0.029037127  0.002062396
+##  [81] -0.168789743 -0.150466670  0.110400443  0.034899536  0.068765069
+##  [86] -0.172233385 -0.042647041  0.112144030  0.151891517  0.001448866
+##  [91]  0.001814206 -0.020846411 -0.035946608  0.142288419 -0.098726275
+##  [96]  0.075350045 -0.008672913  0.111939247  0.013540981  0.009681573</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+data &lt;-<span class="st"> </span>data.orig <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score1.linear =</span> <span class="kw">poly</span>(Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[,<span class="dv">1</span>],
+         <span class="dt">Score1.quadratic =</span> <span class="kw">poly</span>(Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[,<span class="dv">2</span>],
+         <span class="dt">Score1.cubic =</span> <span class="kw">poly</span>(Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[,<span class="dv">3</span>])</code></pre></div>
+<p>Let’s plot this to see what happened visually…</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+<span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x =</span> Score1)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Score1.linear), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Score1.quadratic), <span class="dt">color =</span> <span class="st">&quot;green&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Score1.cubic), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="dt">label =</span> <span class="st">&quot;Score1.polynomial&quot;</span>)</code></pre></div>
+<p><img src="R_Tutorial_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+</div>
+</div>
+<div id="composites" class="section level2">
+<h2><span class="header-section-number">7.4</span> Composites</h2>
+<p>Sometimes you will need to combine multiple variables into one. This is called a composite. Let’s say we want to average the three scores in the dataframe into one <code>Score_comp</code> variable. Previosly we calculated the means in one column and across rows. Here we want to calculate means in one ROW and across columns. To do this we need a slightly different function.</p>
+<p>To calculate row means you can use the <code>rowMeans()</code> function. This is not a tidyverse function and so we will need to specify the dataframe and columns we want. Like such</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+data &lt;-<span class="st"> </span>data.orig <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score_comp =</span> <span class="kw">rowMeans</span>(data.orig[<span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>)], <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</code></pre></div>
+<p>For an easier way to create a composite variable see the <code>composite()</code> function from the <code>datawrangling</code> package presented in the next Chapter.</p>
+</div>
+<div id="custom-transformations" class="section level2">
+<h2><span class="header-section-number">7.5</span> Custom Transformations</h2>
+<p>In general, with <code>mutate()</code> you can specify any custom transformation you want to do on a variable. For instance, if you want to subtract each score by <code>5</code>, and divide by <code>10</code> then you can do it! I don’t know why you would ever want to do that, but you can.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+data &lt;-<span class="st"> </span>data.orig <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score_crazy =</span> (Score1 <span class="op">-</span><span class="st"> </span><span class="dv">5</span>)<span class="op">/</span><span class="dv">10</span>)</code></pre></div>
+<p>Or take the sum of <code>Score1</code> and <code>Score2</code> and divide by the difference between <code>Score3</code> and <code>Score4</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+data &lt;-<span class="st"> </span>data.orig <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score_crazy =</span> (Score1 <span class="op">+</span><span class="st"> </span>Score2)<span class="op">/</span>(Score3 <span class="op">-</span><span class="st"> </span>Score4))</code></pre></div>
+<hr />
+<p><strong>The next chapter covers two more important packages</strong></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="englelab-packages.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="organization-and-good-practices.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>

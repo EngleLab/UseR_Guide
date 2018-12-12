@@ -33,13 +33,15 @@ In **Chapter 4** I introduce the general data analysis workflow.
 
 In **Chapter 5** you will learn the basics of working with dataframes, including how to do transformations, computations, creating new variables, filtering, renaming, merging and more. This will give you the skills you need to go from raw data files to a data file that is organized and ready for statistical analyses.
 
-**Chapter 6** introduces two R packages I have created that contain functions that make it easier to implement a lot of data analysis procedures we commonly do in our lab.
+**Chapter 6** covers some basic data transformations such as centering and standardizing variables or creating composite scores.
 
-**Chapter 7** will cover principles of how you should structure and organize the workflow in your R scripts. **This chapter is very important**
+**Chapter 7** introduces two R packages I have created that contain functions that make it easier to implement a lot of data analysis procedures we commonly do in our lab.
 
-In **Chapter 8** you will use a Flanker data set as an example of how to go from a "messy" raw data file to a "tidy" raw data file and finally to a scored task file that is ready for statistical analysis.
+**Chapter 8** will cover principles of how you should structure and organize the workflow in your R scripts. **This chapter is very important**
 
-**Chapters 9 and beyond** have not been created yet but will cover data visualization and statistical analyses.
+In **Chapter 9** you will use a Flanker data set as an example of how to go from a "messy" raw data file to a "tidy" raw data file and finally to a scored task file that is ready for statistical analysis.
+
+**Chapters 10 and beyond** have not been created yet but will cover data visualization and statistical analyses.
 
 ********
 

@@ -4,9 +4,9 @@
 knitr::include_graphics(rep("images/workflow.png"))
 ```
 
-Chapters 5 through 7 should have provided you all you need to know in order to start writing scripts to get your data ready for statistical analysis. The data preparation steps include **1)** converting "messy" raw data to "tidy" raw data and **2)** creating data file with task scores that have gone through data cleaning.
+Chapters 5 through 8 should have provided you all you need to know in order to start writing scripts to get your data ready for statistical analysis. The data preparation steps include **1)** converting "messy" raw data to "tidy" raw data and **2)** creating data file with task scores that have gone through data cleaning.
 
-Based on the information from Chapters 5 through 7. **This Chapter** will go over step-by-step how to create R scripts to do data preparation using an example data set from the Flanker task. 
+Based on the information from Chapters 5 through 8. **This Chapter** will go over step-by-step how to create R scripts to do data preparation using an example data set from the Flanker task. 
 
 You can download this example data set here 
 
@@ -58,7 +58,7 @@ We will come back to what these files are later.
 
 ## Masterscript
 
-In Chapter 7, you saw an example masterscript. Lets' go over how to begin creating one.
+In Chapter 8, you saw an example masterscript. Lets' go over how to begin creating one.
 
 First open a new script window **File -> New File -> R Script**
 

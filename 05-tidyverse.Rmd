@@ -106,7 +106,7 @@ For more information on these functions [Visit the dplyr webpage](https://dplyr.
 If you have not done so already, install and load the dplyr package
 
 ```{r eval=FALSE}
-install.packages("readr")
+install.packages("dplyr")
 ```
 
 ```{r warning=FALSE, collapse=TRUE, message=FALSE}
@@ -419,7 +419,8 @@ data <- import %>%
          RTdiff = RT - grandRT) %>%
   summarise(RT.mean = mean(RT, na.rm = TRUE)) %>%
   ungroup() %>%
-  spread(key = Condition, value = RT.mean)
+  spread(key = Condition, value = RT.mean) %>%
+  mutate(FlankerEffect = incongruent - congruent)
 ```
 
 ## readr - export
@@ -472,4 +473,4 @@ https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html
 
 ********
 
-**The next chapter covers two more important packages**
+**The next chapter covers some basic data transformations**
