@@ -10,13 +10,17 @@ knitr::include_graphics(rep("images/workflow.png"))
 
 Steps **1** and **2** will use a very similar workflow process and be implemented in R Scripts, which have the file extension `.R`. Step **3** will actually use what is called an R Markdown document, which has the file extension `.Rmd`.
 
+## create_study()
+
+
+
 ## R Scripts
 
 Steps **1** and **2** are all about transforming data files to create a final output file that is ready for statistical analysis.
 
 ### General Workflow
 
-Every R script you create for steps 1 and 2 import a file -> do stuff to the dataframe -> output a saved file, **no more, and no less**. The general workdflow in every script will look like
+Every R script you create for steps 1 and 2 will - import a file -> do stuff to the dataframe -> output a saved file, **no more, and no less**. The general workdflow in every script will look like
 
 1) **Load** required packages using `library()`
 
