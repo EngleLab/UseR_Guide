@@ -1,0 +1,18 @@
+# (PART) IV. Regression {-}
+
+# Introduction to Regression in R
+
+This will be an introduction to regression in R
+
+
+
+********
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=ls())
+```
+
+********
+
+**Something**
+

@@ -25,7 +25,7 @@
 <meta name="author" content="Jason Tsukahara">
 
 
-<meta name="date" content="2018-12-12">
+<meta name="date" content="2019-02-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -100,6 +100,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="part"><span><b>I I. Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
 <li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
 <li class="chapter" data-level="1.2" data-path="installation.html"><a href="installation.html#installing-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R Studio</a></li>
@@ -126,6 +127,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.2.1" data-path="intermediate-r.html"><a href="intermediate-r.html#creating-your-own-functions"><i class="fa fa-check"></i><b>3.2.1</b> Creating Your Own Functions</a></li>
 </ul></li>
 </ul></li>
+<li class="part"><span><b>II II. Working with Data</b></span></li>
 <li class="chapter" data-level="4" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>4</b> Workflow</a></li>
 <li class="chapter" data-level="5" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i><b>5</b> The tidyverse</a><ul>
 <li class="chapter" data-level="5.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#readr---import"><i class="fa fa-check"></i><b>5.1</b> readr - import</a></li>
@@ -166,19 +168,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html"><i class="fa fa-check"></i><b>8</b> Organization and Good Practices</a><ul>
-<li class="chapter" data-level="8.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#r-scripts"><i class="fa fa-check"></i><b>8.1</b> R Scripts</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#general-workflow"><i class="fa fa-check"></i><b>8.1.1</b> General Workflow</a></li>
-<li class="chapter" data-level="8.1.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#building-a-template-workflow"><i class="fa fa-check"></i><b>8.1.2</b> Building a Template Workflow</a></li>
-<li class="chapter" data-level="8.1.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#rmlistls"><i class="fa fa-check"></i><b>8.1.3</b> rm(list=ls())</a></li>
+<li class="chapter" data-level="8.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#create_study"><i class="fa fa-check"></i><b>8.1</b> create_study()</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#before-data-collection"><i class="fa fa-check"></i><b>8.1.1</b> Before data collection</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#working-directory"><i class="fa fa-check"></i><b>8.2</b> Working Directory</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#r-projects"><i class="fa fa-check"></i><b>8.2.1</b> R Projects</a></li>
 <li class="chapter" data-level="8.2.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#here"><i class="fa fa-check"></i><b>8.2.2</b> here()</a></li>
+<li class="chapter" data-level="8.2.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#summary"><i class="fa fa-check"></i><b>8.2.3</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#the-masterscript"><i class="fa fa-check"></i><b>8.3</b> The masterscript</a></li>
-<li class="chapter" data-level="8.4" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#folder-organization"><i class="fa fa-check"></i><b>8.4</b> Folder Organization</a></li>
-<li class="chapter" data-level="8.5" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#naming-r-scripts"><i class="fa fa-check"></i><b>8.5</b> Naming R Scripts</a></li>
-<li class="chapter" data-level="8.6" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#summary"><i class="fa fa-check"></i><b>8.6</b> Summary</a></li>
+<li class="chapter" data-level="8.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#taskname1_raw.r"><i class="fa fa-check"></i><b>8.3</b> 1_taskname1_raw.R</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#setup"><i class="fa fa-check"></i><b>8.3.1</b> Setup</a></li>
+<li class="chapter" data-level="8.3.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#import-data"><i class="fa fa-check"></i><b>8.3.2</b> Import data</a></li>
+<li class="chapter" data-level="8.3.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#clean-up-raw-data-file"><i class="fa fa-check"></i><b>8.3.3</b> Clean up raw data file</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#taskname1_score.r"><i class="fa fa-check"></i><b>8.4</b> 2_taskname1_score.R</a></li>
+<li class="chapter" data-level="8.5" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#masterscript-template"><i class="fa fa-check"></i><b>8.5</b> Masterscript template</a></li>
+<li class="chapter" data-level="8.6" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#r-scripts"><i class="fa fa-check"></i><b>8.6</b> R Scripts</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#general-workflow"><i class="fa fa-check"></i><b>8.6.1</b> General Workflow</a></li>
+<li class="chapter" data-level="8.6.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#building-a-template-workflow"><i class="fa fa-check"></i><b>8.6.2</b> Building a Template Workflow</a></li>
+<li class="chapter" data-level="8.6.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#rmlistls"><i class="fa fa-check"></i><b>8.6.3</b> rm(list=ls())</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#the-masterscript"><i class="fa fa-check"></i><b>8.7</b> The masterscript</a></li>
+<li class="chapter" data-level="8.8" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#folder-organization"><i class="fa fa-check"></i><b>8.8</b> Folder Organization</a></li>
+<li class="chapter" data-level="8.9" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#naming-r-scripts"><i class="fa fa-check"></i><b>8.9</b> Naming R Scripts</a></li>
+<li class="chapter" data-level="8.10" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#summary-1"><i class="fa fa-check"></i><b>8.10</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="example-data-preparation.html"><a href="example-data-preparation.html"><i class="fa fa-check"></i><b>9</b> Example: Data Preparation</a><ul>
 <li class="chapter" data-level="9.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#initial-setup"><i class="fa fa-check"></i><b>9.1</b> Initial Setup</a><ul>
@@ -197,7 +210,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.4.5" data-path="example-data-preparation.html"><a href="example-data-preparation.html#rename-variables"><i class="fa fa-check"></i><b>9.4.5</b> Rename Variables</a></li>
 <li class="chapter" data-level="9.4.6" data-path="example-data-preparation.html"><a href="example-data-preparation.html#rename-values"><i class="fa fa-check"></i><b>9.4.6</b> Rename Values</a></li>
 <li class="chapter" data-level="9.4.7" data-path="example-data-preparation.html"><a href="example-data-preparation.html#select-columns"><i class="fa fa-check"></i><b>9.4.7</b> Select Columns</a></li>
-<li class="chapter" data-level="9.4.8" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-to-file"><i class="fa fa-check"></i><b>9.4.8</b> Save to File</a></li>
+<li class="chapter" data-level="9.4.8" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-to-file-2"><i class="fa fa-check"></i><b>9.4.8</b> Save to File</a></li>
 </ul></li>
 <li class="chapter" data-level="9.5" data-path="example-data-preparation.html"><a href="example-data-preparation.html#step-2-raw-tidy-to-scored"><i class="fa fa-check"></i><b>9.5</b> Step 2: raw “tidy” to scored</a><ul>
 <li class="chapter" data-level="9.5.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-up"><i class="fa fa-check"></i><b>9.5.1</b> Set up</a></li>
@@ -210,6 +223,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="9.6" data-path="example-data-preparation.html"><a href="example-data-preparation.html#source-in-masterscript"><i class="fa fa-check"></i><b>9.6</b> <code>source()</code> in Masterscript</a></li>
 </ul></li>
+<li class="part"><span><b>III III. Data Analysis</b></span></li>
 <li class="chapter" data-level="10" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html"><i class="fa fa-check"></i><b>10</b> Analyzing Data in R</a><ul>
 <li class="chapter" data-level="10.1" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html#r-markdown"><i class="fa fa-check"></i><b>10.1</b> R Markdown</a><ul>
 <li class="chapter" data-level="10.1.1" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html#yaml-header"><i class="fa fa-check"></i><b>10.1.1</b> YAML header</a></li>
@@ -217,6 +231,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="10.1.3" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html#formatted-text"><i class="fa fa-check"></i><b>10.1.3</b> Formatted text</a></li>
 </ul></li>
 </ul></li>
+<li class="part"><span><b>IV IV. Regression</b></span></li>
+<li class="chapter" data-level="11" data-path="introduction-to-regression-in-r.html"><a href="introduction-to-regression-in-r.html"><i class="fa fa-check"></i><b>11</b> Introduction to Regression in R</a></li>
 </ul>
 
       </nav>
@@ -242,12 +258,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="kw">head</span>(data.orig)
 ##   ID    Score1   Score2    Score3   Score4
-## 1  1 2.0168191 6.833080 12.724288 19.61924
-## 2  2 2.3609666 6.780398  7.284949 15.56529
-## 3  3 1.5628541 5.448153  9.899931 17.33283
-## 4  4 2.7757589 8.049381  6.812335 18.51488
-## 5  5 2.6223262 6.473692 11.641483 22.33630
-## 6  6 0.3322161 6.722633  9.274323 18.74800</code></pre></div>
+## 1  1 2.3128994 4.998886  7.594651 23.87707
+## 2  2 2.2991644 7.164347  6.988087 20.49789
+## 3  3 2.4206979 6.131987 12.378978 22.22577
+## 4  4 1.8620306 6.757135 10.593402 20.09746
+## 5  5 0.9258924 7.440647  8.678837 23.38832
+## 6  6 2.8784350 6.080165  8.743817 21.88321</code></pre></div>
 <div id="descriptive-statistics" class="section level2">
 <h2><span class="header-section-number">6.1</span> Descriptive Statistics</h2>
 <p>Basic descriptive statistics include mean, median, standard deviation, max, min, skew, kurtosis, etc…</p>
@@ -312,113 +328,113 @@ data &lt;-<span class="st"> </span>data.orig <span class="op">%&gt;%</span>
 <h3><span class="header-section-number">6.3.2</span> polynomial</h3>
 <p>You can create orthogonal polynomials of variables using the <code>poly()</code> function and specify the degree of polynomial to go up to with <code>degree =</code></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">poly</span>(data.orig<span class="op">$</span>Score1, <span class="dt">degree =</span> <span class="dv">3</span>)
-##                   1            2             3
-##   [1,] -0.002855903 -0.078184916  0.0164214463
-##   [2,]  0.036750248 -0.065531750 -0.0411767853
-##   [3,] -0.055100399 -0.057401709  0.0827270118
-##   [4,]  0.084486549 -0.017721424 -0.0861815401
-##   [5,]  0.066828775 -0.039554209 -0.0747317088
-##   [6,] -0.196728158  0.213361766 -0.1543993119
-##   [7,]  0.073780543 -0.031539968 -0.0801231949
-##   [8,] -0.038128524 -0.068828161  0.0649218451
-##   [9,]  0.096183561 -0.000577369 -0.0892552428
-##  [10,] -0.061039505 -0.052340552  0.0876623937
-##  [11,]  0.037710657 -0.064920673 -0.0424480948
-##  [12,]  0.153728074  0.114879948 -0.0325037819
-##  [13,]  0.018317572 -0.074468335 -0.0151998444
-##  [14,] -0.082918687 -0.028942652  0.0985126219
-##  [15,] -0.002995499 -0.078186185  0.0166295761
-##  [16,] -0.024623397 -0.074706357  0.0476807241
-##  [17,]  0.007063698 -0.077315501  0.0015568295
-##  [18,]  0.075108812 -0.029922806 -0.0810285638
-##  [19,]  0.006656124 -0.077381499  0.0021683856
-##  [20,] -0.082118350 -0.029930286  0.0983446342
-##  [21,] -0.140511151  0.068390049  0.0498967452
-##  [22,]  0.090328746 -0.009425758 -0.0882114373
-##  [23,]  0.042443437 -0.061698941 -0.0485574094
-##  [24,] -0.225975307  0.308303726 -0.3421253956
-##  [25,]  0.067827313 -0.038449481 -0.0755711334
-##  [26,]  0.037174816 -0.065263388 -0.0417400390
-##  [27,]  0.007838912 -0.077182812  0.0003940007
-##  [28,]  0.092021545 -0.006922448 -0.0886181238
-##  [29,] -0.118641123  0.025328201  0.0840692737
-##  [30,] -0.007830609 -0.078042307  0.0238002152
-##  [31,]  0.254556561  0.441883752  0.5081310410
-##  [32,] -0.138845821  0.064848272  0.0532816561
-##  [33,] -0.072177084 -0.041364130  0.0947419585
-##  [34,] -0.077911234 -0.034957448  0.0971556740
-##  [35,] -0.099476747 -0.006265089  0.0974650502
-##  [36,] -0.027873115 -0.073552155  0.0520270723
-##  [37,]  0.009688427 -0.076828332 -0.0023775394
-##  [38,] -0.074195470 -0.039167585  0.0956925791
-##  [39,]  0.037280377 -0.065196227 -0.0418797771
-##  [40,] -0.098676192 -0.007460023  0.0977259914
-##  [41,]  0.211294383  0.282128797  0.1911869072
-##  [42,] -0.055230823 -0.057296481  0.0828433366
-##  [43,]  0.021300580 -0.073382003 -0.0195644628
-##  [44,]  0.111900174  0.025822723 -0.0866297408
-##  [45,] -0.182844739  0.172969629 -0.0862263725
-##  [46,]  0.088715929 -0.011769156 -0.0877468391
-##  [47,]  0.099497776  0.004668716 -0.0893808805
-##  [48,] -0.038082954 -0.068852786  0.0648676586
-##  [49,]  0.194868463  0.229128934  0.1065761942
-##  [50,] -0.164894628  0.125208247 -0.0160978684
-##  [51,]  0.089858073 -0.010113837 -0.0880835635
-##  [52,]  0.005379146 -0.077571478  0.0040850180
-##  [53,]  0.079269538 -0.024678793 -0.0835894471
-##  [54,] -0.077183855 -0.035798578  0.0968991547
-##  [55,]  0.031594279 -0.068566056 -0.0341889785
-##  [56,]  0.055879949 -0.050645866 -0.0642292134
-##  [57,] -0.056099754 -0.056588635  0.0836094696
-##  [58,]  0.085037822 -0.016961418 -0.0864134336
-##  [59,] -0.021089195 -0.075774368  0.0428347442
-##  [60,]  0.052926338 -0.053317342 -0.0610229555
-##  [61,] -0.074796545 -0.038501158  0.0959547453
-##  [62,] -0.027041348 -0.073863279  0.0509252919
-##  [63,]  0.120539385  0.041977675 -0.0814595470
-##  [64,] -0.205539457  0.240558785 -0.2044284429
-##  [65,] -0.096832769 -0.010173514  0.0982417807
-##  [66,]  0.171598111  0.161258564  0.0160498523
-##  [67,]  0.046571288 -0.058603376 -0.0536544447
-##  [68,] -0.087600197 -0.022965150  0.0991085874
-##  [69,] -0.119554471  0.026977100  0.0830666144
-##  [70,] -0.024913152 -0.074610143  0.0480727051
-##  [71,]  0.082716043 -0.020130211 -0.0853816705
-##  [72,]  0.119491498  0.039956050 -0.0822380191
-##  [73,]  0.022721522 -0.072815666 -0.0216266582
-##  [74,]  0.079456161 -0.024437246 -0.0836942778
-##  [75,] -0.095543917 -0.012039159  0.0985328296
-##  [76,] -0.125971109  0.038928572  0.0750180563
-##  [77,] -0.008802676 -0.077969299  0.0252309481
-##  [78,]  0.065562969 -0.040932244 -0.0736375912
-##  [79,]  0.152660826  0.112267920 -0.0348753149
-##  [80,] -0.026723458 -0.073979333  0.0505022242
-##  [81,] -0.088106926 -0.022297613  0.0991325958
-##  [82,]  0.027761276 -0.070552728 -0.0288356745
-##  [83,]  0.098500306  0.003071769 -0.0893795109
-##  [84,] -0.107153089  0.005701024  0.0937892428
-##  [85,] -0.108181732  0.007374430  0.0931303685
-##  [86,]  0.063756849 -0.042855171 -0.0720196210
-##  [87,]  0.020603312 -0.073648376 -0.0185483535
-##  [88,]  0.062229029 -0.044442022 -0.0706001125
-##  [89,]  0.178285637  0.179897393  0.0387497197
-##  [90,] -0.214382010  0.269071335 -0.2601915801
-##  [91,] -0.060080711 -0.053194902  0.0869170060
-##  [92,] -0.169975830  0.138217593 -0.0339866897
-##  [93,]  0.064477934 -0.042093562 -0.0726734974
-##  [94,]  0.076989542 -0.027585896 -0.0822385674
-##  [95,]  0.068754241 -0.037410042 -0.0763313482
-##  [96,] -0.148228007  0.085367435  0.0324064855
-##  [97,]  0.153996394  0.115539445 -0.0318985367
-##  [98,] -0.025814890 -0.074302326  0.0492871312
-##  [99,] -0.041638574 -0.066833990  0.0690023468
-## [100,] -0.019040427 -0.076304168  0.0399743968
+##                    1             2            3
+##   [1,]  0.0398500745 -0.0580365714 -0.084153560
+##   [2,]  0.0380987171 -0.0591255052 -0.082478965
+##   [3,]  0.0535954862 -0.0479586490 -0.095023662
+##   [4,] -0.0176402991 -0.0707426594 -0.006827376
+##   [5,] -0.1370074709  0.0546597599  0.109321690
+##   [6,]  0.1119616297  0.0250955166 -0.080151198
+##   [7,]  0.0154497961 -0.0692344464 -0.056019074
+##   [8,]  0.0541093454 -0.0475292138 -0.095345765
+##   [9,] -0.0128189425 -0.0715028329 -0.014413353
+##  [10,] -0.0004756175 -0.0719256796 -0.033358793
+##  [11,]  0.0472573912 -0.0529431912 -0.090534633
+##  [12,] -0.2743373290  0.4523895773 -0.405507062
+##  [13,]  0.1794949480  0.1707545379  0.121909223
+##  [14,]  0.0163039748 -0.0689870489 -0.057156069
+##  [15,]  0.1897345908  0.1985656118  0.175481981
+##  [16,]  0.1589570465  0.1195179144  0.034202238
+##  [17,] -0.0181553158 -0.0706416979 -0.006013392
+##  [18,] -0.1617532371  0.1062968873  0.088619731
+##  [19,]  0.0203529347 -0.0676716040 -0.062415573
+##  [20,] -0.0530889001 -0.0548899929  0.048258443
+##  [21,] -0.0169789906 -0.0708667063 -0.007871709
+##  [22,]  0.1136980213  0.0280192166 -0.077795859
+##  [23,]  0.0316158830 -0.0627725096 -0.075771527
+##  [24,]  0.0824545797 -0.0179595369 -0.101898761
+##  [25,] -0.1304528192  0.0424572180  0.111028852
+##  [26,] -0.0068588321 -0.0719805432 -0.023668054
+##  [27,] -0.0628727417 -0.0473328137  0.062099848
+##  [28,]  0.0368262377 -0.0598890243 -0.081224547
+##  [29,] -0.0016194771 -0.0719786003 -0.031642518
+##  [30,] -0.1146723349  0.0156134165  0.109511747
+##  [31,]  0.0008046675 -0.0718441330 -0.035268025
+##  [32,] -0.0835801014 -0.0267985600  0.087292491
+##  [33,] -0.0009632231 -0.0719505394 -0.032628358
+##  [34,] -0.0123020130 -0.0715644958 -0.015222192
+##  [35,]  0.1329451250  0.0633308495 -0.042623566
+##  [36,] -0.0042850188 -0.0720289152 -0.027607347
+##  [37,] -0.1868101035  0.1675553430  0.041041204
+##  [38,] -0.0190560029 -0.0704559634 -0.004588574
+##  [39,] -0.2703353213  0.4369627719 -0.373697623
+##  [40,]  0.0860171958 -0.0134257196 -0.100972842
+##  [41,] -0.0473236790 -0.0586986101  0.039688331
+##  [42,] -0.1007141481 -0.0051460419  0.102323820
+##  [43,] -0.0936804081 -0.0145454563  0.096903805
+##  [44,] -0.1038139428 -0.0007778403  0.104347634
+##  [45,] -0.0667383492 -0.0439676040  0.067271849
+##  [46,]  0.1307693953  0.0590721054 -0.047469359
+##  [47,]  0.1838357640  0.1823601804  0.143787044
+##  [48,] -0.1063621260  0.0029165117  0.105834699
+##  [49,]  0.1313095307  0.0601230074 -0.046287863
+##  [50,] -0.0454533224 -0.0598315244  0.036854965
+##  [51,] -0.0972611733 -0.0098492607  0.099802442
+##  [52,] -0.0007700812 -0.0719411013 -0.032917898
+##  [53,] -0.0476317333 -0.0585071902  0.040152694
+##  [54,] -0.0792684469 -0.0315824373  0.082602209
+##  [55,]  0.0442157393 -0.0551301482 -0.088055921
+##  [56,] -0.0164967018 -0.0709532075 -0.008632674
+##  [57,]  0.1494131164  0.0977725248  0.001812837
+##  [58,] -0.0627602672 -0.0474275115  0.061946621
+##  [59,] -0.0012893369 -0.0719652578 -0.032138855
+##  [60,] -0.1052810262  0.0013377315  0.105223631
+##  [61,] -0.0150502879 -0.0711925727 -0.010911137
+##  [62,] -0.0452124914 -0.0599737453  0.036488454
+##  [63,] -0.0374178759 -0.0641264720  0.024451260
+##  [64,] -0.0905142594 -0.0185442926  0.094111268
+##  [65,]  0.1405766638  0.0788068395 -0.023769468
+##  [66,]  0.1371378467  0.0717296030 -0.032627750
+##  [67,] -0.0194937364 -0.0703614843 -0.003895580
+##  [68,] -0.0861928612 -0.0237695675  0.089970702
+##  [69,]  0.0758349805 -0.0258990890 -0.102505889
+##  [70,]  0.1962543442  0.2170590019  0.213217173
+##  [71,]  0.1926976944  0.2068947335  0.192275110
+##  [72,]  0.0509346489 -0.0501215918 -0.093253767
+##  [73,]  0.0118126258 -0.0701704359 -0.051077861
+##  [74,]  0.0922088018 -0.0051120024 -0.098314829
+##  [75,]  0.1294235945  0.0564719275 -0.050351877
+##  [76,] -0.1221834607  0.0279438365  0.111177752
+##  [77,]  0.0550270863 -0.0467528060 -0.095904889
+##  [78,] -0.1855461336  0.1642489954  0.044158383
+##  [79,] -0.0860982682 -0.0238809425  0.089875983
+##  [80,] -0.1509412325  0.0826522585  0.100597945
+##  [81,] -0.0938010222 -0.0143902706  0.097005997
+##  [82,]  0.0945114266 -0.0018795502 -0.096974434
+##  [83,]  0.2092298955  0.2556831238  0.297098468
+##  [84,] -0.0306984693 -0.0670051703  0.013876806
+##  [85,]  0.0937747447 -0.0029220072 -0.097424488
+##  [86,] -0.0896086719 -0.0196615359  0.093274385
+##  [87,] -0.0109424908 -0.0717083269 -0.017344387
+##  [88,]  0.0791052131 -0.0220555212 -0.102382945
+##  [89,]  0.0552084403 -0.0465979476 -0.096012911
+##  [90,]  0.0065107493 -0.0711940689 -0.043609664
+##  [91,]  0.1143455983  0.0291206929 -0.076884290
+##  [92,] -0.1284242121  0.0388058281  0.111266798
+##  [93,] -0.0446700010 -0.0602910534  0.035661514
+##  [94,] -0.0588101119 -0.0506379611  0.056473530
+##  [95,]  0.0085334280 -0.0708512388 -0.046493567
+##  [96,] -0.0389652059 -0.0633716043  0.026864535
+##  [97,]  0.0936207112 -0.0031389891 -0.097516056
+##  [98,] -0.0062372847 -0.0720009488 -0.024622927
+##  [99,]  0.0310391565 -0.0630676819 -0.075137877
+## [100,] -0.0151419308 -0.0711782995 -0.010766954
 ## attr(,&quot;coefs&quot;)
 ## attr(,&quot;coefs&quot;)$alpha
-## [1] 2.041635 1.980674 2.228899
+## [1] 2.000375 1.933479 1.485087
 ## 
 ## attr(,&quot;coefs&quot;)$norm2
-## [1]   1.00000 100.00000  75.50293  93.47876 135.34113
+## [1]   1.00000 100.00000  61.50496  73.17875  86.53412
 ## 
 ## attr(,&quot;degree&quot;)
 ## [1] 1 2 3
@@ -426,26 +442,26 @@ data &lt;-<span class="st"> </span>data.orig <span class="op">%&gt;%</span>
 ## [1] &quot;poly&quot;   &quot;matrix&quot;</code></pre></div>
 <p>You can see it creates up to three degrees of polynomials on the Score1 variable. The first degree is a linear, second is a quadratic, and third is cubic. Let’s say we want to create three new columns with each of these three polynomials. To do so we need to individually access each vector such as</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">poly</span>(data.orig<span class="op">$</span>Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[,<span class="dv">1</span>]
-##   [1] -0.002855903  0.036750248 -0.055100399  0.084486549  0.066828775
-##   [6] -0.196728158  0.073780543 -0.038128524  0.096183561 -0.061039505
-##  [11]  0.037710657  0.153728074  0.018317572 -0.082918687 -0.002995499
-##  [16] -0.024623397  0.007063698  0.075108812  0.006656124 -0.082118350
-##  [21] -0.140511151  0.090328746  0.042443437 -0.225975307  0.067827313
-##  [26]  0.037174816  0.007838912  0.092021545 -0.118641123 -0.007830609
-##  [31]  0.254556561 -0.138845821 -0.072177084 -0.077911234 -0.099476747
-##  [36] -0.027873115  0.009688427 -0.074195470  0.037280377 -0.098676192
-##  [41]  0.211294383 -0.055230823  0.021300580  0.111900174 -0.182844739
-##  [46]  0.088715929  0.099497776 -0.038082954  0.194868463 -0.164894628
-##  [51]  0.089858073  0.005379146  0.079269538 -0.077183855  0.031594279
-##  [56]  0.055879949 -0.056099754  0.085037822 -0.021089195  0.052926338
-##  [61] -0.074796545 -0.027041348  0.120539385 -0.205539457 -0.096832769
-##  [66]  0.171598111  0.046571288 -0.087600197 -0.119554471 -0.024913152
-##  [71]  0.082716043  0.119491498  0.022721522  0.079456161 -0.095543917
-##  [76] -0.125971109 -0.008802676  0.065562969  0.152660826 -0.026723458
-##  [81] -0.088106926  0.027761276  0.098500306 -0.107153089 -0.108181732
-##  [86]  0.063756849  0.020603312  0.062229029  0.178285637 -0.214382010
-##  [91] -0.060080711 -0.169975830  0.064477934  0.076989542  0.068754241
-##  [96] -0.148228007  0.153996394 -0.025814890 -0.041638574 -0.019040427</code></pre></div>
+##   [1]  0.0398500745  0.0380987171  0.0535954862 -0.0176402991 -0.1370074709
+##   [6]  0.1119616297  0.0154497961  0.0541093454 -0.0128189425 -0.0004756175
+##  [11]  0.0472573912 -0.2743373290  0.1794949480  0.0163039748  0.1897345908
+##  [16]  0.1589570465 -0.0181553158 -0.1617532371  0.0203529347 -0.0530889001
+##  [21] -0.0169789906  0.1136980213  0.0316158830  0.0824545797 -0.1304528192
+##  [26] -0.0068588321 -0.0628727417  0.0368262377 -0.0016194771 -0.1146723349
+##  [31]  0.0008046675 -0.0835801014 -0.0009632231 -0.0123020130  0.1329451250
+##  [36] -0.0042850188 -0.1868101035 -0.0190560029 -0.2703353213  0.0860171958
+##  [41] -0.0473236790 -0.1007141481 -0.0936804081 -0.1038139428 -0.0667383492
+##  [46]  0.1307693953  0.1838357640 -0.1063621260  0.1313095307 -0.0454533224
+##  [51] -0.0972611733 -0.0007700812 -0.0476317333 -0.0792684469  0.0442157393
+##  [56] -0.0164967018  0.1494131164 -0.0627602672 -0.0012893369 -0.1052810262
+##  [61] -0.0150502879 -0.0452124914 -0.0374178759 -0.0905142594  0.1405766638
+##  [66]  0.1371378467 -0.0194937364 -0.0861928612  0.0758349805  0.1962543442
+##  [71]  0.1926976944  0.0509346489  0.0118126258  0.0922088018  0.1294235945
+##  [76] -0.1221834607  0.0550270863 -0.1855461336 -0.0860982682 -0.1509412325
+##  [81] -0.0938010222  0.0945114266  0.2092298955 -0.0306984693  0.0937747447
+##  [86] -0.0896086719 -0.0109424908  0.0791052131  0.0552084403  0.0065107493
+##  [91]  0.1143455983 -0.1284242121 -0.0446700010 -0.0588101119  0.0085334280
+##  [96] -0.0389652059  0.0936207112 -0.0062372847  0.0310391565 -0.0151419308</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
 
 data &lt;-<span class="st"> </span>data.orig <span class="op">%&gt;%</span>
@@ -460,7 +476,7 @@ data &lt;-<span class="st"> </span>data.orig <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Score1.quadratic), <span class="dt">color =</span> <span class="st">&quot;green&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Score1.cubic), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">ylab</span>(<span class="dt">label =</span> <span class="st">&quot;Score1.polynomial&quot;</span>)</code></pre></div>
-<p><img src="R_Tutorial_files/figure-html/unnamed-chunk-140-1.png" width="672" /></p>
+<p><img src="R_Tutorial_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
 </div>
 </div>
 <div id="composites" class="section level2">

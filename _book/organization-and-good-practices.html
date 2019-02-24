@@ -25,7 +25,7 @@
 <meta name="author" content="Jason Tsukahara">
 
 
-<meta name="date" content="2019-01-27">
+<meta name="date" content="2019-02-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -100,6 +100,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="part"><span><b>I I. Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
 <li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
 <li class="chapter" data-level="1.2" data-path="installation.html"><a href="installation.html#installing-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R Studio</a></li>
@@ -126,6 +127,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.2.1" data-path="intermediate-r.html"><a href="intermediate-r.html#creating-your-own-functions"><i class="fa fa-check"></i><b>3.2.1</b> Creating Your Own Functions</a></li>
 </ul></li>
 </ul></li>
+<li class="part"><span><b>II II. Working with Data</b></span></li>
 <li class="chapter" data-level="4" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>4</b> Workflow</a></li>
 <li class="chapter" data-level="5" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i><b>5</b> The tidyverse</a><ul>
 <li class="chapter" data-level="5.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#readr---import"><i class="fa fa-check"></i><b>5.1</b> readr - import</a></li>
@@ -154,151 +156,74 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7" data-path="englelab-packages.html"><a href="englelab-packages.html"><i class="fa fa-check"></i><b>7</b> EngleLab Packages</a><ul>
 <li class="chapter" data-level="7.1" data-path="englelab-packages.html"><a href="englelab-packages.html#englelab"><i class="fa fa-check"></i><b>7.1</b> englelab</a><ul>
 <li class="chapter" data-level="7.1.1" data-path="englelab-packages.html"><a href="englelab-packages.html#tidy-raw-data-functions"><i class="fa fa-check"></i><b>7.1.1</b> “tidy” raw data functions</a></li>
+<li class="chapter" data-level="7.1.2" data-path="englelab-packages.html"><a href="englelab-packages.html#score-data-functions"><i class="fa fa-check"></i><b>7.1.2</b> score data functions</a></li>
+<li class="chapter" data-level="7.1.3" data-path="englelab-packages.html"><a href="englelab-packages.html#calculating-bin-scores"><i class="fa fa-check"></i><b>7.1.3</b> Calculating Bin Scores</a></li>
+<li class="chapter" data-level="7.1.4" data-path="englelab-packages.html"><a href="englelab-packages.html#reliability-functions"><i class="fa fa-check"></i><b>7.1.4</b> Reliability functions</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="englelab-packages.html"><a href="englelab-packages.html#set-up"><i class="fa fa-check"></i><b>7.2</b> Set up</a></li>
-<li class="chapter" data-level="7.3" data-path="englelab-packages.html"><a href="englelab-packages.html#load-packages"><i class="fa fa-check"></i><b>7.3</b> Load packages</a></li>
-<li class="chapter" data-level="7.4" data-path="englelab-packages.html"><a href="englelab-packages.html#set-importoutput-directories"><i class="fa fa-check"></i><b>7.4</b> Set import/output directories</a></li>
-<li class="chapter" data-level="7.5" data-path="englelab-packages.html"><a href="englelab-packages.html#import"><i class="fa fa-check"></i><b>7.5</b> Import</a></li>
-<li class="chapter" data-level="7.6" data-path="englelab-packages.html"><a href="englelab-packages.html#clean-up-raw-data-file-and-save"><i class="fa fa-check"></i><b>7.6</b> Clean up raw data file and save</a></li>
-<li class="chapter" data-level="7.7" data-path="englelab-packages.html"><a href="englelab-packages.html#save-data-file"><i class="fa fa-check"></i><b>7.7</b> Save data file</a><ul>
-<li class="chapter" data-level="7.7.1" data-path="englelab-packages.html"><a href="englelab-packages.html#score-data-functions"><i class="fa fa-check"></i><b>7.7.1</b> score data functions</a></li>
-<li class="chapter" data-level="7.7.2" data-path="englelab-packages.html"><a href="englelab-packages.html#calculating-bin-scores"><i class="fa fa-check"></i><b>7.7.2</b> Calculating Bin Scores</a></li>
-<li class="chapter" data-level="7.7.3" data-path="englelab-packages.html"><a href="englelab-packages.html#reliability-functions"><i class="fa fa-check"></i><b>7.7.3</b> Reliability functions</a></li>
-</ul></li>
-<li class="chapter" data-level="7.8" data-path="englelab-packages.html"><a href="englelab-packages.html#datawrangling"><i class="fa fa-check"></i><b>7.8</b> datawrangling</a><ul>
-<li class="chapter" data-level="7.8.1" data-path="englelab-packages.html"><a href="englelab-packages.html#merging-data-files"><i class="fa fa-check"></i><b>7.8.1</b> Merging Data Files</a></li>
-<li class="chapter" data-level="7.8.2" data-path="englelab-packages.html"><a href="englelab-packages.html#reshpaing-data"><i class="fa fa-check"></i><b>7.8.2</b> Reshpaing Data</a></li>
-<li class="chapter" data-level="7.8.3" data-path="englelab-packages.html"><a href="englelab-packages.html#transformations-2"><i class="fa fa-check"></i><b>7.8.3</b> Transformations</a></li>
-<li class="chapter" data-level="7.8.4" data-path="englelab-packages.html"><a href="englelab-packages.html#data-cleaning"><i class="fa fa-check"></i><b>7.8.4</b> Data Cleaning</a></li>
+<li class="chapter" data-level="7.2" data-path="englelab-packages.html"><a href="englelab-packages.html#datawrangling"><i class="fa fa-check"></i><b>7.2</b> datawrangling</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="englelab-packages.html"><a href="englelab-packages.html#merging-data-files"><i class="fa fa-check"></i><b>7.2.1</b> Merging Data Files</a></li>
+<li class="chapter" data-level="7.2.2" data-path="englelab-packages.html"><a href="englelab-packages.html#reshpaing-data"><i class="fa fa-check"></i><b>7.2.2</b> Reshpaing Data</a></li>
+<li class="chapter" data-level="7.2.3" data-path="englelab-packages.html"><a href="englelab-packages.html#transformations-2"><i class="fa fa-check"></i><b>7.2.3</b> Transformations</a></li>
+<li class="chapter" data-level="7.2.4" data-path="englelab-packages.html"><a href="englelab-packages.html#data-cleaning"><i class="fa fa-check"></i><b>7.2.4</b> Data Cleaning</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html"><i class="fa fa-check"></i><b>8</b> Organization and Good Practices</a><ul>
-<li class="chapter" data-level="8.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#r-scripts"><i class="fa fa-check"></i><b>8.1</b> R Scripts</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#general-workflow"><i class="fa fa-check"></i><b>8.1.1</b> General Workflow</a></li>
-<li class="chapter" data-level="8.1.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#building-a-template-workflow"><i class="fa fa-check"></i><b>8.1.2</b> Building a Template Workflow</a></li>
-<li class="chapter" data-level="8.1.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#rmlistls"><i class="fa fa-check"></i><b>8.1.3</b> rm(list=ls())</a></li>
+<li class="chapter" data-level="8.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#create_study"><i class="fa fa-check"></i><b>8.1</b> create_study()</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#before-data-collection"><i class="fa fa-check"></i><b>8.1.1</b> Before data collection</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#working-directory"><i class="fa fa-check"></i><b>8.2</b> Working Directory</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#r-projects"><i class="fa fa-check"></i><b>8.2.1</b> R Projects</a></li>
 <li class="chapter" data-level="8.2.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#here"><i class="fa fa-check"></i><b>8.2.2</b> here()</a></li>
+<li class="chapter" data-level="8.2.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#summary"><i class="fa fa-check"></i><b>8.2.3</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#the-masterscript"><i class="fa fa-check"></i><b>8.3</b> The masterscript</a></li>
-<li class="chapter" data-level="8.4" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#folder-organization"><i class="fa fa-check"></i><b>8.4</b> Folder Organization</a></li>
-<li class="chapter" data-level="8.5" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#naming-r-scripts"><i class="fa fa-check"></i><b>8.5</b> Naming R Scripts</a></li>
-<li class="chapter" data-level="8.6" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#summary"><i class="fa fa-check"></i><b>8.6</b> Summary</a></li>
+<li class="chapter" data-level="8.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#taskname1_raw.r"><i class="fa fa-check"></i><b>8.3</b> 1_taskname1_raw.R</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#setup"><i class="fa fa-check"></i><b>8.3.1</b> Setup</a></li>
+<li class="chapter" data-level="8.3.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#import-data"><i class="fa fa-check"></i><b>8.3.2</b> Import data</a></li>
+<li class="chapter" data-level="8.3.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#clean-up-raw-data-file"><i class="fa fa-check"></i><b>8.3.3</b> Clean up raw data file</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#taskname1_score.r"><i class="fa fa-check"></i><b>8.4</b> 2_taskname1_score.R</a></li>
+<li class="chapter" data-level="8.5" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#masterscript-template"><i class="fa fa-check"></i><b>8.5</b> Masterscript template</a></li>
+<li class="chapter" data-level="8.6" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#r-scripts"><i class="fa fa-check"></i><b>8.6</b> R Scripts</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#general-workflow"><i class="fa fa-check"></i><b>8.6.1</b> General Workflow</a></li>
+<li class="chapter" data-level="8.6.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#building-a-template-workflow"><i class="fa fa-check"></i><b>8.6.2</b> Building a Template Workflow</a></li>
+<li class="chapter" data-level="8.6.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#rmlistls"><i class="fa fa-check"></i><b>8.6.3</b> rm(list=ls())</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#the-masterscript"><i class="fa fa-check"></i><b>8.7</b> The masterscript</a></li>
+<li class="chapter" data-level="8.8" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#folder-organization"><i class="fa fa-check"></i><b>8.8</b> Folder Organization</a></li>
+<li class="chapter" data-level="8.9" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#naming-r-scripts"><i class="fa fa-check"></i><b>8.9</b> Naming R Scripts</a></li>
+<li class="chapter" data-level="8.10" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#summary-1"><i class="fa fa-check"></i><b>8.10</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="example-data-preparation.html"><a href="example-data-preparation.html"><i class="fa fa-check"></i><b>9</b> Example: Data Preparation</a><ul>
 <li class="chapter" data-level="9.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#initial-setup"><i class="fa fa-check"></i><b>9.1</b> Initial Setup</a><ul>
 <li class="chapter" data-level="9.1.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-up-directory-structure"><i class="fa fa-check"></i><b>9.1.1</b> Set up directory structure</a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#masterscript"><i class="fa fa-check"></i><b>9.2</b> Masterscript</a></li>
-<li class="chapter" data-level="9.3" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup"><i class="fa fa-check"></i><b>9.3</b> Setup</a></li>
-<li class="chapter" data-level="9.4" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-the-directory-tree"><i class="fa fa-check"></i><b>9.4</b> Set the directory tree</a></li>
-<li class="chapter" data-level="9.5" data-path="example-data-preparation.html"><a href="example-data-preparation.html#creating-messy-merged-file"><i class="fa fa-check"></i><b>9.5</b> Creating “messy” Merged File</a><ul>
-<li class="chapter" data-level="9.5.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#e-prime-2.0"><i class="fa fa-check"></i><b>9.5.1</b> E-Prime 2.0</a></li>
-<li class="chapter" data-level="9.5.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#skipping-e-merge-with-e-prime-3.0"><i class="fa fa-check"></i><b>9.5.2</b> Skipping E-Merge with E-Prime 3.0</a></li>
+<li class="chapter" data-level="9.3" data-path="example-data-preparation.html"><a href="example-data-preparation.html#creating-messy-merged-file"><i class="fa fa-check"></i><b>9.3</b> Creating “messy” Merged File</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#e-prime-2.0"><i class="fa fa-check"></i><b>9.3.1</b> E-Prime 2.0</a></li>
+<li class="chapter" data-level="9.3.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#skipping-e-merge-with-e-prime-3.0"><i class="fa fa-check"></i><b>9.3.2</b> Skipping E-Merge with E-Prime 3.0</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-1"><i class="fa fa-check"></i><b>9.6</b> Setup</a></li>
-<li class="chapter" data-level="9.7" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories"><i class="fa fa-check"></i><b>9.7</b> Set import and output directories</a></li>
-<li class="chapter" data-level="9.8" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-file-names"><i class="fa fa-check"></i><b>9.8</b> Set import and output file names</a></li>
-<li class="chapter" data-level="9.9" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-data-files"><i class="fa fa-check"></i><b>9.9</b> Merge data files</a></li>
-<li class="chapter" data-level="9.10" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-2"><i class="fa fa-check"></i><b>9.10</b> Setup</a></li>
-<li class="chapter" data-level="9.11" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-1"><i class="fa fa-check"></i><b>9.11</b> Set import and output directories</a></li>
-<li class="chapter" data-level="9.12" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-data-files-1"><i class="fa fa-check"></i><b>9.12</b> Merge data files</a></li>
-<li class="chapter" data-level="9.13" data-path="example-data-preparation.html"><a href="example-data-preparation.html#step-1-messy-to-tidy"><i class="fa fa-check"></i><b>9.13</b> Step 1: “messy” to “tidy”</a><ul>
-<li class="chapter" data-level="9.13.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#what-to-include"><i class="fa fa-check"></i><b>9.13.1</b> What to Include</a></li>
-<li class="chapter" data-level="9.13.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-messy-data"><i class="fa fa-check"></i><b>9.13.2</b> Import “messy” data</a></li>
+<li class="chapter" data-level="9.4" data-path="example-data-preparation.html"><a href="example-data-preparation.html#step-1-messy-to-tidy"><i class="fa fa-check"></i><b>9.4</b> Step 1: “messy” to “tidy”</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#what-to-include"><i class="fa fa-check"></i><b>9.4.1</b> What to Include</a></li>
+<li class="chapter" data-level="9.4.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-messy-data"><i class="fa fa-check"></i><b>9.4.2</b> Import “messy” data</a></li>
+<li class="chapter" data-level="9.4.3" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-duplicate-subjects"><i class="fa fa-check"></i><b>9.4.3</b> Remove Duplicate Subjects</a></li>
+<li class="chapter" data-level="9.4.4" data-path="example-data-preparation.html"><a href="example-data-preparation.html#filter-rows"><i class="fa fa-check"></i><b>9.4.4</b> Filter Rows</a></li>
+<li class="chapter" data-level="9.4.5" data-path="example-data-preparation.html"><a href="example-data-preparation.html#rename-variables"><i class="fa fa-check"></i><b>9.4.5</b> Rename Variables</a></li>
+<li class="chapter" data-level="9.4.6" data-path="example-data-preparation.html"><a href="example-data-preparation.html#rename-values"><i class="fa fa-check"></i><b>9.4.6</b> Rename Values</a></li>
+<li class="chapter" data-level="9.4.7" data-path="example-data-preparation.html"><a href="example-data-preparation.html#select-columns"><i class="fa fa-check"></i><b>9.4.7</b> Select Columns</a></li>
+<li class="chapter" data-level="9.4.8" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-to-file-2"><i class="fa fa-check"></i><b>9.4.8</b> Save to File</a></li>
 </ul></li>
-<li class="chapter" data-level="9.14" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-3"><i class="fa fa-check"></i><b>9.14</b> Setup</a></li>
-<li class="chapter" data-level="9.15" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-2"><i class="fa fa-check"></i><b>9.15</b> Set import and output directories</a></li>
-<li class="chapter" data-level="9.16" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-file-names-1"><i class="fa fa-check"></i><b>9.16</b> Set import and output file names</a></li>
-<li class="chapter" data-level="9.17" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-1"><i class="fa fa-check"></i><b>9.17</b> Import</a><ul>
-<li class="chapter" data-level="9.17.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-duplicate-subjects"><i class="fa fa-check"></i><b>9.17.1</b> Remove Duplicate Subjects</a></li>
+<li class="chapter" data-level="9.5" data-path="example-data-preparation.html"><a href="example-data-preparation.html#step-2-raw-tidy-to-scored"><i class="fa fa-check"></i><b>9.5</b> Step 2: raw “tidy” to scored</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-up"><i class="fa fa-check"></i><b>9.5.1</b> Set up</a></li>
+<li class="chapter" data-level="9.5.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import"><i class="fa fa-check"></i><b>9.5.2</b> Import</a></li>
+<li class="chapter" data-level="9.5.3" data-path="example-data-preparation.html"><a href="example-data-preparation.html#data-cleaning-1"><i class="fa fa-check"></i><b>9.5.3</b> Data Cleaning</a></li>
+<li class="chapter" data-level="9.5.4" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy"><i class="fa fa-check"></i><b>9.5.4</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+<li class="chapter" data-level="9.5.5" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-subjects"><i class="fa fa-check"></i><b>9.5.5</b> Remove Subjects</a></li>
+<li class="chapter" data-level="9.5.6" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores"><i class="fa fa-check"></i><b>9.5.6</b> Calculate Binned Scores</a></li>
+<li class="chapter" data-level="9.5.7" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-data-file"><i class="fa fa-check"></i><b>9.5.7</b> Save data file</a></li>
 </ul></li>
-<li class="chapter" data-level="9.18" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-2"><i class="fa fa-check"></i><b>9.18</b> Import</a><ul>
-<li class="chapter" data-level="9.18.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#filter-rows"><i class="fa fa-check"></i><b>9.18.1</b> Filter Rows</a></li>
+<li class="chapter" data-level="9.6" data-path="example-data-preparation.html"><a href="example-data-preparation.html#source-in-masterscript"><i class="fa fa-check"></i><b>9.6</b> <code>source()</code> in Masterscript</a></li>
 </ul></li>
-<li class="chapter" data-level="9.19" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy"><i class="fa fa-check"></i><b>9.19</b> Tidy</a><ul>
-<li class="chapter" data-level="9.19.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#rename-variables"><i class="fa fa-check"></i><b>9.19.1</b> Rename Variables</a></li>
-</ul></li>
-<li class="chapter" data-level="9.20" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-1"><i class="fa fa-check"></i><b>9.20</b> Tidy</a><ul>
-<li class="chapter" data-level="9.20.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#rename-values"><i class="fa fa-check"></i><b>9.20.1</b> Rename Values</a></li>
-</ul></li>
-<li class="chapter" data-level="9.21" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-2"><i class="fa fa-check"></i><b>9.21</b> Tidy</a></li>
-<li class="chapter" data-level="9.22" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-3"><i class="fa fa-check"></i><b>9.22</b> Tidy</a></li>
-<li class="chapter" data-level="9.23" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-4"><i class="fa fa-check"></i><b>9.23</b> Tidy</a></li>
-<li class="chapter" data-level="9.24" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-5"><i class="fa fa-check"></i><b>9.24</b> Tidy</a></li>
-<li class="chapter" data-level="9.25" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-6"><i class="fa fa-check"></i><b>9.25</b> Tidy</a><ul>
-<li class="chapter" data-level="9.25.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#select-columns"><i class="fa fa-check"></i><b>9.25.1</b> Select Columns</a></li>
-</ul></li>
-<li class="chapter" data-level="9.26" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-7"><i class="fa fa-check"></i><b>9.26</b> Tidy</a><ul>
-<li class="chapter" data-level="9.26.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-to-file"><i class="fa fa-check"></i><b>9.26.1</b> Save to File</a></li>
-</ul></li>
-<li class="chapter" data-level="9.27" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save"><i class="fa fa-check"></i><b>9.27</b> Save</a></li>
-<li class="chapter" data-level="9.28" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-4"><i class="fa fa-check"></i><b>9.28</b> Setup</a></li>
-<li class="chapter" data-level="9.29" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-3"><i class="fa fa-check"></i><b>9.29</b> Set import and output directories</a></li>
-<li class="chapter" data-level="9.30" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-file-names-2"><i class="fa fa-check"></i><b>9.30</b> Set import and output file names</a></li>
-<li class="chapter" data-level="9.31" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-3"><i class="fa fa-check"></i><b>9.31</b> Import</a></li>
-<li class="chapter" data-level="9.32" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-8"><i class="fa fa-check"></i><b>9.32</b> Tidy</a></li>
-<li class="chapter" data-level="9.33" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-1"><i class="fa fa-check"></i><b>9.33</b> Save</a></li>
-<li class="chapter" data-level="9.34" data-path="example-data-preparation.html"><a href="example-data-preparation.html#step-2-raw-tidy-to-scored"><i class="fa fa-check"></i><b>9.34</b> Step 2: raw “tidy” to scored</a><ul>
-<li class="chapter" data-level="9.34.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-up-1"><i class="fa fa-check"></i><b>9.34.1</b> Set up</a></li>
-</ul></li>
-<li class="chapter" data-level="9.35" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-5"><i class="fa fa-check"></i><b>9.35</b> Setup</a></li>
-<li class="chapter" data-level="9.36" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-4"><i class="fa fa-check"></i><b>9.36</b> Set import and output directories</a></li>
-<li class="chapter" data-level="9.37" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-files"><i class="fa fa-check"></i><b>9.37</b> Set import and output files</a><ul>
-<li class="chapter" data-level="9.37.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-4"><i class="fa fa-check"></i><b>9.37.1</b> Import</a></li>
-</ul></li>
-<li class="chapter" data-level="9.38" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-5"><i class="fa fa-check"></i><b>9.38</b> Import</a><ul>
-<li class="chapter" data-level="9.38.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#data-cleaning-1"><i class="fa fa-check"></i><b>9.38.1</b> Data Cleaning</a></li>
-</ul></li>
-<li class="chapter" data-level="9.39" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts"><i class="fa fa-check"></i><b>9.39</b> Trim RTs</a></li>
-<li class="chapter" data-level="9.40" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts-1"><i class="fa fa-check"></i><b>9.40</b> Trim RTs</a></li>
-<li class="chapter" data-level="9.41" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts-2"><i class="fa fa-check"></i><b>9.41</b> Trim RTs</a><ul>
-<li class="chapter" data-level="9.41.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy"><i class="fa fa-check"></i><b>9.41.1</b> Calculate FlankerEffect on RT and Accuracy</a></li>
-</ul></li>
-<li class="chapter" data-level="9.42" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-1"><i class="fa fa-check"></i><b>9.42</b> Calculate FlankerEffect on RT and Accuracy</a></li>
-<li class="chapter" data-level="9.43" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-2"><i class="fa fa-check"></i><b>9.43</b> Calculate FlankerEffect on RT and Accuracy</a></li>
-<li class="chapter" data-level="9.44" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-3"><i class="fa fa-check"></i><b>9.44</b> Calculate FlankerEffect on RT and Accuracy</a></li>
-<li class="chapter" data-level="9.45" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-4"><i class="fa fa-check"></i><b>9.45</b> Calculate FlankerEffect on RT and Accuracy</a><ul>
-<li class="chapter" data-level="9.45.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-subjects"><i class="fa fa-check"></i><b>9.45.1</b> Remove Subjects</a></li>
-</ul></li>
-<li class="chapter" data-level="9.46" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-poor-performing-subjects"><i class="fa fa-check"></i><b>9.46</b> Remove poor performing subjects</a><ul>
-<li class="chapter" data-level="9.46.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores"><i class="fa fa-check"></i><b>9.46.1</b> Calculate Binned Scores</a></li>
-</ul></li>
-<li class="chapter" data-level="9.47" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-1"><i class="fa fa-check"></i><b>9.47</b> Calculate Binned scores</a></li>
-<li class="chapter" data-level="9.48" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-2"><i class="fa fa-check"></i><b>9.48</b> Calculate Binned scores</a></li>
-<li class="chapter" data-level="9.49" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-3"><i class="fa fa-check"></i><b>9.49</b> Calculate Binned scores</a></li>
-<li class="chapter" data-level="9.50" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-dataframes-and-save"><i class="fa fa-check"></i><b>9.50</b> Merge dataframes and save</a><ul>
-<li class="chapter" data-level="9.50.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-data-file-1"><i class="fa fa-check"></i><b>9.50.1</b> Save data file</a></li>
-</ul></li>
-<li class="chapter" data-level="9.51" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-dataframes-and-save-1"><i class="fa fa-check"></i><b>9.51</b> Merge dataframes and save</a></li>
-<li class="chapter" data-level="9.52" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-6"><i class="fa fa-check"></i><b>9.52</b> Setup</a></li>
-<li class="chapter" data-level="9.53" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-5"><i class="fa fa-check"></i><b>9.53</b> Set import and output directories</a></li>
-<li class="chapter" data-level="9.54" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-files-1"><i class="fa fa-check"></i><b>9.54</b> Set import and output files</a></li>
-<li class="chapter" data-level="9.55" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-6"><i class="fa fa-check"></i><b>9.55</b> Import</a></li>
-<li class="chapter" data-level="9.56" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts-3"><i class="fa fa-check"></i><b>9.56</b> Trim RTs</a></li>
-<li class="chapter" data-level="9.57" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-5"><i class="fa fa-check"></i><b>9.57</b> Calculate FlankerEffect on RT and Accuracy</a></li>
-<li class="chapter" data-level="9.58" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-poor-performing-subjects-1"><i class="fa fa-check"></i><b>9.58</b> Remove poor performing subjects</a></li>
-<li class="chapter" data-level="9.59" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-4"><i class="fa fa-check"></i><b>9.59</b> Calculate Binned scores</a></li>
-<li class="chapter" data-level="9.60" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-dataframes-and-save-2"><i class="fa fa-check"></i><b>9.60</b> Merge dataframes and save</a></li>
-<li class="chapter" data-level="9.61" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-trimming-criteria"><i class="fa fa-check"></i><b>9.61</b> Set Trimming criteria</a></li>
-<li class="chapter" data-level="9.62" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-7"><i class="fa fa-check"></i><b>9.62</b> Setup</a></li>
-<li class="chapter" data-level="9.63" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-6"><i class="fa fa-check"></i><b>9.63</b> Set import and output directories</a></li>
-<li class="chapter" data-level="9.64" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-files-2"><i class="fa fa-check"></i><b>9.64</b> Set import and output files</a></li>
-<li class="chapter" data-level="9.65" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-trimming-criteria-1"><i class="fa fa-check"></i><b>9.65</b> Set Trimming criteria</a></li>
-<li class="chapter" data-level="9.66" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-7"><i class="fa fa-check"></i><b>9.66</b> Import</a></li>
-<li class="chapter" data-level="9.67" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts-4"><i class="fa fa-check"></i><b>9.67</b> Trim RTs</a></li>
-<li class="chapter" data-level="9.68" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-6"><i class="fa fa-check"></i><b>9.68</b> Calculate FlankerEffect on RT and Accuracy</a></li>
-<li class="chapter" data-level="9.69" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-poor-performing-subjects-2"><i class="fa fa-check"></i><b>9.69</b> Remove poor performing subjects</a></li>
-<li class="chapter" data-level="9.70" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-5"><i class="fa fa-check"></i><b>9.70</b> Calculate Binned scores</a></li>
-<li class="chapter" data-level="9.71" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-dataframes-and-save-3"><i class="fa fa-check"></i><b>9.71</b> Merge dataframes and save</a></li>
-<li class="chapter" data-level="9.72" data-path="example-data-preparation.html"><a href="example-data-preparation.html#source-in-masterscript"><i class="fa fa-check"></i><b>9.72</b> <code>source()</code> in Masterscript</a></li>
-<li class="chapter" data-level="9.73" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-8"><i class="fa fa-check"></i><b>9.73</b> Setup</a></li>
-<li class="chapter" data-level="9.74" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-the-directory-tree-1"><i class="fa fa-check"></i><b>9.74</b> Set the directory tree</a></li>
-<li class="chapter" data-level="9.75" data-path="example-data-preparation.html"><a href="example-data-preparation.html#messy-to-tidy-raw-data"><i class="fa fa-check"></i><b>9.75</b> “messy” to “tidy” raw data</a></li>
-<li class="chapter" data-level="9.76" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-to-scored-data"><i class="fa fa-check"></i><b>9.76</b> “tidy” to scored data</a></li>
-</ul></li>
+<li class="part"><span><b>III III. Data Analysis</b></span></li>
 <li class="chapter" data-level="10" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html"><i class="fa fa-check"></i><b>10</b> Analyzing Data in R</a><ul>
 <li class="chapter" data-level="10.1" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html#r-markdown"><i class="fa fa-check"></i><b>10.1</b> R Markdown</a><ul>
 <li class="chapter" data-level="10.1.1" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html#yaml-header"><i class="fa fa-check"></i><b>10.1.1</b> YAML header</a></li>
@@ -306,6 +231,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="10.1.3" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html#formatted-text"><i class="fa fa-check"></i><b>10.1.3</b> Formatted text</a></li>
 </ul></li>
 </ul></li>
+<li class="part"><span><b>IV IV. Regression</b></span></li>
+<li class="chapter" data-level="11" data-path="introduction-to-regression-in-r.html"><a href="introduction-to-regression-in-r.html"><i class="fa fa-check"></i><b>11</b> Introduction to Regression in R</a></li>
 </ul>
 
       </nav>
@@ -329,12 +256,289 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>This is the workflow process of getting from “messy” raw data files to beautiful looking output of figures and statistical analyses.</p>
 <p><img src="images/workflow.png" width="1276" /></p>
 <p>Steps <strong>1</strong> and <strong>2</strong> will use a very similar workflow process and be implemented in R Scripts, which have the file extension <code>.R</code>. Step <strong>3</strong> will actually use what is called an R Markdown document, which has the file extension <code>.Rmd</code>.</p>
+<div id="create_study" class="section level2">
+<h2><span class="header-section-number">8.1</span> create_study()</h2>
+<p>I have created a function, <code>create_study()</code>, to easily setup a directory structure on your computer, with template scripts included. This can be used either before data collection or after data collection. It will automatically create folders and template R scripts that you will need for a research project.</p>
+<p>This function comes from my <code>openscience</code> package. The package contains other functions useful for making sure your study is organized in a way that makes it optimal to share your task programs, methods, materials, data files, and scripts in an open and easily accesible repository.</p>
+<p>Let’s go over how to use the <code>create_study()</code> function and what template files it included.</p>
+<p>First install the <code>openscience</code> package</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/openscience&quot;</span>)</code></pre></div>
+<p>Then create a folder within the root directory you are using for this tutorial. You can name it whatever you like - I’ll name mine “<strong>example study</strong>”.</p>
+<p>Finally, create a new R Project file in the “<strong>example study</strong>” directory and open it.</p>
+<p>File -&gt; New Project -&gt; Existing Directory -&gt; Choose Directory (Do not check the “open in new session”)</p>
+<p>The working directory should be the location of the “<strong>example study</strong>” directory. Check to makes sure using <code>getwd()</code>.</p>
+<div id="before-data-collection" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> Before data collection</h3>
+<p>If you want to set this up before data collection you can simply use the function as is.</p>
+<p>Type in the console:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">openscience<span class="op">::</span><span class="kw">create_study</span>()</code></pre></div>
+<p>You should now see the following directories:</p>
+<hr />
+<ul>
+<li><p><strong>Data Files</strong>: Data files</p>
+<ul>
+<li><p><strong>Raw Data</strong>: “tidy” raw data files. Output of step 1 in the data processing workflow</p>
+<ul>
+<li><strong>messy</strong>: “messy” raw data files</li>
+</ul></li>
+<li><p><strong>Scored Data</strong>: Scored data files. Output of step 2 in the data processing workflow</p></li>
+</ul></li>
+<li><p><strong>Documents</strong>: Any documents related to the study. Including a <em>Methods</em> document</p></li>
+<li><p><strong>Manuscript</strong>: Draft and Final versions of any Manuscripts submitted</p></li>
+<li><p><strong>Presentations</strong>: Any presentations on the data from this study</p></li>
+<li><p><strong>R Scripts</strong>: ALL R scripts and R Markdown documents used for data prep and analysis</p></li>
+<li><p><strong>Results</strong>: Output of any data analyses</p>
+<ul>
+<li><strong>Figures</strong>: Figures created for presentations and manuscript</li>
+</ul></li>
+<li><p><strong>Tasks</strong>: Programmed tasks used for the study</p></li>
+</ul>
+<hr />
+<p>To not create certain directories specify by setting the directory parameter to FALSE:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">openscience<span class="op">::</span><span class="kw">create_study</span>(<span class="dt">scripts.dir =</span> <span class="ot">TRUE</span>, <span class="dt">data.dir =</span> <span class="ot">TRUE</span>, <span class="dt">raw.dir =</span> <span class="ot">TRUE</span>,
+                         <span class="dt">messy.dir =</span> <span class="ot">TRUE</span>, <span class="dt">messy.name =</span> <span class="st">&quot;messy&quot;</span>,
+                         <span class="dt">scored.dir =</span> <span class="ot">TRUE</span>, <span class="dt">results.dir =</span> <span class="ot">TRUE</span>,
+                         <span class="dt">figures.dir =</span> <span class="ot">TRUE</span>, <span class="dt">manuscript.dir =</span> <span class="ot">TRUE</span>,
+                         <span class="dt">presentations.dir =</span> <span class="ot">TRUE</span>, <span class="dt">documents.dir =</span> <span class="ot">TRUE</span>,
+                         <span class="dt">other.dir =</span> <span class="kw">c</span>())</code></pre></div>
+<p>There should also be the following script files</p>
+<hr />
+<ul>
+<li><p>masterscript.R</p></li>
+<li><p>R Scripts</p>
+<ul>
+<li><p>1_taskname1_raw.R</p></li>
+<li><p>2_taskname1_score.R</p></li>
+<li><p>3_merge.R</p></li>
+<li><p>4_Demographics.Rmd</p></li>
+</ul></li>
+</ul>
+<hr />
+<p>To not create certain R script templates set the parameter to FALSE:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">openscience<span class="op">::</span><span class="kw">create_study</span>(<span class="dt">masterscript =</span> <span class="ot">TRUE</span>, <span class="dt">rawscript =</span> <span class="ot">TRUE</span>,
+                         <span class="dt">scorescript =</span> <span class="ot">TRUE</span>, <span class="dt">mergescript =</span> <span class="ot">TRUE</span>, <span class="dt">demographics =</span> <span class="ot">TRUE</span>,
+                         <span class="dt">sem =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p>I plan on adding more script templates in the future…</p>
+<p>Before going over some of these R script templates let’s talk about the concept of a <strong>working directory</strong></p>
+</div>
+</div>
+<div id="working-directory" class="section level2">
+<h2><span class="header-section-number">8.2</span> Working Directory</h2>
+<p>In R, and other programming languages, a “working directory” is a point of reference that can be used to create “relative” file paths. Instead of having to specify the entire file path to a directory (“User/Documents/DropBox/Projects/Study 1/Data Files/Raw Data”) you can use a “relative” file path starting from the “working directory”.</p>
+<p>This is useful because it allows scripts to be reproducible across different systems, computers, and users. Every computer has different absolute file paths. Therefore, <strong>it is essential to use only relative file paths</strong>.</p>
+<p>In this examlple, if the “working directory” was the Study 1 folder - <code>&quot;User/Documents/DropBox/Projects/Study 1/Data Files/Raw Data&quot;</code> - then a relative file path might look like <code>&quot;Data Files/Raw Data&quot;</code></p>
+<p>If you need to go back one folder - into the “Projects” folder - you tpye two dots <code>&quot;../Study 2/Data Files/Raw Data&quot;</code> would take you to <code>&quot;User/Documents/DropBox/Projects/Study 2/Data Files/Raw Data&quot;</code></p>
+<p>You can set the working directoy either using the R Studio GUI or using the function <code>setwd()</code>.</p>
+<p>But… <strong><em>DO NOT DO THIS!</em></strong></p>
+<p>This is not a good workflow practice. Especially if you use the R Studio GUI (which I won’t even tell you how to do). But even <code>setwd()</code> is a bad idea. The reason boils down to:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>You want to avoid any manual steps in your workflow process</strong> (using the GUI is a manual process)</p></li>
+<li><p>Absolute file paths are computer and user specific. When you use <code>setwd()</code> you need to use an absolute file path. <strong>This makes your script not reproducible. And reproducibility is one of the main advantages to learning R in the first place, so don’t undermine yourself!</strong></p></li>
+</ol>
+<p>Okay okay… well what are <strong>good</strong> practices to set a working directory then?</p>
+<p>There are two <strong>good</strong> practices that I know of and they are best used in combination.</p>
+<ul>
+<li>R Projects</li>
+<li>here()</li>
+</ul>
+<div id="r-projects" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> R Projects</h3>
+<ol style="list-style-type: decimal">
+<li>Use <strong>R Projects</strong></li>
+</ol>
+<p>R Projects are a great way to have the working directory be automatically set. <a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">Visit this page</a> for more information on how to use R Projects.</p>
+<p>Basically an R Project allows you to open a fresh session of R that automatically sets the working directory to the directory where the R Project is saved. R Projects have the file extension <code>.Rproj</code>.</p>
+<p>Go ahead and create an R Project for this tutorial. Navigate to File -&gt; New Project… -&gt; Choose Existing Directory if you already created an R Tutorial folder on your computer or New Directory -&gt; New Project if you have not. Create the R Project in the root folder of your R Tutorial.</p>
+<p>Now exit out of R Studio. Then open R Studio by opening the R Project. You can evaluate what the working directory is by <code>getwd()</code>.</p>
+<p>In your R Scripts you can now simply use relative paths from the working directory. And it doesn’t matter what directory you save your R scripts to. <strong>As long as you open the R Studio from the <code>.Rproj</code> file and not one of the script <code>.R</code> files.</strong></p>
+<p>Try exiting out of R Studio and then opening R Studio by opening an <code>.R</code> script file that is not saved in the same location as your <code>.Rproj</code> file. Now evaluate the working directory <code>getwd()</code>. Oops… you see the working directory is no longer where the <code>.Rproj</code> file is saved. This is where the <code>here</code> package comes in handy.</p>
+</div>
+<div id="here" class="section level3">
+<h3><span class="header-section-number">8.2.2</span> here()</h3>
+<ol start="2" style="list-style-type: decimal">
+<li>Use the <code>here()</code> function from the <strong>here</strong> package.</li>
+</ol>
+<p>This method is simple to use and is a great way to specify relative paths. It will allow you to open R Studio using any of your <code>.R</code> script files and maintain the some working directory as your <code>.Rproj</code> file.</p>
+<p>First go ahead and install the <code>here</code> package, <code>install.packages(&quot;here&quot;)</code>.</p>
+<p>For a passionate ode to the <code>here</code> package see: <a href="https://github.com/jennybc/here_here" class="uri">https://github.com/jennybc/here_here</a></p>
+<p>Basically, when <code>here</code> is loaded, <code>library(here)</code>, it will search for one of two files to locate the working directory. 1) a hidden <code>.here</code> file or 2) an <code>.Rproj</code> file. It will recursively keep going backwards in directories to locate a root directory that contains one of these files.</p>
+<p>The <code>.here</code> file can be created by <code>set_here()</code>, but is unnecessary if you are using the <strong>R Project</strong> method.</p>
+<p>What this allows is pretty cool. Let’s say your working directory is <code>&quot;R Tutorial&quot;</code>, which is the directory where your <code>.Rproj</code> file is saved. Even if you have an <code>.R</code> script saved in <code>&quot;R Tutorial/A folder/R scripts/scriptexample.R&quot;</code>, you can open a new fresh session of R by opening the file. If you load <code>library(here)</code> at the top of the <code>scriptexample.R</code> file then it will automatically set the working directory to <code>&quot;R Tutorial&quot;</code> since it will detect an <code>.Rproj</code> file in that directory. Then tomorrow maybe you want to work on a different <code>.R</code> script located somewhere else but still within this same project. Let’s say it is located at <code>&quot;R Tutorial/B folder/something dumb/scripts/thisisascript.R&quot;</code>. Again, you can open a new fresh session of R by opening this file <strong>AND</strong> still have the same working directory set when you load <code>library(here)</code>.</p>
+<p>Then to reference a relative file path you can use <code>here()</code>. For instance</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">here</span>(<span class="st">&quot;B folder&quot;</span>, <span class="st">&quot;somethingdumb&quot;</span>, <span class="st">&quot;scripts&quot;</span>, <span class="st">&quot;thisisascript.R&quot;</span>)
+
+<span class="co"># Or</span>
+
+<span class="kw">here</span>(<span class="st">&quot;B folder/somethingdumb/scripts&quot;</span>, <span class="st">&quot;thisisascript.R&quot;</span>)</code></pre></div>
+<p>Bothe of these will give you the same relative file path</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;B folder/somethingdumb/scripts/thisisascript.R&quot;</span></code></pre></div>
+<p>I think this is pretty amazing because, again, it allows you to focus on the meat of your script rather than fidling around with file paths and working directories. You don’t have to remember to open the <code>.Rproj</code> every time you want to work on writing a <code>.R</code> script. You can sipmly open the <code>.R</code> script and it just works.</p>
+<p>This also makes it much easier to share projects with others or to collaborate on R scripts for a project with your colleagues.</p>
+</div>
+<div id="summary" class="section level3">
+<h3><span class="header-section-number">8.2.3</span> Summary</h3>
+<ul>
+<li><p>Use R Projects</p></li>
+<li><p>Load the <code>here</code> package at the top of scripts</p></li>
+<li><p>Use <code>here()</code> to reference files or file paths</p>
+<p>Example: <code>read_csv(here(&quot;filepath&quot;, &quot;filename&quot;))</code></p></li>
+</ul>
+<hr />
+<p>Now let’s cover some of the R script templates downloaded with <code>create_study()</code></p>
+</div>
+</div>
+<div id="taskname1_raw.r" class="section level2">
+<h2><span class="header-section-number">8.3</span> 1_taskname1_raw.R</h2>
+<p>This template is for creating R scripts for step 1 in the data processing workflow: <strong>converting “raw” data files to “tidy” raw data files</strong></p>
+<p>Which is why the file name ends with the suffix, <code>_raw.R</code>. It also has a prefix <code>1_</code> because this is the first step of data processing. The template name can be changed simply by changeing “taskname” to whatever label you want to use for the task. Example: <code>1_antisaccade_raw.R</code></p>
+<p>Open the template file. You should see the following:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Set up ####
+## Load packages
+<span class="kw">library</span>(readr)
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(here)
+<span class="kw">library</span>(datawrangling)
+
+## Set import/output directories
+directories &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="kw">here</span>(<span class="st">&quot;directories.rds&quot;</span>))
+import.dir &lt;-<span class="st"> </span>directories<span class="op">$</span>messy
+output.dir &lt;-<span class="st"> </span>directories<span class="op">$</span>raw
+
+## Set import/output files
+task &lt;-<span class="st"> &quot;taskname1&quot;</span>
+import.file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)
+output.file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;_raw.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)
+##############
+
+## Import Data
+data_import &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="kw">here</span>(import.dir, import.file), <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">duplicates_remove</span>(<span class="dt">taskname =</span> task, <span class="dt">output.folder =</span> <span class="kw">here</span>(output.dir, <span class="st">&quot;duplicates&quot;</span>))
+
+## Clean up raw data
+data_raw &lt;-<span class="st"> </span>data_import <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>()
+
+## Save to file
+<span class="kw">write_csv</span>(data_raw, <span class="kw">here</span>(output.dir, output.file), <span class="dt">na =</span> <span class="st">&quot;&quot;</span>)
+
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</code></pre></div>
+<p>The organization of this script is:</p>
+<ul>
+<li><p>Setup</p>
+<ul>
+<li><p>Load packages</p></li>
+<li><p>Set import/output directories</p></li>
+<li><p>Set import/output files</p></li>
+</ul></li>
+<li><p>Import data</p></li>
+<li><p>Clean up raw data file</p></li>
+<li><p>Save to file</p></li>
+</ul>
+<div id="setup" class="section level3">
+<h3><span class="header-section-number">8.3.1</span> Setup</h3>
+<p>It is a good practice to load any package at the very top of the script. I also like to set the import and output directories and filenames at the top as well. This makes it very easy to see what files are being imported and how the file is being saved without having to search through the lines of code. You know where this information will be contained for every script.</p>
+<div id="directories" class="section level4">
+<h4><span class="header-section-number">8.3.1.1</span> directories</h4>
+<p>Dealing with filepaths can be annoying. Especiall if you choose to rename them, or if you share your code with someone else but they have completely different directory organization and labels.</p>
+<p>A very simple way of getting around this is to save an <em>R object</em> file in the same directory as the .Rproj file. This <em>R object</em> file is created in the mastercript (see the masterscript template section) as “<strong>directories.rds</strong>”</p>
+<p>This file is imported and assigned to an object in the setup section using the <code>readRDS()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">directories &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="kw">here</span>(<span class="st">&quot;directories.rds&quot;</span>))</code></pre></div>
+<p>Try accessing different filepaths in the <code>directories</code> object. For instance the file path for the “<strong>messy</strong>” raw data files is in <code>directories$messy</code></p>
+<p><strong>The only thing in the Seupt section you may need to change is specifying the <code>&quot;taskname&quot;</code></strong></p>
+</div>
+</div>
+<div id="import-data" class="section level3">
+<h3><span class="header-section-number">8.3.2</span> Import data</h3>
+<p>Import the “messy” raw data file and get rid of any duplicate subject numbers in the file using the <code>duplicates_remove()</code> function from the <code>datawrangling</code> package.</p>
+<p><strong>NO CHANGES NECESSARY</strong></p>
+</div>
+<div id="clean-up-raw-data-file" class="section level3">
+<h3><span class="header-section-number">8.3.3</span> Clean up raw data file</h3>
+<p>Use dplyr to clean up raw data file. Common function you will use are <code>filter()</code>, <code>mutate()</code>, and <code>select()</code>.</p>
+<p><strong>This will change depending on how the task was programmed to output data</strong></p>
+<div id="save-to-file" class="section level4">
+<h4><span class="header-section-number">8.3.3.1</span> Save to file</h4>
+<p>Save the “tidy” raw data file as a .csv file</p>
+<p><strong>NO CHANGES NECESSARY</strong></p>
+<p>Clean up the environment by removing all objects from the enivornment <code>rm(list=ls())</code></p>
+</div>
+</div>
+</div>
+<div id="taskname1_score.r" class="section level2">
+<h2><span class="header-section-number">8.4</span> 2_taskname1_score.R</h2>
+<p>This template is for creating R scripts for step 2 of the data processing workflow: <strong>scoring the tasks from the “tidy” raw data files</strong></p>
+<p>The file name ends with the suffix <code>_score.R</code> and has the prefix <code>2_</code> because it is the second step in data processing.</p>
+<p>Open the template file. You should see the following:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Set up ####
+## Load packages
+<span class="kw">library</span>(readr)
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(here)
+
+## Set import/output directories
+directories &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="kw">here</span>(<span class="st">&quot;directories.rds&quot;</span>))
+import.dir &lt;-<span class="st"> </span>directories<span class="op">$</span>raw
+output.dir &lt;-<span class="st"> </span>directories<span class="op">$</span>scored
+
+## Set import/output files
+task &lt;-<span class="st"> &quot;taskname1&quot;</span>
+import.file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;_raw.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)
+output.file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;_Scores.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)
+##############
+
+## Import Data
+data_import &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">here</span>(import.dir, import.file))
+
+## Score
+data_as &lt;-<span class="st"> </span>data_import <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>()
+
+## Save to file
+<span class="kw">write_csv</span>(data_as, <span class="kw">here</span>(output.dir, output.file), <span class="dt">na =</span> <span class="st">&quot;&quot;</span>)
+
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</code></pre></div>
+<p>The organization of this script is:</p>
+<ul>
+<li><p>Setup</p></li>
+<li><p>Import data</p></li>
+<li><p>Score</p></li>
+<li><p>Save to file</p></li>
+</ul>
+<div id="setup-1" class="section level4">
+<h4><span class="header-section-number">8.4.0.1</span> Setup</h4>
+<p>The setup organization is the same as the <code>_raw.R</code> files. It may also include any <strong>data cleaning</strong> parameters you want to set. For example you may want to trim RTs using a standard deviation cutoff of 3.5</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Set data cleaning
+rt.trim &lt;-<span class="st"> </span><span class="fl">3.5</span></code></pre></div>
+<p>This way you can easily see and modify what data cleaning methods are being used without having to search through each line of code.</p>
+<p><strong>The only thing in the Seupt section you may need to change is specifying the <code>&quot;taskname&quot;</code> and any data cleaning procedures</strong></p>
+</div>
+<div id="import-data-1" class="section level4">
+<h4><span class="header-section-number">8.4.0.2</span> Import data</h4>
+<p><strong>NO CHANGES NECESSARY</strong></p>
+</div>
+<div id="score-data" class="section level4">
+<h4><span class="header-section-number">8.4.0.3</span> Score data</h4>
+<p>Use <code>dplyr</code> and other packages to score the data. Common functions you will use are <code>filter()</code>, <code>group_by()</code>, and <code>summarise()</code>.</p>
+<p><strong>This will change depending on how you need to score the task</strong></p>
+</div>
+<div id="save-to-file-1" class="section level4">
+<h4><span class="header-section-number">8.4.0.4</span> Save to file</h4>
+<p><strong>NO CHANGES NECESSARY</strong></p>
+</div>
+</div>
+<div id="masterscript-template" class="section level2">
+<h2><span class="header-section-number">8.5</span> Masterscript template</h2>
+</div>
 <div id="r-scripts" class="section level2">
-<h2><span class="header-section-number">8.1</span> R Scripts</h2>
+<h2><span class="header-section-number">8.6</span> R Scripts</h2>
 <p>Steps <strong>1</strong> and <strong>2</strong> are all about transforming data files to create a final output file that is ready for statistical analysis.</p>
 <div id="general-workflow" class="section level3">
-<h3><span class="header-section-number">8.1.1</span> General Workflow</h3>
-<p>Every R script you create for steps 1 and 2 import a file -&gt; do stuff to the dataframe -&gt; output a saved file, <strong>no more, and no less</strong>. The general workdflow in every script will look like</p>
+<h3><span class="header-section-number">8.6.1</span> General Workflow</h3>
+<p>Every R script you create for steps 1 and 2 will - import a file -&gt; do stuff to the dataframe -&gt; output a saved file, <strong>no more, and no less</strong>. The general workdflow in every script will look like</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Load</strong> required packages using <code>library()</code></p></li>
 <li><p><strong>Import</strong> data file using <code>read_delim()</code> from the <code>readr</code> package</p></li>
@@ -347,7 +551,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Honestly there is not much more to it then that. And because your R scripts for steps 1 and 2 have the same workflow process this makes it very easy to implement a standard organization in your scripts.</p>
 </div>
 <div id="building-a-template-workflow" class="section level3">
-<h3><span class="header-section-number">8.1.2</span> Building a Template Workflow</h3>
+<h3><span class="header-section-number">8.6.2</span> Building a Template Workflow</h3>
 <p><strong>It is good practice to load required packages at the top of your R script</strong>.</p>
 <p>After loading any required packages <strong>it is good practice to assign the import and output file path directories and file names to an object at the top of your script</strong>. I use the same object name for the import file path and output file path in every R script I write. This does a couple of things:</p>
 <ol style="list-style-type: decimal">
@@ -387,66 +591,11 @@ data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
 <p>To do this you need to have a certain number of <code>#</code> at the top of the code chunk. See how I use four <code>####</code> after the <code>## Set up</code> comment. Four <code>#</code>s is usually enough. Then at the end of the code chunk I place a bunch more <code>#########</code>. You can put as many as you want, but again usually 4 is enough. I like to make it the same length as the the top of the code chunk.</p>
 </div>
 <div id="rmlistls" class="section level3">
-<h3><span class="header-section-number">8.1.3</span> rm(list=ls())</h3>
+<h3><span class="header-section-number">8.6.3</span> rm(list=ls())</h3>
 <p><strong>It is good practice to clear out any objects in the Enviroment window before or after running a script.</strong></p>
 <p>To do this you can use <code>rm(list=ls())</code>. Use this as either the first or last line of code in every R Script.</p>
 <hr />
 <p>Every R script you write can have this same layout That is, everything on the “left” side (of the assignment operator <code>&lt;-</code>) can stay the exactly same. Whereas what happens on the “right” side depends on what data file you are working with. But even what is happening on the “right” side is similar and may only require the <code>readr</code> and <code>dplyr</code> packages. My actual template R script looks slightly different but I have to first explain working directories and more good practices to use when writing scripts in R.</p>
-</div>
-</div>
-<div id="working-directory" class="section level2">
-<h2><span class="header-section-number">8.2</span> Working Directory</h2>
-<p>We need to go over the idea of a “working directory”. In R, and many other programming languages, a “working directory” is a point of reference that can be used to create “relative” file paths. Instead of having to specify the entire file path to a directory (“User/Documents/DropBox/Projects/Study 1/Data Files/Raw Data”) you can use a “relative” file path starting from the “working directory”.</p>
-<p>This is useful because it allows scripts to be reproducible across different systems, computers, and users. Every computer has different absolute file paths. Therefore, <strong>it is essential to use only relative file paths</strong>.</p>
-<p>In this examlple, if the “working directory” was the Study 1 folder - <code>&quot;User/Documents/DropBox/Projects/Study 1/Data Files/Raw Data&quot;</code> - then a relative file path might look like <code>&quot;Data Files/Raw Data&quot;</code></p>
-<p>If you need to go back one folder - into the “Projects” folder - you tpye two dots <code>&quot;../Study 2/Data Files/Raw Data&quot;</code> would take you to <code>&quot;User/Documents/DropBox/Projects/Study 2/Data Files/Raw Data&quot;</code></p>
-<p>You can set the working directoy either using the R Studio GUI or using the function <code>setwd()</code>.</p>
-<p>But… <strong><em>DO NOT DO THIS!</em></strong></p>
-<p>This is not a good workflow practice. Especially if you use the R Studio GUI (which I won’t even tell you how to do). But even <code>setwd()</code> is a bad idea. The reason boils down to:</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>You want to avoid any manual steps in your workflow process</strong> (using the GUI is a manual process)</p></li>
-<li><p>Absolute file paths are computer and user specific. When you use <code>setwd()</code> you need to use an absolute file path. <strong>This makes your script not reproducible. And reproducibility is one of the main advantages to learning R in the first place, so don’t undermine yourself!</strong></p></li>
-</ol>
-<p>Okay okay… well what are <strong>good</strong> practices to set a working directory then?</p>
-<p>There are two <strong>good</strong> practices that I know of and they are best used in combination.</p>
-<ul>
-<li>R Projects</li>
-<li>here()</li>
-</ul>
-<div id="r-projects" class="section level3">
-<h3><span class="header-section-number">8.2.1</span> R Projects</h3>
-<ol style="list-style-type: decimal">
-<li>Use <strong>R Projects</strong></li>
-</ol>
-<p>R Projects are a great way to have the working directory be automatically set. <a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">Visit this page</a> for more information on how to use R Projects.</p>
-<p>Basically an R Project allows you to open a fresh session of R that automatically sets the working directory to the directory where the R Project is saved. R Projects have the file extension <code>.Rproj</code>.</p>
-<p>Go ahead and create an R Project for this tutorial. Navigate to File -&gt; New Project… -&gt;</p>
-<p>Choose Existing Directory if you already created an R Tutorial folder on your computer or New Directory -&gt; New Project if you have not. Create the R Project in the root folder of your R Tutorial.</p>
-<p>Now exit out of R Studio. Then open R Studio by opening the R Project. You can evaluate what the working directory is by <code>getwd()</code>.</p>
-<p>In your R Scripts you can now simply use relative paths from the working directory. And it doesn’t matter what directory you save your R scripts to. <strong>As long as you open the R Studio from the <code>.Rproj</code> file and not one of the script <code>.R</code> files.</strong></p>
-<p>Try exiting out of R Studio and then opening R Studio by opening one of your <code>.R</code> script files that are not saved in the same location as your <code>.Rproj</code> file. Now evaluate the working directory <code>getwd()</code>. Oops… you see the working directory is no longer where the <code>.Rproj</code> file is saved. This is where the <code>here</code> package comes in handy.</p>
-</div>
-<div id="here" class="section level3">
-<h3><span class="header-section-number">8.2.2</span> here()</h3>
-<ol start="2" style="list-style-type: decimal">
-<li>Use the <code>here()</code> function from the <strong>here</strong> package.</li>
-</ol>
-<p>This method is simple to use and is a great way to specify relative paths. It will allow you to open R Studio using any of your <code>.R</code> script files and maintain the some working directory as your <code>.Rproj</code> file.</p>
-<p>First go ahead and install the <code>here</code> package, <code>install.packages(&quot;here&quot;)</code>.</p>
-<p>For a passionate ode to the <code>here</code> package see: <a href="https://github.com/jennybc/here_here" class="uri">https://github.com/jennybc/here_here</a></p>
-<p>Basically, when <code>here</code> is loaded, <code>library(here)</code>, it will search for one of two files to locate the working directory. 1) a hidden <code>.here</code> file or 2) an <code>.Rproj</code> file. It will recursively keep going backwards in directories to locate a root directory that contains one of these files.</p>
-<p>The <code>.here</code> file can be created by <code>set_here()</code>, but is unnecessary if you are using the <strong>R Project</strong> method.</p>
-<p>What this allows is pretty cool. Let’s say your working directory is <code>&quot;R Tutorial&quot;</code>, which is the directory where your <code>.Rproj</code> file is saved. Even if you have an <code>.R</code> script saved in <code>&quot;R Tutorial/A folder/R scripts/scriptexample.R&quot;</code>, you can open a new fresh session of R by opening the file. If you load <code>library(here)</code> at the top of the <code>scriptexample.R</code> file then it will automatically set the working directory to <code>&quot;R Tutorial&quot;</code> since it will detect an <code>.Rproj</code> file in that directory. Then tomorrow maybe you want to work on a different <code>.R</code> script located somewhere else but still within this same project. Let’s say it is located at <code>&quot;R Tutorial/B folder/something dumb/scripts/thisisascript.R&quot;</code>. Again, you can open a new fresh session of R by opening this file <strong>AND</strong> still have the same working directory set when you load <code>library(here)</code>.</p>
-<p>Then to reference a relative file path you can use <code>here()</code>. For instance</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">here</span>(<span class="st">&quot;B folder&quot;</span>, <span class="st">&quot;somethingdumb&quot;</span>, <span class="st">&quot;scripts&quot;</span>, <span class="st">&quot;thisisascript.R&quot;</span>)
-
-<span class="co"># Or</span>
-
-<span class="kw">here</span>(<span class="st">&quot;B folder/somethingdumb/scripts&quot;</span>, <span class="st">&quot;thisisascript.R&quot;</span>)</code></pre></div>
-<p>Bothe of these will give you the same relative file path</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;B folder/somethingdumb/scripts/thisisascript.R&quot;</span></code></pre></div>
-<p>I think this is pretty amazing because, again, it allows you to focus on the meat of your script rather than fidling around with file paths and working directories. You don’t have to remember to open the <code>.Rproj</code> every time you want to work on writing a <code>.R</code> script. You can sipmly open the <code>.R</code> script and it just works.</p>
-<p>This also makes it much easier to share projects with others or to collaborate on R scripts for a project with your colleagues.</p>
 <p>Using <code>here()</code> we can slightly modify the R script template from above to look like</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Set up ####
 ## Load required packages
@@ -482,7 +631,7 @@ data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
 </div>
 </div>
 <div id="the-masterscript" class="section level2">
-<h2><span class="header-section-number">8.3</span> The masterscript</h2>
+<h2><span class="header-section-number">8.7</span> The masterscript</h2>
 <p>I like to use a masterscript that runs multiple R scripts one after another. I started doing this just to keep my sanity. In our lab we often times have many many tasks that we need to analyze data from. Well it can get a little crazy trying to keep all the R scripts organized and running the scripts in the correct order. Using a masterscript can help with this.</p>
 <p>The <code>source()</code> function will execute all the lines of code in an R script. You simply specify the file path of the R script, such as <code>source(&quot;scripts/A_script.R&quot;)</code>.</p>
 <p>Your masterscript might simply contain only lines of code using <code>source()</code>.</p>
@@ -535,7 +684,7 @@ directories &lt;-<span class="st"> </span><span class="kw">list</span>(<span cla
 <span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</code></pre></div>
 </div>
 <div id="folder-organization" class="section level2">
-<h2><span class="header-section-number">8.4</span> Folder Organization</h2>
+<h2><span class="header-section-number">8.8</span> Folder Organization</h2>
 <p>I suggest adopting a consistent folder organization for all your research projects. Again, this is just about allowing you to focus on the meat of your R scripts.</p>
 <p>This is my organization:</p>
 <p><em>Working Directory</em></p>
@@ -560,7 +709,7 @@ directories &lt;-<span class="st"> </span><span class="kw">list</span>(<span cla
 <p><img src="images/workflow.png" width="1276" /></p>
 </div>
 <div id="naming-r-scripts" class="section level2">
-<h2><span class="header-section-number">8.5</span> Naming R Scripts</h2>
+<h2><span class="header-section-number">8.9</span> Naming R Scripts</h2>
 <p>If you have a lot of R Scripts for a project it can make it easier to use a certain naming convention to organize the scripts. <strong>First of all, I definitely reccomend putting all your scripts into one folder.</strong> There is nothing more annoying then having to search all of your computer for the script you are looking for.</p>
 <p>I personally like to name my R scripts with a number prefix folowed by an underscore and end it with the name of the data processing step it belongs to (i.e. <code>1_taskname_raw.R</code>).</p>
 <p>The numbered prefix denotes what step in the data processing procedure given the organization of the masterscript.</p>
@@ -568,8 +717,8 @@ directories &lt;-<span class="st"> </span><span class="kw">list</span>(<span cla
 <p><img src="images/folder-organization.png" width="491" /></p>
 <p>Where all the scripts that create “tidy” raw data files have the prefix <code>1</code> and the suffix <code>_raw</code> whereas the scripts for scoring data files has the prefix <code>2</code> and the suffix <code>_score</code>. The prefix number will order the scripts by their data processing workflow step.</p>
 </div>
-<div id="summary" class="section level2">
-<h2><span class="header-section-number">8.6</span> Summary</h2>
+<div id="summary-1" class="section level2">
+<h2><span class="header-section-number">8.10</span> Summary</h2>
 <ul>
 <li><p>Every R Script should import a file -&gt; Do stuff to the dataframe -&gt; output a saved file. No more, no less than that.</p></li>
 <li><p>At the top of your R script:</p>

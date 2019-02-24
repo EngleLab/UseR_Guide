@@ -12,6 +12,383 @@ Steps **1** and **2** will use a very similar workflow process and be implemente
 
 ## create_study()
 
+I have created a function, `create_study()`, to easily setup a directory structure on your computer, with template scripts included. This can be used either before data collection or after data collection. It will automatically create folders and template R scripts that you will need for a research project.
+
+This function comes from my `openscience` package. The package contains other functions useful for making sure your study is organized in a way that makes it optimal to share your task programs, methods, materials, data files, and scripts in an open and easily accesible repository. 
+
+Let's go over how to use the `create_study()` function and what template files it included.
+
+First install the `openscience` package
+
+```{r eval=FALSE}
+devtools::install_github("dr-JT/openscience")
+```
+
+Then create a folder within the root directory you are using for this tutorial. You can name it whatever you like - I'll name mine "__example study__".
+
+Finally, create a new R Project file in the "__example study__" directory and open it.
+
+File -> New Project -> Existing Directory -> Choose Directory (Do not check the "open in new session")
+
+The working directory should be the location of the "__example study__" directory. Check to makes sure using `getwd()`. 
+
+### Before data collection
+
+If you want to set this up before data collection you can simply use the function as is. 
+
+Type in the console:
+
+```{r eval=FALSE}
+openscience::create_study()
+```
+
+You should now see the following directories:
+
+****
+
+* __Data Files__: Data files
+
+    - __Raw Data__: "tidy" raw data files. Output of step 1 in the data processing workflow
+    
+        - __messy__: "messy" raw data files
+        
+    - __Scored Data__: Scored data files. Output of step 2 in the data processing workflow
+    
+* __Documents__: Any documents related to the study. Including a _Methods_ document
+
+* __Manuscript__: Draft and Final versions of any Manuscripts submitted
+
+* __Presentations__: Any presentations on the data from this study
+
+* __R Scripts__: ALL R scripts and R Markdown documents used for data prep and analysis
+
+* __Results__: Output of any data analyses
+
+    - __Figures__: Figures created for presentations and manuscript
+    
+* __Tasks__: Programmed tasks used for the study
+
+****
+
+To not create certain directories specify by setting the directory parameter to FALSE:
+
+```{r eval=FALSE}
+openscience::create_study(scripts.dir = TRUE, data.dir = TRUE, raw.dir = TRUE,
+                         messy.dir = TRUE, messy.name = "messy",
+                         scored.dir = TRUE, results.dir = TRUE,
+                         figures.dir = TRUE, manuscript.dir = TRUE,
+                         presentations.dir = TRUE, documents.dir = TRUE,
+                         other.dir = c())
+```
+
+
+There should also be the following script files 
+
+****
+
+* masterscript.R
+
+* R Scripts
+
+    - 1_taskname1_raw.R
+    
+    - 2_taskname1_score.R
+    
+    - 3_merge.R
+    
+    - 4_Demographics.Rmd
+    
+****
+
+To not create certain R script templates set the parameter to FALSE:
+
+```{r eval=FALSE}
+openscience::create_study(masterscript = TRUE, rawscript = TRUE,
+                         scorescript = TRUE, mergescript = TRUE, demographics = TRUE,
+                         sem = FALSE)
+```
+
+I plan on adding more script templates in the future...
+
+Before going over some of these R script templates let's talk about the concept of a **working directory**
+
+## Working Directory
+
+In R, and other programming languages, a "working directory" is a point of reference that can be used to create "relative" file paths. Instead of having to specify the entire file path to a directory ("User/Documents/DropBox/Projects/Study 1/Data Files/Raw Data") you can use a "relative" file path starting from the "working directory". 
+
+This is useful because it allows scripts to be reproducible across different systems, computers, and users. Every computer has different absolute file paths. Therefore, **it is essential to use only relative file paths**.
+
+In this examlple, if the "working directory" was the Study 1 folder - `"User/Documents/DropBox/Projects/Study 1/Data Files/Raw Data"` - then a relative file path might look like `"Data Files/Raw Data"`
+
+If you need to go back one folder - into the "Projects" folder - you tpye two dots `"../Study 2/Data Files/Raw Data"` would take you to `"User/Documents/DropBox/Projects/Study 2/Data Files/Raw Data"`
+
+You can set the working directoy either using the R Studio GUI or using the function `setwd()`. 
+
+But... **_DO NOT DO THIS!_**
+
+This is not a good workflow practice. Especially if you use the R Studio GUI (which I won't even tell you how to do). But even `setwd()` is a bad idea. The reason boils down to:
+
+1) **You want to avoid any manual steps in your workflow process** (using the GUI is a manual process)
+
+2) Absolute file paths are computer and user specific. When you use `setwd()` you need to use an absolute file path. **This makes your script not reproducible. And reproducibility is one of the main advantages to learning R in the first place, so don't undermine yourself!**
+
+Okay okay... well what are **good** practices to set a working directory then?
+
+There are two **good** practices that I know of and they are best used in combination.
+
+* R Projects
+* here()
+
+### R Projects
+
+1) Use **R Projects**
+
+   R Projects are a great way to have the working directory be automatically set. [Visit this page](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) for more information on how to use R Projects.
+   
+   Basically an R Project allows you to open a fresh session of R that automatically sets the working directory to the directory where the R Project is saved. R Projects have the file extension `.Rproj`.
+   
+   Go ahead and create an R Project for this tutorial. Navigate to File -> New Project... -> 
+   Choose Existing Directory if you already created an R Tutorial folder on your computer or New Directory -> New Project if you have not. Create the R Project in the root folder of your R Tutorial. 
+   
+   Now exit out of R Studio. Then open R Studio by opening the R Project. You can evaluate what the working directory is by `getwd()`.
+   
+   In your R Scripts you can now simply use relative paths from the working directory. And it doesn't matter what directory you save your R scripts to. **As long as you open the R Studio from the `.Rproj` file and not one of the script `.R` files.**
+   
+   Try exiting out of R Studio and then opening R Studio by opening an `.R` script file that is not saved in the same location as your `.Rproj` file. Now evaluate the working directory `getwd()`. Oops... you see the working directory is no longer where the `.Rproj` file is saved. This is where the `here` package comes in handy.
+   
+   
+### here()
+
+2) Use the `here()` function from the **here** package.
+
+   This method is simple to use and is a great way to specify relative paths. It will allow you to open R Studio using any of your `.R` script files and maintain the some working directory as your `.Rproj` file. 
+   
+   First go ahead and install the `here` package, `install.packages("here")`.
+   
+   For a passionate ode to the `here` package see: https://github.com/jennybc/here_here
+   
+   Basically, when `here` is loaded, `library(here)`, it will search for one of two files to locate the working directory. 1) a hidden `.here` file or 2) an `.Rproj` file. It will recursively keep going backwards in directories to locate a root directory that contains one of these files.
+   
+   The `.here` file can be created by `set_here()`, but is unnecessary if you are using the **R Project** method.
+   
+   What this allows is pretty cool. Let's say your working directory is `"R Tutorial"`, which is the directory where your `.Rproj` file is saved. Even if you have an `.R` script saved in `"R Tutorial/A folder/R scripts/scriptexample.R"`, you can open a new fresh session of R by opening the file. If you load `library(here)` at the top of the `scriptexample.R` file then it will automatically set the working directory to `"R Tutorial"` since it will detect an `.Rproj` file in that directory. Then tomorrow maybe you want to work on a different `.R` script located somewhere else but still within this same project. Let's say it is located at `"R Tutorial/B folder/something dumb/scripts/thisisascript.R"`. Again, you can open a new fresh session of R by opening this file **AND** still have the same working directory set when you load `library(here)`. 
+   
+   Then to reference a relative file path you can use `here()`. For instance 
+   
+```{r eval=FALSE}
+here("B folder", "somethingdumb", "scripts", "thisisascript.R")
+
+# Or
+
+here("B folder/somethingdumb/scripts", "thisisascript.R")
+```
+   
+   
+Bothe of these will give you the same relative file path 
+
+```{r eval = FALSE}
+"B folder/somethingdumb/scripts/thisisascript.R"
+```
+   
+   I think this is pretty amazing because, again, it allows you to focus on the meat of your script rather than fidling around with file paths and working directories. You don't have to remember to open the `.Rproj` every time you want to work on writing a `.R` script. You can sipmly open the `.R` script and it just works.
+   
+   This also makes it much easier to share projects with others or to collaborate on R scripts for a project with your colleagues. 
+   
+### Summary
+
+* Use R Projects
+
+* Load the `here` package at the top of scripts
+
+* Use `here()` to reference files or file paths
+
+    Example: `read_csv(here("filepath", "filename"))`
+
+****
+
+Now let's cover some of the R script templates downloaded with `create_study()`
+
+## 1_taskname1_raw.R
+
+This template is for creating R scripts for step 1 in the data processing workflow: **converting "raw" data files to "tidy" raw data files**
+
+Which is why the file name ends with the suffix, `_raw.R`. It also has a prefix `1_` because this is the first step of data processing. The template name can be changed simply by changeing "taskname" to whatever label you want to use for the task. Example: `1_antisaccade_raw.R`
+
+Open the template file. You should see the following:
+
+```{r eval=FALSE}
+## Set up ####
+## Load packages
+library(readr)
+library(dplyr)
+library(here)
+library(datawrangling)
+
+## Set import/output directories
+directories <- readRDS(here("directories.rds"))
+import.dir <- directories$messy
+output.dir <- directories$raw
+
+## Set import/output files
+task <- "taskname1"
+import.file <- paste(task, ".txt", sep = "")
+output.file <- paste(task, "_raw.csv", sep = "")
+##############
+
+## Import Data
+data_import <- read_delim(here(import.dir, import.file), "\t", escape_double = FALSE, trim_ws = TRUE) %>%
+  duplicates_remove(taskname = task, output.folder = here(output.dir, "duplicates"))
+
+## Clean up raw data
+data_raw <- data_import %>%
+  filter() %>%
+  mutate() %>%
+  select()
+
+## Save to file
+write_csv(data_raw, here(output.dir, output.file), na = "")
+
+rm(list=ls())
+```
+
+The organization of this script is:
+
+* Setup
+
+    - Load packages
+    
+    - Set import/output directories
+    
+    - Set import/output files
+    
+* Import data
+
+* Clean up raw data file
+
+* Save to file
+
+### Setup
+
+It is a good practice to load any package at the very top of the script. I also like to set the import and output directories and filenames at the top as well. This makes it very easy to see what files are being imported and how the file is being saved without having to search through the lines of code. You know where this information will be contained for every script.
+
+#### directories
+
+Dealing with filepaths can be annoying. Especiall if you choose to rename them, or if you share your code with someone else but they have completely different directory organization and labels. 
+
+A very simple way of getting around this is to save an _R object_ file in the same directory as the .Rproj file. This _R object_ file is created in the mastercript (see the masterscript template section) as "__directories.rds__"
+
+This file is imported and assigned to an object in the setup section using the `readRDS()` function.
+
+```{r eval=FALSE}
+directories <- readRDS(here("directories.rds"))
+```
+
+Try accessing different filepaths in the `directories` object. For instance the file path for the "__messy__" raw data files is in `directories$messy`
+
+__The only thing in the Seupt section you may need to change is specifying the `"taskname"`__
+
+### Import data
+
+Import the "messy" raw data file and get rid of any duplicate subject numbers in the file using the `duplicates_remove()` function from the `datawrangling` package.
+
+__NO CHANGES NECESSARY__
+
+### Clean up raw data file
+
+Use dplyr to clean up raw data file. Common function you will use are `filter()`, `mutate()`, and `select()`.
+
+__This will change depending on how the task was programmed to output data__
+
+#### Save to file
+
+Save the "tidy" raw data file as a .csv file
+
+__NO CHANGES NECESSARY__
+
+Clean up the environment by removing all objects from the enivornment `rm(list=ls())`
+
+## 2_taskname1_score.R
+
+This template is for creating R scripts for step 2 of the data processing workflow: **scoring the tasks from the "tidy" raw data files**
+
+The file name ends with the suffix `_score.R` and has the prefix `2_` because it is the second step in data processing.
+
+Open the template file. You should see the following:
+
+```{r eval = FALSE}
+## Set up ####
+## Load packages
+library(readr)
+library(dplyr)
+library(here)
+
+## Set import/output directories
+directories <- readRDS(here("directories.rds"))
+import.dir <- directories$raw
+output.dir <- directories$scored
+
+## Set import/output files
+task <- "taskname1"
+import.file <- paste(task, "_raw.csv", sep = "")
+output.file <- paste(task, "_Scores.csv", sep = "")
+##############
+
+## Import Data
+data_import <- read_csv(here(import.dir, import.file))
+
+## Score
+data_as <- data_import %>%
+  filter() %>%
+  group_by() %>%
+  summarise()
+
+## Save to file
+write_csv(data_as, here(output.dir, output.file), na = "")
+
+rm(list=ls())
+```
+
+
+The organization of this script is:
+
+* Setup
+
+* Import data
+
+* Score
+
+* Save to file
+
+#### Setup
+
+The setup organization is the same as the `_raw.R` files. It may also include any __data cleaning__ parameters you want to set. For example you may want to trim RTs using a standard deviation cutoff of 3.5
+
+```{r eval=FALSE}
+## Set data cleaning
+rt.trim <- 3.5
+```
+
+This way you can easily see and modify what data cleaning methods are being used without having to search through each line of code.
+
+__The only thing in the Seupt section you may need to change is specifying the `"taskname"` and any data cleaning procedures__
+
+#### Import data
+
+__NO CHANGES NECESSARY__
+
+#### Score data
+
+Use `dplyr` and other packages to score the data. Common functions you will use are `filter()`, `group_by()`, and `summarise()`.
+
+__This will change depending on how you need to score the task__
+
+#### Save to file
+
+__NO CHANGES NECESSARY__
+
+## Masterscript template
+
+
 
 
 ## R Scripts
@@ -92,88 +469,7 @@ To do this you can use `rm(list=ls())`. Use this as either the first or last lin
 Every R script you write can have this same layout That is, everything on the "left" side (of the assignment operator `<-`) can stay the exactly same. Whereas what happens on the "right" side depends on what data file you are working with. But even what is happening on the "right" side is similar and may only require the `readr` and `dplyr` packages. 
 My actual template R script looks slightly different but I have to first explain working directories and more good practices to use when writing scripts in R.
 
-## Working Directory
 
-We need to go over the idea of a "working directory". In R, and many other programming languages, a "working directory" is a point of reference that can be used to create "relative" file paths. Instead of having to specify the entire file path to a directory ("User/Documents/DropBox/Projects/Study 1/Data Files/Raw Data") you can use a "relative" file path starting from the "working directory". 
-
-This is useful because it allows scripts to be reproducible across different systems, computers, and users. Every computer has different absolute file paths. Therefore, **it is essential to use only relative file paths**.
-
-In this examlple, if the "working directory" was the Study 1 folder - `"User/Documents/DropBox/Projects/Study 1/Data Files/Raw Data"` - then a relative file path might look like `"Data Files/Raw Data"`
-
-If you need to go back one folder - into the "Projects" folder - you tpye two dots `"../Study 2/Data Files/Raw Data"` would take you to `"User/Documents/DropBox/Projects/Study 2/Data Files/Raw Data"`
-
-You can set the working directoy either using the R Studio GUI or using the function `setwd()`. 
-
-But... **_DO NOT DO THIS!_**
-
-This is not a good workflow practice. Especially if you use the R Studio GUI (which I won't even tell you how to do). But even `setwd()` is a bad idea. The reason boils down to:
-
-1) **You want to avoid any manual steps in your workflow process** (using the GUI is a manual process)
-
-2) Absolute file paths are computer and user specific. When you use `setwd()` you need to use an absolute file path. **This makes your script not reproducible. And reproducibility is one of the main advantages to learning R in the first place, so don't undermine yourself!**
-
-Okay okay... well what are **good** practices to set a working directory then?
-
-There are two **good** practices that I know of and they are best used in combination.
-
-* R Projects
-* here()
-
-### R Projects
-
-1) Use **R Projects**
-
-   R Projects are a great way to have the working directory be automatically set. [Visit this page](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) for more information on how to use R Projects.
-   
-   Basically an R Project allows you to open a fresh session of R that automatically sets the working directory to the directory where the R Project is saved. R Projects have the file extension `.Rproj`.
-   
-   Go ahead and create an R Project for this tutorial. Navigate to File -> New Project... -> 
-   
-   Choose Existing Directory if you already created an R Tutorial folder on your computer or New Directory -> New Project if you have not. Create the R Project in the root folder of your R Tutorial. 
-   
-   Now exit out of R Studio. Then open R Studio by opening the R Project. You can evaluate what the working directory is by `getwd()`.
-   
-   In your R Scripts you can now simply use relative paths from the working directory. And it doesn't matter what directory you save your R scripts to. **As long as you open the R Studio from the `.Rproj` file and not one of the script `.R` files.**
-   
-   Try exiting out of R Studio and then opening R Studio by opening one of your `.R` script files that are not saved in the same location as your `.Rproj` file. Now evaluate the working directory `getwd()`. Oops... you see the working directory is no longer where the `.Rproj` file is saved. This is where the `here` package comes in handy.
-   
-   
-### here()
-
-2) Use the `here()` function from the **here** package.
-
-   This method is simple to use and is a great way to specify relative paths. It will allow you to open R Studio using any of your `.R` script files and maintain the some working directory as your `.Rproj` file. 
-   
-   First go ahead and install the `here` package, `install.packages("here")`.
-   
-   For a passionate ode to the `here` package see: https://github.com/jennybc/here_here
-   
-   Basically, when `here` is loaded, `library(here)`, it will search for one of two files to locate the working directory. 1) a hidden `.here` file or 2) an `.Rproj` file. It will recursively keep going backwards in directories to locate a root directory that contains one of these files.
-   
-   The `.here` file can be created by `set_here()`, but is unnecessary if you are using the **R Project** method.
-   
-   What this allows is pretty cool. Let's say your working directory is `"R Tutorial"`, which is the directory where your `.Rproj` file is saved. Even if you have an `.R` script saved in `"R Tutorial/A folder/R scripts/scriptexample.R"`, you can open a new fresh session of R by opening the file. If you load `library(here)` at the top of the `scriptexample.R` file then it will automatically set the working directory to `"R Tutorial"` since it will detect an `.Rproj` file in that directory. Then tomorrow maybe you want to work on a different `.R` script located somewhere else but still within this same project. Let's say it is located at `"R Tutorial/B folder/something dumb/scripts/thisisascript.R"`. Again, you can open a new fresh session of R by opening this file **AND** still have the same working directory set when you load `library(here)`. 
-   
-   Then to reference a relative file path you can use `here()`. For instance 
-   
-```{r eval=FALSE}
-here("B folder", "somethingdumb", "scripts", "thisisascript.R")
-
-# Or
-
-here("B folder/somethingdumb/scripts", "thisisascript.R")
-```
-   
-   
-Bothe of these will give you the same relative file path 
-
-```{r eval = FALSE}
-"B folder/somethingdumb/scripts/thisisascript.R"
-```
-   
-   I think this is pretty amazing because, again, it allows you to focus on the meat of your script rather than fidling around with file paths and working directories. You don't have to remember to open the `.Rproj` every time you want to work on writing a `.R` script. You can sipmly open the `.R` script and it just works.
-   
-   This also makes it much easier to share projects with others or to collaborate on R scripts for a project with your colleagues. 
 
    Using `here()` we can slightly modify the R script template from above to look like
 
