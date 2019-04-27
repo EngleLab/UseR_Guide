@@ -8,10 +8,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ----
 <div style="text-align: center; font-size: 1.25em">
-<i class="fas fa-save" style="font-size: 3em"></i> 
-
 This Chapter is not Required
-
 </div>
 ----
 
@@ -51,7 +48,6 @@ devtools::install_github("dr-JT/datawrangling")
 
 ----
 <div style="text-align: center; font-size: 1.25em">
-<i class="fas fa-save" style="font-size: 3em"></i> 
 
 Source the masterscript
 
@@ -103,7 +99,6 @@ If you have more tasks in which you need to merge individual subject data files 
 
 ----
 <div style="text-align: center; font-size: 1.25em">
-<i class="fas fa-save" style="font-size: 3em"></i> 
 
 Source the script
 

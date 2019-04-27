@@ -364,13 +364,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1">import &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ID =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>), <span class="dt">Score1 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="fl">.8</span>), <span class="dt">Score2 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">7</span>, <span class="dt">sd =</span> <span class="fl">1.1</span>), <span class="dt">Score3 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="fl">1.8</span>), <span class="dt">Score4 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">20</span>, <span class="dt">sd =</span> <span class="fl">2.3</span>))</a>
 <a class="sourceLine" id="cb138-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb138-3" data-line-number="3"><span class="kw">head</span>(import)</a>
-<a class="sourceLine" id="cb138-4" data-line-number="4"><span class="co">##   ID    Score1   Score2    Score3   Score4</span></a>
-<a class="sourceLine" id="cb138-5" data-line-number="5"><span class="co">## 1  1 1.8408312 5.830502 12.945085 19.35382</span></a>
-<a class="sourceLine" id="cb138-6" data-line-number="6"><span class="co">## 2  2 2.2223590 7.613734 10.749388 22.64125</span></a>
-<a class="sourceLine" id="cb138-7" data-line-number="7"><span class="co">## 3  3 3.3291488 8.189098  7.749810 19.03575</span></a>
-<a class="sourceLine" id="cb138-8" data-line-number="8"><span class="co">## 4  4 0.6874458 7.301959 11.740120 16.85341</span></a>
-<a class="sourceLine" id="cb138-9" data-line-number="9"><span class="co">## 5  5 2.5959377 6.210842 10.321802 22.10378</span></a>
-<a class="sourceLine" id="cb138-10" data-line-number="10"><span class="co">## 6  6 2.1024818 6.602544  8.993227 19.06956</span></a></code></pre></div>
+<a class="sourceLine" id="cb138-4" data-line-number="4"><span class="co">##   ID   Score1   Score2    Score3   Score4</span></a>
+<a class="sourceLine" id="cb138-5" data-line-number="5"><span class="co">## 1  1 1.173465 7.180342 10.795748 20.36627</span></a>
+<a class="sourceLine" id="cb138-6" data-line-number="6"><span class="co">## 2  2 2.085690 7.115603 13.587042 20.76010</span></a>
+<a class="sourceLine" id="cb138-7" data-line-number="7"><span class="co">## 3  3 4.388996 6.777154 13.521919 17.85488</span></a>
+<a class="sourceLine" id="cb138-8" data-line-number="8"><span class="co">## 4  4 2.874224 6.043463  7.638572 17.76882</span></a>
+<a class="sourceLine" id="cb138-9" data-line-number="9"><span class="co">## 5  5 1.628682 6.974126 13.337230 17.99323</span></a>
+<a class="sourceLine" id="cb138-10" data-line-number="10"><span class="co">## 6  6 2.717983 6.947006  9.754423 19.41618</span></a></code></pre></div>
 <hr />
 <div id="descriptive-statistics" class="section level2">
 <h2><span class="header-section-number">7.1</span> Descriptive Statistics</h2>
@@ -484,7 +484,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb147-5" data-line-number="5">         <span class="dt">Score1.quadratic =</span> <span class="kw">poly</span>(Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[ , <span class="dv">2</span>],</a>
 <a class="sourceLine" id="cb147-6" data-line-number="6">         <span class="dt">Score1.cubic =</span> <span class="kw">poly</span>(Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[ , <span class="dv">3</span>])</a></code></pre></div>
 <p>Here is plot to show you visually what happened</p>
-<p><img src="R_Tutorial_files/figure-html/unnamed-chunk-153-1.png" width="672" /></p>
+<p><img src="R_Tutorial_files/figure-html/unnamed-chunk-149-1.png" width="672" /></p>
 </div>
 </div>
 <div id="custom-transformations" class="section level2">
