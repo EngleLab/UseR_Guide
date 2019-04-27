@@ -1,0 +1,14 @@
+# Univariate Plots
+
+This will be a chapter on univariate plots
+
+********
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=ls())
+```
+
+********
+
+**Something**
+

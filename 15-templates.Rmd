@@ -1,0 +1,208 @@
+# Using Script Templates
+
+This is the workflow process of getting from "messy" raw data files to beautiful looking output of figures and statistical analyses. 
+
+```{r echo=FALSE}
+knitr::include_graphics(rep("images/workflow.png"))
+```
+
+## Building a Template Workflow
+
+Steps **1** and **2** are all about transforming data files to create a final output file that is ready for statistical analysis. Every R script you create for steps 1 and 2 will - import a file -> do stuff to the dataframe -> output a saved file, **no more, and no less**. The general workdflow in every script will look like
+
+1) **Setup** the script by loading required packages using `library()`
+
+2) **Import** data file using `read_delim()` or `read_csv()` from the `readr` package or `read_sav()` from `haven`
+
+3) **Do stuff** to the imported dataframe using `dplyr` functions, such as
+
+   `filter()`, `select()`, `group_by()`, `mutate()`, and `summarise()`
+   
+4) **Save** dataframe to a file using `write_csv()` from `readr` or `write_sav()` from `haven`
+
+5) **Remove** objects and functions with `rm(list=ls())`
+
+Honestly there is not much more to it then that. And because your R scripts for steps 1 and 2 have the same workflow process this makes it very easy to implement a standard organization in your scripts. 
+
+**It is good practice to load required packages at the top of your R script**.
+
+After loading any required packages **it is good practice to assign the import and output file path directories and file names to an object at the top of your script**. I use the same object name for the import file path and output file path in every R script I write. This does a couple of things:
+
+1) You can easily see what the import and output directories are for an R script since it occurs at the top and in the same location with the same names for every R script. 
+
+2) You can use the exact same or nearly the same `read_csv()` and `write_csv()` lines of code for every R script. Just copy and paste. This allow you to focus on writing the meat of the R script - the **Do stuff** step in the general workfolow process.
+
+A template R script might look something like
+
+```{r eval=FALSE}
+## Set up ####
+## Load required packages
+library(readr)
+library(dplyr)
+
+## Set import and output directories
+import.dir <- "data/import"
+output.dir <- "data/output"
+
+## Set import and output file names
+import.file <- "task.csv"
+output.file <- "task_Scores.csv"
+##############
+
+## Import data
+import <- read_csv(here(import.dir, import.file))
+
+## Do Stuff
+data <- import %>%
+  filter() %>%
+  group_by() %>%
+  mutate() %>%
+  select()
+
+## Save data
+write_csv(data, path = here(ouptut.dir, output.file), na = "")
+
+rm(list=ls())
+```
+
+Notice how I use comments to help organize the R script. `#` is how you can insert comments in the script. You can even have a hierchical structure in your comments where it will allow you to "fold" chunks of code. This is helpful if your R script is getting really long and you would like to temporarily hide chunks of code.
+
+To do this you need to have a certain number of `#` at the top of the code chunk. See how I use four `####` after the `## Set up` comment. Four `#`s is usually enough. Then at the end of the code chunk I place a bunch more `#########`. You can put as many as you want, but usually 5 is enough. I like to make it the same length as the the top of the code chunk.
+
+Every R script you write can have this same layout. That is, everything on the "left" side (of the assignment operator `<-`) can stay the exactly same. Whereas what happens on the "right" side depends on what data file you are working with. But even what is happening on the "right" side is similar and may only require the `readr` and `dplyr` packages. 
+
+## The `masterscript.R`
+
+For a given reaserch project you will have multiple R Scripts to go from raw data to statistical analysis. I like to use a masterscript that runs multiple R scripts one after another. In our lab we often times have many many tasks that we need to analyze data from. Well it can get a little crazy trying to keep all the R scripts organized and running the scripts in the correct order. Using a masterscript can help with this and save considerable time.
+
+The `source()` function will execute all the lines of code in an R script. You simply specify the file path of the R script, such as `source("scripts/A_script.R")`. 
+
+The `render()` function will execute all the lines of code in an RMarkdown document that contains statistical analyses. You will learn more about these in __Section III__.
+
+I like to also create an object called `directories` that contains a list of the relative file paths (from the working directory). This can then be used in the individual R Script files.
+
+A typical masterscript of mine will look like
+
+```{r eval = FALSE}
+## Setup ####
+## Load Packages
+library(here)
+library(rmarkdown)
+
+## Specify the directory tree
+directories <- list(scripts = "R Scripts",
+                    data = "Data Files",
+                    raw = "Data Files/Raw Data",
+                    messy = "Data Files/Raw Data/E-Merge",
+                    scored = "Data Files/Scored Data",
+                    results = "Results")
+
+saveRDS(directories, here("directories.rds"))
+rm(directories)
+#############
+
+#############################################
+#------ 1. "messy" to "tidy" raw data ------# 
+#############################################
+
+source(here("R Scripts", "1_[taskname1]_raw.R"), echo = TRUE)
+source(here("R Scripts", "1_[taskname2]_raw.R"), echo = TRUE)
+
+#################################################
+#------ 2. "tidy" raw data to Scored data ------# 
+#################################################
+
+## Score task data from raw data files
+source(here("R Scripts", "2_[taskname1]_score.R"), echo=TRUE)
+source(here("R Scripts", "2_[taskname2]_score.R"), echo=TRUE)
+
+#############################################################
+#------ 3. Create Final Merged Data File for Analysis ------# 
+#############################################################
+
+source(here("R Scripts", "3_merge.R"), echo=TRUE)
+
+###############################
+#------ 4. Descriptives ------# 
+###############################
+
+render(here("R Scripts", "4_Descriptives.Rmd"), 
+       output_dir = here("Results"), output_file = "Descriptives.html",
+       params = list(data = here("Data Files", "Descriptives.csv")))
+
+#######################################
+#------ 5. Statistical Analysis ------# 
+#######################################
+
+render(here("R Scripts", "markdown_document_name.Rmd"), 
+       output_dir = here("Results"), output_file = "Name_of_output.html",
+       params = list(data = here("Data Files", "Name_of_datafile.csv")))
+
+
+rm(list=ls())
+```
+
+
+The masterscript is simply controlling when all the other scripts get executed. This is nice, because if you do not want to necessarily start from the raw data files (if you have already created the raw files) then you can start from the scored data. Or if you have already scored the data, and you are modifying the analysis files you can skip the above steps and just `render()` the analysis files as you modify them.
+
+This saves time because you do not have to open each R Script one at a time to `source()` or `render()` it. You can control it all from the masterscript
+
+## Folder Organization
+
+I suggest adopting a consistent folder organization for all your research projects. Again, this is just about allowing you to focus on the meat of your R scripts.
+
+This is my organization:
+
+_Working Directory_
+
+* Data Files
+    + Raw Data
+        - E-Merge
+    + Scored Data
+* R Scripts
+* Results
+
+In the *Data Files/Raw Data/E-Merge* folder are the **"messy" raw data** files
+
+In the *Data Files/Raw Data* folder are the **"tidy" raw data** files
+
+In the *Data Files/Scored Data* folder are the **scored data** files
+
+In the *Results* folder are the outpued **results**
+
+In the *R Scripts* folder are ALL the R Scripts that are used
+
+You can see how this organization corresponds to the data processing workflow I introduced earlier
+
+```{r echo=FALSE}
+knitr::include_graphics(rep("images/workflow.png"))
+```
+
+## Naming R Scripts
+
+If you have a lot of R Scripts for a project it can make it easier to use a certain naming convention to organize the scripts. **First of all, I definitely reccomend putting all your scripts into one folder.** There is nothing more annoying then having to search all of your computer for the script you are looking for.
+
+I personally like to name my R scripts with a number prefix folowed by an underscore and end it with the name of the data processing step it belongs to (i.e. `1_taskname_raw.R`). 
+
+The numbered prefix denotes what step in the data processing procedure given the organization of the masterscript.
+
+This makes it SO MUCH easier to search for the script you need to work on. For instance, my R Script directory might look like
+
+```{r echo=FALSE}
+knitr::include_graphics(rep("images/folder-organization.png"), dpi = 80)
+```
+
+Where all the scripts that create "tidy" raw data files have the prefix `1` and the suffix `_raw` whereas the scripts for scoring data files has the prefix `2` and the suffix `_score`. The prefix number will order the scripts by their data processing workflow step.
+
+
+********
+
+In the next two chapters we will go over an example of writing R Scripts for steps 1 and 2 of the general data processing workflow.
+
+If you have not doen so already, you should create an `.Rproj` and organize your folders. 
+
+If you would like to use a similar workflow in your R Scripts as I do, you can check out the [R Script templates I have created for the Engle lab](https://github.com/dr-JT/englelab/tree/master/rscript_templates).
+
+********
+
+**Something**

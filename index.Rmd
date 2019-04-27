@@ -1,11 +1,11 @@
 --- 
-title: "R Tutorial for the EngleLab"
+title: "R Tutorial and Guide for the EngleLab"
 author: "Jason Tsukahara"
 date: "`r Sys.Date()`"
 bibliography:
 - book.bib
 - packages.bib
-description: This is a short R Tutorial for the EngleLab
+description: This is an R Tutorial and Guide for the EngleLab
 documentclass: book
 link-citations: yes
 site: bookdown::bookdown_site
@@ -15,33 +15,49 @@ github-repo: "EngleLab"
 
 # Preface {-}
 
-This is an R Tutorial designed specifically for the EngleLab.
+Welcome to the EngleLab R Tutorial and Guide!
 
-This tutorial is specific to what you would need to know to do most data processing and analyses that are common in our lab. Hopefully this will mean less time learning R and more time using R. And as you start using R, you can learn more about it as you go.
+R is becoming a popular tool for doing statistical analyses across many scientific disciplines. It has many advantages but there is a considerable learning curve. This guide is meant to help you become proficient in R and quickly learn standard data processing tasks that are common in the EngleLab.
 
 There are more detailed tutorials and resources mentioned throughout this guide. If you want to become more proficient in R it is a good idea to go through those as well.
 
-I essentially learned R by using it and Googling how to do certain things in R. There are a lot of forums where people have asked the same questions as you and someone has provided a clear answer. I suggest taking advantage of Google in this way.
+There are a lot of online forums where people have asked the same questions as you and someone has most likely provided an answer. I suggest taking advantage of Google to help you learn more about R.
 
-R is becoming a popular tool for doing statistical analyses across many scientific disciplines. It has many advantages but it does also takes some time to learn.
+## How to use this guide {-}
 
-**Chapters 1 and 2** go over the basics of what you need to know to start using R.
+There are two general ways you might use this guide:
 
-**Chapter 3** covers more intermediate R programming and is optional.
+1. Going through each chapter step-by-step as a tutorial
 
-In **Chapter 4** I introduce the general data analysis workflow.
+2. Referencing the guide as you work on your own projects
 
-In **Chapter 5** you will learn the basics of working with dataframes, including how to do transformations, computations, creating new variables, filtering, renaming, merging and more. This will give you the skills you need to go from raw data files to a data file that is organized and ready for statistical analyses.
+    In this case, the "Search" function will be useful to you. You can find the search option at the top of this document.
+    
+For both (particularly for the 1st one), you will want to create a folder directory to save your scripts and data files used in the Guide.
 
-**Chapter 6** covers some basic data transformations such as centering and standardizing variables or creating composite scores.
+__Section I: Getting Started in R__ will cover the baics and fundamentals of how to use R. The Chapter on _Intermediate R_ is optional and not required to continue with the rest of the tutorial
 
-**Chapter 7** introduces two R packages I have created that contain functions that make it easier to implement a lot of data analysis procedures we commonly do in our lab.
+---
 
-**Chapter 8** will cover principles of how you should structure and organize the workflow in your R scripts. **This chapter is very important**
+## Workflow {-}
 
-In **Chapter 9** you will use a Flanker data set as an example of how to go from a "messy" raw data file to a "tidy" raw data file and finally to a scored task file that is ready for statistical analysis.
+The image below represents the general data processing steps required to go from raw data to visualization and statistical analyses. 
 
-**Chapters 10 and beyond** have not been created yet but will cover data visualization and statistical analyses.
+This R Guide will show you how to create R scripts for each of these stages; allowing you to fully reproduce your analyses from beginning to end. One of the major advantages to this is it allows you to easily go back and change how you process data at any one of these stages.
+
+```{r echo=FALSE}
+knitr::include_graphics(rep("images/workflow.png"))
+```
+
+1. The first step of the data processing workflow is to convert **"messy" raw data** files to **"tidy" raw data** files. Most experiment softwares will produce a "messy" raw data file. In this file there are usually more rows and columns than you would ever be interested in, variable or values are named incoherently (i.e. stimSlide2.RT), and/or there may be separate files for each subject. It will be easier to work with a "tidy" raw data file. A "tidy" raw data file has only the rows and columns that are relevant (one row for each trial), variable and values are named coherently (i.e. RT), and there is one file that contains data for all subjects. This is an easy step to skip but it is highly recommended because it will make it easier 1) for your future self to come back and do some additional analyses/re-analyses and 2) for you to share your raw data with other researchers.
+
+2. The next step is to **score and clean the data**. For most statistical analyses you will want to aggregate the trial-level data into one or more dependent measures for that task. The scored data file will have one row per subject (or possibly one row per subject per experimental condition). This step also involves any data cleaning procedures you might choose to perform, such as removing outliers.
+
+These first two steps are all about data preparation. These steps will be covered in __Section II: Working with Data__.
+    
+3. Finally you are now ready for the fun part, **Data Analysis**! Data analysis consists of visualing your data and conducting statistical analyses. At this stage you will be generating output of your results in tables and figures.
+
+This third step will be covered in two sections; __Section III: Data Visualization__ and __Section IV: Statistical Analyses__.
 
 ********
 

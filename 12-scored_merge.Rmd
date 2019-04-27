@@ -1,0 +1,168 @@
+# Merge: Create A Final Data File
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE)
+```
+
+In our lab we run large-scale studies in which we might have more than 30 tasks to score. This means you will have lots of scripts for creating *tidy* raw data and *scored* data files. 
+
+In the end, you don't just want a bunch of separate *scored* data files. You want a single data file with all the variables and subjects together. 
+
+----
+<div style="text-align: center; font-size: 1.25em">
+<i class="fas fa-save" style="font-size: 3em"></i> 
+
+Save a new R script file as `3_merge.R` in the *R Scripts* folder
+
+</div>
+----
+
+In this Chapter you will learn how to write a script for merging multiple *scored* data files and doing some more data cleaning by removing outlier scores. There are four blocks of code in this script
+
+1) **Setup**
+
+2) **Merge**
+
+3) **Select and Trim**
+
+4) **Output**
+
+## Setup
+
+The *Setup* block is very similar to what you did in the previous Chapters
+
+```{r}
+## Setup ####
+## Load packages
+library(here)
+library(readr)
+library(dplyr)
+library(datawrangling)
+
+## Set Import/Output directories
+directories <- readRDS(here("directories.rds"))
+import.dir <- directories$scored
+output.dir <- directories$data
+#############
+```
+
+## Merge
+
+In this block we can import/merge all the *Scored* data files. You only wrote a script to score the Flanker task, but at the beginning of this section you downloaded other *Scored* data files. Normally you would have written *tidy* raw and *Scored* scripts for these tasks but we can skip that to speed things along.
+
+Look at the files in *Data Files/Scored Data*. You can view your files in RStudio by navigating in the *Files* window pane. 
+
+We will import/merge all these files in one step using `files_join()` from my `datawrangling` package. The main argunents for this function are:
+
+* __path__: Folder location of files to be merged
+
+* __pattern__: String pattern to uniquely identify files to be merged
+
+* __id__: Subject ID variable name.
+
+```{r}
+## Merge ####
+import <- files_join(here(import.dir), pattern = "Scores", id = "Subject")
+#############
+```
+
+View `import`. Notice that it contains A LOT of columns, most of which we are not really intersted in for *Data Analysis*.
+
+## Select and Trim
+
+The next step is really straight forward. The *Scored* data files will each contain way more columns than we are actually interested in. Therefore, we should only select those columns that contain the variables we want to analyze in the *Data Analysis* stage.
+
+We can also remove Scores that are univariate outliers, using `trim()` from `datawrangling`.
+
+```{r}
+## Select and Trim ####
+data <- import %>%
+  select(Subject, OSpan = OSpan.Partial, SymSpan = SymSpan.Partial, 
+         RotSpan = RotSpan.Partial, FlankerEffect = FlankerEffect_RT,
+         StroopEffect = StroopEffect_RT) %>%
+  trim(variables = "all", cutoff = 3.5, replace = "NA", id = "Subject")
+########################
+```
+
+Notice how I am renaming some of the variable names to be more concise. Now view `data`. This is a much more manageable data file compared to `import`. 
+
+## Output
+
+Besides outputing the merged data file, I like to also output a file that simply has a list of all `Subjects` that made it through all the data cleaning procedures. This will be a list of subjects that go into **Data Analysis**.
+
+```{r}
+## Output ##
+subj.list <- select(data, Subject)
+write_csv(data, here(output.dir, "Data.csv"))
+write_csv(subj.list, here(output.dir, "subjlist_final.csv"))
+############
+```
+
+----
+
+----
+
+Putting it all together:
+
+```{r}
+## Setup ####
+## Load packages
+library(here)
+library(readr)
+library(dplyr)
+library(datawrangling)
+
+## Set Import/Output directories
+directories <- readRDS(here("directories.rds"))
+import.dir <- directories$scored
+output.dir <- directories$data
+#############
+
+## Merge ####
+import <- files_join(here(import.dir), pattern = "Scores", id = "Subject")
+#############
+
+## Select and Clean ####
+data <- import %>%
+  select(Subject, 
+         RAPM, NumberSeries, LetterSets,
+         OSpan = OSpan.Partial, SymSpan = SymSpan.Partial, 
+         RotSpan = RotSpan.Partial, Antisaccade = Antisaccade_ACC.mean,
+         FlankerEffect = FlankerEffect_RT, FlankerBin,
+         StroopEffect = StroopEffect_RT, StroopBin) %>%
+  trim(variables = "all", cutoff = 3.5, replace = "NA", id = "Subject")
+########################
+
+## Output ##
+subj.list <- select(data, Subject)
+write_csv(data, here(output.dir, "Data.csv"))
+write_csv(subj.list, here(output.dir, "subjlist_final.csv"))
+############
+
+rm(list = ls())
+```
+
+
+## Masterscript
+
+Now put a `source()` line in the masterscript to source this merge script.
+
+Wow! Now you have completed your *Data Preparation* scripts to go from *messy* raw data to *tidy* raw data to *scored* data and finally a single *merged* data file that is all ready for *Data Analysis*! And you can control all this by running the code in the masterscript, or just sourcing the entire masterscript.
+
+```{r echo=FALSE, eval = TRUE}
+knitr::include_graphics(rep("images/workflow.png"))
+```
+
+And the great thing is that this can serve as a general template for you. **Truly**, most of the code you have written here can just be directly copy and pasted from one task or even one study to the next. Not much changes. What is happening in between *import* and *output* will change but the rest will stay more or less the same. Copying and Pasting from a template allows you to focus more getting your data ready for analysis and less on writing code. 
+
+********
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, eval = TRUE}
+rm(list=ls())
+```
+
+********
+
+**Something**

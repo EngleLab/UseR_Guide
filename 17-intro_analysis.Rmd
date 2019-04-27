@@ -1,6 +1,8 @@
-# (PART) III. Data Analysis {-}
+# (PART) Data Ananlysis {-}
 
-# Analyzing Data in R
+# Introduction to Data Analysis
+
+## R Markdown
 
 ```{r echo=FALSE}
 knitr::include_graphics(rep("images/workflow.png"))
@@ -8,7 +10,7 @@ knitr::include_graphics(rep("images/workflow.png"))
 
 Phew! You've made it this far, good job. Up until now you have been learning how to do data preparation steps in R. Now for the fun part, statistical analyses and data visualization!
 
-This is the third and final step in the data workflow process depicted above. Traditionally you have likely done these analyses in SPSS or EQS and have created figures in Excel or PowerPoint. The rest of the tutorial will cover how to do these steps in R.
+This is the third and final step in the data workflow process depicted above. Traditionally you have likely done these analyses in SPSS or EQS and have created figures in Excel or PowerPoint. The rest of the guide will cover how to do these steps in R.
 
 Writing scripts to do statistical analyses is an entirely different process than writing scripts for data preparation. Therefore, we should first go over the general process of conducting and outputing statistical analyses in R.
 
@@ -16,9 +18,9 @@ In programs like SPSS when you run a statistical analysis, it will be outputed t
 
 One downfall about R is that unlike SPSS, there is not a native way to create output documents from statistical analyses. Fortunately, RStudio has an output document format called **R Markdown**. 
 
-## R Markdown
+### What is an R Markdown File?
 
-**R Markdown** is a powerful way to create reports of statistical analyses. Reports can be outputed in a lot of different formats; html, Microsoft Word, PDF, presentation slides, and more. In fact, this tutorial was created using **R Markdown**. 
+**R Markdown** is a powerful way to create reports of statistical analyses. Reports can be outputed in a lot of different formats; html, Microsoft Word, PDF, presentation slides, and more. In fact, this guide was created using **R Markdown**. 
 
 The easiest format to output as is **html**. html documents are opened in a web browser and therefore can be opened on any computer and device (phones, tablets, Windows, Mac). 
 

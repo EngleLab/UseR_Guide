@@ -1,4 +1,4 @@
-# (PART) I. Getting Started in R {-}
+# (PART) Getting Started in R {-}
 
 # Installation
 
@@ -70,6 +70,8 @@ knitr::include_graphics(rep("images/rstudio-settings.png"))
 Be sure to set 'Save workspace to .RData on exit' to Never
 
 You can also change the "Editor Theme" if you navigate to the "Appearance" tab in Settings. Dark themes are easier on the eyes. I use **Material** dark theme.
+
+********
 
 ********
 

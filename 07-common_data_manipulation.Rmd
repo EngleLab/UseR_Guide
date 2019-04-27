@@ -1,0 +1,257 @@
+# Common Data Manipulations
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+In R, the term data wrangling is often times used to refer to performing data manipulation and transformations. The functions you will learn about in this Chapter come from the `datawrangling` package I developed.
+
+```{r echo=FALSE, out.width=125, fig.align='center'}
+knitr::include_graphics(rep("images/datawrangling_logo.png"))
+```
+
+There are certain data transformations we use on a regular basis that would require several steps and lines of code to do. `datawrangling` allows you to perform these transformation in a single line of code. Hopefully, `datawrangling` will get you to start using R more easily for data analysi.
+
+I am hosting the `datawrangling` package on GitHub. To download packages on GitHub you first need to download the `devtools` package.
+
+```{r eval = FALSE}
+install.packages("devtools")
+```
+
+Now install the `datawrangling` package:
+
+```{r eval = FALSE}
+devtools::install_github("dr-JT/datawrangling")
+```
+
+----
+<div style="text-align: center; font-size: 1.25em">
+<i class="fas fa-save" style="font-size: 3em"></i> 
+
+Save a new R script file as `7_transform.R`
+
+</div>
+----
+
+----
+
+For this Chapter, let's create a dataframe to use as an example for common data manipulations using `datawrangling`. Don't worry about what this code means for now, just copy it into your script and run it.
+
+```{r collapse = TRUE}
+import <- data.frame(ID = c(1:100), Score1 = rnorm(100, mean = 2, sd = .8), Score2 = rnorm(100, mean = 7, sd = 1.1), Score3 = rnorm(100, mean = 10, sd = 1.8), Score4 = rnorm(100, mean = 20, sd = 2.3))
+
+head(import)
+```
+
+----
+
+## Descriptive Statistics
+
+First you should know how to compute some basic descriptive statistics.
+
+Basic descriptive statistics include mean, median, standard deviation, max, min, skew, kurtosis, etc...
+
+The functions to calculate these are pretty straightforward:
+
+*Base R*
+
+* __maximum__: `max()`
+
+* __minimum__: `min()`
+
+* __count__:` n()`
+
+* __mean__: `mean()`
+
+* __median__: `median()`
+
+* __standard deviation__: `sd()`
+
+* __variance__: `var()`
+
+* __quantiles (percentiles)__: `quantile()`
+
+    specify the percentiles with the argument `probs = ` (default is c(0, .25, .5, .75, 1))
+
+*e1071* package
+
+* __skewness__: `skewness(variable, na.rm = TRUE, type = 2)`
+
+* __kurtosis__: `kurtosis(variable, na.rm = TRUE, type = 2)`
+
+For all of these you need to specify `na.rm = TRUE` if the variable column has missing data. It is best to just always set `na.rm = TRUE`. For example,
+
+```{r eval=FALSE}
+mean(variable, na.rm = TRUE)
+```
+
+To calculate the overall mean on `Score1` would look like
+
+```{r collapse = TRUE, message=FALSE, warning=FALSE}
+library(dplyr)
+
+data <- import %>%
+  mutate(Score1.mean = mean(Score1, na.rm = TRUE))
+```
+
+## Centering and Standardizing Variables
+
+The function `center()` will create either unstandardized or standardized (z-scored) centered variables. The list of arguments that can be passed onto the function are:
+
+* __x__: dataframe
+
+* __variables__: c() of columns to center
+
+* __standardize__: Logical. Do you want to calculate zscores? (Default = FALSE)
+
+Example:
+
+```{r}
+library(datawrangling)
+
+data <- center(import, variables = c("Score1", "Score2", "Score3", "Score4"), standardize = TRUE)
+```
+
+View the dataframe `data`. You will notice that there are now 4 additional columns: `Score1_z`, `Score2_z`, `Score3_z`, and `Score4_z`.
+
+If you choose to to calculate centered (unstandardized) scores, then `standardize = FALSE`. And it will create variables with the suffix `_c`.
+
+## Trimming
+
+The function `trim()` will replace outlier scores that exceed a certain z-score cutoff.
+
+There are several options for how to replace the outlier scores. Replace with
+
+* "NA" (missing value)
+
+* "cutoff" (the z-score cutoff value, e.g. 3.5 SDs)
+
+* "mean" 
+
+* "median"
+
+The arguments that can be specified are:
+
+* __x__: dataframe
+
+* __variables__: c() of variables to be trimmed. option to set `variables = "all"` to trim all variables in a dataframe. But then must specify `id = `
+
+* __cutoff__: z-score cutoff to use for trimming (default: 3.5)
+
+* __replace__: What value should the outlier values be replaced with. (default: replace = "NA")
+
+* __id__: Column name that contains subject IDs. **ONLY needs to be used if `variables = "all"`
+
+Example:
+
+```{r}
+data <- import %>%
+  trim(variables = c("Score1", "Score2", "Score3", "Score4"), cutoff = 3.5, replace = "NA", id = "ID")
+```
+
+Notice how you don't even need to `center()` the variables first. The centering is being done inside of `trim()`. You can evaluate outliers and replace with different values (`replace = `) all in one function and one line of code.
+
+## Composites
+
+The `composite()` function allows you to easily create a composite score from multiple variables and also specifiy a certain criteria for how many missing values are allowed.
+
+```{r}
+data <- import %>%
+  composite(variables = c("Score1", "Score2", "Score3"), 
+            type = "mean",
+            standardize = TRUE,
+            name = "Score_comp",
+            missing.allowed = 1)
+```
+
+The function `composite()` will create composite scores out of specified columns. Right now you can only create "mean" composite scores. In the future I plan on adding "sum" and "factor score" composite types. 
+
+Here is a list of the arguments you can specifiy:
+
+* __x__: dataframe
+
+* __variables__: c() of columns to create the composite from
+
+* __type__: What type of composite should be calculated?, i.e. mean or sum. (Default = "mean").
+
+* __standardize__: Logical. Do you want to calculate the composite based on standardized (z-score) values? (Default = TRUE)
+
+* __name__: Name of the new composite variable to be created
+
+* __missing.allowed__: Criteria for the number of variables that can having missing values and still calculate a composite for that subject
+
+----
+
+The remaining functions do not come from the `datawrangling` package but you may find them useful nonetheless.
+
+----
+
+## Scale Transformations
+
+### log
+
+[insert base off of Field]
+
+### polynomial
+
+You can create orthogonal polynomials of variables using the `poly()` function and specify the degree of polynomial to go up to with `degree = `
+
+```{r collapse = TRUE, eval = FALSE}
+poly(import$Score1, degree = 3)
+```
+
+You can see it creates up to three degrees of polynomials on the Score1 variable. The first degree is a linear, second is a quadratic, and third is cubic. Let's say we want to create three new columns with each of these three polynomials. To do so we need to individually access each vector such as
+
+```{r collapse = TRUE, eval=FALSE}
+poly(import$Score1, degree = 3)[,1]
+```
+
+
+```{r collapse = TRUE}
+library(dplyr)
+
+data <- import %>%
+  mutate(Score1.linear = poly(Score1, degree = 3)[ , 1],
+         Score1.quadratic = poly(Score1, degree = 3)[ , 2],
+         Score1.cubic = poly(Score1, degree = 3)[ , 3])
+```
+
+Here is plot to show you visually what happened
+
+```{r echo = FALSE}
+library(ggplot2)
+
+ggplot(data, aes(x = Score1)) +
+  geom_line(aes(y = Score1.linear), color = "blue") +
+  geom_line(aes(y = Score1.quadratic), color = "green") +
+  geom_line(aes(y = Score1.cubic), color = "red") +
+  ylab(label = "Score1.polynomial")
+```
+
+## Custom Transformations
+
+In general, with `mutate()` you can specify any custom transformation you want to do on a variable. For instance, if you want to subtract each score by `5`, and divide by `10` then you can do it! I don't know why you would ever want to do that, but you can.
+
+```{r collapse = TRUE}
+library(dplyr)
+
+data <- import %>%
+  mutate(Score_crazy = (Score1 - 5)/10)
+```
+
+Or take the sum of `Score1` and `Score2` and divide by the difference between `Score3` and `Score4`.
+
+```{r collapse = TRUE}
+library(dplyr)
+
+data <- import %>%
+  mutate(Score_crazy = (Score1 + Score2)/(Score3 - Score4))
+```
+
+********
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=ls())
+```
+
+********
+
+**Something**

@@ -1,6 +1,17 @@
 # Intermediate R
 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 This chapter will cover more intermediate R programming, such as for loops, and functions.
+
+----
+<div style="text-align: center; font-size: 1.25em">
+<i class="fas fa-save" style="font-size: 3em"></i> 
+
+Save a new R script as `3_intermediate.R`
+
+</div>
+----
 
 ## For Loops
 
@@ -96,7 +107,7 @@ But what if we want to preserve the original vector `c`? Well we need to put it 
 
 But if you are goind to do this to a "new" vector that is not yet created you will run into an error. 
 
-```{r collapse=TRUE}
+```{r collapse=TRUE, eval=FALSE}
 c <- c(1,6,3,8,2,9)
 for (i in seq_along(c)){
   if (c[i] > 3){
@@ -296,7 +307,13 @@ Walla! You did it. You created a function. Notice that we set the default value 
 
 **Both for loops and functions allow you to write more concise and readable code.** If you are copying and pasting the same lines of code with only small modification, you can probably write those lines of code in a for loop or a function. 
 
+********
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=ls())
+```
 
 ********
 
-**The next chapter introduces the workflow process of data analysis in R**
+**Something**
+

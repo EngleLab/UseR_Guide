@@ -1,0 +1,124 @@
+# `workflow` Package
+
+I have made it __WAY TOO EASY__ for you to 
+
+1) Set up an organized directory and R Project for a new Research Study
+
+2) Download ready-made R-Script templates
+
+To be able to do this, you will need to download my `workflow` package.
+
+```{r eval = FALSE}
+devtools::install_github("dr-JT/workflow")
+```
+
+## Start a new research study
+
+Using the `workflow` package you can easily steup a new research study (BEFORE DATA COLLECTION) with an organized directory and ready-made R Script files.
+
+Let's set one up for this Tutorial. You will create a study directory in your root `R-Tutorial` folder. Do not create the folder yet.
+
+What this package will do is create a root study direcotry with an `.Rproj` file and the following default folders:
+
+* `/R Scripts` : For R script files
+
+* `/Data Files` : For Data files
+
+* `/Data Files/Raw Data` : For "tidy" raw data files
+
+* `/Data Files/Raw Data/E-Merge` : For "messy" raw data files
+
+* `/Data Files/Scored Data` : For scored data files
+
+* `/Results` : For outputed `.html` results files
+
+* `/Tasks` : For task files (E-Run and E-studio) that will be used to run participants
+
+* `/Documents` : For any related document files (e.g. Methods documents)
+
+----
+
+Navigate to __File -> New Project... -> New Directory 
+
+And browse until you see the option: __Create a Research Study__
+
+Click on that and you will some options you can specify:
+
+```{r echo=FALSE}
+knitr::include_graphics(rep("images/create_researchstudy.png"))
+```
+
+
+### Directory
+
+* __Directory Name__: This will be the name of the folder for the study
+
+* __Create project as subdirecotry of__: Select Browse and choose where the folder (Directory Name) should be located. In this case browse to your R-Tutorial folder.
+
+### Additional Options
+
+* __Type of Study__: You can choose either `standard` or `sem`. The `sem` option will download some extra ready-made analysis template scripts (`.Rmd`) that are useful for conducting SEM in R.
+
+* __# of Sessions__: How many sessions will the study have? This will create folders in the `Tasks` directory for each session. For instance, if there will be 4 sessions it will create the the folders "Session 1", "Session 2", "Session 3", and "Session 4".
+
+* __Additional Directories__: Do you want to add the additional directories?
+
+    * `/Results/Figures` : For any image files related to analyses
+    
+    * `/Manuscript` : For drafts and final versions of the manuscript related to the study
+    
+    * `/Presentations` : For any presentations you give related to the study
+    
+* __Download Scripts__: Do you want to download the following scripts?
+
+    * __Generic Scripts__: Generic `masterscript.R`, `_raw.R`, and `_score.R` script templates
+    
+    * __Gf Scripts__: `gf_raw.R` and `gf_score.R` scripts
+    
+    * __WMC Scripts__: `wmc_raw.R` and `wmc_score.R` scripts
+    
+    * __Attention Control Scripts__: `_raw.R` and `_score.R` scripts for the antisaccade, flankerDL, stroopDL, va4, and sact tasks.
+    
+    The Gf, WMC, and Attention Control scripts should be good-to-go. You likely will not even need to modify these.
+    
+    The Generic scripts are good if you have additional tasks you will want to create `_raw.R` and `_score.R` data files for.'
+    
+## Download ready-made templates
+
+If you have already started data collection or have created your study directory, but want to download some R script templates you can use the `workflow::template()` function.
+
+### Generic Templates
+
+To download ALL __generic__ templates
+
+```{r eval=FALSE}
+workflow::template(all = TRUE)
+```
+
+To download specific __generic__ templates specify `TRUE` for whichever templates you want to download.
+
+```{r eval = FALSE}
+workflow::template(masterscript = TRUE, rawscript = TRUE, scorescript = TRUE,
+                   mergescript = TRUE, demographics = TRUE, sem = TRUE)
+```
+
+### Gf, WMC, and Attention Control Scripts
+
+To download ready-to-go Gf, WMC, and Attention control scripts, just specify `TRUE` for whichever script you want to dowload.
+
+```{r eval = FALSE}
+workflow::template(gf = TRUE, wmc = TRUE, ac = TRUE)
+```
+
+
+********
+
+In the next two chapters we will go over an example of writing R Scripts for steps 1 and 2 of the general data processing workflow.
+
+If you have not doen so already, you should create an `.Rproj` and organize your folders. 
+
+If you would like to use a similar workflow in your R Scripts as I do, you can check out the [R Script templates I have created for the Engle lab](https://github.com/dr-JT/englelab/tree/master/rscript_templates).
+
+********
+
+**Now let's apply everything you have learned so far using an example data set**

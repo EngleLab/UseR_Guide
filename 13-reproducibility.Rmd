@@ -1,0 +1,177 @@
+# (PART) Data Science Practices {-}
+
+# Reproducibility
+
+As you start becoming more proficient in R you will be able manage, process, and analyze your data at all stages of analysis through R scripts alone. 
+
+----
+<div style="text-align: center; font-size: 1.25em">
+Goodbye Excel, goodbye SPSS, and good ridance to EQS!
+</div>
+----
+
+Although we deal with data all the time as scientists, we have never really been educated on what **good data science practices** look like. In psychology, I believe this is partly due to our reliance on programs like SPSS or Excel for data analysis and visualization. While these programs offer a nice user interface, they do not offer any tools to help us manage and process our data at all stages of analysis. 
+
+Open Science and Reproducibility practices are *very* quickly becoming the norm in all fields of science. Programming languages like R are perfectly suited to help us implement these practices. 
+
+**Reliance on programs like SPSS and Excel will hinder our ability to join the Open Science and Reproducibility movement.** Before we are even part of the **old** generation, if we do not start to ween ourselves off of SPSS and Excel then we will certainly *feel* like the **old** generation. 
+
+However, simply learning the R syntax alone is not enough. You will need to start thinking more about what are **good data science practices** that allow me to manage, process, and analyze my data in a way that is consistent with Open Science and Reproducibility?
+
+In the previous section I already had you implementing these **good data science practices**. In the next few Chapters I will explain these in more detail.
+
+----
+
+Reproducibility is not just about allowing others to reproduce your analyses. More importantly it allows you to reproduce your own analyses. Or perhaps go back and modify some step and re-run the modified analysis.
+
+**Therefore, learning R is about learning how to manage and handle your data processing workflow in a way that empowers your ability to analyze and explore your data.** 
+
+If you treat R as just an alternative to SPSS, then it is all too easy to create poorly written scripts and disorganized projects that completely undermine reproducibility. Honestly, I am not sure if it is worth taking the time and effort to learn R as simply an alternative to SPSS. 
+
+----
+
+Parts of this section are taken directly from the excellent book on Data Science in R
+
+----
+<div style="text-align: center; font-size: 1em">
+[R for Data Science](https://r4ds.had.co.nz/workflow-projects.html)
+</div>
+----
+
+One day you will need to quit R, go do something else and return to your analysis the next day. One day you will be working on multiple analyses simultaneously that all use R and you want to keep them separate. One day you will need to bring data from the outside world into R and send numerical results and figures from R back out into the world. To handle these real life situations, you need to make two decisions:
+
+1. What about your analysis is “real”, i.e. what will you save as your lasting record of what happened?
+
+2. Where does your analysis “live”?
+
+## What is real?
+
+As a beginner R user, it is tempting to consider whatever is in our `Environment` (i.e. data we have imported) as *"real"*. However, we should consider our **R Scripts** and **Data Files** saved on our computer as *real*. 
+
+With your R scripts (and your data files), you can recreate the `Environment` It’s much harder to recreate R scripts from your `Environment`! You’ll either have to retype a lot of code from memory (making mistakes all the way) or you’ll have to carefully mine your R history.
+
+Therefore, the `Environment` is more of a temporary *workspace*. This *workspace* will get cleared out every time you Restart or Quit out of R and RStudio. If you treat your `Environment` as real this can have disasterous consequences and you can lose a lot of productivity and undermine Reproducibility.
+
+----
+<div style="text-align: center; font-size: 1.25em">
+Your R Scripts and Data Files are *real*
+</div>
+----
+
+Even if you need to Quit R, come back to an analysis the next day, or want to run your analysis on a different computer than you started you should be able to reproduce your analyses.
+
+----
+<div style="text-align: center; font-size: 1.25em">
+You should be able to **Reproduce** all your analyses from your saved R scripts and *original* data files. 
+</div>
+----
+
+## Where does your analysis live?
+
+"One day you will be working on multiple analyses simultaneously that all use R and you want to keep them separate"
+
+There are two levels at which your analysis will live
+
+1. Project level
+
+2. Individual R Script level
+
+### Project Level
+
+The **Project Level** refers to where you are storing all your files associated with the project (i.e. R scripts, data files, figures, results) as well as to the organization of your folders and files. 
+
+If you are working on multiple projects at one time, then it is *vital* to:
+
+----
+<div style="text-align: center; font-size: 1.25em">
+Keep your analysis from different projects separated
+</div>
+----
+
+You do not want objects created in your `Environment` from one project to get mixed up with objects (perhaps with the same object names) in a different project. We have not talked about the concept of *Working Diectories* yet, but you also need to ensure your working directory is correctly set in order to import and output files. If you are working on multiple projects at one time and not keeping them separated you will have issues **Reproducing** your analysis because the working directory might not be set correctly.
+
+The three most important elements to an environment are:
+
+1. The working directory
+
+2. Loaded packages
+
+3. Objects
+
+**The best way to keep project `Environments` separated is to work on them in separate R Sessions**.
+
+You can have multiple Sessions of R open at one time. The three elements of an `Environment` in one R Session will be different and independent from those in another R Session. RStudio has an excellent way of managing separate projects with a feature called RStudio Projects.
+
+----
+<div style="text-align: center; font-size: 1.25em">
+Use **RStudio Projects** to create separate Environments for your projects 
+</div>
+----
+
+[Visit this page](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) for more details on R Projects.
+
+There are a couple of ways you can open an RStudio Project. 
+
+* One way is to just simply open the `.Rproj` file. This will open a new R Session (and RStudio window). 
+
+* If you already have an RStudio window open you can navigate to the very top-right of the application window and browse different projects you have recently worked on. This is where you can also see which Project you currently have open.
+
+```{r echo=FALSE, fig.align='center'}
+knitr::include_graphics(rep("images/rproj_open.png"))
+```
+
+
+### Script Level
+
+Within a Project, you will have multiple R Scripts that are performing a different analysis. It is also important to keep the `Environment` of an R Script independent of the `Environment` from other R Scripts. 
+
+Obviously your R Scripts will be dependent on one another in the sense that one R Script might be creating data files that other R Scripts will later use. 
+
+For example, you might have an R Script (or multiple scripts) that prepare the data for statistical analysis by creating a *scored merged data file*. Then another R Script will actually run and output the statistical analyses. The statistical analysis R Script is dependent on a data file created by the first R Script. **However**, the `Environment` of the R Scripts are independent from one another.
+
+----
+<div style="text-align: center; font-size: 1.25em">
+R Scripts are linked in a data processing workflow through the data files they create not by the objects in the Environment
+</div>
+----
+
+**Therefore, it is important that the `Environment` of each R Script within a Project are independent from one another.** This means that an R Script should not depend on objects created or data imported in other R Scripts. Or that any packages required for an R Script should be loaded in THAT script and not depend on them being loaded in other R Scripts. 
+
+As long as the data files required for an R Script are already created, you should be able to open a completely new and fresh session of R and succesfully execute all the lines of code in that one Script (without having ran any other scripts). 
+
+This is why in the scripts you created for the previous Section they all had a similar structure:
+
+1. **Setup**
+
+2. **Import**
+
+3. **Do Stuff**
+
+4. **Output**
+
+In the **Setup** section you are making sure that all the packages for that ONE script are loaded, any import or output directory objects are set correctly, and any parameters for data cleaning are set. 
+
+Every R script in the **Data Preparation** stage *Imports* a file and *Outputs* a file. This makes sure the scripts are linked in the data processing workflow by the **files** they create (output) and not by the Objects in the **Environment** they create. 
+
+Then at the end of each R Script I had you include the line of code
+
+```{r}
+rm(list = ls())
+```
+
+This removes all Objects in your **Environment**. That way when you run the next R Script it is starting from a blank **Environment**
+
+Some people in the R community say this is not a good practice, but in reality it is not harmful to add this line of code. It is not perfect because it does not unload any packages that have been loaded.
+
+Given that I had you implementing these practices in the previous Section it might not seem like that big of a deal to you. Good! But sometimes when I look at other researcher's R Scripts sometimes I am just dismayed at how poorly their projects and scripts are organized. You can start by implementing these **good data science practices** from the beginning without thinking too much of it.
+
+********
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=ls())
+```
+
+********
+
+**Something**
+
