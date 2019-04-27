@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R Tutorial and Guide for the EngleLab</title>
+  <meta name="description" content="This is an R Tutorial and Guide for the EngleLab">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R Tutorial and Guide for the EngleLab" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is an R Tutorial and Guide for the EngleLab" />
+  <meta name="github-repo" content="EngleLab" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R Tutorial and Guide for the EngleLab" />
+  
+  <meta name="twitter:description" content="This is an R Tutorial and Guide for the EngleLab" />
+  
+
+<meta name="author" content="Jason Tsukahara">
+
+
+<meta name="date" content="2019-04-27">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="fundamentals-of-data-visualization.html">
+<link rel="next" href="scatterplots.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#workflow"><i class="fa fa-check"></i>Workflow</a></li>
+</ul></li>
+<li class="part"><span><b>I Getting Started in R</b></span></li>
+<li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
+<li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
+<li class="chapter" data-level="1.2" data-path="installation.html"><a href="installation.html#installing-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R Studio</a></li>
+<li class="chapter" data-level="1.3" data-path="installation.html"><a href="installation.html#the-r-studio-environemnt"><i class="fa fa-check"></i><b>1.3</b> The R Studio Environemnt</a></li>
+<li class="chapter" data-level="1.4" data-path="installation.html"><a href="installation.html#r-studio-settings"><i class="fa fa-check"></i><b>1.4</b> R Studio Settings</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-r.html"><a href="basic-r.html"><i class="fa fa-check"></i><b>2</b> Basic R</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-r.html"><a href="basic-r.html#creating-r-objects"><i class="fa fa-check"></i><b>2.1</b> Creating R objects</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="basic-r.html"><a href="basic-r.html#classes"><i class="fa fa-check"></i><b>2.1.1</b> Classes</a></li>
+<li class="chapter" data-level="2.1.2" data-path="basic-r.html"><a href="basic-r.html#vectors"><i class="fa fa-check"></i><b>2.1.2</b> Vectors</a></li>
+<li class="chapter" data-level="2.1.3" data-path="basic-r.html"><a href="basic-r.html#factors"><i class="fa fa-check"></i><b>2.1.3</b> Factors</a></li>
+<li class="chapter" data-level="2.1.4" data-path="basic-r.html"><a href="basic-r.html#lists"><i class="fa fa-check"></i><b>2.1.4</b> Lists</a></li>
+<li class="chapter" data-level="2.1.5" data-path="basic-r.html"><a href="basic-r.html#data-frames"><i class="fa fa-check"></i><b>2.1.5</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="basic-r.html"><a href="basic-r.html#ifthen-statements"><i class="fa fa-check"></i><b>2.2</b> If…then Statements</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-r.html"><a href="basic-r.html#r-packages"><i class="fa fa-check"></i><b>2.3</b> R Packages</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="basic-r.html"><a href="basic-r.html#installing-and-loading-r-packages"><i class="fa fa-check"></i><b>2.3.1</b> Installing and Loading R Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="basic-r.html"><a href="basic-r.html#more-r-basic-resources"><i class="fa fa-check"></i><b>2.4</b> More R Basic Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="intermediate-r.html"><a href="intermediate-r.html"><i class="fa fa-check"></i><b>3</b> Intermediate R</a><ul>
+<li class="chapter" data-level="3.1" data-path="intermediate-r.html"><a href="intermediate-r.html#for-loops"><i class="fa fa-check"></i><b>3.1</b> For Loops</a></li>
+<li class="chapter" data-level="3.2" data-path="intermediate-r.html"><a href="intermediate-r.html#functions"><i class="fa fa-check"></i><b>3.2</b> Functions</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="intermediate-r.html"><a href="intermediate-r.html#creating-your-own-functions"><i class="fa fa-check"></i><b>3.2.1</b> Creating Your Own Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Working with Data</b></span></li>
+<li class="chapter" data-level="4" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i><b>4</b> The tidyverse</a></li>
+<li class="chapter" data-level="5" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html"><i class="fa fa-check"></i><b>5</b> Importing and Outputing Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#csv"><i class="fa fa-check"></i><b>5.1</b> CSV</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-.csv"><i class="fa fa-check"></i><b>5.1.1</b> Import <code>.csv</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.csv"><i class="fa fa-check"></i><b>5.1.2</b> Output <code>.csv</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#tab-delimited"><i class="fa fa-check"></i><b>5.2</b> Tab-Delimited</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-.txt"><i class="fa fa-check"></i><b>5.2.1</b> Import <code>.txt</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.txt"><i class="fa fa-check"></i><b>5.2.2</b> Output <code>.txt</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#spss"><i class="fa fa-check"></i><b>5.3</b> SPSS</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-.sav"><i class="fa fa-check"></i><b>5.3.1</b> Import <code>.sav</code></a></li>
+<li class="chapter" data-level="5.3.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.sav"><i class="fa fa-check"></i><b>5.3.2</b> Output <code>.sav</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#rstudio-import-gui"><i class="fa fa-check"></i><b>5.4</b> RStudio Import GUI</a></li>
+<li class="chapter" data-level="5.5" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#merging-data-files"><i class="fa fa-check"></i><b>5.5</b> Merging Data Files</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html"><i class="fa fa-check"></i><b>6</b> Data Manipulation using <code>dplyr</code></a><ul>
+<li class="chapter" data-level="6.1" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#setup"><i class="fa fa-check"></i><b>6.1</b> Setup</a></li>
+<li class="chapter" data-level="6.2" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#import"><i class="fa fa-check"></i><b>6.2</b> Import</a></li>
+<li class="chapter" data-level="6.3" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#rename"><i class="fa fa-check"></i><b>6.3</b> <code>rename()</code></a></li>
+<li class="chapter" data-level="6.4" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#filter"><i class="fa fa-check"></i><b>6.4</b> <code>filter()</code></a></li>
+<li class="chapter" data-level="6.5" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#select"><i class="fa fa-check"></i><b>6.5</b> <code>select()</code></a></li>
+<li class="chapter" data-level="6.6" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#mutate"><i class="fa fa-check"></i><b>6.6</b> <code>mutate()</code></a><ul>
+<li class="chapter" data-level="6.6.1" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#changing-values-in-an-existing-column"><i class="fa fa-check"></i><b>6.6.1</b> Changing values in an existing column</a></li>
+<li class="chapter" data-level="6.6.2" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#creating-a-new-column"><i class="fa fa-check"></i><b>6.6.2</b> Creating a new column</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#group_by"><i class="fa fa-check"></i><b>6.7</b> <code>group_by()</code></a></li>
+<li class="chapter" data-level="6.8" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#summarise"><i class="fa fa-check"></i><b>6.8</b> <code>summarise()</code></a></li>
+<li class="chapter" data-level="6.9" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#spread"><i class="fa fa-check"></i><b>6.9</b> <code>spread()</code></a></li>
+<li class="chapter" data-level="6.10" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#pipe-operator"><i class="fa fa-check"></i><b>6.10</b> Pipe Operator %&gt;%</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html"><i class="fa fa-check"></i><b>7</b> Common Data Manipulations</a><ul>
+<li class="chapter" data-level="7.1" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#descriptive-statistics"><i class="fa fa-check"></i><b>7.1</b> Descriptive Statistics</a></li>
+<li class="chapter" data-level="7.2" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#centering-and-standardizing-variables"><i class="fa fa-check"></i><b>7.2</b> Centering and Standardizing Variables</a></li>
+<li class="chapter" data-level="7.3" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#trimming"><i class="fa fa-check"></i><b>7.3</b> Trimming</a></li>
+<li class="chapter" data-level="7.4" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#composites"><i class="fa fa-check"></i><b>7.4</b> Composites</a></li>
+<li class="chapter" data-level="7.5" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#scale-transformations"><i class="fa fa-check"></i><b>7.5</b> Scale Transformations</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#log"><i class="fa fa-check"></i><b>7.5.1</b> log</a></li>
+<li class="chapter" data-level="7.5.2" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#polynomial"><i class="fa fa-check"></i><b>7.5.2</b> polynomial</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#custom-transformations"><i class="fa fa-check"></i><b>7.6</b> Custom Transformations</a></li>
+</ul></li>
+<li class="part"><span><b>III Example: Data Preparation</b></span></li>
+<li class="chapter" data-level="8" data-path="example-data-set.html"><a href="example-data-set.html"><i class="fa fa-check"></i><b>8</b> Example Data Set</a><ul>
+<li class="chapter" data-level="8.1" data-path="example-data-set.html"><a href="example-data-set.html#initial-setup"><i class="fa fa-check"></i><b>8.1</b> Initial Setup</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="example-data-set.html"><a href="example-data-set.html#rstudio-project"><i class="fa fa-check"></i><b>8.1.1</b> RStudio Project</a></li>
+<li class="chapter" data-level="8.1.2" data-path="example-data-set.html"><a href="example-data-set.html#directory-organization"><i class="fa fa-check"></i><b>8.1.2</b> Directory Organization</a></li>
+<li class="chapter" data-level="8.1.3" data-path="example-data-set.html"><a href="example-data-set.html#r-scripts"><i class="fa fa-check"></i><b>8.1.3</b> R Scripts</a></li>
+<li class="chapter" data-level="8.1.4" data-path="example-data-set.html"><a href="example-data-set.html#masterscript"><i class="fa fa-check"></i><b>8.1.4</b> Masterscript</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="example-data-set.html"><a href="example-data-set.html#example-data-flanker-task"><i class="fa fa-check"></i><b>8.2</b> Example Data: Flanker Task</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="merging-individual-subject-files.html"><a href="merging-individual-subject-files.html"><i class="fa fa-check"></i><b>9</b> Merging Individual Subject Files</a><ul>
+<li class="chapter" data-level="9.1" data-path="merging-individual-subject-files.html"><a href="merging-individual-subject-files.html#setup-1"><i class="fa fa-check"></i><b>9.1</b> Setup</a></li>
+<li class="chapter" data-level="9.2" data-path="merging-individual-subject-files.html"><a href="merging-individual-subject-files.html#files_bind"><i class="fa fa-check"></i><b>9.2</b> <code>files_bind()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html"><i class="fa fa-check"></i><b>10</b> Messy to Tidy</a><ul>
+<li class="chapter" data-level="10.1" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#setup-2"><i class="fa fa-check"></i><b>10.1</b> Setup</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#load-packages"><i class="fa fa-check"></i><b>10.1.1</b> Load packages</a></li>
+<li class="chapter" data-level="10.1.2" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#set-importoutput-directories"><i class="fa fa-check"></i><b>10.1.2</b> Set Import/Output Directories</a></li>
+<li class="chapter" data-level="10.1.3" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#set-importoutput-file-names"><i class="fa fa-check"></i><b>10.1.3</b> Set Import/Output File Names</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#import-1"><i class="fa fa-check"></i><b>10.2</b> Import</a></li>
+<li class="chapter" data-level="10.3" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#tidy-raw-data"><i class="fa fa-check"></i><b>10.3</b> Tidy raw data</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#filter-1"><i class="fa fa-check"></i><b>10.3.1</b> Filter</a></li>
+<li class="chapter" data-level="10.3.2" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#rename-columns"><i class="fa fa-check"></i><b>10.3.2</b> Rename Columns</a></li>
+<li class="chapter" data-level="10.3.3" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#change-values"><i class="fa fa-check"></i><b>10.3.3</b> Change Values</a></li>
+<li class="chapter" data-level="10.3.4" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#select-columns"><i class="fa fa-check"></i><b>10.3.4</b> Select Columns</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#output"><i class="fa fa-check"></i><b>10.4</b> Output</a></li>
+<li class="chapter" data-level="10.5" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#copy-and-paste"><i class="fa fa-check"></i><b>10.5</b> Copy and Paste</a></li>
+<li class="chapter" data-level="10.6" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#masterscript-1"><i class="fa fa-check"></i><b>10.6</b> Masterscript</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html"><i class="fa fa-check"></i><b>11</b> Data Cleaning and Scoring</a><ul>
+<li class="chapter" data-level="11.1" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#setup-3"><i class="fa fa-check"></i><b>11.1</b> Setup</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#data-cleaning-parameters"><i class="fa fa-check"></i><b>11.1.1</b> Data Cleaning Parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#import-2"><i class="fa fa-check"></i><b>11.2</b> Import</a></li>
+<li class="chapter" data-level="11.3" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#data-cleaning-and-scoring-1"><i class="fa fa-check"></i><b>11.3</b> Data Cleaning and Scoring</a></li>
+<li class="chapter" data-level="11.4" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#trimming-1"><i class="fa fa-check"></i><b>11.4</b> Trimming</a></li>
+<li class="chapter" data-level="11.5" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#calculate-flankereffect"><i class="fa fa-check"></i><b>11.5</b> Calculate FlankerEffect</a></li>
+<li class="chapter" data-level="11.6" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#remove-subjects"><i class="fa fa-check"></i><b>11.6</b> Remove Subjects</a></li>
+<li class="chapter" data-level="11.7" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#calculate-binned-scores"><i class="fa fa-check"></i><b>11.7</b> Calculate Binned Scores</a></li>
+<li class="chapter" data-level="11.8" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#merge"><i class="fa fa-check"></i><b>11.8</b> Merge</a></li>
+<li class="chapter" data-level="11.9" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#save-data-file"><i class="fa fa-check"></i><b>11.9</b> Save data file</a></li>
+<li class="chapter" data-level="11.10" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#masterscript-2"><i class="fa fa-check"></i><b>11.10</b> Masterscript</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html"><i class="fa fa-check"></i><b>12</b> Merge: Create A Final Data File</a><ul>
+<li class="chapter" data-level="12.1" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#setup-4"><i class="fa fa-check"></i><b>12.1</b> Setup</a></li>
+<li class="chapter" data-level="12.2" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#merge-1"><i class="fa fa-check"></i><b>12.2</b> Merge</a></li>
+<li class="chapter" data-level="12.3" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#select-and-trim"><i class="fa fa-check"></i><b>12.3</b> Select and Trim</a></li>
+<li class="chapter" data-level="12.4" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#output-1"><i class="fa fa-check"></i><b>12.4</b> Output</a></li>
+<li class="chapter" data-level="12.5" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#masterscript-3"><i class="fa fa-check"></i><b>12.5</b> Masterscript</a></li>
+</ul></li>
+<li class="part"><span><b>IV Data Science Practices</b></span></li>
+<li class="chapter" data-level="13" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>13</b> Reproducibility</a><ul>
+<li class="chapter" data-level="13.1" data-path="reproducibility.html"><a href="reproducibility.html#what-is-real"><i class="fa fa-check"></i><b>13.1</b> What is real?</a></li>
+<li class="chapter" data-level="13.2" data-path="reproducibility.html"><a href="reproducibility.html#where-does-your-analysis-live"><i class="fa fa-check"></i><b>13.2</b> Where does your analysis live?</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="reproducibility.html"><a href="reproducibility.html#project-level"><i class="fa fa-check"></i><b>13.2.1</b> Project Level</a></li>
+<li class="chapter" data-level="13.2.2" data-path="reproducibility.html"><a href="reproducibility.html#script-level"><i class="fa fa-check"></i><b>13.2.2</b> Script Level</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="project-organization.html"><a href="project-organization.html"><i class="fa fa-check"></i><b>14</b> Project Organization</a><ul>
+<li class="chapter" data-level="14.1" data-path="project-organization.html"><a href="project-organization.html#the-working-directory"><i class="fa fa-check"></i><b>14.1</b> The Working Directory</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="project-organization.html"><a href="project-organization.html#r-projects"><i class="fa fa-check"></i><b>14.1.1</b> R Projects</a></li>
+<li class="chapter" data-level="14.1.2" data-path="project-organization.html"><a href="project-organization.html#herehere"><i class="fa fa-check"></i><b>14.1.2</b> here::here()</a></li>
+<li class="chapter" data-level="14.1.3" data-path="project-organization.html"><a href="project-organization.html#rstudio-sessions"><i class="fa fa-check"></i><b>14.1.3</b> RStudio Sessions</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="project-organization.html"><a href="project-organization.html#loaded-packages"><i class="fa fa-check"></i><b>14.2</b> Loaded Packages</a></li>
+<li class="chapter" data-level="14.3" data-path="project-organization.html"><a href="project-organization.html#objects"><i class="fa fa-check"></i><b>14.3</b> Objects</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="using-script-templates.html"><a href="using-script-templates.html"><i class="fa fa-check"></i><b>15</b> Using Script Templates</a><ul>
+<li class="chapter" data-level="15.1" data-path="using-script-templates.html"><a href="using-script-templates.html#building-a-template-workflow"><i class="fa fa-check"></i><b>15.1</b> Building a Template Workflow</a></li>
+<li class="chapter" data-level="15.2" data-path="using-script-templates.html"><a href="using-script-templates.html#the-masterscript.r"><i class="fa fa-check"></i><b>15.2</b> The <code>masterscript.R</code></a></li>
+<li class="chapter" data-level="15.3" data-path="using-script-templates.html"><a href="using-script-templates.html#folder-organization"><i class="fa fa-check"></i><b>15.3</b> Folder Organization</a></li>
+<li class="chapter" data-level="15.4" data-path="using-script-templates.html"><a href="using-script-templates.html#naming-r-scripts"><i class="fa fa-check"></i><b>15.4</b> Naming R Scripts</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="workflow-package.html"><a href="workflow-package.html"><i class="fa fa-check"></i><b>16</b> <code>workflow</code> Package</a><ul>
+<li class="chapter" data-level="16.1" data-path="workflow-package.html"><a href="workflow-package.html#start-a-new-research-study"><i class="fa fa-check"></i><b>16.1</b> Start a new research study</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="workflow-package.html"><a href="workflow-package.html#directory"><i class="fa fa-check"></i><b>16.1.1</b> Directory</a></li>
+<li class="chapter" data-level="16.1.2" data-path="workflow-package.html"><a href="workflow-package.html#additional-options"><i class="fa fa-check"></i><b>16.1.2</b> Additional Options</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="workflow-package.html"><a href="workflow-package.html#download-ready-made-templates"><i class="fa fa-check"></i><b>16.2</b> Download ready-made templates</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="workflow-package.html"><a href="workflow-package.html#generic-templates"><i class="fa fa-check"></i><b>16.2.1</b> Generic Templates</a></li>
+<li class="chapter" data-level="16.2.2" data-path="workflow-package.html"><a href="workflow-package.html#gf-wmc-and-attention-control-scripts"><i class="fa fa-check"></i><b>16.2.2</b> Gf, WMC, and Attention Control Scripts</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>V Data Ananlysis</b></span></li>
+<li class="chapter" data-level="17" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html"><i class="fa fa-check"></i><b>17</b> Introduction to Data Analysis</a><ul>
+<li class="chapter" data-level="17.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#r-markdown"><i class="fa fa-check"></i><b>17.1</b> R Markdown</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#what-is-an-r-markdown-file"><i class="fa fa-check"></i><b>17.1.1</b> What is an R Markdown File?</a></li>
+<li class="chapter" data-level="17.1.2" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#yaml-header"><i class="fa fa-check"></i><b>17.1.2</b> YAML header</a></li>
+<li class="chapter" data-level="17.1.3" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#r-code-chunks"><i class="fa fa-check"></i><b>17.1.3</b> R code chunks</a></li>
+<li class="chapter" data-level="17.1.4" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#formatted-text"><i class="fa fa-check"></i><b>17.1.4</b> Formatted text</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>– Data Visualization</b></span></li>
+<li class="chapter" data-level="18" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html"><i class="fa fa-check"></i><b>18</b> Fundamentals of Data Visualization</a><ul>
+<li class="chapter" data-level="18.1" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>18.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="18.2" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html#plotting-functions-in-r"><i class="fa fa-check"></i><b>18.2</b> Plotting Functions in R</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>19</b> Introduction to ggplot2</a><ul>
+<li class="chapter" data-level="19.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#grammar-of-graphics-1"><i class="fa fa-check"></i><b>19.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="19.2" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#data-layer"><i class="fa fa-check"></i><b>19.2</b> Data layer</a></li>
+<li class="chapter" data-level="19.3" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#aesthetic-layer"><i class="fa fa-check"></i><b>19.3</b> Aesthetic Layer</a></li>
+<li class="chapter" data-level="19.4" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#geometries-layer"><i class="fa fa-check"></i><b>19.4</b> Geometries Layer</a></li>
+<li class="chapter" data-level="19.5" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#facets-layer"><i class="fa fa-check"></i><b>19.5</b> Facets Layer</a></li>
+<li class="chapter" data-level="19.6" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#statistics-layer"><i class="fa fa-check"></i><b>19.6</b> Statistics Layer</a></li>
+<li class="chapter" data-level="19.7" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#coordinates-layer"><i class="fa fa-check"></i><b>19.7</b> Coordinates Layer</a></li>
+<li class="chapter" data-level="19.8" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#themes-layer"><i class="fa fa-check"></i><b>19.8</b> Themes Layer</a><ul>
+<li class="chapter" data-level="19.8.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#built-in-themes"><i class="fa fa-check"></i><b>19.8.1</b> Built-in Themes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i><b>20</b> Scatterplots</a><ul>
+<li class="chapter" data-level="20.1" data-path="scatterplots.html"><a href="scatterplots.html#scatterplots-1"><i class="fa fa-check"></i><b>20.1</b> Scatterplots</a><ul>
+<li class="chapter" data-level="20.1.1" data-path="scatterplots.html"><a href="scatterplots.html#adding-other-geoms"><i class="fa fa-check"></i><b>20.1.1</b> Adding other geoms</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="plotting-means.html"><a href="plotting-means.html"><i class="fa fa-check"></i><b>21</b> Plotting Means</a><ul>
+<li class="chapter" data-level="21.1" data-path="plotting-means.html"><a href="plotting-means.html#bar-graphs"><i class="fa fa-check"></i><b>21.1</b> Bar Graphs</a><ul>
+<li class="chapter" data-level="21.1.1" data-path="plotting-means.html"><a href="plotting-means.html#multidimensional-bar-plot"><i class="fa fa-check"></i><b>21.1.1</b> Multidimensional Bar Plot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="univariate-plots.html"><a href="univariate-plots.html"><i class="fa fa-check"></i><b>22</b> Univariate Plots</a></li>
+<li class="chapter" data-level="23" data-path="sjplot.html"><a href="sjplot.html"><i class="fa fa-check"></i><b>23</b> <code>sjPlot</code></a></li>
+<li class="chapter" data-level="24" data-path="custom-tables.html"><a href="custom-tables.html"><i class="fa fa-check"></i><b>24</b> Custom Tables</a></li>
+<li class="part"><span><b>* Statistical Analysis</b></span></li>
+<li class="chapter" data-level="25" data-path="introduction-to-statistical-analysis-in-r.html"><a href="introduction-to-statistical-analysis-in-r.html"><i class="fa fa-check"></i><b>25</b> Introduction to Statistical Analysis in R</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Tutorial and Guide for the EngleLab</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction-to-ggplot2" class="section level1">
+<h1><span class="header-section-number">Chapter 19</span> Introduction to ggplot2</h1>
+<div id="grammar-of-graphics-1" class="section level2">
+<h2><span class="header-section-number">19.1</span> Grammar of Graphics</h2>
+<p>We saw from the last chapter that the two main components in a grammar of graphics are:</p>
+<ol style="list-style-type: decimal">
+<li><p>Graphics = distinct <em>layers</em> of grammatical elements</p></li>
+<li><p>Meaningful plots through aesthetic mappings</p></li>
+</ol>
+<p>We also saw that the three essential elements are the data layer, aesthetics layer, and geometrics layer. In ggplot2 there are a total of 7 layers we can add to a plot</p>
+</div>
+<div id="data-layer" class="section level2">
+<h2><span class="header-section-number">19.2</span> Data layer</h2>
+<p>The Data Layer specifies the data being plotted.</p>
+<p>Let’s see what this means more concretely with an example data set. A very popular data set used for teaching data science is the <code>iris</code> data set. In this data set various species of iris were measured on their sepal and petal length and width.</p>
+<p>This data set actually comes preloaded with R, so you can simply view it by typing in your console</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1"><span class="kw">View</span>(iris)</a></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" data-line-number="1"><span class="kw">head</span>(iris)</a></code></pre></div>
+<p>We can see that this data is in <strong>wide</strong> format. What type of graph we can visualize will depend on the format of the data set. On occassion, in order to visualize a certain pattern of the data will require you to change the formating of the data.</p>
+<p>Let’s go ahead and start building our graphical elements in <code>ggplot2</code>. Load the <code>ggplot2</code> library. Then:</p>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb227-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> iris)</a></code></pre></div>
+<p>You can see that we only have a blank square. This is becuase we have not added any other layers yet, we have only specified the data layer.</p>
+</div>
+<div id="aesthetic-layer" class="section level2">
+<h2><span class="header-section-number">19.3</span> Aesthetic Layer</h2>
+<p>The next grammatical element is the aesthetic layer, or <strong>aes</strong> for short. This layer specifies how we want to <em>map</em> our data onto the scales of the plot</p>
+<p>The aesthetic layer <em>maps</em> variables in our data onto scales in our graphical visualization, such as the x and y coordinates. In <code>ggplot2</code> the aesthetic layer is specified using the <code>aes()</code> function. Let’s create a plot of the relationship between Sepal.Length and Sepal.Width, putting them on the x and y axis respectively.</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Sepal.Width))</a></code></pre></div>
+<p>You can see we went from a blank box to a graph with the variable and scales of Sepal.Length mapped onto the x-axis and Sepal.Width on the y-axis.</p>
+<p>However, there is no data yet :( What are we to do?</p>
+</div>
+<div id="geometries-layer" class="section level2">
+<h2><span class="header-section-number">19.4</span> Geometries Layer</h2>
+<p>The next <em>essential</em> element for data visualization is the geometries layer or <strong>geom</strong> layer for short.</p>
+<p>Just to demonstrate to you that <code>ggplot2</code> is creating R graphic objects that you can modify and not just static images, let’s assign the previous graph with data and aesthetics layers only onto an R object called <code>p</code>, for plot.</p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Sepal.Width))</a></code></pre></div>
+<p>Now let’s say we want to add the individual raw data points to create a scatterplot. To do this we can use the function <code>geom_point()</code>. This is a geom layer and the type of geom we want to add are points.</p>
+<p>In <code>ggplot2</code> there is a special notation that is similar to the pipe operator <code>%&gt;%</code> seen before. Except it is plus sign <code>+</code></p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p>And walla! Now we have a scatterplot of the relationship between Sepal.Length and Sepal.Width. Cool.</p>
+<p>If we look at the scatterplot it appears that there are at least two groups or clusters of points. These clusters might represent the different species of flowers, represented in the <code>Species</code> column. There are different ways we can visualize or separate this grouping structure.</p>
+<p>First, we will consider how to plot these species in separate plots within the same visualization.</p>
+</div>
+<div id="facets-layer" class="section level2">
+<h2><span class="header-section-number">19.5</span> Facets Layer</h2>
+<p>The facet layer allows you to create subplots within the same graphic object</p>
+<p>The previous three layers are the <strong>essential</strong> layers. The facet layer is not essential, however given your data you may find it helps you to explore or communicate your data.</p>
+<p>Let’s create facets of our scatterplot by <code>Species</code></p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" data-line-number="1"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb231-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb231-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species)</a></code></pre></div>
+</div>
+<div id="statistics-layer" class="section level2">
+<h2><span class="header-section-number">19.6</span> Statistics Layer</h2>
+<p>The statistics layer allows you plot statistical values calculated from the data</p>
+<p>So far we have only plotted the raw data values. However, we may be interested in plotting some statistics or calculated values, such as a regression line, means, standard error bars, etc.</p>
+<p>Let’s add a regression line to the scatterplot. First without the facet layer then with the facet layer</p>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" data-line-number="1"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb232-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb232-3" data-line-number="3"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb233-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb233-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span></a>
+<a class="sourceLine" id="cb233-4" data-line-number="4"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+</div>
+<div id="coordinates-layer" class="section level2">
+<h2><span class="header-section-number">19.7</span> Coordinates Layer</h2>
+<p>The coordinate layer allows you to adjust the x and y coordinates</p>
+<p>You can adjust the min and max values, as well as the major ticks. This is more useful when you have separate graphs (non-faceted) and you want to plot them on the same scale for comparison.</p>
+<p>This is actually a very important deisgn principle in data visualization. <strong>If you want to compare two separate graphs, then they need to be on the same scale!!!</strong></p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb234-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>), <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb234-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb234-4" data-line-number="4"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;versicolor&quot;</span>), <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb235-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb235-3" data-line-number="3"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb236-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>), <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb236-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb236-4" data-line-number="4"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb236-5" data-line-number="5"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">seq</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dt">by =</span> <span class="dv">1</span>), <span class="dt">ylim =</span> <span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">1</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;versicolor&quot;</span>), <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb237-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb237-3" data-line-number="3"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb237-4" data-line-number="4"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">seq</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dt">by =</span> <span class="dv">1</span>), <span class="dt">ylim =</span> <span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">1</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>), <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb238-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb238-3" data-line-number="3"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb238-4" data-line-number="4"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">seq</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dt">by =</span> <span class="dv">1</span>), <span class="dt">ylim =</span> <span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">1</span>))</a></code></pre></div>
+<ul>
+<li>Just a note. I highly suggest not using <code>scale_x_continuous()</code> or <code>scale_y_continuous()</code> functions. The <code>coord_cartesian()</code> function is like zooming in and out of the plot area. The <code>scale_</code> functions actually change the shape of the data and statistics layers. If a data point falls outside of the <code>scale</code> limits then it will be removed from any statistical analyses (even if the individual data points are not plotted <code>geom_point()</code>)</li>
+</ul>
+</div>
+<div id="themes-layer" class="section level2">
+<h2><span class="header-section-number">19.8</span> Themes Layer</h2>
+<p>The Themes Layer refers to all non-data ink.</p>
+<p>You can change the labels of x or y axis, add a plot title, modify a legend title, add text anywhere on the plot, change the background color, axis lines, plot lines, etc.</p>
+<p>There are three types of elements within the Themes Layer; text, line, and rectangle. Together these three elements can control all the non-data ink in the graph. Underneath these three elements are sub-elements and this can be represented in a hierarchy such as:</p>
+<p>For instance, you can see that you can control the design of the text for the plot title and legend title <code>theme(title = element_text())</code> or individually with <code>theme(plot.title = element_text(), legend.title = element_text())</code>.</p>
+<ul>
+<li><p>Any text element can be modified with <code>element_text()</code></p></li>
+<li><p>Any line element can be modified with <code>element_line()</code></p></li>
+<li><p>Any rect element can be modified with <code>element_rect()</code></p></li>
+</ul>
+<p>You can then control different features such as the color, linetype, size, font family, etc.</p>
+<p>As an example let’s change some theme elements to our facet plot. Let’s change the axis value labels to <strong>red</strong> font and increase the <strong>size</strong></p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" data-line-number="1"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb239-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb239-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span></a>
+<a class="sourceLine" id="cb239-4" data-line-number="4"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb239-5" data-line-number="5"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">14</span>))</a></code></pre></div>
+<p>Now let’s only change the x-axis text and not the y-axis text.</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb240-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb240-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span></a>
+<a class="sourceLine" id="cb240-4" data-line-number="4"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb240-5" data-line-number="5"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">14</span>))</a></code></pre></div>
+<p>It is a good idea to have a consistent theme across all your graphs. And so you might want to just create a theme object that you can add to all your graphs.</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" data-line-number="1">a_theme &lt;-<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">14</span>),</a>
+<a class="sourceLine" id="cb241-2" data-line-number="2">                 <span class="dt">panel.grid =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb241-3" data-line-number="3">                 <span class="dt">panel.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">&quot;pink&quot;</span>))</a>
+<a class="sourceLine" id="cb241-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb241-5" data-line-number="5"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb241-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb241-7" data-line-number="7"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span></a>
+<a class="sourceLine" id="cb241-8" data-line-number="8"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb241-9" data-line-number="9"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">14</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb241-10" data-line-number="10"><span class="st">  </span>a_theme</a></code></pre></div>
+<div id="built-in-themes" class="section level3">
+<h3><span class="header-section-number">19.8.1</span> Built-in Themes</h3>
+<p>For the most part you can probably avoid the <code>theme()</code> function by using built-in themes, unless there is a specific element you want to modify.</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" data-line-number="1"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb242-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb242-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span></a>
+<a class="sourceLine" id="cb242-4" data-line-number="4"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb242-5" data-line-number="5"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">14</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb242-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_linedraw</span>()</a></code></pre></div>
+<p>You can also set a defeault theme for the rest of your ggplots at the top of your script. That way you do not have to keep on specifying the theme for evey ggplot.</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" data-line-number="1"><span class="kw">theme_set</span>(<span class="kw">theme_linedraw</span>())</a></code></pre></div>
+<p>Now you can create a ggplot with <code>theme_linedraw()</code> without specifying <code>theme_linedraw()</code> every single time.</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" data-line-number="1"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb244-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb244-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span></a>
+<a class="sourceLine" id="cb244-4" data-line-number="4"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<p>You can do a google search to easily find different types of theme templates. I personally like <code>theme_linedraw()</code></p>
+<hr />
+<hr />
+<p><strong>Something</strong></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="fundamentals-of-data-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="scatterplots.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>

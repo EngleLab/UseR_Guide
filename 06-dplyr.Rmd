@@ -88,11 +88,11 @@ You will also notice that it printed out some *warning* messages. Sometimes diff
 Import the data file you downloaded. For now we will just use *absolute* file paths. Which actually is a *BIG* No-No. But we will learn more about using *relative* file paths in section *III. Workflow*
 
 ```{r eval = FALSE}
-import <- read_csv("/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/R-Tutorial/Data Files/Raw Data/Flanker_raw.csv")
+import <- read_csv("/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/R-Tutorial/Data Files/tidyverse_example.csv")
 ```
 
 ```{r echo = FALSE}
-import <- read_csv("Data Files/Raw Data/Flanker_raw.csv")
+import <- read_csv("Data Files/tidyverse_example.csv")
 ```
 
 It is always a good idea to get to know your `dataframe` before you start messing with it. What are the column names? What kind of values are stored in each column? How many observations are there? How many `Subjects`? How many `Trials`? etc.
@@ -407,7 +407,7 @@ library(dplyr)
 library(tidyr)
 
 ## Import
-import <- read_csv("/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/R-Tutorial/Data Files/Raw Data/Flanker_raw.csv")
+import <- read_csv("/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/R-Tutorial/Data Files/tidyverse_example.csv")
 
 ## Score
 data <- import %>%
