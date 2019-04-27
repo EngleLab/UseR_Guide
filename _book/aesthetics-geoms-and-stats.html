@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R Tutorial and Guide for the EngleLab</title>
+  <meta name="description" content="This is an R Tutorial and Guide for the EngleLab">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R Tutorial and Guide for the EngleLab" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is an R Tutorial and Guide for the EngleLab" />
+  <meta name="github-repo" content="EngleLab" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R Tutorial and Guide for the EngleLab" />
+  
+  <meta name="twitter:description" content="This is an R Tutorial and Guide for the EngleLab" />
+  
+
+<meta name="author" content="Jason Tsukahara">
+
+
+<meta name="date" content="2019-04-18">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="introduction-to-ggplot2.html">
+<link rel="next" href="introduction-to-regression-in-r.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#workflow"><i class="fa fa-check"></i>Workflow</a></li>
+</ul></li>
+<li class="part"><span><b>I Getting Started in R</b></span></li>
+<li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
+<li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
+<li class="chapter" data-level="1.2" data-path="installation.html"><a href="installation.html#installing-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R Studio</a></li>
+<li class="chapter" data-level="1.3" data-path="installation.html"><a href="installation.html#the-r-studio-environemnt"><i class="fa fa-check"></i><b>1.3</b> The R Studio Environemnt</a></li>
+<li class="chapter" data-level="1.4" data-path="installation.html"><a href="installation.html#r-studio-settings"><i class="fa fa-check"></i><b>1.4</b> R Studio Settings</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-r.html"><a href="basic-r.html"><i class="fa fa-check"></i><b>2</b> Basic R</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-r.html"><a href="basic-r.html#creating-r-objects"><i class="fa fa-check"></i><b>2.1</b> Creating R objects</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="basic-r.html"><a href="basic-r.html#classes"><i class="fa fa-check"></i><b>2.1.1</b> Classes</a></li>
+<li class="chapter" data-level="2.1.2" data-path="basic-r.html"><a href="basic-r.html#vectors"><i class="fa fa-check"></i><b>2.1.2</b> Vectors</a></li>
+<li class="chapter" data-level="2.1.3" data-path="basic-r.html"><a href="basic-r.html#factors"><i class="fa fa-check"></i><b>2.1.3</b> Factors</a></li>
+<li class="chapter" data-level="2.1.4" data-path="basic-r.html"><a href="basic-r.html#lists"><i class="fa fa-check"></i><b>2.1.4</b> Lists</a></li>
+<li class="chapter" data-level="2.1.5" data-path="basic-r.html"><a href="basic-r.html#data-frames"><i class="fa fa-check"></i><b>2.1.5</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="basic-r.html"><a href="basic-r.html#ifthen-statements"><i class="fa fa-check"></i><b>2.2</b> If…then Statements</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-r.html"><a href="basic-r.html#r-packages"><i class="fa fa-check"></i><b>2.3</b> R Packages</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="basic-r.html"><a href="basic-r.html#installing-and-loading-r-packages"><i class="fa fa-check"></i><b>2.3.1</b> Installing and Loading R Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="basic-r.html"><a href="basic-r.html#more-r-basic-resources"><i class="fa fa-check"></i><b>2.4</b> More R Basic Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="intermediate-r.html"><a href="intermediate-r.html"><i class="fa fa-check"></i><b>3</b> Intermediate R</a><ul>
+<li class="chapter" data-level="3.1" data-path="intermediate-r.html"><a href="intermediate-r.html#for-loops"><i class="fa fa-check"></i><b>3.1</b> For Loops</a></li>
+<li class="chapter" data-level="3.2" data-path="intermediate-r.html"><a href="intermediate-r.html#functions"><i class="fa fa-check"></i><b>3.2</b> Functions</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="intermediate-r.html"><a href="intermediate-r.html#creating-your-own-functions"><i class="fa fa-check"></i><b>3.2.1</b> Creating Your Own Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="setting-up-a-script-environment.html"><a href="setting-up-a-script-environment.html"><i class="fa fa-check"></i><b>4</b> Setting up a Script Environment</a><ul>
+<li class="chapter" data-level="4.1" data-path="setting-up-a-script-environment.html"><a href="setting-up-a-script-environment.html#the-working-directory"><i class="fa fa-check"></i><b>4.1</b> The Working Directory</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="setting-up-a-script-environment.html"><a href="setting-up-a-script-environment.html#r-projects"><i class="fa fa-check"></i><b>4.1.1</b> R Projects</a></li>
+<li class="chapter" data-level="4.1.2" data-path="setting-up-a-script-environment.html"><a href="setting-up-a-script-environment.html#herehere"><i class="fa fa-check"></i><b>4.1.2</b> here::here()</a></li>
+<li class="chapter" data-level="4.1.3" data-path="setting-up-a-script-environment.html"><a href="setting-up-a-script-environment.html#rstudio-sessions"><i class="fa fa-check"></i><b>4.1.3</b> RStudio Sessions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="setting-up-a-script-environment.html"><a href="setting-up-a-script-environment.html#loaded-packages"><i class="fa fa-check"></i><b>4.2</b> Loaded Packages</a></li>
+<li class="chapter" data-level="4.3" data-path="setting-up-a-script-environment.html"><a href="setting-up-a-script-environment.html#objects"><i class="fa fa-check"></i><b>4.3</b> Objects</a></li>
+</ul></li>
+<li class="part"><span><b>II Working with Data</b></span></li>
+<li class="chapter" data-level="5" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i><b>5</b> The tidyverse</a><ul>
+<li class="chapter" data-level="5.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#readr---import"><i class="fa fa-check"></i><b>5.1</b> readr - import</a></li>
+<li class="chapter" data-level="5.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#dplyr"><i class="fa fa-check"></i><b>5.2</b> dplyr</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#rename"><i class="fa fa-check"></i><b>5.2.1</b> <code>rename()</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#filter"><i class="fa fa-check"></i><b>5.2.2</b> <code>filter()</code></a></li>
+<li class="chapter" data-level="5.2.3" data-path="the-tidyverse.html"><a href="the-tidyverse.html#select"><i class="fa fa-check"></i><b>5.2.3</b> <code>select()</code></a></li>
+<li class="chapter" data-level="5.2.4" data-path="the-tidyverse.html"><a href="the-tidyverse.html#mutate"><i class="fa fa-check"></i><b>5.2.4</b> <code>mutate()</code></a></li>
+<li class="chapter" data-level="5.2.5" data-path="the-tidyverse.html"><a href="the-tidyverse.html#group_by"><i class="fa fa-check"></i><b>5.2.5</b> <code>group_by()</code></a></li>
+<li class="chapter" data-level="5.2.6" data-path="the-tidyverse.html"><a href="the-tidyverse.html#summarise"><i class="fa fa-check"></i><b>5.2.6</b> <code>summarise()</code></a></li>
+<li class="chapter" data-level="5.2.7" data-path="the-tidyverse.html"><a href="the-tidyverse.html#spread"><i class="fa fa-check"></i><b>5.2.7</b> <code>spread()</code></a></li>
+<li class="chapter" data-level="5.2.8" data-path="the-tidyverse.html"><a href="the-tidyverse.html#pipe-operator"><i class="fa fa-check"></i><b>5.2.8</b> Pipe Operator %&gt;%</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="the-tidyverse.html"><a href="the-tidyverse.html#readr---export"><i class="fa fa-check"></i><b>5.3</b> readr - export</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="common-data-transformations.html"><a href="common-data-transformations.html"><i class="fa fa-check"></i><b>6</b> Common Data Transformations</a><ul>
+<li class="chapter" data-level="6.1" data-path="common-data-transformations.html"><a href="common-data-transformations.html#descriptive-statistics"><i class="fa fa-check"></i><b>6.1</b> Descriptive Statistics</a></li>
+<li class="chapter" data-level="6.2" data-path="common-data-transformations.html"><a href="common-data-transformations.html#centering-and-standardizing-variables"><i class="fa fa-check"></i><b>6.2</b> Centering and Standardizing Variables</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="common-data-transformations.html"><a href="common-data-transformations.html#scale"><i class="fa fa-check"></i><b>6.2.1</b> <code>scale()</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="common-data-transformations.html"><a href="common-data-transformations.html#datawranglingcenter"><i class="fa fa-check"></i><b>6.2.2</b> <code>datawrangling::center()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="common-data-transformations.html"><a href="common-data-transformations.html#trimming"><i class="fa fa-check"></i><b>6.3</b> Trimming</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="common-data-transformations.html"><a href="common-data-transformations.html#remove-observation"><i class="fa fa-check"></i><b>6.3.1</b> Remove Observation</a></li>
+<li class="chapter" data-level="6.3.2" data-path="common-data-transformations.html"><a href="common-data-transformations.html#replacing-values"><i class="fa fa-check"></i><b>6.3.2</b> Replacing Values</a></li>
+<li class="chapter" data-level="6.3.3" data-path="common-data-transformations.html"><a href="common-data-transformations.html#datawranglingtrim"><i class="fa fa-check"></i><b>6.3.3</b> <code>datawrangling::trim()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="common-data-transformations.html"><a href="common-data-transformations.html#composites"><i class="fa fa-check"></i><b>6.4</b> Composites</a></li>
+<li class="chapter" data-level="6.5" data-path="common-data-transformations.html"><a href="common-data-transformations.html#scale-transformations"><i class="fa fa-check"></i><b>6.5</b> Scale Transformations</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="common-data-transformations.html"><a href="common-data-transformations.html#log"><i class="fa fa-check"></i><b>6.5.1</b> log</a></li>
+<li class="chapter" data-level="6.5.2" data-path="common-data-transformations.html"><a href="common-data-transformations.html#polynomial"><i class="fa fa-check"></i><b>6.5.2</b> polynomial</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="common-data-transformations.html"><a href="common-data-transformations.html#custom-transformations"><i class="fa fa-check"></i><b>6.6</b> Custom Transformations</a></li>
+<li class="chapter" data-level="6.7" data-path="common-data-transformations.html"><a href="common-data-transformations.html#reshpaing-data"><i class="fa fa-check"></i><b>6.7</b> Reshpaing Data</a></li>
+<li class="chapter" data-level="6.8" data-path="common-data-transformations.html"><a href="common-data-transformations.html#merging-data-files"><i class="fa fa-check"></i><b>6.8</b> Merging Data Files</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html"><i class="fa fa-check"></i><b>7</b> Useful Scoring Functions</a><ul>
+<li class="chapter" data-level="7.1" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#gf-and-wmc"><i class="fa fa-check"></i><b>7.1</b> Gf and WMC</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#example"><i class="fa fa-check"></i><b>7.1.1</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#set-up"><i class="fa fa-check"></i><b>7.2</b> Set up</a></li>
+<li class="chapter" data-level="7.3" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#load-packages"><i class="fa fa-check"></i><b>7.3</b> Load packages</a></li>
+<li class="chapter" data-level="7.4" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#set-importoutput-directories"><i class="fa fa-check"></i><b>7.4</b> Set import/output directories</a></li>
+<li class="chapter" data-level="7.5" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#import"><i class="fa fa-check"></i><b>7.5</b> Import</a></li>
+<li class="chapter" data-level="7.6" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#clean-up-raw-data-file-and-save"><i class="fa fa-check"></i><b>7.6</b> Clean up raw data file and save</a></li>
+<li class="chapter" data-level="7.7" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#save-data-file"><i class="fa fa-check"></i><b>7.7</b> Save data file</a></li>
+<li class="chapter" data-level="7.8" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#calculating-bin-scores"><i class="fa fa-check"></i><b>7.8</b> Calculating Bin Scores</a></li>
+<li class="chapter" data-level="7.9" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#reliability-functions"><i class="fa fa-check"></i><b>7.9</b> Reliability functions</a><ul>
+<li class="chapter" data-level="7.9.1" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#cronbach_alpha"><i class="fa fa-check"></i><b>7.9.1</b> <code>cronbach_alpha()</code></a></li>
+<li class="chapter" data-level="7.9.2" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#splithalf"><i class="fa fa-check"></i><b>7.9.2</b> <code>splithalf()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="using-template-scripts.html"><a href="using-template-scripts.html"><i class="fa fa-check"></i><b>8</b> Using Template Scripts</a><ul>
+<li class="chapter" data-level="8.1" data-path="using-template-scripts.html"><a href="using-template-scripts.html#building-a-template-workflow"><i class="fa fa-check"></i><b>8.1</b> Building a Template Workflow</a></li>
+<li class="chapter" data-level="8.2" data-path="using-template-scripts.html"><a href="using-template-scripts.html#set-up-1"><i class="fa fa-check"></i><b>8.2</b> Set up</a></li>
+<li class="chapter" data-level="8.3" data-path="using-template-scripts.html"><a href="using-template-scripts.html#load-required-packages"><i class="fa fa-check"></i><b>8.3</b> Load required packages</a></li>
+<li class="chapter" data-level="8.4" data-path="using-template-scripts.html"><a href="using-template-scripts.html#set-import-and-output-directories"><i class="fa fa-check"></i><b>8.4</b> Set import and output directories</a></li>
+<li class="chapter" data-level="8.5" data-path="using-template-scripts.html"><a href="using-template-scripts.html#set-import-and-output-file-names"><i class="fa fa-check"></i><b>8.5</b> Set import and output file names</a></li>
+<li class="chapter" data-level="8.6" data-path="using-template-scripts.html"><a href="using-template-scripts.html#import-data"><i class="fa fa-check"></i><b>8.6</b> Import data</a></li>
+<li class="chapter" data-level="8.7" data-path="using-template-scripts.html"><a href="using-template-scripts.html#do-stuff"><i class="fa fa-check"></i><b>8.7</b> Do Stuff</a></li>
+<li class="chapter" data-level="8.8" data-path="using-template-scripts.html"><a href="using-template-scripts.html#save-data"><i class="fa fa-check"></i><b>8.8</b> Save data</a></li>
+<li class="chapter" data-level="8.9" data-path="using-template-scripts.html"><a href="using-template-scripts.html#the-masterscript.r"><i class="fa fa-check"></i><b>8.9</b> The <code>masterscript.R</code></a></li>
+<li class="chapter" data-level="8.10" data-path="using-template-scripts.html"><a href="using-template-scripts.html#setup"><i class="fa fa-check"></i><b>8.10</b> Setup</a></li>
+<li class="chapter" data-level="8.11" data-path="using-template-scripts.html"><a href="using-template-scripts.html#load-packages-1"><i class="fa fa-check"></i><b>8.11</b> Load Packages</a></li>
+<li class="chapter" data-level="8.12" data-path="using-template-scripts.html"><a href="using-template-scripts.html#specify-the-directory-tree"><i class="fa fa-check"></i><b>8.12</b> Specify the directory tree</a></li>
+<li class="chapter" data-level="8.13" data-path="using-template-scripts.html"><a href="using-template-scripts.html#score-task-data-from-raw-data-files"><i class="fa fa-check"></i><b>8.13</b> Score task data from raw data files</a></li>
+<li class="chapter" data-level="8.14" data-path="using-template-scripts.html"><a href="using-template-scripts.html#folder-organization"><i class="fa fa-check"></i><b>8.14</b> Folder Organization</a></li>
+<li class="chapter" data-level="8.15" data-path="using-template-scripts.html"><a href="using-template-scripts.html#naming-r-scripts"><i class="fa fa-check"></i><b>8.15</b> Naming R Scripts</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="workflow-package.html"><a href="workflow-package.html"><i class="fa fa-check"></i><b>9</b> <code>workflow</code> Package</a><ul>
+<li class="chapter" data-level="9.1" data-path="workflow-package.html"><a href="workflow-package.html#start-a-new-research-study"><i class="fa fa-check"></i><b>9.1</b> Start a new research study</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="workflow-package.html"><a href="workflow-package.html#directory"><i class="fa fa-check"></i><b>9.1.1</b> Directory</a></li>
+<li class="chapter" data-level="9.1.2" data-path="workflow-package.html"><a href="workflow-package.html#additional-options"><i class="fa fa-check"></i><b>9.1.2</b> Additional Options</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="workflow-package.html"><a href="workflow-package.html#download-ready-made-templates"><i class="fa fa-check"></i><b>9.2</b> Download ready-made templates</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="workflow-package.html"><a href="workflow-package.html#generic-templates"><i class="fa fa-check"></i><b>9.2.1</b> Generic Templates</a></li>
+<li class="chapter" data-level="9.2.2" data-path="workflow-package.html"><a href="workflow-package.html#gf-wmc-and-attention-control-scripts"><i class="fa fa-check"></i><b>9.2.2</b> Gf, WMC, and Attention Control Scripts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="example-data-preparation.html"><a href="example-data-preparation.html"><i class="fa fa-check"></i><b>10</b> Example: Data Preparation</a><ul>
+<li class="chapter" data-level="10.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#initial-setup"><i class="fa fa-check"></i><b>10.1</b> Initial Setup</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-up-directory-structure"><i class="fa fa-check"></i><b>10.1.1</b> Set up directory structure</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#masterscript"><i class="fa fa-check"></i><b>10.2</b> Masterscript</a></li>
+<li class="chapter" data-level="10.3" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-1"><i class="fa fa-check"></i><b>10.3</b> Setup</a></li>
+<li class="chapter" data-level="10.4" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-the-directory-tree"><i class="fa fa-check"></i><b>10.4</b> Set the directory tree</a></li>
+<li class="chapter" data-level="10.5" data-path="example-data-preparation.html"><a href="example-data-preparation.html#creating-messy-merged-file"><i class="fa fa-check"></i><b>10.5</b> Creating “messy” Merged File</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#e-prime-2.0"><i class="fa fa-check"></i><b>10.5.1</b> E-Prime 2.0</a></li>
+<li class="chapter" data-level="10.5.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#skipping-e-merge-with-e-prime-3.0"><i class="fa fa-check"></i><b>10.5.2</b> Skipping E-Merge with E-Prime 3.0</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-2"><i class="fa fa-check"></i><b>10.6</b> Setup</a></li>
+<li class="chapter" data-level="10.7" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-1"><i class="fa fa-check"></i><b>10.7</b> Set import and output directories</a></li>
+<li class="chapter" data-level="10.8" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-file-names-1"><i class="fa fa-check"></i><b>10.8</b> Set import and output file names</a></li>
+<li class="chapter" data-level="10.9" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-data-files"><i class="fa fa-check"></i><b>10.9</b> Merge data files</a></li>
+<li class="chapter" data-level="10.10" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-3"><i class="fa fa-check"></i><b>10.10</b> Setup</a></li>
+<li class="chapter" data-level="10.11" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-2"><i class="fa fa-check"></i><b>10.11</b> Set import and output directories</a></li>
+<li class="chapter" data-level="10.12" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-data-files-1"><i class="fa fa-check"></i><b>10.12</b> Merge data files</a></li>
+<li class="chapter" data-level="10.13" data-path="example-data-preparation.html"><a href="example-data-preparation.html#step-1-messy-to-tidy"><i class="fa fa-check"></i><b>10.13</b> Step 1: “messy” to “tidy”</a><ul>
+<li class="chapter" data-level="10.13.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#what-to-include"><i class="fa fa-check"></i><b>10.13.1</b> What to Include</a></li>
+<li class="chapter" data-level="10.13.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-messy-data"><i class="fa fa-check"></i><b>10.13.2</b> Import “messy” data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.14" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-4"><i class="fa fa-check"></i><b>10.14</b> Setup</a></li>
+<li class="chapter" data-level="10.15" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-3"><i class="fa fa-check"></i><b>10.15</b> Set import and output directories</a></li>
+<li class="chapter" data-level="10.16" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-file-names-2"><i class="fa fa-check"></i><b>10.16</b> Set import and output file names</a></li>
+<li class="chapter" data-level="10.17" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-1"><i class="fa fa-check"></i><b>10.17</b> Import</a><ul>
+<li class="chapter" data-level="10.17.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-duplicate-subjects"><i class="fa fa-check"></i><b>10.17.1</b> Remove Duplicate Subjects</a></li>
+</ul></li>
+<li class="chapter" data-level="10.18" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-2"><i class="fa fa-check"></i><b>10.18</b> Import</a><ul>
+<li class="chapter" data-level="10.18.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#filter-rows"><i class="fa fa-check"></i><b>10.18.1</b> Filter Rows</a></li>
+</ul></li>
+<li class="chapter" data-level="10.19" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy"><i class="fa fa-check"></i><b>10.19</b> Tidy</a><ul>
+<li class="chapter" data-level="10.19.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#rename-variables"><i class="fa fa-check"></i><b>10.19.1</b> Rename Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="10.20" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-1"><i class="fa fa-check"></i><b>10.20</b> Tidy</a><ul>
+<li class="chapter" data-level="10.20.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#rename-values"><i class="fa fa-check"></i><b>10.20.1</b> Rename Values</a></li>
+</ul></li>
+<li class="chapter" data-level="10.21" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-2"><i class="fa fa-check"></i><b>10.21</b> Tidy</a></li>
+<li class="chapter" data-level="10.22" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-3"><i class="fa fa-check"></i><b>10.22</b> Tidy</a></li>
+<li class="chapter" data-level="10.23" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-4"><i class="fa fa-check"></i><b>10.23</b> Tidy</a></li>
+<li class="chapter" data-level="10.24" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-5"><i class="fa fa-check"></i><b>10.24</b> Tidy</a></li>
+<li class="chapter" data-level="10.25" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-6"><i class="fa fa-check"></i><b>10.25</b> Tidy</a><ul>
+<li class="chapter" data-level="10.25.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#select-columns"><i class="fa fa-check"></i><b>10.25.1</b> Select Columns</a></li>
+</ul></li>
+<li class="chapter" data-level="10.26" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-7"><i class="fa fa-check"></i><b>10.26</b> Tidy</a><ul>
+<li class="chapter" data-level="10.26.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-to-file"><i class="fa fa-check"></i><b>10.26.1</b> Save to File</a></li>
+</ul></li>
+<li class="chapter" data-level="10.27" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save"><i class="fa fa-check"></i><b>10.27</b> Save</a></li>
+<li class="chapter" data-level="10.28" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-5"><i class="fa fa-check"></i><b>10.28</b> Setup</a></li>
+<li class="chapter" data-level="10.29" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-4"><i class="fa fa-check"></i><b>10.29</b> Set import and output directories</a></li>
+<li class="chapter" data-level="10.30" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-file-names-3"><i class="fa fa-check"></i><b>10.30</b> Set import and output file names</a></li>
+<li class="chapter" data-level="10.31" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-3"><i class="fa fa-check"></i><b>10.31</b> Import</a></li>
+<li class="chapter" data-level="10.32" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-8"><i class="fa fa-check"></i><b>10.32</b> Tidy</a></li>
+<li class="chapter" data-level="10.33" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-1"><i class="fa fa-check"></i><b>10.33</b> Save</a></li>
+<li class="chapter" data-level="10.34" data-path="example-data-preparation.html"><a href="example-data-preparation.html#step-2-raw-tidy-to-scored"><i class="fa fa-check"></i><b>10.34</b> Step 2: raw “tidy” to scored</a><ul>
+<li class="chapter" data-level="10.34.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-up-2"><i class="fa fa-check"></i><b>10.34.1</b> Set up</a></li>
+</ul></li>
+<li class="chapter" data-level="10.35" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-6"><i class="fa fa-check"></i><b>10.35</b> Setup</a></li>
+<li class="chapter" data-level="10.36" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-5"><i class="fa fa-check"></i><b>10.36</b> Set import and output directories</a></li>
+<li class="chapter" data-level="10.37" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-files"><i class="fa fa-check"></i><b>10.37</b> Set import and output files</a><ul>
+<li class="chapter" data-level="10.37.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-4"><i class="fa fa-check"></i><b>10.37.1</b> Import</a></li>
+</ul></li>
+<li class="chapter" data-level="10.38" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-5"><i class="fa fa-check"></i><b>10.38</b> Import</a><ul>
+<li class="chapter" data-level="10.38.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#data-cleaning"><i class="fa fa-check"></i><b>10.38.1</b> Data Cleaning</a></li>
+</ul></li>
+<li class="chapter" data-level="10.39" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts"><i class="fa fa-check"></i><b>10.39</b> Trim RTs</a></li>
+<li class="chapter" data-level="10.40" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts-1"><i class="fa fa-check"></i><b>10.40</b> Trim RTs</a></li>
+<li class="chapter" data-level="10.41" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts-2"><i class="fa fa-check"></i><b>10.41</b> Trim RTs</a><ul>
+<li class="chapter" data-level="10.41.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy"><i class="fa fa-check"></i><b>10.41.1</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+</ul></li>
+<li class="chapter" data-level="10.42" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-1"><i class="fa fa-check"></i><b>10.42</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+<li class="chapter" data-level="10.43" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-2"><i class="fa fa-check"></i><b>10.43</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+<li class="chapter" data-level="10.44" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-3"><i class="fa fa-check"></i><b>10.44</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+<li class="chapter" data-level="10.45" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-4"><i class="fa fa-check"></i><b>10.45</b> Calculate FlankerEffect on RT and Accuracy</a><ul>
+<li class="chapter" data-level="10.45.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-subjects"><i class="fa fa-check"></i><b>10.45.1</b> Remove Subjects</a></li>
+</ul></li>
+<li class="chapter" data-level="10.46" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-poor-performing-subjects"><i class="fa fa-check"></i><b>10.46</b> Remove poor performing subjects</a><ul>
+<li class="chapter" data-level="10.46.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores"><i class="fa fa-check"></i><b>10.46.1</b> Calculate Binned Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="10.47" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-1"><i class="fa fa-check"></i><b>10.47</b> Calculate Binned scores</a></li>
+<li class="chapter" data-level="10.48" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-2"><i class="fa fa-check"></i><b>10.48</b> Calculate Binned scores</a></li>
+<li class="chapter" data-level="10.49" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-3"><i class="fa fa-check"></i><b>10.49</b> Calculate Binned scores</a></li>
+<li class="chapter" data-level="10.50" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-dataframes-and-save"><i class="fa fa-check"></i><b>10.50</b> Merge dataframes and save</a><ul>
+<li class="chapter" data-level="10.50.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-data-file-1"><i class="fa fa-check"></i><b>10.50.1</b> Save data file</a></li>
+</ul></li>
+<li class="chapter" data-level="10.51" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-dataframes-and-save-1"><i class="fa fa-check"></i><b>10.51</b> Merge dataframes and save</a></li>
+<li class="chapter" data-level="10.52" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-7"><i class="fa fa-check"></i><b>10.52</b> Setup</a></li>
+<li class="chapter" data-level="10.53" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-6"><i class="fa fa-check"></i><b>10.53</b> Set import and output directories</a></li>
+<li class="chapter" data-level="10.54" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-files-1"><i class="fa fa-check"></i><b>10.54</b> Set import and output files</a></li>
+<li class="chapter" data-level="10.55" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-6"><i class="fa fa-check"></i><b>10.55</b> Import</a></li>
+<li class="chapter" data-level="10.56" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts-3"><i class="fa fa-check"></i><b>10.56</b> Trim RTs</a></li>
+<li class="chapter" data-level="10.57" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-5"><i class="fa fa-check"></i><b>10.57</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+<li class="chapter" data-level="10.58" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-poor-performing-subjects-1"><i class="fa fa-check"></i><b>10.58</b> Remove poor performing subjects</a></li>
+<li class="chapter" data-level="10.59" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-4"><i class="fa fa-check"></i><b>10.59</b> Calculate Binned scores</a></li>
+<li class="chapter" data-level="10.60" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-dataframes-and-save-2"><i class="fa fa-check"></i><b>10.60</b> Merge dataframes and save</a></li>
+<li class="chapter" data-level="10.61" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-trimming-criteria"><i class="fa fa-check"></i><b>10.61</b> Set Trimming criteria</a></li>
+<li class="chapter" data-level="10.62" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-8"><i class="fa fa-check"></i><b>10.62</b> Setup</a></li>
+<li class="chapter" data-level="10.63" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-7"><i class="fa fa-check"></i><b>10.63</b> Set import and output directories</a></li>
+<li class="chapter" data-level="10.64" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-files-2"><i class="fa fa-check"></i><b>10.64</b> Set import and output files</a></li>
+<li class="chapter" data-level="10.65" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-trimming-criteria-1"><i class="fa fa-check"></i><b>10.65</b> Set Trimming criteria</a></li>
+<li class="chapter" data-level="10.66" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-7"><i class="fa fa-check"></i><b>10.66</b> Import</a></li>
+<li class="chapter" data-level="10.67" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts-4"><i class="fa fa-check"></i><b>10.67</b> Trim RTs</a></li>
+<li class="chapter" data-level="10.68" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-6"><i class="fa fa-check"></i><b>10.68</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+<li class="chapter" data-level="10.69" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-poor-performing-subjects-2"><i class="fa fa-check"></i><b>10.69</b> Remove poor performing subjects</a></li>
+<li class="chapter" data-level="10.70" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-5"><i class="fa fa-check"></i><b>10.70</b> Calculate Binned scores</a></li>
+<li class="chapter" data-level="10.71" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-dataframes-and-save-3"><i class="fa fa-check"></i><b>10.71</b> Merge dataframes and save</a></li>
+<li class="chapter" data-level="10.72" data-path="example-data-preparation.html"><a href="example-data-preparation.html#source-in-masterscript"><i class="fa fa-check"></i><b>10.72</b> <code>source()</code> in Masterscript</a></li>
+<li class="chapter" data-level="10.73" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-9"><i class="fa fa-check"></i><b>10.73</b> Setup</a></li>
+<li class="chapter" data-level="10.74" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-the-directory-tree-1"><i class="fa fa-check"></i><b>10.74</b> Set the directory tree</a></li>
+<li class="chapter" data-level="10.75" data-path="example-data-preparation.html"><a href="example-data-preparation.html#messy-to-tidy-raw-data"><i class="fa fa-check"></i><b>10.75</b> “messy” to “tidy” raw data</a></li>
+<li class="chapter" data-level="10.76" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-to-scored-data"><i class="fa fa-check"></i><b>10.76</b> “tidy” to scored data</a></li>
+</ul></li>
+<li class="part"><span><b>III Data Visualization</b></span></li>
+<li class="chapter" data-level="11" data-path="data-analysis-workflow-in-r.html"><a href="data-analysis-workflow-in-r.html"><i class="fa fa-check"></i><b>11</b> Data Analysis workflow in R</a><ul>
+<li class="chapter" data-level="11.1" data-path="data-analysis-workflow-in-r.html"><a href="data-analysis-workflow-in-r.html#r-markdown"><i class="fa fa-check"></i><b>11.1</b> R Markdown</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="data-analysis-workflow-in-r.html"><a href="data-analysis-workflow-in-r.html#what-is-an-r-markdown-file"><i class="fa fa-check"></i><b>11.1.1</b> What is an R Markdown File?</a></li>
+<li class="chapter" data-level="11.1.2" data-path="data-analysis-workflow-in-r.html"><a href="data-analysis-workflow-in-r.html#yaml-header"><i class="fa fa-check"></i><b>11.1.2</b> YAML header</a></li>
+<li class="chapter" data-level="11.1.3" data-path="data-analysis-workflow-in-r.html"><a href="data-analysis-workflow-in-r.html#r-code-chunks"><i class="fa fa-check"></i><b>11.1.3</b> R code chunks</a></li>
+<li class="chapter" data-level="11.1.4" data-path="data-analysis-workflow-in-r.html"><a href="data-analysis-workflow-in-r.html#formatted-text"><i class="fa fa-check"></i><b>11.1.4</b> Formatted text</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>12</b> Data Visualization</a><ul>
+<li class="chapter" data-level="12.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>12.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="12.2" data-path="data-visualization.html"><a href="data-visualization.html#plotting-functions-in-r"><i class="fa fa-check"></i><b>12.2</b> Plotting Functions in R</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>13</b> Introduction to ggplot2</a><ul>
+<li class="chapter" data-level="13.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#grammar-of-graphics-1"><i class="fa fa-check"></i><b>13.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="13.2" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#data-layer"><i class="fa fa-check"></i><b>13.2</b> Data layer</a></li>
+<li class="chapter" data-level="13.3" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#aesthetic-layer"><i class="fa fa-check"></i><b>13.3</b> Aesthetic Layer</a></li>
+<li class="chapter" data-level="13.4" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#geometries-layer"><i class="fa fa-check"></i><b>13.4</b> Geometries Layer</a></li>
+<li class="chapter" data-level="13.5" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#facets-layer"><i class="fa fa-check"></i><b>13.5</b> Facets Layer</a></li>
+<li class="chapter" data-level="13.6" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#statistics-layer"><i class="fa fa-check"></i><b>13.6</b> Statistics Layer</a></li>
+<li class="chapter" data-level="13.7" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#coordinates-layer"><i class="fa fa-check"></i><b>13.7</b> Coordinates Layer</a></li>
+<li class="chapter" data-level="13.8" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#themes-layer"><i class="fa fa-check"></i><b>13.8</b> Themes Layer</a><ul>
+<li class="chapter" data-level="13.8.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#built-in-themes"><i class="fa fa-check"></i><b>13.8.1</b> Built-in Themes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="aesthetics-geoms-and-stats.html"><a href="aesthetics-geoms-and-stats.html"><i class="fa fa-check"></i><b>14</b> Aesthetics, Geoms, and Stats</a><ul>
+<li class="chapter" data-level="14.1" data-path="aesthetics-geoms-and-stats.html"><a href="aesthetics-geoms-and-stats.html#aesthetics-vs.attributes"><i class="fa fa-check"></i><b>14.1</b> Aesthetics vs. Attributes</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="aesthetics-geoms-and-stats.html"><a href="aesthetics-geoms-and-stats.html#attributes"><i class="fa fa-check"></i><b>14.1.1</b> Attributes</a></li>
+<li class="chapter" data-level="14.1.2" data-path="aesthetics-geoms-and-stats.html"><a href="aesthetics-geoms-and-stats.html#aesthetics"><i class="fa fa-check"></i><b>14.1.2</b> Aesthetics</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Regression</b></span></li>
+<li class="chapter" data-level="15" data-path="introduction-to-regression-in-r.html"><a href="introduction-to-regression-in-r.html"><i class="fa fa-check"></i><b>15</b> Introduction to Regression in R</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Tutorial and Guide for the EngleLab</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="aesthetics-geoms-and-stats" class="section level1">
+<h1><span class="header-section-number">Chapter 14</span> Aesthetics, Geoms, and Stats</h1>
+<p>You can go ahead and set a default theme for your plots</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">theme_set</span>(<span class="kw">theme_linedraw</span>())</code></pre></div>
+<div id="aesthetics-vs.attributes" class="section level2">
+<h2><span class="header-section-number">14.1</span> Aesthetics vs. Attributes</h2>
+<p>In <code>ggplot2</code> we can change the looks of certain elements in our data visualization. We can create different colored data points, sizes, shapes, etc. Colloquially we might think of these as the aesthetics. However, in <code>ggplot2</code> there is a distinction between <strong>aesthetics</strong> and <strong>attributes</strong>.</p>
+<p><img src="images/attributes.png" width="300" style="display: block; margin: auto;" /></p>
+<p><strong>Aesthetics</strong> are how <em>variables are mapped</em> onto how something looks. Whereas, <strong>attributes</strong> are simply changing how something looks. The graphs above are examples of changing the color, size, or shape <strong>attributes</strong> of the individual data points created with <code>geom_point()</code>.</p>
+<p>Common types of aesthetics and attributes we can set are:</p>
+<p><img src="images/aesthetics.png" width="300" style="display: block; margin: auto;" /></p>
+<div id="attributes" class="section level3">
+<h3><span class="header-section-number">14.1.1</span> Attributes</h3>
+<p>To set an attribute, you have to specify the argument in that specific <code>geom</code> layer</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</code></pre></div>
+<p><img src="R_Tutorial_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="aesthetics" class="section level3">
+<h3><span class="header-section-number">14.1.2</span> Aesthetics</h3>
+<p>With aesthetics we can add more variables to the graph, creating multidimensional data visualizations.</p>
+<p>For categorical variables, color is probably the most salient and easily understood visual. Working with the <code>iris</code> data set used from the previous chapter let’s create the following scatterplot.</p>
+<p><img src="R_Tutorial_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>This is similar to the facet plot we created last chapter, but instead of separating species by plot, we will <em>map</em> Species onto a color aesthetic.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width, <span class="dt">color =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<ul>
+<li>Note that aesthetics can actually be set in any layer, not just in <code>ggplot()</code>.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p><img src="R_Tutorial_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>However, notice how when we set <code>aes(color = Species)</code> in the <code>geom_point()</code> layer it does not apply it to the <code>stat_smooth()</code> layer. Therefore, we can see how setting the aesthetics in <code>ggplot()</code> is like setting a <strong>global</strong> aesthetic that gets passed onto to all the other layers.</p>
+
+</div>
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction-to-ggplot2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introduction-to-regression-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>

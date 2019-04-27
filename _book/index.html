@@ -5,27 +5,27 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>R Tutorial for the EngleLab</title>
-  <meta name="description" content="This is a short R Tutorial for the EngleLab">
+  <title>R Tutorial and Guide for the EngleLab</title>
+  <meta name="description" content="This is an R Tutorial and Guide for the EngleLab">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
-  <meta property="og:title" content="R Tutorial for the EngleLab" />
+  <meta property="og:title" content="R Tutorial and Guide for the EngleLab" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a short R Tutorial for the EngleLab" />
+  <meta property="og:description" content="This is an R Tutorial and Guide for the EngleLab" />
   <meta name="github-repo" content="EngleLab" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R Tutorial for the EngleLab" />
+  <meta name="twitter:title" content="R Tutorial and Guide for the EngleLab" />
   
-  <meta name="twitter:description" content="This is a short R Tutorial for the EngleLab" />
+  <meta name="twitter:description" content="This is an R Tutorial and Guide for the EngleLab" />
   
 
 <meta name="author" content="Jason Tsukahara">
 
 
-<meta name="date" content="2019-02-23">
+<meta name="date" content="2019-04-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,41 +50,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -99,8 +125,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="part"><span><b>I I. Getting Started in R</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#workflow"><i class="fa fa-check"></i>Workflow</a></li>
+</ul></li>
+<li class="part"><span><b>I Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
 <li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
 <li class="chapter" data-level="1.2" data-path="installation.html"><a href="installation.html#installing-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R Studio</a></li>
@@ -127,112 +156,177 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.2.1" data-path="intermediate-r.html"><a href="intermediate-r.html#creating-your-own-functions"><i class="fa fa-check"></i><b>3.2.1</b> Creating Your Own Functions</a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>II II. Working with Data</b></span></li>
-<li class="chapter" data-level="4" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>4</b> Workflow</a></li>
-<li class="chapter" data-level="5" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i><b>5</b> The tidyverse</a><ul>
-<li class="chapter" data-level="5.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#readr---import"><i class="fa fa-check"></i><b>5.1</b> readr - import</a></li>
-<li class="chapter" data-level="5.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#dplyr"><i class="fa fa-check"></i><b>5.2</b> dplyr</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#rename"><i class="fa fa-check"></i><b>5.2.1</b> <code>rename()</code></a></li>
-<li class="chapter" data-level="5.2.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#filter"><i class="fa fa-check"></i><b>5.2.2</b> <code>filter()</code></a></li>
-<li class="chapter" data-level="5.2.3" data-path="the-tidyverse.html"><a href="the-tidyverse.html#select"><i class="fa fa-check"></i><b>5.2.3</b> <code>select()</code></a></li>
-<li class="chapter" data-level="5.2.4" data-path="the-tidyverse.html"><a href="the-tidyverse.html#mutate"><i class="fa fa-check"></i><b>5.2.4</b> <code>mutate()</code></a></li>
-<li class="chapter" data-level="5.2.5" data-path="the-tidyverse.html"><a href="the-tidyverse.html#group_by"><i class="fa fa-check"></i><b>5.2.5</b> <code>group_by()</code></a></li>
-<li class="chapter" data-level="5.2.6" data-path="the-tidyverse.html"><a href="the-tidyverse.html#summarise"><i class="fa fa-check"></i><b>5.2.6</b> <code>summarise()</code></a></li>
-<li class="chapter" data-level="5.2.7" data-path="the-tidyverse.html"><a href="the-tidyverse.html#spread"><i class="fa fa-check"></i><b>5.2.7</b> <code>spread()</code></a></li>
-<li class="chapter" data-level="5.2.8" data-path="the-tidyverse.html"><a href="the-tidyverse.html#pipe-operator"><i class="fa fa-check"></i><b>5.2.8</b> Pipe Operator %&gt;%</a></li>
+<li class="part"><span><b>II Working with Data</b></span></li>
+<li class="chapter" data-level="4" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i><b>4</b> The tidyverse</a></li>
+<li class="chapter" data-level="5" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html"><i class="fa fa-check"></i><b>5</b> Importing and Outputing Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#csv"><i class="fa fa-check"></i><b>5.1</b> CSV</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-.csv"><i class="fa fa-check"></i><b>5.1.1</b> Import <code>.csv</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.csv"><i class="fa fa-check"></i><b>5.1.2</b> Output <code>.csv</code></a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="the-tidyverse.html"><a href="the-tidyverse.html#readr---export"><i class="fa fa-check"></i><b>5.3</b> readr - export</a></li>
+<li class="chapter" data-level="5.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#tab-delimited"><i class="fa fa-check"></i><b>5.2</b> Tab-Delimited</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-.txt"><i class="fa fa-check"></i><b>5.2.1</b> Import <code>.txt</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.txt"><i class="fa fa-check"></i><b>5.2.2</b> Output <code>.txt</code></a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="transformations.html"><a href="transformations.html"><i class="fa fa-check"></i><b>6</b> Transformations</a><ul>
-<li class="chapter" data-level="6.1" data-path="transformations.html"><a href="transformations.html#descriptive-statistics"><i class="fa fa-check"></i><b>6.1</b> Descriptive Statistics</a></li>
-<li class="chapter" data-level="6.2" data-path="transformations.html"><a href="transformations.html#centering-and-standardizing-variables"><i class="fa fa-check"></i><b>6.2</b> Centering and Standardizing Variables</a></li>
-<li class="chapter" data-level="6.3" data-path="transformations.html"><a href="transformations.html#transformations-1"><i class="fa fa-check"></i><b>6.3</b> Transformations</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="transformations.html"><a href="transformations.html#log"><i class="fa fa-check"></i><b>6.3.1</b> log</a></li>
-<li class="chapter" data-level="6.3.2" data-path="transformations.html"><a href="transformations.html#polynomial"><i class="fa fa-check"></i><b>6.3.2</b> polynomial</a></li>
+<li class="chapter" data-level="5.3" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#spss"><i class="fa fa-check"></i><b>5.3</b> SPSS</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-.sav"><i class="fa fa-check"></i><b>5.3.1</b> Import <code>.sav</code></a></li>
+<li class="chapter" data-level="5.3.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.sav"><i class="fa fa-check"></i><b>5.3.2</b> Output <code>.sav</code></a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="transformations.html"><a href="transformations.html#composites"><i class="fa fa-check"></i><b>6.4</b> Composites</a></li>
-<li class="chapter" data-level="6.5" data-path="transformations.html"><a href="transformations.html#custom-transformations"><i class="fa fa-check"></i><b>6.5</b> Custom Transformations</a></li>
+<li class="chapter" data-level="5.4" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#rstudio-import-gui"><i class="fa fa-check"></i><b>5.4</b> RStudio Import GUI</a></li>
+<li class="chapter" data-level="5.5" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#merging-data-files"><i class="fa fa-check"></i><b>5.5</b> Merging Data Files</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="englelab-packages.html"><a href="englelab-packages.html"><i class="fa fa-check"></i><b>7</b> EngleLab Packages</a><ul>
-<li class="chapter" data-level="7.1" data-path="englelab-packages.html"><a href="englelab-packages.html#englelab"><i class="fa fa-check"></i><b>7.1</b> englelab</a><ul>
-<li class="chapter" data-level="7.1.1" data-path="englelab-packages.html"><a href="englelab-packages.html#tidy-raw-data-functions"><i class="fa fa-check"></i><b>7.1.1</b> “tidy” raw data functions</a></li>
-<li class="chapter" data-level="7.1.2" data-path="englelab-packages.html"><a href="englelab-packages.html#score-data-functions"><i class="fa fa-check"></i><b>7.1.2</b> score data functions</a></li>
-<li class="chapter" data-level="7.1.3" data-path="englelab-packages.html"><a href="englelab-packages.html#calculating-bin-scores"><i class="fa fa-check"></i><b>7.1.3</b> Calculating Bin Scores</a></li>
-<li class="chapter" data-level="7.1.4" data-path="englelab-packages.html"><a href="englelab-packages.html#reliability-functions"><i class="fa fa-check"></i><b>7.1.4</b> Reliability functions</a></li>
+<li class="chapter" data-level="6" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html"><i class="fa fa-check"></i><b>6</b> Data Manipulation using <code>dplyr</code></a><ul>
+<li class="chapter" data-level="6.1" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#setup"><i class="fa fa-check"></i><b>6.1</b> Setup</a></li>
+<li class="chapter" data-level="6.2" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#import"><i class="fa fa-check"></i><b>6.2</b> Import</a></li>
+<li class="chapter" data-level="6.3" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#rename"><i class="fa fa-check"></i><b>6.3</b> <code>rename()</code></a></li>
+<li class="chapter" data-level="6.4" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#filter"><i class="fa fa-check"></i><b>6.4</b> <code>filter()</code></a></li>
+<li class="chapter" data-level="6.5" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#select"><i class="fa fa-check"></i><b>6.5</b> <code>select()</code></a></li>
+<li class="chapter" data-level="6.6" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#mutate"><i class="fa fa-check"></i><b>6.6</b> <code>mutate()</code></a><ul>
+<li class="chapter" data-level="6.6.1" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#changing-values-in-an-existing-column"><i class="fa fa-check"></i><b>6.6.1</b> Changing values in an existing column</a></li>
+<li class="chapter" data-level="6.6.2" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#creating-a-new-column"><i class="fa fa-check"></i><b>6.6.2</b> Creating a new column</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="englelab-packages.html"><a href="englelab-packages.html#datawrangling"><i class="fa fa-check"></i><b>7.2</b> datawrangling</a><ul>
-<li class="chapter" data-level="7.2.1" data-path="englelab-packages.html"><a href="englelab-packages.html#merging-data-files"><i class="fa fa-check"></i><b>7.2.1</b> Merging Data Files</a></li>
-<li class="chapter" data-level="7.2.2" data-path="englelab-packages.html"><a href="englelab-packages.html#reshpaing-data"><i class="fa fa-check"></i><b>7.2.2</b> Reshpaing Data</a></li>
-<li class="chapter" data-level="7.2.3" data-path="englelab-packages.html"><a href="englelab-packages.html#transformations-2"><i class="fa fa-check"></i><b>7.2.3</b> Transformations</a></li>
-<li class="chapter" data-level="7.2.4" data-path="englelab-packages.html"><a href="englelab-packages.html#data-cleaning"><i class="fa fa-check"></i><b>7.2.4</b> Data Cleaning</a></li>
+<li class="chapter" data-level="6.7" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#group_by"><i class="fa fa-check"></i><b>6.7</b> <code>group_by()</code></a></li>
+<li class="chapter" data-level="6.8" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#summarise"><i class="fa fa-check"></i><b>6.8</b> <code>summarise()</code></a></li>
+<li class="chapter" data-level="6.9" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#spread"><i class="fa fa-check"></i><b>6.9</b> <code>spread()</code></a></li>
+<li class="chapter" data-level="6.10" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#pipe-operator"><i class="fa fa-check"></i><b>6.10</b> Pipe Operator %&gt;%</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html"><i class="fa fa-check"></i><b>7</b> Common Data Manipulations</a><ul>
+<li class="chapter" data-level="7.1" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#descriptive-statistics"><i class="fa fa-check"></i><b>7.1</b> Descriptive Statistics</a></li>
+<li class="chapter" data-level="7.2" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#centering-and-standardizing-variables"><i class="fa fa-check"></i><b>7.2</b> Centering and Standardizing Variables</a></li>
+<li class="chapter" data-level="7.3" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#trimming"><i class="fa fa-check"></i><b>7.3</b> Trimming</a></li>
+<li class="chapter" data-level="7.4" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#composites"><i class="fa fa-check"></i><b>7.4</b> Composites</a></li>
+<li class="chapter" data-level="7.5" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#scale-transformations"><i class="fa fa-check"></i><b>7.5</b> Scale Transformations</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#log"><i class="fa fa-check"></i><b>7.5.1</b> log</a></li>
+<li class="chapter" data-level="7.5.2" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#polynomial"><i class="fa fa-check"></i><b>7.5.2</b> polynomial</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#custom-transformations"><i class="fa fa-check"></i><b>7.6</b> Custom Transformations</a></li>
+</ul></li>
+<li class="part"><span><b>III Example: Data Preparation</b></span></li>
+<li class="chapter" data-level="8" data-path="example-data-set.html"><a href="example-data-set.html"><i class="fa fa-check"></i><b>8</b> Example Data Set</a><ul>
+<li class="chapter" data-level="8.1" data-path="example-data-set.html"><a href="example-data-set.html#initial-setup"><i class="fa fa-check"></i><b>8.1</b> Initial Setup</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="example-data-set.html"><a href="example-data-set.html#rstudio-project"><i class="fa fa-check"></i><b>8.1.1</b> RStudio Project</a></li>
+<li class="chapter" data-level="8.1.2" data-path="example-data-set.html"><a href="example-data-set.html#directory-organization"><i class="fa fa-check"></i><b>8.1.2</b> Directory Organization</a></li>
+<li class="chapter" data-level="8.1.3" data-path="example-data-set.html"><a href="example-data-set.html#r-scripts"><i class="fa fa-check"></i><b>8.1.3</b> R Scripts</a></li>
+<li class="chapter" data-level="8.1.4" data-path="example-data-set.html"><a href="example-data-set.html#masterscript"><i class="fa fa-check"></i><b>8.1.4</b> Masterscript</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="example-data-set.html"><a href="example-data-set.html#example-data-flanker-task"><i class="fa fa-check"></i><b>8.2</b> Example Data: Flanker Task</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="merging-individual-subject-files.html"><a href="merging-individual-subject-files.html"><i class="fa fa-check"></i><b>9</b> Merging Individual Subject Files</a><ul>
+<li class="chapter" data-level="9.1" data-path="merging-individual-subject-files.html"><a href="merging-individual-subject-files.html#setup-1"><i class="fa fa-check"></i><b>9.1</b> Setup</a></li>
+<li class="chapter" data-level="9.2" data-path="merging-individual-subject-files.html"><a href="merging-individual-subject-files.html#files_bind"><i class="fa fa-check"></i><b>9.2</b> <code>files_bind()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html"><i class="fa fa-check"></i><b>10</b> Messy to Tidy</a><ul>
+<li class="chapter" data-level="10.1" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#setup-2"><i class="fa fa-check"></i><b>10.1</b> Setup</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#load-packages"><i class="fa fa-check"></i><b>10.1.1</b> Load packages</a></li>
+<li class="chapter" data-level="10.1.2" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#set-importoutput-directories"><i class="fa fa-check"></i><b>10.1.2</b> Set Import/Output Directories</a></li>
+<li class="chapter" data-level="10.1.3" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#set-importoutput-file-names"><i class="fa fa-check"></i><b>10.1.3</b> Set Import/Output File Names</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#import-1"><i class="fa fa-check"></i><b>10.2</b> Import</a></li>
+<li class="chapter" data-level="10.3" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#tidy-raw-data"><i class="fa fa-check"></i><b>10.3</b> Tidy raw data</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#filter-1"><i class="fa fa-check"></i><b>10.3.1</b> Filter</a></li>
+<li class="chapter" data-level="10.3.2" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#rename-columns"><i class="fa fa-check"></i><b>10.3.2</b> Rename Columns</a></li>
+<li class="chapter" data-level="10.3.3" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#change-values"><i class="fa fa-check"></i><b>10.3.3</b> Change Values</a></li>
+<li class="chapter" data-level="10.3.4" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#select-columns"><i class="fa fa-check"></i><b>10.3.4</b> Select Columns</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#output"><i class="fa fa-check"></i><b>10.4</b> Output</a></li>
+<li class="chapter" data-level="10.5" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#copy-and-paste"><i class="fa fa-check"></i><b>10.5</b> Copy and Paste</a></li>
+<li class="chapter" data-level="10.6" data-path="messy-to-tidy.html"><a href="messy-to-tidy.html#masterscript-1"><i class="fa fa-check"></i><b>10.6</b> Masterscript</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html"><i class="fa fa-check"></i><b>11</b> Data Cleaning and Scoring</a><ul>
+<li class="chapter" data-level="11.1" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#setup-3"><i class="fa fa-check"></i><b>11.1</b> Setup</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#data-cleaning-parameters"><i class="fa fa-check"></i><b>11.1.1</b> Data Cleaning Parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#import-2"><i class="fa fa-check"></i><b>11.2</b> Import</a></li>
+<li class="chapter" data-level="11.3" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#data-cleaning-and-scoring-1"><i class="fa fa-check"></i><b>11.3</b> Data Cleaning and Scoring</a></li>
+<li class="chapter" data-level="11.4" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#trimming-1"><i class="fa fa-check"></i><b>11.4</b> Trimming</a></li>
+<li class="chapter" data-level="11.5" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#calculate-flankereffect"><i class="fa fa-check"></i><b>11.5</b> Calculate FlankerEffect</a></li>
+<li class="chapter" data-level="11.6" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#remove-subjects"><i class="fa fa-check"></i><b>11.6</b> Remove Subjects</a></li>
+<li class="chapter" data-level="11.7" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#calculate-binned-scores"><i class="fa fa-check"></i><b>11.7</b> Calculate Binned Scores</a></li>
+<li class="chapter" data-level="11.8" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#merge"><i class="fa fa-check"></i><b>11.8</b> Merge</a></li>
+<li class="chapter" data-level="11.9" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#save-data-file"><i class="fa fa-check"></i><b>11.9</b> Save data file</a></li>
+<li class="chapter" data-level="11.10" data-path="data-cleaning-and-scoring.html"><a href="data-cleaning-and-scoring.html#source-in-masterscript"><i class="fa fa-check"></i><b>11.10</b> <code>source()</code> in Masterscript</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html"><i class="fa fa-check"></i><b>12</b> Merge: Create A Final Data File</a><ul>
+<li class="chapter" data-level="12.1" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#setup-4"><i class="fa fa-check"></i><b>12.1</b> Setup</a></li>
+<li class="chapter" data-level="12.2" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#merge-1"><i class="fa fa-check"></i><b>12.2</b> Merge</a></li>
+<li class="chapter" data-level="12.3" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#select-and-trim"><i class="fa fa-check"></i><b>12.3</b> Select and Trim</a></li>
+<li class="chapter" data-level="12.4" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#output-1"><i class="fa fa-check"></i><b>12.4</b> Output</a></li>
+<li class="chapter" data-level="12.5" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#masterscript-2"><i class="fa fa-check"></i><b>12.5</b> Masterscript</a></li>
+</ul></li>
+<li class="part"><span><b>IV Interlude: Workflow</b></span></li>
+<li class="chapter" data-level="13" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>13</b> Reproducibility</a><ul>
+<li class="chapter" data-level="13.1" data-path="reproducibility.html"><a href="reproducibility.html#what-is-real"><i class="fa fa-check"></i><b>13.1</b> What is real?</a></li>
+<li class="chapter" data-level="13.2" data-path="reproducibility.html"><a href="reproducibility.html#where-does-your-analysis-live"><i class="fa fa-check"></i><b>13.2</b> Where does your analysis live?</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="reproducibility.html"><a href="reproducibility.html#project-level"><i class="fa fa-check"></i><b>13.2.1</b> Project Level</a></li>
+<li class="chapter" data-level="13.2.2" data-path="reproducibility.html"><a href="reproducibility.html#script-level"><i class="fa fa-check"></i><b>13.2.2</b> Script Level</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="reproducibility.html"><a href="reproducibility.html#r-vs.spss"><i class="fa fa-check"></i><b>13.3</b> R vs. SPSS</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="project-organization.html"><a href="project-organization.html"><i class="fa fa-check"></i><b>14</b> Project Organization</a><ul>
+<li class="chapter" data-level="14.1" data-path="project-organization.html"><a href="project-organization.html#the-working-directory"><i class="fa fa-check"></i><b>14.1</b> The Working Directory</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="project-organization.html"><a href="project-organization.html#r-projects"><i class="fa fa-check"></i><b>14.1.1</b> R Projects</a></li>
+<li class="chapter" data-level="14.1.2" data-path="project-organization.html"><a href="project-organization.html#herehere"><i class="fa fa-check"></i><b>14.1.2</b> here::here()</a></li>
+<li class="chapter" data-level="14.1.3" data-path="project-organization.html"><a href="project-organization.html#rstudio-sessions"><i class="fa fa-check"></i><b>14.1.3</b> RStudio Sessions</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="project-organization.html"><a href="project-organization.html#loaded-packages"><i class="fa fa-check"></i><b>14.2</b> Loaded Packages</a></li>
+<li class="chapter" data-level="14.3" data-path="project-organization.html"><a href="project-organization.html#objects"><i class="fa fa-check"></i><b>14.3</b> Objects</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="using-script-templates.html"><a href="using-script-templates.html"><i class="fa fa-check"></i><b>15</b> Using Script Templates</a><ul>
+<li class="chapter" data-level="15.1" data-path="using-script-templates.html"><a href="using-script-templates.html#building-a-template-workflow"><i class="fa fa-check"></i><b>15.1</b> Building a Template Workflow</a></li>
+<li class="chapter" data-level="15.2" data-path="using-script-templates.html"><a href="using-script-templates.html#the-masterscript.r"><i class="fa fa-check"></i><b>15.2</b> The <code>masterscript.R</code></a></li>
+<li class="chapter" data-level="15.3" data-path="using-script-templates.html"><a href="using-script-templates.html#folder-organization"><i class="fa fa-check"></i><b>15.3</b> Folder Organization</a></li>
+<li class="chapter" data-level="15.4" data-path="using-script-templates.html"><a href="using-script-templates.html#naming-r-scripts"><i class="fa fa-check"></i><b>15.4</b> Naming R Scripts</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="workflow-package.html"><a href="workflow-package.html"><i class="fa fa-check"></i><b>16</b> <code>workflow</code> Package</a><ul>
+<li class="chapter" data-level="16.1" data-path="workflow-package.html"><a href="workflow-package.html#start-a-new-research-study"><i class="fa fa-check"></i><b>16.1</b> Start a new research study</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="workflow-package.html"><a href="workflow-package.html#directory"><i class="fa fa-check"></i><b>16.1.1</b> Directory</a></li>
+<li class="chapter" data-level="16.1.2" data-path="workflow-package.html"><a href="workflow-package.html#additional-options"><i class="fa fa-check"></i><b>16.1.2</b> Additional Options</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="workflow-package.html"><a href="workflow-package.html#download-ready-made-templates"><i class="fa fa-check"></i><b>16.2</b> Download ready-made templates</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="workflow-package.html"><a href="workflow-package.html#generic-templates"><i class="fa fa-check"></i><b>16.2.1</b> Generic Templates</a></li>
+<li class="chapter" data-level="16.2.2" data-path="workflow-package.html"><a href="workflow-package.html#gf-wmc-and-attention-control-scripts"><i class="fa fa-check"></i><b>16.2.2</b> Gf, WMC, and Attention Control Scripts</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html"><i class="fa fa-check"></i><b>8</b> Organization and Good Practices</a><ul>
-<li class="chapter" data-level="8.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#create_study"><i class="fa fa-check"></i><b>8.1</b> create_study()</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#before-data-collection"><i class="fa fa-check"></i><b>8.1.1</b> Before data collection</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#working-directory"><i class="fa fa-check"></i><b>8.2</b> Working Directory</a><ul>
-<li class="chapter" data-level="8.2.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#r-projects"><i class="fa fa-check"></i><b>8.2.1</b> R Projects</a></li>
-<li class="chapter" data-level="8.2.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#here"><i class="fa fa-check"></i><b>8.2.2</b> here()</a></li>
-<li class="chapter" data-level="8.2.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#summary"><i class="fa fa-check"></i><b>8.2.3</b> Summary</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#taskname1_raw.r"><i class="fa fa-check"></i><b>8.3</b> 1_taskname1_raw.R</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#setup"><i class="fa fa-check"></i><b>8.3.1</b> Setup</a></li>
-<li class="chapter" data-level="8.3.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#import-data"><i class="fa fa-check"></i><b>8.3.2</b> Import data</a></li>
-<li class="chapter" data-level="8.3.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#clean-up-raw-data-file"><i class="fa fa-check"></i><b>8.3.3</b> Clean up raw data file</a></li>
-</ul></li>
-<li class="chapter" data-level="8.4" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#taskname1_score.r"><i class="fa fa-check"></i><b>8.4</b> 2_taskname1_score.R</a></li>
-<li class="chapter" data-level="8.5" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#masterscript-template"><i class="fa fa-check"></i><b>8.5</b> Masterscript template</a></li>
-<li class="chapter" data-level="8.6" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#r-scripts"><i class="fa fa-check"></i><b>8.6</b> R Scripts</a><ul>
-<li class="chapter" data-level="8.6.1" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#general-workflow"><i class="fa fa-check"></i><b>8.6.1</b> General Workflow</a></li>
-<li class="chapter" data-level="8.6.2" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#building-a-template-workflow"><i class="fa fa-check"></i><b>8.6.2</b> Building a Template Workflow</a></li>
-<li class="chapter" data-level="8.6.3" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#rmlistls"><i class="fa fa-check"></i><b>8.6.3</b> rm(list=ls())</a></li>
-</ul></li>
-<li class="chapter" data-level="8.7" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#the-masterscript"><i class="fa fa-check"></i><b>8.7</b> The masterscript</a></li>
-<li class="chapter" data-level="8.8" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#folder-organization"><i class="fa fa-check"></i><b>8.8</b> Folder Organization</a></li>
-<li class="chapter" data-level="8.9" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#naming-r-scripts"><i class="fa fa-check"></i><b>8.9</b> Naming R Scripts</a></li>
-<li class="chapter" data-level="8.10" data-path="organization-and-good-practices.html"><a href="organization-and-good-practices.html#summary-1"><i class="fa fa-check"></i><b>8.10</b> Summary</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="example-data-preparation.html"><a href="example-data-preparation.html"><i class="fa fa-check"></i><b>9</b> Example: Data Preparation</a><ul>
-<li class="chapter" data-level="9.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#initial-setup"><i class="fa fa-check"></i><b>9.1</b> Initial Setup</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-up-directory-structure"><i class="fa fa-check"></i><b>9.1.1</b> Set up directory structure</a></li>
-</ul></li>
-<li class="chapter" data-level="9.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#masterscript"><i class="fa fa-check"></i><b>9.2</b> Masterscript</a></li>
-<li class="chapter" data-level="9.3" data-path="example-data-preparation.html"><a href="example-data-preparation.html#creating-messy-merged-file"><i class="fa fa-check"></i><b>9.3</b> Creating “messy” Merged File</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#e-prime-2.0"><i class="fa fa-check"></i><b>9.3.1</b> E-Prime 2.0</a></li>
-<li class="chapter" data-level="9.3.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#skipping-e-merge-with-e-prime-3.0"><i class="fa fa-check"></i><b>9.3.2</b> Skipping E-Merge with E-Prime 3.0</a></li>
-</ul></li>
-<li class="chapter" data-level="9.4" data-path="example-data-preparation.html"><a href="example-data-preparation.html#step-1-messy-to-tidy"><i class="fa fa-check"></i><b>9.4</b> Step 1: “messy” to “tidy”</a><ul>
-<li class="chapter" data-level="9.4.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#what-to-include"><i class="fa fa-check"></i><b>9.4.1</b> What to Include</a></li>
-<li class="chapter" data-level="9.4.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-messy-data"><i class="fa fa-check"></i><b>9.4.2</b> Import “messy” data</a></li>
-<li class="chapter" data-level="9.4.3" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-duplicate-subjects"><i class="fa fa-check"></i><b>9.4.3</b> Remove Duplicate Subjects</a></li>
-<li class="chapter" data-level="9.4.4" data-path="example-data-preparation.html"><a href="example-data-preparation.html#filter-rows"><i class="fa fa-check"></i><b>9.4.4</b> Filter Rows</a></li>
-<li class="chapter" data-level="9.4.5" data-path="example-data-preparation.html"><a href="example-data-preparation.html#rename-variables"><i class="fa fa-check"></i><b>9.4.5</b> Rename Variables</a></li>
-<li class="chapter" data-level="9.4.6" data-path="example-data-preparation.html"><a href="example-data-preparation.html#rename-values"><i class="fa fa-check"></i><b>9.4.6</b> Rename Values</a></li>
-<li class="chapter" data-level="9.4.7" data-path="example-data-preparation.html"><a href="example-data-preparation.html#select-columns"><i class="fa fa-check"></i><b>9.4.7</b> Select Columns</a></li>
-<li class="chapter" data-level="9.4.8" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-to-file-2"><i class="fa fa-check"></i><b>9.4.8</b> Save to File</a></li>
-</ul></li>
-<li class="chapter" data-level="9.5" data-path="example-data-preparation.html"><a href="example-data-preparation.html#step-2-raw-tidy-to-scored"><i class="fa fa-check"></i><b>9.5</b> Step 2: raw “tidy” to scored</a><ul>
-<li class="chapter" data-level="9.5.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-up"><i class="fa fa-check"></i><b>9.5.1</b> Set up</a></li>
-<li class="chapter" data-level="9.5.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import"><i class="fa fa-check"></i><b>9.5.2</b> Import</a></li>
-<li class="chapter" data-level="9.5.3" data-path="example-data-preparation.html"><a href="example-data-preparation.html#data-cleaning-1"><i class="fa fa-check"></i><b>9.5.3</b> Data Cleaning</a></li>
-<li class="chapter" data-level="9.5.4" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy"><i class="fa fa-check"></i><b>9.5.4</b> Calculate FlankerEffect on RT and Accuracy</a></li>
-<li class="chapter" data-level="9.5.5" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-subjects"><i class="fa fa-check"></i><b>9.5.5</b> Remove Subjects</a></li>
-<li class="chapter" data-level="9.5.6" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores"><i class="fa fa-check"></i><b>9.5.6</b> Calculate Binned Scores</a></li>
-<li class="chapter" data-level="9.5.7" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-data-file"><i class="fa fa-check"></i><b>9.5.7</b> Save data file</a></li>
-</ul></li>
-<li class="chapter" data-level="9.6" data-path="example-data-preparation.html"><a href="example-data-preparation.html#source-in-masterscript"><i class="fa fa-check"></i><b>9.6</b> <code>source()</code> in Masterscript</a></li>
-</ul></li>
-<li class="part"><span><b>III III. Data Analysis</b></span></li>
-<li class="chapter" data-level="10" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html"><i class="fa fa-check"></i><b>10</b> Analyzing Data in R</a><ul>
-<li class="chapter" data-level="10.1" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html#r-markdown"><i class="fa fa-check"></i><b>10.1</b> R Markdown</a><ul>
-<li class="chapter" data-level="10.1.1" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html#yaml-header"><i class="fa fa-check"></i><b>10.1.1</b> YAML header</a></li>
-<li class="chapter" data-level="10.1.2" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html#r-code-chunks"><i class="fa fa-check"></i><b>10.1.2</b> R code chunks</a></li>
-<li class="chapter" data-level="10.1.3" data-path="analyzing-data-in-r.html"><a href="analyzing-data-in-r.html#formatted-text"><i class="fa fa-check"></i><b>10.1.3</b> Formatted text</a></li>
+<li class="part"><span><b>V Data Ananlysis</b></span></li>
+<li class="chapter" data-level="17" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html"><i class="fa fa-check"></i><b>17</b> Introduction to Data Analysis</a><ul>
+<li class="chapter" data-level="17.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#r-markdown"><i class="fa fa-check"></i><b>17.1</b> R Markdown</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#what-is-an-r-markdown-file"><i class="fa fa-check"></i><b>17.1.1</b> What is an R Markdown File?</a></li>
+<li class="chapter" data-level="17.1.2" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#yaml-header"><i class="fa fa-check"></i><b>17.1.2</b> YAML header</a></li>
+<li class="chapter" data-level="17.1.3" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#r-code-chunks"><i class="fa fa-check"></i><b>17.1.3</b> R code chunks</a></li>
+<li class="chapter" data-level="17.1.4" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#formatted-text"><i class="fa fa-check"></i><b>17.1.4</b> Formatted text</a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>IV IV. Regression</b></span></li>
-<li class="chapter" data-level="11" data-path="introduction-to-regression-in-r.html"><a href="introduction-to-regression-in-r.html"><i class="fa fa-check"></i><b>11</b> Introduction to Regression in R</a></li>
+<li class="part"><span><b>– Data Visualization</b></span></li>
+<li class="chapter" data-level="18" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html"><i class="fa fa-check"></i><b>18</b> Fundamentals of Data Visualization</a><ul>
+<li class="chapter" data-level="18.1" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>18.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="18.2" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html#plotting-functions-in-r"><i class="fa fa-check"></i><b>18.2</b> Plotting Functions in R</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>19</b> Introduction to ggplot2</a><ul>
+<li class="chapter" data-level="19.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#grammar-of-graphics-1"><i class="fa fa-check"></i><b>19.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="19.2" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#data-layer"><i class="fa fa-check"></i><b>19.2</b> Data layer</a></li>
+<li class="chapter" data-level="19.3" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#aesthetic-layer"><i class="fa fa-check"></i><b>19.3</b> Aesthetic Layer</a></li>
+<li class="chapter" data-level="19.4" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#geometries-layer"><i class="fa fa-check"></i><b>19.4</b> Geometries Layer</a></li>
+<li class="chapter" data-level="19.5" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#facets-layer"><i class="fa fa-check"></i><b>19.5</b> Facets Layer</a></li>
+<li class="chapter" data-level="19.6" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#statistics-layer"><i class="fa fa-check"></i><b>19.6</b> Statistics Layer</a></li>
+<li class="chapter" data-level="19.7" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#coordinates-layer"><i class="fa fa-check"></i><b>19.7</b> Coordinates Layer</a></li>
+<li class="chapter" data-level="19.8" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#themes-layer"><i class="fa fa-check"></i><b>19.8</b> Themes Layer</a><ul>
+<li class="chapter" data-level="19.8.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#built-in-themes"><i class="fa fa-check"></i><b>19.8.1</b> Built-in Themes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i><b>20</b> Scatterplots</a><ul>
+<li class="chapter" data-level="20.1" data-path="scatterplots.html"><a href="scatterplots.html#scatterplots-1"><i class="fa fa-check"></i><b>20.1</b> Scatterplots</a><ul>
+<li class="chapter" data-level="20.1.1" data-path="scatterplots.html"><a href="scatterplots.html#adding-other-geoms"><i class="fa fa-check"></i><b>20.1.1</b> Adding other geoms</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="plotting-means.html"><a href="plotting-means.html"><i class="fa fa-check"></i><b>21</b> Plotting Means</a><ul>
+<li class="chapter" data-level="21.1" data-path="plotting-means.html"><a href="plotting-means.html#bar-graphs"><i class="fa fa-check"></i><b>21.1</b> Bar Graphs</a><ul>
+<li class="chapter" data-level="21.1.1" data-path="plotting-means.html"><a href="plotting-means.html#multidimensional-bar-plot"><i class="fa fa-check"></i><b>21.1.1</b> Multidimensional Bar Plot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="univariate-plots.html"><a href="univariate-plots.html"><i class="fa fa-check"></i><b>22</b> Univariate Plots</a></li>
+<li class="chapter" data-level="23" data-path="sjplot.html"><a href="sjplot.html"><i class="fa fa-check"></i><b>23</b> <code>sjPlot</code></a></li>
+<li class="chapter" data-level="24" data-path="custom-tables.html"><a href="custom-tables.html"><i class="fa fa-check"></i><b>24</b> Custom Tables</a></li>
+<li class="part"><span><b>* Statistical Analysis</b></span></li>
+<li class="chapter" data-level="25" data-path="introduction-to-statistical-analysis-in-r.html"><a href="introduction-to-statistical-analysis-in-r.html"><i class="fa fa-check"></i><b>25</b> Introduction to Statistical Analysis in R</a></li>
 </ul>
 
       </nav>
@@ -242,7 +336,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Tutorial for the EngleLab</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Tutorial and Guide for the EngleLab</a>
           </h1>
         </div>
 
@@ -251,29 +345,46 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">R Tutorial for the EngleLab</h1>
+<h1 class="title">R Tutorial and Guide for the EngleLab</h1>
 <h4 class="author"><em>Jason Tsukahara</em></h4>
-<h4 class="date"><em>2019-02-23</em></h4>
+<h4 class="date"><em>2019-04-27</em></h4>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
-<p>This is an R Tutorial designed specifically for the EngleLab.</p>
-<p>This tutorial is specific to what you would need to know to do most data processing and analyses that are common in our lab. Hopefully this will mean less time learning R and more time using R. And as you start using R, you can learn more about it as you go.</p>
+<p>Welcome to the EngleLab R Tutorial and Guide!</p>
+<p>R is becoming a popular tool for doing statistical analyses across many scientific disciplines. It has many advantages but there is a considerable learning curve. This guide is meant to help you become proficient in R and quickly learn standard data processing tasks that are common in the EngleLab.</p>
 <p>There are more detailed tutorials and resources mentioned throughout this guide. If you want to become more proficient in R it is a good idea to go through those as well.</p>
-<p>I essentially learned R by using it and Googling how to do certain things in R. There are a lot of forums where people have asked the same questions as you and someone has provided a clear answer. I suggest taking advantage of Google in this way.</p>
-<p>R is becoming a popular tool for doing statistical analyses across many scientific disciplines. It has many advantages but it does also takes some time to learn.</p>
-<p><strong>Chapters 1 and 2</strong> go over the basics of what you need to know to start using R.</p>
-<p><strong>Chapter 3</strong> covers more intermediate R programming and is optional.</p>
-<p>In <strong>Chapter 4</strong> I introduce the general data analysis workflow.</p>
-<p>In <strong>Chapter 5</strong> you will learn the basics of working with dataframes, including how to do transformations, computations, creating new variables, filtering, renaming, merging and more. This will give you the skills you need to go from raw data files to a data file that is organized and ready for statistical analyses.</p>
-<p><strong>Chapter 6</strong> covers some basic data transformations such as centering and standardizing variables or creating composite scores.</p>
-<p><strong>Chapter 7</strong> introduces two R packages I have created that contain functions that make it easier to implement a lot of data analysis procedures we commonly do in our lab.</p>
-<p><strong>Chapter 8</strong> will cover principles of how you should structure and organize the workflow in your R scripts. <strong>This chapter is very important</strong></p>
-<p>In <strong>Chapter 9</strong> you will use a Flanker data set as an example of how to go from a “messy” raw data file to a “tidy” raw data file and finally to a scored task file that is ready for statistical analysis.</p>
-<p><strong>Chapters 10 and beyond</strong> have not been created yet but will cover data visualization and statistical analyses.</p>
+<p>There are a lot of online forums where people have asked the same questions as you and someone has most likely provided an answer. I suggest taking advantage of Google to help you learn more about R.</p>
+<div id="how-to-use-this-guide" class="section level2 unnumbered">
+<h2>How to use this guide</h2>
+<p>There are two general ways you might use this guide:</p>
+<ol style="list-style-type: decimal">
+<li><p>Going through each chapter step-by-step as a tutorial</p></li>
+<li><p>Referencing the guide as you work on your own projects</p>
+<p>In this case, the “Search” function will be useful to you. You can find the search option at the top of this document.</p></li>
+</ol>
+<p>For both (particularly for the 1st one), you will want to create a folder directory to save your scripts and data files used in the Guide.</p>
+<p><strong>Section I: Getting Started in R</strong> will cover the baics and fundamentals of how to use R. The Chapter on <em>Intermediate R</em> is optional and not required to continue with the rest of the tutorial</p>
+<hr />
+</div>
+<div id="workflow" class="section level2 unnumbered">
+<h2>Workflow</h2>
+<p>The image below represents the general data processing steps required to go from raw data to visualization and statistical analyses.</p>
+<p>This R Guide will show you how to create R scripts for each of these stages; allowing you to fully reproduce your analyses from beginning to end. One of the major advantages to this is it allows you to easily go back and change how you process data at any one of these stages.</p>
+<p><img src="images/workflow.png" width="1058" /></p>
+<ol style="list-style-type: decimal">
+<li><p>The first step of the data processing workflow is to convert <strong>“messy” raw data</strong> files to <strong>“tidy” raw data</strong> files. Most experiment softwares will produce a “messy” raw data file. In this file there are usually more rows and columns than you would ever be interested in, variable or values are named incoherently (i.e. stimSlide2.RT), and/or there may be separate files for each subject. It will be easier to work with a “tidy” raw data file. A “tidy” raw data file has only the rows and columns that are relevant (one row for each trial), variable and values are named coherently (i.e. RT), and there is one file that contains data for all subjects. This is an easy step to skip but it is highly recommended because it will make it easier 1) for your future self to come back and do some additional analyses/re-analyses and 2) for you to share your raw data with other researchers.</p></li>
+<li><p>The next step is to <strong>score and clean the data</strong>. For most statistical analyses you will want to aggregate the trial-level data into one or more dependent measures for that task. The scored data file will have one row per subject (or possibly one row per subject per experimental condition). This step also involves any data cleaning procedures you might choose to perform, such as removing outliers.</p></li>
+</ol>
+<p>These first two steps are all about data preparation. These steps will be covered in <strong>Section II: Working with Data</strong>.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Finally you are now ready for the fun part, <strong>Data Analysis</strong>! Data analysis consists of visualing your data and conducting statistical analyses. At this stage you will be generating output of your results in tables and figures.</li>
+</ol>
+<p>This third step will be covered in two sections; <strong>Section III: Data Visualization</strong> and <strong>Section IV: Statistical Analyses</strong>.</p>
 <hr />
 <p><strong>Before getting into using R, you need to install the required programs</strong></p>
 
+</div>
 </div>
 
 
@@ -316,7 +427,7 @@ gitbook.start({
 "edit": null,
 "download": null,
 "toc": {
-"collapse": "subsection",
+"collapse": "section",
 "scroll_highlight": true
 },
 "toolbar": {

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R Tutorial and Guide for the EngleLab</title>
+  <meta name="description" content="This is an R Tutorial and Guide for the EngleLab">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R Tutorial and Guide for the EngleLab" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is an R Tutorial and Guide for the EngleLab" />
+  <meta name="github-repo" content="EngleLab" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R Tutorial and Guide for the EngleLab" />
+  
+  <meta name="twitter:description" content="This is an R Tutorial and Guide for the EngleLab" />
+  
+
+<meta name="author" content="Jason Tsukahara">
+
+
+<meta name="date" content="2019-04-21">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="intermediate-r.html">
+<link rel="next" href="the-tidyverse.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#workflow"><i class="fa fa-check"></i>Workflow</a></li>
+</ul></li>
+<li class="part"><span><b>I Getting Started in R</b></span></li>
+<li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
+<li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
+<li class="chapter" data-level="1.2" data-path="installation.html"><a href="installation.html#installing-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R Studio</a></li>
+<li class="chapter" data-level="1.3" data-path="installation.html"><a href="installation.html#the-r-studio-environemnt"><i class="fa fa-check"></i><b>1.3</b> The R Studio Environemnt</a></li>
+<li class="chapter" data-level="1.4" data-path="installation.html"><a href="installation.html#r-studio-settings"><i class="fa fa-check"></i><b>1.4</b> R Studio Settings</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-r.html"><a href="basic-r.html"><i class="fa fa-check"></i><b>2</b> Basic R</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-r.html"><a href="basic-r.html#creating-r-objects"><i class="fa fa-check"></i><b>2.1</b> Creating R objects</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="basic-r.html"><a href="basic-r.html#classes"><i class="fa fa-check"></i><b>2.1.1</b> Classes</a></li>
+<li class="chapter" data-level="2.1.2" data-path="basic-r.html"><a href="basic-r.html#vectors"><i class="fa fa-check"></i><b>2.1.2</b> Vectors</a></li>
+<li class="chapter" data-level="2.1.3" data-path="basic-r.html"><a href="basic-r.html#factors"><i class="fa fa-check"></i><b>2.1.3</b> Factors</a></li>
+<li class="chapter" data-level="2.1.4" data-path="basic-r.html"><a href="basic-r.html#lists"><i class="fa fa-check"></i><b>2.1.4</b> Lists</a></li>
+<li class="chapter" data-level="2.1.5" data-path="basic-r.html"><a href="basic-r.html#data-frames"><i class="fa fa-check"></i><b>2.1.5</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="basic-r.html"><a href="basic-r.html#ifthen-statements"><i class="fa fa-check"></i><b>2.2</b> If…then Statements</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-r.html"><a href="basic-r.html#r-packages"><i class="fa fa-check"></i><b>2.3</b> R Packages</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="basic-r.html"><a href="basic-r.html#installing-and-loading-r-packages"><i class="fa fa-check"></i><b>2.3.1</b> Installing and Loading R Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="basic-r.html"><a href="basic-r.html#more-r-basic-resources"><i class="fa fa-check"></i><b>2.4</b> More R Basic Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="intermediate-r.html"><a href="intermediate-r.html"><i class="fa fa-check"></i><b>3</b> Intermediate R</a><ul>
+<li class="chapter" data-level="3.1" data-path="intermediate-r.html"><a href="intermediate-r.html#for-loops"><i class="fa fa-check"></i><b>3.1</b> For Loops</a></li>
+<li class="chapter" data-level="3.2" data-path="intermediate-r.html"><a href="intermediate-r.html#functions"><i class="fa fa-check"></i><b>3.2</b> Functions</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="intermediate-r.html"><a href="intermediate-r.html#creating-your-own-functions"><i class="fa fa-check"></i><b>3.2.1</b> Creating Your Own Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="workflow-1.html"><a href="workflow-1.html"><i class="fa fa-check"></i><b>4</b> Workflow</a><ul>
+<li class="chapter" data-level="4.1" data-path="workflow-1.html"><a href="workflow-1.html#what-is-real"><i class="fa fa-check"></i><b>4.1</b> What is real?</a></li>
+<li class="chapter" data-level="4.2" data-path="workflow-1.html"><a href="workflow-1.html#where-does-your-analysis-live"><i class="fa fa-check"></i><b>4.2</b> Where does your analysis live?</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="workflow-1.html"><a href="workflow-1.html#project-level"><i class="fa fa-check"></i><b>4.2.1</b> Project Level</a></li>
+<li class="chapter" data-level="4.2.2" data-path="workflow-1.html"><a href="workflow-1.html#script-level"><i class="fa fa-check"></i><b>4.2.2</b> Script Level</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="workflow-1.html"><a href="workflow-1.html#r-vs.spss"><i class="fa fa-check"></i><b>4.3</b> R vs. SPSS</a></li>
+<li class="chapter" data-level="4.4" data-path="workflow-1.html"><a href="workflow-1.html#the-working-directory"><i class="fa fa-check"></i><b>4.4</b> The Working Directory</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="workflow-1.html"><a href="workflow-1.html#r-projects"><i class="fa fa-check"></i><b>4.4.1</b> R Projects</a></li>
+<li class="chapter" data-level="4.4.2" data-path="workflow-1.html"><a href="workflow-1.html#herehere"><i class="fa fa-check"></i><b>4.4.2</b> here::here()</a></li>
+<li class="chapter" data-level="4.4.3" data-path="workflow-1.html"><a href="workflow-1.html#rstudio-sessions"><i class="fa fa-check"></i><b>4.4.3</b> RStudio Sessions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="workflow-1.html"><a href="workflow-1.html#loaded-packages"><i class="fa fa-check"></i><b>4.5</b> Loaded Packages</a></li>
+<li class="chapter" data-level="4.6" data-path="workflow-1.html"><a href="workflow-1.html#objects"><i class="fa fa-check"></i><b>4.6</b> Objects</a></li>
+</ul></li>
+<li class="part"><span><b>II Working with Data</b></span></li>
+<li class="chapter" data-level="" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i>The tidyverse</a></li>
+<li class="chapter" data-level="5" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html"><i class="fa fa-check"></i><b>5</b> Importing and Outputing Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#csv"><i class="fa fa-check"></i><b>5.1</b> CSV</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-.csv"><i class="fa fa-check"></i><b>5.1.1</b> Import <code>.csv</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.csv"><i class="fa fa-check"></i><b>5.1.2</b> Output <code>.csv</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#tab-delimited"><i class="fa fa-check"></i><b>5.2</b> Tab-Delimited</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-.txt"><i class="fa fa-check"></i><b>5.2.1</b> Import <code>.txt</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.txt"><i class="fa fa-check"></i><b>5.2.2</b> Output <code>.txt</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#spss"><i class="fa fa-check"></i><b>5.3</b> SPSS</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-.sav"><i class="fa fa-check"></i><b>5.3.1</b> Import <code>.sav</code></a></li>
+<li class="chapter" data-level="5.3.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.sav"><i class="fa fa-check"></i><b>5.3.2</b> Output <code>.sav</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#rstudio-import-gui"><i class="fa fa-check"></i><b>5.4</b> RStudio Import GUI</a></li>
+<li class="chapter" data-level="5.5" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#workflow-2"><i class="fa fa-check"></i><b>5.5</b> Workflow</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#what-is-real-1"><i class="fa fa-check"></i><b>5.5.1</b> What is real?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-manipulations.html"><a href="data-manipulations.html"><i class="fa fa-check"></i><b>6</b> Data Manipulations</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-manipulations.html"><a href="data-manipulations.html#dplyr"><i class="fa fa-check"></i><b>6.1</b> dplyr</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="data-manipulations.html"><a href="data-manipulations.html#rename"><i class="fa fa-check"></i><b>6.1.1</b> <code>rename()</code></a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-manipulations.html"><a href="data-manipulations.html#filter"><i class="fa fa-check"></i><b>6.1.2</b> <code>filter()</code></a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-manipulations.html"><a href="data-manipulations.html#select"><i class="fa fa-check"></i><b>6.1.3</b> <code>select()</code></a></li>
+<li class="chapter" data-level="6.1.4" data-path="data-manipulations.html"><a href="data-manipulations.html#mutate"><i class="fa fa-check"></i><b>6.1.4</b> <code>mutate()</code></a></li>
+<li class="chapter" data-level="6.1.5" data-path="data-manipulations.html"><a href="data-manipulations.html#group_by"><i class="fa fa-check"></i><b>6.1.5</b> <code>group_by()</code></a></li>
+<li class="chapter" data-level="6.1.6" data-path="data-manipulations.html"><a href="data-manipulations.html#summarise"><i class="fa fa-check"></i><b>6.1.6</b> <code>summarise()</code></a></li>
+<li class="chapter" data-level="6.1.7" data-path="data-manipulations.html"><a href="data-manipulations.html#spread"><i class="fa fa-check"></i><b>6.1.7</b> <code>spread()</code></a></li>
+<li class="chapter" data-level="6.1.8" data-path="data-manipulations.html"><a href="data-manipulations.html#pipe-operator"><i class="fa fa-check"></i><b>6.1.8</b> Pipe Operator %&gt;%</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-manipulations.html"><a href="data-manipulations.html#readr---export"><i class="fa fa-check"></i><b>6.2</b> readr - export</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="using-template-scripts.html"><a href="using-template-scripts.html"><i class="fa fa-check"></i><b>7</b> Using Template Scripts</a><ul>
+<li class="chapter" data-level="7.1" data-path="using-template-scripts.html"><a href="using-template-scripts.html#building-a-template-workflow"><i class="fa fa-check"></i><b>7.1</b> Building a Template Workflow</a></li>
+<li class="chapter" data-level="7.2" data-path="using-template-scripts.html"><a href="using-template-scripts.html#set-up"><i class="fa fa-check"></i><b>7.2</b> Set up</a></li>
+<li class="chapter" data-level="7.3" data-path="using-template-scripts.html"><a href="using-template-scripts.html#load-required-packages"><i class="fa fa-check"></i><b>7.3</b> Load required packages</a></li>
+<li class="chapter" data-level="7.4" data-path="using-template-scripts.html"><a href="using-template-scripts.html#set-import-and-output-directories"><i class="fa fa-check"></i><b>7.4</b> Set import and output directories</a></li>
+<li class="chapter" data-level="7.5" data-path="using-template-scripts.html"><a href="using-template-scripts.html#set-import-and-output-file-names"><i class="fa fa-check"></i><b>7.5</b> Set import and output file names</a></li>
+<li class="chapter" data-level="7.6" data-path="using-template-scripts.html"><a href="using-template-scripts.html#import-data"><i class="fa fa-check"></i><b>7.6</b> Import data</a></li>
+<li class="chapter" data-level="7.7" data-path="using-template-scripts.html"><a href="using-template-scripts.html#do-stuff"><i class="fa fa-check"></i><b>7.7</b> Do Stuff</a></li>
+<li class="chapter" data-level="7.8" data-path="using-template-scripts.html"><a href="using-template-scripts.html#save-data"><i class="fa fa-check"></i><b>7.8</b> Save data</a></li>
+<li class="chapter" data-level="7.9" data-path="using-template-scripts.html"><a href="using-template-scripts.html#the-masterscript.r"><i class="fa fa-check"></i><b>7.9</b> The <code>masterscript.R</code></a></li>
+<li class="chapter" data-level="7.10" data-path="using-template-scripts.html"><a href="using-template-scripts.html#setup"><i class="fa fa-check"></i><b>7.10</b> Setup</a></li>
+<li class="chapter" data-level="7.11" data-path="using-template-scripts.html"><a href="using-template-scripts.html#load-packages"><i class="fa fa-check"></i><b>7.11</b> Load Packages</a></li>
+<li class="chapter" data-level="7.12" data-path="using-template-scripts.html"><a href="using-template-scripts.html#specify-the-directory-tree"><i class="fa fa-check"></i><b>7.12</b> Specify the directory tree</a></li>
+<li class="chapter" data-level="7.13" data-path="using-template-scripts.html"><a href="using-template-scripts.html#score-task-data-from-raw-data-files"><i class="fa fa-check"></i><b>7.13</b> Score task data from raw data files</a></li>
+<li class="chapter" data-level="7.14" data-path="using-template-scripts.html"><a href="using-template-scripts.html#folder-organization"><i class="fa fa-check"></i><b>7.14</b> Folder Organization</a></li>
+<li class="chapter" data-level="7.15" data-path="using-template-scripts.html"><a href="using-template-scripts.html#naming-r-scripts"><i class="fa fa-check"></i><b>7.15</b> Naming R Scripts</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="common-data-transformations.html"><a href="common-data-transformations.html"><i class="fa fa-check"></i><b>8</b> Common Data Transformations</a><ul>
+<li class="chapter" data-level="8.1" data-path="common-data-transformations.html"><a href="common-data-transformations.html#descriptive-statistics"><i class="fa fa-check"></i><b>8.1</b> Descriptive Statistics</a></li>
+<li class="chapter" data-level="8.2" data-path="common-data-transformations.html"><a href="common-data-transformations.html#centering-and-standardizing-variables"><i class="fa fa-check"></i><b>8.2</b> Centering and Standardizing Variables</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="common-data-transformations.html"><a href="common-data-transformations.html#scale"><i class="fa fa-check"></i><b>8.2.1</b> <code>scale()</code></a></li>
+<li class="chapter" data-level="8.2.2" data-path="common-data-transformations.html"><a href="common-data-transformations.html#datawranglingcenter"><i class="fa fa-check"></i><b>8.2.2</b> <code>datawrangling::center()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="common-data-transformations.html"><a href="common-data-transformations.html#trimming"><i class="fa fa-check"></i><b>8.3</b> Trimming</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="common-data-transformations.html"><a href="common-data-transformations.html#remove-observation"><i class="fa fa-check"></i><b>8.3.1</b> Remove Observation</a></li>
+<li class="chapter" data-level="8.3.2" data-path="common-data-transformations.html"><a href="common-data-transformations.html#replacing-values"><i class="fa fa-check"></i><b>8.3.2</b> Replacing Values</a></li>
+<li class="chapter" data-level="8.3.3" data-path="common-data-transformations.html"><a href="common-data-transformations.html#datawranglingtrim"><i class="fa fa-check"></i><b>8.3.3</b> <code>datawrangling::trim()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="common-data-transformations.html"><a href="common-data-transformations.html#composites"><i class="fa fa-check"></i><b>8.4</b> Composites</a></li>
+<li class="chapter" data-level="8.5" data-path="common-data-transformations.html"><a href="common-data-transformations.html#scale-transformations"><i class="fa fa-check"></i><b>8.5</b> Scale Transformations</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="common-data-transformations.html"><a href="common-data-transformations.html#log"><i class="fa fa-check"></i><b>8.5.1</b> log</a></li>
+<li class="chapter" data-level="8.5.2" data-path="common-data-transformations.html"><a href="common-data-transformations.html#polynomial"><i class="fa fa-check"></i><b>8.5.2</b> polynomial</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="common-data-transformations.html"><a href="common-data-transformations.html#custom-transformations"><i class="fa fa-check"></i><b>8.6</b> Custom Transformations</a></li>
+<li class="chapter" data-level="8.7" data-path="common-data-transformations.html"><a href="common-data-transformations.html#reshpaing-data"><i class="fa fa-check"></i><b>8.7</b> Reshpaing Data</a></li>
+<li class="chapter" data-level="8.8" data-path="common-data-transformations.html"><a href="common-data-transformations.html#merging-data-files"><i class="fa fa-check"></i><b>8.8</b> Merging Data Files</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html"><i class="fa fa-check"></i><b>9</b> Useful Scoring Functions</a><ul>
+<li class="chapter" data-level="9.1" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#gf-and-wmc"><i class="fa fa-check"></i><b>9.1</b> Gf and WMC</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#example"><i class="fa fa-check"></i><b>9.1.1</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#set-up-1"><i class="fa fa-check"></i><b>9.2</b> Set up</a></li>
+<li class="chapter" data-level="9.3" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#load-packages-1"><i class="fa fa-check"></i><b>9.3</b> Load packages</a></li>
+<li class="chapter" data-level="9.4" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#set-importoutput-directories"><i class="fa fa-check"></i><b>9.4</b> Set import/output directories</a></li>
+<li class="chapter" data-level="9.5" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#import"><i class="fa fa-check"></i><b>9.5</b> Import</a></li>
+<li class="chapter" data-level="9.6" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#clean-up-raw-data-file-and-save"><i class="fa fa-check"></i><b>9.6</b> Clean up raw data file and save</a></li>
+<li class="chapter" data-level="9.7" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#save-data-file"><i class="fa fa-check"></i><b>9.7</b> Save data file</a></li>
+<li class="chapter" data-level="9.8" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#calculating-bin-scores"><i class="fa fa-check"></i><b>9.8</b> Calculating Bin Scores</a></li>
+<li class="chapter" data-level="9.9" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#reliability-functions"><i class="fa fa-check"></i><b>9.9</b> Reliability functions</a><ul>
+<li class="chapter" data-level="9.9.1" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#cronbach_alpha"><i class="fa fa-check"></i><b>9.9.1</b> <code>cronbach_alpha()</code></a></li>
+<li class="chapter" data-level="9.9.2" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#splithalf"><i class="fa fa-check"></i><b>9.9.2</b> <code>splithalf()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="workflow-package.html"><a href="workflow-package.html"><i class="fa fa-check"></i><b>10</b> <code>workflow</code> Package</a><ul>
+<li class="chapter" data-level="10.1" data-path="workflow-package.html"><a href="workflow-package.html#start-a-new-research-study"><i class="fa fa-check"></i><b>10.1</b> Start a new research study</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="workflow-package.html"><a href="workflow-package.html#directory"><i class="fa fa-check"></i><b>10.1.1</b> Directory</a></li>
+<li class="chapter" data-level="10.1.2" data-path="workflow-package.html"><a href="workflow-package.html#additional-options"><i class="fa fa-check"></i><b>10.1.2</b> Additional Options</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="workflow-package.html"><a href="workflow-package.html#download-ready-made-templates"><i class="fa fa-check"></i><b>10.2</b> Download ready-made templates</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="workflow-package.html"><a href="workflow-package.html#generic-templates"><i class="fa fa-check"></i><b>10.2.1</b> Generic Templates</a></li>
+<li class="chapter" data-level="10.2.2" data-path="workflow-package.html"><a href="workflow-package.html#gf-wmc-and-attention-control-scripts"><i class="fa fa-check"></i><b>10.2.2</b> Gf, WMC, and Attention Control Scripts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="example-data-preparation.html"><a href="example-data-preparation.html"><i class="fa fa-check"></i><b>11</b> Example: Data Preparation</a><ul>
+<li class="chapter" data-level="11.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#initial-setup"><i class="fa fa-check"></i><b>11.1</b> Initial Setup</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-up-directory-structure"><i class="fa fa-check"></i><b>11.1.1</b> Set up directory structure</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#masterscript"><i class="fa fa-check"></i><b>11.2</b> Masterscript</a></li>
+<li class="chapter" data-level="11.3" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-1"><i class="fa fa-check"></i><b>11.3</b> Setup</a></li>
+<li class="chapter" data-level="11.4" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-the-directory-tree"><i class="fa fa-check"></i><b>11.4</b> Set the directory tree</a></li>
+<li class="chapter" data-level="11.5" data-path="example-data-preparation.html"><a href="example-data-preparation.html#creating-messy-merged-file"><i class="fa fa-check"></i><b>11.5</b> Creating “messy” Merged File</a><ul>
+<li class="chapter" data-level="11.5.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#e-prime-2.0"><i class="fa fa-check"></i><b>11.5.1</b> E-Prime 2.0</a></li>
+<li class="chapter" data-level="11.5.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#skipping-e-merge-with-e-prime-3.0"><i class="fa fa-check"></i><b>11.5.2</b> Skipping E-Merge with E-Prime 3.0</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-2"><i class="fa fa-check"></i><b>11.6</b> Setup</a></li>
+<li class="chapter" data-level="11.7" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-1"><i class="fa fa-check"></i><b>11.7</b> Set import and output directories</a></li>
+<li class="chapter" data-level="11.8" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-file-names-1"><i class="fa fa-check"></i><b>11.8</b> Set import and output file names</a></li>
+<li class="chapter" data-level="11.9" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-data-files"><i class="fa fa-check"></i><b>11.9</b> Merge data files</a></li>
+<li class="chapter" data-level="11.10" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-3"><i class="fa fa-check"></i><b>11.10</b> Setup</a></li>
+<li class="chapter" data-level="11.11" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-2"><i class="fa fa-check"></i><b>11.11</b> Set import and output directories</a></li>
+<li class="chapter" data-level="11.12" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-data-files-1"><i class="fa fa-check"></i><b>11.12</b> Merge data files</a></li>
+<li class="chapter" data-level="11.13" data-path="example-data-preparation.html"><a href="example-data-preparation.html#step-1-messy-to-tidy"><i class="fa fa-check"></i><b>11.13</b> Step 1: “messy” to “tidy”</a><ul>
+<li class="chapter" data-level="11.13.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#what-to-include"><i class="fa fa-check"></i><b>11.13.1</b> What to Include</a></li>
+<li class="chapter" data-level="11.13.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-messy-data"><i class="fa fa-check"></i><b>11.13.2</b> Import “messy” data</a></li>
+</ul></li>
+<li class="chapter" data-level="11.14" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-4"><i class="fa fa-check"></i><b>11.14</b> Setup</a></li>
+<li class="chapter" data-level="11.15" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-3"><i class="fa fa-check"></i><b>11.15</b> Set import and output directories</a></li>
+<li class="chapter" data-level="11.16" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-file-names-2"><i class="fa fa-check"></i><b>11.16</b> Set import and output file names</a></li>
+<li class="chapter" data-level="11.17" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-1"><i class="fa fa-check"></i><b>11.17</b> Import</a><ul>
+<li class="chapter" data-level="11.17.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-duplicate-subjects"><i class="fa fa-check"></i><b>11.17.1</b> Remove Duplicate Subjects</a></li>
+</ul></li>
+<li class="chapter" data-level="11.18" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-2"><i class="fa fa-check"></i><b>11.18</b> Import</a><ul>
+<li class="chapter" data-level="11.18.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#filter-rows"><i class="fa fa-check"></i><b>11.18.1</b> Filter Rows</a></li>
+</ul></li>
+<li class="chapter" data-level="11.19" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy"><i class="fa fa-check"></i><b>11.19</b> Tidy</a><ul>
+<li class="chapter" data-level="11.19.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#rename-variables"><i class="fa fa-check"></i><b>11.19.1</b> Rename Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="11.20" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-1"><i class="fa fa-check"></i><b>11.20</b> Tidy</a><ul>
+<li class="chapter" data-level="11.20.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#rename-values"><i class="fa fa-check"></i><b>11.20.1</b> Rename Values</a></li>
+</ul></li>
+<li class="chapter" data-level="11.21" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-2"><i class="fa fa-check"></i><b>11.21</b> Tidy</a></li>
+<li class="chapter" data-level="11.22" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-3"><i class="fa fa-check"></i><b>11.22</b> Tidy</a></li>
+<li class="chapter" data-level="11.23" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-4"><i class="fa fa-check"></i><b>11.23</b> Tidy</a></li>
+<li class="chapter" data-level="11.24" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-5"><i class="fa fa-check"></i><b>11.24</b> Tidy</a></li>
+<li class="chapter" data-level="11.25" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-6"><i class="fa fa-check"></i><b>11.25</b> Tidy</a><ul>
+<li class="chapter" data-level="11.25.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#select-columns"><i class="fa fa-check"></i><b>11.25.1</b> Select Columns</a></li>
+</ul></li>
+<li class="chapter" data-level="11.26" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-7"><i class="fa fa-check"></i><b>11.26</b> Tidy</a><ul>
+<li class="chapter" data-level="11.26.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-to-file"><i class="fa fa-check"></i><b>11.26.1</b> Save to File</a></li>
+</ul></li>
+<li class="chapter" data-level="11.27" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save"><i class="fa fa-check"></i><b>11.27</b> Save</a></li>
+<li class="chapter" data-level="11.28" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-5"><i class="fa fa-check"></i><b>11.28</b> Setup</a></li>
+<li class="chapter" data-level="11.29" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-4"><i class="fa fa-check"></i><b>11.29</b> Set import and output directories</a></li>
+<li class="chapter" data-level="11.30" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-file-names-3"><i class="fa fa-check"></i><b>11.30</b> Set import and output file names</a></li>
+<li class="chapter" data-level="11.31" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-3"><i class="fa fa-check"></i><b>11.31</b> Import</a></li>
+<li class="chapter" data-level="11.32" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-8"><i class="fa fa-check"></i><b>11.32</b> Tidy</a></li>
+<li class="chapter" data-level="11.33" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-1"><i class="fa fa-check"></i><b>11.33</b> Save</a></li>
+<li class="chapter" data-level="11.34" data-path="example-data-preparation.html"><a href="example-data-preparation.html#step-2-raw-tidy-to-scored"><i class="fa fa-check"></i><b>11.34</b> Step 2: raw “tidy” to scored</a><ul>
+<li class="chapter" data-level="11.34.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-up-2"><i class="fa fa-check"></i><b>11.34.1</b> Set up</a></li>
+</ul></li>
+<li class="chapter" data-level="11.35" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-6"><i class="fa fa-check"></i><b>11.35</b> Setup</a></li>
+<li class="chapter" data-level="11.36" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-5"><i class="fa fa-check"></i><b>11.36</b> Set import and output directories</a></li>
+<li class="chapter" data-level="11.37" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-files"><i class="fa fa-check"></i><b>11.37</b> Set import and output files</a><ul>
+<li class="chapter" data-level="11.37.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-4"><i class="fa fa-check"></i><b>11.37.1</b> Import</a></li>
+</ul></li>
+<li class="chapter" data-level="11.38" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-5"><i class="fa fa-check"></i><b>11.38</b> Import</a><ul>
+<li class="chapter" data-level="11.38.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#data-cleaning"><i class="fa fa-check"></i><b>11.38.1</b> Data Cleaning</a></li>
+</ul></li>
+<li class="chapter" data-level="11.39" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts"><i class="fa fa-check"></i><b>11.39</b> Trim RTs</a></li>
+<li class="chapter" data-level="11.40" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts-1"><i class="fa fa-check"></i><b>11.40</b> Trim RTs</a></li>
+<li class="chapter" data-level="11.41" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts-2"><i class="fa fa-check"></i><b>11.41</b> Trim RTs</a><ul>
+<li class="chapter" data-level="11.41.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy"><i class="fa fa-check"></i><b>11.41.1</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+</ul></li>
+<li class="chapter" data-level="11.42" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-1"><i class="fa fa-check"></i><b>11.42</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+<li class="chapter" data-level="11.43" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-2"><i class="fa fa-check"></i><b>11.43</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+<li class="chapter" data-level="11.44" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-3"><i class="fa fa-check"></i><b>11.44</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+<li class="chapter" data-level="11.45" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-4"><i class="fa fa-check"></i><b>11.45</b> Calculate FlankerEffect on RT and Accuracy</a><ul>
+<li class="chapter" data-level="11.45.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-subjects"><i class="fa fa-check"></i><b>11.45.1</b> Remove Subjects</a></li>
+</ul></li>
+<li class="chapter" data-level="11.46" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-poor-performing-subjects"><i class="fa fa-check"></i><b>11.46</b> Remove poor performing subjects</a><ul>
+<li class="chapter" data-level="11.46.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores"><i class="fa fa-check"></i><b>11.46.1</b> Calculate Binned Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="11.47" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-1"><i class="fa fa-check"></i><b>11.47</b> Calculate Binned scores</a></li>
+<li class="chapter" data-level="11.48" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-2"><i class="fa fa-check"></i><b>11.48</b> Calculate Binned scores</a></li>
+<li class="chapter" data-level="11.49" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-3"><i class="fa fa-check"></i><b>11.49</b> Calculate Binned scores</a></li>
+<li class="chapter" data-level="11.50" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-dataframes-and-save"><i class="fa fa-check"></i><b>11.50</b> Merge dataframes and save</a><ul>
+<li class="chapter" data-level="11.50.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-data-file-1"><i class="fa fa-check"></i><b>11.50.1</b> Save data file</a></li>
+</ul></li>
+<li class="chapter" data-level="11.51" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-dataframes-and-save-1"><i class="fa fa-check"></i><b>11.51</b> Merge dataframes and save</a></li>
+<li class="chapter" data-level="11.52" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-7"><i class="fa fa-check"></i><b>11.52</b> Setup</a></li>
+<li class="chapter" data-level="11.53" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-6"><i class="fa fa-check"></i><b>11.53</b> Set import and output directories</a></li>
+<li class="chapter" data-level="11.54" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-files-1"><i class="fa fa-check"></i><b>11.54</b> Set import and output files</a></li>
+<li class="chapter" data-level="11.55" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-6"><i class="fa fa-check"></i><b>11.55</b> Import</a></li>
+<li class="chapter" data-level="11.56" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts-3"><i class="fa fa-check"></i><b>11.56</b> Trim RTs</a></li>
+<li class="chapter" data-level="11.57" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-5"><i class="fa fa-check"></i><b>11.57</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+<li class="chapter" data-level="11.58" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-poor-performing-subjects-1"><i class="fa fa-check"></i><b>11.58</b> Remove poor performing subjects</a></li>
+<li class="chapter" data-level="11.59" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-4"><i class="fa fa-check"></i><b>11.59</b> Calculate Binned scores</a></li>
+<li class="chapter" data-level="11.60" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-dataframes-and-save-2"><i class="fa fa-check"></i><b>11.60</b> Merge dataframes and save</a></li>
+<li class="chapter" data-level="11.61" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-trimming-criteria"><i class="fa fa-check"></i><b>11.61</b> Set Trimming criteria</a></li>
+<li class="chapter" data-level="11.62" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-8"><i class="fa fa-check"></i><b>11.62</b> Setup</a></li>
+<li class="chapter" data-level="11.63" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-directories-7"><i class="fa fa-check"></i><b>11.63</b> Set import and output directories</a></li>
+<li class="chapter" data-level="11.64" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-import-and-output-files-2"><i class="fa fa-check"></i><b>11.64</b> Set import and output files</a></li>
+<li class="chapter" data-level="11.65" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-trimming-criteria-1"><i class="fa fa-check"></i><b>11.65</b> Set Trimming criteria</a></li>
+<li class="chapter" data-level="11.66" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-7"><i class="fa fa-check"></i><b>11.66</b> Import</a></li>
+<li class="chapter" data-level="11.67" data-path="example-data-preparation.html"><a href="example-data-preparation.html#trim-rts-4"><i class="fa fa-check"></i><b>11.67</b> Trim RTs</a></li>
+<li class="chapter" data-level="11.68" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy-6"><i class="fa fa-check"></i><b>11.68</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+<li class="chapter" data-level="11.69" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-poor-performing-subjects-2"><i class="fa fa-check"></i><b>11.69</b> Remove poor performing subjects</a></li>
+<li class="chapter" data-level="11.70" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores-5"><i class="fa fa-check"></i><b>11.70</b> Calculate Binned scores</a></li>
+<li class="chapter" data-level="11.71" data-path="example-data-preparation.html"><a href="example-data-preparation.html#merge-dataframes-and-save-3"><i class="fa fa-check"></i><b>11.71</b> Merge dataframes and save</a></li>
+<li class="chapter" data-level="11.72" data-path="example-data-preparation.html"><a href="example-data-preparation.html#source-in-masterscript"><i class="fa fa-check"></i><b>11.72</b> <code>source()</code> in Masterscript</a></li>
+<li class="chapter" data-level="11.73" data-path="example-data-preparation.html"><a href="example-data-preparation.html#setup-9"><i class="fa fa-check"></i><b>11.73</b> Setup</a></li>
+<li class="chapter" data-level="11.74" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-the-directory-tree-1"><i class="fa fa-check"></i><b>11.74</b> Set the directory tree</a></li>
+<li class="chapter" data-level="11.75" data-path="example-data-preparation.html"><a href="example-data-preparation.html#messy-to-tidy-raw-data"><i class="fa fa-check"></i><b>11.75</b> “messy” to “tidy” raw data</a></li>
+<li class="chapter" data-level="11.76" data-path="example-data-preparation.html"><a href="example-data-preparation.html#tidy-to-scored-data"><i class="fa fa-check"></i><b>11.76</b> “tidy” to scored data</a></li>
+</ul></li>
+<li class="part"><span><b>III Data Visualization</b></span></li>
+<li class="chapter" data-level="12" data-path="data-analysis-workflow-in-r.html"><a href="data-analysis-workflow-in-r.html"><i class="fa fa-check"></i><b>12</b> Data Analysis workflow in R</a><ul>
+<li class="chapter" data-level="12.1" data-path="data-analysis-workflow-in-r.html"><a href="data-analysis-workflow-in-r.html#r-markdown"><i class="fa fa-check"></i><b>12.1</b> R Markdown</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="data-analysis-workflow-in-r.html"><a href="data-analysis-workflow-in-r.html#what-is-an-r-markdown-file"><i class="fa fa-check"></i><b>12.1.1</b> What is an R Markdown File?</a></li>
+<li class="chapter" data-level="12.1.2" data-path="data-analysis-workflow-in-r.html"><a href="data-analysis-workflow-in-r.html#yaml-header"><i class="fa fa-check"></i><b>12.1.2</b> YAML header</a></li>
+<li class="chapter" data-level="12.1.3" data-path="data-analysis-workflow-in-r.html"><a href="data-analysis-workflow-in-r.html#r-code-chunks"><i class="fa fa-check"></i><b>12.1.3</b> R code chunks</a></li>
+<li class="chapter" data-level="12.1.4" data-path="data-analysis-workflow-in-r.html"><a href="data-analysis-workflow-in-r.html#formatted-text"><i class="fa fa-check"></i><b>12.1.4</b> Formatted text</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>13</b> Data Visualization</a><ul>
+<li class="chapter" data-level="13.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>13.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="13.2" data-path="data-visualization.html"><a href="data-visualization.html#plotting-functions-in-r"><i class="fa fa-check"></i><b>13.2</b> Plotting Functions in R</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>14</b> Introduction to ggplot2</a><ul>
+<li class="chapter" data-level="14.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#grammar-of-graphics-1"><i class="fa fa-check"></i><b>14.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="14.2" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#data-layer"><i class="fa fa-check"></i><b>14.2</b> Data layer</a></li>
+<li class="chapter" data-level="14.3" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#aesthetic-layer"><i class="fa fa-check"></i><b>14.3</b> Aesthetic Layer</a></li>
+<li class="chapter" data-level="14.4" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#geometries-layer"><i class="fa fa-check"></i><b>14.4</b> Geometries Layer</a></li>
+<li class="chapter" data-level="14.5" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#facets-layer"><i class="fa fa-check"></i><b>14.5</b> Facets Layer</a></li>
+<li class="chapter" data-level="14.6" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#statistics-layer"><i class="fa fa-check"></i><b>14.6</b> Statistics Layer</a></li>
+<li class="chapter" data-level="14.7" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#coordinates-layer"><i class="fa fa-check"></i><b>14.7</b> Coordinates Layer</a></li>
+<li class="chapter" data-level="14.8" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#themes-layer"><i class="fa fa-check"></i><b>14.8</b> Themes Layer</a><ul>
+<li class="chapter" data-level="14.8.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#built-in-themes"><i class="fa fa-check"></i><b>14.8.1</b> Built-in Themes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="aesthetics.html"><a href="aesthetics.html"><i class="fa fa-check"></i><b>15</b> Aesthetics</a><ul>
+<li class="chapter" data-level="15.1" data-path="aesthetics.html"><a href="aesthetics.html#aesthetics-vs.attributes"><i class="fa fa-check"></i><b>15.1</b> Aesthetics vs. Attributes</a></li>
+<li class="chapter" data-level="15.2" data-path="aesthetics.html"><a href="aesthetics.html#attributes"><i class="fa fa-check"></i><b>15.2</b> Attributes</a></li>
+<li class="chapter" data-level="15.3" data-path="aesthetics.html"><a href="aesthetics.html#aesthetics-1"><i class="fa fa-check"></i><b>15.3</b> Aesthetics</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="geoms-and-stats.html"><a href="geoms-and-stats.html"><i class="fa fa-check"></i><b>16</b> Geoms and Stats</a><ul>
+<li class="chapter" data-level="16.1" data-path="geoms-and-stats.html"><a href="geoms-and-stats.html#scatterplots"><i class="fa fa-check"></i><b>16.1</b> Scatterplots</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="geoms-and-stats.html"><a href="geoms-and-stats.html#adding-other-geoms"><i class="fa fa-check"></i><b>16.1.1</b> Adding other geoms</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="geoms-and-stats.html"><a href="geoms-and-stats.html#bar-graphs"><i class="fa fa-check"></i><b>16.2</b> Bar Graphs</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="geoms-and-stats.html"><a href="geoms-and-stats.html#multidimensional-bar-plot"><i class="fa fa-check"></i><b>16.2.1</b> Multidimensional Bar Plot</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Regression</b></span></li>
+<li class="chapter" data-level="17" data-path="introduction-to-regression-in-r.html"><a href="introduction-to-regression-in-r.html"><i class="fa fa-check"></i><b>17</b> Introduction to Regression in R</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Tutorial and Guide for the EngleLab</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="workflow-1" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Workflow</h1>
+<p>Parts of this section are taken almost directly from an excellent book on Data Science in R</p>
+<hr />
+<div style="text-align: center; font-size: 1.25em">
+<p><a href="https://r4ds.had.co.nz/workflow-projects.html">R for Data Science</a></p>
+</div>
+<hr />
+<p>One day you will need to quit R, go do something else and return to your analysis the next day. One day you will be working on multiple analyses simultaneously that all use R and you want to keep them separate. One day you will need to bring data from the outside world into R and send numerical results and figures from R back out into the world. To handle these real life situations, you need to make two decisions:</p>
+<ol style="list-style-type: decimal">
+<li><p>What about your analysis is “real”, i.e. what will you save as your lasting record of what happened?</p></li>
+<li><p>Where does your analysis “live”?</p></li>
+</ol>
+<div id="what-is-real" class="section level2">
+<h2><span class="header-section-number">4.1</span> What is real?</h2>
+<p>As a beginner R user, it is tempting to consider whatever is in our <code>Environment</code> (i.e. data we have imported) as <em>“real”</em>. However, we should consider our <strong>R Scripts</strong> and <strong>Data Files</strong> saved on our computer as <em>real</em>.</p>
+<p>With your R scripts (and your data files), you can recreate the <code>Environment</code> It’s much harder to recreate your R scripts from your <code>Environment</code>! You’ll either have to retype a lot of code from memory (making mistakes all the way) or you’ll have to carefully mine your R history.</p>
+<p>Therefore, the <code>Environment</code> is more of a temporary <em>workspace</em>. This <em>workspace</em> will get cleared out every time you Restart or Quit out of R and RStudio. If you treat your <code>Environment</code> as real this can have disasterous consequences and you can lose a lot of productivity.</p>
+<hr />
+<div style="text-align: center; font-size: 1.25em">
+<p>Your R Scripts and Data Files are <em>real</em></p>
+</div>
+<hr />
+<p>Even if you need to Quit R, come back to an analysis the next day, or want to run your analysis on a different computer than you started -</p>
+<hr />
+<div style="text-align: center; font-size: 1.25em">
+<p>You should be able to <strong>Reproduce</strong> your analyses from your saved R scripts and <em>original</em> data files.</p>
+</div>
+<hr />
+</div>
+<div id="where-does-your-analysis-live" class="section level2">
+<h2><span class="header-section-number">4.2</span> Where does your analysis live?</h2>
+<p>“One day you will be working on multiple analyses simultaneously that all use R and you want to keep them separate”</p>
+<p>There are two levels at which your analysis will live</p>
+<ol style="list-style-type: decimal">
+<li><p>Project level</p></li>
+<li><p>Individual R Script level</p></li>
+</ol>
+<div id="project-level" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Project Level</h3>
+<p>The <strong>Project Level</strong> refers to where you are storing all your files associated with the project (i.e. R scripts, data files, figures, results) as well as to the organization of your folders and files.</p>
+<p>If you are working on multiple projects at one time, then it is <em>vital</em> to:</p>
+<hr />
+<div style="text-align: center; font-size: 1.25em">
+<p>Keep your analysis from different projects separated</p>
+</div>
+<hr />
+<p>You do not want objects created in your <code>Environment</code> from one project to get mixed up with objects (perhaps with the same object names) in a different project. We have not talked about the concept of <em>Working Diectories</em> yet, but you also need to ensure your working directory is correctly set in order to import and output files. If you are working on multiple projects at one time and not keeping them separated you will have issues <strong>Reproducing</strong> your analysis because the working directory might not be set correctly.</p>
+<p>The three most important elements to an environment are:</p>
+<ol style="list-style-type: decimal">
+<li><p>The working directory</p></li>
+<li><p>Loaded packages</p></li>
+<li><p>Objects</p></li>
+</ol>
+<p><strong>The best way to keep project <code>Environments</code> separated is to work on them in separate R Sessions</strong>.</p>
+<p>You can have multiple Sessions of R open at one time. And the three elements of an <code>Environment</code> in one R Session will be different and independent from those in another R Session. RStudio has an excellent way of managing separate projects with a feature called RStudio Projects.</p>
+<hr />
+<div style="text-align: center; font-size: 1.25em">
+<p>Use <strong>RStudio Projects</strong> to create separate Environments for your projects</p>
+</div>
+<hr />
+<p><a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">Visit this page</a> for more details on R Projects.</p>
+<p>Go ahead and create an R Project for this tutorial. Navigate to File -&gt; New Project… -&gt;</p>
+<p>Choose <em>Existing Directory</em> if you already created an “R Tutorial”&quot; folder on your computer or <em>New Directory -&gt; New Project</em> if you have not. Create the R Project in the root folder of your R Tutorial. You should now see a file called <code>R Tutorial.Rproj</code>.</p>
+<p>There are a couple of ways you can open an RStudio Project.</p>
+<ul>
+<li><p>One way is to just simply open the <code>.Rproj</code> file. This will open a new R Session (and RStudio window).</p></li>
+<li><p>If you already have an RStudio window open you can navigate to the very top-right of the application window and browse different projects you have recently worked on. This is where you can also see which Project you currently have open.</p></li>
+</ul>
+<p><img src="images/rproj_open.png" width="263" style="display: block; margin: auto;" /></p>
+</div>
+<div id="script-level" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Script Level</h3>
+<p>Within a Project, you will multiple R Scripts that are performing a different analysis. It is also important to keep the <code>Environment</code> of an R Script independent of the <code>Environment</code> from other R Scripts.</p>
+<p>Obviously your R Scripts will be dependent on one another in the sense that one R Script might be creating data files that other R Scripts will later use.</p>
+<p>For example, you might have an R Script (or multiple scripts) that prepare the data for statistical analysis by creating a <em>scored merged data file</em>. Then another R Script will actually run and output the statistical analyses. The statistical analysis R Script is dependent on a data file created by the first R Script. <strong>However</strong>, the <code>Environment</code> of the R Scripts are independent from one another. This is what was meant before when I stated that the <code>Environment</code> is not real, but the R Scripts and Data files are real.</p>
+<hr />
+<div style="text-align: center; font-size: 1.25em">
+<p>R Scripts are linked in a data processing workflow through the data files they create not by the objects in the Environment</p>
+</div>
+<hr />
+<p><strong>Therefore, it is important that the <code>Environment</code> of each R Script within a Project are independent from one another.</strong> This means that an R Script should not depend on objects created or data imported in other R Scripts. Or that any packages required for an R Script should be loaded in THAT script and not depend on them being loaded in other R Scripts.</p>
+<p>As long as the data files required for an R Script are already created, you should be able to open a completely new and fresh session of R and succesfully execute all the lines of code in that one Script (without having ran any other scripts).</p>
+</div>
+</div>
+<div id="r-vs.spss" class="section level2">
+<h2><span class="header-section-number">4.3</span> R vs. SPSS</h2>
+<hr />
+<div style="text-align: center; font-size: 1.25em">
+<p>R is so much more than just an alternative to SPSS</p>
+</div>
+<hr />
+<p>I hope you can begin to see from this Chapter that R is so much more than just an alternative to SPSS or EQS. R is a powerful programming language that greatly enhances your data handling and analysis skills.</p>
+<hr />
+<div style="text-align: center; font-size: 1.25em">
+<p>R gives your the power of Reproducibility</p>
+</div>
+<hr />
+<p>Reproducibility is not just about allowing others to reproduce your analyses. More importantly it allows you to reproduce your own analyses. Or perhaps go back and modify some step in your analysis and re-run your modified analysis. Reproducibilty enhances the understanding of your data and gives you mastery over it.</p>
+<p><strong>Therefore, learning R is about learning how to manage and handle your data processing workflow in a way that empowers your ability to analyze and explore your data.</strong> This is not possible using SPSS and/or Excel. As scientists we work with data all the time. If this is your career track then why would you not want to learn the tools that give you mastery over your data?</p>
+<p>If you treat R as just an alternative to SPSS, then it is all too easy to create poorly written scripts and disorganized projects that completely undermine reproducibility. Honestly, I am not sure if it is worth taking the time and effort to learn R as simply an alternative to SPSS.</p>
+<p>In R, the objects you create and the functions you use in your scripts are all happening within a <em><strong>specific</strong></em> environment. If certain elements of that environment change then suddenly your R script might not work anymore. Therefore, it is important to be aware of what your current environment is to make sure your script executes correctly every time you want to use it.</p>
+<p>The three most important elements to an environment are:</p>
+<ol style="list-style-type: decimal">
+<li><p>The working directory</p></li>
+<li><p>Loaded packages</p></li>
+<li><p>Objects</p></li>
+</ol>
+<p>For a given research project you will likely be working with multiple scripts. <strong>You need to think of each R Script as it’s separate environment</strong>. Which means for every R Script you need to make sure that the 1) working directory, 2) loaded packages and 3) objects are set such that, each R script can execute properly and independently.</p>
+</div>
+<div id="the-working-directory" class="section level2">
+<h2><span class="header-section-number">4.4</span> The Working Directory</h2>
+<p>In every R script you will 1) import a data set from a file on your computer, 2) do stuff to that data file, and 3) export a data file or an analysis output file.</p>
+<p>You could use what are refered to as <em>absolute</em> file paths to import and export files but this is not good practice. The reason is that the <em>absolute</em> file path is specific to a particular computer. No one computer is going to have the same <em>absolute</em> file path. An <em>absolute</em> file path starts from the root directory on your computer and may look something like:</p>
+<p>Mac: <code>~/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/R-Tutorial</code></p>
+<p>Windows: <code>C:\Users\jasontsukahara\Dropbox (GaTech)\My Work\Coding Projects\R\R-Tutorial</code></p>
+<p><strong>You do not want to write scripts that can only work on a specific computer!</strong> One of the great advantages to programming for data processing is reproducibility. You and your future self (and other researchers) can reproduce your exact same data processing steps. <strong>If you use absolute file paths you are undermining the reproducibility of your scripts</strong>.</p>
+<p><strong>It is good practice</strong> to use <em>relative</em> file paths instead. <em>Relative</em> file paths start from a root directory, usually the projects root directory. So if you have all your files and folders related to a research study in a directory called <code>Cool Study</code> then a <em>relative</em> file path to the Raw data files might look something like:</p>
+<p>Absolute path to raw data files in <code>Cool Study</code>:</p>
+<p><code>~/Users/jasontsukahara/Dropbox (GaTech)/My Work/Research Projects/Cool Study/Data Files/Raw Data</code></p>
+<p>Relative file path:</p>
+<p><code>Data Files/Raw Data</code></p>
+<p>You can see that with <em>relative</em> file paths, only the internal organization of the project directory matters. This allows your script to be ran on different computeres, systems, and environments!</p>
+<p>You working directory can be specified in various ways. By default, if you open up <strong>RStudio</strong> directly it will set the working directory to some default location such as your <em>User</em> root directory. <strong>This is not good</strong>.</p>
+<p>If you open up <strong>RStudio</strong> by directly opening an <em>R script file</em> then it will set the working directory to the location of that file. This is better but still not ideal.</p>
+<div id="r-projects" class="section level3">
+<h3><span class="header-section-number">4.4.1</span> R Projects</h3>
+<p><a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">Visit this page</a> for more details on R Projects.</p>
+<p>Essentially there are several ways to set a working directory but the <strong>best way</strong> is through the use of <strong>R Projects</strong>.</p>
+<p>Above, I mentioned that one of the most important elements to your script’s environment is the working directory. R Projects ensure that your working directory is set correctly and is always the same every time you use that script. Basically an R Project allows you to open a fresh session of R that automatically sets the working directory to the directory where the R Project is saved. R Projects have the file extension <code>.Rproj</code>.</p>
+<p>Go ahead and create an R Project for this tutorial. Navigate to File -&gt; New Project… -&gt;</p>
+<p>Choose <em>Existing Directory</em> if you already created an “R Tutorial”&quot; folder on your computer or <em>New Directory -&gt; New Project</em> if you have not. Create the R Project in the root folder of your R Tutorial.</p>
+<p>Now exit out of R Studio. Then open R Studio by opening the R Project file. You can evaluate what the working directory is by typing <code>getwd()</code> in the console.</p>
+<p>In your R Scripts you can now simply use relative paths from the working directory. And it doesn’t matter what folder, within “R Tutorial”“, you save your R scripts to.</p>
+<p>As an exercise, save an R script to a folder within your “R Tutorial”&quot; directory. R scripts have the extension, <code>.R</code>. Navigate to File -&gt; New File -&gt; R Script. Save the script file to <code>R Scripts/test.R</code>. Close out of RStudio and directly open the <code>test.R</code> file. Now evaluate the working directory by typing <code>getwd()</code> in the console.</p>
+<p>Oops… you see the working directory is no longer where the <code>.Rproj</code> file is saved. <strong>As long as you open RStudio from the <code>.Rproj</code> file and not one of the script <code>.R</code> files</strong> then your working directory will automatically be set correctly. While this is much better it is still not ideal. This is where the <code>here</code> package comes in handy.</p>
+</div>
+<div id="herehere" class="section level3">
+<h3><span class="header-section-number">4.4.2</span> here::here()</h3>
+<p>This method is simple to use and is a great way to specify <em>relative</em> paths. It will allow you to open RStudio using any of your <code>.R</code> script files and maintain the some <em>relative</em> file path from your <code>.Rproj</code> file across every R Script.</p>
+<p>First go ahead and install the <code>here</code> package, <code>install.packages(&quot;here&quot;)</code>.</p>
+<p>For a passionate ode to the <code>here</code> package see: <a href="https://github.com/jennybc/here_here" class="uri">https://github.com/jennybc/here_here</a></p>
+<p>Basically, when <code>here</code> is loaded, <code>library(here)</code>, it will search for one of two files to locate the start of the <em>relative</em> file path. 1) a hidden <code>.here</code> file or 2) an <code>.Rproj</code> file. It will recursively keep going backwards in directories to locate a root directory that contains one of these files.</p>
+<p>The <code>.here</code> file can be created by <code>set_here()</code>, but is unnecessary if you are using the <strong>R Project</strong> method.</p>
+<p>What this allows is pretty cool. Let’s say your working directory is “R Tutorial”, which is the directory where your <code>.Rproj</code> file is saved. Even if you have an <code>.R</code> script saved in <code>&quot;R Tutorial/R scripts/test.R&quot;</code>, you can open a new fresh session of R by opening that script file (instead of the <code>.Rproj</code> file). If you load <code>library(here)</code> at the top of the <code>test.R</code> file then it will automatically set a <em>relative</em> file path from <code>&quot;R Tutorial&quot;</code> since it will detect an <code>.Rproj</code> file in that directory. Then tomorrow maybe you want to work on a different <code>.R</code> script located somewhere else but still within this same project direcotry. Let’s say it is located at <code>&quot;R Tutorial/Data/something dumb/scripts/thisisascript.R&quot;</code>. Again, you can open a new fresh session of R by opening this file <strong>AND</strong> still have the same <em>relative</em> file path no matter what script you open, or if you open the <code>.Rproj</code> file.</p>
+<p><em>Note that this method is actually a little different from setting a working directory.</em> Therefore, you need to use the <code>here()</code> function from the <code>here</code> package when using relative file paths. To reference a relative file path you can use <code>here()</code>. For instance</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(here)
+<span class="kw">here</span>(<span class="st">&quot;Data&quot;</span>, <span class="st">&quot;somethingdumb&quot;</span>, <span class="st">&quot;scripts&quot;</span>, <span class="st">&quot;thisisascript.R&quot;</span>)
+
+<span class="co"># Or</span>
+
+<span class="kw">here</span>(<span class="st">&quot;Data/somethingdumb/scripts&quot;</span>, <span class="st">&quot;thisisascript.R&quot;</span>)</code></pre></div>
+<p>Both of these refer to the same relative file path</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;Data/somethingdumb/scripts/thisisascript.R&quot;</span></code></pre></div>
+<p>The general format for using <code>here()</code> for importing or outputing a file might look something like</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(here)
+
+<span class="kw">read_csv</span>(<span class="kw">here</span>(<span class="st">&quot;Data/Raw Data&quot;</span>, <span class="st">&quot;import_filename.csv&quot;</span>))
+
+<span class="kw">write_csv</span>(<span class="kw">here</span>(<span class="st">&quot;Data/Scored Data&quot;</span> <span class="st">&quot;output_filename.csv&quot;</span>))</code></pre></div>
+<p>When using <code>here()</code> the start of the <em>relative</em> file path will ALWAYS be where the <code>.Rproj</code> file is located. Now in ALL of your scripts you can just use the <code>here()</code> function whenever you need to specificy a <em>relative</em> file path.</p>
+</div>
+<div id="rstudio-sessions" class="section level3">
+<h3><span class="header-section-number">4.4.3</span> RStudio Sessions</h3>
+<p>Also related to working directories is the concept of RStudio Sessions. RStudio is an environment window for interacting with R. When you are using RStudio, you are not directly interacting with the actual installed R software on your computer. You are interacting with the R software on your computer through RStudio.</p>
+<p>It is possible to have multiple RStudio sessions open at a given time. And each RStudio session can be interacting with a different <em>instance</em> of R. Each instance of R can have different <strong>working directories</strong> and different <strong>packages loaded</strong>.</p>
+<p><em>IF YOU ALREADY HAVE AN RSTUDIO SESSION OPEN FROM A DIFFERENT PROJECT OR ROOT DIRECTORY, JUST OPENING AN <code>.R</code> SCRIPT FILE RELATED TO A NEW OR DIFFERENT PROJECT IS NOT CREATING THE RIGHT ENVIRONMENT FOR THAT SCRIPT TO WORK.</em></p>
+<p><strong>THEREFORE EACH TIME YOU OPEN FILES RELATED TO A NEW OR DIFFERENT PROJECT YOU SHOULD EITHER:</strong></p>
+<ol style="list-style-type: decimal">
+<li><strong>CLOSE OUT OF R STUDIO AND REOPEN IT BY OPENING A FILE IN THE THE NEW OR DIFFERENT PROJECT</strong></li>
+</ol>
+<p>or</p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>OPEN A DIFFERENT RSTUDIO SESSION BY DIRECTLY OPENING THE <code>.RPROJ</code> FILE</strong></li>
+</ol>
+<p>This is one of the advantages to using RProjects. If you are prone to not closing out of windows or <em>tabs</em>, RProjects allow you to easily manage the environment of multiple projects opened at one time.</p>
+<p>Additionally, it is suggested to not open script files from your computer directory. Instead, open script files from the <em>File Panel</em> in the bottom right section of your RStudio Session. That way the script file opens in the correct RStudio Session associated with a particular project.</p>
+<hr />
+<p>The idea of loaded packages and objects is much simpler than working directories. Basically you want each R Script’s environment to be independent of other R scripts. An R Script should not depend on the packages loaded or objects and functions created in another R Script.</p>
+<p>So if I create an object called <code>data</code> in one R Script, another R Script should not rely on the object <code>data</code> from that previous R Script. Similarly, if I load a package called <code>dplyr</code> in one R Script, I should load the <code>dplyr</code> package again in any subsequent R Scripts that require that package.</p>
+<p>You certainly will be writing sripts that depend on each other (As you move from one data processing stage to the next), but the environment of one R Script should not depend on the environment of another R Script. To test if the environment for one R Script depends on other R Scripts, you can close out of RStudio after executing each script file, re-opening RStudio and executing another script file. If a script does not work in a new fresh session of RStudio, then that script is likely depending on the environment of other R Scripts.</p>
+<hr />
+</div>
+</div>
+<div id="loaded-packages" class="section level2">
+<h2><span class="header-section-number">4.5</span> Loaded Packages</h2>
+<p>To make sure that the packages used in one R Script do not depend on the packages loaded in other R Scripts:</p>
+<p><strong>Load all required packages for that one R Script at the top of the script</strong></p>
+<p>This allows you to easily evaluate which packages are required for that script.</p>
+</div>
+<div id="objects" class="section level2">
+<h2><span class="header-section-number">4.6</span> Objects</h2>
+<p>To make sure that the objects and functions created in one R Script do not depend on the objects and functions created in other R Scripts:</p>
+<p><strong>Include the following line of code at the bottome of the script</strong></p>
+<p><code>rm(list=ls())</code></p>
+<p>This will remove any objects and functions in the current environment. That way when the next R Script is ran, there will be no leftover objects or functions from previous R Scripts.</p>
+
+</div>
+</div>
+
+
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intermediate-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="the-tidyverse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>

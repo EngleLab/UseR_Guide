@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R Tutorial and Guide for the EngleLab</title>
+  <meta name="description" content="This is an R Tutorial and Guide for the EngleLab">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R Tutorial and Guide for the EngleLab" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is an R Tutorial and Guide for the EngleLab" />
+  <meta name="github-repo" content="EngleLab" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R Tutorial and Guide for the EngleLab" />
+  
+  <meta name="twitter:description" content="This is an R Tutorial and Guide for the EngleLab" />
+  
+
+<meta name="author" content="Jason Tsukahara">
+
+
+<meta name="date" content="2019-04-21">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="using-template-scripts.html">
+<link rel="next" href="useful-scoring-functions.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#workflow"><i class="fa fa-check"></i>Workflow</a></li>
+</ul></li>
+<li class="part"><span><b>I Getting Started in R</b></span></li>
+<li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
+<li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
+<li class="chapter" data-level="1.2" data-path="installation.html"><a href="installation.html#installing-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R Studio</a></li>
+<li class="chapter" data-level="1.3" data-path="installation.html"><a href="installation.html#the-r-studio-environemnt"><i class="fa fa-check"></i><b>1.3</b> The R Studio Environemnt</a></li>
+<li class="chapter" data-level="1.4" data-path="installation.html"><a href="installation.html#r-studio-settings"><i class="fa fa-check"></i><b>1.4</b> R Studio Settings</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-r.html"><a href="basic-r.html"><i class="fa fa-check"></i><b>2</b> Basic R</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-r.html"><a href="basic-r.html#creating-r-objects"><i class="fa fa-check"></i><b>2.1</b> Creating R objects</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="basic-r.html"><a href="basic-r.html#classes"><i class="fa fa-check"></i><b>2.1.1</b> Classes</a></li>
+<li class="chapter" data-level="2.1.2" data-path="basic-r.html"><a href="basic-r.html#vectors"><i class="fa fa-check"></i><b>2.1.2</b> Vectors</a></li>
+<li class="chapter" data-level="2.1.3" data-path="basic-r.html"><a href="basic-r.html#factors"><i class="fa fa-check"></i><b>2.1.3</b> Factors</a></li>
+<li class="chapter" data-level="2.1.4" data-path="basic-r.html"><a href="basic-r.html#lists"><i class="fa fa-check"></i><b>2.1.4</b> Lists</a></li>
+<li class="chapter" data-level="2.1.5" data-path="basic-r.html"><a href="basic-r.html#data-frames"><i class="fa fa-check"></i><b>2.1.5</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="basic-r.html"><a href="basic-r.html#ifthen-statements"><i class="fa fa-check"></i><b>2.2</b> If…then Statements</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-r.html"><a href="basic-r.html#r-packages"><i class="fa fa-check"></i><b>2.3</b> R Packages</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="basic-r.html"><a href="basic-r.html#installing-and-loading-r-packages"><i class="fa fa-check"></i><b>2.3.1</b> Installing and Loading R Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="basic-r.html"><a href="basic-r.html#more-r-basic-resources"><i class="fa fa-check"></i><b>2.4</b> More R Basic Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="intermediate-r.html"><a href="intermediate-r.html"><i class="fa fa-check"></i><b>3</b> Intermediate R</a><ul>
+<li class="chapter" data-level="3.1" data-path="intermediate-r.html"><a href="intermediate-r.html#for-loops"><i class="fa fa-check"></i><b>3.1</b> For Loops</a></li>
+<li class="chapter" data-level="3.2" data-path="intermediate-r.html"><a href="intermediate-r.html#functions"><i class="fa fa-check"></i><b>3.2</b> Functions</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="intermediate-r.html"><a href="intermediate-r.html#creating-your-own-functions"><i class="fa fa-check"></i><b>3.2.1</b> Creating Your Own Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="workflow-1.html"><a href="workflow-1.html"><i class="fa fa-check"></i><b>4</b> Workflow</a><ul>
+<li class="chapter" data-level="4.1" data-path="workflow-1.html"><a href="workflow-1.html#what-is-real"><i class="fa fa-check"></i><b>4.1</b> What is real?</a></li>
+<li class="chapter" data-level="4.2" data-path="workflow-1.html"><a href="workflow-1.html#where-does-your-analysis-live"><i class="fa fa-check"></i><b>4.2</b> Where does your analysis live?</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="workflow-1.html"><a href="workflow-1.html#project-level"><i class="fa fa-check"></i><b>4.2.1</b> Project Level</a></li>
+<li class="chapter" data-level="4.2.2" data-path="workflow-1.html"><a href="workflow-1.html#script-level"><i class="fa fa-check"></i><b>4.2.2</b> Script Level</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="workflow-1.html"><a href="workflow-1.html#r-vs.spss"><i class="fa fa-check"></i><b>4.3</b> R vs. SPSS</a></li>
+<li class="chapter" data-level="4.4" data-path="workflow-1.html"><a href="workflow-1.html#the-working-directory"><i class="fa fa-check"></i><b>4.4</b> The Working Directory</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="workflow-1.html"><a href="workflow-1.html#r-projects"><i class="fa fa-check"></i><b>4.4.1</b> R Projects</a></li>
+<li class="chapter" data-level="4.4.2" data-path="workflow-1.html"><a href="workflow-1.html#herehere"><i class="fa fa-check"></i><b>4.4.2</b> here::here()</a></li>
+<li class="chapter" data-level="4.4.3" data-path="workflow-1.html"><a href="workflow-1.html#rstudio-sessions"><i class="fa fa-check"></i><b>4.4.3</b> RStudio Sessions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="workflow-1.html"><a href="workflow-1.html#loaded-packages"><i class="fa fa-check"></i><b>4.5</b> Loaded Packages</a></li>
+<li class="chapter" data-level="4.6" data-path="workflow-1.html"><a href="workflow-1.html#objects"><i class="fa fa-check"></i><b>4.6</b> Objects</a></li>
+</ul></li>
+<li class="part"><span><b>II Working with Data</b></span></li>
+<li class="chapter" data-level="" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i>The tidyverse</a></li>
+<li class="chapter" data-level="5" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html"><i class="fa fa-check"></i><b>5</b> Importing and Outputing Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#csv"><i class="fa fa-check"></i><b>5.1</b> CSV</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-.csv"><i class="fa fa-check"></i><b>5.1.1</b> Import <code>.csv</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.csv"><i class="fa fa-check"></i><b>5.1.2</b> Output <code>.csv</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#tab-delimited"><i class="fa fa-check"></i><b>5.2</b> Tab-Delimited</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-.txt"><i class="fa fa-check"></i><b>5.2.1</b> Import <code>.txt</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.txt"><i class="fa fa-check"></i><b>5.2.2</b> Output <code>.txt</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#spss"><i class="fa fa-check"></i><b>5.3</b> SPSS</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-.sav"><i class="fa fa-check"></i><b>5.3.1</b> Import <code>.sav</code></a></li>
+<li class="chapter" data-level="5.3.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.sav"><i class="fa fa-check"></i><b>5.3.2</b> Output <code>.sav</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#rstudio-import-gui"><i class="fa fa-check"></i><b>5.4</b> RStudio Import GUI</a></li>
+<li class="chapter" data-level="5.5" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#workflow-2"><i class="fa fa-check"></i><b>5.5</b> Workflow</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#what-is-real-1"><i class="fa fa-check"></i><b>5.5.1</b> What is real?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-manipulations.html"><a href="data-manipulations.html"><i class="fa fa-check"></i><b>6</b> Data Manipulations</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-manipulations.html"><a href="data-manipulations.html#dplyr"><i class="fa fa-check"></i><b>6.1</b> dplyr</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="data-manipulations.html"><a href="data-manipulations.html#rename"><i class="fa fa-check"></i><b>6.1.1</b> <code>rename()</code></a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-manipulations.html"><a href="data-manipulations.html#filter"><i class="fa fa-check"></i><b>6.1.2</b> <code>filter()</code></a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-manipulations.html"><a href="data-manipulations.html#select"><i class="fa fa-check"></i><b>6.1.3</b> <code>select()</code></a></li>
+<li class="chapter" data-level="6.1.4" data-path="data-manipulations.html"><a href="data-manipulations.html#mutate"><i class="fa fa-check"></i><b>6.1.4</b> <code>mutate()</code></a></li>
+<li class="chapter" data-level="6.1.5" data-path="data-manipulations.html"><a href="data-manipulations.html#group_by"><i class="fa fa-check"></i><b>6.1.5</b> <code>group_by()</code></a></li>
+<li class="chapter" data-level="6.1.6" data-path="data-manipulations.html"><a href="data-manipulations.html#summarise"><i class="fa fa-check"></i><b>6.1.6</b> <code>summarise()</code></a></li>
+<li class="chapter" data-level="6.1.7" data-path="data-manipulations.html"><a href="data-manipulations.html#spread"><i class="fa fa-check"></i><b>6.1.7</b> <code>spread()</code></a></li>
+<li class="chapter" data-level="6.1.8" data-path="data-manipulations.html"><a href="data-manipulations.html#pipe-operator"><i class="fa fa-check"></i><b>6.1.8</b> Pipe Operator %&gt;%</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-manipulations.html"><a href="data-manipulations.html#readr---export"><i class="fa fa-check"></i><b>6.2</b> readr - export</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="using-template-scripts.html"><a href="using-template-scripts.html"><i class="fa fa-check"></i><b>7</b> Using Template Scripts</a><ul>
+<li class="chapter" data-level="7.1" data-path="using-template-scripts.html"><a href="using-template-scripts.html#building-a-template-workflow"><i class="fa fa-check"></i><b>7.1</b> Building a Template Workflow</a></li>
+<li class="chapter" data-level="7.2" data-path="using-template-scripts.html"><a href="using-template-scripts.html#the-masterscript.r"><i class="fa fa-check"></i><b>7.2</b> The <code>masterscript.R</code></a></li>
+<li class="chapter" data-level="7.3" data-path="using-template-scripts.html"><a href="using-template-scripts.html#folder-organization"><i class="fa fa-check"></i><b>7.3</b> Folder Organization</a></li>
+<li class="chapter" data-level="7.4" data-path="using-template-scripts.html"><a href="using-template-scripts.html#naming-r-scripts"><i class="fa fa-check"></i><b>7.4</b> Naming R Scripts</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="common-data-transformations.html"><a href="common-data-transformations.html"><i class="fa fa-check"></i><b>8</b> Common Data Transformations</a><ul>
+<li class="chapter" data-level="8.1" data-path="common-data-transformations.html"><a href="common-data-transformations.html#descriptive-statistics"><i class="fa fa-check"></i><b>8.1</b> Descriptive Statistics</a></li>
+<li class="chapter" data-level="8.2" data-path="common-data-transformations.html"><a href="common-data-transformations.html#centering-and-standardizing-variables"><i class="fa fa-check"></i><b>8.2</b> Centering and Standardizing Variables</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="common-data-transformations.html"><a href="common-data-transformations.html#scale"><i class="fa fa-check"></i><b>8.2.1</b> <code>scale()</code></a></li>
+<li class="chapter" data-level="8.2.2" data-path="common-data-transformations.html"><a href="common-data-transformations.html#datawranglingcenter"><i class="fa fa-check"></i><b>8.2.2</b> <code>datawrangling::center()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="common-data-transformations.html"><a href="common-data-transformations.html#trimming"><i class="fa fa-check"></i><b>8.3</b> Trimming</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="common-data-transformations.html"><a href="common-data-transformations.html#remove-observation"><i class="fa fa-check"></i><b>8.3.1</b> Remove Observation</a></li>
+<li class="chapter" data-level="8.3.2" data-path="common-data-transformations.html"><a href="common-data-transformations.html#replacing-values"><i class="fa fa-check"></i><b>8.3.2</b> Replacing Values</a></li>
+<li class="chapter" data-level="8.3.3" data-path="common-data-transformations.html"><a href="common-data-transformations.html#datawranglingtrim"><i class="fa fa-check"></i><b>8.3.3</b> <code>datawrangling::trim()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="common-data-transformations.html"><a href="common-data-transformations.html#composites"><i class="fa fa-check"></i><b>8.4</b> Composites</a></li>
+<li class="chapter" data-level="8.5" data-path="common-data-transformations.html"><a href="common-data-transformations.html#scale-transformations"><i class="fa fa-check"></i><b>8.5</b> Scale Transformations</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="common-data-transformations.html"><a href="common-data-transformations.html#log"><i class="fa fa-check"></i><b>8.5.1</b> log</a></li>
+<li class="chapter" data-level="8.5.2" data-path="common-data-transformations.html"><a href="common-data-transformations.html#polynomial"><i class="fa fa-check"></i><b>8.5.2</b> polynomial</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="common-data-transformations.html"><a href="common-data-transformations.html#custom-transformations"><i class="fa fa-check"></i><b>8.6</b> Custom Transformations</a></li>
+<li class="chapter" data-level="8.7" data-path="common-data-transformations.html"><a href="common-data-transformations.html#reshpaing-data"><i class="fa fa-check"></i><b>8.7</b> Reshpaing Data</a></li>
+<li class="chapter" data-level="8.8" data-path="common-data-transformations.html"><a href="common-data-transformations.html#merging-data-files"><i class="fa fa-check"></i><b>8.8</b> Merging Data Files</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html"><i class="fa fa-check"></i><b>9</b> Useful Scoring Functions</a><ul>
+<li class="chapter" data-level="9.1" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#gf-and-wmc"><i class="fa fa-check"></i><b>9.1</b> Gf and WMC</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#example"><i class="fa fa-check"></i><b>9.1.1</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#calculating-bin-scores"><i class="fa fa-check"></i><b>9.2</b> Calculating Bin Scores</a></li>
+<li class="chapter" data-level="9.3" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#reliability-functions"><i class="fa fa-check"></i><b>9.3</b> Reliability functions</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#cronbach_alpha"><i class="fa fa-check"></i><b>9.3.1</b> <code>cronbach_alpha()</code></a></li>
+<li class="chapter" data-level="9.3.2" data-path="useful-scoring-functions.html"><a href="useful-scoring-functions.html#splithalf"><i class="fa fa-check"></i><b>9.3.2</b> <code>splithalf()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="workflow-package.html"><a href="workflow-package.html"><i class="fa fa-check"></i><b>10</b> <code>workflow</code> Package</a><ul>
+<li class="chapter" data-level="10.1" data-path="workflow-package.html"><a href="workflow-package.html#start-a-new-research-study"><i class="fa fa-check"></i><b>10.1</b> Start a new research study</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="workflow-package.html"><a href="workflow-package.html#directory"><i class="fa fa-check"></i><b>10.1.1</b> Directory</a></li>
+<li class="chapter" data-level="10.1.2" data-path="workflow-package.html"><a href="workflow-package.html#additional-options"><i class="fa fa-check"></i><b>10.1.2</b> Additional Options</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="workflow-package.html"><a href="workflow-package.html#download-ready-made-templates"><i class="fa fa-check"></i><b>10.2</b> Download ready-made templates</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="workflow-package.html"><a href="workflow-package.html#generic-templates"><i class="fa fa-check"></i><b>10.2.1</b> Generic Templates</a></li>
+<li class="chapter" data-level="10.2.2" data-path="workflow-package.html"><a href="workflow-package.html#gf-wmc-and-attention-control-scripts"><i class="fa fa-check"></i><b>10.2.2</b> Gf, WMC, and Attention Control Scripts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="example-data-preparation.html"><a href="example-data-preparation.html"><i class="fa fa-check"></i><b>11</b> Example: Data Preparation</a><ul>
+<li class="chapter" data-level="11.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#initial-setup"><i class="fa fa-check"></i><b>11.1</b> Initial Setup</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-up-directory-structure"><i class="fa fa-check"></i><b>11.1.1</b> Set up directory structure</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#masterscript"><i class="fa fa-check"></i><b>11.2</b> Masterscript</a></li>
+<li class="chapter" data-level="11.3" data-path="example-data-preparation.html"><a href="example-data-preparation.html#creating-messy-merged-file"><i class="fa fa-check"></i><b>11.3</b> Creating “messy” Merged File</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#e-prime-2.0"><i class="fa fa-check"></i><b>11.3.1</b> E-Prime 2.0</a></li>
+<li class="chapter" data-level="11.3.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#skipping-e-merge-with-e-prime-3.0"><i class="fa fa-check"></i><b>11.3.2</b> Skipping E-Merge with E-Prime 3.0</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="example-data-preparation.html"><a href="example-data-preparation.html#step-1-messy-to-tidy"><i class="fa fa-check"></i><b>11.4</b> Step 1: “messy” to “tidy”</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#what-to-include"><i class="fa fa-check"></i><b>11.4.1</b> What to Include</a></li>
+<li class="chapter" data-level="11.4.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import-messy-data"><i class="fa fa-check"></i><b>11.4.2</b> Import “messy” data</a></li>
+<li class="chapter" data-level="11.4.3" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-duplicate-subjects"><i class="fa fa-check"></i><b>11.4.3</b> Remove Duplicate Subjects</a></li>
+<li class="chapter" data-level="11.4.4" data-path="example-data-preparation.html"><a href="example-data-preparation.html#filter-rows"><i class="fa fa-check"></i><b>11.4.4</b> Filter Rows</a></li>
+<li class="chapter" data-level="11.4.5" data-path="example-data-preparation.html"><a href="example-data-preparation.html#rename-variables"><i class="fa fa-check"></i><b>11.4.5</b> Rename Variables</a></li>
+<li class="chapter" data-level="11.4.6" data-path="example-data-preparation.html"><a href="example-data-preparation.html#rename-values"><i class="fa fa-check"></i><b>11.4.6</b> Rename Values</a></li>
+<li class="chapter" data-level="11.4.7" data-path="example-data-preparation.html"><a href="example-data-preparation.html#select-columns"><i class="fa fa-check"></i><b>11.4.7</b> Select Columns</a></li>
+<li class="chapter" data-level="11.4.8" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-to-file"><i class="fa fa-check"></i><b>11.4.8</b> Save to File</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="example-data-preparation.html"><a href="example-data-preparation.html#step-2-raw-tidy-to-scored"><i class="fa fa-check"></i><b>11.5</b> Step 2: raw “tidy” to scored</a><ul>
+<li class="chapter" data-level="11.5.1" data-path="example-data-preparation.html"><a href="example-data-preparation.html#set-up"><i class="fa fa-check"></i><b>11.5.1</b> Set up</a></li>
+<li class="chapter" data-level="11.5.2" data-path="example-data-preparation.html"><a href="example-data-preparation.html#import"><i class="fa fa-check"></i><b>11.5.2</b> Import</a></li>
+<li class="chapter" data-level="11.5.3" data-path="example-data-preparation.html"><a href="example-data-preparation.html#data-cleaning"><i class="fa fa-check"></i><b>11.5.3</b> Data Cleaning</a></li>
+<li class="chapter" data-level="11.5.4" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-flankereffect-on-rt-and-accuracy"><i class="fa fa-check"></i><b>11.5.4</b> Calculate FlankerEffect on RT and Accuracy</a></li>
+<li class="chapter" data-level="11.5.5" data-path="example-data-preparation.html"><a href="example-data-preparation.html#remove-subjects"><i class="fa fa-check"></i><b>11.5.5</b> Remove Subjects</a></li>
+<li class="chapter" data-level="11.5.6" data-path="example-data-preparation.html"><a href="example-data-preparation.html#calculate-binned-scores"><i class="fa fa-check"></i><b>11.5.6</b> Calculate Binned Scores</a></li>
+<li class="chapter" data-level="11.5.7" data-path="example-data-preparation.html"><a href="example-data-preparation.html#save-data-file"><i class="fa fa-check"></i><b>11.5.7</b> Save data file</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="example-data-preparation.html"><a href="example-data-preparation.html#source-in-masterscript"><i class="fa fa-check"></i><b>11.6</b> <code>source()</code> in Masterscript</a></li>
+</ul></li>
+<li class="part"><span><b>III Data Visualization</b></span></li>
+<li class="chapter" data-level="12" data-path="data-analysis-workflow-in-r.html"><a href="data-analysis-workflow-in-r.html"><i class="fa fa-check"></i><b>12</b> Data Analysis workflow in R</a><ul>
+<li class="chapter" data-level="12.1" data-path="data-analysis-workflow-in-r.html"><a href="data-analysis-workflow-in-r.html#r-markdown"><i class="fa fa-check"></i><b>12.1</b> R Markdown</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="data-analysis-workflow-in-r.html"><a href="data-analysis-workflow-in-r.html#what-is-an-r-markdown-file"><i class="fa fa-check"></i><b>12.1.1</b> What is an R Markdown File?</a></li>
+<li class="chapter" data-level="12.1.2" data-path="data-analysis-workflow-in-r.html"><a href="data-analysis-workflow-in-r.html#yaml-header"><i class="fa fa-check"></i><b>12.1.2</b> YAML header</a></li>
+<li class="chapter" data-level="12.1.3" data-path="data-analysis-workflow-in-r.html"><a href="data-analysis-workflow-in-r.html#r-code-chunks"><i class="fa fa-check"></i><b>12.1.3</b> R code chunks</a></li>
+<li class="chapter" data-level="12.1.4" data-path="data-analysis-workflow-in-r.html"><a href="data-analysis-workflow-in-r.html#formatted-text"><i class="fa fa-check"></i><b>12.1.4</b> Formatted text</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>13</b> Data Visualization</a><ul>
+<li class="chapter" data-level="13.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>13.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="13.2" data-path="data-visualization.html"><a href="data-visualization.html#plotting-functions-in-r"><i class="fa fa-check"></i><b>13.2</b> Plotting Functions in R</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>14</b> Introduction to ggplot2</a><ul>
+<li class="chapter" data-level="14.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#grammar-of-graphics-1"><i class="fa fa-check"></i><b>14.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="14.2" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#data-layer"><i class="fa fa-check"></i><b>14.2</b> Data layer</a></li>
+<li class="chapter" data-level="14.3" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#aesthetic-layer"><i class="fa fa-check"></i><b>14.3</b> Aesthetic Layer</a></li>
+<li class="chapter" data-level="14.4" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#geometries-layer"><i class="fa fa-check"></i><b>14.4</b> Geometries Layer</a></li>
+<li class="chapter" data-level="14.5" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#facets-layer"><i class="fa fa-check"></i><b>14.5</b> Facets Layer</a></li>
+<li class="chapter" data-level="14.6" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#statistics-layer"><i class="fa fa-check"></i><b>14.6</b> Statistics Layer</a></li>
+<li class="chapter" data-level="14.7" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#coordinates-layer"><i class="fa fa-check"></i><b>14.7</b> Coordinates Layer</a></li>
+<li class="chapter" data-level="14.8" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#themes-layer"><i class="fa fa-check"></i><b>14.8</b> Themes Layer</a><ul>
+<li class="chapter" data-level="14.8.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#built-in-themes"><i class="fa fa-check"></i><b>14.8.1</b> Built-in Themes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="aesthetics.html"><a href="aesthetics.html"><i class="fa fa-check"></i><b>15</b> Aesthetics</a><ul>
+<li class="chapter" data-level="15.1" data-path="aesthetics.html"><a href="aesthetics.html#aesthetics-vs.attributes"><i class="fa fa-check"></i><b>15.1</b> Aesthetics vs. Attributes</a></li>
+<li class="chapter" data-level="15.2" data-path="aesthetics.html"><a href="aesthetics.html#attributes"><i class="fa fa-check"></i><b>15.2</b> Attributes</a></li>
+<li class="chapter" data-level="15.3" data-path="aesthetics.html"><a href="aesthetics.html#aesthetics-1"><i class="fa fa-check"></i><b>15.3</b> Aesthetics</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="geoms-and-stats.html"><a href="geoms-and-stats.html"><i class="fa fa-check"></i><b>16</b> Geoms and Stats</a><ul>
+<li class="chapter" data-level="16.1" data-path="geoms-and-stats.html"><a href="geoms-and-stats.html#scatterplots"><i class="fa fa-check"></i><b>16.1</b> Scatterplots</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="geoms-and-stats.html"><a href="geoms-and-stats.html#adding-other-geoms"><i class="fa fa-check"></i><b>16.1.1</b> Adding other geoms</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="geoms-and-stats.html"><a href="geoms-and-stats.html#bar-graphs"><i class="fa fa-check"></i><b>16.2</b> Bar Graphs</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="geoms-and-stats.html"><a href="geoms-and-stats.html#multidimensional-bar-plot"><i class="fa fa-check"></i><b>16.2.1</b> Multidimensional Bar Plot</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Regression</b></span></li>
+<li class="chapter" data-level="17" data-path="introduction-to-regression-in-r.html"><a href="introduction-to-regression-in-r.html"><i class="fa fa-check"></i><b>17</b> Introduction to Regression in R</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Tutorial and Guide for the EngleLab</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="common-data-transformations" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Common Data Transformations</h1>
+<p>I have created R packages that contain functions to more easily prepare your data for statistical analysis.</p>
+<p>In the next two chapter you will learn about the functions from some packages I have created:</p>
+<ul>
+<li><p><strong>datawrangling</strong> <a href="https://dr-jt.github.io/datawrangling" class="uri">https://dr-jt.github.io/datawrangling</a></p></li>
+<li><p><strong>datascoring</strong> <a href="https://dr-jt.github.io/datascoring" class="uri">https://dr-jt.github.io/datascoring</a></p></li>
+<li><p><strong>englelab</strong> <a href="https://github.com/EngleLab/englelab" class="uri">https://github.com/EngleLab/englelab</a></p></li>
+</ul>
+<p>I am hosting these packages on GitHub and can be downloaded using the <code>devtools</code> package</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
+
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/datawrangling&quot;</span>)</code></pre></div>
+<p>In this chapter you will learn about functions in the <code>datawrangling</code> package.</p>
+<p>Let’s create a dataframe to use as an example for this chapter. Don’t worry about what this code means for now, just copy it into your script and run it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">import &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ID =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>), <span class="dt">Score1 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> .<span class="dv">8</span>), <span class="dt">Score2 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">7</span>, <span class="dt">sd =</span> <span class="fl">1.1</span>), <span class="dt">Score3 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="fl">1.8</span>), <span class="dt">Score4 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">20</span>, <span class="dt">sd =</span> <span class="fl">2.3</span>))
+
+<span class="kw">head</span>(import)
+##   ID   Score1   Score2    Score3   Score4
+## 1  1 1.231279 6.051844 11.076503 20.79314
+## 2  2 1.889904 7.478923 10.300458 18.33546
+## 3  3 2.526177 7.175633 10.112128 21.49444
+## 4  4 2.643580 8.382813 10.687934 18.18159
+## 5  5 1.598045 6.931412  8.824642 18.65950
+## 6  6 1.866502 7.495726 10.930518 22.78805</code></pre></div>
+<div id="descriptive-statistics" class="section level2">
+<h2><span class="header-section-number">8.1</span> Descriptive Statistics</h2>
+<p>Basic descriptive statistics include mean, median, standard deviation, max, min, skew, kurtosis, etc…</p>
+<p>The functions to calculate these are pretty straightforward:</p>
+<p><em>Base R</em></p>
+<ul>
+<li><p><strong>maximum</strong>: max()</p></li>
+<li><p><strong>minimum</strong>: min()</p></li>
+<li><p><strong>count</strong>: n()</p></li>
+<li><p><strong>mean</strong>: mean()</p></li>
+<li><p><strong>median</strong>: median()</p></li>
+<li><p><strong>standard deviation</strong>: sd()</p></li>
+<li><p><strong>variance</strong>: var()</p></li>
+<li><p><strong>quantiles (percentiles)</strong>: quantile()</p>
+<p>specify the percentiles with the argument <code>probs =</code> (default is c(0, .25, .5, .75, 1))</p></li>
+</ul>
+<p><em>e1071</em> package</p>
+<ul>
+<li><p><strong>skewness</strong>: skewness(variable, na.rm = TRUE, type = 2)</p></li>
+<li><p><strong>kurtosis</strong>: kurtosis(variable, na.rm = TRUE, type = 2)</p></li>
+</ul>
+<p>For all of these you need to specify <code>na.rm = TRUE</code> if the variable column has missing data. It is best to just always set <code>na.rm = TRUE</code>. For example,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(variable, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>To calculate the overall mean on <code>Score1</code> would look like</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score1.mean =</span> <span class="kw">mean</span>(Score1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</code></pre></div>
+</div>
+<div id="centering-and-standardizing-variables" class="section level2">
+<h2><span class="header-section-number">8.2</span> Centering and Standardizing Variables</h2>
+<div id="scale" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> <code>scale()</code></h3>
+<p>To <strong>center</strong> a variable is rather simple. Use <code>scale()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score1.centered =</span> <span class="kw">scale</span>(Score1, <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale =</span> <span class="ot">FALSE</span>))</code></pre></div>
+<p>This will center scores around the mean (which just means subtacting each score by the mean).</p>
+<p>We can check that this is true. Mean should be 0 and standard deviation should equal the original standard deviation</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">mean</span>(data<span class="op">$</span>Score1.centered),<span class="dv">1</span>) <span class="op">==</span><span class="st"> </span><span class="dv">0</span>
+## [1] TRUE
+<span class="kw">sd</span>(data<span class="op">$</span>Score1) <span class="op">==</span><span class="st"> </span><span class="kw">sd</span>(data<span class="op">$</span>Score1.centered)
+## [1] TRUE</code></pre></div>
+<p>To <strong>standardize</strong> a variable (create z-scores) you can use the same <code>scale()</code> function and just specify <code>scale = TRUE</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score1.centered =</span> <span class="kw">scale</span>(Score1, <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale =</span> <span class="ot">TRUE</span>))</code></pre></div>
+<p>Now the mean should be 0 and the standard deviation 1.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">mean</span>(data<span class="op">$</span>Score1.centered),<span class="dv">1</span>) <span class="op">==</span><span class="st"> </span><span class="dv">0</span>
+## [1] TRUE
+<span class="kw">round</span>(<span class="kw">sd</span>(data<span class="op">$</span>Score1.centered),<span class="dv">1</span>) <span class="op">==</span><span class="st"> </span><span class="dv">1</span>
+## [1] TRUE</code></pre></div>
+</div>
+<div id="datawranglingcenter" class="section level3">
+<h3><span class="header-section-number">8.2.2</span> <code>datawrangling::center()</code></h3>
+<p>An easy way to center or standardize score on multiple variable at one time is to use the <code>center()</code> function from my <code>datawrangling</code> package. First install the <code>datawrangling</code> package.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/datawrangling&quot;</span>)</code></pre></div>
+<p>The function <code>center()</code> will create either unstandardized or standardized (z-scored) centered variables. The list of arguments that can be passed onto the function are:</p>
+<ul>
+<li><p><strong>x</strong>: dataframe</p></li>
+<li><p><strong>variables</strong>: c() of columns to center</p></li>
+<li><p><strong>standardize</strong>: Logical. Do you want to calculate zscores? (Default = FALSE)</p></li>
+</ul>
+<p>Example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(datawrangling)
+
+data &lt;-<span class="st"> </span><span class="kw">center</span>(import, <span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, <span class="st">&quot;Score4&quot;</span>), <span class="dt">standardize =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>View the dataframe <code>data</code>. You will notice that there are now 4 additional columns: <code>Score1_z</code>, <code>Score2_z</code>, <code>Score3_z</code>, and <code>Score4_z</code>.</p>
+</div>
+</div>
+<div id="trimming" class="section level2">
+<h2><span class="header-section-number">8.3</span> Trimming</h2>
+<p>It is likely that at some point you will want to deal with outliers, extreme, or unrealistic scores. For instance, you might want to deal with Trials that have an <code>RT</code> of less than 200 ms. Or deal with scores on a variable that are more than 3 (or 3.5) SDs from the mean (they can be considered as outliers).</p>
+<p>We can think of two general ways of dealing with those outliers:</p>
+<ol style="list-style-type: decimal">
+<li><p>Completely removing that observation (trial or Subject) from the data</p></li>
+<li><p>Replacing the value of that observation with some other value</p></li>
+</ol>
+<p><em>We may also want to change the value of another variables. For instance, with the RT example, we might want to set <code>Accuracy</code> to incorrect (<code>0</code>) if the RT is less than 200ms. This is essentialy the same procedure as option 2.</em></p>
+<div id="remove-observation" class="section level3">
+<h3><span class="header-section-number">8.3.1</span> Remove Observation</h3>
+<p>To completely remove an observation (trial or Subject) from the dataframe we can use <code>dplyr::filter()</code>.</p>
+<p>Let’s only keep cases that have z-scores less than 3.5 and greater than -3.5 on each of the 4 variables</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">center</span>(<span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, <span class="st">&quot;Score4&quot;</span>), <span class="dt">standardize =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(Score1_z <span class="op">&lt;</span><span class="st"> </span><span class="fl">3.5</span>, Score2_z <span class="op">&lt;</span><span class="st"> </span><span class="fl">3.5</span>, Score3_z <span class="op">&lt;</span><span class="st"> </span><span class="fl">3.5</span>, Score4_z <span class="op">&lt;</span><span class="st"> </span><span class="fl">3.5</span>,
+         Score1_z <span class="op">&gt;</span><span class="st"> </span><span class="op">-</span><span class="fl">3.5</span>, Score2_z <span class="op">&gt;</span><span class="st"> </span><span class="op">-</span><span class="fl">3.5</span>, Score3_z <span class="op">&gt;</span><span class="st"> </span><span class="op">-</span><span class="fl">3.5</span>, Score4_z <span class="op">&gt;</span><span class="st"> </span><span class="op">-</span><span class="fl">3.5</span>)</code></pre></div>
+<p>View the dataframe and sort the columns on each z-scored variable. You should not see any z-scores that are greater than or less than 3.5 and -3.5.</p>
+<p>However, this is not always an advisable approach because we might end up removing too many observations from our data and reducing our power.</p>
+</div>
+<div id="replacing-values" class="section level3">
+<h3><span class="header-section-number">8.3.2</span> Replacing Values</h3>
+<p>The more advisable approach is to replace the value of that observation with some other value. You might want to replace the values with:</p>
+<ol style="list-style-type: decimal">
+<li><p><code>NA</code> missing values</p></li>
+<li><p>The <code>mean</code> on the variable</p></li>
+<li><p>The z-score <code>cutoff</code> that was used</p></li>
+<li><p>Or some other value</p></li>
+</ol>
+<p>The approach for these options are essentially the same and will require using <code>dplyr::mutate()</code> and <code>ifelse()</code>. <code>ifelse()</code> allows you to change values depending on a conditional statement and takes the general form of:</p>
+<p><code>ifelse(logical statement, value if TRUE, value if FALSE)</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">center</span>(<span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, <span class="st">&quot;Score4&quot;</span>), <span class="dt">standardize =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score1 =</span> <span class="kw">ifelse</span>(Score1_z <span class="op">&lt;</span><span class="st"> </span><span class="fl">3.5</span> <span class="op">&amp;</span><span class="st"> </span>Score1_z <span class="op">&gt;</span><span class="st"> </span><span class="op">-</span><span class="fl">3.5</span>, Score1, <span class="ot">NA</span>),
+          <span class="dt">Score2 =</span> <span class="kw">ifelse</span>(Score2_z <span class="op">&lt;</span><span class="st"> </span><span class="fl">3.5</span> <span class="op">&amp;</span><span class="st"> </span>Score2_z <span class="op">&gt;</span><span class="st"> </span><span class="op">-</span><span class="fl">3.5</span>, Score2, <span class="ot">NA</span>),
+          <span class="dt">Score3 =</span> <span class="kw">ifelse</span>(Score3_z <span class="op">&lt;</span><span class="st"> </span><span class="fl">3.5</span> <span class="op">&amp;</span><span class="st"> </span>Score3_z <span class="op">&gt;</span><span class="st"> </span><span class="op">-</span><span class="fl">3.5</span>, Score3, <span class="ot">NA</span>),
+          <span class="dt">Score4 =</span> <span class="kw">ifelse</span>(Score4_z <span class="op">&lt;</span><span class="st"> </span><span class="fl">3.5</span> <span class="op">&amp;</span><span class="st"> </span>Score4_z <span class="op">&gt;</span><span class="st"> </span><span class="op">-</span><span class="fl">3.5</span>, Score4, <span class="ot">NA</span>))</code></pre></div>
+<p>This is evaluating the value of <code>Score1_z</code> and if that value is less than 3.5 AND greater than -3.5, then it sets <code>Score1 = Score</code> (unchanged). If that statement is <code>FALSE</code> then it sets <code>Score1 = NA</code>. And same for each of the four variables.</p>
+<p>The approach is essentially the same for replacing the value with a mean or cutoff score. Some additional calculations have to be made however. For instance, for replacing with values of the mean it would look like</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">center</span>(<span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, <span class="st">&quot;Score4&quot;</span>), <span class="dt">standardize =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score1 =</span> <span class="kw">ifelse</span>(Score1_z <span class="op">&lt;</span><span class="st"> </span><span class="fl">3.5</span> <span class="op">&amp;</span><span class="st"> </span>Score1_z <span class="op">&gt;</span><span class="st"> </span><span class="op">-</span><span class="fl">3.5</span>, Score1, <span class="kw">mean</span>(Score1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)),
+          <span class="dt">Score2 =</span> <span class="kw">ifelse</span>(Score2_z <span class="op">&lt;</span><span class="st"> </span><span class="fl">3.5</span> <span class="op">&amp;</span><span class="st"> </span>Score2_z <span class="op">&gt;</span><span class="st"> </span><span class="op">-</span><span class="fl">3.5</span>, Score2, <span class="kw">mean</span>(Score2, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)),
+          <span class="dt">Score3 =</span> <span class="kw">ifelse</span>(Score3_z <span class="op">&lt;</span><span class="st"> </span><span class="fl">3.5</span> <span class="op">&amp;</span><span class="st"> </span>Score3_z <span class="op">&gt;</span><span class="st"> </span><span class="op">-</span><span class="fl">3.5</span>, Score3, <span class="kw">mean</span>(Score3, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)),
+          <span class="dt">Score4 =</span> <span class="kw">ifelse</span>(Score4_z <span class="op">&lt;</span><span class="st"> </span><span class="fl">3.5</span> <span class="op">&amp;</span><span class="st"> </span>Score4_z <span class="op">&gt;</span><span class="st"> </span><span class="op">-</span><span class="fl">3.5</span>, Score4, <span class="kw">mean</span>(Score4, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)))</code></pre></div>
+<p>Instead of <code>NA</code> you would use <code>mean()</code>. To replace with values of a cutoff score is a little more involved.</p>
+<p>You can see how this procedure can get sort of tedious if you are working with many more variables. That is where the <code>datawrangling::trim()</code> function comes in handy.</p>
+</div>
+<div id="datawranglingtrim" class="section level3">
+<h3><span class="header-section-number">8.3.3</span> <code>datawrangling::trim()</code></h3>
+<p>The function <code>datawrangling::trim()</code> will replace outlier scores that exceed a certain z-score cutoff.</p>
+<p>There are several options for how to replace the outlier scores. Replace with</p>
+<ul>
+<li><p>“NA” (missing value)</p></li>
+<li><p>“cutoff” (the z-score cutoff value, e.g. 3.5 SDs)</p></li>
+<li><p>“mean”</p></li>
+<li><p>“median”</p></li>
+</ul>
+<p>The arguments that can be specified are:</p>
+<ul>
+<li><p><strong>x</strong>: dataframe</p></li>
+<li><p><strong>variables</strong>: c() of variables to be trimmed. option to set <code>variables = &quot;all&quot;</code> to trim all variables in a dataframe. But then must specify <code>id =</code></p></li>
+<li><p><strong>cutoff</strong>: z-score cutoff to use for trimming (default: 3.5)</p></li>
+<li><p><strong>replace</strong>: What value should the outlier values be replaced with. (default: replace = “NA”)</p></li>
+<li><p><strong>id</strong>: Column name that contains subject IDs. **ONLY needs to be used if <code>variables = &quot;all&quot;</code></p></li>
+</ul>
+<p>Example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">trim</span>(<span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, <span class="st">&quot;Score4&quot;</span>), <span class="dt">cutoff =</span> <span class="fl">3.5</span>, <span class="dt">replace =</span> <span class="st">&quot;NA&quot;</span>, <span class="dt">id =</span> <span class="st">&quot;ID&quot;</span>)</code></pre></div>
+<pre><code>## Warning in if (variables == &quot;all&quot;) {: the condition has length &gt; 1 and only
+## the first element will be used</code></pre>
+<p>Notice how you don’t even need to <code>center()</code> the variables first. The centering is being done inside of <code>trim()</code>. You can evaluate outliers and replace with different values (<code>replace =</code>) all in one function and one line of code.</p>
+</div>
+</div>
+<div id="composites" class="section level2">
+<h2><span class="header-section-number">8.4</span> Composites</h2>
+<p>Sometimes you will need to combine multiple variables into one. This is called a composite. Let’s say we want to average the three scores in the dataframe into one <code>Score_comp</code> variable. Previosly we calculated the means in one column and across rows. Here we want to calculate means in one ROW and across columns. To do this we need a slightly different function.</p>
+<p>To calculate row means you can use the <code>rowMeans()</code> function. This is not a tidyverse function and so we will need to specify the dataframe and columns we want. Like such</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score_comp =</span> <span class="kw">rowMeans</span>(import[<span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>)], <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</code></pre></div>
+<p>It probably is not a good idea to create a composite for a subject that has missing values for most of the scores. For instance, if there are 3 scores and a subject only has data available for that score. You can do this with <code>dplyr::mutate()</code> and <code>ifelse()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score_comp =</span> <span class="kw">rowMeans</span>(import[<span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>)], <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
+         <span class="dt">missing.n =</span> <span class="kw">ifelse</span>(<span class="kw">is.na</span>(Score1), <span class="dv">1</span>, <span class="dv">0</span>),
+         <span class="dt">missing.n =</span> <span class="kw">ifelse</span>(<span class="kw">is.na</span>(Score2), missing.n <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, missing.n),
+         <span class="dt">missing.n =</span> <span class="kw">ifelse</span>(<span class="kw">is.na</span>(Score3), missing.n <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, missing.n),
+         <span class="dt">Score_comp =</span> <span class="kw">ifelse</span>(missing.n <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>, <span class="ot">NA</span>, Score_comp))</code></pre></div>
+<p>You can see that this can pretty labor intensive. It is easier to do this using the <code>datawrangling::composite()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">composite</span>(<span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>), 
+            <span class="dt">type =</span> <span class="st">&quot;mean&quot;</span>,
+            <span class="dt">standardize =</span> <span class="ot">TRUE</span>,
+            <span class="dt">name =</span> <span class="st">&quot;Score_comp&quot;</span>,
+            <span class="dt">missing.allowed =</span> <span class="dv">1</span>)</code></pre></div>
+<p>The function <code>composite()</code> will create composite scores out of specified columns. Right now you can only create “mean” composite scores. In the future I plan on adding “sum” and “factor score” composite types.</p>
+<p>Here is a list of the arguments you can specifiy:</p>
+<ul>
+<li><p><strong>x</strong>: dataframe</p></li>
+<li><p><strong>variables</strong>: c() of columns to create the composite from</p></li>
+<li><p><strong>type</strong>: What type of composite should be calculated?, i.e. mean or sum. (Default = “mean”).</p></li>
+<li><p><strong>standardize</strong>: Logical. Do you want to calculate the composite based on standardized (z-score) values? (Default = TRUE)</p></li>
+<li><p><strong>name</strong>: Name of the new composite variable to be created</p></li>
+<li><p><strong>missing.allowed</strong>: Criteria for the number of variables that can having missing values and still calculate a composite for that subject</p></li>
+</ul>
+</div>
+<div id="scale-transformations" class="section level2">
+<h2><span class="header-section-number">8.5</span> Scale Transformations</h2>
+<div id="log" class="section level3">
+<h3><span class="header-section-number">8.5.1</span> log</h3>
+<p>[insert base off of Field]</p>
+</div>
+<div id="polynomial" class="section level3">
+<h3><span class="header-section-number">8.5.2</span> polynomial</h3>
+<p>You can create orthogonal polynomials of variables using the <code>poly()</code> function and specify the degree of polynomial to go up to with <code>degree =</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">poly</span>(import<span class="op">$</span>Score1, <span class="dt">degree =</span> <span class="dv">3</span>)
+##                   1            2             3
+##   [1,] -0.106581470  0.001437625  0.0985066884
+##   [2,] -0.018161789 -0.072324658  0.0289542501
+##   [3,]  0.067257130 -0.034755851 -0.0774406265
+##   [4,]  0.083018363 -0.016136183 -0.0861033263
+##   [5,] -0.057343462 -0.053777297  0.0769363404
+##   [6,] -0.021303432 -0.071667319  0.0333239622
+##   [7,]  0.001923062 -0.073108152  0.0002537015
+##   [8,]  0.064581482 -0.037555211 -0.0754258106
+##   [9,] -0.130000223  0.040169505  0.0840770403
+##  [10,] -0.020309800 -0.071890863  0.0319478001
+##  [11,]  0.136958953  0.075141924 -0.0606107000
+##  [12,]  0.070418068 -0.031313551 -0.0796290120
+##  [13,]  0.062854836 -0.039305983 -0.0740494485
+##  [14,]  0.006327288 -0.072489494 -0.0060669326
+##  [15,] -0.091609964 -0.019111132  0.0984030624
+##  [16,] -0.131954037  0.043764203  0.0819681969
+##  [17,] -0.056358743 -0.054519096  0.0759701960
+##  [18,] -0.088995524 -0.022362551  0.0977333925
+##  [19,]  0.085506222 -0.012864388 -0.0869221385
+##  [20,]  0.052386358 -0.048985089 -0.0645208258
+##  [21,]  0.162160802  0.132406195 -0.0099461459
+##  [22,]  0.112318955  0.028154966 -0.0844770891
+##  [23,] -0.187058033  0.168189466 -0.0476081064
+##  [24,]  0.062318541 -0.039840877 -0.0736100920
+##  [25,] -0.089539253 -0.021694600  0.0978876575
+##  [26,]  0.025666205 -0.066407784 -0.0329260731
+##  [27,] -0.013566124 -0.073025626  0.0224762153
+##  [28,] -0.024411261 -0.070874711  0.0375891359
+##  [29,] -0.018754075 -0.072211797  0.0297821035
+##  [30,] -0.001304730 -0.073381012  0.0049006475
+##  [31,]  0.004636282 -0.072760654 -0.0036442163
+##  [32,]  0.037084736 -0.060242930 -0.0474805836
+##  [33,] -0.015732195 -0.072733809  0.0255407474
+##  [34,] -0.006993942 -0.073490147  0.0130874534
+##  [35,] -0.114785312  0.014091019  0.0956229090
+##  [36,]  0.139441155  0.080368733 -0.0568761006
+##  [37,] -0.204382200  0.216503577 -0.1210067063
+##  [38,]  0.045035735 -0.054821489 -0.0567440225
+##  [39,]  0.012004737 -0.071272495 -0.0141425318
+##  [40,]  0.154731611  0.114557717 -0.0279222617
+##  [41,] -0.044625174 -0.062264415  0.0633084992
+##  [42,] -0.187158658  0.168457389 -0.0479845145
+##  [43,]  0.147991504  0.099064680 -0.0419786816
+##  [44,]  0.131361903  0.063687548 -0.0680949488
+##  [45,] -0.075854112 -0.037188235  0.0917524238
+##  [46,] -0.070592556 -0.042414494  0.0882370845
+##  [47,] -0.004084551 -0.073493610  0.0089038643
+##  [48,]  0.057927238 -0.044062119 -0.0698083208
+##  [49,]  0.029647448 -0.064475321 -0.0381453502
+##  [50,]  0.016264963 -0.070049005 -0.0201183322
+##  [51,]  0.070844292 -0.030838183 -0.0799077145
+##  [52,] -0.167796475  0.119636970  0.0143876415
+##  [53,] -0.175938317  0.139496541 -0.0094276700
+##  [54,]  0.029943489 -0.064322345 -0.0385277194
+##  [55,] -0.053444635 -0.056631055  0.0730185138
+##  [56,]  0.011292123 -0.071451178 -0.0131350410
+##  [57,] -0.082019335 -0.030548060  0.0950808264
+##  [58,]  0.007011405 -0.072367885 -0.0070452056
+##  [59,]  0.073916809 -0.027332612 -0.0817980295
+##  [60,] -0.057300831 -0.053809706  0.0768948483
+##  [61,] -0.102652784 -0.004272548  0.0991240588
+##  [62,] -0.112974083  0.011212569  0.0964510793
+##  [63,] -0.007427834 -0.073478999  0.0137103817
+##  [64,] -0.266014822  0.424051110 -0.5415504573
+##  [65,]  0.036924200 -0.060342849 -0.0472854461
+##  [66,] -0.081779991 -0.030816237  0.0949683278
+##  [67,]  0.044278316 -0.055377872 -0.0558974923
+##  [68,]  0.178999193  0.175854869  0.0410702359
+##  [69,] -0.186193207  0.165892900 -0.0443963204
+##  [70,]  0.071135006 -0.030512421 -0.0800955359
+##  [71,]  0.040577432 -0.057975534 -0.0516495499
+##  [72,]  0.259664853  0.441642778  0.5246395560
+##  [73,]  0.030734862 -0.063907104 -0.0395457491
+##  [74,]  0.107271194  0.019627482 -0.0866471488
+##  [75,]  0.059018179 -0.043039815 -0.0707860907
+##  [76,]  0.074416475 -0.026749440 -0.0820853619
+##  [77,]  0.005208165 -0.072673641 -0.0044642337
+##  [78,]  0.190503669  0.207929996  0.0847093247
+##  [79,] -0.040769927 -0.064368802  0.0587353916
+##  [80,]  0.048744801 -0.051975478 -0.0607705677
+##  [81,] -0.080769852 -0.031938814  0.0944783472
+##  [82,]  0.023468758 -0.067374899 -0.0299882570
+##  [83,] -0.091899723 -0.018744609  0.0984659767
+##  [84,]  0.010647603 -0.071606377 -0.0122221168
+##  [85,] -0.086431817 -0.025453582  0.0969020146
+##  [86,]  0.068291787 -0.033645220 -0.0781802304
+##  [87,] -0.113357763  0.011818309  0.0962848895
+##  [88,] -0.167156693  0.118117593  0.0161163174
+##  [89,]  0.003794995 -0.072879944 -0.0024367967
+##  [90,]  0.005210207 -0.072673321 -0.0044671609
+##  [91,]  0.113763494  0.030664043 -0.0836968201
+##  [92,] -0.037796804 -0.065842893  0.0550880982
+##  [93,] -0.056505806 -0.054409215  0.0761155076
+##  [94,]  0.075658485 -0.025284006 -0.0827747224
+##  [95,]  0.206258171  0.255001849  0.1569884253
+##  [96,] -0.045540836 -0.061732584  0.0643670189
+##  [97,]  0.085548800 -0.012807603 -0.0869347513
+##  [98,] -0.162669984  0.107630954  0.0276703618
+##  [99,]  0.091025875 -0.005281539 -0.0881520069
+## [100,]  0.163925924  0.136765805 -0.0052794209
+## attr(,&quot;coefs&quot;)
+## attr(,&quot;coefs&quot;)$alpha
+## [1] 2.025189 1.943876 2.070022
+## 
+## attr(,&quot;coefs&quot;)$norm2
+## [1]   1.00000 100.00000  55.48543  57.31641  67.77795
+## 
+## attr(,&quot;degree&quot;)
+## [1] 1 2 3
+## attr(,&quot;class&quot;)
+## [1] &quot;poly&quot;   &quot;matrix&quot;</code></pre></div>
+<p>You can see it creates up to three degrees of polynomials on the Score1 variable. The first degree is a linear, second is a quadratic, and third is cubic. Let’s say we want to create three new columns with each of these three polynomials. To do so we need to individually access each vector such as</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">poly</span>(import<span class="op">$</span>Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[,<span class="dv">1</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score1.linear =</span> <span class="kw">poly</span>(Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[ , <span class="dv">1</span>],
+         <span class="dt">Score1.quadratic =</span> <span class="kw">poly</span>(Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[ , <span class="dv">2</span>],
+         <span class="dt">Score1.cubic =</span> <span class="kw">poly</span>(Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[ , <span class="dv">3</span>])</code></pre></div>
+<p>Let’s plot this to see what happened visually…</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+<span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x =</span> Score1)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Score1.linear), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Score1.quadratic), <span class="dt">color =</span> <span class="st">&quot;green&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Score1.cubic), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="dt">label =</span> <span class="st">&quot;Score1.polynomial&quot;</span>)</code></pre></div>
+<p><img src="R_Tutorial_files/figure-html/unnamed-chunk-167-1.png" width="672" /></p>
+</div>
+</div>
+<div id="custom-transformations" class="section level2">
+<h2><span class="header-section-number">8.6</span> Custom Transformations</h2>
+<p>In general, with <code>mutate()</code> you can specify any custom transformation you want to do on a variable. For instance, if you want to subtract each score by <code>5</code>, and divide by <code>10</code> then you can do it! I don’t know why you would ever want to do that, but you can.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score_crazy =</span> (Score1 <span class="op">-</span><span class="st"> </span><span class="dv">5</span>)<span class="op">/</span><span class="dv">10</span>)</code></pre></div>
+<p>Or take the sum of <code>Score1</code> and <code>Score2</code> and divide by the difference between <code>Score3</code> and <code>Score4</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score_crazy =</span> (Score1 <span class="op">+</span><span class="st"> </span>Score2)<span class="op">/</span>(Score3 <span class="op">-</span><span class="st"> </span>Score4))</code></pre></div>
+</div>
+<div id="reshpaing-data" class="section level2">
+<h2><span class="header-section-number">8.7</span> Reshpaing Data</h2>
+<p>To run a statistical test usually requires your data is in the right format. For instance, to run a correlation or regression, you should have only one subject per row, and the columns contain values of each variable. The “messy” or “tidy” raw trial level data you start with are not in this format and so it is likely you will have to reshape your data to prepare it for statistical analyses.</p>
+<p>In Chapter 5 you saw how to do this using the <code>spread()</code> function from the <code>tidyr</code> package. One limitation of <code>spread()</code> is that you can only spread on one key column or value column at a time.</p>
+<p>The <code>reshape_spread()</code> function allows you to <code>spred()</code> on multiple key columns or value colunns. If you are spreading on multiple key columns you need to specify how you want the names of those values to be merged.</p>
+<p>The arguments you can specify for <code>reshape_spread()</code> are:</p>
+<ul>
+<li><p><strong>x</strong>: dataframe</p></li>
+<li><p><strong>variables</strong>: The variable used for spreading</p></li>
+<li><p><strong>variables_combine.name</strong>: If using more than one variables column then specify name of a new combined column</p></li>
+<li><p><strong>variables_combine.sep</strong>: if using more than one variables column then specifiy how values should be seperated when combine</p></li>
+<li><p><strong>values</strong>: A vector of columns that contain the values to be spread on</p></li>
+<li><p><strong>id</strong>: What column is not being reorganized and needs to be preserved. Usually “Subject”</p></li>
+<li><p><strong>fill</strong>: Passed to spread() fill parameter</p></li>
+</ul>
+<p>For example, if you had a dataframe two rows per subject containing mean RT and mean Accuracy on congruent and incongruent trials, and you want to spread on both RT and Accuracy by Condition.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span><span class="kw">reshape_spread</span>(data, <span class="dt">variables =</span> <span class="st">&quot;Condition&quot;</span>, <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;RT.mean&quot;</span>, <span class="st">&quot;Accuracy.mean&quot;</span>), <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>)</code></pre></div>
+</div>
+<div id="merging-data-files" class="section level2">
+<h2><span class="header-section-number">8.8</span> Merging Data Files</h2>
+<p>You might find yourself in a situation where you need to merge multiple text files together. There are two types of merge operations that can be performed.</p>
+<p>In R, a “join” is merging dataframes together that have at least some rows in common (e.g. Same Subject IDs) and have at least one column that is different. The rows that are common serve as the reference for how to “join” the dataframes together.</p>
+<p>In R, a “bind” is combining datarames together by staking either the rows or columns. It is unlikely that we you will need to do a column bind so we can skip that. A row “bind” takes dataframes that have the same columns but different rows. This will happen if you have separate data files for each subject from the same task. Each subject data file will have their unique rows (subject by trial level data) but they will all have the same columns.</p>
+<p>The E-Merge software program is performing a row “bind” of each subject .edat file. In E-Prime 2 we have to go through E-Merge to do this process. However, in E-Prime 3.0 there is the option to output an exported .edat file as a tab-delimited .txt file. Using the <code>files_bind()</code> function from the <code>datawrangling</code> package will allow us to skip the E-Merge step.</p>
+<p>The <code>datawrangling</code> package contains two functions to merge data files together:</p>
+<ul>
+<li><p><code>files_join()</code></p></li>
+<li><p><code>files_bind()</code></p></li>
+</ul>
+<p>They both work in a similar way. The files you want to merge need to be in the same folder on your computer. You specify the location of this folder using the <code>path =</code> argument. You need to specify a pattern that uniquely identifies the files you want to merge (e.g. “.txt”, or “Flanker”) using the <code>pattern =</code> argument. Then specify the directory and filename you want to save the merge file to using the <code>output.file =</code> argument.</p>
+<p>Here are the arguments that can be specified:</p>
+<ul>
+<li><p><strong>path</strong>: Folder location of files to be merged</p></li>
+<li><p><strong>pattern</strong>: Pattern to identify files to be merged</p></li>
+<li><p><strong>delim</strong>: Delimiter used in files. Passed onto <code>readr::read_delim()</code></p></li>
+<li><p><strong>na</strong>: How are missing values defined in files to be merged. Passed to <code>readr::write_delim()</code></p></li>
+<li><p><strong>output.file</strong>: File name and path to be saved to.</p></li>
+<li><p><strong>id</strong>: Subject ID column name. Passed onto <code>plyr::join_all(by = id)</code>. <strong>ONLY for <code>files_join()</code></strong></p></li>
+<li><p><strong>bind</strong>: The type of bind to perform (default = “rows”). <strong>ONLY for <code>files_bind()</code></strong></p></li>
+</ul>
+<hr />
+<p><strong>The next chapter covers two more important packages</strong></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="using-template-scripts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="useful-scoring-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>
