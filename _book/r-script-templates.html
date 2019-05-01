@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="data-manipulation-using-dplyr.html">
-<link rel="next" href="example-data-set.html">
+<link rel="prev" href="reproducibility.html">
+<link rel="next" href="workflow-package.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -347,178 +347,208 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="common-data-manipulations" class="section level1">
-<h1><span class="header-section-number">Chapter 7</span> Common Data Manipulations</h1>
-<p><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"></p>
-<p>In R, the term data wrangling is often times used to refer to performing data manipulation and transformations. The functions you will learn about in this Chapter come from the <code>datawrangling</code> package I developed.</p>
-<p><img src="images/datawrangling_logo.png" width="125" style="display: block; margin: auto;" /></p>
-<p>There are certain data transformations we use on a regular basis that would require several steps and lines of code to do. <code>datawrangling</code> allows you to perform these transformation in a single line of code. Hopefully, <code>datawrangling</code> will get you to start using R more easily for data analysi.</p>
-<p>I am hosting the <code>datawrangling</code> package on GitHub. To download packages on GitHub you first need to download the <code>devtools</code> package.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</a></code></pre></div>
-<p>Now install the <code>datawrangling</code> package:</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/datawrangling&quot;</span>)</a></code></pre></div>
-<hr />
-<div style="text-align: center; font-size: 1.25em">
-<p><i class="fas fa-save" style="font-size: 3em"></i></p>
-<p>Save a new R script file as <code>7_transform.R</code></p>
+<div id="r-script-templates" class="section level1">
+<h1><span class="header-section-number">Chapter 14</span> R Script Templates</h1>
+<div id="building-a-template-workflow" class="section level2">
+<h2><span class="header-section-number">14.1</span> Building a Template Workflow</h2>
+<p>Steps <strong>1</strong> and <strong>2</strong> are all about transforming data files to create a final output file that is ready for statistical analysis. Every R script you create for steps 1 and 2 will - import a file -&gt; do stuff to the dataframe -&gt; output a saved file, <strong>no more, and no less</strong>. The general workflow in every script will look like</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Setup</strong> the script by loading required packages using <code>library()</code></p></li>
+<li><p><strong>Import</strong> data file using <code>read_delim()</code> or <code>read_csv()</code> from the <code>readr</code> package</p></li>
+<li><p><strong>Do stuff</strong> to the imported dataframe using <code>dplyr</code> functions, such as</p>
+<p><code>filter()</code>, <code>select()</code>, <code>group_by()</code>, <code>mutate()</code>, and <code>summarise()</code></p></li>
+<li><p><strong>Output</strong> transformed data to a file using <code>write_csv()</code> from <code>readr</code></p></li>
+</ol>
+<p>Honestly there is not much more to it then that. And because your R scripts for steps 1 and 2 have the same workflow process this makes it very easy to implement a standard organization in your scripts.</p>
 </div>
+<div id="englelab-github" class="section level2">
+<h2><span class="header-section-number">14.2</span> EngleLab GitHub</h2>
+<p>I am hosting a lot of template scripts on an EngleLab organization account I created on GitHub. There are general scripts, like the ones you will see here. And there are scripts for more specific tasks we commonly use; such as fluid intelligence, working memory capacity, and attention control tasks.</p>
 <hr />
-<hr />
-<p>For this Chapter, let’s create a dataframe to use as an example for common data manipulations using <code>datawrangling</code>. Don’t worry about what this code means for now, just copy it into your script and run it.</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1">import &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ID =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>), <span class="dt">Score1 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="fl">.8</span>), <span class="dt">Score2 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">7</span>, <span class="dt">sd =</span> <span class="fl">1.1</span>), <span class="dt">Score3 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="fl">1.8</span>), <span class="dt">Score4 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">20</span>, <span class="dt">sd =</span> <span class="fl">2.3</span>))</a>
-<a class="sourceLine" id="cb142-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb142-3" data-line-number="3"><span class="kw">head</span>(import)</a>
-<a class="sourceLine" id="cb142-4" data-line-number="4"><span class="co">##   ID    Score1   Score2    Score3   Score4</span></a>
-<a class="sourceLine" id="cb142-5" data-line-number="5"><span class="co">## 1  1 2.2900663 8.695905  9.542858 20.94829</span></a>
-<a class="sourceLine" id="cb142-6" data-line-number="6"><span class="co">## 2  2 2.3145157 5.830390  9.826708 23.19553</span></a>
-<a class="sourceLine" id="cb142-7" data-line-number="7"><span class="co">## 3  3 0.5003731 7.991509 12.893764 21.41399</span></a>
-<a class="sourceLine" id="cb142-8" data-line-number="8"><span class="co">## 4  4 1.8286620 6.503109 11.141769 16.15341</span></a>
-<a class="sourceLine" id="cb142-9" data-line-number="9"><span class="co">## 5  5 1.7467929 6.693397  8.324463 20.75273</span></a>
-<a class="sourceLine" id="cb142-10" data-line-number="10"><span class="co">## 6  6 1.4164575 5.959133 10.432110 16.03588</span></a></code></pre></div>
-<hr />
-<div id="descriptive-statistics" class="section level2">
-<h2><span class="header-section-number">7.1</span> Descriptive Statistics</h2>
-<p>First you should know how to compute some basic descriptive statistics.</p>
-<p>Basic descriptive statistics include mean, median, standard deviation, max, min, skew, kurtosis, etc…</p>
-<p>The functions to calculate these are pretty straightforward:</p>
-<p><em>Base R</em></p>
-<ul>
-<li><p><strong>maximum</strong>: <code>max()</code></p></li>
-<li><p><strong>minimum</strong>: <code>min()</code></p></li>
-<li><p><strong>count</strong>:<code>n()</code></p></li>
-<li><p><strong>mean</strong>: <code>mean()</code></p></li>
-<li><p><strong>median</strong>: <code>median()</code></p></li>
-<li><p><strong>standard deviation</strong>: <code>sd()</code></p></li>
-<li><p><strong>variance</strong>: <code>var()</code></p></li>
-<li><p><strong>quantiles (percentiles)</strong>: <code>quantile()</code></p>
-<p>specify the percentiles with the argument <code>probs =</code> (default is c(0, .25, .5, .75, 1))</p></li>
-</ul>
-<p><em>e1071</em> package</p>
-<ul>
-<li><p><strong>skewness</strong>: <code>skewness(variable, na.rm = TRUE, type = 2)</code></p></li>
-<li><p><strong>kurtosis</strong>: <code>kurtosis(variable, na.rm = TRUE, type = 2)</code></p></li>
-</ul>
-<p>For all of these you need to specify <code>na.rm = TRUE</code> if the variable column has missing data. It is best to just always set <code>na.rm = TRUE</code>. For example,</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb143-1" data-line-number="1"><span class="kw">mean</span>(variable, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<p>To calculate the overall mean on <code>Score1</code> would look like</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb144-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb144-3" data-line-number="3">data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb144-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score1.mean =</span> <span class="kw">mean</span>(Score1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
+<div style="text-align: center; font-size: 1em">
+<p><a href="https://github.com/EngleLab/R-Templates">EngleLab GitHub R-Templates</a></p>
 </div>
-<div id="centering-and-standardizing-variables" class="section level2">
-<h2><span class="header-section-number">7.2</span> Centering and Standardizing Variables</h2>
-<p>The function <code>center()</code> will create either unstandardized or standardized (z-scored) centered variables. The list of arguments that can be passed onto the function are:</p>
-<ul>
-<li><p><strong>x</strong>: dataframe</p></li>
-<li><p><strong>variables</strong>: c() of columns to center</p></li>
-<li><p><strong>standardize</strong>: Logical. Do you want to calculate zscores? (Default = FALSE)</p></li>
-</ul>
-<p>Example:</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" data-line-number="1"><span class="kw">library</span>(datawrangling)</a>
-<a class="sourceLine" id="cb145-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb145-3" data-line-number="3">data &lt;-<span class="st"> </span><span class="kw">center</span>(import, <span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, <span class="st">&quot;Score4&quot;</span>), <span class="dt">standardize =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<p>View the dataframe <code>data</code>. You will notice that there are now 4 additional columns: <code>Score1_z</code>, <code>Score2_z</code>, <code>Score3_z</code>, and <code>Score4_z</code>.</p>
-<p>If you choose to to calculate centered (unstandardized) scores, then <code>standardize = FALSE</code>. And it will create variables with the suffix <code>_c</code>.</p>
-</div>
-<div id="trimming" class="section level2">
-<h2><span class="header-section-number">7.3</span> Trimming</h2>
-<p>The function <code>trim()</code> will replace outlier scores that exceed a certain z-score cutoff.</p>
-<p>There are several options for how to replace the outlier scores. Replace with</p>
-<ul>
-<li><p>“NA” (missing value)</p></li>
-<li><p>“cutoff” (the z-score cutoff value, e.g. 3.5 SDs)</p></li>
-<li><p>“mean”</p></li>
-<li><p>“median”</p></li>
-</ul>
-<p>The arguments that can be specified are:</p>
-<ul>
-<li><p><strong>x</strong>: dataframe</p></li>
-<li><p><strong>variables</strong>: c() of variables to be trimmed. option to set <code>variables = &quot;all&quot;</code> to trim all variables in a dataframe. But then must specify <code>id =</code></p></li>
-<li><p><strong>cutoff</strong>: z-score cutoff to use for trimming (default: 3.5)</p></li>
-<li><p><strong>replace</strong>: What value should the outlier values be replaced with. (default: replace = “NA”)</p></li>
-<li><p><strong>id</strong>: Column name that contains subject IDs. **ONLY needs to be used if <code>variables = &quot;all&quot;</code></p></li>
-</ul>
-<p>Example:</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" data-line-number="1">data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb146-2" data-line-number="2"><span class="st">  </span><span class="kw">trim</span>(<span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, <span class="st">&quot;Score4&quot;</span>), <span class="dt">cutoff =</span> <span class="fl">3.5</span>, <span class="dt">replace =</span> <span class="st">&quot;NA&quot;</span>, <span class="dt">id =</span> <span class="st">&quot;ID&quot;</span>)</a></code></pre></div>
-<pre><code>## Warning in if (variables == &quot;all&quot;) {: the condition has length &gt; 1 and only
-## the first element will be used</code></pre>
-<p>Notice how you don’t even need to <code>center()</code> the variables first. The centering is being done inside of <code>trim()</code>. You can evaluate outliers and replace with different values (<code>replace =</code>) all in one function and one line of code.</p>
-</div>
-<div id="composites" class="section level2">
-<h2><span class="header-section-number">7.4</span> Composites</h2>
-<p>The <code>composite()</code> function allows you to easily create a composite score from multiple variables and also specifiy a certain criteria for how many missing values are allowed.</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" data-line-number="1">data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb148-2" data-line-number="2"><span class="st">  </span><span class="kw">composite</span>(<span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>), </a>
-<a class="sourceLine" id="cb148-3" data-line-number="3">            <span class="dt">type =</span> <span class="st">&quot;mean&quot;</span>,</a>
-<a class="sourceLine" id="cb148-4" data-line-number="4">            <span class="dt">standardize =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb148-5" data-line-number="5">            <span class="dt">name =</span> <span class="st">&quot;Score_comp&quot;</span>,</a>
-<a class="sourceLine" id="cb148-6" data-line-number="6">            <span class="dt">missing.allowed =</span> <span class="dv">1</span>)</a></code></pre></div>
-<p>The function <code>composite()</code> will create composite scores out of specified columns. Right now you can only create “mean” composite scores. In the future I plan on adding “sum” and “factor score” composite types.</p>
-<p>Here is a list of the arguments you can specifiy:</p>
-<ul>
-<li><p><strong>x</strong>: dataframe</p></li>
-<li><p><strong>variables</strong>: c() of columns to create the composite from</p></li>
-<li><p><strong>type</strong>: What type of composite should be calculated?, i.e. mean or sum. (Default = “mean”).</p></li>
-<li><p><strong>standardize</strong>: Logical. Do you want to calculate the composite based on standardized (z-score) values? (Default = TRUE)</p></li>
-<li><p><strong>name</strong>: Name of the new composite variable to be created</p></li>
-<li><p><strong>missing.allowed</strong>: Criteria for the number of variables that can having missing values and still calculate a composite for that subject</p></li>
-</ul>
-<hr />
-<p>The remaining functions do not come from the <code>datawrangling</code> package but you may find them useful nonetheless.</p>
 <hr />
 </div>
-<div id="scale-transformations" class="section level2">
-<h2><span class="header-section-number">7.5</span> Scale Transformations</h2>
-<div id="log" class="section level3">
-<h3><span class="header-section-number">7.5.1</span> log</h3>
-<p>[insert base off of Field]</p>
+<div id="masterscript-template" class="section level2">
+<h2><span class="header-section-number">14.3</span> Masterscript Template</h2>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1"><span class="co">## Setup ####</span></a>
+<a class="sourceLine" id="cb227-2" data-line-number="2"><span class="co">## Load Packages</span></a>
+<a class="sourceLine" id="cb227-3" data-line-number="3"><span class="kw">library</span>(here)</a>
+<a class="sourceLine" id="cb227-4" data-line-number="4"><span class="kw">library</span>(rmarkdown)</a>
+<a class="sourceLine" id="cb227-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb227-6" data-line-number="6"><span class="co">## Specify the directory tree</span></a>
+<a class="sourceLine" id="cb227-7" data-line-number="7">directories &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">scripts =</span> <span class="st">&quot;R Scripts&quot;</span>,</a>
+<a class="sourceLine" id="cb227-8" data-line-number="8">                    <span class="dt">data =</span> <span class="st">&quot;Data Files&quot;</span>,</a>
+<a class="sourceLine" id="cb227-9" data-line-number="9">                    <span class="dt">raw =</span> <span class="st">&quot;Data Files/Raw Data&quot;</span>,</a>
+<a class="sourceLine" id="cb227-10" data-line-number="10">                    <span class="dt">messy =</span> <span class="st">&quot;Data Files/Raw Data/E-Merge&quot;</span>,</a>
+<a class="sourceLine" id="cb227-11" data-line-number="11">                    <span class="dt">scored =</span> <span class="st">&quot;Data Files/Scored Data&quot;</span>,</a>
+<a class="sourceLine" id="cb227-12" data-line-number="12">                    <span class="dt">results =</span> <span class="st">&quot;Results&quot;</span>,</a>
+<a class="sourceLine" id="cb227-13" data-line-number="13">                    <span class="dt">removed =</span> <span class="st">&quot;Data Files/Scored Data/removed&quot;</span>)</a>
+<a class="sourceLine" id="cb227-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb227-15" data-line-number="15"><span class="kw">saveRDS</span>(directories, <span class="kw">here</span>(<span class="st">&quot;directories.rds&quot;</span>))</a>
+<a class="sourceLine" id="cb227-16" data-line-number="16"><span class="co">#############</span></a>
+<a class="sourceLine" id="cb227-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb227-18" data-line-number="18"><span class="co">#############################################</span></a>
+<a class="sourceLine" id="cb227-19" data-line-number="19"><span class="co">#------ 1. &quot;messy&quot; to &quot;tidy&quot; raw data ------# </span></a>
+<a class="sourceLine" id="cb227-20" data-line-number="20"><span class="co">#############################################</span></a>
+<a class="sourceLine" id="cb227-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb227-22" data-line-number="22"><span class="kw">source</span>(<span class="kw">here</span>(<span class="st">&quot;R Scripts&quot;</span>, <span class="st">&quot;1_task_raw.R&quot;</span>), <span class="dt">echo=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb227-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb227-24" data-line-number="24"><span class="co">#################################################</span></a>
+<a class="sourceLine" id="cb227-25" data-line-number="25"><span class="co">#------ 2. &quot;tidy&quot; raw data to Scored data ------# </span></a>
+<a class="sourceLine" id="cb227-26" data-line-number="26"><span class="co">#################################################</span></a>
+<a class="sourceLine" id="cb227-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb227-28" data-line-number="28"><span class="kw">source</span>(<span class="kw">here</span>(<span class="st">&quot;R Scripts&quot;</span>, <span class="st">&quot;2_task_score.R&quot;</span>), <span class="dt">echo=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb227-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb227-30" data-line-number="30"><span class="co">#############################################################</span></a>
+<a class="sourceLine" id="cb227-31" data-line-number="31"><span class="co">#------ 3. Create Final Merged Data File for Analysis ------# </span></a>
+<a class="sourceLine" id="cb227-32" data-line-number="32"><span class="co">#############################################################</span></a>
+<a class="sourceLine" id="cb227-33" data-line-number="33"></a>
+<a class="sourceLine" id="cb227-34" data-line-number="34"><span class="kw">source</span>(<span class="kw">here</span>(<span class="st">&quot;R Scripts&quot;</span>, <span class="st">&quot;3_merge.R&quot;</span>), <span class="dt">echo=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb227-35" data-line-number="35"></a>
+<a class="sourceLine" id="cb227-36" data-line-number="36"><span class="co">###############################</span></a>
+<a class="sourceLine" id="cb227-37" data-line-number="37"><span class="co">#------ 4. Data Analysis ------# </span></a>
+<a class="sourceLine" id="cb227-38" data-line-number="38"><span class="co">###############################</span></a>
+<a class="sourceLine" id="cb227-39" data-line-number="39"></a>
+<a class="sourceLine" id="cb227-40" data-line-number="40"><span class="kw">render</span>(<span class="kw">here</span>(<span class="st">&quot;R Scripts&quot;</span>, <span class="st">&quot;4_MainAnalyses.Rmd&quot;</span>), </a>
+<a class="sourceLine" id="cb227-41" data-line-number="41">       <span class="dt">output_dir =</span> <span class="kw">here</span>(<span class="st">&quot;Results&quot;</span>), <span class="dt">output_file =</span> <span class="st">&quot;MainAnalyses.html&quot;</span>,</a>
+<a class="sourceLine" id="cb227-42" data-line-number="42">       <span class="dt">params =</span> <span class="kw">list</span>(<span class="dt">data =</span> <span class="kw">here</span>(<span class="st">&quot;Data Files&quot;</span>, <span class="st">&quot;Name_of_datafile.csv&quot;</span>)))</a>
+<a class="sourceLine" id="cb227-43" data-line-number="43"></a>
+<a class="sourceLine" id="cb227-44" data-line-number="44"></a>
+<a class="sourceLine" id="cb227-45" data-line-number="45"></a>
+<a class="sourceLine" id="cb227-46" data-line-number="46"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</a></code></pre></div>
+<div id="directories" class="section level3">
+<h3><span class="header-section-number">14.3.1</span> <code>directories</code></h3>
+<p>This is my unique setup that I like to use. By specifying a directory list in the <em>masterscript</em> and saving it as an <em>R Object</em> file with the extension <em>.rds</em>, you can import this direcotry list and use it in all your scripts.</p>
+<p>To save an R Object to a file</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1"><span class="kw">saveRDS</span>(directories, <span class="kw">here</span>(<span class="st">&quot;directories.rds&quot;</span>))</a></code></pre></div>
+<p><code>here(&quot;directories.rds&quot;)</code> will save the <code>directories</code> object as “directories.rds” to the Projects Root Directory.</p>
+<p>This means you only need to worry about the <strong>ACTUAL</strong> file path names in ONE SINGLE place, the masterscipt. Then when setting the <em>import</em> and <em>output</em> file paths in your scripts you can simply reference the <strong>elements</strong> in <code>directories</code> using the <code>$</code> notation. For instance:</p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" data-line-number="1">directories<span class="op">$</span>messy</a></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" data-line-number="1">directories<span class="op">$</span>raw</a></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" data-line-number="1">directories<span class="op">$</span>scored</a></code></pre></div>
 </div>
-<div id="polynomial" class="section level3">
-<h3><span class="header-section-number">7.5.2</span> polynomial</h3>
-<p>You can create orthogonal polynomials of variables using the <code>poly()</code> function and specify the degree of polynomial to go up to with <code>degree =</code></p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" data-line-number="1"><span class="kw">poly</span>(import<span class="op">$</span>Score1, <span class="dt">degree =</span> <span class="dv">3</span>)</a></code></pre></div>
-<p>You can see it creates up to three degrees of polynomials on the Score1 variable. The first degree is a linear, second is a quadratic, and third is cubic. Let’s say we want to create three new columns with each of these three polynomials. To do so we need to individually access each vector such as</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" data-line-number="1"><span class="kw">poly</span>(import<span class="op">$</span>Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[,<span class="dv">1</span>]</a></code></pre></div>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb151-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb151-3" data-line-number="3">data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb151-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score1.linear =</span> <span class="kw">poly</span>(Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[ , <span class="dv">1</span>],</a>
-<a class="sourceLine" id="cb151-5" data-line-number="5">         <span class="dt">Score1.quadratic =</span> <span class="kw">poly</span>(Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[ , <span class="dv">2</span>],</a>
-<a class="sourceLine" id="cb151-6" data-line-number="6">         <span class="dt">Score1.cubic =</span> <span class="kw">poly</span>(Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[ , <span class="dv">3</span>])</a></code></pre></div>
-<p>Here is plot to show you visually what happened</p>
-<p><img src="R_Tutorial_files/figure-html/unnamed-chunk-149-1.png" width="672" /></p>
+<div id="source" class="section level3">
+<h3><span class="header-section-number">14.3.2</span> <code>source()</code></h3>
+<p>The <code>source()</code> function is a way to execute all the lines of code in a script file. Rather than having to manually open each script file and sourcing it from there you can control your entire data processing workflow from the masterscript using <code>source()</code>. <code>echo = TRUE</code> will print the results of the script to the console that way you can still see what the script is doing.</p>
+</div>
+<div id="render" class="section level3">
+<h3><span class="header-section-number">14.3.3</span> <code>render()</code></h3>
+<p>The <code>render()</code> function is how to knit an RMarkdown document (which we will use for the <strong>Data Analysis </strong> stage). We will see later that this creates a really flexible way to knit RMarkdown documents because you can specify the output filename and location, as well as certain parameters for what data set to import or analysis parameters to set. <code>render()</code> comes from the package <code>rmarkdown</code> which is why it is loaded at the top of the masterscript.</p>
 </div>
 </div>
-<div id="custom-transformations" class="section level2">
-<h2><span class="header-section-number">7.6</span> Custom Transformations</h2>
-<p>In general, with <code>mutate()</code> you can specify any custom transformation you want to do on a variable. For instance, if you want to subtract each score by <code>5</code>, and divide by <code>10</code> then you can do it! I don’t know why you would ever want to do that, but you can.</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb152-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb152-3" data-line-number="3">data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb152-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score_crazy =</span> (Score1 <span class="op">-</span><span class="st"> </span><span class="dv">5</span>)<span class="op">/</span><span class="dv">10</span>)</a></code></pre></div>
-<p>Or take the sum of <code>Score1</code> and <code>Score2</code> and divide by the difference between <code>Score3</code> and <code>Score4</code>.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb153-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb153-3" data-line-number="3">data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb153-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score_crazy =</span> (Score1 <span class="op">+</span><span class="st"> </span>Score2)<span class="op">/</span>(Score3 <span class="op">-</span><span class="st"> </span>Score4))</a></code></pre></div>
+<div id="messy-to-tidy-template" class="section level2">
+<h2><span class="header-section-number">14.4</span> <em>Messy</em> to <em>Tidy</em> Template</h2>
+<p>Here is a template script for the first stage of data processing, <strong>converting <em>messy</em> raw data files to <em>tidy</em> raw data files</strong></p>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" data-line-number="1"><span class="co">## Set up ####</span></a>
+<a class="sourceLine" id="cb232-2" data-line-number="2"><span class="co">## Load packages</span></a>
+<a class="sourceLine" id="cb232-3" data-line-number="3"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb232-4" data-line-number="4"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb232-5" data-line-number="5"><span class="kw">library</span>(here)</a>
+<a class="sourceLine" id="cb232-6" data-line-number="6"><span class="kw">library</span>(datawrangling)</a>
+<a class="sourceLine" id="cb232-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb232-8" data-line-number="8"><span class="co">## Set Import/Output Directories</span></a>
+<a class="sourceLine" id="cb232-9" data-line-number="9">directories &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="kw">here</span>(<span class="st">&quot;directories.rds&quot;</span>))</a>
+<a class="sourceLine" id="cb232-10" data-line-number="10">import.dir &lt;-<span class="st"> </span>directories<span class="op">$</span>messy</a>
+<a class="sourceLine" id="cb232-11" data-line-number="11">output.dir &lt;-<span class="st"> </span>directories<span class="op">$</span>raw</a>
+<a class="sourceLine" id="cb232-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb232-13" data-line-number="13"><span class="co">## Set Import/Output Filenames</span></a>
+<a class="sourceLine" id="cb232-14" data-line-number="14">task &lt;-<span class="st"> &quot;taskname&quot;</span></a>
+<a class="sourceLine" id="cb232-15" data-line-number="15">import.file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb232-16" data-line-number="16">output.file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;raw.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</a>
+<a class="sourceLine" id="cb232-17" data-line-number="17"><span class="co">##############</span></a>
+<a class="sourceLine" id="cb232-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb232-19" data-line-number="19"><span class="co">## Import ####</span></a>
+<a class="sourceLine" id="cb232-20" data-line-number="20">import &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="kw">here</span>(import.dir, import.file), </a>
+<a class="sourceLine" id="cb232-21" data-line-number="21">                     <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb232-22" data-line-number="22"><span class="st">  </span><span class="kw">duplicates_remove</span>(<span class="dt">taskname =</span> task, </a>
+<a class="sourceLine" id="cb232-23" data-line-number="23">                    <span class="dt">output.folder =</span> <span class="kw">here</span>(output.dir, <span class="st">&quot;duplicates&quot;</span>))</a>
+<a class="sourceLine" id="cb232-24" data-line-number="24"><span class="co">##############</span></a>
+<a class="sourceLine" id="cb232-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb232-26" data-line-number="26"><span class="co">## Tidy raw data ####</span></a>
+<a class="sourceLine" id="cb232-27" data-line-number="27">data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb232-28" data-line-number="28"><span class="st">  </span><span class="kw">filter</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb232-29" data-line-number="29"><span class="st">  </span><span class="kw">rename</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb232-30" data-line-number="30"><span class="st">  </span><span class="kw">mutate</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb232-31" data-line-number="31"><span class="st">  </span><span class="kw">select</span>()</a>
+<a class="sourceLine" id="cb232-32" data-line-number="32"><span class="co">#####################</span></a>
+<a class="sourceLine" id="cb232-33" data-line-number="33"></a>
+<a class="sourceLine" id="cb232-34" data-line-number="34"><span class="co">## Output ####</span></a>
+<a class="sourceLine" id="cb232-35" data-line-number="35"><span class="kw">write_csv</span>(data_raw, <span class="kw">here</span>(output.dir, output.file))</a>
+<a class="sourceLine" id="cb232-36" data-line-number="36"><span class="co">##############</span></a>
+<a class="sourceLine" id="cb232-37" data-line-number="37"></a>
+<a class="sourceLine" id="cb232-38" data-line-number="38"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</a></code></pre></div>
+<p>To me this template is beautiful. Literally the only thing you need to change is</p>
+<ol style="list-style-type: decimal">
+<li><p><code>task &lt;- &quot;taskname&quot;</code> to the name of the task used in the filename</p></li>
+<li><p>Fill in what happens in the <em>Tidy raw data</em> block.</p></li>
+</ol>
+<p>The rest can LITERALLY stay the same. Just copy and paste. How easy!</p>
+</div>
+<div id="tidy-to-scored-template" class="section level2">
+<h2><span class="header-section-number">14.5</span> <em>Tidy</em> to <em>Scored</em> Template</h2>
+<p>Here is a template script for the first stage of data processing, <strong>transforming <em>tidy</em> raw data files to <em>scored</em> data files</strong></p>
+<p>Notice that to import the “directories.rds” file I use <code>readRDS(here(&quot;directories.rds&quot;))</code> and then set the import and output file directories using <code>directories$mess</code> and <code>directories$raw</code>.</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1"><span class="co">## Setup ####</span></a>
+<a class="sourceLine" id="cb233-2" data-line-number="2"><span class="co">## Load Packages</span></a>
+<a class="sourceLine" id="cb233-3" data-line-number="3"><span class="kw">library</span>(here)</a>
+<a class="sourceLine" id="cb233-4" data-line-number="4"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb233-5" data-line-number="5"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb233-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb233-7" data-line-number="7"><span class="co">## Set Import/Output Directories</span></a>
+<a class="sourceLine" id="cb233-8" data-line-number="8">directories &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="kw">here</span>(<span class="st">&quot;directories.rds&quot;</span>))</a>
+<a class="sourceLine" id="cb233-9" data-line-number="9">import.dir &lt;-<span class="st"> </span>directories<span class="op">$</span>raw</a>
+<a class="sourceLine" id="cb233-10" data-line-number="10">output.dir &lt;-<span class="st"> </span>directories<span class="op">$</span>scored</a>
+<a class="sourceLine" id="cb233-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb233-12" data-line-number="12"><span class="co">## Set Import/Output Filenames</span></a>
+<a class="sourceLine" id="cb233-13" data-line-number="13">task &lt;-<span class="st"> &quot;taskname&quot;</span></a>
+<a class="sourceLine" id="cb233-14" data-line-number="14">import.file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;raw.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</a>
+<a class="sourceLine" id="cb233-15" data-line-number="15">output.file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;Scores.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</a>
+<a class="sourceLine" id="cb233-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb233-17" data-line-number="17"><span class="co">## Set Data Cleaning Params </span></a>
+<a class="sourceLine" id="cb233-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb233-19" data-line-number="19"><span class="co">#############</span></a>
+<a class="sourceLine" id="cb233-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb233-21" data-line-number="21"><span class="co">## Import ####</span></a>
+<a class="sourceLine" id="cb233-22" data-line-number="22">import &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">here</span>(import.dir, import.file))</a>
+<a class="sourceLine" id="cb233-23" data-line-number="23"><span class="co">##############</span></a>
+<a class="sourceLine" id="cb233-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb233-25" data-line-number="25"><span class="co">## Data Cleaning and Scoring ####</span></a>
+<a class="sourceLine" id="cb233-26" data-line-number="26">data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb233-27" data-line-number="27"><span class="st">  </span><span class="kw">filter</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb233-28" data-line-number="28"><span class="st">  </span><span class="kw">group_by</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb233-29" data-line-number="29"><span class="st">  </span><span class="kw">summarise</span>()</a>
+<a class="sourceLine" id="cb233-30" data-line-number="30"><span class="co">#################################</span></a>
+<a class="sourceLine" id="cb233-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb233-32" data-line-number="32"><span class="co">## Output ####</span></a>
+<a class="sourceLine" id="cb233-33" data-line-number="33"><span class="kw">write_csv</span>(data, <span class="kw">here</span>(output.dir, output.file))</a>
+<a class="sourceLine" id="cb233-34" data-line-number="34"><span class="co">##############</span></a>
+<a class="sourceLine" id="cb233-35" data-line-number="35"></a>
+<a class="sourceLine" id="cb233-36" data-line-number="36"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</a></code></pre></div>
+<p>Again, beautiful! Here there are four things you may need to change:</p>
+<ol style="list-style-type: decimal">
+<li><p>What packages are loaded at the top, <code>library()</code></p></li>
+<li><p><code>task &lt;- &quot;taskname&quot;</code> to the name of the task used in the filename</p></li>
+<li><p><em>Set Data Cleaning Params</em>. This is optional if your task requires certain data cleaning parameters to be set. In <strong>Section III: Example Data Preparation</strong> we saw an example of this.</p></li>
+<li><p>What happens in the <em>Data Cleaning and Scoring</em> block. This might require more extensive coding than what is in the template, or it may not. In <strong>Section III: Example Data Preparation</strong> we saw an example of a more complicated script to score the Flanker task.</p></li>
+</ol>
+<p>But those are the only four parts of the script that would need to be changed.</p>
+<p>Notice that to import the “directories.rds” file I use <code>readRDS(here(&quot;directories.rds&quot;))</code> and then set the import and output file directories using <code>directories$raw</code> and <code>directories$scored</code>.</p>
 <hr />
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" data-line-number="1"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</a></code></pre></div>
 <hr />
 <p><strong>Something</strong></p>
 
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="data-manipulation-using-dplyr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="example-data-set.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="reproducibility.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="workflow-package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

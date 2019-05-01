@@ -2,6 +2,12 @@
 
 # Introduction to Data Analysis
 
+----
+<div style="text-align: center; font-size: 1.25em">
+WARNING: THIS CHAPTER NEEDS TO BE UPDATED!
+</div>
+----
+
 ## R Markdown
 
 ```{r echo=FALSE}

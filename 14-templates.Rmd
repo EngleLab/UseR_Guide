@@ -1,0 +1,254 @@
+# R Script Templates
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE)
+```
+
+
+```{r echo=FALSE}
+knitr::include_graphics(rep("images/workflow.png"))
+```
+
+## Building a Template Workflow
+
+Steps **1** and **2** are all about transforming data files to create a final output file that is ready for statistical analysis. Every R script you create for steps 1 and 2 will - import a file -> do stuff to the dataframe -> output a saved file, **no more, and no less**. The general workflow in every script will look like
+
+1) **Setup** the script by loading required packages using `library()`
+
+2) **Import** data file using `read_delim()` or `read_csv()` from the `readr` package
+
+3) **Do stuff** to the imported dataframe using `dplyr` functions, such as
+
+   `filter()`, `select()`, `group_by()`, `mutate()`, and `summarise()`
+   
+4) **Output** transformed data to a file using `write_csv()` from `readr`
+
+Honestly there is not much more to it then that. And because your R scripts for steps 1 and 2 have the same workflow process this makes it very easy to implement a standard organization in your scripts. 
+
+## EngleLab GitHub
+
+I am hosting a lot of template scripts on an EngleLab organization account I created on GitHub. There are general scripts, like the ones you will see here. And there are scripts for more specific tasks we commonly use; such as fluid intelligence, working memory capacity, and attention control tasks.
+
+----
+<div style="text-align: center; font-size: 1em">
+[EngleLab GitHub R-Templates](https://github.com/EngleLab/R-Templates)
+</div>
+----
+
+## Masterscript Template
+
+```{r}
+## Setup ####
+## Load Packages
+library(here)
+library(rmarkdown)
+
+## Specify the directory tree
+directories <- list(scripts = "R Scripts",
+                    data = "Data Files",
+                    raw = "Data Files/Raw Data",
+                    messy = "Data Files/Raw Data/E-Merge",
+                    scored = "Data Files/Scored Data",
+                    results = "Results",
+                    removed = "Data Files/Scored Data/removed")
+
+saveRDS(directories, here("directories.rds"))
+#############
+
+#############################################
+#------ 1. "messy" to "tidy" raw data ------# 
+#############################################
+
+source(here("R Scripts", "1_task_raw.R"), echo=TRUE)
+
+#################################################
+#------ 2. "tidy" raw data to Scored data ------# 
+#################################################
+
+source(here("R Scripts", "2_task_score.R"), echo=TRUE)
+
+#############################################################
+#------ 3. Create Final Merged Data File for Analysis ------# 
+#############################################################
+
+source(here("R Scripts", "3_merge.R"), echo=TRUE)
+
+###############################
+#------ 4. Data Analysis ------# 
+###############################
+
+render(here("R Scripts", "4_MainAnalyses.Rmd"), 
+       output_dir = here("Results"), output_file = "MainAnalyses.html",
+       params = list(data = here("Data Files", "Name_of_datafile.csv")))
+
+
+
+rm(list=ls())
+```
+
+### `directories`
+
+This is my unique setup that I like to use. By specifying a directory list in the *masterscript* and saving it as an *R Object* file with the extension *.rds*, you can import this direcotry list and use it in all your scripts. 
+
+To save an R Object to a file
+
+```{r}
+saveRDS(directories, here("directories.rds"))
+```
+
+`here("directories.rds")` will save the `directories` object as "directories.rds" to the Projects Root Directory.
+
+This means you only need to worry about the **ACTUAL** file path names in ONE SINGLE place, the masterscipt. Then when setting the *import* and *output* file paths in your scripts you can simply reference the **elements** in `directories` using the `$` notation. For instance:
+
+```{r eval = TRUE, echo = FALSE}
+directories <- list(scripts = "R Scripts",
+                    data = "Data Files",
+                    raw = "Data Files/Raw Data",
+                    messy = "Data Files/Raw Data/E-Merge",
+                    scored = "Data Files/Scored Data",
+                    results = "Results",
+                    removed = "Data Files/Scored Data/removed")
+```
+
+```{r}
+directories$messy
+```
+
+```{r}
+directories$raw
+```
+
+```{r}
+directories$scored
+```
+
+### `source()`
+
+The `source()` function is a way to execute all the lines of code in a script file. Rather than having to manually open each script file and sourcing it from there you can control your entire data processing workflow from the masterscript using `source()`. `echo = TRUE` will print the results of the script to the console that way you can still see what the script is doing.
+
+### `render()` 
+
+The `render()` function is how to knit an RMarkdown document (which we will use for the **Data Analysis ** stage). We will see later that this creates a really flexible way to knit RMarkdown documents because you can specify the output filename and location, as well as certain parameters for what data set to import or analysis parameters to set. `render()` comes from the package `rmarkdown` which is why it is loaded at the top of the masterscript.
+
+## *Messy* to *Tidy* Template
+
+Here is a template script for the first stage of data processing, **converting _messy_ raw data files to _tidy_ raw data files**
+
+```{r}
+## Set up ####
+## Load packages
+library(readr)
+library(dplyr)
+library(here)
+library(datawrangling)
+
+## Set Import/Output Directories
+directories <- readRDS(here("directories.rds"))
+import.dir <- directories$messy
+output.dir <- directories$raw
+
+## Set Import/Output Filenames
+task <- "taskname"
+import.file <- paste(task, ".txt", sep = "")
+output.file <- paste(task, "raw.csv", sep = "_")
+##############
+
+## Import ####
+import <- read_delim(here(import.dir, import.file), 
+                     "\t", escape_double = FALSE, trim_ws = TRUE) %>%
+  duplicates_remove(taskname = task, 
+                    output.folder = here(output.dir, "duplicates"))
+##############
+
+## Tidy raw data ####
+data_raw <- import %>%
+  filter() %>%
+  rename() %>%
+  mutate() %>%
+  select()
+#####################
+
+## Output ####
+write_csv(data_raw, here(output.dir, output.file))
+##############
+
+rm(list=ls())
+```
+
+To me this template is beautiful. Literally the only thing you need to change is 
+
+1) `task <- "taskname"` to the name of the task used in the filename
+
+2) Fill in what happens in the *Tidy raw data* block. 
+
+The rest can LITERALLY stay the same. Just copy and paste. How easy!
+
+## *Tidy* to *Scored* Template
+
+Here is a template script for the first stage of data processing, **transforming _tidy_ raw data files to _scored_ data files**
+
+Notice that to import the "directories.rds" file I use `readRDS(here("directories.rds"))` and then set the import and output file directories using `directories$mess` and `directories$raw`.
+
+```{r}
+## Setup ####
+## Load Packages
+library(here)
+library(readr)
+library(dplyr)
+
+## Set Import/Output Directories
+directories <- readRDS(here("directories.rds"))
+import.dir <- directories$raw
+output.dir <- directories$scored
+
+## Set Import/Output Filenames
+task <- "taskname"
+import.file <- paste(task, "raw.csv", sep = "_")
+output.file <- paste(task, "Scores.csv", sep = "_")
+
+## Set Data Cleaning Params 
+
+#############
+
+## Import ####
+import <- read_csv(here(import.dir, import.file))
+##############
+
+## Data Cleaning and Scoring ####
+data <- import %>%
+  filter() %>%
+  group_by() %>%
+  summarise()
+#################################
+
+## Output ####
+write_csv(data, here(output.dir, output.file))
+##############
+
+rm(list=ls())
+```
+
+Again, beautiful! Here there are four things you may need to change:
+
+1) What packages are loaded at the top, `library()`
+
+2) `task <- "taskname"` to the name of the task used in the filename
+
+3) *Set Data Cleaning Params*. This is optional if your task requires certain data cleaning parameters to be set. In **Section III: Example Data Preparation** we saw an example of this.
+
+4) What happens in the *Data Cleaning and Scoring* block. This might require more extensive coding than what is in the template, or it may not. In **Section III: Example Data Preparation** we saw an example of a more complicated script to score the Flanker task.
+
+But those are the only four parts of the script that would need to be changed.
+
+Notice that to import the "directories.rds" file I use `readRDS(here("directories.rds"))` and then set the import and output file directories using `directories$raw` and `directories$scored`.
+
+********
+
+```{r eval = TRUE}
+rm(list=ls())
+```
+
+
+********
+
+**Something**

@@ -155,8 +155,9 @@ import.dir <- directories$messy
 output.dir <- directories$raw
 
 ## Set Import/Output Filenames
-import.file <- "Flanker.txt"
-output.file <- "Flanker_raw.csv"
+task <- "Flanker"
+import.file <- paste(task, ".txt", sep = "")
+output.file <- paste(task, "raw.csv", sep = "_")
 #############
 ```
 
@@ -215,8 +216,8 @@ It can be difficult to remember what arguments you need to include in a function
 ## Import ####
 import <- read_delim(here(import.dir, import.file), 
                      "\t", escape_double = FALSE, trim_ws = TRUE) %>%
-  duplicates_remove(taskname = "Flanker", 
-                    output.folder = here(output.dir))
+  duplicates_remove(taskname = task, 
+                    output.folder = here(output.dir, "duplicates"))
 ##############
 ```
 
@@ -505,10 +506,9 @@ output.file <- paste(task, "raw.csv", sep = "_")
 import <- read_delim(here(import.dir, import.file), 
                      "\t", escape_double = FALSE, trim_ws = TRUE) %>%
   duplicates_remove(taskname = task, 
-                    output.folder = here(output.dir))
+                    output.folder = here(output.dir, "duplicates"))
 ##############
 
-## Tidy
 ## Tidy raw data ####
 data_raw <- import %>%
   filter(`Procedure[Trial]`=="TrialProc" | 

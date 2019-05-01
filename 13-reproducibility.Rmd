@@ -2,6 +2,10 @@
 
 # Reproducibility
 
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE)
+```
+
 As you start becoming more proficient in R you will be able manage, process, and analyze your data at all stages of analysis through R scripts alone. 
 
 ----
@@ -14,7 +18,7 @@ Although we deal with data all the time as scientists, we have never really been
 
 Open Science and Reproducibility practices are *very* quickly becoming the norm in all fields of science. Programming languages like R are perfectly suited to help us implement these practices. 
 
-**Reliance on programs like SPSS and Excel will hinder our ability to join the Open Science and Reproducibility movement.** Before we are even part of the **old** generation, if we do not start to ween ourselves off of SPSS and Excel then we will certainly *feel* like the **old** generation. 
+**Reliance on programs like SPSS and Excel will hinder your ability to join the Open Science and Reproducibility movement.** 
 
 However, simply learning the R syntax alone is not enough. You will need to start thinking more about what are **good data science practices** that allow me to manage, process, and analyze my data in a way that is consistent with Open Science and Reproducibility?
 
@@ -22,15 +26,13 @@ In the previous section I already had you implementing these **good data science
 
 ----
 
-Reproducibility is not just about allowing others to reproduce your analyses. More importantly it allows you to reproduce your own analyses. Or perhaps go back and modify some step and re-run the modified analysis.
+Reproducibility is not just about allowing others to reproduce your analyses. More importantly it allows you to reproduce your own analyses. Or perhaps go back and modify some processing step and re-run the modified analysis.
 
 **Therefore, learning R is about learning how to manage and handle your data processing workflow in a way that empowers your ability to analyze and explore your data.** 
 
 If you treat R as just an alternative to SPSS, then it is all too easy to create poorly written scripts and disorganized projects that completely undermine reproducibility. Honestly, I am not sure if it is worth taking the time and effort to learn R as simply an alternative to SPSS. 
 
-----
-
-Parts of this section are taken directly from the excellent book on Data Science in R
+Parts of this next section are taken directly from the excellent book on Data Science in R
 
 ----
 <div style="text-align: center; font-size: 1em">
@@ -88,7 +90,7 @@ Keep your analysis from different projects separated
 </div>
 ----
 
-You do not want objects created in your `Environment` from one project to get mixed up with objects (perhaps with the same object names) in a different project. We have not talked about the concept of *Working Diectories* yet, but you also need to ensure your working directory is correctly set in order to import and output files. If you are working on multiple projects at one time and not keeping them separated you will have issues **Reproducing** your analysis because the working directory might not be set correctly.
+You do not want objects created in your `Environment` from one project to get mixed up with objects (perhaps with the same object names) in a different project. We have not talked about the concept of *Working Diectories* yet, but you also need to ensure your working directory is correctly set in order to import and output files. If you are working on multiple projects at one time, not keeping them separated will create issues **Reproducing** your analysis because the working directory might not be set correctly.
 
 The three most important elements to an environment are:
 
@@ -108,22 +110,11 @@ Use **RStudio Projects** to create separate Environments for your projects
 </div>
 ----
 
-[Visit this page](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) for more details on R Projects.
-
-There are a couple of ways you can open an RStudio Project. 
-
-* One way is to just simply open the `.Rproj` file. This will open a new R Session (and RStudio window). 
-
-* If you already have an RStudio window open you can navigate to the very top-right of the application window and browse different projects you have recently worked on. This is where you can also see which Project you currently have open.
-
-```{r echo=FALSE, fig.align='center'}
-knitr::include_graphics(rep("images/rproj_open.png"))
-```
-
+See below for more details on RStudio Projects.
 
 ### Script Level
 
-Within a Project, you will have multiple R Scripts that are performing a different analysis. It is also important to keep the `Environment` of an R Script independent of the `Environment` from other R Scripts. 
+Within a Project, you will have multiple R Scripts that are performing a different analysis. It is also important to keep the `Environment` of an R Script independent of the `Environment` from other R Scripts, even within the same project. 
 
 Obviously your R Scripts will be dependent on one another in the sense that one R Script might be creating data files that other R Scripts will later use. 
 
@@ -135,7 +126,7 @@ R Scripts are linked in a data processing workflow through the data files they c
 </div>
 ----
 
-**Therefore, it is important that the `Environment` of each R Script within a Project are independent from one another.** This means that an R Script should not depend on objects created or data imported in other R Scripts. Or that any packages required for an R Script should be loaded in THAT script and not depend on them being loaded in other R Scripts. 
+**Therefore, it is important that the `Environment` of each R Script within a Project are independent from one another.** This means that an R Script should not depend on objects created or data imported in other R Scripts. Any packages required for an R Script should be loaded in THAT script and not depend on them being loaded in other R Scripts. 
 
 As long as the data files required for an R Script are already created, you should be able to open a completely new and fresh session of R and succesfully execute all the lines of code in that one Script (without having ran any other scripts). 
 
@@ -151,7 +142,7 @@ This is why in the scripts you created for the previous Section they all had a s
 
 In the **Setup** section you are making sure that all the packages for that ONE script are loaded, any import or output directory objects are set correctly, and any parameters for data cleaning are set. 
 
-Every R script in the **Data Preparation** stage *Imports* a file and *Outputs* a file. This makes sure the scripts are linked in the data processing workflow by the **files** they create (output) and not by the Objects in the **Environment** they create. 
+Every R script in the **Data Preparation** stage *Imports* a file *AND* *Outputs* a file. This makes sure the scripts are linked in the data processing workflow by the **files** they create (output) and not by the Objects in the **Environment** they create. 
 
 Then at the end of each R Script I had you include the line of code
 
@@ -163,7 +154,196 @@ This removes all Objects in your **Environment**. That way when you run the next
 
 Some people in the R community say this is not a good practice, but in reality it is not harmful to add this line of code. It is not perfect because it does not unload any packages that have been loaded.
 
-Given that I had you implementing these practices in the previous Section it might not seem like that big of a deal to you. Good! But sometimes when I look at other researcher's R Scripts sometimes I am just dismayed at how poorly their projects and scripts are organized. You can start by implementing these **good data science practices** from the beginning without thinking too much of it.
+Given that I had you implementing these practices in the previous Section it might not seem like that big of a deal to you. Good! But sometimes when I look at other researcher's R Scripts sometimes I am dismayed at how poorly their projects and scripts are organized. You can start by implementing these **good data science practices** from the beginning without thinking too much of it.
+
+## Environment
+
+Because we should treat our **Environment** as a temporary *workspace* we need to make sure that out **Environments** are as independent as possible from one another, at both the Project and Scripts Levels. I mentioned above that the three most important elements to an environment are:
+
+1. The working directory
+
+2. Loaded packages
+
+3. Objects
+
+### Working Directory
+
+You could use what are refered to as _absolute_ file paths to import and export files but this is not good practice. The reason is that the _absolute_ file path is specific to a particular computer. No one computer is going to have the same _absolute_ file path. An _absolute_ file path starts from the root directory on your computer and may look something like:
+
+Mac:  `~/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/R-Tutorial`
+
+Windows:  `C:\Users\jasontsukahara\Dropbox (GaTech)\My Work\Coding Projects\R\R-Tutorial`
+
+__You do not want to write scripts that can only work on a specific computer!__ One of the great advantages to programming for data processing is reproducibility. You and your future self (and other researchers) can reproduce your exact same data processing steps. __If you use absolute file paths you are undermining the reproducibility of your scripts__.
+
+__It is good practice__ to use _relative_ file paths instead. _Relative_ file paths start from a **working directory**. Let's say you have a **working directory** set to the following location:
+
+`~/Users/jasontsukahara/Dropbox (GaTech)/My Work/Research Projects/Cool Study`
+
+And you want to import files from a *Raw Data* directory within *Cool Study*. The absolute path to raw data files in `Cool Study` might look like: 
+
+`~/Users/jasontsukahara/Dropbox (GaTech)/My Work/Research Projects/Cool Study/Data Files/Raw Data`
+
+Whereas a elative file path from the working directory would be:
+
+`Data Files/Raw Data`
+
+You can see that with _relative_ file paths, only the internal organization of the project directory matters. This allows your script to be ran on different computeres, systems, and environments! 
+
+You working directory can be specified in various ways. By default, if you open up __RStudio__ directly it will set the working directory to some default location such as your _User_ root directory. __This is not good__. 
+
+If you open up __RStudio__ by directly opening an _R script file_ then it will set the working directory to the location of that file. This is better but still not ideal. 
+
+Because the working directory changes depending on how you open RStudio a lot of R Users will set a working directory at the top of their script using 
+
+```{r eval=FALSE}
+setwd()
+```
+
+However, this is not good because it requires the use of an absolute filepath. 
+
+Ideally, we should not even have to think about the working directory since it can change depending on how R is opened. Thankfully there is a solution to make our dreams come true!
+
+#### RStudio Projects and `here::here()`
+
+[Visit this page](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) for more details on R Projects.
+
+Using RStudio Projects, helps keep your scripts and *Environments* from one project to the next separate from each other. 
+
+RStudio Projects allow you to open a fresh session of R that automatically sets the working directory to the location where the R Project is saved. R Projects have the file extension `.Rproj`.
+
+----
+<div style="text-align: center; font-size: 1.25em">
+Save .Rproj to your project's root directory
+</div>
+----
+
+There are a couple of ways you can open an RStudio Project. 
+
+* One way is to just simply open the `.Rproj` file. This will open a new R Session (and RStudio window). 
+
+* If you already have an RStudio window open you can navigate to the very top-right of the application window and browse different projects you have recently worked on. This is where you can also see which Project you currently have open.
+
+```{r echo = FALSE, eval = TRUE, fig.align='center'}
+knitr::include_graphics(rep("images/rproj_open.png"))
+```
+
+The `here` package in combination with RStudio Projects allows you to not even have to think about working directories.
+   
+For a passionate ode to the `here` package see: https://github.com/jennybc/here_here
+
+First go ahead and install the `here` package, `install.packages("here")`.
+
+Basically, when the `here` package is loaded, `library(here)`, it will search for a .Rproj file it will set a **starting** file path for the function `here()`.
+
+```{r message = TRUE}
+library(here)
+```
+
+You can then use `here()` to set a relative file path
+
+```{r}
+here("Data Files/Raw Data/flanker_raw.csv")
+```
+
+This is equivalent to
+
+```{r}
+here("Data Files", "Raw Data", "flanker_raw.csv")
+```
+
+I typically like to set the first argument as the relative file path and the second argument as the filename
+
+```{r}
+here("Data Files/Raw Data", "flanker_raw.csv")
+```
+
+This visually separates the file path and the filename, making your script easier to read.
+
+Now in import and output functions you can use `here()`
+
+```{r eval = FALSE}
+read_csv(here("Data Files/Raw Data", "flanker_raw.csv"))
+```
+
+
+```{r eval = FALSE}
+write_csv(data, here("Data Files/Scored Data", "flanker_scored.csv"))
+```
+
+And you know that everytime you use `here()` that the file path will start at where you have your .Rproj file saved (in the root directory of your Project).
+
+----
+<div style="text-align: center; font-size: 1.25em">
+Avoid using `setwd()` by using RStudio Projects and `here::here()`
+</div>
+----
+
+### Loaded Packages
+
+To make sure that the packages used in one R Script do not depend on the packages loaded in other R Scripts:
+
+__Load all required packages for that one R Script at the top of the script__
+
+This allows you to easily evaluate which packages are required for that script. 
+
+### Objects
+
+To make sure that the objects and functions created in one R Script do not depend on the objects and functions created in other R Scripts:
+
+__Include the following line of code at the bottome of the script__
+
+`rm(list=ls())`
+
+This will remove any objects and functions in the current environment. That way when the next R Script is ran, there will be no leftover objects or functions from previous R Scripts.
+
+## Folder Organization
+
+I suggest adopting a consistent folder organization for all your research projects. Again, this is just about allowing you to focus on the meat of your R scripts.
+
+This is my organization:
+
+_Working Directory_
+
+* Data Files
+    + Raw Data
+        - E-Merge
+    + Scored Data
+* R Scripts
+* Results
+
+In the *Data Files/Raw Data/E-Merge* folder are the **"messy" raw data** files
+
+In the *Data Files/Raw Data* folder are the **"tidy" raw data** files
+
+In the *Data Files/Scored Data* folder are the **scored data** files
+
+In the *Results* folder are the outpued **results**
+
+In the *R Scripts* folder are **ALL** the R Scripts
+
+You can see how this organization corresponds to the data processing workflow I introduced earlier
+
+```{r echo=FALSE}
+knitr::include_graphics(rep("images/workflow.png"))
+```
+
+## Naming R Scripts
+
+If you have a lot of R Scripts for a project it can make it easier to use a certain naming convention to organize the scripts. **First of all, I definitely reccomend putting all your scripts into one folder.** There is nothing more annoying then having to search all of your computer for the script you are looking for.
+
+I personally like to name my R scripts with a number prefix folowed by an underscore and end it with the name of the data processing step it belongs to (i.e. `1_taskname_raw.R`). 
+
+The numbered prefix denotes what step in the data processing procedure given the organization of the masterscript.
+
+This makes it SO MUCH easier to search for the script you need to work on. For instance, my R Script directory might look like
+
+```{r echo=FALSE, eval=TRUE, fig.width=250, fig.align='center'}
+knitr::include_graphics(rep("images/folder-organization.png"))
+```
+
+Where all the scripts that create "tidy" raw data files have the prefix `1` and the suffix `_raw` whereas the scripts for scoring data files has the prefix `2` and the suffix `_score`. The prefix number will order the scripts by their data processing workflow step.
+
 
 ********
 

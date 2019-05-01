@@ -1,11 +1,11 @@
 --- 
-title: "R Tutorial and Guide for the EngleLab"
+title: "R Tutorial and User Guide for the EngleLab"
 author: "Jason Tsukahara"
 date: "`r Sys.Date()`"
 bibliography:
 - book.bib
 - packages.bib
-description: This is an R Tutorial and Guide for the EngleLab
+description: This is an R Tutorial and User Guide for the EngleLab
 documentclass: book
 link-citations: yes
 site: bookdown::bookdown_site
@@ -15,7 +15,7 @@ github-repo: "EngleLab"
 
 # Preface {-}
 
-Welcome to the EngleLab R Tutorial and Guide!
+Welcome to the EngleLab R Tutorial and User Guide!
 
 R is becoming a popular tool for doing statistical analyses across many scientific disciplines. It has many advantages but there is a considerable learning curve. This guide is meant to help you become proficient in R and quickly learn standard data processing tasks that are common in the EngleLab.
 
@@ -31,11 +31,11 @@ There are two general ways you might use this guide:
 
 2. Referencing the guide as you work on your own projects
 
-    In this case, the "Search" function will be useful to you. You can find the search option at the top of this document.
+    * If you need to process your data and get it ready for analysis then you can start at *Section III: Example Data Preparation*  to start working on your project in R as soon as possible. You can always go back and reference *Section I* and *Section II*. I would suggest also reading through *Section IV: Data Science Practices*.
     
-For both (particularly for the 1st one), you will want to create a folder directory to save your scripts and data files used in the Guide.
-
-__Section I: Getting Started in R__ will cover the baics and fundamentals of how to use R. The Chapter on _Intermediate R_ is optional and not required to continue with the rest of the tutorial
+    * You will find the script Templates presented in *Chapter 14* particularly useful
+    
+    * If you need to start on your statistical analysis and data visualization then you can start at *Section V: Data Analysis* and go through the Chapters that are only relevant to your specific analysis.
 
 ---
 
@@ -52,12 +52,26 @@ knitr::include_graphics(rep("images/workflow.png"))
 1. The first step of the data processing workflow is to convert **"messy" raw data** files to **"tidy" raw data** files. Most experiment softwares will produce a "messy" raw data file. In this file there are usually more rows and columns than you would ever be interested in, variable or values are named incoherently (i.e. stimSlide2.RT), and/or there may be separate files for each subject. It will be easier to work with a "tidy" raw data file. A "tidy" raw data file has only the rows and columns that are relevant (one row for each trial), variable and values are named coherently (i.e. RT), and there is one file that contains data for all subjects. This is an easy step to skip but it is highly recommended because it will make it easier 1) for your future self to come back and do some additional analyses/re-analyses and 2) for you to share your raw data with other researchers.
 
 2. The next step is to **score and clean the data**. For most statistical analyses you will want to aggregate the trial-level data into one or more dependent measures for that task. The scored data file will have one row per subject (or possibly one row per subject per experimental condition). This step also involves any data cleaning procedures you might choose to perform, such as removing outliers.
-
-These first two steps are all about data preparation. These steps will be covered in __Section II: Working with Data__.
     
 3. Finally you are now ready for the fun part, **Data Analysis**! Data analysis consists of visualing your data and conducting statistical analyses. At this stage you will be generating output of your results in tables and figures.
 
-This third step will be covered in two sections; __Section III: Data Visualization__ and __Section IV: Statistical Analyses__.
+----
+
+## Overview {-}
+
+In **Section I: Getting Started in R** it is all about learning the fundamentals of using R. From installing R and RStudio to learning about object types, how functions work, and more. **Chapter 3** is more optional, however you will find it useful to being more proficient in R. 
+
+**Section II: Working with Data** is still about learning the fundamentals but more specifically the fundamentals of working with data like we do in this lab. The `tidyverse` is a collection of packages that has an intuitive grammar and design philosophy. It makes working with data in R so much easier and also quick to learn. Therefore, you will be learning how to work with data in R the `tidyverse` way. 
+
+**Section II**, *Chapter 7*, will also cover how to perform more complex but common data manipulations. Such as calculating z-scores, creating composite variables, and trimming data. I have made these more complex transformations easier by with functions in my `datawrangling` package.
+
+After learning these fundamentals, in **Section III: Example Data Preparation**, you will immediately dive into processing data in R with an example data set from a Flanker task. This will provide you a good overview and experience with how to write R scripts to do data preparation (Stages 1 and 2 in the diagram above).
+
+Then before getting into data visualization and statistical analysis, **Section IV: Data Science Practices** you will learn how to implement *good* data science practices in R that align with Open Science and Reproducibility principles. And most importantly you these practices will help *YOU* store, manage, handle, reproduce, and re-analyze your data. Hopefully these practices will empower you to explore and understand your data better.
+
+Finally, in **Section V: Data Analysis** you will get to the fun part! Visualizing and analyzing your data with statistics! First you will learn about the fundamentals of *Data Visualization* in R using the `ggplot2` package (part of the `tidyverse`). `ggplot2` has made R one of the best, if not the best (according to my friend Adhaar who mastered in computer science at Georgia Tech), programming languages for data visualization. Then, various statistical methods will be covered, including *regression* and *structural equation modelling*.
+
+I plan on adding a final section at some point with a list of useful resources.
 
 ********
 
