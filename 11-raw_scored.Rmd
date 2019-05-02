@@ -20,7 +20,7 @@ The `FlankerEffect` is the difference of *mean RTs* on incongruent trials minus 
 <div style="text-align: center; font-size: 1.25em">
 <i class="fas fa-save" style="font-size: 3em"></i> 
 
-Save a new R script file as `2_flanker_score.R` in the *R Scripts* folder
+Save a new R script file as `1_flanker_score.R` in the *R Scripts* folder
 
 </div>
 ----
@@ -496,7 +496,7 @@ rm(list=ls())
 
 ## Masterscript
 
-Now you can add lines of code in the manuscript to execute or `source()` the script "2_flanker_score.R".
+Now you can add lines of code in the manuscript to execute or `source()` the script "1_flanker_score.R".
 
 ********
 

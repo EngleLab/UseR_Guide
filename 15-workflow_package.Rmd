@@ -42,7 +42,7 @@ And browse until you see the option: __Create a Research Study__
 
 Click on that and you will some options you can specify:
 
-```{r echo=FALSE}
+```{r echo=FALSE, eval = TRUE}
 knitr::include_graphics(rep("images/create_researchstudy.png"))
 ```
 
