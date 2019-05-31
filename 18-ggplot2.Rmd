@@ -1,7 +1,10 @@
 # Introduction to ggplot2
 
+```{r include=FALSE, eval = TRUE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE)
+```
 
-```{r echo=FALSE, out.width = 125, fig.align='center'}
+```{r echo=FALSE, out.width = 125, fig.align='center', eval = TRUE}
 knitr::include_graphics(rep("images/ggplot2.jpg"))
 ```
 
@@ -15,7 +18,7 @@ We saw from the last chapter that the two main components in a grammar of graphi
 
 We also saw that the three essential elements are the data layer, aesthetics layer, and geometrics layer. In ggplot2 there are a total of 7 layers we can add to a plot
 
-```{r echo=FALSE, fig.align='center'}
+```{r echo=FALSE, fig.align='center', eval = TRUE}
 knitr::include_graphics(rep("images/ge_all.png"))
 ```
 
@@ -23,7 +26,7 @@ knitr::include_graphics(rep("images/ge_all.png"))
 
 The Data Layer specifies the data being plotted.
 
-```{r echo=FALSE, out.width = 300, fig.align='center'}
+```{r echo=FALSE, out.width = 300, fig.align='center', eval = TRUE}
 knitr::include_graphics(rep("images/ge_data.png"))
 ```
 

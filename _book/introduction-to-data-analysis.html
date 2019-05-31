@@ -25,14 +25,14 @@
 <meta name="author" content="Jason Tsukahara">
 
 
-<meta name="date" content="2019-05-02">
+<meta name="date" content="2019-05-31">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="workflow-package.html">
+<link rel="prev" href="r-script-templates.html">
 <link rel="next" href="fundamentals-of-data-visualization.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -67,7 +67,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -268,26 +268,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.4" data-path="reproducibility.html"><a href="reproducibility.html#folder-organization"><i class="fa fa-check"></i><b>13.4</b> Folder Organization</a></li>
 <li class="chapter" data-level="13.5" data-path="reproducibility.html"><a href="reproducibility.html#naming-r-scripts"><i class="fa fa-check"></i><b>13.5</b> Naming R Scripts</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="r-script-templates.html"><a href="r-script-templates.html"><i class="fa fa-check"></i><b>14</b> R Script Templates</a><ul>
-<li class="chapter" data-level="14.1" data-path="r-script-templates.html"><a href="r-script-templates.html#building-a-template-workflow"><i class="fa fa-check"></i><b>14.1</b> Building a Template Workflow</a></li>
-<li class="chapter" data-level="14.2" data-path="r-script-templates.html"><a href="r-script-templates.html#englelab-github"><i class="fa fa-check"></i><b>14.2</b> EngleLab GitHub</a></li>
-<li class="chapter" data-level="14.3" data-path="r-script-templates.html"><a href="r-script-templates.html#masterscript-template"><i class="fa fa-check"></i><b>14.3</b> Masterscript Template</a><ul>
-<li class="chapter" data-level="14.3.1" data-path="r-script-templates.html"><a href="r-script-templates.html#directories"><i class="fa fa-check"></i><b>14.3.1</b> <code>directories</code></a></li>
-<li class="chapter" data-level="14.3.2" data-path="r-script-templates.html"><a href="r-script-templates.html#source"><i class="fa fa-check"></i><b>14.3.2</b> <code>source()</code></a></li>
-<li class="chapter" data-level="14.3.3" data-path="r-script-templates.html"><a href="r-script-templates.html#render"><i class="fa fa-check"></i><b>14.3.3</b> <code>render()</code></a></li>
+<li class="chapter" data-level="14" data-path="organization.html"><a href="organization.html"><i class="fa fa-check"></i><b>14</b> Organization</a><ul>
+<li class="chapter" data-level="14.1" data-path="organization.html"><a href="organization.html#data-collection"><i class="fa fa-check"></i><b>14.1</b> Data Collection</a></li>
+<li class="chapter" data-level="14.2" data-path="organization.html"><a href="organization.html#data-analysis"><i class="fa fa-check"></i><b>14.2</b> Data Analysis</a></li>
+<li class="chapter" data-level="14.3" data-path="organization.html"><a href="organization.html#workflow-package"><i class="fa fa-check"></i><b>14.3</b> <code>workflow</code> package</a><ul>
+<li class="chapter" data-level="14.3.1" data-path="organization.html"><a href="organization.html#setup-repository-organization"><i class="fa fa-check"></i><b>14.3.1</b> Setup Repository Organization</a></li>
 </ul></li>
-<li class="chapter" data-level="14.4" data-path="r-script-templates.html"><a href="r-script-templates.html#messy-to-tidy-template"><i class="fa fa-check"></i><b>14.4</b> <em>Messy</em> to <em>Tidy</em> Template</a></li>
-<li class="chapter" data-level="14.5" data-path="r-script-templates.html"><a href="r-script-templates.html#tidy-to-scored-template"><i class="fa fa-check"></i><b>14.5</b> <em>Tidy</em> to <em>Scored</em> Template</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="workflow-package.html"><a href="workflow-package.html"><i class="fa fa-check"></i><b>15</b> <code>workflow</code> Package</a><ul>
-<li class="chapter" data-level="15.1" data-path="workflow-package.html"><a href="workflow-package.html#start-a-new-research-study"><i class="fa fa-check"></i><b>15.1</b> Start a new research study</a><ul>
-<li class="chapter" data-level="15.1.1" data-path="workflow-package.html"><a href="workflow-package.html#directory"><i class="fa fa-check"></i><b>15.1.1</b> Directory</a></li>
-<li class="chapter" data-level="15.1.2" data-path="workflow-package.html"><a href="workflow-package.html#additional-options"><i class="fa fa-check"></i><b>15.1.2</b> Additional Options</a></li>
+<li class="chapter" data-level="15" data-path="r-script-templates.html"><a href="r-script-templates.html"><i class="fa fa-check"></i><b>15</b> R Script Templates</a><ul>
+<li class="chapter" data-level="15.1" data-path="r-script-templates.html"><a href="r-script-templates.html#building-a-template-workflow"><i class="fa fa-check"></i><b>15.1</b> Building a Template Workflow</a></li>
+<li class="chapter" data-level="15.2" data-path="r-script-templates.html"><a href="r-script-templates.html#englelab-github"><i class="fa fa-check"></i><b>15.2</b> EngleLab GitHub</a></li>
+<li class="chapter" data-level="15.3" data-path="r-script-templates.html"><a href="r-script-templates.html#masterscript-template"><i class="fa fa-check"></i><b>15.3</b> Masterscript Template</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="r-script-templates.html"><a href="r-script-templates.html#directories"><i class="fa fa-check"></i><b>15.3.1</b> <code>directories</code></a></li>
+<li class="chapter" data-level="15.3.2" data-path="r-script-templates.html"><a href="r-script-templates.html#source"><i class="fa fa-check"></i><b>15.3.2</b> <code>source()</code></a></li>
+<li class="chapter" data-level="15.3.3" data-path="r-script-templates.html"><a href="r-script-templates.html#render"><i class="fa fa-check"></i><b>15.3.3</b> <code>render()</code></a></li>
+<li class="chapter" data-level="15.3.4" data-path="r-script-templates.html"><a href="r-script-templates.html#data-collection-repository"><i class="fa fa-check"></i><b>15.3.4</b> Data Collection Repository</a></li>
+<li class="chapter" data-level="15.3.5" data-path="r-script-templates.html"><a href="r-script-templates.html#data-analysis-repository"><i class="fa fa-check"></i><b>15.3.5</b> Data Analysis Repository</a></li>
 </ul></li>
-<li class="chapter" data-level="15.2" data-path="workflow-package.html"><a href="workflow-package.html#download-ready-made-templates"><i class="fa fa-check"></i><b>15.2</b> Download ready-made templates</a><ul>
-<li class="chapter" data-level="15.2.1" data-path="workflow-package.html"><a href="workflow-package.html#generic-templates"><i class="fa fa-check"></i><b>15.2.1</b> Generic Templates</a></li>
-<li class="chapter" data-level="15.2.2" data-path="workflow-package.html"><a href="workflow-package.html#gf-wmc-and-attention-control-scripts"><i class="fa fa-check"></i><b>15.2.2</b> Gf, WMC, and Attention Control Scripts</a></li>
-</ul></li>
+<li class="chapter" data-level="15.4" data-path="r-script-templates.html"><a href="r-script-templates.html#messy-to-tidy-template"><i class="fa fa-check"></i><b>15.4</b> <em>Messy</em> to <em>Tidy</em> Template</a></li>
+<li class="chapter" data-level="15.5" data-path="r-script-templates.html"><a href="r-script-templates.html#tidy-to-scored-template"><i class="fa fa-check"></i><b>15.5</b> <em>Tidy</em> to <em>Scored</em> Template</a></li>
 </ul></li>
 <li class="part"><span><b>V Data Ananlysis</b></span></li>
 <li class="chapter" data-level="16" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html"><i class="fa fa-check"></i><b>16</b> Introduction to Data Analysis</a><ul>
@@ -328,7 +327,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21" data-path="univariate-plots.html"><a href="univariate-plots.html"><i class="fa fa-check"></i><b>21</b> Univariate Plots</a></li>
 <li class="chapter" data-level="22" data-path="sjplot.html"><a href="sjplot.html"><i class="fa fa-check"></i><b>22</b> <code>sjPlot</code></a></li>
 <li class="chapter" data-level="23" data-path="custom-tables.html"><a href="custom-tables.html"><i class="fa fa-check"></i><b>23</b> Custom Tables</a></li>
-<li class="part"><span><b>* Statistical Analysis</b></span></li>
+<li class="part"><span><b>- Statistical Analysis</b></span></li>
 <li class="chapter" data-level="24" data-path="introduction-to-statistical-analysis-in-r.html"><a href="introduction-to-statistical-analysis-in-r.html"><i class="fa fa-check"></i><b>24</b> Introduction to Statistical Analysis in R</a></li>
 </ul>
 
@@ -356,6 +355,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <div id="r-markdown" class="section level2">
 <h2><span class="header-section-number">16.1</span> R Markdown</h2>
+<p><img src="images/workflow.png" width="1058" /></p>
 <p>Phew! You’ve made it this far, good job. Up until now you have been learning how to do data preparation steps in R. Now for the fun part, statistical analyses and data visualization!</p>
 <p>This is the third and final step in the data workflow process depicted above. Traditionally you have likely done these analyses in SPSS or EQS and have created figures in Excel or PowerPoint. The rest of the guide will cover how to do these steps in R.</p>
 <p>Writing scripts to do statistical analyses is an entirely different process than writing scripts for data preparation. Therefore, we should first go over the general process of conducting and outputing statistical analyses in R.</p>
@@ -367,7 +367,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The easiest format to output as is <strong>html</strong>. html documents are opened in a web browser and therefore can be opened on any computer and device (phones, tablets, Windows, Mac).</p>
 <p>For a brief intro to <strong>R Markdown</strong> see <a href="https://rmarkdown.rstudio.com/lesson-1.html" class="uri">https://rmarkdown.rstudio.com/lesson-1.html</a></p>
 <p>First, you need to install the <code>rmarkdown</code> package</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>)</a></code></pre></div>
 <p>To open an <strong>R Markdown</strong> document go to</p>
 <p>File -&gt; New File -&gt; R Markdown…</p>
 <p>Select HTML and click OK</p>
@@ -416,7 +416,7 @@ output: html_document
           </div>
         </div>
       </div>
-<a href="workflow-package.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-script-templates.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="fundamentals-of-data-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

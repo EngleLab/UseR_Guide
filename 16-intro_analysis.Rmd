@@ -10,7 +10,11 @@ WARNING: THIS CHAPTER NEEDS TO BE UPDATED!
 
 ## R Markdown
 
-```{r echo=FALSE}
+```{r include=FALSE, eval = TRUE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE)
+```
+
+```{r echo=FALSE, eval = TRUE}
 knitr::include_graphics(rep("images/workflow.png"))
 ```
 

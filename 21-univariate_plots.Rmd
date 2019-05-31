@@ -1,5 +1,9 @@
 # Univariate Plots
 
+```{r include=FALSE, eval = TRUE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE)
+```
+
 This will be a chapter on univariate plots
 
 ********

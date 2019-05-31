@@ -2,9 +2,13 @@
 
 # Fundamentals of Data Visualization
 
+```{r include=FALSE, eval = TRUE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE)
+```
+
 Data visualization is an essential skill for anyone working with data. It is a combination of statistical understanding and design principles. In this way, data visualization is about **graphical data analysis** and **communication and perception**.
 
-```{r echo=FALSE}
+```{r echo=FALSE, eval = TRUE}
 knitr::include_graphics(rep("images/dataviz_general.png"))
 ```
 
@@ -14,7 +18,7 @@ As a scientist, there are two purposes for visualizing our data.
 
 1) Data exploration: it is difficult to fully understand our data just by looking at numbers on a screen arranged in rows and columns. Being skilled in data visualization will help you better understand your data.
 
-```{r echo=FALSE}
+```{r echo=FALSE, eval = TRUE}
 knitr::include_graphics(rep("images/matrix_code.jpg"))
 ```
 
@@ -32,7 +36,7 @@ Leland Wilkinson (Grammar of Graphics, 1999) formulized two main principles in h
 
 The essential grammatical elements to create any visualization are:
 
-```{r echo=FALSE}
+```{r echo=FALSE, eval = TRUE}
 knitr::include_graphics(rep("images/ge_essentials.png"))
 ```
 
@@ -42,7 +46,7 @@ It is possible to create plots in R using the base R function `plot()`. The neat
 
 To allow for data visualization that is more in line with the principles for a grammar of graphics, Hadley Wickham (pictured below) created the `ggplot2` package. This by far the most popular package for data visualization in R.
 
-```{r echo=FALSE}
+```{r echo=FALSE, eval = TRUE}
 knitr::include_graphics(rep("images/hadley.jpeg"))
 ```
 

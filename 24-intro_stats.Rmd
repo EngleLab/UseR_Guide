@@ -1,6 +1,10 @@
-# (PART\*) * Statistical Analysis {-}
+# (PART\*) - Statistical Analysis {-}
 
 # Introduction to Statistical Analysis in R
+
+```{r include=FALSE, eval = TRUE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE)
+```
 
 This will be an introduction to statistical analysis in R
 

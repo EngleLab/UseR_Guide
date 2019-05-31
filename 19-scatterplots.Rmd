@@ -1,5 +1,9 @@
 # Scatterplots
 
+```{r include=FALSE, eval = TRUE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE)
+```
+
 You can go ahead and set a default theme for your plots
 
 ```{r}

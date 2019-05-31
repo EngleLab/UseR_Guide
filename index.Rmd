@@ -33,7 +33,7 @@ There are two general ways you might use this guide:
 
     * If you need to process your data and get it ready for analysis then you can start at *Section III: Example Data Preparation*  to start working on your project in R as soon as possible. You can always go back and reference *Section I* and *Section II*. I would suggest also reading through *Section IV: Data Science Practices*.
     
-    * You will find the script Templates presented in *Chapter 14* particularly useful
+    * You will find the script Templates presented in *Chapter 15* particularly useful
     
     * If you need to start on your statistical analysis and data visualization then you can start at *Section V: Data Analysis* and go through the Chapters that are only relevant to your specific analysis.
 
@@ -67,7 +67,7 @@ In **Section I: Getting Started in R** it is all about learning the fundamentals
 
 After learning these fundamentals, in **Section III: Example Data Preparation**, you will immediately dive into processing data in R with an example data set from a Flanker task. This will provide you a good overview and experience with how to write R scripts to do data preparation (Stages 1 and 2 in the diagram above).
 
-Then before getting into data visualization and statistical analysis, **Section IV: Data Science Practices** you will learn how to implement *good* data science practices in R that align with Open Science and Reproducibility principles. And most importantly you these practices will help *YOU* store, manage, handle, reproduce, and re-analyze your data. Hopefully these practices will empower you to explore and understand your data better.
+Then before getting into data visualization and statistical analysis, **Section IV: Data Science Practices** you will learn how to implement *good* data science practices in R that align with Open Science and Reproducibility principles. And most importantly, these practices will help *YOU* store, manage, handle, reproduce, analyze, and re-analyze your data. Hopefully these practices will empower you to explore and understand your data better.
 
 Finally, in **Section V: Data Analysis** you will get to the fun part! Visualizing and analyzing your data with statistics! First you will learn about the fundamentals of *Data Visualization* in R using the `ggplot2` package (part of the `tidyverse`). `ggplot2` has made R one of the best, if not the best (according to my friend Adhaar who mastered in computer science at Georgia Tech), programming languages for data visualization. Then, various statistical methods will be covered, including *regression* and *structural equation modelling*.
 

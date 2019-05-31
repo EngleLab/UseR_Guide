@@ -25,7 +25,7 @@
 <meta name="author" content="Jason Tsukahara">
 
 
-<meta name="date" content="2019-05-02">
+<meta name="date" content="2019-05-31">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="merge-create-a-final-data-file.html">
-<link rel="next" href="r-script-templates.html">
+<link rel="next" href="organization.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -67,7 +67,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -268,26 +268,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.4" data-path="reproducibility.html"><a href="reproducibility.html#folder-organization"><i class="fa fa-check"></i><b>13.4</b> Folder Organization</a></li>
 <li class="chapter" data-level="13.5" data-path="reproducibility.html"><a href="reproducibility.html#naming-r-scripts"><i class="fa fa-check"></i><b>13.5</b> Naming R Scripts</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="r-script-templates.html"><a href="r-script-templates.html"><i class="fa fa-check"></i><b>14</b> R Script Templates</a><ul>
-<li class="chapter" data-level="14.1" data-path="r-script-templates.html"><a href="r-script-templates.html#building-a-template-workflow"><i class="fa fa-check"></i><b>14.1</b> Building a Template Workflow</a></li>
-<li class="chapter" data-level="14.2" data-path="r-script-templates.html"><a href="r-script-templates.html#englelab-github"><i class="fa fa-check"></i><b>14.2</b> EngleLab GitHub</a></li>
-<li class="chapter" data-level="14.3" data-path="r-script-templates.html"><a href="r-script-templates.html#masterscript-template"><i class="fa fa-check"></i><b>14.3</b> Masterscript Template</a><ul>
-<li class="chapter" data-level="14.3.1" data-path="r-script-templates.html"><a href="r-script-templates.html#directories"><i class="fa fa-check"></i><b>14.3.1</b> <code>directories</code></a></li>
-<li class="chapter" data-level="14.3.2" data-path="r-script-templates.html"><a href="r-script-templates.html#source"><i class="fa fa-check"></i><b>14.3.2</b> <code>source()</code></a></li>
-<li class="chapter" data-level="14.3.3" data-path="r-script-templates.html"><a href="r-script-templates.html#render"><i class="fa fa-check"></i><b>14.3.3</b> <code>render()</code></a></li>
+<li class="chapter" data-level="14" data-path="organization.html"><a href="organization.html"><i class="fa fa-check"></i><b>14</b> Organization</a><ul>
+<li class="chapter" data-level="14.1" data-path="organization.html"><a href="organization.html#data-collection"><i class="fa fa-check"></i><b>14.1</b> Data Collection</a></li>
+<li class="chapter" data-level="14.2" data-path="organization.html"><a href="organization.html#data-analysis"><i class="fa fa-check"></i><b>14.2</b> Data Analysis</a></li>
+<li class="chapter" data-level="14.3" data-path="organization.html"><a href="organization.html#workflow-package"><i class="fa fa-check"></i><b>14.3</b> <code>workflow</code> package</a><ul>
+<li class="chapter" data-level="14.3.1" data-path="organization.html"><a href="organization.html#setup-repository-organization"><i class="fa fa-check"></i><b>14.3.1</b> Setup Repository Organization</a></li>
 </ul></li>
-<li class="chapter" data-level="14.4" data-path="r-script-templates.html"><a href="r-script-templates.html#messy-to-tidy-template"><i class="fa fa-check"></i><b>14.4</b> <em>Messy</em> to <em>Tidy</em> Template</a></li>
-<li class="chapter" data-level="14.5" data-path="r-script-templates.html"><a href="r-script-templates.html#tidy-to-scored-template"><i class="fa fa-check"></i><b>14.5</b> <em>Tidy</em> to <em>Scored</em> Template</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="workflow-package.html"><a href="workflow-package.html"><i class="fa fa-check"></i><b>15</b> <code>workflow</code> Package</a><ul>
-<li class="chapter" data-level="15.1" data-path="workflow-package.html"><a href="workflow-package.html#start-a-new-research-study"><i class="fa fa-check"></i><b>15.1</b> Start a new research study</a><ul>
-<li class="chapter" data-level="15.1.1" data-path="workflow-package.html"><a href="workflow-package.html#directory"><i class="fa fa-check"></i><b>15.1.1</b> Directory</a></li>
-<li class="chapter" data-level="15.1.2" data-path="workflow-package.html"><a href="workflow-package.html#additional-options"><i class="fa fa-check"></i><b>15.1.2</b> Additional Options</a></li>
+<li class="chapter" data-level="15" data-path="r-script-templates.html"><a href="r-script-templates.html"><i class="fa fa-check"></i><b>15</b> R Script Templates</a><ul>
+<li class="chapter" data-level="15.1" data-path="r-script-templates.html"><a href="r-script-templates.html#building-a-template-workflow"><i class="fa fa-check"></i><b>15.1</b> Building a Template Workflow</a></li>
+<li class="chapter" data-level="15.2" data-path="r-script-templates.html"><a href="r-script-templates.html#englelab-github"><i class="fa fa-check"></i><b>15.2</b> EngleLab GitHub</a></li>
+<li class="chapter" data-level="15.3" data-path="r-script-templates.html"><a href="r-script-templates.html#masterscript-template"><i class="fa fa-check"></i><b>15.3</b> Masterscript Template</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="r-script-templates.html"><a href="r-script-templates.html#directories"><i class="fa fa-check"></i><b>15.3.1</b> <code>directories</code></a></li>
+<li class="chapter" data-level="15.3.2" data-path="r-script-templates.html"><a href="r-script-templates.html#source"><i class="fa fa-check"></i><b>15.3.2</b> <code>source()</code></a></li>
+<li class="chapter" data-level="15.3.3" data-path="r-script-templates.html"><a href="r-script-templates.html#render"><i class="fa fa-check"></i><b>15.3.3</b> <code>render()</code></a></li>
+<li class="chapter" data-level="15.3.4" data-path="r-script-templates.html"><a href="r-script-templates.html#data-collection-repository"><i class="fa fa-check"></i><b>15.3.4</b> Data Collection Repository</a></li>
+<li class="chapter" data-level="15.3.5" data-path="r-script-templates.html"><a href="r-script-templates.html#data-analysis-repository"><i class="fa fa-check"></i><b>15.3.5</b> Data Analysis Repository</a></li>
 </ul></li>
-<li class="chapter" data-level="15.2" data-path="workflow-package.html"><a href="workflow-package.html#download-ready-made-templates"><i class="fa fa-check"></i><b>15.2</b> Download ready-made templates</a><ul>
-<li class="chapter" data-level="15.2.1" data-path="workflow-package.html"><a href="workflow-package.html#generic-templates"><i class="fa fa-check"></i><b>15.2.1</b> Generic Templates</a></li>
-<li class="chapter" data-level="15.2.2" data-path="workflow-package.html"><a href="workflow-package.html#gf-wmc-and-attention-control-scripts"><i class="fa fa-check"></i><b>15.2.2</b> Gf, WMC, and Attention Control Scripts</a></li>
-</ul></li>
+<li class="chapter" data-level="15.4" data-path="r-script-templates.html"><a href="r-script-templates.html#messy-to-tidy-template"><i class="fa fa-check"></i><b>15.4</b> <em>Messy</em> to <em>Tidy</em> Template</a></li>
+<li class="chapter" data-level="15.5" data-path="r-script-templates.html"><a href="r-script-templates.html#tidy-to-scored-template"><i class="fa fa-check"></i><b>15.5</b> <em>Tidy</em> to <em>Scored</em> Template</a></li>
 </ul></li>
 <li class="part"><span><b>V Data Ananlysis</b></span></li>
 <li class="chapter" data-level="16" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html"><i class="fa fa-check"></i><b>16</b> Introduction to Data Analysis</a><ul>
@@ -328,7 +327,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21" data-path="univariate-plots.html"><a href="univariate-plots.html"><i class="fa fa-check"></i><b>21</b> Univariate Plots</a></li>
 <li class="chapter" data-level="22" data-path="sjplot.html"><a href="sjplot.html"><i class="fa fa-check"></i><b>22</b> <code>sjPlot</code></a></li>
 <li class="chapter" data-level="23" data-path="custom-tables.html"><a href="custom-tables.html"><i class="fa fa-check"></i><b>23</b> Custom Tables</a></li>
-<li class="part"><span><b>* Statistical Analysis</b></span></li>
+<li class="part"><span><b>- Statistical Analysis</b></span></li>
 <li class="chapter" data-level="24" data-path="introduction-to-statistical-analysis-in-r.html"><a href="introduction-to-statistical-analysis-in-r.html"><i class="fa fa-check"></i><b>24</b> Introduction to Statistical Analysis in R</a></li>
 </ul>
 
@@ -447,7 +446,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In the <strong>Setup</strong> section you are making sure that all the packages for that ONE script are loaded, any import or output directory objects are set correctly, and any parameters for data cleaning are set.</p>
 <p>Every R script in the <strong>Data Preparation</strong> stage <em>Imports</em> a file <em>AND</em> <em>Outputs</em> a file. This makes sure the scripts are linked in the data processing workflow by the <strong>files</strong> they create (output) and not by the Objects in the <strong>Environment</strong> they create.</p>
 <p>Then at the end of each R Script I had you include the line of code</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" data-line-number="1"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" title="1"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</a></code></pre></div>
 <p>This removes all Objects in your <strong>Environment</strong>. That way when you run the next R Script it is starting from a blank <strong>Environment</strong></p>
 <p>Some people in the R community say this is not a good practice, but in reality it is not harmful to add this line of code. It is not perfect because it does not unload any packages that have been loaded.</p>
 <p>Given that I had you implementing these practices in the previous Section it might not seem like that big of a deal to you. Good! But sometimes when I look at other researcher’s R Scripts sometimes I am dismayed at how poorly their projects and scripts are organized. You can start by implementing these <strong>good data science practices</strong> from the beginning without thinking too much of it.</p>
@@ -477,7 +476,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You working directory can be specified in various ways. By default, if you open up <strong>RStudio</strong> directly it will set the working directory to some default location such as your <em>User</em> root directory. <strong>This is not good</strong>.</p>
 <p>If you open up <strong>RStudio</strong> by directly opening an <em>R script file</em> then it will set the working directory to the location of that file. This is better but still not ideal.</p>
 <p>Because the working directory changes depending on how you open RStudio a lot of R Users will set a working directory at the top of their script using</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" data-line-number="1"><span class="kw">setwd</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" title="1"><span class="kw">setwd</span>()</a></code></pre></div>
 <p>However, this is not good because it requires the use of an absolute filepath.</p>
 <p>Ideally, we should not even have to think about the working directory since it can change depending on how R is opened. Thankfully there is a solution to make our dreams come true!</p>
 <div id="rstudio-projects-and-herehere" class="section level4">
@@ -498,19 +497,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/rproj_open.png" width="263" style="display: block; margin: auto;" /></p>
 <p>The <code>here</code> package in combination with RStudio Projects allows you to not even have to think about working directories.</p>
 <p>For a passionate ode to the <code>here</code> package see: <a href="https://github.com/jennybc/here_here" class="uri">https://github.com/jennybc/here_here</a></p>
-<p>First go ahead and install the <code>here</code> package, <code>install.packages(&quot;here&quot;)</code>.</p>
+<p>First go ahead and install the <code>here</code> package, <code>install.packages("here")</code>.</p>
 <p>Basically, when the <code>here</code> package is loaded, <code>library(here)</code>, it will search for a .Rproj file it will set a <strong>starting</strong> file path for the function <code>here()</code>.</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1"><span class="kw">library</span>(here)</a></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" title="1"><span class="kw">library</span>(here)</a></code></pre></div>
 <p>You can then use <code>here()</code> to set a relative file path</p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" data-line-number="1"><span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data/flanker_raw.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" title="1"><span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data/flanker_raw.csv&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/R-Tutorial/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
 <p>This is equivalent to</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1"><span class="kw">here</span>(<span class="st">&quot;Data Files&quot;</span>, <span class="st">&quot;Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" title="1"><span class="kw">here</span>(<span class="st">&quot;Data Files&quot;</span>, <span class="st">&quot;Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/R-Tutorial/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
 <p>I typically like to set the first argument as the relative file path and the second argument as the filename</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" data-line-number="1"><span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" title="1"><span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/R-Tutorial/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
 <p>This visually separates the file path and the filename, making your script easier to read.</p>
 <p>Now in import and output functions you can use <code>here()</code></p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1"><span class="kw">read_csv</span>(<span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>))</a></code></pre></div>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" data-line-number="1"><span class="kw">write_csv</span>(data, <span class="kw">here</span>(<span class="st">&quot;Data Files/Scored Data&quot;</span>, <span class="st">&quot;flanker_scored.csv&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" title="1"><span class="kw">read_csv</span>(<span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" title="1"><span class="kw">write_csv</span>(data, <span class="kw">here</span>(<span class="st">&quot;Data Files/Scored Data&quot;</span>, <span class="st">&quot;flanker_scored.csv&quot;</span>))</a></code></pre></div>
 <p>And you know that everytime you use <code>here()</code> that the file path will start at where you have your .Rproj file saved (in the root directory of your Project).</p>
 <hr />
 <div style="text-align: center; font-size: 1.25em">
@@ -556,11 +558,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In the <em>Results</em> folder are the outpued <strong>results</strong></p>
 <p>In the <em>R Scripts</em> folder are <strong>ALL</strong> the R Scripts</p>
 <p>You can see how this organization corresponds to the data processing workflow I introduced earlier</p>
+<p><img src="images/workflow.png" width="1058" /></p>
 </div>
 <div id="naming-r-scripts" class="section level2">
 <h2><span class="header-section-number">13.5</span> Naming R Scripts</h2>
 <p>If you have a lot of R Scripts for a project it can make it easier to use a certain naming convention to organize the scripts. <strong>First of all, I definitely reccomend putting all your scripts into one folder.</strong> There is nothing more annoying then having to search all of your computer for the script you are looking for.</p>
-<p>I personally like to name my R scripts with a number prefix folowed by an underscore and end it with the name of the data processing step it belongs to (i.e. <code>1_taskname_raw.R</code>).</p>
+<p>I personally like to name my R scripts with a number prefix folowed by an underscore and end it with the name of the data processing step it belongs to (i.e. <code>1_taskname_raw.R</code>).</p>
 <p>The numbered prefix denotes what step in the data processing procedure given the organization of the masterscript.</p>
 <p>This makes it SO MUCH easier to search for the script you need to work on. For instance, my R Script directory might look like</p>
 <p><img src="images/folder-organization.png" width="204" style="display: block; margin: auto;" /></p>
@@ -577,7 +580,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="merge-create-a-final-data-file.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-script-templates.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="organization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

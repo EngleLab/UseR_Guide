@@ -1,13 +1,14 @@
 # R Script Templates
 
-```{r include=FALSE}
+```{r include=FALSE, eval = TRUE}
 knitr::opts_chunk$set(echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE)
 ```
 
-
-```{r echo=FALSE}
+```{r echo=FALSE, eval = TRUE}
 knitr::include_graphics(rep("images/workflow.png"))
 ```
+
+The templates provided in this Chapter wil make it easy for you to 1) write scripts for steps 1 and 2 in the data processing workflow and 2) follow **good practices** for reproducibility. 
 
 ## Building a Template Workflow
 
@@ -129,6 +130,82 @@ The `source()` function is a way to execute all the lines of code in a script fi
 ### `render()` 
 
 The `render()` function is how to knit an RMarkdown document (which we will use for the **Data Analysis ** stage). We will see later that this creates a really flexible way to knit RMarkdown documents because you can specify the output filename and location, as well as certain parameters for what data set to import or analysis parameters to set. `render()` comes from the package `rmarkdown` which is why it is loaded at the top of the masterscript.
+
+----
+
+There are actually two different masterscript templates I use related to **Organization** method discussed in the Previous Chapter.
+
+### Data Collection Repository
+
+```{r}
+## Setup ####
+## Load Packages
+library(here)
+
+## Specify the directory tree
+directories <- list(scripts = "R Scripts",
+                    raw = "Data Files",
+                    messy = "Data Files/E-Merge")
+
+saveRDS(directories, here("directories.rds"))
+#############
+
+#############################################
+#------ 0. "messy" to "tidy" raw data ------# 
+#############################################
+
+source(here("R Scripts", "0_task_raw.R"), echo=TRUE)
+
+#############################################
+
+rm(list=ls())
+```
+
+### Data Analysis Repository
+
+```{r}
+## Setup ####
+## Load Packages
+library(here)
+library(rmarkdown)
+
+## Specify the directory tree
+directories <- list(scripts = "R Scripts",
+                    data = "Data Files",
+                    raw = "Data Files/Raw Data",
+                    scored = "Data Files/Scored Data",
+                    results = "Results",
+                    removed = "Data Files/Scored Data/removed")
+
+saveRDS(directories, here("directories.rds"))
+#############
+
+#################################################
+#------ 1. "tidy" raw data to Scored data ------# 
+#################################################
+
+source(here("R Scripts", "1_task_score.R"), echo=TRUE)
+
+#############################################################
+#------ 2. Create Final Merged Data File for Analysis ------# 
+#############################################################
+
+source(here("R Scripts", "2_merge.R"), echo=TRUE)
+
+###############################
+#------ 3. Data Analysis ------# 
+###############################
+
+render(here("R Scripts", "3_MainAnalyses.Rmd"), 
+       output_dir = here("Results"), output_file = "MainAnalyses.html",
+       params = list(data = here("Data Files", "Name_of_datafile.csv")))
+
+#################################################
+
+rm(list=ls())
+```
+
+----
 
 ## *Messy* to *Tidy* Template
 
