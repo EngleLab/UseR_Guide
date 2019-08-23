@@ -63,7 +63,7 @@ You may want to use this function in one of two ways:
 
 2) Include it where you would normally import the already merged *messy* raw data file in the **0_task_raw.R** script.
 
-```{r}
+```{r eval = FALSE}
 #### Import ####
 import <- files_bind(here("Data Files/subj/Flanker"), 
                      delim = "\t", 

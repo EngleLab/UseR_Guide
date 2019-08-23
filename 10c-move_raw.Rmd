@@ -11,13 +11,15 @@ We only want to analyze the data for subjects that completed ALL sessions. This 
 
 These two steps can easily be done with the following line of code. Just type this into the console
 
-```{r eval = FALSE}
+```{r eval = TRUE}
 
 ```
 
 Notice how at first there are no files in **Data Files/subj/Flanker**. Then after executing this line of code, it is now populated with *.edat* files.
 
 This function will perform the two steps for every task in the **Session 1** folder. To perform them for any other sessions just change it from **Session 1** to any **Session #**.
+
+You will also see a folder called **Did not finish all sessions**. The **.edat** files for subjects that did not finish all sessions will be in here. 
 
 If you are doing this step before *Data Collection* has finished, and you do not want to delete the files from the **Tasks** directory or separate out subjects then leave out the `remove = TRUE` argument (or set it to FALSE) and leave out the `subj.list = ` argument.
 
