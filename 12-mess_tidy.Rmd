@@ -30,7 +30,7 @@ In the folder **R Scripts/templates** open the file **0_taskname_raw.R** and sav
 
 If you do not see the template file **0_taskname_raw.R**, you can download it. Just type in the following line of code in the console
 
-```{r eval = FALSE}
+```{r eval = TRUE}
 workflow::template(rawscript = TRUE)
 ```
 
