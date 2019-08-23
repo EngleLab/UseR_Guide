@@ -1,5 +1,6 @@
-book_filename: "R Tutorial"
+book_filename: "R_Tutorial"
 delete_merged_file: true
+before_chapter_script: "remove.R"
 language:
   ui:
     chapter_name: "Chapter "

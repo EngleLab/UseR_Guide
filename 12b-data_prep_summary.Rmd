@@ -1,0 +1,71 @@
+# Data Preparation: Summary {-}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+```{r include=FALSE, eval = TRUE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE)
+```
+
+This Section was all about getting the raw data into a format that is easy to use and understand. This initial data preparation stage tends to get overlooked but it is important and can really make your life easier once you get to the data analysis stage. 
+
+This step can actually be done before data collection even starts. Once you have tested your task, and it is ready to be used in a study, you should have some data files you can start working with to create the R Script. In reality this may not actually happen. 
+
+More realistic is that you have collected enough data to start looking at some of the findings and not until this point do you start creating R Scripts for the data preparation stage. Randy will likely request that you do this many times before data collection has actually finished. Before we started using R, this meant we had to manually go through this data preparation stage every time Randy wanted a report on some of the findings from the study. This is obviously tedious and take up a lot of time. The nice thing about R is that once you create an R Script to do something, you have now automated the process for when you need to do it in the future.
+
+See the Overview of this Section for more reasons you should not skip this data preparation stage.
+
+----
+
+Generally, there are four steps during the data preparation stage:
+
+1. **Organize the raw data files**. This involves moving the raw *.edat* files from *Tasks/Session #/#. Task/* to *Data Files/edat/Task/*.
+
+2. **Merge** the individual *.edat* files into a single **task.emrg** file using *E-Merge*
+
+3. **Export** the **task.emrg** file to a **task.txt** file so we can process the data in **R**
+
+4. **Source** the **0_task_raw.R** *Scripts* 
+
+<br>
+
+The last few Chapters focused on how to perform steps 1 and 4 using R. Steps 2 and 3 will typically have to be performed using E-Merge. However, in cases where you may not be using E-Prime for a task, Chapter 11 covers how to merge individual subject files (steps 2 and 3). 
+
+Try to utilize RAs to perform these data preparation steps. They will be trained on how to do so.
+
+----
+
+The most important outcome of this Chapter was creating the R Script to **tidy** the **messy** raw data file. Later on in the UseR Guide we will need some additional tasks. So why not start working with these tasks right now. Don't worry I am not going to have you create any more R Scripts for these tasks. Instead you will download the **messy** raw data and R Scripts to create **tidy** raw data files. 
+
+Go ahead and download the data files:
+
+----
+
+----
+
+These files were E-Merged files exported as *.txt* files. Move them to the current repository in **Data Files/Merged**.
+
+All of these tasks are standard tasks we have used in the Engle Lab for some time. Therefore, we can download the R Scripts using the `englelab::get_script()` function. 
+
+```{r eval = FALSE}
+englelab::get_script(type = "raw", gf = TRUE, wmc = TRUE, antisaccade = TRUE)
+```
+
+`type = "raw"` tells the function to download scripts to create **tidy** raw data files. When you want to download scripts to create **scored** data files use `type = "score"`.
+
+You should now see more R Scripts corresponding to the tasks you downloaded.
+
+Add a line in the masterscript to `source()` each one of these scripts. Source each script.
+
+You should now see more data files in **Data Files/** corresponding to each of the tasks. 
+
+Just for demonstration sake, delete (yes really) the **_raw.csv** files in **Data Files/**. Now, run each line of code in the masterscript. You should see that the **_raw.csv** files have been created again. 
+
+********
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, eval = TRUE}
+rm(list=ls())
+```
+
+********
+
+**On to Data Analysis, 12 Chapters done and we are finally getting to the good stuff!**

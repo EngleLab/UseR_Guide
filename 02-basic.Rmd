@@ -402,5 +402,5 @@ rm(list=ls())
 
 ********
 
-**Something**
+**The next chapter is more optional and will cover more intermediate R programming**
 

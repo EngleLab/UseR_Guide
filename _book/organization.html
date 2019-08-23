@@ -5,27 +5,27 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>R Tutorial and User Guide for the EngleLab</title>
-  <meta name="description" content="This is an R Tutorial and User Guide for the EngleLab">
+  <title>EngleLab: R User Guide</title>
+  <meta name="description" content="This is an R User Guide for the EngleLab">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
-  <meta property="og:title" content="R Tutorial and User Guide for the EngleLab" />
+  <meta property="og:title" content="EngleLab: R User Guide" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is an R Tutorial and User Guide for the EngleLab" />
+  <meta property="og:description" content="This is an R User Guide for the EngleLab" />
   <meta name="github-repo" content="EngleLab" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R Tutorial and User Guide for the EngleLab" />
+  <meta name="twitter:title" content="EngleLab: R User Guide" />
   
-  <meta name="twitter:description" content="This is an R Tutorial and User Guide for the EngleLab" />
+  <meta name="twitter:description" content="This is an R User Guide for the EngleLab" />
   
 
 <meta name="author" content="Jason Tsukahara">
 
 
-<meta name="date" content="2019-05-31">
+<meta name="date" content="2019-07-25">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -125,8 +125,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li><a href="index.html#section"></a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>How to use this guide</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#workflow"><i class="fa fa-check"></i>Workflow</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i>Overview</a></li>
 </ul></li>
@@ -338,7 +338,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Tutorial and User Guide for the EngleLab</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">EngleLab: R User Guide</a>
           </h1>
         </div>
 
@@ -446,14 +446,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>How to know when to create a separate <strong>Data Analysis</strong> repository? Basically, if the set of analyses is going to be it’s own <strong>Manuscript</strong> then create a new repository. If the set of analyses (whether exploratory or supplemental) is part of a larger set of analyses already in the works for a manuscript then no need to create a separate repository.</p>
 <p>Okay, so how does this <code>workflow</code> package work?</p>
 <p>If you have not done so already, install the <code>workflow</code> package</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" title="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/workflow&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" title="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/workflow&quot;</span>)</a></code></pre></div>
 <div id="setup-repository-organization" class="section level3">
 <h3><span class="header-section-number">14.3.1</span> Setup Repository Organization</h3>
 <p>One of the features of this package allows you to automatically setup the organization of a <strong>Data Collection</strong> or <strong>Data Analysis</strong> project.</p>
 <p>Navigate to __File -&gt; New Project… -&gt; New Directory</p>
 <p>And browse until you see the option: <strong>Research Study</strong></p>
 <p>Click on that and you will see a dialogue box like this</p>
-<p><img src="images/workflow_dialogue.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="images/workflow_dialogue.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Here are what the different options mean:</p>
 <ul>
 <li><p><strong>Directory Name</strong>: This will be the name of the folder for the study</p></li>
@@ -469,13 +469,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Go ahead an play around with creating different types of repositories.</p>
 <hr />
 <p>You can also add template scripts after the fact, if you already have a repository setup.</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" title="1">workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">path =</span> here<span class="op">::</span><span class="kw">here</span>(), <span class="dt">masterscript =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" title="1">workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">path =</span> here<span class="op">::</span><span class="kw">here</span>(), <span class="dt">masterscript =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>Or</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" title="1">workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">path =</span> here<span class="op">::</span><span class="kw">here</span>(), <span class="dt">generic =</span> <span class="ot">TRUE</span>, <span class="dt">type =</span> <span class="st">&quot;score&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" title="1">workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">path =</span> here<span class="op">::</span><span class="kw">here</span>(), <span class="dt">generic =</span> <span class="ot">TRUE</span>, <span class="dt">type =</span> <span class="st">&quot;score&quot;</span>)</a></code></pre></div>
 <p>To see all the different options use</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" title="1">?workflow<span class="op">::</span>template</a></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" title="1">?workflow<span class="op">::</span>template</a></code></pre></div>
 <hr />
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" title="1"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" title="1"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</a></code></pre></div>
 <hr />
 <p><strong>Something</strong></p>
 

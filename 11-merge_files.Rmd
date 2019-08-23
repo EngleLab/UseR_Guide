@@ -1,0 +1,83 @@
+# Merge Individual Subject Files
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+```{r include=FALSE, eval = TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+----
+<div style="text-align: center; font-size: 1.25em">
+This Chapter is not Required
+</div>
+----
+
+If you have not done so already, open RStudio by opening the *UseRGuide_DataCollection.Rproj* R Project file. 
+
+For the most part, you will merge individual subject files through the *E-Merge* program because the individual files are in the proprietary *.edat2* file type that cannot be opened outside of *E-Prime* programs.
+
+See [Data Preparation Instructions]() for a detailed guide on how to use *E-Merge*.
+
+However, there may be cases where you have individual subject files not in *.edat2* but in *.txt*, *.csv*, or *.xlsx* file types. These can easily be merged into one data file using R. 
+
+I have created a function to easily merge individual subject files together. The `files_bind()` function comes from my `datawrangling` To install `datawrangling`:
+
+```{r eval=FALSE}
+devtools::install_github("dr-JT/datawrangling")
+```
+
+## `files_bind()`
+
+See **Chapter 5: Importing and Outputing Data** for more detailed information on `file_bind()`. The arguments you need to specify in `files_bind()` are:
+
+* __path__: The file path where the data are located
+
+* __delim__: The delimiter or filetype of the data files. (i.e. `"\t" for tab-delimited)
+
+* __output.file__: The filepath and filename to save the merged data file as
+
+By default the merged file will be saved as a *.csv* file. You can change this by setting __output.delim__.
+
+Using this function may look something like
+
+```{r eval = FALSE}
+library(here)
+library(datawrangling)
+
+files_bind(here("Data Files/subj/Flanker"), 
+           delim = "\t", 
+           output.file = here("Data Files/Merged", "Flanker.csv"))
+```
+
+The first argument `here("Data Files/subj/Flanker")` is just specifiying the file directory path. Go ahead and type this in your console window to see how this is the case.
+
+```{r}
+here("Data Files/subj/Flanker")
+```
+
+If you have more tasks in which you need to merge individual subject data files you would then just include a similar line of code specific for that task (different file path and different filename).
+
+You may want to use this function in one of two ways:
+
+1) Execute it in the console window (do not save it to a script file) every time you need to merge files.
+
+2) Include it where you would normally import the already merged *messy* raw data file in the **0_task_raw.R** script.
+
+```{r}
+#### Import ####
+import <- files_bind(here("Data Files/subj/Flanker"), 
+                     delim = "\t", 
+                     output.file = here("Data Files/Merged", "Flanker.csv"))
+################
+```
+
+
+********
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=ls())
+```
+
+********
+
+**The next chapter is the whole point of this section on Data Preparation**

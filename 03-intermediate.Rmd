@@ -315,5 +315,5 @@ rm(list=ls())
 
 ********
 
-**Something**
+**Now let's learn about the basics of working with data in R**
 

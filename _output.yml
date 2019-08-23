@@ -3,8 +3,10 @@ bookdown::gitbook:
     toc:
       collapse: section
       scroll_highlight: yes
-      before: null
-      after: null
+      before: |
+        <li><a href="./">EngleLab: UseR Guide</a></li>
+      after: |
+        <li><a href="http://englelab.gatech.edu/jason">Jason Tsukahara</a></li>
     toolbar:
       position: fixed
     edit : null

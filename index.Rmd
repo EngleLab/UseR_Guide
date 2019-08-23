@@ -1,11 +1,10 @@
 --- 
-title: "R Tutorial and User Guide for the EngleLab"
+title: "EngleLab: UseR Guide"
 author: "Jason Tsukahara"
-date: "`r Sys.Date()`"
 bibliography:
 - book.bib
 - packages.bib
-description: This is an R Tutorial and User Guide for the EngleLab
+description: This is a useR Guide for the EngleLab
 documentclass: book
 link-citations: yes
 site: bookdown::bookdown_site
@@ -13,66 +12,65 @@ biblio-style: apalike
 github-repo: "EngleLab"
 ---
 
-# Preface {-}
+# Welcome {-}
 
-Welcome to the EngleLab R Tutorial and User Guide!
+R is becoming a popular tool for doing statistical analyses across many scientific disciplines. It has many advantages but there can be a considerable learning curve. This guide is meant to help you become proficient in R and quickly learn standard data processing tasks that are common in the EngleLab.
 
-R is becoming a popular tool for doing statistical analyses across many scientific disciplines. It has many advantages but there is a considerable learning curve. This guide is meant to help you become proficient in R and quickly learn standard data processing tasks that are common in the EngleLab.
+The best way to start learning R is if you have a data set to work on. However, there is an example data set provided in this guide.
 
-There are more detailed tutorials and resources mentioned throughout this guide. If you want to become more proficient in R it is a good idea to go through those as well.
+It is true that, at first, it may take you longer to analyze data using R than your typical route of Excel, SPSS, or EQS. Because of this, it can be tempting to use those other programs to **quickly** analyze some data. You may even tell yourself that you will go back and do the analysis in R later when you have more time. Be honest with yourself, will you really? Also, the daunting uncertainty of how to do anything in R may also make you reluctant to start using R with data you have now. 
 
-There are a lot of online forums where people have asked the same questions as you and someone has most likely provided an answer. I suggest taking advantage of Google to help you learn more about R.
+All this is just prioritizing short-term gains over long-term gains. **This is probably the biggest barrier that you will have to learning R**. STOP IT! This attitude will only keep you behind the times not just on using statistial software but other areas of your research career. 
+
+It is 100% okay to take longer to analyze some data if you are also aquiring skills that will greatly benefit you in the long-term. Randy is okay with this, you need to be too. 
+
+I would not even argue that you should stop using other programs. They have their own advantages. In my experience it is not so much of R vs. SPSS but rather R offers a functionality that SPSS just sucks at. And that is working with the data, transforming variables, merging data, filtering, grouping, aggregating scores, etc. Everything you do with your data immediately prior to running the ANOVA, correlation, regression, or latent analysis. **R is excellent at this**. 
+
+So if you still want to use SPSS or EQS for statistical analysis you can do so. But do everything prior to that in R. **Use R to work with your data** and use SPSS or EQS to conduct statistical analyses. **R is also amazing at data visualization**. I would take advantage of that as well.
+
+----
 
 ## How to use this guide {-}
 
 There are two general ways you might use this guide:
 
-1. Going through each chapter step-by-step as a tutorial
+1. **Going through each chapter step-by-step as a tutorial**
 
-2. Referencing the guide as you work on your own projects
+2. **Referencing sections of the guide as you work on your own projects**
 
-    * If you need to process your data and get it ready for analysis then you can start at *Section III: Example Data Preparation*  to start working on your project in R as soon as possible. You can always go back and reference *Section I* and *Section II*. I would suggest also reading through *Section IV: Data Science Practices*.
+    * No matter what, you should first read through Section III: Reproducible Workflows
+
+    * If you need to prepare your messy raw data files so that you can start analyzing data, then you can move on to *Section IV: Data Preparation*. This will get you working on your project in R as soon as possible. You can always reference *Section I* and *Section II* when you need to.
     
-    * You will find the script Templates presented in *Chapter 15* particularly useful
+    * If your data files are already prepared but you still need to clean and score your data, then you can move on to *Section V: Cleaning and Scoring Data*. 
     
-    * If you need to start on your statistical analysis and data visualization then you can start at *Section V: Data Analysis* and go through the Chapters that are only relevant to your specific analysis.
-
+    * If you need to work on statistical analyses and data visualization then you can move on to *Section VI: Data Visualization* and *Section VII: Statistical Analysis*. In these sections you only need to go through the Chapters that are relevant to your specific analysis.
+    
 ---
 
-## Workflow {-}
+## Reseach Project Workflow {-}
 
-The image below represents the general data processing steps required to go from raw data to visualization and statistical analyses. 
-
-This R Guide will show you how to create R scripts for each of these stages; allowing you to fully reproduce your analyses from beginning to end. One of the major advantages to this is it allows you to easily go back and change how you process data at any one of these stages.
+The image below represents the general data processing stages required to go from raw data to data visualization and statistical analyses. 
 
 ```{r echo=FALSE}
 knitr::include_graphics(rep("images/workflow.png"))
 ```
 
-1. The first step of the data processing workflow is to convert **"messy" raw data** files to **"tidy" raw data** files. Most experiment softwares will produce a "messy" raw data file. In this file there are usually more rows and columns than you would ever be interested in, variable or values are named incoherently (i.e. stimSlide2.RT), and/or there may be separate files for each subject. It will be easier to work with a "tidy" raw data file. A "tidy" raw data file has only the rows and columns that are relevant (one row for each trial), variable and values are named coherently (i.e. RT), and there is one file that contains data for all subjects. This is an easy step to skip but it is highly recommended because it will make it easier 1) for your future self to come back and do some additional analyses/re-analyses and 2) for you to share your raw data with other researchers.
+The **Data Preparation** stage is only required because the data files created from the E-Prime or other software program are usually not in a format that is easy to use or understand. I am referring to this format as a "messy" data file. Also, there are typically other preparation steps one needs to take before they can start looking at the data. These might include merging individual subject data files and exporting the data to a non-proprietary format so we can import the data into R. The purpose of this stage is simply to create "tidy" raw data files. 
 
-2. The next step is to **score and clean the data**. For most statistical analyses you will want to aggregate the trial-level data into one or more dependent measures for that task. The scored data file will have one row per subject (or possibly one row per subject per experimental condition). This step also involves any data cleaning procedures you might choose to perform, such as removing outliers.
-    
-3. Finally you are now ready for the fun part, **Data Analysis**! Data analysis consists of visualing your data and conducting statistical analyses. At this stage you will be generating output of your results in tables and figures.
+"Tidy" raw data files are easy to use and understand. There will be one row per trial, column labels that are easy to understand (e.g. Trial, Condition, RT, Accuracy, etc.), and values in columns that make sense. If values in a column are categorical, then the category names will be used rather than numerical values. Ideally, someone not involved in the research project should be able to look at a "Tidy" raw data file and understand what each column represents, and what the values in the column refer to.
 
-----
+Traditionally we have not cared so much about the data preparation stage. But it is required and there are many advantages to saving and storing "tidy" raw data files.
 
-## Overview {-}
+What we actually care about is the **Data Analysis** phase. There are three main stages to data analsysis; 1) scoring and cleaning raw data files, 2) data visualization, and 3) statistical analyses. Data analysis tends to be more cyclic and iterative therefore you may end up going back and forth between these stages.
 
-In **Section I: Getting Started in R** it is all about learning the fundamentals of using R. From installing R and RStudio to learning about object types, how functions work, and more. **Chapter 3** is more optional, however you will find it useful to being more proficient in R. 
+The first stage takes the "tidy" raw data files from the data preparation stage and converts them into a scored data file, usually by aggregating performance across trials. Data cleaning procedures (such as removing outliers) also occurs during this stage. The format of the scored data file will depend on the type of statistical analysis one plans on performing.
 
-**Section II: Working with Data** is still about learning the fundamentals but more specifically the fundamentals of working with data like we do in this lab. The `tidyverse` is a collection of packages that has an intuitive grammar and design philosophy. It makes working with data in R so much easier and also quick to learn. Therefore, you will be learning how to work with data in R the `tidyverse` way. 
+The second and third stage usually occurs in tandem with one another. Visualizing our data, running statistical analyses, visualizing our statistical models, etc. Based on these visualizations and analyses we may decide that we want to use different scoring or cleaning procedures. Or we want to explore our data to further understand our findings. We may then go back to the scoring and cleaning stage, and on and on. 
 
-**Section II**, *Chapter 7*, will also cover how to perform more complex but common data manipulations. Such as calculating z-scores, creating composite variables, and trimming data. I have made these more complex transformations easier by with functions in my `datawrangling` package.
+The final phase in a research project is to **Write up a Manuscript** to share your study and findings with the scientific community. It is also a good idea to **Share your Data**, R scripts, and results. The [Open Science Framework](https://osf.io) is a good place to openly share your projects with other researchers.
 
-After learning these fundamentals, in **Section III: Example Data Preparation**, you will immediately dive into processing data in R with an example data set from a Flanker task. This will provide you a good overview and experience with how to write R scripts to do data preparation (Stages 1 and 2 in the diagram above).
+```{r echo=FALSE}
+knitr::include_graphics(rep("images/workflow_pub_share.png"))
+```
 
-Then before getting into data visualization and statistical analysis, **Section IV: Data Science Practices** you will learn how to implement *good* data science practices in R that align with Open Science and Reproducibility principles. And most importantly, these practices will help *YOU* store, manage, handle, reproduce, analyze, and re-analyze your data. Hopefully these practices will empower you to explore and understand your data better.
-
-Finally, in **Section V: Data Analysis** you will get to the fun part! Visualizing and analyzing your data with statistics! First you will learn about the fundamentals of *Data Visualization* in R using the `ggplot2` package (part of the `tidyverse`). `ggplot2` has made R one of the best, if not the best (according to my friend Adhaar who mastered in computer science at Georgia Tech), programming languages for data visualization. Then, various statistical methods will be covered, including *regression* and *structural equation modelling*.
-
-I plan on adding a final section at some point with a list of useful resources.
-
-********
-
-**Before getting into using R, you need to install the required programs**

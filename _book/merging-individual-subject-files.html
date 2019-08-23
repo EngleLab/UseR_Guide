@@ -5,27 +5,27 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>R Tutorial and User Guide for the EngleLab</title>
-  <meta name="description" content="This is an R Tutorial and User Guide for the EngleLab">
+  <title>EngleLab: R User Guide</title>
+  <meta name="description" content="This is an R User Guide for the EngleLab">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
-  <meta property="og:title" content="R Tutorial and User Guide for the EngleLab" />
+  <meta property="og:title" content="EngleLab: R User Guide" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is an R Tutorial and User Guide for the EngleLab" />
+  <meta property="og:description" content="This is an R User Guide for the EngleLab" />
   <meta name="github-repo" content="EngleLab" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R Tutorial and User Guide for the EngleLab" />
+  <meta name="twitter:title" content="EngleLab: R User Guide" />
   
-  <meta name="twitter:description" content="This is an R Tutorial and User Guide for the EngleLab" />
+  <meta name="twitter:description" content="This is an R User Guide for the EngleLab" />
   
 
 <meta name="author" content="Jason Tsukahara">
 
 
-<meta name="date" content="2019-05-31">
+<meta name="date" content="2019-07-25">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -125,8 +125,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li><a href="index.html#section"></a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>How to use this guide</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#workflow"><i class="fa fa-check"></i>Workflow</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i>Overview</a></li>
 </ul></li>
@@ -338,7 +338,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Tutorial and User Guide for the EngleLab</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">EngleLab: R User Guide</a>
           </h1>
         </div>
 
@@ -366,9 +366,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <hr />
 <p>I have created a function to easily merge individual subject files together. The <code>files_bind()</code> function comes from my <code>datawrangling</code> package. To install <code>datawrangling</code> you first need to install <code>devtools</code>. If you have not done so already, install <code>devtools</code> by typing in your console window</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" title="1"><span class="kw">install.package</span>(<span class="st">&quot;devtools&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" title="1"><span class="kw">install.package</span>(<span class="st">&quot;devtools&quot;</span>)</a></code></pre></div>
 <p>Now install <code>datawrangling</code> by typing in your console window</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" title="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/datawrangling&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" title="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/datawrangling&quot;</span>)</a></code></pre></div>
 <div id="setup-1" class="section level2">
 <h2><span class="header-section-number">9.1</span> Setup</h2>
 <hr />
@@ -378,11 +378,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>After sourcing the masterscript you should see a new file in your project’s <em>root</em> directory called <code>directiories.rds</code>. For now don’t do anything with it but just be aware that it is there.</p>
 <p>First, at the top of your script load the required packages and import the <code>directories.rds</code> file</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" title="1"><span class="kw">library</span>(here)</a></code></pre></div>
-<pre><code>## here() starts at /Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/R-Tutorial</code></pre>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" title="1"><span class="kw">library</span>(datawrangling)</a>
-<a class="sourceLine" id="cb159-2" title="2"></a>
-<a class="sourceLine" id="cb159-3" title="3">directories &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="kw">here</span>(<span class="st">&quot;directories.rds&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" title="1"><span class="kw">library</span>(here)</a>
+<a class="sourceLine" id="cb153-2" title="2"><span class="kw">library</span>(datawrangling)</a>
+<a class="sourceLine" id="cb153-3" title="3"></a>
+<a class="sourceLine" id="cb153-4" title="4">directories &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="kw">here</span>(<span class="st">&quot;directories.rds&quot;</span>))</a></code></pre></div>
 <p>For now you do not need to know how the <code>here</code> package works. I will talk about it more in the next Chapter and explain why we use it more in Chapter 14.</p>
 </div>
 <div id="files_bind" class="section level2">
@@ -395,11 +394,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>By default the merged file will be saved as a <em>.csv</em> file. You can change this by setting <strong>output.delim</strong>.</p>
 <p>In your script enter the following line of code</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" title="1">datawrangling<span class="op">::</span><span class="kw">files_bind</span>(<span class="kw">here</span>(directories<span class="op">$</span>messy, <span class="st">&quot;subj&quot;</span>), </a>
-<a class="sourceLine" id="cb160-2" title="2">                          <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, </a>
-<a class="sourceLine" id="cb160-3" title="3">                          <span class="dt">output.file =</span> <span class="kw">here</span>(directories<span class="op">$</span>raw, <span class="st">&quot;Flanker.csv&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" title="1">datawrangling<span class="op">::</span><span class="kw">files_bind</span>(<span class="kw">here</span>(directories<span class="op">$</span>messy, <span class="st">&quot;subj&quot;</span>), </a>
+<a class="sourceLine" id="cb154-2" title="2">                          <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, </a>
+<a class="sourceLine" id="cb154-3" title="3">                          <span class="dt">output.file =</span> <span class="kw">here</span>(directories<span class="op">$</span>raw, <span class="st">&quot;Flanker.csv&quot;</span>))</a></code></pre></div>
 <p>The first argument <code>here(directories$messy, "subj")</code> is just specifiying the file directory path. Go ahead and type this in your console window to see how this is the case.</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" title="1"><span class="kw">here</span>(directories<span class="op">$</span>messy, <span class="st">&quot;subj&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" title="1"><span class="kw">here</span>(directories<span class="op">$</span>messy, <span class="st">&quot;subj&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/R-Tutorial/Data Files/Raw Data/E-Merge/subj&quot;</code></pre>
 <p>Again, the <code>here()</code> function will be talked more about in later Chapters.</p>
 <p>If you have more tasks in which you need to merge individual subject data files you would then just include a similar line of code specific for that task (different file path and different filename).</p>

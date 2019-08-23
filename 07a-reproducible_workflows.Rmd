@@ -1,0 +1,57 @@
+# (PART) Reproducible Workflows {-}
+
+# Reproducible Workflows: Overview {-}
+
+```{r include=FALSE, eval = TRUE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE)
+```
+
+```{r echo=FALSE, out.width='75%', fig.align='center'}
+knitr::include_graphics(rep("images/workflow.png"))
+```
+
+As you start becoming more proficient in R you will be able manage, process, and analyze your data at all stages of analysis through R scripts alone. 
+
+----
+<div style="text-align: center; font-size: 1.25em">
+Goodbye Excel, goodbye SPSS, and good ridance to EQS!
+</div>
+----
+
+Although we deal with data all the time as scientists, we have never really been educated on what **good data science practices** look like. In psychology, I believe this is partly due to our reliance on programs like SPSS or Excel for data analysis and visualization. While these programs offer a nice user interface, they do not offer any tools to help us manage and process our data in a reproducible way. 
+
+Open Science and Reproducibility practices are *very* quickly becoming the norm in most fields of science. Programming languages like R are perfectly suited to help us implement these practices. 
+
+**Reliance on programs like SPSS and Excel will hinder your ability to join the Open Science and Reproducibility movement.** 
+
+However, **simply learning the R syntax alone is not enough.** You will need to start thinking about what are **good data science practices** that allow me to manage, process, and analyze my data in a way that is consistent with Open Science and Reproducibility?
+
+I think it is useful to start thinking and implementing these practices from the get go. You could go through a lot of trial and error (which is what I have done) but why not just build on what others have learned. 
+
+This section is divided into 3 Chapters:
+
+* Project Organization
+
+    I will start at a higher level and consider how we organize our research projects from the data collection phase to the data analysis phase
+    
+* Reproducible Practices
+
+    I will then talk about how we need to think about interacting with the R Environment, R Scripts, and the data files on our computer in order to not undermine reproducibility.
+    
+* R Script Templates
+
+    The script workflow is more or less the same from one task and research project to another. I have developed generic script templates that you should use. This will help you more quickly start using R for your research projects.
+    
+The purpose of this section is to get you thinking about these topics now and introduce you to ways of automating them so that you do not have to think about them later! 
+
+
+********
+
+```{r eval = TRUE, echo=FALSE}
+rm(list=ls())
+```
+
+
+********
+
+**Let's talk about Project Organization**
