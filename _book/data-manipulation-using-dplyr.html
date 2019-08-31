@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>EngleLab: UseR Guide</title>
+  <meta name="description" content="This is a useR Guide for the EngleLab">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="EngleLab: UseR Guide" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a useR Guide for the EngleLab" />
+  <meta name="github-repo" content="EngleLab" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="EngleLab: UseR Guide" />
+  
+  <meta name="twitter:description" content="This is a useR Guide for the EngleLab" />
+  
+
+<meta name="author" content="Jason Tsukahara">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="importing-and-outputing-data.html">
+<link rel="next" href="common-data-manipulations.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">EngleLab: UseR Guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
+</ul></li>
+<li class="part"><span><b>I Getting Started in R</b></span></li>
+<li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
+<li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
+<li class="chapter" data-level="1.2" data-path="installation.html"><a href="installation.html#installing-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R Studio</a></li>
+<li class="chapter" data-level="1.3" data-path="installation.html"><a href="installation.html#the-r-studio-environemnt"><i class="fa fa-check"></i><b>1.3</b> The R Studio Environemnt</a></li>
+<li class="chapter" data-level="1.4" data-path="installation.html"><a href="installation.html#r-studio-settings"><i class="fa fa-check"></i><b>1.4</b> R Studio Settings</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-r.html"><a href="basic-r.html"><i class="fa fa-check"></i><b>2</b> Basic R</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-r.html"><a href="basic-r.html#creating-r-objects"><i class="fa fa-check"></i><b>2.1</b> Creating R objects</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="basic-r.html"><a href="basic-r.html#classes"><i class="fa fa-check"></i><b>2.1.1</b> Classes</a></li>
+<li class="chapter" data-level="2.1.2" data-path="basic-r.html"><a href="basic-r.html#vectors"><i class="fa fa-check"></i><b>2.1.2</b> Vectors</a></li>
+<li class="chapter" data-level="2.1.3" data-path="basic-r.html"><a href="basic-r.html#factors"><i class="fa fa-check"></i><b>2.1.3</b> Factors</a></li>
+<li class="chapter" data-level="2.1.4" data-path="basic-r.html"><a href="basic-r.html#lists"><i class="fa fa-check"></i><b>2.1.4</b> Lists</a></li>
+<li class="chapter" data-level="2.1.5" data-path="basic-r.html"><a href="basic-r.html#data-frames"><i class="fa fa-check"></i><b>2.1.5</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="basic-r.html"><a href="basic-r.html#ifthen-statements"><i class="fa fa-check"></i><b>2.2</b> If…then Statements</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-r.html"><a href="basic-r.html#r-packages"><i class="fa fa-check"></i><b>2.3</b> R Packages</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="basic-r.html"><a href="basic-r.html#installing-and-loading-r-packages"><i class="fa fa-check"></i><b>2.3.1</b> Installing and Loading R Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="basic-r.html"><a href="basic-r.html#more-r-basic-resources"><i class="fa fa-check"></i><b>2.4</b> More R Basic Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="intermediate-r.html"><a href="intermediate-r.html"><i class="fa fa-check"></i><b>3</b> Intermediate R</a><ul>
+<li class="chapter" data-level="3.1" data-path="intermediate-r.html"><a href="intermediate-r.html#for-loops"><i class="fa fa-check"></i><b>3.1</b> For Loops</a></li>
+<li class="chapter" data-level="3.2" data-path="intermediate-r.html"><a href="intermediate-r.html#functions"><i class="fa fa-check"></i><b>3.2</b> Functions</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="intermediate-r.html"><a href="intermediate-r.html#creating-your-own-functions"><i class="fa fa-check"></i><b>3.2.1</b> Creating Your Own Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Working with Data</b></span></li>
+<li class="chapter" data-level="" data-path="working-with-data-overview.html"><a href="working-with-data-overview.html"><i class="fa fa-check"></i>Working with Data: Overview</a></li>
+<li class="chapter" data-level="4" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html"><i class="fa fa-check"></i><b>4</b> Importing and Outputing Data</a><ul>
+<li class="chapter" data-level="4.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#csv"><i class="fa fa-check"></i><b>4.1</b> CSV</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-.csv"><i class="fa fa-check"></i><b>4.1.1</b> Import <code>.csv</code></a></li>
+<li class="chapter" data-level="4.1.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.csv"><i class="fa fa-check"></i><b>4.1.2</b> Output <code>.csv</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#tab-delimited"><i class="fa fa-check"></i><b>4.2</b> Tab-Delimited</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-.txt"><i class="fa fa-check"></i><b>4.2.1</b> Import <code>.txt</code></a></li>
+<li class="chapter" data-level="4.2.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.txt"><i class="fa fa-check"></i><b>4.2.2</b> Output <code>.txt</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#spss"><i class="fa fa-check"></i><b>4.3</b> SPSS</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-.sav"><i class="fa fa-check"></i><b>4.3.1</b> Import <code>.sav</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.sav"><i class="fa fa-check"></i><b>4.3.2</b> Output <code>.sav</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#rstudio-import-gui"><i class="fa fa-check"></i><b>4.4</b> RStudio Import GUI</a></li>
+<li class="chapter" data-level="4.5" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#merging-data-files"><i class="fa fa-check"></i><b>4.5</b> Merging Data Files</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html"><i class="fa fa-check"></i><b>5</b> Data Manipulation using <code>dplyr</code></a><ul>
+<li class="chapter" data-level="5.1" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#setup"><i class="fa fa-check"></i><b>5.1</b> Setup</a></li>
+<li class="chapter" data-level="5.2" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#import"><i class="fa fa-check"></i><b>5.2</b> Import</a></li>
+<li class="chapter" data-level="5.3" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#rename"><i class="fa fa-check"></i><b>5.3</b> <code>rename()</code></a></li>
+<li class="chapter" data-level="5.4" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#filter"><i class="fa fa-check"></i><b>5.4</b> <code>filter()</code></a></li>
+<li class="chapter" data-level="5.5" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#select"><i class="fa fa-check"></i><b>5.5</b> <code>select()</code></a></li>
+<li class="chapter" data-level="5.6" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#mutate"><i class="fa fa-check"></i><b>5.6</b> <code>mutate()</code></a><ul>
+<li class="chapter" data-level="5.6.1" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#changing-values-in-an-existing-column"><i class="fa fa-check"></i><b>5.6.1</b> Changing values in an existing column</a></li>
+<li class="chapter" data-level="5.6.2" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#creating-a-new-column"><i class="fa fa-check"></i><b>5.6.2</b> Creating a new column</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#group_by"><i class="fa fa-check"></i><b>5.7</b> <code>group_by()</code></a></li>
+<li class="chapter" data-level="5.8" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#summarise"><i class="fa fa-check"></i><b>5.8</b> <code>summarise()</code></a></li>
+<li class="chapter" data-level="5.9" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#spread"><i class="fa fa-check"></i><b>5.9</b> <code>spread()</code></a></li>
+<li class="chapter" data-level="5.10" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#pipe-operator"><i class="fa fa-check"></i><b>5.10</b> Pipe Operator %&gt;%</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html"><i class="fa fa-check"></i><b>6</b> Common Data Manipulations</a><ul>
+<li class="chapter" data-level="6.1" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#descriptive-statistics"><i class="fa fa-check"></i><b>6.1</b> Descriptive Statistics</a></li>
+<li class="chapter" data-level="6.2" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#centering-and-standardizing-variables"><i class="fa fa-check"></i><b>6.2</b> Centering and Standardizing Variables</a></li>
+<li class="chapter" data-level="6.3" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#trimming"><i class="fa fa-check"></i><b>6.3</b> Trimming</a></li>
+<li class="chapter" data-level="6.4" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#composites"><i class="fa fa-check"></i><b>6.4</b> Composites</a></li>
+<li class="chapter" data-level="6.5" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#scale-transformations"><i class="fa fa-check"></i><b>6.5</b> Scale Transformations</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#log"><i class="fa fa-check"></i><b>6.5.1</b> log</a></li>
+<li class="chapter" data-level="6.5.2" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#polynomial"><i class="fa fa-check"></i><b>6.5.2</b> polynomial</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#custom-transformations"><i class="fa fa-check"></i><b>6.6</b> Custom Transformations</a></li>
+</ul></li>
+<li class="part"><span><b>III Reproducible Workflows</b></span></li>
+<li class="chapter" data-level="" data-path="reproducible-workflows-overview.html"><a href="reproducible-workflows-overview.html"><i class="fa fa-check"></i>Reproducible Workflows: Overview</a></li>
+<li class="chapter" data-level="7" data-path="project-organization.html"><a href="project-organization.html"><i class="fa fa-check"></i><b>7</b> Project Organization</a><ul>
+<li class="chapter" data-level="7.1" data-path="project-organization.html"><a href="project-organization.html#data-collection"><i class="fa fa-check"></i><b>7.1</b> Data Collection</a></li>
+<li class="chapter" data-level="7.2" data-path="project-organization.html"><a href="project-organization.html#data-preparation"><i class="fa fa-check"></i><b>7.2</b> Data Preparation</a></li>
+<li class="chapter" data-level="7.3" data-path="project-organization.html"><a href="project-organization.html#data-analysis"><i class="fa fa-check"></i><b>7.3</b> Data Analysis</a></li>
+<li class="chapter" data-level="7.4" data-path="project-organization.html"><a href="project-organization.html#workflow-package"><i class="fa fa-check"></i><b>7.4</b> <code>workflow</code> package</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="project-organization.html"><a href="project-organization.html#install"><i class="fa fa-check"></i><b>7.4.1</b> Install</a></li>
+<li class="chapter" data-level="7.4.2" data-path="project-organization.html"><a href="project-organization.html#create-a-new-r-project"><i class="fa fa-check"></i><b>7.4.2</b> Create a New R Project</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="reproducible-practices.html"><a href="reproducible-practices.html"><i class="fa fa-check"></i><b>8</b> Reproducible Practices</a><ul>
+<li class="chapter" data-level="8.1" data-path="reproducible-practices.html"><a href="reproducible-practices.html#what-is-real"><i class="fa fa-check"></i><b>8.1</b> What is real?</a></li>
+<li class="chapter" data-level="8.2" data-path="reproducible-practices.html"><a href="reproducible-practices.html#where-does-your-analysis-live"><i class="fa fa-check"></i><b>8.2</b> Where does your analysis live?</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="reproducible-practices.html"><a href="reproducible-practices.html#project-level"><i class="fa fa-check"></i><b>8.2.1</b> Project Level</a></li>
+<li class="chapter" data-level="8.2.2" data-path="reproducible-practices.html"><a href="reproducible-practices.html#script-level"><i class="fa fa-check"></i><b>8.2.2</b> Script Level</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="reproducible-practices.html"><a href="reproducible-practices.html#environment"><i class="fa fa-check"></i><b>8.3</b> Environment</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="reproducible-practices.html"><a href="reproducible-practices.html#working-directory"><i class="fa fa-check"></i><b>8.3.1</b> Working Directory</a></li>
+<li class="chapter" data-level="8.3.2" data-path="reproducible-practices.html"><a href="reproducible-practices.html#loaded-packages"><i class="fa fa-check"></i><b>8.3.2</b> Loaded Packages</a></li>
+<li class="chapter" data-level="8.3.3" data-path="reproducible-practices.html"><a href="reproducible-practices.html#objects"><i class="fa fa-check"></i><b>8.3.3</b> Objects</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="r-script-templates.html"><a href="r-script-templates.html"><i class="fa fa-check"></i><b>9</b> R Script Templates</a><ul>
+<li class="chapter" data-level="9.1" data-path="r-script-templates.html"><a href="r-script-templates.html#download-templates"><i class="fa fa-check"></i><b>9.1</b> Download Templates</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="r-script-templates.html"><a href="r-script-templates.html#install-workflow-package"><i class="fa fa-check"></i><b>9.1.1</b> Install <code>workflow</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="r-script-templates.html"><a href="r-script-templates.html#data-preparation-1"><i class="fa fa-check"></i><b>9.2</b> Data Preparation</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="r-script-templates.html"><a href="r-script-templates.html#messy-to-tidy-script"><i class="fa fa-check"></i><b>9.2.1</b> messy-to-tidy script</a></li>
+<li class="chapter" data-level="9.2.2" data-path="r-script-templates.html"><a href="r-script-templates.html#masterscript-data-preparation"><i class="fa fa-check"></i><b>9.2.2</b> masterscript: Data Preparation</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="r-script-templates.html"><a href="r-script-templates.html#data-analysis-1"><i class="fa fa-check"></i><b>9.3</b> Data Analysis</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="r-script-templates.html"><a href="r-script-templates.html#clean-and-score-script"><i class="fa fa-check"></i><b>9.3.1</b> clean and score script</a></li>
+<li class="chapter" data-level="9.3.2" data-path="r-script-templates.html"><a href="r-script-templates.html#merge-script"><i class="fa fa-check"></i><b>9.3.2</b> merge script</a></li>
+<li class="chapter" data-level="9.3.3" data-path="r-script-templates.html"><a href="r-script-templates.html#masterscript-data-analysis"><i class="fa fa-check"></i><b>9.3.3</b> masterscript: Data Analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Data Preparation</b></span></li>
+<li class="chapter" data-level="" data-path="data-preparation-overview.html"><a href="data-preparation-overview.html"><i class="fa fa-check"></i>Data Preparation: Overview</a><ul>
+<li class="chapter" data-level="9.4" data-path="data-preparation-overview.html"><a href="data-preparation-overview.html#data-collection-repository"><i class="fa fa-check"></i><b>9.4</b> Data Collection Repository</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="example-data-flanker-task.html"><a href="example-data-flanker-task.html"><i class="fa fa-check"></i>Example Data: Flanker Task</a></li>
+<li class="chapter" data-level="10" data-path="organize-raw-files.html"><a href="organize-raw-files.html"><i class="fa fa-check"></i><b>10</b> Organize Raw Files</a></li>
+<li class="chapter" data-level="11" data-path="merge-individual-subject-files.html"><a href="merge-individual-subject-files.html"><i class="fa fa-check"></i><b>11</b> Merge Individual Subject Files</a><ul>
+<li class="chapter" data-level="11.1" data-path="merge-individual-subject-files.html"><a href="merge-individual-subject-files.html#files_bind"><i class="fa fa-check"></i><b>11.1</b> <code>files_bind()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html"><i class="fa fa-check"></i><b>12</b> Messy to Tidy: 0_task_raw.R</a><ul>
+<li class="chapter" data-level="12.1" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#setup-1"><i class="fa fa-check"></i><b>12.1</b> Setup</a></li>
+<li class="chapter" data-level="12.2" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#import-1"><i class="fa fa-check"></i><b>12.2</b> Import</a></li>
+<li class="chapter" data-level="12.3" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#tidy-raw-data"><i class="fa fa-check"></i><b>12.3</b> Tidy raw data</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#filter-1"><i class="fa fa-check"></i><b>12.3.1</b> Filter</a></li>
+<li class="chapter" data-level="12.3.2" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#rename-columns"><i class="fa fa-check"></i><b>12.3.2</b> Rename Columns</a></li>
+<li class="chapter" data-level="12.3.3" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#change-values"><i class="fa fa-check"></i><b>12.3.3</b> Change Values</a></li>
+<li class="chapter" data-level="12.3.4" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#select-columns"><i class="fa fa-check"></i><b>12.3.4</b> Select Columns</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#output"><i class="fa fa-check"></i><b>12.4</b> Output</a></li>
+<li class="chapter" data-level="12.5" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#masterscript"><i class="fa fa-check"></i><b>12.5</b> Masterscript</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="complex-span-tasks.html"><a href="complex-span-tasks.html"><i class="fa fa-check"></i><b>13</b> Complex Span Tasks</a><ul>
+<li class="chapter" data-level="13.1" data-path="complex-span-tasks.html"><a href="complex-span-tasks.html#operation-span"><i class="fa fa-check"></i><b>13.1</b> Operation Span</a></li>
+<li class="chapter" data-level="13.2" data-path="complex-span-tasks.html"><a href="complex-span-tasks.html#symmetry-span"><i class="fa fa-check"></i><b>13.2</b> Symmetry Span</a></li>
+<li class="chapter" data-level="13.3" data-path="complex-span-tasks.html"><a href="complex-span-tasks.html#rotation-span"><i class="fa fa-check"></i><b>13.3</b> Rotation Span</a></li>
+<li class="chapter" data-level="13.4" data-path="complex-span-tasks.html"><a href="complex-span-tasks.html#example-symmetry-span"><i class="fa fa-check"></i><b>13.4</b> Example: Symmetry Span</a></li>
+<li class="chapter" data-level="13.5" data-path="complex-span-tasks.html"><a href="complex-span-tasks.html#tidy-file"><i class="fa fa-check"></i><b>13.5</b> Tidy File</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-preparation-summary.html"><a href="data-preparation-summary.html"><i class="fa fa-check"></i>Data Preparation: Summary</a></li>
+<li class="part"><span><b>V Cleaning and Scoring Data</b></span></li>
+<li class="chapter" data-level="" data-path="cleaning-and-scoring-data-overview.html"><a href="cleaning-and-scoring-data-overview.html"><i class="fa fa-check"></i>Cleaning and Scoring Data: Overview</a><ul>
+<li class="chapter" data-level="13.6" data-path="cleaning-and-scoring-data-overview.html"><a href="cleaning-and-scoring-data-overview.html#data-analysis-repository"><i class="fa fa-check"></i><b>13.6</b> Data Analysis Repository</a></li>
+<li class="chapter" data-level="13.7" data-path="cleaning-and-scoring-data-overview.html"><a href="cleaning-and-scoring-data-overview.html#copy-tidy-raw-data"><i class="fa fa-check"></i><b>13.7</b> Copy tidy raw data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="example-data-flanker.html"><a href="example-data-flanker.html"><i class="fa fa-check"></i>Example Data: Flanker</a></li>
+<li class="chapter" data-level="14" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html"><i class="fa fa-check"></i><b>14</b> Tidy to Scored: 1_task_score.R</a><ul>
+<li class="chapter" data-level="14.1" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#setup-2"><i class="fa fa-check"></i><b>14.1</b> Setup</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#set-data-cleaning-parameters"><i class="fa fa-check"></i><b>14.1.1</b> Set Data Cleaning Parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#data-cleaning-and-scoring"><i class="fa fa-check"></i><b>14.2</b> Data Cleaning and Scoring</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#what-is-the-dependent-variable"><i class="fa fa-check"></i><b>14.2.1</b> What is the dependent variable?</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#trimming-1"><i class="fa fa-check"></i><b>14.3</b> Trimming</a></li>
+<li class="chapter" data-level="14.4" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#calculate-flankereffect"><i class="fa fa-check"></i><b>14.4</b> Calculate FlankerEffect</a></li>
+<li class="chapter" data-level="14.5" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#remove-subjects"><i class="fa fa-check"></i><b>14.5</b> Remove Subjects</a></li>
+<li class="chapter" data-level="14.6" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#calculate-binned-scores"><i class="fa fa-check"></i><b>14.6</b> Calculate Binned Scores</a></li>
+<li class="chapter" data-level="14.7" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#merge"><i class="fa fa-check"></i><b>14.7</b> Merge</a></li>
+<li class="chapter" data-level="14.8" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#output-1"><i class="fa fa-check"></i><b>14.8</b> Output</a></li>
+<li class="chapter" data-level="14.9" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#masterscript-1"><i class="fa fa-check"></i><b>14.9</b> Masterscript</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html"><i class="fa fa-check"></i><b>15</b> Merge: Create A Final Data File</a><ul>
+<li class="chapter" data-level="15.1" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#setup-3"><i class="fa fa-check"></i><b>15.1</b> Setup</a></li>
+<li class="chapter" data-level="15.2" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#merge-1"><i class="fa fa-check"></i><b>15.2</b> Merge</a></li>
+<li class="chapter" data-level="15.3" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#select-and-trim"><i class="fa fa-check"></i><b>15.3</b> Select and Trim</a></li>
+<li class="chapter" data-level="15.4" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#output-2"><i class="fa fa-check"></i><b>15.4</b> Output</a></li>
+<li class="chapter" data-level="15.5" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#masterscript-2"><i class="fa fa-check"></i><b>15.5</b> Masterscript</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="cleaning-and-scoring-data-summary.html"><a href="cleaning-and-scoring-data-summary.html"><i class="fa fa-check"></i>Cleaning and Scoring Data: Summary</a></li>
+<li class="part"><span><b>VI Data Visualization</b></span></li>
+<li class="chapter" data-level="" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html"><i class="fa fa-check"></i>Data Visualization: Overview</a><ul>
+<li class="chapter" data-level="15.6" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#r-markdown"><i class="fa fa-check"></i><b>15.6</b> R Markdown</a><ul>
+<li class="chapter" data-level="15.6.1" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#what-is-an-r-markdown-file"><i class="fa fa-check"></i><b>15.6.1</b> What is an R Markdown File?</a></li>
+<li class="chapter" data-level="15.6.2" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#yaml-header"><i class="fa fa-check"></i><b>15.6.2</b> YAML header</a></li>
+<li class="chapter" data-level="15.6.3" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#r-code-chunks"><i class="fa fa-check"></i><b>15.6.3</b> R code chunks</a></li>
+<li class="chapter" data-level="15.6.4" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#formatted-text"><i class="fa fa-check"></i><b>15.6.4</b> Formatted text</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html"><i class="fa fa-check"></i><b>16</b> Fundamentals of Data Visualization</a><ul>
+<li class="chapter" data-level="16.1" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>16.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="16.2" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html#plotting-functions-in-r"><i class="fa fa-check"></i><b>16.2</b> Plotting Functions in R</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>17</b> Introduction to ggplot2</a><ul>
+<li class="chapter" data-level="17.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#grammar-of-graphics-1"><i class="fa fa-check"></i><b>17.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="17.2" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#data-layer"><i class="fa fa-check"></i><b>17.2</b> Data layer</a></li>
+<li class="chapter" data-level="17.3" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#aesthetic-layer"><i class="fa fa-check"></i><b>17.3</b> Aesthetic Layer</a></li>
+<li class="chapter" data-level="17.4" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#geometries-layer"><i class="fa fa-check"></i><b>17.4</b> Geometries Layer</a></li>
+<li class="chapter" data-level="17.5" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#facets-layer"><i class="fa fa-check"></i><b>17.5</b> Facets Layer</a></li>
+<li class="chapter" data-level="17.6" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#statistics-layer"><i class="fa fa-check"></i><b>17.6</b> Statistics Layer</a></li>
+<li class="chapter" data-level="17.7" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#coordinates-layer"><i class="fa fa-check"></i><b>17.7</b> Coordinates Layer</a></li>
+<li class="chapter" data-level="17.8" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#themes-layer"><i class="fa fa-check"></i><b>17.8</b> Themes Layer</a><ul>
+<li class="chapter" data-level="17.8.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#built-in-themes"><i class="fa fa-check"></i><b>17.8.1</b> Built-in Themes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i><b>18</b> Scatterplots</a><ul>
+<li class="chapter" data-level="18.1" data-path="scatterplots.html"><a href="scatterplots.html#scatterplots-1"><i class="fa fa-check"></i><b>18.1</b> Scatterplots</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="scatterplots.html"><a href="scatterplots.html#adding-other-geoms"><i class="fa fa-check"></i><b>18.1.1</b> Adding other geoms</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="plotting-means.html"><a href="plotting-means.html"><i class="fa fa-check"></i><b>19</b> Plotting Means</a><ul>
+<li class="chapter" data-level="19.1" data-path="plotting-means.html"><a href="plotting-means.html#bar-graphs"><i class="fa fa-check"></i><b>19.1</b> Bar Graphs</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="plotting-means.html"><a href="plotting-means.html#multidimensional-bar-plot"><i class="fa fa-check"></i><b>19.1.1</b> Multidimensional Bar Plot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="univariate-plots.html"><a href="univariate-plots.html"><i class="fa fa-check"></i><b>20</b> Univariate Plots</a></li>
+<li class="chapter" data-level="21" data-path="sjplot.html"><a href="sjplot.html"><i class="fa fa-check"></i><b>21</b> <code>sjPlot</code></a></li>
+<li class="chapter" data-level="22" data-path="custom-tables.html"><a href="custom-tables.html"><i class="fa fa-check"></i><b>22</b> Custom Tables</a></li>
+<li class="part"><span><b>VII Statistical Analysis</b></span></li>
+<li class="chapter" data-level="" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html"><i class="fa fa-check"></i>Statistical Analysis: Overview</a><ul>
+<li class="chapter" data-level="22.1" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#r-markdown-1"><i class="fa fa-check"></i><b>22.1</b> R Markdown</a><ul>
+<li class="chapter" data-level="22.1.1" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#what-is-an-r-markdown-file-1"><i class="fa fa-check"></i><b>22.1.1</b> What is an R Markdown File?</a></li>
+<li class="chapter" data-level="22.1.2" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#yaml-header-1"><i class="fa fa-check"></i><b>22.1.2</b> YAML header</a></li>
+<li class="chapter" data-level="22.1.3" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#r-code-chunks-1"><i class="fa fa-check"></i><b>22.1.3</b> R code chunks</a></li>
+<li class="chapter" data-level="22.1.4" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#formatted-text-1"><i class="fa fa-check"></i><b>22.1.4</b> Formatted text</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="statistics-in-r.html"><a href="statistics-in-r.html"><i class="fa fa-check"></i><b>23</b> Statistics in R</a></li>
+<li class="divider"></li>
+<li><a href="http://englelab.gatech.edu/labuser">Lab User</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">EngleLab: UseR Guide</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-manipulation-using-dplyr" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Data Manipulation using <code>dplyr</code></h1>
+<p><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"></p>
+<p>In this Chapter you will learn the fundamentals of data manipulation in R. In the <em>Getting Started in R</em> section you learned about the various types of objects in R. The most important object you will be using is the <code>dataframe</code>. Last Chapter you learned how to import data files into R as <code>dataframes</code>. Now you will learn how to <em>do stuff to that <code>dataframe</code></em> using the <code>dplyr</code> package (which is of course part of the <code>tidyverse</code>)</p>
+<p><img src="images/dplyr_logo.png" width="125" style="display: block; margin: auto;" /></p>
+<p><code>dplyr</code> is one of the most amazing packages in R. It uses a <em>Grammar of Data Manipulation</em> that is intuitive and easy to learn. The language of <code>dplyr</code> will be the underlying framework for how you will think about manipulating a <code>dataframe</code>.</p>
+<p>dplyr uses intuitive langauge that you are already familiar with. As with any R function, you can think of functions in the dplyr package as verbs - that refer to performing a particular action on a dataframe. The core dplyr functions are:</p>
+<ul>
+<li><p><code>rename()</code> renames columns</p></li>
+<li><p><code>filter()</code> filters rows based on their values in specified columns</p></li>
+<li><p><code>select()</code> selects (or removes) columns</p></li>
+<li><p><code>mutate()</code> creates new columns based on transformation from other columns, edits values within existing columns</p></li>
+<li><p><code>group_by()</code> splits dataframe into separate groups based on specified columns</p></li>
+<li><p><code>summarise()</code> aggregates across rows to create a summary statistic (means, standard deviations, etc.)</p></li>
+</ul>
+<p>For more information on these functions <a href="https://dplyr.tidyverse.org">Visit the dplyr webpage</a></p>
+<p>If you have not done so already, install the dplyr package</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</a></code></pre></div>
+<p>You will also need the <code>tidyr</code> package (a <code>tidyverse</code> package) for this Chapter</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;tidyr&quot;</span>)</a></code></pre></div>
+<hr />
+<div style="text-align: center; font-size: 1.25em">
+<p><i class="fas fa-save" style="font-size: 3em"></i></p>
+<p>Save a new R script file as <code>6_dplyr.R</code></p>
+</div>
+<hr />
+<p>For this Chapter we will use an example data set from the <em>Flanker</em> task. This data set is a <em>tidy</em> raw data file for over 100 subjects on the <em>Flanker</em> task. There is one row per <code>Trial</code> per <code>Subject</code> and there is <code>RT</code> and <code>Accuracy</code> data on each <code>Trial</code>. Each <code>Trial</code> is either <code>congruent</code> or <code>incongruent</code>.</p>
+<p>What we will want to do is calculate a <code>FlankerEffect</code> for each <code>Subject</code> so that we end up with one score for each <code>Subject</code>.</p>
+<p>Go ahead and download the example data set and save it wherever you wish. We will talk about how to organize your data and R scripts in section <em>III. Workflow</em>.</p>
+<hr />
+<div style="text-align: center; font-size: 1.25em">
+<p><a href="http://englelab.gatech.edu/userguide/tidyverse_example.zip"><i class="fas fa-download" style="font-size: 3em"></i></a></p>
+<p><a href="http://englelab.gatech.edu/userguide/tidyverse_example.zip"><strong>Download Example Tidyverse Data</strong></a></p>
+</div>
+<hr />
+<div id="setup" class="section level2">
+<h2><span class="header-section-number">5.1</span> Setup</h2>
+<p>At the top of your script load the three packages you will need for this Chapter</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" title="1"><span class="co">## Setup</span></a>
+<a class="sourceLine" id="cb92-2" title="2"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb92-3" title="3"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb92-4" title="4"><span class="kw">library</span>(tidyr)</a></code></pre></div>
+<p>Notice how I added a <em>commented</em> line at the top. Adding <em>comments</em> to your scripts is highly advisable, as it will help you understand your scripts when you come back to them after not working on them for a while. You only need to add a single <code>#</code> to create a commented line.</p>
+<p>You will also notice that it printed out some <em>warning</em> messages. Sometimes different packages have the same function names. So when you load a package it may override or <em>mask</em> functions from other packages that are already loaded.</p>
+</div>
+<div id="import" class="section level2">
+<h2><span class="header-section-number">5.2</span> Import</h2>
+<p>Import the data file you downloaded. Refer to <strong>Chapter 5</strong> for importing data into R.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" title="1">import &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data Files/tidyverse_example.csv&quot;</span>)</a></code></pre></div>
+<p>It is always a good idea to get to know your <code>dataframe</code> before you start messing with it. What are the column names? What kind of values are stored in each column? How many observations are there? How many <code>Subjects</code>? How many <code>Trials</code>? etc.</p>
+<p>What are the column names? use <code>colnames()</code> for a quick glance at the column names</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" title="1"><span class="kw">colnames</span>(import)</a></code></pre></div>
+<pre><code>##  [1] &quot;Subject&quot;              &quot;TrialProc&quot;            &quot;Trial&quot;               
+##  [4] &quot;Condition&quot;            &quot;RT&quot;                   &quot;ACC&quot;                 
+##  [7] &quot;Response&quot;             &quot;TargetArrowDirection&quot; &quot;SessionDate&quot;         
+## [10] &quot;SessionTime&quot;</code></pre>
+<p>To take a quick look at the first few rows of a <code>dataframe</code> use <code>head()</code>.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" title="1"><span class="kw">head</span>(import)</a></code></pre></div>
+<pre><code>## # A tibble: 6 x 10
+##   Subject TrialProc Trial Condition    RT   ACC Response TargetArrowDire…
+##     &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;           
+## 1   14000 practice      1 incongru…  1086     1 left     left            
+## 2   14000 practice      2 incongru…   863     1 left     left            
+## 3   14000 practice      3 congruent   488     1 right    right           
+## 4   14000 practice      4 incongru…   588     1 right    right           
+## 5   14000 practice      5 congruent   581     1 right    right           
+## 6   14000 practice      6 incongru…   544     1 right    right           
+## # … with 2 more variables: SessionDate &lt;chr&gt;, SessionTime &lt;time&gt;</code></pre>
+<p>This gives you a good idea of what column names you will be working with and what kind of values they contain.</p>
+<p>To evaluate what are all the unique values in a column you can use <code>unique()</code>. You can also use this in combination with <code>length()</code> to evaluate how many unique values are in a column.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" title="1"><span class="kw">unique</span>(import<span class="op">$</span>Condition)</a></code></pre></div>
+<pre><code>## [1] &quot;incongruent&quot; &quot;congruent&quot;</code></pre>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" title="1"><span class="kw">unique</span>(import<span class="op">$</span>Trial)</a></code></pre></div>
+<pre><code>##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17
+##  [18]  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34
+##  [35]  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51
+##  [52]  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68
+##  [69]  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85
+##  [86]  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100 101 102
+## [103] 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119
+## [120] 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136
+## [137] 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153
+## [154] 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170
+## [171] 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187
+## [188] 188 189 190 191 192</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" title="1"><span class="kw">max</span>(import<span class="op">$</span>Trial)</a></code></pre></div>
+<pre><code>## [1] 192</code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" title="1"><span class="kw">length</span>(<span class="kw">unique</span>(import<span class="op">$</span>Subject))</a></code></pre></div>
+<pre><code>## [1] 410</code></pre>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" title="1"><span class="kw">unique</span>(import<span class="op">$</span>TrialProc)</a></code></pre></div>
+<pre><code>## [1] &quot;practice&quot; &quot;real&quot;</code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" title="1"><span class="kw">unique</span>(import<span class="op">$</span>ACC)</a></code></pre></div>
+<pre><code>## [1] 1 0</code></pre>
+<p>All these functions we just used from <code>colnames()</code> to <code>unique()</code> were to temporarily evaluate our data. They are not required to perform the actual data analysis. Therefore, I usually just type these in the console. A general rule of thumb is that if it is not required to be saved in your Script file then just type it in the console.</p>
+<hr />
+<p>Okay let’s take a look at how to use the <code>dplyr</code> functions to score this data.</p>
+</div>
+<div id="rename" class="section level2">
+<h2><span class="header-section-number">5.3</span> <code>rename()</code></h2>
+<p>We do not really need to, but let’s go ahead and <code>rename()</code> a column. How about instead of <code>ACC</code> let’s label it as <code>Accuracy</code>. Pretty simple</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" title="1">data &lt;-<span class="st"> </span><span class="kw">rename</span>(import, <span class="dt">Accuracy =</span> ACC)</a></code></pre></div>
+<p><code>rename()</code> is really only useful if you are not also using <code>select()</code> or <code>mutate()</code>. In <code>select()</code> you can also rename columns as you select them to keep. This will be illustrated this later</p>
+<p>Notice that I passed the output of this function to a new object <code>data</code>. I like to keep the object <code>import</code> as the original imported file and any changes will be passed onto a new dataframe, such as <code>data</code>. This makes it easy to go back and see what the original data is. Because if we were to overwrite <code>import</code> then we would have to execute the <code>read_csv()</code> import function again to be able to see the original data file, just a little more tedious.</p>
+</div>
+<div id="filter" class="section level2">
+<h2><span class="header-section-number">5.4</span> <code>filter()</code></h2>
+<p><code>filter()</code> is an inclusive filter and requires the use of <em>logical</em> statements. In <strong>Chapter 2: Basic R</strong> I talked a little bit about logical statements. Here is a list of logical operators in R:</p>
+<p><img src="images/logical-operations.png" width="200" /></p>
+<p>In addition to these logical operators, these functions can be used in<code>filter()</code>:</p>
+<ul>
+<li><p><code>is.na()</code> - include if missing</p></li>
+<li><p><code>!is.na()</code> - include if not missing</p></li>
+<li><p><code>between()</code> - values that are between a certain range of numbers</p></li>
+<li><p><code>near()</code> - values that are near a certain value</p></li>
+</ul>
+<p>We do not want to include practice trials when calculating the mean on RTs. We will use <code>filter()</code> to remove these rows. First let’s evaluate the values in these columns</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1"><span class="kw">unique</span>(import<span class="op">$</span>TrialProc)</a>
+<a class="sourceLine" id="cb111-2" title="2"><span class="co">## [1] &quot;practice&quot; &quot;real&quot;</span></a>
+<a class="sourceLine" id="cb111-3" title="3"><span class="kw">unique</span>(import<span class="op">$</span>Condition)</a>
+<a class="sourceLine" id="cb111-4" title="4"><span class="co">## [1] &quot;incongruent&quot; &quot;congruent&quot;</span></a></code></pre></div>
+<p>We can specify our <code>filter()</code> in a couple of different ways</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" title="1">data &lt;-<span class="st"> </span><span class="kw">filter</span>(data, </a>
+<a class="sourceLine" id="cb112-2" title="2">               TrialProc <span class="op">!=</span><span class="st"> &quot;practice&quot;</span>, </a>
+<a class="sourceLine" id="cb112-3" title="3">               Condition <span class="op">!=</span><span class="st"> &quot;neutral&quot;</span>)</a></code></pre></div>
+<p>or</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1">data &lt;-<span class="st"> </span><span class="kw">filter</span>(import, </a>
+<a class="sourceLine" id="cb113-2" title="2">               TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, </a>
+<a class="sourceLine" id="cb113-3" title="3">               Condition <span class="op">==</span><span class="st"> &quot;congruent&quot;</span> <span class="op">|</span><span class="st"> </span>Condition <span class="op">==</span><span class="st"> &quot;incongruent&quot;</span>)</a></code></pre></div>
+<p>Specifying multiple arguments separated by a comma <code>,</code> in <code>filter()</code> is equivalent to an <code>&amp;</code> (<code>and</code>) statement.</p>
+<p>In the second option, since there are two types of rows on <code>Condition</code> that we want to keep we need to specify <code>Condition ==</code> twice, separated by <code>|</code> (<code>or</code>). We want to keep rows where <code>Condition == "congruent"</code> <code>or</code> <code>Condition == "incongruent"</code></p>
+<p>Notice that the arguments have been separated on different lines. This is okay to do and makes it easier to read the code. Just make sure the end of the line still has a comma.</p>
+<p>Go ahead and view <code>data</code>. Did it properly remove <code>practice</code> trials? How about <code>neutral</code> trials?</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" title="1"><span class="kw">unique</span>(data<span class="op">$</span>TrialProc)</a>
+<a class="sourceLine" id="cb114-2" title="2"><span class="co">## [1] &quot;real&quot;</span></a>
+<a class="sourceLine" id="cb114-3" title="3"><span class="kw">unique</span>(data<span class="op">$</span>Condition)</a>
+<a class="sourceLine" id="cb114-4" title="4"><span class="co">## [1] &quot;incongruent&quot; &quot;congruent&quot;</span></a></code></pre></div>
+<p><strong>Again you should type these in the console NOT in the R Script!</strong></p>
+<p>There is a lot of consistency of how you specify arguments in the dplyr package.</p>
+<ol style="list-style-type: decimal">
+<li><p>You always first specify the dataframe that the function is being performed on, followed by the arguments for that function.</p></li>
+<li><p>Column names can be called just like regular R objects, that is without putting the column name in <code>" "</code> like you do with strings. If all you know is dplyr, then this might not seem like anything special but it is. Most non-tidyverse functions will require you to put <code>" "</code> around column names.</p></li>
+</ol>
+</div>
+<div id="select" class="section level2">
+<h2><span class="header-section-number">5.5</span> <code>select()</code></h2>
+<p><code>select()</code> allows you to select which columns to keep and/or remove.</p>
+<p>Let’s keep <code>Subject</code>, <code>Condition</code>, <code>RT</code>, <code>Trial</code>, and <code>Accuracy</code> and remove <code>TrialProc</code>, <code>TargetArrowDirection</code>, <code>SessionDate</code>, and <code>SessionTime</code>.</p>
+<p><code>select()</code> is actually quite versatile - you can remove columns by specifying certain patterns. I will only cover a couple here, but to learn more <a href="https://dplyr.tidyverse.org/reference/select.html">Visit the select() webpage</a></p>
+<p>We could just simply select all the columns we want to keep</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1">data &lt;-<span class="st"> </span><span class="kw">select</span>(data, Subject, Condition, RT, Trial, Accuracy)</a></code></pre></div>
+<p>alternatively we can specify which columns we want to remove by placing a <code>-</code> in front of the columns</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" title="1">data &lt;-<span class="st"> </span><span class="kw">select</span>(data, <span class="op">-</span>TrialProc, <span class="op">-</span>TargetArrowDirection, </a>
+<a class="sourceLine" id="cb116-2" title="2">               <span class="op">-</span>SessionDate, <span class="op">-</span>SessionTime)</a></code></pre></div>
+<p>or we can remove (or keep) columns based on a pattern. For instance <code>SessionDate</code> and <code>SessionTime</code> both start with <code>Session</code></p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1">data &lt;-<span class="st"> </span><span class="kw">select</span>(data, <span class="op">-</span>TrialProc, <span class="op">-</span>TargetArrowDirection, </a>
+<a class="sourceLine" id="cb117-2" title="2">               <span class="op">-</span><span class="kw">starts_with</span>(<span class="st">&quot;Session&quot;</span>))</a></code></pre></div>
+<p>You might start realizing that there is always more than one way to perform the same operation. It is good to be aware of all the ways you can use a function because there might be certain scenarios where it is better or even required to use one method over another. In this example, you only need to know the most straightfoward method of simply selecting which columns to keep.</p>
+<p>You can also rename variables as you <code>select()</code> them… let’s change <code>Accuracy</code> back to <code>ACC</code>… just beacuse we are crazy!</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" title="1">data &lt;-<span class="st"> </span><span class="kw">select</span>(data, Subject, Condition, RT, Trial, <span class="dt">ACC =</span> Accuracy)</a></code></pre></div>
+<p>We are keeping <code>Subject</code>, <code>Condition</code>, <code>RT</code>, <code>Trial</code>, and renaming <code>ACC</code> to <code>Accuracy</code>.</p>
+</div>
+<div id="mutate" class="section level2">
+<h2><span class="header-section-number">5.6</span> <code>mutate()</code></h2>
+<p><code>mutate()</code> is a very powerful function. It basically allows you to do any computation or transformation on the values in the dataframe. You can</p>
+<ol style="list-style-type: decimal">
+<li><p>change the values in already existing columns</p></li>
+<li><p>create new columns based on transformation of other columns</p></li>
+</ol>
+<div id="changing-values-in-an-existing-column" class="section level3">
+<h3><span class="header-section-number">5.6.1</span> Changing values in an existing column</h3>
+<p>Reaction times that are less than 200 milliseconds most likely do not reflect actual processing of the task. Therefore, it would be a good idea to not include these when calculating means.</p>
+<p>What we are going to do is is set any RTs that are less than <code>200</code> milliseconds to missing, <code>NA</code>. First let’s make sure we even have trials that are less than <code>200</code> milliseconds. Two ways to do this. 1) View the dataframe and click on the <code>RT</code> column to sort by RT. You can see there are RTs that are as small as 1 millisecond! Oh my, that is definitely not a real reaction time. 2) you can just evaluate the minimum value in the RT column:</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1"><span class="kw">min</span>(data<span class="op">$</span>RT)</a>
+<a class="sourceLine" id="cb119-2" title="2"><span class="co">## [1] 0</span></a></code></pre></div>
+<p>Now lets <code>mutate()</code></p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" title="1">data &lt;-<span class="st"> </span><span class="kw">mutate</span>(data, <span class="dt">RT =</span> <span class="kw">ifelse</span>(RT <span class="op">&lt;</span><span class="st"> </span><span class="dv">200</span>, <span class="ot">NA</span>, RT))</a></code></pre></div>
+<p>Since we are replacing values in an already existing column we can just specify that column name, <code>RT =</code> followed by the transformation. Here we need to specify an if…then… else statment. To do so within the <code>mutate()</code> function we use the function called <code>ifelse()</code>.</p>
+<p><code>ifelse()</code> evaluates a logical statement specified in the first argument, <code>RT &lt; 200</code>. <code>mutate()</code> works on a row-by-row basis. So for each row it will evaluate whether <code>RT</code> is less than 200. If this logical statement is <code>TRUE</code> then it will perform the next agrument, in this case sets <code>RT = NA</code>. If the logical statement is <code>FALSE</code> then it will perform the last argument, in this case sets <code>RT = RT</code> (leaves the value unchanged).</p>
+</div>
+<div id="creating-a-new-column" class="section level3">
+<h3><span class="header-section-number">5.6.2</span> Creating a new column</h3>
+<p>Let’s say for whatever reason we want to calculate the difference between the RT on a trial minus the overall grand mean RT (for now, accross all subjects and all trials). This is not necessary for what we want in the end but what the heck, let’s be a little crazy. (I just need a good example to illustrate what <code>mutate()</code> can do.)</p>
+<p>So first we will want to calculate a “grand” mean RT. We can use the <code>mean()</code> function to calculate a mean.</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1"><span class="kw">mean</span>(data<span class="op">$</span>RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb121-2" title="2"><span class="co">## [1] 529.1414</span></a></code></pre></div>
+<p>Since we replaced some of the <code>RT</code> values with <code>NA</code> we need to make sure we specify in the <code>mean()</code> function to remove <code>NAs</code> by setting <code>na.rm = TRUE</code>.</p>
+<p>We can use the <code>mean()</code> function inside of a <code>mutate()</code> function. Let’s put this “grand” mean in a column labeled <code>grandRT</code>.</p>
+<p>First take note of how many columns there are in <code>data</code></p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" title="1"><span class="kw">ncol</span>(data)</a>
+<a class="sourceLine" id="cb122-2" title="2"><span class="co">## [1] 5</span></a></code></pre></div>
+<p>So after calculating the grandRT we should expect there to be one additional column for a total of 6 columns</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" title="1">data &lt;-<span class="st"> </span><span class="kw">mutate</span>(data, <span class="dt">grandRT =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm=</span><span class="ot">TRUE</span>))</a></code></pre></div>
+<p>Cool!</p>
+<p>Now let’s calculate another column that is the difference between <code>RT</code> and <code>grandRT</code>.</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" title="1">data &lt;-<span class="st"> </span><span class="kw">mutate</span>(data, <span class="dt">RTdiff =</span> RT <span class="op">-</span><span class="st"> </span>grandRT)</a></code></pre></div>
+<p>We can put all these <code>mutate()s</code> into one <code>mutate()</code></p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1">data &lt;-<span class="st"> </span><span class="kw">mutate</span>(data, </a>
+<a class="sourceLine" id="cb125-2" title="2">               <span class="dt">RT =</span> <span class="kw">ifelse</span>(RT <span class="op">&lt;</span><span class="st"> </span><span class="dv">200</span>, <span class="ot">NA</span>, RT),</a>
+<a class="sourceLine" id="cb125-3" title="3">               <span class="dt">grandRT =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb125-4" title="4">               <span class="dt">RTdiff =</span> RT <span class="op">-</span><span class="st"> </span>grandRT)</a></code></pre></div>
+<p>Notice how I put each one on a seperate line. This is just for ease of reading and so the line doesn’t extend too far off the page. Just make sure the commas are still there at the end of each line.</p>
+</div>
+</div>
+<div id="group_by" class="section level2">
+<h2><span class="header-section-number">5.7</span> <code>group_by()</code></h2>
+<p>This function is very handy if we want to perform functions seperately on different groups or splits of the dataframe. For instance, maybe instead of calculating an overall “grand” mean we want to calculate a “grand” mean for each Subject seperately. Instead of manually breaking the dataframe up by Subject, the <code>group_by()</code> function does this automatically in the background. Like this…</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" title="1">data &lt;-<span class="st"> </span><span class="kw">group_by</span>(data, Subject)</a>
+<a class="sourceLine" id="cb126-2" title="2">data &lt;-<span class="st"> </span><span class="kw">mutate</span>(data, </a>
+<a class="sourceLine" id="cb126-3" title="3">               <span class="dt">RT =</span> <span class="kw">ifelse</span>(RT <span class="op">&lt;</span><span class="st"> </span><span class="dv">200</span>, <span class="ot">NA</span>, RT),</a>
+<a class="sourceLine" id="cb126-4" title="4">               <span class="dt">grandRT =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb126-5" title="5">               <span class="dt">RTdiff =</span> RT <span class="op">-</span><span class="st"> </span>grandRT)</a></code></pre></div>
+<p>You will now notice that each subject has a different <code>grandRT</code>, simply because we specified <code>group_by(data, Subject)</code>. Let’s say we want to do it not just grouped by Subject, but also Condition.</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1">data &lt;-<span class="st"> </span><span class="kw">group_by</span>(data, Subject, Condition)</a>
+<a class="sourceLine" id="cb127-2" title="2">data &lt;-<span class="st"> </span><span class="kw">mutate</span>(data, </a>
+<a class="sourceLine" id="cb127-3" title="3">               <span class="dt">RT =</span> <span class="kw">ifelse</span>(RT <span class="op">&lt;</span><span class="st"> </span><span class="dv">200</span>, <span class="ot">NA</span>, RT),</a>
+<a class="sourceLine" id="cb127-4" title="4">               <span class="dt">grandRT =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb127-5" title="5">               <span class="dt">RTdiff =</span> RT <span class="op">-</span><span class="st"> </span>grandRT)</a></code></pre></div>
+<p><code>group_by()</code> does not only work on <code>mutate()</code> - it will work on any other functions you specify after <code>group_by()</code>.</p>
+<p>I suggest exercising caution when using <code>group_by()</code> because the grouping will be maintained until you specify a different <code>group_by()</code> or until you ungroup it using <code>ungroup()</code>. So I always like to <code>ungroup()</code> immediately after I am done with it.</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" title="1">data &lt;-<span class="st"> </span><span class="kw">group_by</span>(data, Subject, Condition)</a>
+<a class="sourceLine" id="cb128-2" title="2">data &lt;-<span class="st"> </span><span class="kw">mutate</span>(data, </a>
+<a class="sourceLine" id="cb128-3" title="3">               <span class="dt">RT =</span> <span class="kw">ifelse</span>(RT <span class="op">&lt;</span><span class="st"> </span><span class="dv">200</span>, <span class="ot">NA</span>, RT),</a>
+<a class="sourceLine" id="cb128-4" title="4">               <span class="dt">grandRT =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb128-5" title="5">               <span class="dt">RTdiff =</span> RT <span class="op">-</span><span class="st"> </span>grandRT)</a>
+<a class="sourceLine" id="cb128-6" title="6">data &lt;-<span class="st"> </span><span class="kw">ungroup</span>(data)</a></code></pre></div>
+</div>
+<div id="summarise" class="section level2">
+<h2><span class="header-section-number">5.8</span> <code>summarise()</code></h2>
+<p>The <code>summarise()</code> function will <strong>reduce</strong> a data frame by summarising values in one or multiple columns. The values will be summarised on some statistical value, such as a mean, median, or standard deviation.</p>
+<p>Remember that in order to calculate the <code>FlankerEffect</code> for each subject, we first need to calculate each subject’s mean <code>RT</code> on <code>incongruent</code> trials and their mean <code>RT</code> on <code>congruent</code> trials</p>
+<p>We’ve done our filtering, selecting, mutating, now let’s aggergate RTs accross <code>Condition</code> to calculate mean <code>RT</code>. We will use a combo of <code>group_by()</code> and <code>summarise()</code>. <code>summarise()</code> is almost always used in conjunction with <code>group_by()</code>.</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" title="1">data &lt;-<span class="st"> </span><span class="kw">group_by</span>(data, Subject, Condition)</a>
+<a class="sourceLine" id="cb129-2" title="2">data &lt;-<span class="st"> </span><span class="kw">summarise</span>(data,</a>
+<a class="sourceLine" id="cb129-3" title="3">                  <span class="dt">RT.mean =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb129-4" title="4">data &lt;-<span class="st"> </span><span class="kw">ungroup</span>(data)</a></code></pre></div>
+<p>To <code>summarise()</code> you need to create new column names that will contain the aggregate values. <code>RT.mean</code> seems to make sense to me.</p>
+<p>What does the resulting data frame look like? There should be three rows per subject, one for incongruent trials, one for congruent trials, and one for neutral trials. You can see that we now have mean RTs on all conditions for each subject.</p>
+<p>Also, notice how non-group_by columns got removed: <code>Trial</code>, and <code>ACC</code>.</p>
+</div>
+<div id="spread" class="section level2">
+<h2><span class="header-section-number">5.9</span> <code>spread()</code></h2>
+<p>Our data frame now looks like</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" title="1"><span class="kw">head</span>(data)</a></code></pre></div>
+<pre><code>## # A tibble: 6 x 3
+##   Subject Condition   RT.mean
+##     &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;
+## 1   14000 congruent      394.
+## 2   14000 incongruent    487.
+## 3   14001 congruent      389.
+## 4   14001 incongruent    406.
+## 5   14002 congruent      452.
+## 6   14002 incongruent    508.</code></pre>
+<p>Ultimately, we want to have one row per subject and to calculate the difference in mean RT between incongruent and congruent conditions. It is easier to calculate the difference between two values when they are in the same row. Currently, the mean RT for each condition is on a different row. What we need to do is reshape the dataframe. To do so we will use the <code>spread()</code> function from the <code>tidyr</code> package.</p>
+<p>The <code>tidyr</code> package, like <code>readr</code> and <code>dplyr</code>, is from the <strong>tidyverse</strong> set of packages. The <code>spread()</code> function will convert a long data frame to a wide dataframe. In other words, it will spread values on different rows across different columns.</p>
+<p>In our example, what we want to do is <code>spread()</code> the mean RT values for the two conditions across different columns. So we will end up with is one row per subject and one column for each condition. Rather than incongruent, and congruent trials being represented down rows we are spreading them across columns (widening the data frame).</p>
+<p>The two main arguments to specify in <code>spread()</code> are</p>
+<ul>
+<li><p><strong>key</strong>: The column name that contains the variables to create new columns by (e.g. “Condition”)</p></li>
+<li><p><strong>value</strong>: The colunn name that contains the values (e.g. “RT”)</p></li>
+</ul>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" title="1">data &lt;-<span class="st"> </span><span class="kw">spread</span>(data, <span class="dt">key =</span> Condition, <span class="dt">value =</span> RT.mean)</a></code></pre></div>
+<p>Now our dataframe looks like</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" title="1"><span class="kw">head</span>(data)</a></code></pre></div>
+<pre><code>## # A tibble: 6 x 3
+##   Subject congruent incongruent
+##     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+## 1   14000      394.        487.
+## 2   14001      389.        406.
+## 3   14002      452.        508.
+## 4   14003      563.        659.
+## 5   14004      520.        643.
+## 6   14005      469.        540.</code></pre>
+<p>From here it is pretty easy, we just need to create a new column that is the difference between incongruent and congruent columns. We can use the <code>mutate()</code> function to do this</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" title="1">data &lt;-<span class="st"> </span><span class="kw">mutate</span>(data, <span class="dt">FlankerEffect =</span> incongruent <span class="op">-</span><span class="st"> </span>congruent)</a></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" title="1"><span class="kw">head</span>(data)</a></code></pre></div>
+<pre><code>## # A tibble: 6 x 4
+##   Subject congruent incongruent FlankerEffect
+##     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;
+## 1   14000      394.        487.          93.6
+## 2   14001      389.        406.          17.5
+## 3   14002      452.        508.          56.0
+## 4   14003      563.        659.          95.9
+## 5   14004      520.        643.         123. 
+## 6   14005      469.        540.          71.4</code></pre>
+<p>Perfect! Using the <code>readr</code>, <code>dplyr</code>, and <code>tidyr</code> packages we have gone from a “tidy” raw data file to a dataframe with one row per subject and a column of FlankerEffect scores.</p>
+</div>
+<div id="pipe-operator" class="section level2">
+<h2><span class="header-section-number">5.10</span> Pipe Operator %&gt;%</h2>
+<p>One last thing about the <code>dplyr</code> package. <code>dplyr</code> allows for passing the output from one function to another using what is called a pipe operatior.</p>
+<p>The pipe operator is: <code>%&gt;%</code></p>
+<p>This makes code more concise, easier to read, and easier to edit. When you pass the output of one function to another with <code>%&gt;%</code> you do not need to specify the dataframe (input) on the next function. <code>%&gt;%</code> implies that the input is the output from the previous funciton, so this is made implicit.</p>
+<p>We can pipe all the functions in the chapter together as such</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" title="1"><span class="co">## Setup</span></a>
+<a class="sourceLine" id="cb138-2" title="2"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb138-3" title="3"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb138-4" title="4"><span class="kw">library</span>(tidyr)</a>
+<a class="sourceLine" id="cb138-5" title="5"></a>
+<a class="sourceLine" id="cb138-6" title="6"><span class="co">## Import</span></a>
+<a class="sourceLine" id="cb138-7" title="7">import &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data Files/tidyverse_example.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb138-8" title="8"></a>
+<a class="sourceLine" id="cb138-9" title="9"><span class="co">## Score</span></a>
+<a class="sourceLine" id="cb138-10" title="10">data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb138-11" title="11"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Accuracy =</span> ACC) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb138-12" title="12"><span class="st">  </span><span class="kw">filter</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb138-13" title="13"><span class="st">  </span><span class="kw">select</span>(Subject, Condition, RT, Trial, <span class="dt">ACC =</span> Accuracy) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb138-14" title="14"><span class="st">  </span><span class="kw">group_by</span>(Subject, Condition) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb138-15" title="15"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(RT<span class="op">&lt;</span><span class="dv">200</span>, <span class="ot">NA</span>, RT),</a>
+<a class="sourceLine" id="cb138-16" title="16">         <span class="dt">grandRT =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm=</span><span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb138-17" title="17">         <span class="dt">RTdiff =</span> RT <span class="op">-</span><span class="st"> </span>grandRT) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb138-18" title="18"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">RT.mean =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb138-19" title="19"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb138-20" title="20"><span class="st">  </span><span class="kw">spread</span>(<span class="dt">key =</span> Condition, <span class="dt">value =</span> RT.mean) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb138-21" title="21"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">FlankerEffect =</span> incongruent <span class="op">-</span><span class="st"> </span>congruent)</a></code></pre></div>
+<hr />
+<p>Virtually all the R scripts you write will require the <code>dplyr</code> package. The more you know what it can do, the easier it will be for you to write R Scripts. I highly suggest checking out these introductions to <code>dplyr</code>.</p>
+<p><a href="https://dplyr.tidyverse.org" class="uri">https://dplyr.tidyverse.org</a>
+<a href="https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html" class="uri">https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html</a></p>
+<hr />
+<p><strong>Learn more advanced but common data manipulations in the next chapter</strong></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="importing-and-outputing-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="common-data-manipulations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>

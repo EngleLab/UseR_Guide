@@ -1,4 +1,4 @@
-book_filename: "R_Tutorial"
+book_filename: "EngleLab UseR Guide"
 delete_merged_file: true
 before_chapter_script: "remove.R"
 language:

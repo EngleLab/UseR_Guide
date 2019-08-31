@@ -6,7 +6,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">EngleLab: UseR Guide</a></li>
       after: |
-        <li><a href="http://englelab.gatech.edu/jason">Jason Tsukahara</a></li>
+        <li><a href="http://englelab.gatech.edu/labuser">Lab User</a></li>
     toolbar:
       position: fixed
     edit : null
