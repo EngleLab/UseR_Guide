@@ -11,6 +11,7 @@ import.dir <- "Data Files/Merged"
 import.file <- "Flanker.txt"
 output.dir <- "Data Files"
 output.file <- "Flanker_raw.csv"
+task <- "Flanker"
 ```
 
 
@@ -58,6 +59,13 @@ It can be difficult to remember what arguments you need to include in a function
 ?duplicates_remove
 ```
 
+First, to the Setup section add the line of code to load the `datawrangling` package.
+
+```{r}
+library(datawrangling)
+```
+
+
 To the import section add the following line of code with the pipe operator `%>%`
 
 ```{r}
@@ -68,6 +76,10 @@ import <- read_delim(here(import.dir, import.file),
                     output.folder = here(output.dir, "duplicates"))
 ################
 ```
+
+Execture the lines of code up to and including import. 
+
+You will notice that there was a folder created called **duplicates** in the Data Files folder. Open the file contained in this folder, **Flanker_duplicates.csv**. These are duplicate subject numbers and must be taken care of. For the sake of this guide, however, we will not do anything with them now. Though, they have been removed from the data.
 
 View the dataframe by typing in the console
 

@@ -11,8 +11,15 @@ We only want to analyze the data for subjects that completed ALL sessions. This 
 
 These two steps can easily be done with the following line of code. Just type this into the console
 
-```{r eval = TRUE}
+```{r include=FALSE, eval = TRUE}
+workflow::copy_raw(from = "Tasks/Session 1", to = "Data Files/subj", filetype = ".edat", subj.file = "Data Files/subjlist_final.csv", remove = FALSE)
+```
 
+```{r eval = FALSE}
+workflow::copy_raw(from = "Tasks/Session 1", to = "Data Files/subj", 
+                   filetype = ".edat", 
+                   subj.file = "Data Files/subjlist_final.csv", 
+                   remove = TRUE)
 ```
 
 Notice how at first there are no files in **Data Files/subj/Flanker**. Then after executing this line of code, it is now populated with *.edat* files.

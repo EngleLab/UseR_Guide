@@ -39,9 +39,9 @@ We will use some example data files for this chapter. Go ahead and download thes
 ----
 
 <div style="text-align: center; font-size: 1.25em">
-[<i class="fas fa-download" style="font-size: 3em"></i> ](http://englelab.gatech.edu/R/example_data/Import_example.zip)
+[<i class="fas fa-download" style="font-size: 3em"></i> ](http://englelab.gatech.edu/userguide/Import_example.zip)
 
-[**Download Example Data Files**](http://englelab.gatech.edu/R/example_data/Import_example.zip)
+[**Download Example Import Data Files**](http://englelab.gatech.edu/userguide/Import_example.zip)
 </div>
 
 ----

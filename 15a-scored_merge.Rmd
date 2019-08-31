@@ -1,0 +1,120 @@
+# Merge: Create A Final Data File
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+```{r include=FALSE, eval = TRUE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE)
+```
+
+In our lab we run large-scale studies in which we might have more than 30 tasks to score. This means you will have lots of scripts for creating *scored* data files. 
+
+In the end, you don't just want a bunch of separate *scored* data files. You want a single data file with all the variables and subjects together. 
+
+In this Chapter you will learn how to write a script for merging multiple *scored* data files and doing some more data cleaning by removing outlier scores.
+
+In the previous Chapter you wrote a **score** script for the Flanker task. For this Chapter to be useful you will need more tasks with scored data.
+
+In the previous Section, I had you create **tidy** raw data files in the **Data Collection** repository. If you did not complete the previous section you can download these files here:
+
+
+
+Copy these additional **tidy** raw data files to the current **Data Analysis** repository in **Data Files/Raw Data**. 
+
+Since these are common tasks we use in the lab you can download the scripts to score each of these tasks using:
+
+```{r}
+englelab::get_script(type = "score", wmc = TRUE, gf = TRUE, 
+                     antisaccade = TRUE, stroop = TRUE)
+```
+
+**Notice** how the complex span tasks are all scored in the same script, **0_wmc_score.R**, and all the fluid intelligence tasks are scored in the same script, **0_gf_score.R**.
+
+
+This procedure of copying **tidy** raw data files from a **Central Repository** and **R Scripts** from another student in the lab will be very common.
+
+----
+
+If you have not done so already, open RStudio by opening the *UseRGuide_DataAnalysis.Rproj* R Project file. 
+
+In the masterscript add lines of code to `source()` the R Scripts you downloaded. Execute those lines of code. You should notice that there are now more files in Data Files/**Scored Data**. In this Chapter you will learn how to merge these files together.
+
+In the folder **R Scripts** open the file **2_merge.R**.
+
+If you do not see the file **2_merge.R**, you can download it. Just type in the following line of code in the console
+
+```{r eval = FALSE}
+workflow::template(mergescript = TRUE)
+```
+
+----
+
+## Setup
+
+Just by looking at the Setup section of the script you should be able to tell that this script will import files in Data Files/**Scored Data** and output the file Data Files/**Data.csv**.
+
+## Merge
+
+In this block we can import/merge all the *Scored* data files. 
+
+We will import/merge all these files in one step using `files_join()` from my `datawrangling` package. The main argunents for this function are:
+
+* __path__: Folder location of files to be merged
+
+* __pattern__: String pattern to uniquely identify files to be merged
+
+* __id__: Subject ID variable name.
+
+```{r}
+## Merge ####
+import <- files_join(here(import.dir), pattern = "Scores", id = "Subject")
+#############
+```
+
+View `import`. Notice that it contains A LOT of columns, most of which we may not be interested in for *Data Analysis*.
+
+## Select and Trim
+
+The next step is really straight forward. The *Scored* data files will each contain way more columns than we are actually interested in. Therefore, we should only select those columns that contain the variables we want to analyze in the *Data Analysis* stage.
+
+We can also remove Scores that are univariate outliers, using `trim()` from `datawrangling`.
+
+```{r}
+## Select and Trim ####
+data <- import %>%
+  select(Subject, OSpan = OSpan.Partial, SymSpan = SymSpan.Partial, 
+         RotSpan = RotSpan.Partial, FlankerEffect = FlankerEffect_RT,
+         StroopEffect = StroopEffect_RT) %>%
+  trim(variables = "all", cutoff = 3.5, replace = "NA", id = "Subject")
+########################
+```
+
+Notice how I am renaming some of the variable names to be more concise.
+
+## Output
+
+Besides outputing the merged data file, I like to also output a file that simply has a list of all `Subjects` that made it through all the data cleaning procedures. This will be a list of the final subjects that go into **Data Analysis**.
+
+```{r}
+## Output ##
+subj.list <- select(data, Subject)
+write_csv(data, here(output.dir, output.file))
+write_csv(subj.list, here(output.dir, "subjlist_final.csv"))
+############
+```
+
+
+## Masterscript
+
+Now put a `source()` line in the masterscript to source this merge script.
+
+Run all the lines of code in the masterscript.
+
+********
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, eval = TRUE}
+rm(list=ls())
+```
+
+********
+
+**We made it! We made it! Data Visualization. This is probably the coolest thing you will learn about in R**

@@ -1,0 +1,30 @@
+# Cleaning and Scoring Data: Summary {-}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+```{r include=FALSE, eval = TRUE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE)
+```
+
+In this Section, you cleaned and scored data from the Flanker task. There were a lot of steps involved to do so. You calculated the **Flanker Effect** in addition to **FlankerBin** scores. You also performed data cleaning procedures to get rid of bad trials and subjects. The Flanker task is one of the more involved tasks to score. 
+
+Wow! Now you have completed your *Data Analysis* scripts to go from *tidy* raw data to *scored* data and finally a single *merged* data file that is all ready for *Statistical Analysis*! And you can control all this by running the code in the masterscript, or just sourcing the entire masterscript.
+
+```{r echo=FALSE, eval = TRUE}
+knitr::include_graphics(rep("images/workflow.png"))
+```
+
+
+<br>
+
+
+
+********
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, eval = TRUE}
+rm(list=ls())
+```
+
+********
+
+**We made it! We made it! Data Visualization. This is probably the coolest thing you will learn about in R**

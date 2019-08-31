@@ -21,7 +21,7 @@ Parts of this next section are taken directly from the excellent book on Data Sc
 </div>
 ----
 
-One day you will need to quit R, go do something else and return to your analysis the next day. One day you will be working on multiple analyses simultaneously that all use R and you want to keep them separate. One day you will need to bring data from the outside world into R and send numerical results and figures from R back out into the world. To handle these real life situations, you need to make two decisions:
+One day you will need to quit R, go do something else and return to your analysis the next day. One day you will be working on multiple analyses and/or projects simultaneously that all use R and you want to keep them separate. One day you will need to bring data from the outside world into R and send numerical results and figures from R back out into the world. To handle these real life situations, you need to make two decisions:
 
 1. What about your analysis is “real”, i.e. what will you save as your lasting record of what happened?
 
@@ -51,7 +51,7 @@ You should be able to **Reproduce** all your analyses from your saved R scripts 
 
 ## Where does your analysis live?
 
-"One day you will be working on multiple analyses simultaneously that all use R and you want to keep them separate"
+"One day you will be working on multiple analyses and/or projects simultaneously that all use R and you want to keep them separate"
 
 There are two levels at which your analysis will live
 
@@ -111,21 +111,7 @@ R Scripts are linked in a data processing workflow through the data files they c
 
 As long as the data files required for an R Script are already created, you should be able to open a completely new and fresh session of R and succesfully execute all the lines of code in that one Script (without having ran any other scripts). 
 
-This is why in the scripts you created for the previous Section they all had a similar structure:
-
-1. **Setup**
-
-2. **Import**
-
-3. **Do Stuff**
-
-4. **Output**
-
-In the **Setup** section you are making sure that all the packages for that ONE script are loaded, any import or output directory objects are set correctly, and any parameters for data cleaning are set. 
-
-Every R script in the **Data Preparation** stage *Imports* a file *AND* *Outputs* a file. This makes sure the scripts are linked in the data processing workflow by the **files** they create (output) and not by the Objects in the **Environment** they create. 
-
-Then at the end of each R Script I had you include the line of code
+At the end of each R Script I had you include the line of code
 
 ```{r}
 rm(list = ls())
@@ -133,9 +119,7 @@ rm(list = ls())
 
 This removes all Objects in your **Environment**. That way when you run the next R Script it is starting from a blank **Environment**
 
-Some people in the R community say this is not a good practice, but in reality it is not harmful to add this line of code. It is not perfect because it does not unload any packages that have been loaded.
-
-Given that I had you implementing these practices in the previous Section it might not seem like that big of a deal to you. Good! But sometimes when I look at other researcher's R Scripts sometimes I am dismayed at how poorly their projects and scripts are organized. You can start by implementing these **good data science practices** from the beginning without thinking too much of it.
+Some people in the R community say this is not a good practice, but in reality it is not harmful to add this line of code.
 
 ## Environment
 
@@ -215,9 +199,9 @@ For a passionate ode to the `here` package see: https://github.com/jennybc/here_
 
 First go ahead and install the `here` package, `install.packages("here")`.
 
-Basically, when the `here` package is loaded, `library(here)`, it will search for am .Rproj file and it will set a **starting** file path at that location when you use `here()`.
+Basically, when the `here` package is loaded, `library(here)`, it will search for an .Rproj file and it will set a **starting** file path at that location when you use `here()`.
 
-For instance, I have an .Rproj file saved in my "R-Tutorial" folder. When I use `here()` it will output a file path to that location.
+For instance, I have an .Rproj file saved in my "UseR_Guide" folder. When I use `here()` it will output a file path to that location.
 
 ```{r message = TRUE, warning = TRUE}
 library(here)
@@ -249,7 +233,7 @@ here("Data Files/Raw Data", "flanker_raw.csv")
 You can use `here()` directly in import and output functions:
 
 ```{r eval = FALSE}
-read_csv(here("Data Files/Raw Data", "flanker_raw.csv"))
+import <- read_csv(here("Data Files/Raw Data", "flanker_raw.csv"))
 ```
 
 

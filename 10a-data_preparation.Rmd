@@ -44,7 +44,7 @@ File --> New Project... --> New Directory --> Research Study
 
 * __Directory Name__: UseRGuide_DataCollection
 
-* __Create project as subdirectory of__: Your R_Tutorial directory
+* __Create project as subdirectory of__: Your UseR_Guide directory
 
 * __Repository Type__: data collection
 
@@ -55,12 +55,12 @@ File --> New Project... --> New Directory --> Research Study
 In the folder **UseRGuide_DataCollection** you should see an organization that looks like this:
 
 ```{r echo=FALSE, eval = TRUE, out.width='30%', fig.align='center'}
-knitr::include_graphics(rep("images/repository_datacollection.png"))
+knitr::include_graphics(rep("images/repository_type_collection.png"))
 ```
 
 You will notice that there are already some template scripts so you can quickly start using R for **Data Preparation**.
 
-**When working on this Data Preparation section you should open RStudio by opening the *UseRGuide_DataCollection.Rproj* file**.
+**Whenever working on this Data Preparation section you should open RStudio by opening the *UseRGuide_DataCollection.Rproj* file**.
 
 
 ********

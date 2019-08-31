@@ -17,9 +17,9 @@ Go ahead and download the example Flanker data set
 ----
 
 <div style="text-align: center; font-size: 1.25em">
-[<i class="fas fa-download" style="font-size: 3em"></i> ](http://englelab.gatech.edu/R/example_data/data_preparation.zip)
+[<i class="fas fa-download" style="font-size: 3em"></i> ](http://englelab.gatech.edu/userguide/data_preparation.zip)
 
-[**Download Example Flanker Data**](http://englelab.gatech.edu/R/example_data/data_preparation.zip)
+[**Download Example Flanker Data**](http://englelab.gatech.edu/userguide/data_preparation.zip)
 </div>
 
 ----

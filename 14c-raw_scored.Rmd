@@ -70,6 +70,7 @@ Again, just from the Setup section you can get an idea of what sort of data clea
 
 **Notice how you do not need to change anything in the _Import_ section.**
 
+
 ## Data Cleaning and Scoring
 
 ### What is the dependent variable?
@@ -357,7 +358,7 @@ Awesome! Now we have two data frames, one, `data_flanker`, with FlankerEffect sc
 
 Now we can merge these two data frames together using the `merge()` function from base R.
 
-```{r eval = FALSE}
+```{r eval}
 ## Merge
 data_flanker <- merge(data_flanker, data_binned, by = "Subject", all = TRUE)
 ```

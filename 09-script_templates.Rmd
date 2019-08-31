@@ -12,7 +12,7 @@ knitr::include_graphics(rep("images/workflow.png"))
 
 One of the nice features of using R scripts to analyze your data is that you can use a lot of the same code from one step or one project to another. 
 
-For each of these steps, the script organization from one task, analyis, or project to the next will be more or less the same. This means we can take advantage of using R script templates. Using R Script templates will not just save time but help you stay organized and use reproducibility practices talked about in the previous chapter.
+For each of these steps, the script organization from one task, analyis, or project to the next will be more or less the same. This means we can take advantage of using R script templates. Using R Script templates will not just save time but help you stay organized and use reproducibility practices talked about in the previous Section
 
 
 ## Download Templates
@@ -37,11 +37,11 @@ knitr::include_graphics(rep("images/workflow_prep1.png"))
 
 *Data Preparation* will occur in a Central Repository (Data Collection), separately from *Data Analysis*. It will have its own **.RProj** and **mastercript.R** files. 
 
+The main step during data preparation is converting *messy* raw data files to *tidy* raw data files. In the diagram below, this step corresponds to the **0_task_raw.R** script file.
+
 ```{r echo=FALSE, eval = TRUE, out.width='35%', fig.align='center'}
 knitr::include_graphics(rep("images/repository_central.png"))
 ```
-
-The main step during data preparation is converting *messy* raw data files to *tidy* raw data files. In the diagram above, this step corresponds to the **0_task_raw.R** script file.
 
 The rawscript filenames are prefixed with **0_** because this is a preliminary stage and are suffixed with **_raw.R** because they create a tidy raw data file called **task_raw.csv**.
 
@@ -127,7 +127,7 @@ The rest can LITERALLY stay the same. How easy!
 
 In the EngleLab, we often have up to 40 tasks for a single Data Collection study. When you have a lot of R Scripts it is quite tedious to open, **Source**, and exit, each R script one at a time. The **masterscript** allows you to **Source** each of your scripts with a line of code using `source()`. 
 
-The `source()` function is a way to execute all the lines of code in a script file. Rather than having to manually open each script file and sourcing it from there you can control your entire data processing workflow from the masterscript using `source()`. `echo = TRUE` will print the results of the script to the console that way you can still see what the script is doing.
+The `source()` function is a way to execute all the lines of code in a script file. Rather than having to manually open each script file and sourcing it from there you can control your entire data processing workflow from the masterscript using `source()`. The argument `echo = TRUE` will print the results of the script to the console that way you can still see what the script is doing.
 
 This allows you to run each script from the masterscript and control the order in which you run them. For Data Preparation the order does not really matter, but once you get to Data Analysis the order is crucial.
 
@@ -176,7 +176,7 @@ There may be some additional steps that are required but these are the basic one
 
 ### clean and score script
 
-If you want to download a template script for the step of cleaning and scoring a raw data file you can simply specify:
+If you want to download a template script for the step of cleaning and scoring a raw data file you can type in the console:
 
 ```{r}
 workflow::template(scorescript = TRUE)
@@ -314,7 +314,7 @@ Again, this template script has 4 main blocks:
 
 3) **Select and trim** only relevant variables.
 
-   It is likely that the individual **task_Scores.csv** files will have way more columns of scores than you are interested in. You may also want to trim outlier scores with `datawrangling::trim()`, which will be explained in more detail later. Also, optional to create a dataframw with a list of subjects that have made it through all the processing stages.
+   It is likely that the individual **task_Scores.csv** files will have way more columns of scores than you are interested in. You may also want to trim outlier scores with `datawrangling::trim()`, which will be explained in more detail later. Also, more optional is to create a dataframe with a list of subjects that have made it through all the processing stages.
    
 4) **Output** a final data file that is ready for statistical analysis with `write_csv()` from `readr`
 

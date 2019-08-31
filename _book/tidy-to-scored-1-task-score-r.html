@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>EngleLab: UseR Guide</title>
+  <title>Chapter 14 Tidy to Scored: 1_task_score.R | EngleLab: UseR Guide</title>
   <meta name="description" content="This is a useR Guide for the EngleLab">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="EngleLab: UseR Guide" />
+  <meta property="og:title" content="Chapter 14 Tidy to Scored: 1_task_score.R | EngleLab: UseR Guide" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="EngleLab" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="EngleLab: UseR Guide" />
+  <meta name="twitter:title" content="Chapter 14 Tidy to Scored: 1_task_score.R | EngleLab: UseR Guide" />
   
   <meta name="twitter:description" content="This is a useR Guide for the EngleLab" />
   
@@ -35,6 +35,7 @@
 <link rel="next" href="merge-create-a-final-data-file.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -66,7 +67,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -259,84 +260,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="12.4" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#output"><i class="fa fa-check"></i><b>12.4</b> Output</a></li>
 <li class="chapter" data-level="12.5" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#masterscript"><i class="fa fa-check"></i><b>12.5</b> Masterscript</a></li>
-<li class="chapter" data-level="12.6" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#more-raw-data"><i class="fa fa-check"></i><b>12.6</b> More Raw Data</a></li>
 </ul></li>
+<li class="chapter" data-level="13" data-path="complex-span-tasks.html"><a href="complex-span-tasks.html"><i class="fa fa-check"></i><b>13</b> Complex Span Tasks</a><ul>
+<li class="chapter" data-level="13.1" data-path="complex-span-tasks.html"><a href="complex-span-tasks.html#operation-span"><i class="fa fa-check"></i><b>13.1</b> Operation Span</a></li>
+<li class="chapter" data-level="13.2" data-path="complex-span-tasks.html"><a href="complex-span-tasks.html#symmetry-span"><i class="fa fa-check"></i><b>13.2</b> Symmetry Span</a></li>
+<li class="chapter" data-level="13.3" data-path="complex-span-tasks.html"><a href="complex-span-tasks.html#rotation-span"><i class="fa fa-check"></i><b>13.3</b> Rotation Span</a></li>
+<li class="chapter" data-level="13.4" data-path="complex-span-tasks.html"><a href="complex-span-tasks.html#example-symmetry-span"><i class="fa fa-check"></i><b>13.4</b> Example: Symmetry Span</a></li>
+<li class="chapter" data-level="13.5" data-path="complex-span-tasks.html"><a href="complex-span-tasks.html#tidy-file"><i class="fa fa-check"></i><b>13.5</b> Tidy File</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-preparation-summary.html"><a href="data-preparation-summary.html"><i class="fa fa-check"></i>Data Preparation: Summary</a></li>
 <li class="part"><span><b>V Cleaning and Scoring Data</b></span></li>
 <li class="chapter" data-level="" data-path="cleaning-and-scoring-data-overview.html"><a href="cleaning-and-scoring-data-overview.html"><i class="fa fa-check"></i>Cleaning and Scoring Data: Overview</a><ul>
-<li class="chapter" data-level="12.7" data-path="cleaning-and-scoring-data-overview.html"><a href="cleaning-and-scoring-data-overview.html#data-analysis-repository"><i class="fa fa-check"></i><b>12.7</b> Data Analysis Repository</a></li>
-<li class="chapter" data-level="12.8" data-path="cleaning-and-scoring-data-overview.html"><a href="cleaning-and-scoring-data-overview.html#copy-tidy-raw-data"><i class="fa fa-check"></i><b>12.8</b> Copy tidy raw data</a></li>
+<li class="chapter" data-level="13.6" data-path="cleaning-and-scoring-data-overview.html"><a href="cleaning-and-scoring-data-overview.html#data-analysis-repository"><i class="fa fa-check"></i><b>13.6</b> Data Analysis Repository</a></li>
+<li class="chapter" data-level="13.7" data-path="cleaning-and-scoring-data-overview.html"><a href="cleaning-and-scoring-data-overview.html#copy-tidy-raw-data"><i class="fa fa-check"></i><b>13.7</b> Copy tidy raw data</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="example-data-flanker.html"><a href="example-data-flanker.html"><i class="fa fa-check"></i>Example Data: Flanker</a></li>
-<li class="chapter" data-level="13" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html"><i class="fa fa-check"></i><b>13</b> Tidy to Scored: 1_task_score.R</a><ul>
-<li class="chapter" data-level="13.1" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#setup-2"><i class="fa fa-check"></i><b>13.1</b> Setup</a><ul>
-<li class="chapter" data-level="13.1.1" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#set-data-cleaning-parameters"><i class="fa fa-check"></i><b>13.1.1</b> Set Data Cleaning Parameters</a></li>
+<li class="chapter" data-level="14" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html"><i class="fa fa-check"></i><b>14</b> Tidy to Scored: 1_task_score.R</a><ul>
+<li class="chapter" data-level="14.1" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#setup-2"><i class="fa fa-check"></i><b>14.1</b> Setup</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#set-data-cleaning-parameters"><i class="fa fa-check"></i><b>14.1.1</b> Set Data Cleaning Parameters</a></li>
 </ul></li>
-<li class="chapter" data-level="13.2" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#data-cleaning-and-scoring"><i class="fa fa-check"></i><b>13.2</b> Data Cleaning and Scoring</a><ul>
-<li class="chapter" data-level="13.2.1" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#what-is-the-dependent-variable"><i class="fa fa-check"></i><b>13.2.1</b> What is the dependent variable?</a></li>
+<li class="chapter" data-level="14.2" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#data-cleaning-and-scoring"><i class="fa fa-check"></i><b>14.2</b> Data Cleaning and Scoring</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#what-is-the-dependent-variable"><i class="fa fa-check"></i><b>14.2.1</b> What is the dependent variable?</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#trimming-1"><i class="fa fa-check"></i><b>13.3</b> Trimming</a></li>
-<li class="chapter" data-level="13.4" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#calculate-flankereffect"><i class="fa fa-check"></i><b>13.4</b> Calculate FlankerEffect</a></li>
-<li class="chapter" data-level="13.5" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#remove-subjects"><i class="fa fa-check"></i><b>13.5</b> Remove Subjects</a></li>
-<li class="chapter" data-level="13.6" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#calculate-binned-scores"><i class="fa fa-check"></i><b>13.6</b> Calculate Binned Scores</a></li>
-<li class="chapter" data-level="13.7" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#merge"><i class="fa fa-check"></i><b>13.7</b> Merge</a></li>
-<li class="chapter" data-level="13.8" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#output-1"><i class="fa fa-check"></i><b>13.8</b> Output</a></li>
-<li class="chapter" data-level="13.9" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#masterscript-1"><i class="fa fa-check"></i><b>13.9</b> Masterscript</a></li>
+<li class="chapter" data-level="14.3" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#trimming-1"><i class="fa fa-check"></i><b>14.3</b> Trimming</a></li>
+<li class="chapter" data-level="14.4" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#calculate-flankereffect"><i class="fa fa-check"></i><b>14.4</b> Calculate FlankerEffect</a></li>
+<li class="chapter" data-level="14.5" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#remove-subjects"><i class="fa fa-check"></i><b>14.5</b> Remove Subjects</a></li>
+<li class="chapter" data-level="14.6" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#calculate-binned-scores"><i class="fa fa-check"></i><b>14.6</b> Calculate Binned Scores</a></li>
+<li class="chapter" data-level="14.7" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#merge"><i class="fa fa-check"></i><b>14.7</b> Merge</a></li>
+<li class="chapter" data-level="14.8" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#output-1"><i class="fa fa-check"></i><b>14.8</b> Output</a></li>
+<li class="chapter" data-level="14.9" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#masterscript-1"><i class="fa fa-check"></i><b>14.9</b> Masterscript</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html"><i class="fa fa-check"></i><b>14</b> Merge: Create A Final Data File</a><ul>
-<li class="chapter" data-level="14.1" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#setup-3"><i class="fa fa-check"></i><b>14.1</b> Setup</a></li>
-<li class="chapter" data-level="14.2" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#merge-1"><i class="fa fa-check"></i><b>14.2</b> Merge</a></li>
-<li class="chapter" data-level="14.3" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#select-and-trim"><i class="fa fa-check"></i><b>14.3</b> Select and Trim</a></li>
-<li class="chapter" data-level="14.4" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#output-2"><i class="fa fa-check"></i><b>14.4</b> Output</a></li>
-<li class="chapter" data-level="14.5" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#masterscript-2"><i class="fa fa-check"></i><b>14.5</b> Masterscript</a></li>
+<li class="chapter" data-level="15" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html"><i class="fa fa-check"></i><b>15</b> Merge: Create A Final Data File</a><ul>
+<li class="chapter" data-level="15.1" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#setup-3"><i class="fa fa-check"></i><b>15.1</b> Setup</a></li>
+<li class="chapter" data-level="15.2" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#merge-1"><i class="fa fa-check"></i><b>15.2</b> Merge</a></li>
+<li class="chapter" data-level="15.3" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#select-and-trim"><i class="fa fa-check"></i><b>15.3</b> Select and Trim</a></li>
+<li class="chapter" data-level="15.4" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#output-2"><i class="fa fa-check"></i><b>15.4</b> Output</a></li>
+<li class="chapter" data-level="15.5" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#masterscript-2"><i class="fa fa-check"></i><b>15.5</b> Masterscript</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="cleaning-and-scoring-data-summary.html"><a href="cleaning-and-scoring-data-summary.html"><i class="fa fa-check"></i>Cleaning and Scoring Data Summary</a></li>
 <li class="part"><span><b>VI Data Visualization</b></span></li>
 <li class="chapter" data-level="" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html"><i class="fa fa-check"></i>Data Visualization: Overview</a><ul>
-<li class="chapter" data-level="14.6" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#r-markdown"><i class="fa fa-check"></i><b>14.6</b> R Markdown</a><ul>
-<li class="chapter" data-level="14.6.1" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#what-is-an-r-markdown-file"><i class="fa fa-check"></i><b>14.6.1</b> What is an R Markdown File?</a></li>
-<li class="chapter" data-level="14.6.2" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#yaml-header"><i class="fa fa-check"></i><b>14.6.2</b> YAML header</a></li>
-<li class="chapter" data-level="14.6.3" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#r-code-chunks"><i class="fa fa-check"></i><b>14.6.3</b> R code chunks</a></li>
-<li class="chapter" data-level="14.6.4" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#formatted-text"><i class="fa fa-check"></i><b>14.6.4</b> Formatted text</a></li>
+<li class="chapter" data-level="15.6" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#r-markdown"><i class="fa fa-check"></i><b>15.6</b> R Markdown</a><ul>
+<li class="chapter" data-level="15.6.1" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#what-is-an-r-markdown-file"><i class="fa fa-check"></i><b>15.6.1</b> What is an R Markdown File?</a></li>
+<li class="chapter" data-level="15.6.2" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#yaml-header"><i class="fa fa-check"></i><b>15.6.2</b> YAML header</a></li>
+<li class="chapter" data-level="15.6.3" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#r-code-chunks"><i class="fa fa-check"></i><b>15.6.3</b> R code chunks</a></li>
+<li class="chapter" data-level="15.6.4" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#formatted-text"><i class="fa fa-check"></i><b>15.6.4</b> Formatted text</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html"><i class="fa fa-check"></i><b>15</b> Fundamentals of Data Visualization</a><ul>
-<li class="chapter" data-level="15.1" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>15.1</b> Grammar of Graphics</a></li>
-<li class="chapter" data-level="15.2" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html#plotting-functions-in-r"><i class="fa fa-check"></i><b>15.2</b> Plotting Functions in R</a></li>
+<li class="chapter" data-level="16" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html"><i class="fa fa-check"></i><b>16</b> Fundamentals of Data Visualization</a><ul>
+<li class="chapter" data-level="16.1" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>16.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="16.2" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html#plotting-functions-in-r"><i class="fa fa-check"></i><b>16.2</b> Plotting Functions in R</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>16</b> Introduction to ggplot2</a><ul>
-<li class="chapter" data-level="16.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#grammar-of-graphics-1"><i class="fa fa-check"></i><b>16.1</b> Grammar of Graphics</a></li>
-<li class="chapter" data-level="16.2" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#data-layer"><i class="fa fa-check"></i><b>16.2</b> Data layer</a></li>
-<li class="chapter" data-level="16.3" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#aesthetic-layer"><i class="fa fa-check"></i><b>16.3</b> Aesthetic Layer</a></li>
-<li class="chapter" data-level="16.4" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#geometries-layer"><i class="fa fa-check"></i><b>16.4</b> Geometries Layer</a></li>
-<li class="chapter" data-level="16.5" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#facets-layer"><i class="fa fa-check"></i><b>16.5</b> Facets Layer</a></li>
-<li class="chapter" data-level="16.6" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#statistics-layer"><i class="fa fa-check"></i><b>16.6</b> Statistics Layer</a></li>
-<li class="chapter" data-level="16.7" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#coordinates-layer"><i class="fa fa-check"></i><b>16.7</b> Coordinates Layer</a></li>
-<li class="chapter" data-level="16.8" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#themes-layer"><i class="fa fa-check"></i><b>16.8</b> Themes Layer</a><ul>
-<li class="chapter" data-level="16.8.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#built-in-themes"><i class="fa fa-check"></i><b>16.8.1</b> Built-in Themes</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i><b>17</b> Scatterplots</a><ul>
-<li class="chapter" data-level="17.1" data-path="scatterplots.html"><a href="scatterplots.html#scatterplots-1"><i class="fa fa-check"></i><b>17.1</b> Scatterplots</a><ul>
-<li class="chapter" data-level="17.1.1" data-path="scatterplots.html"><a href="scatterplots.html#adding-other-geoms"><i class="fa fa-check"></i><b>17.1.1</b> Adding other geoms</a></li>
+<li class="chapter" data-level="17" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>17</b> Introduction to ggplot2</a><ul>
+<li class="chapter" data-level="17.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#grammar-of-graphics-1"><i class="fa fa-check"></i><b>17.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="17.2" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#data-layer"><i class="fa fa-check"></i><b>17.2</b> Data layer</a></li>
+<li class="chapter" data-level="17.3" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#aesthetic-layer"><i class="fa fa-check"></i><b>17.3</b> Aesthetic Layer</a></li>
+<li class="chapter" data-level="17.4" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#geometries-layer"><i class="fa fa-check"></i><b>17.4</b> Geometries Layer</a></li>
+<li class="chapter" data-level="17.5" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#facets-layer"><i class="fa fa-check"></i><b>17.5</b> Facets Layer</a></li>
+<li class="chapter" data-level="17.6" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#statistics-layer"><i class="fa fa-check"></i><b>17.6</b> Statistics Layer</a></li>
+<li class="chapter" data-level="17.7" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#coordinates-layer"><i class="fa fa-check"></i><b>17.7</b> Coordinates Layer</a></li>
+<li class="chapter" data-level="17.8" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#themes-layer"><i class="fa fa-check"></i><b>17.8</b> Themes Layer</a><ul>
+<li class="chapter" data-level="17.8.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#built-in-themes"><i class="fa fa-check"></i><b>17.8.1</b> Built-in Themes</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="plotting-means.html"><a href="plotting-means.html"><i class="fa fa-check"></i><b>18</b> Plotting Means</a><ul>
-<li class="chapter" data-level="18.1" data-path="plotting-means.html"><a href="plotting-means.html#bar-graphs"><i class="fa fa-check"></i><b>18.1</b> Bar Graphs</a><ul>
-<li class="chapter" data-level="18.1.1" data-path="plotting-means.html"><a href="plotting-means.html#multidimensional-bar-plot"><i class="fa fa-check"></i><b>18.1.1</b> Multidimensional Bar Plot</a></li>
+<li class="chapter" data-level="18" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i><b>18</b> Scatterplots</a><ul>
+<li class="chapter" data-level="18.1" data-path="scatterplots.html"><a href="scatterplots.html#scatterplots-1"><i class="fa fa-check"></i><b>18.1</b> Scatterplots</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="scatterplots.html"><a href="scatterplots.html#adding-other-geoms"><i class="fa fa-check"></i><b>18.1.1</b> Adding other geoms</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="univariate-plots.html"><a href="univariate-plots.html"><i class="fa fa-check"></i><b>19</b> Univariate Plots</a></li>
-<li class="chapter" data-level="20" data-path="sjplot.html"><a href="sjplot.html"><i class="fa fa-check"></i><b>20</b> <code>sjPlot</code></a></li>
-<li class="chapter" data-level="21" data-path="custom-tables.html"><a href="custom-tables.html"><i class="fa fa-check"></i><b>21</b> Custom Tables</a></li>
+<li class="chapter" data-level="19" data-path="plotting-means.html"><a href="plotting-means.html"><i class="fa fa-check"></i><b>19</b> Plotting Means</a><ul>
+<li class="chapter" data-level="19.1" data-path="plotting-means.html"><a href="plotting-means.html#bar-graphs"><i class="fa fa-check"></i><b>19.1</b> Bar Graphs</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="plotting-means.html"><a href="plotting-means.html#multidimensional-bar-plot"><i class="fa fa-check"></i><b>19.1.1</b> Multidimensional Bar Plot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="univariate-plots.html"><a href="univariate-plots.html"><i class="fa fa-check"></i><b>20</b> Univariate Plots</a></li>
+<li class="chapter" data-level="21" data-path="sjplot.html"><a href="sjplot.html"><i class="fa fa-check"></i><b>21</b> <code>sjPlot</code></a></li>
+<li class="chapter" data-level="22" data-path="custom-tables.html"><a href="custom-tables.html"><i class="fa fa-check"></i><b>22</b> Custom Tables</a></li>
 <li class="part"><span><b>VII Statistical Analysis</b></span></li>
 <li class="chapter" data-level="" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html"><i class="fa fa-check"></i>Statistical Analysis: Overview</a><ul>
-<li class="chapter" data-level="21.1" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#r-markdown-1"><i class="fa fa-check"></i><b>21.1</b> R Markdown</a><ul>
-<li class="chapter" data-level="21.1.1" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#what-is-an-r-markdown-file-1"><i class="fa fa-check"></i><b>21.1.1</b> What is an R Markdown File?</a></li>
-<li class="chapter" data-level="21.1.2" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#yaml-header-1"><i class="fa fa-check"></i><b>21.1.2</b> YAML header</a></li>
-<li class="chapter" data-level="21.1.3" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#r-code-chunks-1"><i class="fa fa-check"></i><b>21.1.3</b> R code chunks</a></li>
-<li class="chapter" data-level="21.1.4" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#formatted-text-1"><i class="fa fa-check"></i><b>21.1.4</b> Formatted text</a></li>
+<li class="chapter" data-level="22.1" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#r-markdown-1"><i class="fa fa-check"></i><b>22.1</b> R Markdown</a><ul>
+<li class="chapter" data-level="22.1.1" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#what-is-an-r-markdown-file-1"><i class="fa fa-check"></i><b>22.1.1</b> What is an R Markdown File?</a></li>
+<li class="chapter" data-level="22.1.2" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#yaml-header-1"><i class="fa fa-check"></i><b>22.1.2</b> YAML header</a></li>
+<li class="chapter" data-level="22.1.3" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#r-code-chunks-1"><i class="fa fa-check"></i><b>22.1.3</b> R code chunks</a></li>
+<li class="chapter" data-level="22.1.4" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#formatted-text-1"><i class="fa fa-check"></i><b>22.1.4</b> Formatted text</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="statistics-in-r.html"><a href="statistics-in-r.html"><i class="fa fa-check"></i><b>22</b> Statistics in R</a></li>
+<li class="chapter" data-level="23" data-path="statistics-in-r.html"><a href="statistics-in-r.html"><i class="fa fa-check"></i><b>23</b> Statistics in R</a></li>
 <li class="divider"></li>
 <li><a href="http://englelab.gatech.edu/jason">Jason Tsukahara</a></li>
 
@@ -358,23 +367,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="tidy-to-scored-1_task_score.r" class="section level1">
-<h1><span class="header-section-number">Chapter 13</span> Tidy to Scored: 1_task_score.R</h1>
+<h1><span class="header-section-number">Chapter 14</span> Tidy to Scored: 1_task_score.R</h1>
 <p><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"></p>
 <p>In this Chapter you will go over an example of how to write an R Script for <strong>converting <em>tidy</em> raw data files to scored and cleaned data files</strong>.</p>
 <div id="setup-2" class="section level2">
-<h2><span class="header-section-number">13.1</span> Setup</h2>
+<h2><span class="header-section-number">14.1</span> Setup</h2>
 <p>You should have created your <strong>Data Analysis</strong> repository and copied over the example Flanker data set. If not go back to <strong>Data Cleaning and Scoring: Overview</strong> and <strong>Example Data: Flanker</strong>.</p>
 <p>If you have not done so already, open RStudio by opening the <em>UseRGuide_DataAnalysis.Rproj</em> R Project file.</p>
 <p>In the folder <strong>R Scripts/templates</strong> open the file <strong>1_taskname_score.R</strong> and save it as <strong>1_flanker_score.R</strong> in the <strong>R Scripts</strong> folder.</p>
 <p>If you do not see the template file <strong>1_taskname_score.R</strong>, you can download it. Just type in the following line of code in the console</p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" title="1">workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">scorescript =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">scorescript =</span> <span class="ot">TRUE</span>)</code></pre>
 <hr />
 <p>In the R script file take note of the import and output directories.</p>
-<p>Change <code>task &lt;- "taskname"</code> to <code>task &lt;- "Flanker"</code></p>
+<p>Change <code>task &lt;- &quot;taskname&quot;</code> to <code>task &lt;- &quot;Flanker&quot;</code></p>
 <p>Just by looking at the Setup section of the script you should be able to tell that this script will import the file Data Files/Raw Data/<strong>Flanker_raw.csv</strong> and output the file Data Files/Scored Data/<strong>Flanker_Scores.csv</strong>.</p>
 <hr />
 <div id="set-data-cleaning-parameters" class="section level3">
-<h3><span class="header-section-number">13.1.1</span> Set Data Cleaning Parameters</h3>
+<h3><span class="header-section-number">14.1.1</span> Set Data Cleaning Parameters</h3>
 <p>In the example we are about to go through we will implement the following data cleaning procedures when calculating the <code>FlankerEffect</code>. They will be implemented in the following order</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>rt.min</strong>: Set RTs less than 200ms to missing (<code>NA</code>) and Accuracy to incorrect (<code>0</code>).</p></li>
@@ -382,20 +391,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>acc.criteria</strong>: Finally remove subjects that performed less than <strong>3.5 standard deviations</strong> below the mean accuracy on any <code>Condition</code> (congruent or incongruent).</p></li>
 </ol>
 <p>Let’s add these data cleaning parameters to the <em>Setup</em> block</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" title="1"><span class="co">## Set Data Cleaning Params </span></a>
-<a class="sourceLine" id="cb211-2" title="2">rt.min &lt;-<span class="st"> </span><span class="dv">200</span></a>
-<a class="sourceLine" id="cb211-3" title="3">rt.trim &lt;-<span class="st"> </span><span class="fl">3.5</span></a>
-<a class="sourceLine" id="cb211-4" title="4">acc.criteria &lt;-<span class="st"> </span><span class="fl">-3.5</span></a>
-<a class="sourceLine" id="cb211-5" title="5"><span class="co">#############</span></a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Set Data Cleaning Params </span>
+rt.min &lt;-<span class="st"> </span><span class="dv">200</span>
+rt.trim &lt;-<span class="st"> </span><span class="fl">3.5</span>
+acc.criteria &lt;-<span class="st"> </span><span class="fl">-3.5</span>
+<span class="co">#############</span></code></pre>
 <p>You will now be able to use these objects <code>rt.min</code>, <code>rt.trim</code>, and <code>acc.criteria</code> when writing the code to actually do the data cleaning. This is useful because if you want to change these parameters you can do it right here in the <em>Setup</em> block rather than searching through all your code and figure out where you need to change the values.</p>
 <p>Again, just from the Setup section you can get an idea of what sort of data cleaning criteria we will use.</p>
 <p><strong>Notice how you do not need to change anything in the <em>Import</em> section.</strong></p>
 </div>
 </div>
 <div id="data-cleaning-and-scoring" class="section level2">
-<h2><span class="header-section-number">13.2</span> Data Cleaning and Scoring</h2>
+<h2><span class="header-section-number">14.2</span> Data Cleaning and Scoring</h2>
 <div id="what-is-the-dependent-variable" class="section level3">
-<h3><span class="header-section-number">13.2.1</span> What is the dependent variable?</h3>
+<h3><span class="header-section-number">14.2.1</span> What is the dependent variable?</h3>
 <p>The next block is where we do the actual <strong>data cleaning and task scoring</strong>.</p>
 <p>This step is more complicated and often times requires some forethought. But we don’t always have the best forethought so you will likely re-write previous lines of code.</p>
 <p>One thing you must think about before writing the script for this stage is the statistical analyses you eventually plan on conducting. The type of statistical analyses you plan on conducting will determine the final dataframe you want to end up at in this stage of data analysis.</p>
@@ -409,24 +418,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="trimming-1" class="section level2">
-<h2><span class="header-section-number">13.3</span> Trimming</h2>
+<h2><span class="header-section-number">14.3</span> Trimming</h2>
 <p>First we need to get rid of <strong>practice trials</strong> / keep only <strong>real trials</strong>.</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" title="1"><span class="co">## Data Cleaning and Scoring ####</span></a>
-<a class="sourceLine" id="cb212-2" title="2"><span class="co">## Trimming </span></a>
-<a class="sourceLine" id="cb212-3" title="3">data_trim &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb212-4" title="4"><span class="st">  </span><span class="kw">filter</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>)</a>
-<a class="sourceLine" id="cb212-5" title="5"><span class="co">#################################</span></a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Data Cleaning and Scoring ####</span>
+<span class="co">## Trimming </span>
+data_trim &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>)
+<span class="co">#################################</span></code></pre>
 <p>Then,</p>
 <ol style="list-style-type: decimal">
 <li>set RTs less than 200ms to missing (<code>NA</code>) and Accuracy to <code>0</code> using <code>mutate()</code> and <code>ifelse()</code></li>
 </ol>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" title="1"><span class="co">## Data Cleaning and Scoring ####</span></a>
-<a class="sourceLine" id="cb213-2" title="2"><span class="co">## Trimming </span></a>
-<a class="sourceLine" id="cb213-3" title="3">data_trim &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb213-4" title="4"><span class="st">  </span><span class="kw">filter</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb213-5" title="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(RT <span class="op">&lt;</span><span class="st"> </span>rt.min, <span class="ot">NA</span>, RT),</a>
-<a class="sourceLine" id="cb213-6" title="6">         <span class="dt">Accuracy =</span> <span class="kw">ifelse</span>(RT <span class="op">&lt;</span><span class="st"> </span>rt.min, <span class="dv">0</span>, Accuracy))</a>
-<a class="sourceLine" id="cb213-7" title="7"><span class="co">#################################</span></a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Data Cleaning and Scoring ####</span>
+<span class="co">## Trimming </span>
+data_trim &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(RT <span class="op">&lt;</span><span class="st"> </span>rt.min, <span class="ot">NA</span>, RT),
+         <span class="dt">Accuracy =</span> <span class="kw">ifelse</span>(RT <span class="op">&lt;</span><span class="st"> </span>rt.min, <span class="dv">0</span>, Accuracy))
+<span class="co">#################################</span></code></pre>
 <p>And,</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Trim RTs, grouped by <strong>Subject</strong> and <strong>Condition</strong> using the <code>trim()</code> function from my <code>datawrangling</code> package.</li>
@@ -435,42 +444,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><p><strong>variables</strong>: The column name that contains the values you want to trim</p></li>
 <li><p><strong>cutoff</strong>: What <em>z-score</em> cutoff value you want to use</p></li>
-<li><p><strong>replace</strong>: How you want to replace the outlier values. Options are, <code>"mean"</code>, <code>"cutoff"</code>, or <code>"NA</code></p></li>
+<li><p><strong>replace</strong>: How you want to replace the outlier values. Options are, <code>&quot;mean&quot;</code>, <code>&quot;cutoff&quot;</code>, or <code>&quot;NA</code></p></li>
 </ul>
 <p>You can use <code>group_by()</code> with <code>trim()</code> to trim independently for each <code>Condition</code> (congruent, incongruent, neutral). Always <code>ungroup()</code> afterwards.</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" title="1"><span class="co">## Data Cleaning and Scoring ####</span></a>
-<a class="sourceLine" id="cb214-2" title="2"><span class="co">## Trimming </span></a>
-<a class="sourceLine" id="cb214-3" title="3">data_trim &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb214-4" title="4"><span class="st">  </span><span class="kw">filter</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb214-5" title="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(RT <span class="op">&lt;</span><span class="st"> </span>rt.min, <span class="ot">NA</span>, RT),</a>
-<a class="sourceLine" id="cb214-6" title="6">         <span class="dt">Accuracy =</span> <span class="kw">ifelse</span>(RT <span class="op">&lt;</span><span class="st"> </span>rt.min, <span class="dv">0</span>, Accuracy)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb214-7" title="7"><span class="st">  </span><span class="kw">group_by</span>(Subject, Condition) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb214-8" title="8"><span class="st">  </span><span class="kw">trim</span>(<span class="dt">variables =</span> <span class="st">&quot;RT&quot;</span>, <span class="dt">cutoff =</span> rt.trim, <span class="dt">replace =</span> <span class="st">&quot;cutoff&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb214-9" title="9"><span class="st">  </span><span class="kw">ungroup</span>()</a>
-<a class="sourceLine" id="cb214-10" title="10"><span class="co">#################################</span></a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Data Cleaning and Scoring ####</span>
+<span class="co">## Trimming </span>
+data_trim &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(RT <span class="op">&lt;</span><span class="st"> </span>rt.min, <span class="ot">NA</span>, RT),
+         <span class="dt">Accuracy =</span> <span class="kw">ifelse</span>(RT <span class="op">&lt;</span><span class="st"> </span>rt.min, <span class="dv">0</span>, Accuracy)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Subject, Condition) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">trim</span>(<span class="dt">variables =</span> <span class="st">&quot;RT&quot;</span>, <span class="dt">cutoff =</span> rt.trim, <span class="dt">replace =</span> <span class="st">&quot;cutoff&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ungroup</span>()
+<span class="co">#################################</span></code></pre>
 <p>This will trim any RTs that are 3.5 SDs above or below the mean grouped by Subject and Condition, and then replace the outlier score with 3.5 SDs above or below the mean.</p>
 <p>We will implement the third data cleaning procedure later.</p>
 </div>
 <div id="calculate-flankereffect" class="section level2">
-<h2><span class="header-section-number">13.4</span> Calculate FlankerEffect</h2>
+<h2><span class="header-section-number">14.4</span> Calculate FlankerEffect</h2>
 <p>What we want to do is calculate both the <code>FlankerEffect</code> and <code>FlankerBinned</code> Scores. These are separate scoring procedures. The general approach we will take is to create two separate dataframes for each procedure, based off the <code>data_trim</code> dataframe. Then we will <code>merge</code> the two dataframes back into one.</p>
 <p>First calculate the <code>FlankerEffect</code>. We want to calcualte the <code>FlankerEffect</code> on <code>RT</code> using only <code>Accurate</code> trials. Since we also want to calculate the <code>FlankerEffect</code> on <code>Accuracy</code> we cannot just use a <code>filter()</code>. Instead we should <code>mutate()</code> the values in <code>RT</code> to be <code>NA</code> when <code>Accuracy</code> is <code>0</code>.</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" title="1"><span class="co">## Calculate Flanker Effect</span></a>
-<a class="sourceLine" id="cb215-2" title="2">data_flanker &lt;-<span class="st"> </span>data_trim <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb215-3" title="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(Accuracy <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="ot">NA</span>, RT))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Calculate Flanker Effect</span>
+data_flanker &lt;-<span class="st"> </span>data_trim <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(Accuracy <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="ot">NA</span>, RT))</code></pre>
 <p>Notice how we are now creating a new dataframe called <code>data_flanker</code>.</p>
 <p>Next step is to calculate mean <code>RT</code> and mean <code>Accuracy</code> separately for congruent, incongruent, and neutral trials.</p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" title="1"><span class="co">## Calculate Flanker Effect</span></a>
-<a class="sourceLine" id="cb216-2" title="2">data_flanker &lt;-<span class="st"> </span>data_trim <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb216-3" title="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(Accuracy <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="ot">NA</span>, RT)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb216-4" title="4"><span class="st">  </span><span class="kw">group_by</span>(Subject, Condition) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb216-5" title="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">RT.mean =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb216-6" title="6">            <span class="dt">Accuracy.mean =</span> <span class="kw">mean</span>(Accuracy, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb216-7" title="7"><span class="st">  </span><span class="kw">ungroup</span>()</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Calculate Flanker Effect</span>
+data_flanker &lt;-<span class="st"> </span>data_trim <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(Accuracy <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="ot">NA</span>, RT)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Subject, Condition) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">RT.mean =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
+            <span class="dt">Accuracy.mean =</span> <span class="kw">mean</span>(Accuracy, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ungroup</span>()</code></pre>
 <p>Because we used <code>group_by(Subject, Condition)</code>, <code>summarise()</code> will calculate the mean <code>RT</code> and mean <code>Accuracy</code> separately for each <code>Subject</code> and each <code>Condition</code>.</p>
 <p><strong>Always be sure to <code>ungroup()</code> afterwards.</strong></p>
 <p>View the data frame. In the console type</p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" title="1"><span class="kw">View</span>(data_flanker)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">View</span>(data_flanker)</code></pre>
 <p>Now rather than having one row per trial, <code>group_by()</code> and <code>summarise()</code> has aggregated the data down to <code>Subject</code> x <code>Condition</code>. What we want to do is calculate the difference between incongruent and congruent conditions on <code>RT.mean</code> and <code>Accuracy.mean</code>. However, congruent, incongruent, and neutral conditions are on separate rows.</p>
 <p>What we need to do is <code>reshape</code> the data so that there is a column for each <code>Condition</code> on <code>RT.mean</code> and <code>Accuracy.mean</code>. Our columns should be</p>
 <ul>
@@ -486,33 +495,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><p><strong>variables</strong>: The column name that contains the key variables to <code>spread</code> on</p></li>
 <li><p><strong>values</strong>: The column name(s) that hold the values to be used</p></li>
-<li><p><strong>id</strong>: Which columns should be preserved (i.e. <code>Subject</code>)</p></li>
+<li><p><strong>id</strong>: Which columns should be preserved (i.e. <code>Subject</code>)</p></li>
 </ul>
 <p>So we can add something like this</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" title="1"><span class="co">## Calculate Flanker Effect</span></a>
-<a class="sourceLine" id="cb218-2" title="2">data_flanker &lt;-<span class="st"> </span>data_trim <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb218-3" title="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(Accuracy <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="ot">NA</span>, RT)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb218-4" title="4"><span class="st">  </span><span class="kw">group_by</span>(Subject, Condition) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb218-5" title="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">RT.mean =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb218-6" title="6">            <span class="dt">ACC.mean =</span> <span class="kw">mean</span>(Accuracy, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb218-7" title="7"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb218-8" title="8"><span class="st">  </span><span class="kw">reshape_spread</span>(<span class="dt">variables =</span> <span class="st">&quot;Condition&quot;</span>,</a>
-<a class="sourceLine" id="cb218-9" title="9">                 <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;RT.mean&quot;</span>, <span class="st">&quot;ACC.mean&quot;</span>))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Calculate Flanker Effect</span>
+data_flanker &lt;-<span class="st"> </span>data_trim <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(Accuracy <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="ot">NA</span>, RT)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Subject, Condition) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">RT.mean =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
+            <span class="dt">ACC.mean =</span> <span class="kw">mean</span>(Accuracy, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">reshape_spread</span>(<span class="dt">variables =</span> <span class="st">&quot;Condition&quot;</span>,
+                 <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;RT.mean&quot;</span>, <span class="st">&quot;ACC.mean&quot;</span>))</code></pre>
 <p>Now <code>View()</code> the data frame. There should now be only ONE row per <code>Subject</code>. We can now just use <code>mutate()</code> to calculate the difference between these columns to get the <code>FlankerEffect</code>.</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" title="1"><span class="co">## Calculate Flanker Effect</span></a>
-<a class="sourceLine" id="cb219-2" title="2">data_flanker &lt;-<span class="st"> </span>data_trim <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb219-3" title="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(Accuracy <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="ot">NA</span>, RT)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb219-4" title="4"><span class="st">  </span><span class="kw">group_by</span>(Subject, Condition) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb219-5" title="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">RT.mean =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb219-6" title="6">            <span class="dt">Accuracy.mean =</span> <span class="kw">mean</span>(Accuracy, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb219-7" title="7"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb219-8" title="8"><span class="st">  </span><span class="kw">reshape_spread</span>(<span class="dt">variables =</span> <span class="st">&quot;Condition&quot;</span>,</a>
-<a class="sourceLine" id="cb219-9" title="9">                 <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;RT.mean&quot;</span>, <span class="st">&quot;Accuracy.mean&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb219-10" title="10"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">FlankerEffect_RT =</span> incongruent_RT.mean <span class="op">-</span><span class="st"> </span>congruent_RT.mean,</a>
-<a class="sourceLine" id="cb219-11" title="11">         <span class="dt">FlankerEffect_ACC =</span> incongruent_Accuracy.mean <span class="op">-</span><span class="st"> </span>congruent_Accuracy.mean)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Calculate Flanker Effect</span>
+data_flanker &lt;-<span class="st"> </span>data_trim <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RT =</span> <span class="kw">ifelse</span>(Accuracy <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="ot">NA</span>, RT)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Subject, Condition) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">RT.mean =</span> <span class="kw">mean</span>(RT, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
+            <span class="dt">Accuracy.mean =</span> <span class="kw">mean</span>(Accuracy, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">reshape_spread</span>(<span class="dt">variables =</span> <span class="st">&quot;Condition&quot;</span>,
+                 <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;RT.mean&quot;</span>, <span class="st">&quot;Accuracy.mean&quot;</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">FlankerEffect_RT =</span> incongruent_RT.mean <span class="op">-</span><span class="st"> </span>congruent_RT.mean,
+         <span class="dt">FlankerEffect_ACC =</span> incongruent_Accuracy.mean <span class="op">-</span><span class="st"> </span>congruent_Accuracy.mean)</code></pre>
 </div>
 <div id="remove-subjects" class="section level2">
-<h2><span class="header-section-number">13.5</span> Remove Subjects</h2>
+<h2><span class="header-section-number">14.5</span> Remove Subjects</h2>
 <p>Next, we should implement the third data cleaning procedure listed above.</p>
 <ol start="3" style="list-style-type: decimal">
 <li><strong>acc.criteria</strong>: Remove subjects that performed less than <strong>3.5 standard deviations</strong> below the mean accuracy on any <code>Condition</code> (congruent, incongruent, or neutral).</li>
@@ -525,15 +534,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>The criteria we are removing subjects based on are those who performed 3.5 SDs below the mean. So we first need to calculate a column of z-scores (on SD units), then filter those who are below 3.5 z-scores.</p>
 <p>We can use <code>datawrangling::center()</code> to standardize the variables.</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" title="1"><span class="co">## Remove Subjects</span></a>
-<a class="sourceLine" id="cb220-2" title="2">data_remove &lt;-<span class="st"> </span>data_flanker <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb220-3" title="3"><span class="st">  </span><span class="kw">center</span>(<span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;congruent_Accuracy.mean&quot;</span>, </a>
-<a class="sourceLine" id="cb220-4" title="4">                       <span class="st">&quot;incongruent_Accuracy.mean&quot;</span>, </a>
-<a class="sourceLine" id="cb220-5" title="5">                       <span class="st">&quot;neutral_Accuracy.mean&quot;</span>), </a>
-<a class="sourceLine" id="cb220-6" title="6">         <span class="dt">standardize =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb220-7" title="7"><span class="st">  </span><span class="kw">filter</span>(congruent_Accuracy.mean_z <span class="op">&lt;</span><span class="st"> </span>acc.criteria <span class="op">|</span></a>
-<a class="sourceLine" id="cb220-8" title="8"><span class="st">           </span>incongruent_Accuracy.mean_z <span class="op">&lt;</span><span class="st"> </span>acc.criteria <span class="op">|</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb220-9" title="9"><span class="st">           </span>neutral_Accuracy.mean_z <span class="op">&lt;</span><span class="st"> </span>acc.criteria)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Remove Subjects</span>
+data_remove &lt;-<span class="st"> </span>data_flanker <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">center</span>(<span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;congruent_Accuracy.mean&quot;</span>, 
+                       <span class="st">&quot;incongruent_Accuracy.mean&quot;</span>, 
+                       <span class="st">&quot;neutral_Accuracy.mean&quot;</span>), 
+         <span class="dt">standardize =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(congruent_Accuracy.mean_z <span class="op">&lt;</span><span class="st"> </span>acc.criteria <span class="op">|</span>
+<span class="st">           </span>incongruent_Accuracy.mean_z <span class="op">&lt;</span><span class="st"> </span>acc.criteria <span class="op">|</span><span class="st"> </span>
+<span class="st">           </span>neutral_Accuracy.mean_z <span class="op">&lt;</span><span class="st"> </span>acc.criteria)</code></pre>
 <p>Then use <code>remove_save()</code>. The main arguments to specify are:</p>
 <ul>
 <li><p><strong>x</strong>: the data frame that contains ALL subjects</p></li>
@@ -542,36 +551,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>output.file</strong>: name of file with removed subjects</p></li>
 </ul>
 <p>I put the removed subjects in a folder called <em>“removed”</em> and named the file <em>“Flanker_removed.csv”</em>.</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" title="1"><span class="co">## Remove Subjects</span></a>
-<a class="sourceLine" id="cb221-2" title="2">data_remove &lt;-<span class="st"> </span>data_flanker <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb221-3" title="3"><span class="st">  </span><span class="kw">center</span>(<span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;congruent_Accuracy.mean&quot;</span>, </a>
-<a class="sourceLine" id="cb221-4" title="4">                       <span class="st">&quot;incongruent_Accuracy.mean&quot;</span>, </a>
-<a class="sourceLine" id="cb221-5" title="5">                       <span class="st">&quot;neutral_Accuracy.mean&quot;</span>), </a>
-<a class="sourceLine" id="cb221-6" title="6">         <span class="dt">standardize =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb221-7" title="7"><span class="st">  </span><span class="kw">filter</span>(congruent_Accuracy.mean_z <span class="op">&lt;</span><span class="st"> </span>acc.criteria <span class="op">|</span></a>
-<a class="sourceLine" id="cb221-8" title="8"><span class="st">           </span>incongruent_Accuracy.mean_z <span class="op">&lt;</span><span class="st"> </span>acc.criteria <span class="op">|</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb221-9" title="9"><span class="st">           </span>neutral_Accuracy.mean_z <span class="op">&lt;</span><span class="st"> </span>acc.criteria)</a>
-<a class="sourceLine" id="cb221-10" title="10"></a>
-<a class="sourceLine" id="cb221-11" title="11">data_flanker &lt;-<span class="st"> </span><span class="kw">remove_save</span>(data_flanker, data_remove, </a>
-<a class="sourceLine" id="cb221-12" title="12">                            <span class="dt">output.dir =</span> <span class="kw">here</span>(output.dir, <span class="st">&quot;removed&quot;</span>), </a>
-<a class="sourceLine" id="cb221-13" title="13">                            <span class="dt">output.file =</span> <span class="kw">paste</span>(task, <span class="st">&quot;removed.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Remove Subjects</span>
+data_remove &lt;-<span class="st"> </span>data_flanker <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">center</span>(<span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;congruent_Accuracy.mean&quot;</span>, 
+                       <span class="st">&quot;incongruent_Accuracy.mean&quot;</span>, 
+                       <span class="st">&quot;neutral_Accuracy.mean&quot;</span>), 
+         <span class="dt">standardize =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(congruent_Accuracy.mean_z <span class="op">&lt;</span><span class="st"> </span>acc.criteria <span class="op">|</span>
+<span class="st">           </span>incongruent_Accuracy.mean_z <span class="op">&lt;</span><span class="st"> </span>acc.criteria <span class="op">|</span><span class="st"> </span>
+<span class="st">           </span>neutral_Accuracy.mean_z <span class="op">&lt;</span><span class="st"> </span>acc.criteria)
+
+data_flanker &lt;-<span class="st"> </span><span class="kw">remove_save</span>(data_flanker, data_remove, 
+                            <span class="dt">output.dir =</span> <span class="kw">here</span>(output.dir, <span class="st">&quot;removed&quot;</span>), 
+                            <span class="dt">output.file =</span> <span class="kw">paste</span>(task, <span class="st">&quot;removed.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>))</code></pre>
 <p>If any subjects were removed you should now see a folder called <strong>removed</strong> in the <strong>Scored Data</strong> folder with a file called “Flanker_removed.csv”.</p>
 <p>In the <strong>Files</strong> window of RStudio, navigate to Data Files/Scored Data/removed and click on <strong>Flanker_removed.csv</strong> -&gt; Import DataSet… -&gt; Update (top right) -&gt; Import.</p>
 <p>View the dataframe. Notice how these Subjects had poor performance on at least one of the conditions. These subjects have been removed from further analysis. This file is just a track record of who was removed and why.</p>
 </div>
 <div id="calculate-binned-scores" class="section level2">
-<h2><span class="header-section-number">13.6</span> Calculate Binned Scores</h2>
+<h2><span class="header-section-number">14.6</span> Calculate Binned Scores</h2>
 <p>Great! We have now calculated FlankerEffects scores and performed the data cleaning procedures. Now we need to calculate Binned scores. The <code>data_flanker</code> data frame is no longer in a format that we can calculate bin scores. We need to use the trimmed data frame that has trial level data.</p>
 <p>We should remove the poor performing subjects and Missing RTs. <strong>This step is actually really important for the binning procedure because bin scores are relative to other subjects in the data.</strong></p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" title="1"><span class="co">## Calculate Binned scores</span></a>
-<a class="sourceLine" id="cb222-2" title="2">data_binned &lt;-<span class="st"> </span>data_trim <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb222-3" title="3"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(RT), <span class="op">!</span>(Subject <span class="op">%in%</span><span class="st"> </span>data_remove<span class="op">$</span>Subject))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Calculate Binned scores</span>
+data_binned &lt;-<span class="st"> </span>data_trim <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(RT), <span class="op">!</span>(Subject <span class="op">%in%</span><span class="st"> </span>data_remove<span class="op">$</span>Subject))</code></pre>
 <p>This is stating, keep only Trials without missing values on <code>RT</code> AND Subjects that are NOT (<code>!</code>) in (<code>%in%</code>) <code>data_remove</code>.</p>
 <p>We also need to remove neutral trials to calculate bin scores. Bin scores are based on comparing one condition to a baseline condition. In this case we want to compare the incongruent condition to the baseline congruent condition. So we need to get rid of neutral conditions.</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" title="1"><span class="co">## Calculate Binned scores</span></a>
-<a class="sourceLine" id="cb223-2" title="2">data_binned &lt;-<span class="st"> </span>data_trim <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb223-3" title="3"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(RT), Condition <span class="op">!=</span><span class="st"> &quot;neutral&quot;</span>,</a>
-<a class="sourceLine" id="cb223-4" title="4">         <span class="op">!</span>(Subject <span class="op">%in%</span><span class="st"> </span>data_remove<span class="op">$</span>Subject))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Calculate Binned scores</span>
+data_binned &lt;-<span class="st"> </span>data_trim <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(RT), Condition <span class="op">!=</span><span class="st"> &quot;neutral&quot;</span>,
+         <span class="op">!</span>(Subject <span class="op">%in%</span><span class="st"> </span>data_remove<span class="op">$</span>Subject))</code></pre>
 <p>And finally calculate bin scores using <code>bin_score()</code> from the <code>englelab</code> package. The main arguments to specify are:</p>
 <ul>
 <li><p><strong>x</strong>: The data frame</p></li>
@@ -582,34 +591,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>type</strong>: How should Bin trials be aggregated, “sum” or “mean”. <em>Default = “mean”</em></p></li>
 <li><p><strong>id</strong>: Column name that contains subject identifiers. <em>Default = “Subject”</em></p></li>
 </ul>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" title="1"><span class="co">## Calculate Binned scores</span></a>
-<a class="sourceLine" id="cb224-2" title="2">data_binned &lt;-<span class="st"> </span>data_trim <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb224-3" title="3"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(RT), Condition <span class="op">!=</span><span class="st"> &quot;neutral&quot;</span>,</a>
-<a class="sourceLine" id="cb224-4" title="4">         <span class="op">!</span>(Subject <span class="op">%in%</span><span class="st"> </span>data_remove<span class="op">$</span>Subject)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb224-5" title="5"><span class="st">  </span><span class="kw">bin_score</span>(<span class="dt">baseline.condition =</span> <span class="st">&quot;congruent&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;mean&quot;</span>,) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb224-6" title="6"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">FlankerBin =</span> <span class="st">&quot;BinScore&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Calculate Binned scores</span>
+data_binned &lt;-<span class="st"> </span>data_trim <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(RT), Condition <span class="op">!=</span><span class="st"> &quot;neutral&quot;</span>,
+         <span class="op">!</span>(Subject <span class="op">%in%</span><span class="st"> </span>data_remove<span class="op">$</span>Subject)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">bin_score</span>(<span class="dt">baseline.condition =</span> <span class="st">&quot;congruent&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;mean&quot;</span>,) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">rename</span>(<span class="dt">FlankerBin =</span> <span class="st">&quot;BinScore&quot;</span>)</code></pre>
 <p>Awesome! Now we have two data frames, one, <code>data_flanker</code>, with FlankerEffect scores and another, <code>data_binned</code> with FlankerBin scores. They both have one row per subject.</p>
 </div>
 <div id="merge" class="section level2">
-<h2><span class="header-section-number">13.7</span> Merge</h2>
+<h2><span class="header-section-number">14.7</span> Merge</h2>
 <p>Now we can merge these two data frames together using the <code>merge()</code> function from base R.</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" title="1"><span class="co">## Merge</span></a>
-<a class="sourceLine" id="cb225-2" title="2">data_flanker &lt;-<span class="st"> </span><span class="kw">merge</span>(data_flanker, data_binned, <span class="dt">by =</span> <span class="st">&quot;Subject&quot;</span>, <span class="dt">all =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Merge</span>
+data_flanker &lt;-<span class="st"> </span><span class="kw">merge</span>(data_flanker, data_binned, <span class="dt">by =</span> <span class="st">&quot;Subject&quot;</span>, <span class="dt">all =</span> <span class="ot">TRUE</span>)</code></pre>
 <p>Now view the <code>data_flanker</code>. It should be one row per subject and have columns for <code>FlanekrEffect_RT</code>, <code>FlankerEffect_ACC</code>, and <code>FlankerBin</code>.</p>
 </div>
 <div id="output-1" class="section level2">
-<h2><span class="header-section-number">13.8</span> Output</h2>
+<h2><span class="header-section-number">14.8</span> Output</h2>
 <p>You do not need to change anything in the output block</p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" title="1"><span class="co">## Output ####</span></a>
-<a class="sourceLine" id="cb226-2" title="2"><span class="kw">write_csv</span>(data_flanker, <span class="kw">here</span>(output.dir, output.file))</a>
-<a class="sourceLine" id="cb226-3" title="3"><span class="co">##############</span></a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Output ####</span>
+<span class="kw">write_csv</span>(data_flanker, <span class="kw">here</span>(output.dir, output.file))
+<span class="co">##############</span></code></pre>
 <p>Great! You have written an R script for Data Cleaning and Scoring.</p>
 <hr />
 </div>
 <div id="masterscript-1" class="section level2">
-<h2><span class="header-section-number">13.9</span> Masterscript</h2>
+<h2><span class="header-section-number">14.9</span> Masterscript</h2>
 <p>Finally, you should add a line of code to the masterscript that <em>sources</em> the file <strong>1_flanker_score.R</strong>.</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" title="1"><span class="kw">source</span>(<span class="kw">here</span>(<span class="st">&quot;R Scripts&quot;</span>, <span class="st">&quot;1_flanker_score.R&quot;</span>), <span class="dt">echo =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="kw">here</span>(<span class="st">&quot;R Scripts&quot;</span>, <span class="st">&quot;1_flanker_score.R&quot;</span>), <span class="dt">echo =</span> <span class="ot">TRUE</span>)</code></pre>
 <hr />
 <hr />
 <p><strong>Woo! You should feel accomplished. Okay one more quick step before the best part.</strong></p>
@@ -642,9 +651,10 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"],
+"instapper": false
 },
 "fontsettings": {
 "theme": "white",
@@ -652,6 +662,10 @@ gitbook.start({
 "size": 2
 },
 "edit": null,
+"history": {
+"link": null,
+"text": null
+},
 "download": null,
 "toc": {
 "collapse": "section",
