@@ -68,7 +68,7 @@ The first stage takes the "tidy" raw data files from the data preparation stage 
 
 The second and third stage usually occurs in tandem with one another. Visualizing our data, running statistical analyses, visualizing our statistical models, etc. Based on these visualizations and analyses we may decide that we want to use different scoring or cleaning procedures. Or we want to explore our data to further understand our findings. We may then go back to the scoring and cleaning stage, and on and on. 
 
-The final phase in a research project is to **Write up a Manuscript** to share your study and findings with the scientific community. It is also a good idea to **Share your Data**, R scripts, and results. The [Open Science Framework](https://osf.io) is a good place to openly share your projects with other researchers.
+The final phase in a research project is to **Write up a Manuscript** to share your study and findings with the scientific community. It is also a good idea to **Share your Data**, R scripts, and results. The [Open Science Framework](https://osf.io){target="_blank"} is a good place to openly share your projects with other researchers.
 
 ```{r echo=FALSE}
 knitr::include_graphics(rep("images/workflow_pub_share.png"))

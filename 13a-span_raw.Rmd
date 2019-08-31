@@ -142,4 +142,4 @@ rm(list=ls())
 
 ********
 
-**On to Data Analysis, 12 Chapters done and we are finally getting to the good stuff!**
+**The next Chapter is a summary of this Section**

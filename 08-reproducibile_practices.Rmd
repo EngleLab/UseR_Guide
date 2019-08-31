@@ -171,7 +171,7 @@ Ideally, we should not even have to think about the working directory since it c
 
 #### RStudio Projects and `here::here()`
 
-[Visit this page](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) for more details on R Projects.
+[Visit this page](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects){target="_blank"} for more details on R Projects.
 
 Using RStudio Projects, helps keep your scripts and *Environments* from one project to the next separate from each other. 
 
@@ -275,5 +275,5 @@ rm(list=ls())
 
 ********
 
-**This next chapter should be your favorite**
+**Let's take a look at some of the R Templates you will be using**
 

@@ -399,35 +399,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="example-symmetry-span" class="section level2">
 <h2><span class="header-section-number">13.4</span> Example: Symmetry Span</h2>
 <p>This is an example R Script to create a tidy raw data file for the Symmetry Span task:</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" title="1"><span class="co">## Set up ####</span></a>
-<a class="sourceLine" id="cb200-2" title="2"><span class="co">## Load packages</span></a>
-<a class="sourceLine" id="cb200-3" title="3"><span class="kw">library</span>(readr)</a>
-<a class="sourceLine" id="cb200-4" title="4"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb200-5" title="5"><span class="kw">library</span>(here)</a>
-<a class="sourceLine" id="cb200-6" title="6"><span class="kw">library</span>(datawrangling)</a>
-<a class="sourceLine" id="cb200-7" title="7"><span class="kw">library</span>(englelab)</a>
-<a class="sourceLine" id="cb200-8" title="8"></a>
-<a class="sourceLine" id="cb200-9" title="9"><span class="co">## Set import/output directories</span></a>
-<a class="sourceLine" id="cb200-10" title="10">import.dir &lt;-<span class="st"> &quot;Data Files/Merged&quot;</span></a>
-<a class="sourceLine" id="cb200-11" title="11">output.dir &lt;-<span class="st"> &quot;Data Files&quot;</span></a>
-<a class="sourceLine" id="cb200-12" title="12"></a>
-<a class="sourceLine" id="cb200-13" title="13"><span class="co">## Set import/output files</span></a>
-<a class="sourceLine" id="cb200-14" title="14">task &lt;-<span class="st"> &quot;SymSpan&quot;</span></a>
-<a class="sourceLine" id="cb200-15" title="15">import.file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb200-16" title="16">output.file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;_raw.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb200-17" title="17"><span class="co">##############</span></a>
-<a class="sourceLine" id="cb200-18" title="18"></a>
-<a class="sourceLine" id="cb200-19" title="19"><span class="co">## Import Data</span></a>
-<a class="sourceLine" id="cb200-20" title="20">data_import &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="kw">here</span>(import.dir, import.file),</a>
-<a class="sourceLine" id="cb200-21" title="21">                          <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb200-22" title="22"></a>
-<a class="sourceLine" id="cb200-23" title="23"><span class="co">## Clean up raw data and save</span></a>
-<a class="sourceLine" id="cb200-24" title="24">data_raw &lt;-<span class="st"> </span><span class="kw">raw_symspan</span>(data_import, <span class="dt">blocks =</span> <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb200-25" title="25"></a>
-<a class="sourceLine" id="cb200-26" title="26"><span class="co">## Output Data</span></a>
-<a class="sourceLine" id="cb200-27" title="27"><span class="kw">write_csv</span>(data_raw, <span class="dt">path =</span> <span class="kw">here</span>(output.dir, output.file))</a>
-<a class="sourceLine" id="cb200-28" title="28"></a>
-<a class="sourceLine" id="cb200-29" title="29"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" title="1"><span class="co">## Set up ####</span></a>
+<a class="sourceLine" id="cb206-2" title="2"><span class="co">## Load packages</span></a>
+<a class="sourceLine" id="cb206-3" title="3"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb206-4" title="4"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb206-5" title="5"><span class="kw">library</span>(here)</a>
+<a class="sourceLine" id="cb206-6" title="6"><span class="kw">library</span>(datawrangling)</a>
+<a class="sourceLine" id="cb206-7" title="7"><span class="kw">library</span>(englelab)</a>
+<a class="sourceLine" id="cb206-8" title="8"></a>
+<a class="sourceLine" id="cb206-9" title="9"><span class="co">## Set import/output directories</span></a>
+<a class="sourceLine" id="cb206-10" title="10">import.dir &lt;-<span class="st"> &quot;Data Files/Merged&quot;</span></a>
+<a class="sourceLine" id="cb206-11" title="11">output.dir &lt;-<span class="st"> &quot;Data Files&quot;</span></a>
+<a class="sourceLine" id="cb206-12" title="12"></a>
+<a class="sourceLine" id="cb206-13" title="13"><span class="co">## Set import/output files</span></a>
+<a class="sourceLine" id="cb206-14" title="14">task &lt;-<span class="st"> &quot;SymSpan&quot;</span></a>
+<a class="sourceLine" id="cb206-15" title="15">import.file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb206-16" title="16">output.file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;_raw.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb206-17" title="17"><span class="co">##############</span></a>
+<a class="sourceLine" id="cb206-18" title="18"></a>
+<a class="sourceLine" id="cb206-19" title="19"><span class="co">## Import Data</span></a>
+<a class="sourceLine" id="cb206-20" title="20">data_import &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="kw">here</span>(import.dir, import.file),</a>
+<a class="sourceLine" id="cb206-21" title="21">                          <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb206-22" title="22"></a>
+<a class="sourceLine" id="cb206-23" title="23"><span class="co">## Clean up raw data and save</span></a>
+<a class="sourceLine" id="cb206-24" title="24">data_raw &lt;-<span class="st"> </span><span class="kw">raw_symspan</span>(data_import, <span class="dt">blocks =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb206-25" title="25"></a>
+<a class="sourceLine" id="cb206-26" title="26"><span class="co">## Output Data</span></a>
+<a class="sourceLine" id="cb206-27" title="27"><span class="kw">write_csv</span>(data_raw, <span class="dt">path =</span> <span class="kw">here</span>(output.dir, output.file))</a>
+<a class="sourceLine" id="cb206-28" title="28"></a>
+<a class="sourceLine" id="cb206-29" title="29"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</a></code></pre></div>
 </div>
 <div id="tidy-file" class="section level2">
 <h2><span class="header-section-number">13.5</span> Tidy File</h2>
@@ -464,7 +464,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <hr />
 <hr />
-<p><strong>On to Data Analysis, 12 Chapters done and we are finally getting to the good stuff!</strong></p>
+<p><strong>The next Chapter is a summary of this Section</strong></p>
 
 </div>
 </div>

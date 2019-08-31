@@ -32,7 +32,7 @@ There are **4 data preparation steps:**
 
     **0_task_raw.R** imports a *task.txt* file and creates a *tidy* raw data file, **task_raw.csv**
 
-We will cover step 1 and step 4. See [Data Preparation Instructions]() for a detailed guide on how to perform the other steps. 
+We will cover step 1 and step 4. See [Data Preparation Instructions](http://englelab.gatech.edu/dataprep/){target="_blank"} for a detailed guide on how to perform the other steps. 
 
 ## Data Collection Repository
 

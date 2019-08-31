@@ -6,7 +6,7 @@ In the Data Preparation stage, every R script that you write will require you to
 
 In this Chapter you will learn how to import and output comma-separate value (csv), tab-delimited, and SPSS data files.
 
-For most of these data types we can use the `readr` package.
+For most of these data types we can use the [**readr** package](https://readr.tidyverse.org){target="_blank"}
 
 ```{r echo=FALSE, out.width=125, fig.align='center'}
 knitr::include_graphics(rep("images/readr_logo.png"))

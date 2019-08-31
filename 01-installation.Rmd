@@ -4,7 +4,7 @@
 
 ## Installing R
 
-First you need to download the latest version of **R** from their website https://www.r-project.org
+First you need to download the latest version of **R** from their website [https://www.r-project.org](https://www.r-project.org){target="_blank"}
 
 1. Select **CRAN** on the left, just under **Download**
 
@@ -20,7 +20,7 @@ First you need to download the latest version of **R** from their website https:
 
 ## Installing R Studio
 
-The easiest way to interact with R is through the R Studio environment. To do this you need to install R Studio from https://www.rstudio.com/products/rstudio/download/#download
+The easiest way to interact with R is through the R Studio environment. To do this you need to [install R Studio](https://www.rstudio.com/products/rstudio/download/#download){target="_blank"}
 
 1. Select the **Free** version of **R Studio Desktop**
 2. Select the download option depending on your computer

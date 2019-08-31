@@ -380,4 +380,4 @@ rm(list=ls())
 
 ********
 
-**You are Welcome. Finally, let's get into working with an example data set**
+**Finally, let's get start working with an example data set**

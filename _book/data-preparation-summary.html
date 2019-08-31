@@ -394,8 +394,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>These files were E-Merged files exported as <em>.txt</em> files. Move them to the current repository in <strong>Data Files/Merged</strong>.</p>
 <p>All of these tasks are standard tasks we have used in the Engle Lab for some time. Therefore, we can download the R Scripts using the <code>englelab::get_script()</code> function.</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" title="1">englelab<span class="op">::</span><span class="kw">get_script</span>(<span class="dt">type =</span> <span class="st">&quot;raw&quot;</span>, <span class="dt">gf =</span> <span class="ot">TRUE</span>, <span class="dt">wmc =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb201-2" title="2">                     <span class="dt">antisaccade =</span> <span class="ot">TRUE</span>, <span class="dt">stroop =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" title="1">englelab<span class="op">::</span><span class="kw">get_script</span>(<span class="dt">type =</span> <span class="st">&quot;raw&quot;</span>, <span class="dt">gf =</span> <span class="ot">TRUE</span>, <span class="dt">wmc =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb207-2" title="2">                     <span class="dt">antisaccade =</span> <span class="ot">TRUE</span>, <span class="dt">stroop =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><code>type = "raw"</code> tells the function to download scripts to create <strong>tidy</strong> raw data files. When you want to download scripts to create <strong>scored</strong> data files use <code>type = "score"</code>.</p>
 <p>You should now see more R Scripts corresponding to the tasks you downloaded.</p>
 <hr />
@@ -403,26 +403,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In <strong>0_antisaccade_raw.R</strong>, remomve the <code>StartTime =</code>, <code>FinishTime =</code>, and <code>AdminTime =</code> lines from the <code>mutate()</code> function. Remove the <code>AdminTime</code> from the <code>select()</code> function. Change <code>Mask.ACC</code> and <code>Mask.RT</code> to <code>masks.ACC</code> and <code>masks.RT</code> in the <code>select()</code> function.</p>
 <p>In <strong>0_symspan_raw.R</strong>, <strong>0_ospan_raw.R</strong>, and <strong>0_rotspan_raw.R</strong> add the argument <code>taskVersion = "old"</code> to the <code>raw_symspan()</code>, <code>raw_ospan()</code>, and <code>raw_rotspan()</code> functions.</p>
 <p>In <strong>0_stroop_raw.R</strong>, just replace the entire <code>data_raw &lt;- data_import %&gt;%</code> block with</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" title="1">data_raw &lt;-<span class="st"> </span>data_import <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb202-2" title="2"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span> <span class="op">==</span><span class="st"> &quot;StoopTrial&quot;</span> <span class="op">|</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb202-3" title="3"><span class="st">           `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span> <span class="op">==</span><span class="st"> &quot;stroopPRAC2&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb202-4" title="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb202-5" title="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;StoopTrial&quot;</span>, <span class="st">&quot;real&quot;</span>, <span class="st">&quot;practice&quot;</span>),</a>
-<a class="sourceLine" id="cb202-6" title="6">         <span class="dt">Trial =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, List2.Sample, List5.Sample),</a>
-<a class="sourceLine" id="cb202-7" title="7">         <span class="dt">Condition =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, trialType, pracTYPE),</a>
-<a class="sourceLine" id="cb202-8" title="8">         <span class="dt">Condition =</span> <span class="kw">ifelse</span>(Condition <span class="op">==</span><span class="st"> &quot;Cong&quot;</span> <span class="op">|</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb202-9" title="9"><span class="st">                              </span>Condition <span class="op">==</span><span class="st"> &quot;Filler&quot;</span>, </a>
-<a class="sourceLine" id="cb202-10" title="10">                            <span class="st">&quot;congruent&quot;</span>, <span class="st">&quot;incongruent&quot;</span>),</a>
-<a class="sourceLine" id="cb202-11" title="11">         <span class="dt">RT =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, stim.RT, PracStim2.RT),</a>
-<a class="sourceLine" id="cb202-12" title="12">         <span class="dt">Accuracy =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, stim.ACC, PracStim2.ACC),</a>
-<a class="sourceLine" id="cb202-13" title="13">         <span class="dt">Response =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, stim.RESP, PracStim2.RESP),</a>
-<a class="sourceLine" id="cb202-14" title="14">         <span class="dt">Response =</span> <span class="kw">ifelse</span>(Response <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;GREEN&quot;</span>, </a>
-<a class="sourceLine" id="cb202-15" title="15">                           <span class="kw">ifelse</span>(Response <span class="op">==</span><span class="st"> </span><span class="dv">2</span>, <span class="st">&quot;BLUE&quot;</span>, </a>
-<a class="sourceLine" id="cb202-16" title="16">                                  <span class="kw">ifelse</span>(Response <span class="op">==</span><span class="st"> </span><span class="dv">3</span>, <span class="st">&quot;RED&quot;</span>, <span class="ot">NA</span>))),</a>
-<a class="sourceLine" id="cb202-17" title="17">         <span class="dt">Word =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, word, pracWORD),</a>
-<a class="sourceLine" id="cb202-18" title="18">         <span class="dt">Hue =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, hue, pracHUE)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb202-19" title="19"><span class="st">  </span><span class="kw">select</span>(Subject, TrialProc, Trial, Condition, RT, Accuracy, Response, </a>
-<a class="sourceLine" id="cb202-20" title="20">         Word, Hue, SessionDate, SessionTime)</a></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" title="1">data_raw &lt;-<span class="st"> </span>data_import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb208-2" title="2"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span> <span class="op">==</span><span class="st"> &quot;StoopTrial&quot;</span> <span class="op">|</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb208-3" title="3"><span class="st">           `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span> <span class="op">==</span><span class="st"> &quot;stroopPRAC2&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb208-4" title="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb208-5" title="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;StoopTrial&quot;</span>, <span class="st">&quot;real&quot;</span>, <span class="st">&quot;practice&quot;</span>),</a>
+<a class="sourceLine" id="cb208-6" title="6">         <span class="dt">Trial =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, List2.Sample, List5.Sample),</a>
+<a class="sourceLine" id="cb208-7" title="7">         <span class="dt">Condition =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, trialType, pracTYPE),</a>
+<a class="sourceLine" id="cb208-8" title="8">         <span class="dt">Condition =</span> <span class="kw">ifelse</span>(Condition <span class="op">==</span><span class="st"> &quot;Cong&quot;</span> <span class="op">|</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb208-9" title="9"><span class="st">                              </span>Condition <span class="op">==</span><span class="st"> &quot;Filler&quot;</span>, </a>
+<a class="sourceLine" id="cb208-10" title="10">                            <span class="st">&quot;congruent&quot;</span>, <span class="st">&quot;incongruent&quot;</span>),</a>
+<a class="sourceLine" id="cb208-11" title="11">         <span class="dt">RT =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, stim.RT, PracStim2.RT),</a>
+<a class="sourceLine" id="cb208-12" title="12">         <span class="dt">Accuracy =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, stim.ACC, PracStim2.ACC),</a>
+<a class="sourceLine" id="cb208-13" title="13">         <span class="dt">Response =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, stim.RESP, PracStim2.RESP),</a>
+<a class="sourceLine" id="cb208-14" title="14">         <span class="dt">Response =</span> <span class="kw">ifelse</span>(Response <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;GREEN&quot;</span>, </a>
+<a class="sourceLine" id="cb208-15" title="15">                           <span class="kw">ifelse</span>(Response <span class="op">==</span><span class="st"> </span><span class="dv">2</span>, <span class="st">&quot;BLUE&quot;</span>, </a>
+<a class="sourceLine" id="cb208-16" title="16">                                  <span class="kw">ifelse</span>(Response <span class="op">==</span><span class="st"> </span><span class="dv">3</span>, <span class="st">&quot;RED&quot;</span>, <span class="ot">NA</span>))),</a>
+<a class="sourceLine" id="cb208-17" title="17">         <span class="dt">Word =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, word, pracWORD),</a>
+<a class="sourceLine" id="cb208-18" title="18">         <span class="dt">Hue =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, hue, pracHUE)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb208-19" title="19"><span class="st">  </span><span class="kw">select</span>(Subject, TrialProc, Trial, Condition, RT, Accuracy, Response, </a>
+<a class="sourceLine" id="cb208-20" title="20">         Word, Hue, SessionDate, SessionTime)</a></code></pre></div>
 <p>That should be all the changes you need.</p>
 <hr />
 <p>Add a line in the masterscript to <code>source()</code> each one of these scripts.</p>
@@ -431,7 +431,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Just for demonstration sake, delete (yes really) the _raw.csv files in <strong>Data Files/</strong>. Now, run each line of code in the masterscript. You should see that the _raw.csv files have been created again.</p>
 <hr />
 <hr />
-<p><strong>On to Data Analysis, 12 Chapters done and we are finally getting to the good stuff!</strong></p>
+<p><strong>On to Data Analysis!</strong></p>
 
 </div>
 

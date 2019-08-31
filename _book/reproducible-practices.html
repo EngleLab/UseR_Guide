@@ -446,7 +446,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Therefore, it is important that the <code>Environment</code> of each R Script within a Project are independent from one another.</strong> This means that an R Script should not depend on objects created or data imported in other R Scripts. Any packages required for an R Script should be loaded in THAT script and not depend on them being loaded in other R Scripts.</p>
 <p>As long as the data files required for an R Script are already created, you should be able to open a completely new and fresh session of R and succesfully execute all the lines of code in that one Script (without having ran any other scripts).</p>
 <p>At the end of each R Script I had you include the line of code</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" title="1"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" title="1"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</a></code></pre></div>
 <p>This removes all Objects in your <strong>Environment</strong>. That way when you run the next R Script it is starting from a blank <strong>Environment</strong></p>
 <p>Some people in the R community say this is not a good practice, but in reality it is not harmful to add this line of code.</p>
 </div>
@@ -475,12 +475,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You working directory can be specified in various ways. By default, if you open up <strong>RStudio</strong> directly it will set the working directory to some default location such as your <em>User</em> root directory. <strong>This is not good</strong>.</p>
 <p>If you open up <strong>RStudio</strong> by directly opening an <em>R script file</em> then it will set the working directory to the location of that file. This is better but still not ideal.</p>
 <p>Because the working directory changes depending on how you open RStudio a lot of R Users will set a working directory at the top of their script using</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" title="1"><span class="kw">setwd</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" title="1"><span class="kw">setwd</span>()</a></code></pre></div>
 <p>However, this is not good because it requires the use of an absolute filepath.</p>
 <p>Ideally, we should not even have to think about the working directory since it can change depending on how R is opened. Thankfully there is a solution to make our dreams come true!</p>
 <div id="rstudio-projects-and-herehere" class="section level4">
 <h4><span class="header-section-number">8.3.1.1</span> RStudio Projects and <code>here::here()</code></h4>
-<p><a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">Visit this page</a> for more details on R Projects.</p>
+<p><a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects" target="_blank">Visit this page</a> for more details on R Projects.</p>
 <p>Using RStudio Projects, helps keep your scripts and <em>Environments</em> from one project to the next separate from each other.</p>
 <p>RStudio Projects allow you to open a fresh session of R that automatically sets the working directory to the location where the R Project is saved. R Projects have the file extension <code>.Rproj</code>.</p>
 <hr />
@@ -499,23 +499,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>First go ahead and install the <code>here</code> package, <code>install.packages("here")</code>.</p>
 <p>Basically, when the <code>here</code> package is loaded, <code>library(here)</code>, it will search for an .Rproj file and it will set a <strong>starting</strong> file path at that location when you use <code>here()</code>.</p>
 <p>For instance, I have an .Rproj file saved in my “UseR_Guide” folder. When I use <code>here()</code> it will output a file path to that location.</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" title="1"><span class="kw">library</span>(here)</a>
-<a class="sourceLine" id="cb156-2" title="2"><span class="kw">here</span>()</a></code></pre></div>
-<pre><code>## [1] &quot;/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/UseR_Guide&quot;</code></pre>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" title="1"><span class="kw">library</span>(here)</a></code></pre></div>
+<pre><code>## here() starts at /Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/Books/UseR_Guide</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" title="1"><span class="kw">here</span>()</a></code></pre></div>
+<pre><code>## [1] &quot;/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/Books/UseR_Guide&quot;</code></pre>
 <p>You can then use <code>here()</code> to set a relative file path</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" title="1"><span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data/flanker_raw.csv&quot;</span>)</a></code></pre></div>
-<pre><code>## [1] &quot;/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/UseR_Guide/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" title="1"><span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data/flanker_raw.csv&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/Books/UseR_Guide/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
 <p>This is equivalent to</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" title="1"><span class="kw">here</span>(<span class="st">&quot;Data Files&quot;</span>, <span class="st">&quot;Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>)</a></code></pre></div>
-<pre><code>## [1] &quot;/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/UseR_Guide/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" title="1"><span class="kw">here</span>(<span class="st">&quot;Data Files&quot;</span>, <span class="st">&quot;Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/Books/UseR_Guide/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
 <p><br></p>
 <p><strong>I typically like to set the first argument as the relative file path and the second argument as the filename</strong></p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" title="1"><span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>)</a></code></pre></div>
-<pre><code>## [1] &quot;/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/UseR_Guide/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" title="1"><span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/Books/UseR_Guide/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
 <p><strong>This visually separates the file path and the filename, making your script easier to read.</strong></p>
 <p>You can use <code>here()</code> directly in import and output functions:</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" title="1">import &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>))</a></code></pre></div>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" title="1"><span class="kw">write_csv</span>(data, <span class="kw">here</span>(<span class="st">&quot;Data Files/Scored Data&quot;</span>, <span class="st">&quot;flanker_scored.csv&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" title="1">import &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" title="1"><span class="kw">write_csv</span>(data, <span class="kw">here</span>(<span class="st">&quot;Data Files/Scored Data&quot;</span>, <span class="st">&quot;flanker_scored.csv&quot;</span>))</a></code></pre></div>
 <p>And you know that everytime you use <code>here()</code> that the file path will start at where you have your .Rproj file saved.</p>
 <hr />
 <div style="text-align: center; font-size: 1.25em">
@@ -538,7 +539,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This will remove any objects and functions in the current environment. That way when the next R Script is ran, there will be no leftover objects or functions from previous R Scripts.</p>
 <hr />
 <hr />
-<p><strong>This next chapter should be your favorite</strong></p>
+<p><strong>Let’s take a look at some of the R Templates you will be using</strong></p>
 
 </div>
 </div>

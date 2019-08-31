@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-In R, the term data wrangling is often times used to refer to performing data manipulation and transformations. The functions you will learn about in this Chapter come from the `datawrangling` package I developed.
+In R, the term data wrangling is often times used to refer to performing data manipulation and transformations. The functions you will learn about in this Chapter come from the [**datawrangling** package](https://dr-jt.github.io/datawrangling/){target="_blank"} I developed.
 
 ```{r echo=FALSE, out.width=125, fig.align='center'}
 knitr::include_graphics(rep("images/datawrangling_logo.png"))

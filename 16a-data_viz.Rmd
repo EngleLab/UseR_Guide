@@ -28,7 +28,7 @@ One downfall about R is that unlike SPSS, there is not a native way to create ou
 
 The easiest format to output as is **html**. html documents are opened in a web browser and therefore can be opened on any computer and device (phones, tablets, Windows, Mac). 
 
-For a brief intro to **R Markdown** see https://rmarkdown.rstudio.com/lesson-1.html
+Follow this link for a brief Intro to [**R Markdown**](https://rmarkdown.rstudio.com/lesson-1.html){target="_blank"}
 
 First, you need to install the `rmarkdown` package
 
@@ -83,7 +83,7 @@ In the R Markdown document you have open you can see some Markdown syntax. The p
 
 Go ahead and render the R Markdown document by clicking on the **Knit** button at the top of the window. Once it is done rendering you will see a new window pop up. This is the outputed html file. You can see how the document has formated text based on the Markdown syntax.
 
-There are a lot of guides on how to use Markdown syntax. I will not cover this so you should check them out on your own. One guide that I frequently reference is https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+There are a lot of guides on how to use Markdown syntax. I will not cover this so you should check them out on your own. Here is one I reference oftern: [**Markdown Cheatsheet**](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet){target="_blank"} 
 
 
 ********
@@ -94,5 +94,5 @@ rm(list=ls())
 
 ********
 
-**Let's learn you some ggplot2!**
+**It will help to first learn some fundamentals of data visualization**
 

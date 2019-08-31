@@ -16,7 +16,7 @@ If you have not done so already, open RStudio by opening the *UseRGuide_DataColl
 
 For the most part, you will merge individual subject files through the *E-Merge* program because the individual files are in the proprietary *.edat2* file type that cannot be opened outside of *E-Prime* programs.
 
-See [Data Preparation Instructions]() for a detailed guide on how to use *E-Merge*.
+See [Data Preparation Instructions](http://englelab.gatech.edu/dataprep/){target="_blank"} for a detailed guide on how to use *E-Merge*.
 
 However, there may be cases where you have individual subject files not in *.edat2* but in *.txt*, *.csv*, or *.xlsx* file types. These can easily be merged into one data file using R. 
 

@@ -367,4 +367,4 @@ rm(list=ls())
 
 ********
 
-**On to Data Analysis, 12 Chapters done and we are finally getting to the good stuff!**
+**The next Chapter goes over how to create tidy raw data files for the complex span tasks**

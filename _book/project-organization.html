@@ -421,7 +421,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Source</strong> the <strong>0_task_raw.R</strong> <em>Scripts</em></p>
 <p><strong>0_task_raw.R</strong> imports a <em>task.txt</em> file and creates a <em>tidy</em> raw data file, <strong>task_raw.csv</strong></p></li>
 </ol>
-<p>See <a href="">Data Preparation Instructions</a> for a detailed guide on how to perform each of these steps. I have automated step 1 using a simple line of R code (so you will definitely want to check that out).</p>
+<p>See <a href="http://englelab.gatech.edu/dataprep/" target="_blank">Data Preparation Instructions</a> for a detailed guide on how to perform each of these steps. I have automated step 1 using a simple line of R code (so you will definitely want to check that out).</p>
 <p>After performing the 4 data preparation steps you will have <em>tidy</em> raw data files for each task saved as <strong>task_raw.csv</strong> in the <em>Data Files</em> folder. It is these files that you can then copy over to a <em>Data Analysis</em> repository.</p>
 <p>The <em>Data Collection</em> repository that you started out with will serve as the <em>Central Repository</em> that you use to create separate <em>Data Analysis</em> repositories.</p>
 <hr />
@@ -460,14 +460,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="workflow-package" class="section level2">
 <h2><span class="header-section-number">7.4</span> <code>workflow</code> package</h2>
-<p>I will show you how to automatically create <strong>Data Collection</strong> and <strong>Data Analysis</strong> repositories using RStudio Projects.</p>
+<p>I will show you how to automatically create <strong>Data Collection</strong> and <strong>Data Analysis</strong> repositories using RStudio Projects and my <a href="https://dr-jt.github.io/workflow/" target="_blank"><strong>workflow</strong> package</a></p>
 <p>The most important thing to remember is that the <em>Data Collection</em> repository will serve as the <em>Central Repository</em> and that you need to copy and paste the <em>tidy</em> <strong>task_raw.csv</strong> data files to a <em>Data Analysis</em> repository. <strong>But never copy and paste data files from one <em>Data Analysis</em> repository to another</strong>.</p>
 <p><img src="images/central_repository.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>When should you create a separate <strong>Data Analysis</strong> repository? Basically, if the set of analyses is going to be it’s own <strong>Manuscript</strong> then create a new repository. If the set of analyses (whether exploratory or supplemental) is part of a larger set of analyses already in the works for a manuscript then no need to create a separate repository.</p>
 <div id="install" class="section level3">
 <h3><span class="header-section-number">7.4.1</span> Install</h3>
 <p>Install the <code>workflow</code> package</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" title="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/workflow&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" title="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/workflow&quot;</span>)</a></code></pre></div>
 </div>
 <div id="create-a-new-r-project" class="section level3">
 <h3><span class="header-section-number">7.4.2</span> Create a New R Project</h3>

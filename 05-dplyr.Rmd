@@ -29,7 +29,7 @@ dplyr uses intuitive langauge that you are already familiar with. As with any R 
 
 * `summarise()`  aggregates across rows to create a summary statistic (means, standard deviations, etc.)
 
-For more information on these functions [Visit the dplyr webpage](https://dplyr.tidyverse.org)
+For more information on these functions [Visit the dplyr webpage](https://dplyr.tidyverse.org){target="_blank"}
 
 If you have not done so already, install the dplyr package
 
@@ -206,7 +206,7 @@ There is a lot of consistency of how you specify arguments in the dplyr package.
 
 Let's keep `Subject`, `Condition`, `RT`, `Trial`, and `Accuracy` and remove `TrialProc`, `TargetArrowDirection`, `SessionDate`, and `SessionTime`.
 
-`select()` is actually quite versatile - you can remove columns by specifying certain patterns. I will only cover a couple here, but to learn more [Visit the select() webpage](https://dplyr.tidyverse.org/reference/select.html)
+`select()` is actually quite versatile - you can remove columns by specifying certain patterns. I will only cover a couple here, but to learn more [Visit the select() webpage](https://dplyr.tidyverse.org/reference/select.html){target="_blank"}
 
 We could just simply select all the columns we want to keep
 

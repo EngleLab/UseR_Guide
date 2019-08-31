@@ -295,10 +295,5 @@ rm(list=ls())
 
 ********
 
-**Something**
-
-
-
-
-
+**Scatterplots are next!**
 

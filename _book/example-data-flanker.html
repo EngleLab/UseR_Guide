@@ -374,20 +374,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s get to know this data set. Looks like there is one row per trial per subject. Both practice and real trials are included. There are <em>neutral</em>, <em>congruent</em>, and <em>incongruent</em> trials. Both RT and Accuracy are recorded.</p>
 <p>All this can easily be seen just by viewing the data file. Sometimes you cannot see all the information you want very easily just by viewing the file. This is where some basic R functions come in handy.</p>
 <p>To evaluate the different TrialProcs:</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" title="1"><span class="kw">unique</span>(Flanker_raw<span class="op">$</span>TrialProc)</a></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" title="1"><span class="kw">unique</span>(Flanker_raw<span class="op">$</span>TrialProc)</a></code></pre></div>
 <p>To evaluate how many different conditions there are:</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1"><span class="kw">unique</span>(Flanker_raw<span class="op">$</span>Condition)</a></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" title="1"><span class="kw">unique</span>(Flanker_raw<span class="op">$</span>Condition)</a></code></pre></div>
 <p>How many trials are there?</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" title="1"><span class="kw">length</span>(<span class="kw">unique</span>(Flanker_raw<span class="op">$</span>Trial))</a></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" title="1"><span class="kw">length</span>(<span class="kw">unique</span>(Flanker_raw<span class="op">$</span>Trial))</a></code></pre></div>
 <p>How many subjects?</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" title="1"><span class="kw">length</span>(<span class="kw">unique</span>(Flanker_raw<span class="op">$</span>Subject))</a></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" title="1"><span class="kw">length</span>(<span class="kw">unique</span>(Flanker_raw<span class="op">$</span>Subject))</a></code></pre></div>
 <p>What are all the column names?</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" title="1"><span class="kw">colnames</span>(Flanker_raw)</a></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" title="1"><span class="kw">colnames</span>(Flanker_raw)</a></code></pre></div>
 <p>I often times print <code>colnames()</code> in the console as I type code so that I can easily see the column names I need to refer to.</p>
 <p>It is a good idea to get familiar with a data set before working on it. By doing this you may even catch errors, typos, or other mistakes in the data.</p>
 <hr />
 <hr />
-<p><strong>Woo! You should feel accomplished. Okay one more quick step before the best part.</strong></p>
+<p><strong>Now let’s create an R Script to score this data</strong></p>
 
 </div>
             </section>

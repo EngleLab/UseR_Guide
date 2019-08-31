@@ -89,7 +89,7 @@ For both of these scenarios, there are **4 data preparation steps:**
 
     **0_task_raw.R** imports a *task.txt* file and creates a *tidy* raw data file, **task_raw.csv**
 
-See [Data Preparation Instructions]() for a detailed guide on how to perform each of these steps. I have automated step 1 using a simple line of R code (so you will definitely want to check that out).
+See [Data Preparation Instructions](http://englelab.gatech.edu/dataprep/){target="_blank"} for a detailed guide on how to perform each of these steps. I have automated step 1 using a simple line of R code (so you will definitely want to check that out).
 
 After performing the 4 data preparation steps you will have *tidy* raw data files for each task saved as **task_raw.csv** in the *Data Files* folder. It is these files that you can then copy over to a *Data Analysis* repository.
 
@@ -155,7 +155,7 @@ These other directories are more optional.
 
 ## `workflow` package
 
-I will show you how to automatically create **Data Collection** and **Data Analysis** repositories using RStudio Projects.
+I will show you how to automatically create **Data Collection** and **Data Analysis** repositories using RStudio Projects and my [**workflow** package](https://dr-jt.github.io/workflow/){target="_blank"}
 
 The most important thing to remember is that the *Data Collection* repository will serve as the *Central Repository* and that you need to copy and paste the *tidy* **task_raw.csv** data files to a *Data Analysis* repository. **But never copy and paste data files from one _Data Analysis_ repository to another**.
 

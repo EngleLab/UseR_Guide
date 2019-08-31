@@ -375,17 +375,17 @@ We only want to analyze the data for subjects that completed ALL sessions. This 
 <li><p>Separate the raw files for subjects that did not complete ALL sessions from those that did. The <strong>subjlist.csv</strong> file contains a list of subjects that completed ALL sessions.</p></li>
 </ol>
 <p>These two steps can easily be done with the following line of code. Just type this into the console</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" title="1">workflow<span class="op">::</span><span class="kw">copy_raw</span>(<span class="dt">from =</span> <span class="st">&quot;Tasks/Session 1&quot;</span>, <span class="dt">to =</span> <span class="st">&quot;Data Files/subj&quot;</span>, </a>
-<a class="sourceLine" id="cb177-2" title="2">                   <span class="dt">filetype =</span> <span class="st">&quot;.edat&quot;</span>, </a>
-<a class="sourceLine" id="cb177-3" title="3">                   <span class="dt">subj.file =</span> <span class="st">&quot;Data Files/subjlist_final.csv&quot;</span>, </a>
-<a class="sourceLine" id="cb177-4" title="4">                   <span class="dt">remove =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" title="1">workflow<span class="op">::</span><span class="kw">copy_raw</span>(<span class="dt">from =</span> <span class="st">&quot;Tasks/Session 1&quot;</span>, <span class="dt">to =</span> <span class="st">&quot;Data Files/subj&quot;</span>, </a>
+<a class="sourceLine" id="cb183-2" title="2">                   <span class="dt">filetype =</span> <span class="st">&quot;.edat&quot;</span>, </a>
+<a class="sourceLine" id="cb183-3" title="3">                   <span class="dt">subj.file =</span> <span class="st">&quot;Data Files/subjlist_final.csv&quot;</span>, </a>
+<a class="sourceLine" id="cb183-4" title="4">                   <span class="dt">remove =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>Notice how at first there are no files in <strong>Data Files/subj/Flanker</strong>. Then after executing this line of code, it is now populated with <em>.edat</em> files.</p>
 <p>This function will perform the two steps for every task in the <strong>Session 1</strong> folder. To perform them for any other sessions just change it from <strong>Session 1</strong> to any <strong>Session #</strong>.</p>
 <p>You will also see a folder called <strong>Did not finish all sessions</strong>. The <strong>.edat</strong> files for subjects that did not finish all sessions will be in here.</p>
 <p>If you are doing this step before <em>Data Collection</em> has finished, and you do not want to delete the files from the <strong>Tasks</strong> directory or separate out subjects then leave out the <code>remove = TRUE</code> argument (or set it to FALSE) and leave out the <code>subj.list =</code> argument.</p>
 <hr />
 <hr />
-<p><strong>The next chapter is more optional but you will probably find it useful</strong></p>
+<p><strong>The next chapter is more optional but you will probably find it useful at some point</strong></p>
 
 </div>
             </section>

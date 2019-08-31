@@ -96,4 +96,4 @@ rm(list=ls())
 
 ********
 
-**Are you excited? I am! First we need to learn how to create scored data files that are ready for analysis**
+**Let's get to know the Example Data Set you will be working with**

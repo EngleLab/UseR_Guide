@@ -395,4 +395,4 @@ rm(list=ls())
 
 ********
 
-**Woo! You should feel accomplished. Okay one more quick step before the best part.**
+**Woo! You should feel accomplished. Now move on!**

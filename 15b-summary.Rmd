@@ -27,4 +27,4 @@ rm(list=ls())
 
 ********
 
-**We made it! We made it! Data Visualization. This is probably the coolest thing you will learn about in R**
+**You could either move on to Data Visualization or Statistical Analysis next.**

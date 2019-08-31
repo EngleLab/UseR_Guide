@@ -375,10 +375,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>If you have not done so already, open RStudio by opening the <em>UseRGuide_DataCollection.Rproj</em> R Project file.</p>
 <p>For the most part, you will merge individual subject files through the <em>E-Merge</em> program because the individual files are in the proprietary <em>.edat2</em> file type that cannot be opened outside of <em>E-Prime</em> programs.</p>
-<p>See <a href="">Data Preparation Instructions</a> for a detailed guide on how to use <em>E-Merge</em>.</p>
+<p>See <a href="http://englelab.gatech.edu/dataprep/" target="_blank">Data Preparation Instructions</a> for a detailed guide on how to use <em>E-Merge</em>.</p>
 <p>However, there may be cases where you have individual subject files not in <em>.edat2</em> but in <em>.txt</em>, <em>.csv</em>, or <em>.xlsx</em> file types. These can easily be merged into one data file using R.</p>
 <p>I have created a function to easily merge individual subject files together. The <code>files_bind()</code> function comes from my <code>datawrangling</code> To install <code>datawrangling</code>:</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" title="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/datawrangling&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" title="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/datawrangling&quot;</span>)</a></code></pre></div>
 <div id="files_bind" class="section level2">
 <h2><span class="header-section-number">11.1</span> <code>files_bind()</code></h2>
 <p>See <strong>Chapter 5: Importing and Outputing Data</strong> for more detailed information on <code>file_bind()</code>. The arguments you need to specify in <code>files_bind()</code> are:</p>
@@ -389,25 +389,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>By default the merged file will be saved as a <em>.csv</em> file. You can change this by setting <strong>output.delim</strong>.</p>
 <p>Using this function may look something like</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" title="1"><span class="kw">library</span>(here)</a>
-<a class="sourceLine" id="cb179-2" title="2"><span class="kw">library</span>(datawrangling)</a>
-<a class="sourceLine" id="cb179-3" title="3"></a>
-<a class="sourceLine" id="cb179-4" title="4"><span class="kw">files_bind</span>(<span class="kw">here</span>(<span class="st">&quot;Data Files/subj/Flanker&quot;</span>), </a>
-<a class="sourceLine" id="cb179-5" title="5">           <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, </a>
-<a class="sourceLine" id="cb179-6" title="6">           <span class="dt">output.file =</span> <span class="kw">here</span>(<span class="st">&quot;Data Files/Merged&quot;</span>, <span class="st">&quot;Flanker.csv&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" title="1"><span class="kw">library</span>(here)</a>
+<a class="sourceLine" id="cb185-2" title="2"><span class="kw">library</span>(datawrangling)</a>
+<a class="sourceLine" id="cb185-3" title="3"></a>
+<a class="sourceLine" id="cb185-4" title="4"><span class="kw">files_bind</span>(<span class="kw">here</span>(<span class="st">&quot;Data Files/subj/Flanker&quot;</span>), </a>
+<a class="sourceLine" id="cb185-5" title="5">           <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, </a>
+<a class="sourceLine" id="cb185-6" title="6">           <span class="dt">output.file =</span> <span class="kw">here</span>(<span class="st">&quot;Data Files/Merged&quot;</span>, <span class="st">&quot;Flanker.csv&quot;</span>))</a></code></pre></div>
 <p>The first argument <code>here("Data Files/subj/Flanker")</code> is just specifiying the file directory path. Go ahead and type this in your console window to see how this is the case.</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" title="1"><span class="kw">here</span>(<span class="st">&quot;Data Files/subj/Flanker&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" title="1"><span class="kw">here</span>(<span class="st">&quot;Data Files/subj/Flanker&quot;</span>)</a></code></pre></div>
 <p>If you have more tasks in which you need to merge individual subject data files you would then just include a similar line of code specific for that task (different file path and different filename).</p>
 <p>You may want to use this function in one of two ways:</p>
 <ol style="list-style-type: decimal">
 <li><p>Execute it in the console window (do not save it to a script file) every time you need to merge files.</p></li>
 <li><p>Include it where you would normally import the already merged <em>messy</em> raw data file in the <strong>0_task_raw.R</strong> script.</p></li>
 </ol>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" title="1"><span class="co">#### Import ####</span></a>
-<a class="sourceLine" id="cb181-2" title="2">import &lt;-<span class="st"> </span><span class="kw">files_bind</span>(<span class="kw">here</span>(<span class="st">&quot;Data Files/subj/Flanker&quot;</span>), </a>
-<a class="sourceLine" id="cb181-3" title="3">                     <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, </a>
-<a class="sourceLine" id="cb181-4" title="4">                     <span class="dt">output.file =</span> <span class="kw">here</span>(<span class="st">&quot;Data Files/Merged&quot;</span>, <span class="st">&quot;Flanker.csv&quot;</span>))</a>
-<a class="sourceLine" id="cb181-5" title="5"><span class="co">################</span></a></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" title="1"><span class="co">#### Import ####</span></a>
+<a class="sourceLine" id="cb187-2" title="2">import &lt;-<span class="st"> </span><span class="kw">files_bind</span>(<span class="kw">here</span>(<span class="st">&quot;Data Files/subj/Flanker&quot;</span>), </a>
+<a class="sourceLine" id="cb187-3" title="3">                     <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, </a>
+<a class="sourceLine" id="cb187-4" title="4">                     <span class="dt">output.file =</span> <span class="kw">here</span>(<span class="st">&quot;Data Files/Merged&quot;</span>, <span class="st">&quot;Flanker.csv&quot;</span>))</a>
+<a class="sourceLine" id="cb187-5" title="5"><span class="co">################</span></a></code></pre></div>
 <hr />
 <hr />
 <p><strong>The next chapter is the whole point of this section on Data Preparation</strong></p>

@@ -135,5 +135,5 @@ rm(list=ls())
 
 ********
 
-**Something**
+**Now let's move on to univariate plots**
 

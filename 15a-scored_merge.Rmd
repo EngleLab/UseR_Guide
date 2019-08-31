@@ -117,4 +117,4 @@ rm(list=ls())
 
 ********
 
-**We made it! We made it! Data Visualization. This is probably the coolest thing you will learn about in R**
+**Cool! Now you have a file that is ready for statistical analysis**

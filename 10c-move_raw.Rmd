@@ -39,4 +39,4 @@ rm(list=ls())
 
 ********
 
-**The next chapter is more optional but you will probably find it useful**
+**The next chapter is more optional but you will probably find it useful at some point**

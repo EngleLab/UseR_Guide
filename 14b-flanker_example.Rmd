@@ -58,4 +58,4 @@ rm(list=ls())
 
 ********
 
-**Woo! You should feel accomplished. Okay one more quick step before the best part.**
+**Now let's create an R Script to score this data**
