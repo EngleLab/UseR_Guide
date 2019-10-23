@@ -16,9 +16,9 @@ github-repo: "EngleLab"
 
 R is becoming a popular tool for doing statistical analyses across many scientific disciplines. It has many advantages but there can be a considerable learning curve. This guide is meant to help you become proficient in R and quickly learn standard data processing tasks that are common in the EngleLab.
 
-The best way to start learning R is if you have a data set to work on. However, there is an example data set provided in this guide.
+The best way to start learning R is if you have a data set to work on.
 
-It is true that, at first, it may take you longer to analyze data using R than your typical route of Excel, SPSS, or EQS. Because of this, it can be tempting to use those other programs to **quickly** analyze some data. You may even tell yourself that you will go back and do the analysis in R later when you have more time. Be honest with yourself, will you really? Also, the daunting uncertainty of how to do anything in R may also make you reluctant to start using R with data you have now. 
+It is true that, at first, it may take you longer to analyze data using R than your typical route of Excel, SPSS, or EQS. Because of this, it can be tempting to use those other programs to **quickly** analyze some data. You may even tell yourself that you will go back and do the analysis in R later when you have more time. But, be honest with yourself, will you really? Also, the daunting uncertainty of how to do anything in R may also make you reluctant to start using R with data you have now. 
 
 All this is just prioritizing short-term gains over long-term gains. **This is probably the biggest barrier that you will have to learning R**. STOP IT! This attitude will only keep you behind the times not just on using statistial software but other areas of your research career. 
 

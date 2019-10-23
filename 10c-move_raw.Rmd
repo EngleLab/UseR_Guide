@@ -30,6 +30,7 @@ You will also see a folder called **Did not finish all sessions**. The **.edat**
 
 If you are doing this step before *Data Collection* has finished, and you do not want to delete the files from the **Tasks** directory or separate out subjects then leave out the `remove = TRUE` argument (or set it to FALSE) and leave out the `subj.list = ` argument.
 
+See [1. Organize Raw Files](http://englelab.gatech.edu/dataprep/organize-raw-files.html){target="_blank"} in the Data Preparation Guide for more details on this step.
 
 ********
 

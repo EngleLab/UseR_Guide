@@ -1,0 +1,2283 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 23 Structural Equation Modelling | EngleLab: UseR Guide</title>
+  <meta name="description" content="This is a useR Guide for the EngleLab">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 23 Structural Equation Modelling | EngleLab: UseR Guide" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a useR Guide for the EngleLab" />
+  <meta name="github-repo" content="EngleLab" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 23 Structural Equation Modelling | EngleLab: UseR Guide" />
+  
+  <meta name="twitter:description" content="This is a useR Guide for the EngleLab" />
+  
+
+<meta name="author" content="Jason Tsukahara">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="statistics-in-r.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">EngleLab: UseR Guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
+</ul></li>
+<li class="part"><span><b>I Getting Started in R</b></span></li>
+<li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
+<li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
+<li class="chapter" data-level="1.2" data-path="installation.html"><a href="installation.html#installing-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R Studio</a></li>
+<li class="chapter" data-level="1.3" data-path="installation.html"><a href="installation.html#the-r-studio-environemnt"><i class="fa fa-check"></i><b>1.3</b> The R Studio Environemnt</a></li>
+<li class="chapter" data-level="1.4" data-path="installation.html"><a href="installation.html#r-studio-settings"><i class="fa fa-check"></i><b>1.4</b> R Studio Settings</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-r.html"><a href="basic-r.html"><i class="fa fa-check"></i><b>2</b> Basic R</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-r.html"><a href="basic-r.html#creating-r-objects"><i class="fa fa-check"></i><b>2.1</b> Creating R objects</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="basic-r.html"><a href="basic-r.html#classes"><i class="fa fa-check"></i><b>2.1.1</b> Classes</a></li>
+<li class="chapter" data-level="2.1.2" data-path="basic-r.html"><a href="basic-r.html#vectors"><i class="fa fa-check"></i><b>2.1.2</b> Vectors</a></li>
+<li class="chapter" data-level="2.1.3" data-path="basic-r.html"><a href="basic-r.html#factors"><i class="fa fa-check"></i><b>2.1.3</b> Factors</a></li>
+<li class="chapter" data-level="2.1.4" data-path="basic-r.html"><a href="basic-r.html#lists"><i class="fa fa-check"></i><b>2.1.4</b> Lists</a></li>
+<li class="chapter" data-level="2.1.5" data-path="basic-r.html"><a href="basic-r.html#data-frames"><i class="fa fa-check"></i><b>2.1.5</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="basic-r.html"><a href="basic-r.html#ifthen-statements"><i class="fa fa-check"></i><b>2.2</b> If…then Statements</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-r.html"><a href="basic-r.html#r-packages"><i class="fa fa-check"></i><b>2.3</b> R Packages</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="basic-r.html"><a href="basic-r.html#installing-and-loading-r-packages"><i class="fa fa-check"></i><b>2.3.1</b> Installing and Loading R Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="basic-r.html"><a href="basic-r.html#more-r-basic-resources"><i class="fa fa-check"></i><b>2.4</b> More R Basic Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="intermediate-r.html"><a href="intermediate-r.html"><i class="fa fa-check"></i><b>3</b> Intermediate R</a><ul>
+<li class="chapter" data-level="3.1" data-path="intermediate-r.html"><a href="intermediate-r.html#for-loops"><i class="fa fa-check"></i><b>3.1</b> For Loops</a></li>
+<li class="chapter" data-level="3.2" data-path="intermediate-r.html"><a href="intermediate-r.html#functions"><i class="fa fa-check"></i><b>3.2</b> Functions</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="intermediate-r.html"><a href="intermediate-r.html#creating-your-own-functions"><i class="fa fa-check"></i><b>3.2.1</b> Creating Your Own Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Working with Data</b></span></li>
+<li class="chapter" data-level="" data-path="working-with-data-overview.html"><a href="working-with-data-overview.html"><i class="fa fa-check"></i>Working with Data: Overview</a></li>
+<li class="chapter" data-level="4" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html"><i class="fa fa-check"></i><b>4</b> Importing and Outputing Data</a><ul>
+<li class="chapter" data-level="4.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#csv"><i class="fa fa-check"></i><b>4.1</b> CSV</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-.csv"><i class="fa fa-check"></i><b>4.1.1</b> Import <code>.csv</code></a></li>
+<li class="chapter" data-level="4.1.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.csv"><i class="fa fa-check"></i><b>4.1.2</b> Output <code>.csv</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#tab-delimited"><i class="fa fa-check"></i><b>4.2</b> Tab-Delimited</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-.txt"><i class="fa fa-check"></i><b>4.2.1</b> Import <code>.txt</code></a></li>
+<li class="chapter" data-level="4.2.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.txt"><i class="fa fa-check"></i><b>4.2.2</b> Output <code>.txt</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#spss"><i class="fa fa-check"></i><b>4.3</b> SPSS</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-.sav"><i class="fa fa-check"></i><b>4.3.1</b> Import <code>.sav</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.sav"><i class="fa fa-check"></i><b>4.3.2</b> Output <code>.sav</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#rstudio-import-gui"><i class="fa fa-check"></i><b>4.4</b> RStudio Import GUI</a></li>
+<li class="chapter" data-level="4.5" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#merging-data-files"><i class="fa fa-check"></i><b>4.5</b> Merging Data Files</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html"><i class="fa fa-check"></i><b>5</b> Data Manipulation using <code>dplyr</code></a><ul>
+<li class="chapter" data-level="5.1" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#setup"><i class="fa fa-check"></i><b>5.1</b> Setup</a></li>
+<li class="chapter" data-level="5.2" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#import"><i class="fa fa-check"></i><b>5.2</b> Import</a></li>
+<li class="chapter" data-level="5.3" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#rename"><i class="fa fa-check"></i><b>5.3</b> <code>rename()</code></a></li>
+<li class="chapter" data-level="5.4" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#filter"><i class="fa fa-check"></i><b>5.4</b> <code>filter()</code></a></li>
+<li class="chapter" data-level="5.5" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#select"><i class="fa fa-check"></i><b>5.5</b> <code>select()</code></a></li>
+<li class="chapter" data-level="5.6" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#mutate"><i class="fa fa-check"></i><b>5.6</b> <code>mutate()</code></a><ul>
+<li class="chapter" data-level="5.6.1" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#changing-values-in-an-existing-column"><i class="fa fa-check"></i><b>5.6.1</b> Changing values in an existing column</a></li>
+<li class="chapter" data-level="5.6.2" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#creating-a-new-column"><i class="fa fa-check"></i><b>5.6.2</b> Creating a new column</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#group_by"><i class="fa fa-check"></i><b>5.7</b> <code>group_by()</code></a></li>
+<li class="chapter" data-level="5.8" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#summarise"><i class="fa fa-check"></i><b>5.8</b> <code>summarise()</code></a></li>
+<li class="chapter" data-level="5.9" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#spread"><i class="fa fa-check"></i><b>5.9</b> <code>spread()</code></a></li>
+<li class="chapter" data-level="5.10" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#pipe-operator"><i class="fa fa-check"></i><b>5.10</b> Pipe Operator %&gt;%</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html"><i class="fa fa-check"></i><b>6</b> Common Data Manipulations</a><ul>
+<li class="chapter" data-level="6.1" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#descriptive-statistics"><i class="fa fa-check"></i><b>6.1</b> Descriptive Statistics</a></li>
+<li class="chapter" data-level="6.2" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#centering-and-standardizing-variables"><i class="fa fa-check"></i><b>6.2</b> Centering and Standardizing Variables</a></li>
+<li class="chapter" data-level="6.3" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#trimming"><i class="fa fa-check"></i><b>6.3</b> Trimming</a></li>
+<li class="chapter" data-level="6.4" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#composites"><i class="fa fa-check"></i><b>6.4</b> Composites</a></li>
+<li class="chapter" data-level="6.5" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#scale-transformations"><i class="fa fa-check"></i><b>6.5</b> Scale Transformations</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#log"><i class="fa fa-check"></i><b>6.5.1</b> log</a></li>
+<li class="chapter" data-level="6.5.2" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#polynomial"><i class="fa fa-check"></i><b>6.5.2</b> polynomial</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#custom-transformations"><i class="fa fa-check"></i><b>6.6</b> Custom Transformations</a></li>
+</ul></li>
+<li class="part"><span><b>III Reproducible Workflows</b></span></li>
+<li class="chapter" data-level="" data-path="reproducible-workflows-overview.html"><a href="reproducible-workflows-overview.html"><i class="fa fa-check"></i>Reproducible Workflows: Overview</a></li>
+<li class="chapter" data-level="7" data-path="project-organization.html"><a href="project-organization.html"><i class="fa fa-check"></i><b>7</b> Project Organization</a><ul>
+<li class="chapter" data-level="7.1" data-path="project-organization.html"><a href="project-organization.html#data-collection"><i class="fa fa-check"></i><b>7.1</b> Data Collection</a></li>
+<li class="chapter" data-level="7.2" data-path="project-organization.html"><a href="project-organization.html#data-preparation"><i class="fa fa-check"></i><b>7.2</b> Data Preparation</a></li>
+<li class="chapter" data-level="7.3" data-path="project-organization.html"><a href="project-organization.html#data-analysis"><i class="fa fa-check"></i><b>7.3</b> Data Analysis</a></li>
+<li class="chapter" data-level="7.4" data-path="project-organization.html"><a href="project-organization.html#workflow-package"><i class="fa fa-check"></i><b>7.4</b> <code>workflow</code> package</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="project-organization.html"><a href="project-organization.html#install"><i class="fa fa-check"></i><b>7.4.1</b> Install</a></li>
+<li class="chapter" data-level="7.4.2" data-path="project-organization.html"><a href="project-organization.html#create-a-new-r-project"><i class="fa fa-check"></i><b>7.4.2</b> Create a New R Project</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="reproducible-practices.html"><a href="reproducible-practices.html"><i class="fa fa-check"></i><b>8</b> Reproducible Practices</a><ul>
+<li class="chapter" data-level="8.1" data-path="reproducible-practices.html"><a href="reproducible-practices.html#what-is-real"><i class="fa fa-check"></i><b>8.1</b> What is real?</a></li>
+<li class="chapter" data-level="8.2" data-path="reproducible-practices.html"><a href="reproducible-practices.html#where-does-your-analysis-live"><i class="fa fa-check"></i><b>8.2</b> Where does your analysis live?</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="reproducible-practices.html"><a href="reproducible-practices.html#project-level"><i class="fa fa-check"></i><b>8.2.1</b> Project Level</a></li>
+<li class="chapter" data-level="8.2.2" data-path="reproducible-practices.html"><a href="reproducible-practices.html#script-level"><i class="fa fa-check"></i><b>8.2.2</b> Script Level</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="reproducible-practices.html"><a href="reproducible-practices.html#environment"><i class="fa fa-check"></i><b>8.3</b> Environment</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="reproducible-practices.html"><a href="reproducible-practices.html#working-directory"><i class="fa fa-check"></i><b>8.3.1</b> Working Directory</a></li>
+<li class="chapter" data-level="8.3.2" data-path="reproducible-practices.html"><a href="reproducible-practices.html#loaded-packages"><i class="fa fa-check"></i><b>8.3.2</b> Loaded Packages</a></li>
+<li class="chapter" data-level="8.3.3" data-path="reproducible-practices.html"><a href="reproducible-practices.html#objects"><i class="fa fa-check"></i><b>8.3.3</b> Objects</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="r-script-templates.html"><a href="r-script-templates.html"><i class="fa fa-check"></i><b>9</b> R Script Templates</a><ul>
+<li class="chapter" data-level="9.1" data-path="r-script-templates.html"><a href="r-script-templates.html#download-templates"><i class="fa fa-check"></i><b>9.1</b> Download Templates</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="r-script-templates.html"><a href="r-script-templates.html#install-workflow-package"><i class="fa fa-check"></i><b>9.1.1</b> Install <code>workflow</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="r-script-templates.html"><a href="r-script-templates.html#data-preparation-1"><i class="fa fa-check"></i><b>9.2</b> Data Preparation</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="r-script-templates.html"><a href="r-script-templates.html#messy-to-tidy-script"><i class="fa fa-check"></i><b>9.2.1</b> messy-to-tidy script</a></li>
+<li class="chapter" data-level="9.2.2" data-path="r-script-templates.html"><a href="r-script-templates.html#masterscript-data-preparation"><i class="fa fa-check"></i><b>9.2.2</b> masterscript: Data Preparation</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="r-script-templates.html"><a href="r-script-templates.html#data-analysis-1"><i class="fa fa-check"></i><b>9.3</b> Data Analysis</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="r-script-templates.html"><a href="r-script-templates.html#clean-and-score-script"><i class="fa fa-check"></i><b>9.3.1</b> clean and score script</a></li>
+<li class="chapter" data-level="9.3.2" data-path="r-script-templates.html"><a href="r-script-templates.html#merge-script"><i class="fa fa-check"></i><b>9.3.2</b> merge script</a></li>
+<li class="chapter" data-level="9.3.3" data-path="r-script-templates.html"><a href="r-script-templates.html#masterscript-data-analysis"><i class="fa fa-check"></i><b>9.3.3</b> masterscript: Data Analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Data Preparation</b></span></li>
+<li class="chapter" data-level="" data-path="data-preparation-overview.html"><a href="data-preparation-overview.html"><i class="fa fa-check"></i>Data Preparation: Overview</a><ul>
+<li class="chapter" data-level="9.4" data-path="data-preparation-overview.html"><a href="data-preparation-overview.html#data-collection-repository"><i class="fa fa-check"></i><b>9.4</b> Data Collection Repository</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="example-data-flanker-task.html"><a href="example-data-flanker-task.html"><i class="fa fa-check"></i>Example Data: Flanker Task</a></li>
+<li class="chapter" data-level="10" data-path="organize-raw-files.html"><a href="organize-raw-files.html"><i class="fa fa-check"></i><b>10</b> Organize Raw Files</a></li>
+<li class="chapter" data-level="11" data-path="merge-individual-subject-files.html"><a href="merge-individual-subject-files.html"><i class="fa fa-check"></i><b>11</b> Merge Individual Subject Files</a><ul>
+<li class="chapter" data-level="11.1" data-path="merge-individual-subject-files.html"><a href="merge-individual-subject-files.html#files_bind"><i class="fa fa-check"></i><b>11.1</b> <code>files_bind()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html"><i class="fa fa-check"></i><b>12</b> Messy to Tidy: 0_task_raw.R</a><ul>
+<li class="chapter" data-level="12.1" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#setup-1"><i class="fa fa-check"></i><b>12.1</b> Setup</a></li>
+<li class="chapter" data-level="12.2" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#import-1"><i class="fa fa-check"></i><b>12.2</b> Import</a></li>
+<li class="chapter" data-level="12.3" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#tidy-raw-data"><i class="fa fa-check"></i><b>12.3</b> Tidy raw data</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#filter-1"><i class="fa fa-check"></i><b>12.3.1</b> Filter</a></li>
+<li class="chapter" data-level="12.3.2" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#rename-columns"><i class="fa fa-check"></i><b>12.3.2</b> Rename Columns</a></li>
+<li class="chapter" data-level="12.3.3" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#change-values"><i class="fa fa-check"></i><b>12.3.3</b> Change Values</a></li>
+<li class="chapter" data-level="12.3.4" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#select-columns"><i class="fa fa-check"></i><b>12.3.4</b> Select Columns</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#output"><i class="fa fa-check"></i><b>12.4</b> Output</a></li>
+<li class="chapter" data-level="12.5" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#masterscript"><i class="fa fa-check"></i><b>12.5</b> Masterscript</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-preparation-summary.html"><a href="data-preparation-summary.html"><i class="fa fa-check"></i>Data Preparation: Summary</a></li>
+<li class="part"><span><b>V Cleaning and Scoring Data</b></span></li>
+<li class="chapter" data-level="" data-path="cleaning-and-scoring-data-overview.html"><a href="cleaning-and-scoring-data-overview.html"><i class="fa fa-check"></i>Cleaning and Scoring Data: Overview</a><ul>
+<li class="chapter" data-level="12.6" data-path="cleaning-and-scoring-data-overview.html"><a href="cleaning-and-scoring-data-overview.html#data-analysis-repository"><i class="fa fa-check"></i><b>12.6</b> Data Analysis Repository</a></li>
+<li class="chapter" data-level="12.7" data-path="cleaning-and-scoring-data-overview.html"><a href="cleaning-and-scoring-data-overview.html#copy-tidy-raw-data"><i class="fa fa-check"></i><b>12.7</b> Copy tidy raw data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="example-data-flanker.html"><a href="example-data-flanker.html"><i class="fa fa-check"></i>Example Data: Flanker</a></li>
+<li class="chapter" data-level="13" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html"><i class="fa fa-check"></i><b>13</b> Tidy to Scored: 1_task_score.R</a><ul>
+<li class="chapter" data-level="13.1" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#setup-2"><i class="fa fa-check"></i><b>13.1</b> Setup</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#set-data-cleaning-parameters"><i class="fa fa-check"></i><b>13.1.1</b> Set Data Cleaning Parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#data-cleaning-and-scoring"><i class="fa fa-check"></i><b>13.2</b> Data Cleaning and Scoring</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#what-is-the-dependent-variable"><i class="fa fa-check"></i><b>13.2.1</b> What is the dependent variable?</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#trimming-1"><i class="fa fa-check"></i><b>13.3</b> Trimming</a></li>
+<li class="chapter" data-level="13.4" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#calculate-flankereffect"><i class="fa fa-check"></i><b>13.4</b> Calculate FlankerEffect</a></li>
+<li class="chapter" data-level="13.5" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#remove-subjects"><i class="fa fa-check"></i><b>13.5</b> Remove Subjects</a></li>
+<li class="chapter" data-level="13.6" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#calculate-binned-scores"><i class="fa fa-check"></i><b>13.6</b> Calculate Binned Scores</a></li>
+<li class="chapter" data-level="13.7" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#merge"><i class="fa fa-check"></i><b>13.7</b> Merge</a></li>
+<li class="chapter" data-level="13.8" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#output-1"><i class="fa fa-check"></i><b>13.8</b> Output</a></li>
+<li class="chapter" data-level="13.9" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#masterscript-1"><i class="fa fa-check"></i><b>13.9</b> Masterscript</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html"><i class="fa fa-check"></i><b>14</b> Merge: Create A Final Data File</a><ul>
+<li class="chapter" data-level="14.1" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#setup-3"><i class="fa fa-check"></i><b>14.1</b> Setup</a></li>
+<li class="chapter" data-level="14.2" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#merge-1"><i class="fa fa-check"></i><b>14.2</b> Merge</a></li>
+<li class="chapter" data-level="14.3" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#select-and-trim"><i class="fa fa-check"></i><b>14.3</b> Select and Trim</a></li>
+<li class="chapter" data-level="14.4" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#output-2"><i class="fa fa-check"></i><b>14.4</b> Output</a></li>
+<li class="chapter" data-level="14.5" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#masterscript-2"><i class="fa fa-check"></i><b>14.5</b> Masterscript</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="cleaning-and-scoring-data-summary.html"><a href="cleaning-and-scoring-data-summary.html"><i class="fa fa-check"></i>Cleaning and Scoring Data: Summary</a></li>
+<li class="part"><span><b>VI Data Visualization</b></span></li>
+<li class="chapter" data-level="" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html"><i class="fa fa-check"></i>Data Visualization: Overview</a><ul>
+<li class="chapter" data-level="14.6" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#r-markdown"><i class="fa fa-check"></i><b>14.6</b> R Markdown</a><ul>
+<li class="chapter" data-level="14.6.1" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#what-is-an-r-markdown-file"><i class="fa fa-check"></i><b>14.6.1</b> What is an R Markdown File?</a></li>
+<li class="chapter" data-level="14.6.2" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#yaml-header"><i class="fa fa-check"></i><b>14.6.2</b> YAML header</a></li>
+<li class="chapter" data-level="14.6.3" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#r-code-chunks"><i class="fa fa-check"></i><b>14.6.3</b> R code chunks</a></li>
+<li class="chapter" data-level="14.6.4" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#formatted-text"><i class="fa fa-check"></i><b>14.6.4</b> Formatted text</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html"><i class="fa fa-check"></i><b>15</b> Fundamentals of Data Visualization</a><ul>
+<li class="chapter" data-level="15.1" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>15.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="15.2" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html#plotting-functions-in-r"><i class="fa fa-check"></i><b>15.2</b> Plotting Functions in R</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>16</b> Introduction to ggplot2</a><ul>
+<li class="chapter" data-level="16.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#grammar-of-graphics-1"><i class="fa fa-check"></i><b>16.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="16.2" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#data-layer"><i class="fa fa-check"></i><b>16.2</b> Data layer</a></li>
+<li class="chapter" data-level="16.3" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#aesthetic-layer"><i class="fa fa-check"></i><b>16.3</b> Aesthetic Layer</a></li>
+<li class="chapter" data-level="16.4" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#geometries-layer"><i class="fa fa-check"></i><b>16.4</b> Geometries Layer</a></li>
+<li class="chapter" data-level="16.5" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#facets-layer"><i class="fa fa-check"></i><b>16.5</b> Facets Layer</a></li>
+<li class="chapter" data-level="16.6" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#statistics-layer"><i class="fa fa-check"></i><b>16.6</b> Statistics Layer</a></li>
+<li class="chapter" data-level="16.7" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#coordinates-layer"><i class="fa fa-check"></i><b>16.7</b> Coordinates Layer</a></li>
+<li class="chapter" data-level="16.8" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#themes-layer"><i class="fa fa-check"></i><b>16.8</b> Themes Layer</a><ul>
+<li class="chapter" data-level="16.8.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#built-in-themes"><i class="fa fa-check"></i><b>16.8.1</b> Built-in Themes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i><b>17</b> Scatterplots</a><ul>
+<li class="chapter" data-level="17.1" data-path="scatterplots.html"><a href="scatterplots.html#scatterplots-1"><i class="fa fa-check"></i><b>17.1</b> Scatterplots</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="scatterplots.html"><a href="scatterplots.html#adding-other-geoms"><i class="fa fa-check"></i><b>17.1.1</b> Adding other geoms</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="plotting-means.html"><a href="plotting-means.html"><i class="fa fa-check"></i><b>18</b> Plotting Means</a><ul>
+<li class="chapter" data-level="18.1" data-path="plotting-means.html"><a href="plotting-means.html#bar-graphs"><i class="fa fa-check"></i><b>18.1</b> Bar Graphs</a></li>
+<li class="chapter" data-level="18.2" data-path="plotting-means.html"><a href="plotting-means.html#alternatives-to-bar-graphs"><i class="fa fa-check"></i><b>18.2</b> Alternatives to Bar Graphs</a></li>
+<li class="chapter" data-level="18.3" data-path="plotting-means.html"><a href="plotting-means.html#two-way-interaction-plots"><i class="fa fa-check"></i><b>18.3</b> Two-Way Interaction Plots</a></li>
+<li class="chapter" data-level="18.4" data-path="plotting-means.html"><a href="plotting-means.html#three-way-interaction-plots"><i class="fa fa-check"></i><b>18.4</b> Three-Way Interaction Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="univariate-plots.html"><a href="univariate-plots.html"><i class="fa fa-check"></i><b>19</b> Univariate Plots</a></li>
+<li class="chapter" data-level="20" data-path="sjplot.html"><a href="sjplot.html"><i class="fa fa-check"></i><b>20</b> <code>sjPlot</code></a></li>
+<li class="chapter" data-level="21" data-path="custom-tables.html"><a href="custom-tables.html"><i class="fa fa-check"></i><b>21</b> Custom Tables</a></li>
+<li class="part"><span><b>VII Statistical Analysis</b></span></li>
+<li class="chapter" data-level="" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html"><i class="fa fa-check"></i>Statistical Analysis: Overview</a><ul>
+<li class="chapter" data-level="21.1" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#r-markdown-1"><i class="fa fa-check"></i><b>21.1</b> R Markdown</a><ul>
+<li class="chapter" data-level="21.1.1" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#what-is-an-r-markdown-file-1"><i class="fa fa-check"></i><b>21.1.1</b> What is an R Markdown File?</a></li>
+<li class="chapter" data-level="21.1.2" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#yaml-header-1"><i class="fa fa-check"></i><b>21.1.2</b> YAML header</a></li>
+<li class="chapter" data-level="21.1.3" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#r-code-chunks-1"><i class="fa fa-check"></i><b>21.1.3</b> R code chunks</a></li>
+<li class="chapter" data-level="21.1.4" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#formatted-text-1"><i class="fa fa-check"></i><b>21.1.4</b> Formatted text</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="statistics-in-r.html"><a href="statistics-in-r.html"><i class="fa fa-check"></i><b>22</b> Statistics in R</a></li>
+<li class="chapter" data-level="23" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html"><i class="fa fa-check"></i><b>23</b> Structural Equation Modelling</a><ul>
+<li class="chapter" data-level="23.1" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#lavaan"><i class="fa fa-check"></i><b>23.1</b> <code>lavaan</code></a><ul>
+<li class="chapter" data-level="23.1.1" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#building-the-model-object"><i class="fa fa-check"></i><b>23.1.1</b> Building the model object</a></li>
+<li class="chapter" data-level="23.1.2" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#run-the-model"><i class="fa fa-check"></i><b>23.1.2</b> Run the model</a></li>
+</ul></li>
+<li class="chapter" data-level="23.2" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#semoutput"><i class="fa fa-check"></i><b>23.2</b> <code>semoutput</code></a><ul>
+<li class="chapter" data-level="23.2.1" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#yaml-header-2"><i class="fa fa-check"></i><b>23.2.1</b> YAML Header</a></li>
+<li class="chapter" data-level="23.2.2" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#cfa-example"><i class="fa fa-check"></i><b>23.2.2</b> CFA Example</a></li>
+<li class="chapter" data-level="23.2.3" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#sem-example"><i class="fa fa-check"></i><b>23.2.3</b> SEM Example</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="http://englelab.gatech.edu/labuser">Lab User</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">EngleLab: UseR Guide</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="structural-equation-modelling" class="section level1">
+<h1><span class="header-section-number">Chapter 23</span> Structural Equation Modelling</h1>
+<p><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"></p>
+<p>By far the most common statistical analyses we do in this lab are confirmatory factor analysis (CFA) and structural equation modelling (SEM).</p>
+<p>This Chapter will cover how to conduct CFA’s and SEM’s in R using the <code>lavaan</code> package.</p>
+<div id="lavaan" class="section level2">
+<h2><span class="header-section-number">23.1</span> <code>lavaan</code></h2>
+<p>Install the <code>lavaan</code> package</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;lavaan&quot;</span>)</code></pre>
+<p>Visit the <a href="http://lavaan.ugent.be" target="_blank">lavaan website</a> and navigate to the <strong>Tutorial</strong> tab.</p>
+<p>This is an excellent resource for you to consult if you forget any syntax or want more details on using <em>lavaan</em>. You should go over the full tutorial yourself, but I will go ahead and cover the basics here.</p>
+<p>There are only two main steps to run a lavaan model.</p>
+<ol style="list-style-type: decimal">
+<li><p>Build the model object</p></li>
+<li><p>Run the model with <code>cfa()</code> or <code>sem()</code></p></li>
+</ol>
+<div id="building-the-model-object" class="section level3">
+<h3><span class="header-section-number">23.1.1</span> Building the model object</h3>
+<p>The model object is where you specify the model equation for the CFA or SEM. It is actually very easy and intuitive to do. Basically you specify the model equation within single quotes and pass it to an object called model. Let’s say we have want to run a model corresponding to this model diagram:</p>
+<p><img src="images/cfa_example.png" width="40%" /></p>
+<p>We would simply specify:</p>
+<pre class="sourceCode r"><code class="sourceCode r">model &lt;-<span class="st"> &#39; </span>
+<span class="st">visual  =~ x1 + x2 + x3 </span>
+<span class="st">textual =~ x4 + x5 + x6</span>
+<span class="st">speed   =~ x7 + x8 + x9 </span>
+<span class="st">&#39;</span></code></pre>
+<p>This defines a CFA model with three latent factors; <strong>visual</strong>, <strong>textual</strong>, and <strong>speed</strong> with ther respective indicators. The indicators need to correspond to column names in the dataframe.</p>
+<p>There are certain defaults that <code>lavaan</code> uses so that we do not have to specify every single path in the model. For instance, by default it will add correlations between the latent factors in a CFA model. That is why in the model example above, the latent correlations are not explicit, yet they are implicitly part of the model.</p>
+<p><strong>Model Syntax</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>formula type</th>
+<th>operator</th>
+<th>mnemonic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>latent variable definition</td>
+<td>=~</td>
+<td>is measured by</td>
+</tr>
+<tr class="even">
+<td>regression</td>
+<td>~</td>
+<td>is regressed on</td>
+</tr>
+<tr class="odd">
+<td>variance/covariance</td>
+<td>~~</td>
+<td>is correlated with</td>
+</tr>
+<tr class="even">
+<td>new parameter</td>
+<td>:=</td>
+<td>is defined by</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="run-the-model" class="section level3">
+<h3><span class="header-section-number">23.1.2</span> Run the model</h3>
+<p>Then the model can be ran using <code>cfa()</code> or <code>sem()</code> functions</p>
+<pre class="sourceCode r"><code class="sourceCode r">fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(model, data)</code></pre>
+<p>The first two arguments to pass onto the lavaan functions are <code>model</code> and <code>data</code>, respectively. There are other important arguments that we will cover later.</p>
+<p>The <code>summary(fit, fit.measures = TRUE, standardized = TRUE)</code> output to a lavaan model looks like</p>
+<pre><code>## lavaan 0.6-3 ended normally after 35 iterations
+## 
+##   Optimization method                           NLMINB
+##   Number of free parameters                         21
+## 
+##   Number of observations                           301
+## 
+##   Estimator                                         ML
+##   Model Fit Test Statistic                      85.306
+##   Degrees of freedom                                24
+##   P-value (Chi-square)                           0.000
+## 
+## Model test baseline model:
+## 
+##   Minimum Function Test Statistic              918.852
+##   Degrees of freedom                                36
+##   P-value                                        0.000
+## 
+## User model versus baseline model:
+## 
+##   Comparative Fit Index (CFI)                    0.931
+##   Tucker-Lewis Index (TLI)                       0.896
+## 
+## Loglikelihood and Information Criteria:
+## 
+##   Loglikelihood user model (H0)              -3737.745
+##   Loglikelihood unrestricted model (H1)      -3695.092
+## 
+##   Number of free parameters                         21
+##   Akaike (AIC)                                7517.490
+##   Bayesian (BIC)                              7595.339
+##   Sample-size adjusted Bayesian (BIC)         7528.739
+## 
+## Root Mean Square Error of Approximation:
+## 
+##   RMSEA                                          0.092
+##   90 Percent Confidence Interval          0.071  0.114
+##   P-value RMSEA &lt;= 0.05                          0.001
+## 
+## Standardized Root Mean Square Residual:
+## 
+##   SRMR                                           0.065
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+##   Standard Errors                             Standard
+## 
+## Latent Variables:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   visual =~                                                             
+##     x1                1.000                               0.900    0.772
+##     x2                0.554    0.100    5.554    0.000    0.498    0.424
+##     x3                0.729    0.109    6.685    0.000    0.656    0.581
+##   textual =~                                                            
+##     x4                1.000                               0.990    0.852
+##     x5                1.113    0.065   17.014    0.000    1.102    0.855
+##     x6                0.926    0.055   16.703    0.000    0.917    0.838
+##   speed =~                                                              
+##     x7                1.000                               0.619    0.570
+##     x8                1.180    0.165    7.152    0.000    0.731    0.723
+##     x9                1.082    0.151    7.155    0.000    0.670    0.665
+## 
+## Covariances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   visual ~~                                                             
+##     textual           0.408    0.074    5.552    0.000    0.459    0.459
+##     speed             0.262    0.056    4.660    0.000    0.471    0.471
+##   textual ~~                                                            
+##     speed             0.173    0.049    3.518    0.000    0.283    0.283
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .x1                0.549    0.114    4.833    0.000    0.549    0.404
+##    .x2                1.134    0.102   11.146    0.000    1.134    0.821
+##    .x3                0.844    0.091    9.317    0.000    0.844    0.662
+##    .x4                0.371    0.048    7.779    0.000    0.371    0.275
+##    .x5                0.446    0.058    7.642    0.000    0.446    0.269
+##    .x6                0.356    0.043    8.277    0.000    0.356    0.298
+##    .x7                0.799    0.081    9.823    0.000    0.799    0.676
+##    .x8                0.488    0.074    6.573    0.000    0.488    0.477
+##    .x9                0.566    0.071    8.003    0.000    0.566    0.558
+##     visual            0.809    0.145    5.564    0.000    1.000    1.000
+##     textual           0.979    0.112    8.737    0.000    1.000    1.000
+##     speed             0.384    0.086    4.451    0.000    1.000    1.000</code></pre>
+<p><strong>Yikes!!</strong></p>
+<p>You really should learn to understand this output, but nicer looking output would be nice right?</p>
+<p>This is where my <code>semoutput</code> package comes in handy.</p>
+</div>
+</div>
+<div id="semoutput" class="section level2">
+<h2><span class="header-section-number">23.2</span> <code>semoutput</code></h2>
+<p>If you have not done so already open the RStudio project file for this tutorial.</p>
+<hr />
+<div style="text-align: center; font-size: 1.25em">
+<p><a href="http://englelab.gatech.edu/useRguide/data/PoliticalDemocracy.csv"><i class="fas fa-download" style="font-size: 3em"></i></a></p>
+<p><a href="http://englelab.gatech.edu/useRguide/data/PoliticalDemocracy.csv"><strong>Download the PoliticalDemocracy dataset used in the <code>lavaan</code> tutorial</strong></a></p>
+</div>
+<hr />
+<p>Save it to the folder <strong>Data Files</strong> of your project directory.</p>
+<p>Install <code>semoutput</code></p>
+<pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/semoutput&quot;</span>)</code></pre>
+<p>Additional packages you will need to have installed</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;sjPlot&quot;</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;semPlot&quot;</span>)</code></pre>
+<p>Once you install <code>semoutput</code> you should Restart R by going to:</p>
+<p>Session -&gt; Restart R</p>
+<p>You can download an R Markdown template for doing CFA and SEM in <code>lavaan</code>. Go to:</p>
+<p>File -&gt; New File -&gt; R Markdown…From Template -&gt; CFA/SEM (lavaan)</p>
+<div id="yaml-header-2" class="section level3">
+<h3><span class="header-section-number">23.2.1</span> YAML Header</h3>
+<p>At the top of the document is what is called the YAML header. Here is where you can specify certain parameters that you may want to use as default in your analyses.</p>
+<p>You also need to specify the location and name of the data file you will be working with</p>
+<pre class="sourceCode r"><code class="sourceCode r">params<span class="op">:</span>
+<span class="st">  </span>import.file<span class="op">:</span><span class="st"> &quot;&quot;</span>       <span class="co"># Relative file path to data</span>
+  mimic<span class="op">:</span><span class="st"> &quot;lavaan&quot;</span>       <span class="co"># Which software program to mimic for estimating models</span>
+  missing<span class="op">:</span><span class="st"> &quot;ML&quot;</span>         <span class="co"># How to deal with missing values: &quot;ML&quot; or &quot;listwise&quot;</span>
+  std.lv<span class="op">:</span><span class="st"> </span><span class="ot">TRUE</span>          <span class="co"># For CFAs, default setting whether to set latent variances to 1 or not</span>
+  std.ov<span class="op">:</span><span class="st"> </span><span class="ot">FALSE</span>         <span class="co"># Standardize all observed varialbes?</span>
+  se<span class="op">:</span><span class="st"> &quot;standard&quot;</span>        <span class="co"># How to calcualte standard errors: &quot;standard&quot; or &quot;bootstrap&quot;</span>
+  bootstrap<span class="op">:</span><span class="st"> </span><span class="dv">1000</span>       <span class="co"># If se = &quot;bootstrap&quot; how many boostrap samples?</span></code></pre>
+<p><em>skipping the efa example for now</em></p>
+<p>The first R code chunk <strong>Required Packages</strong> is where you should load any packages used in the document.</p>
+<p>The next R code chunk is where the data file is imported.</p>
+<p>The next two R code chunk’s print out a descriptives and correlational tables.</p>
+<p>The next section is a template for conducting an exploratory factor analysis with <code>psych::fa()</code>. Let’s skip this for now.</p>
+<p>The next two sections are templates for CFA and SEM using <code>lavaan</code>. For each CFA and SEM section there are 4 subsections.</p>
+<ul>
+<li><p>The “Summary Output” subsection displays nice looking tables summarizing the model results</p></li>
+<li><p>The “Diagram Output” subsection will display a model diagram</p></li>
+<li><p>The “Residual Correlation Matrix” subsection will display the residual correlation matrix</p></li>
+<li><p>The “Full Output” subsection will display the results from summary() along with parameter estimates and modification indices. This way you can still get the full output from a lavaan model as it provides more information than the “Summary Output”. You can also add additional output to this section if you need more info about the model.</p></li>
+</ul>
+</div>
+<div id="cfa-example" class="section level3">
+<h3><span class="header-section-number">23.2.2</span> CFA Example</h3>
+<p>Ultimately we will run the following SEM model. First let’s conduct a CFA of the model.</p>
+<p><img src="images/sem_example.png" width="60%" /></p>
+<p>The following error residuals are correlated:</p>
+<p>y1 and y5; y2 and y4; y2 and y6; y3 and y7; y4 and y8; y6 and y8</p>
+<p>To correlate error residuals you would specify:</p>
+<pre><code>y1 ~~ y5</code></pre>
+<p>Move down to the CFA section. First, you need to create a list of the latent factor labels (this is for the output and not running a <code>lavaan</code> model).</p>
+<pre class="sourceCode r"><code class="sourceCode r">factors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;dem60&quot;</span>, <span class="st">&quot;ind60&quot;</span>, <span class="st">&quot;dem65&quot;</span>)</code></pre>
+<p>Then specify the model equation. The commented lines (e.g. # latent factors) are just optional and can be changed or removed. Remember, the factor correlations are implied.</p>
+<pre class="sourceCode r"><code class="sourceCode r">model &lt;-<span class="st"> &#39;</span>
+<span class="st"># latent factors</span>
+
+<span class="st"># correlated errors</span>
+
+<span class="st"># constraints</span>
+
+<span class="st">&#39;</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">model &lt;-<span class="st"> &#39;</span>
+<span class="st"># latent factors</span>
+<span class="st">dem60 =~ y1 + y2 + y3 + y4</span>
+<span class="st">ind60 =~ x1 + x2 + x3</span>
+<span class="st">dem65 =~ y5 + y6 + y7 + y8</span>
+
+<span class="st"># correlated errors</span>
+<span class="st">y1 ~~ y5</span>
+<span class="st">y2 ~~ y4</span>
+<span class="st">y2 ~~ y6</span>
+<span class="st">y3 ~~ y7</span>
+<span class="st">y4 ~~ y8</span>
+<span class="st">y6 ~~ y8</span>
+
+<span class="st"># constraints</span>
+
+<span class="st">&#39;</span></code></pre>
+<p>You do not need to change anything for <code>cfa()</code>. Unless you want to change some of the defaults you set in the YAML header.</p>
+<pre class="sourceCode r"><code class="sourceCode r">fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(<span class="dt">model =</span> model, <span class="dt">data =</span> data, 
+           <span class="dt">mimic =</span> params<span class="op">$</span>mimic, <span class="dt">missing =</span> params<span class="op">$</span>missing, 
+           <span class="dt">std.lv =</span> params<span class="op">$</span>std.lv, <span class="dt">std.ov =</span> params<span class="op">$</span>std.ov,
+           <span class="dt">se =</span> params<span class="op">$</span>se, <span class="dt">bootstrap =</span> params<span class="op">$</span>bootstrap)</code></pre>
+<p>Run this R code chunk by pressing the green arrow button. Then run each R code chunk in each subsection to print the output.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_sig</span>(fit)</code></pre>
+<table class="table" style="width: auto !important; ">
+<caption>
+<span id="tab:unnamed-chunk-402">Table 23.1: </span>Model Significance
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+Sample.Size
+</th>
+<th style="text-align:right;">
+Chi.Square
+</th>
+<th style="text-align:right;">
+df
+</th>
+<th style="text-align:right;">
+p.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+75
+</td>
+<td style="text-align:right;">
+38.125
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+0.329
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_fitmeasures</span>(fit)</code></pre>
+<table class="table" style="width: auto !important; ">
+<caption>
+<span id="tab:unnamed-chunk-402">Table 23.1: </span>Model Fit Measures
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+CFI
+</th>
+<th style="text-align:right;">
+RMSEA
+</th>
+<th style="text-align:right;">
+RMSEA.Lower
+</th>
+<th style="text-align:right;">
+RMSEA.Upper
+</th>
+<th style="text-align:right;">
+AIC
+</th>
+<th style="text-align:right;">
+BIC
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.995
+</td>
+<td style="text-align:right;">
+0.035
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.092
+</td>
+<td style="text-align:right;">
+3179.582
+</td>
+<td style="text-align:right;">
+3276.916
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_factorloadings</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">ci =</span> <span class="st">&quot;standardized&quot;</span>)</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-402">Table 23.1: </span>Factor Loadings
+</caption>
+<thead>
+<tr>
+<th style="border-bottom:hidden" colspan="1">
+</th>
+<th style="border-bottom:hidden" colspan="1">
+</th>
+<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="7">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Standardized
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+Latent Factor
+</th>
+<th style="text-align:left;">
+Indicator
+</th>
+<th style="text-align:right;">
+Loadings
+</th>
+<th style="text-align:left;">
+sig
+</th>
+<th style="text-align:right;">
+p
+</th>
+<th style="text-align:right;">
+Lower.CI
+</th>
+<th style="text-align:right;">
+Upper.CI
+</th>
+<th style="text-align:right;">
+SE
+</th>
+<th style="text-align:right;">
+z
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+dem60
+</td>
+<td style="text-align:left;">
+y1
+</td>
+<td style="text-align:right;">
+0.850
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.765
+</td>
+<td style="text-align:right;">
+0.936
+</td>
+<td style="text-align:right;">
+0.044
+</td>
+<td style="text-align:right;">
+19.435
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dem60
+</td>
+<td style="text-align:left;">
+y2
+</td>
+<td style="text-align:right;">
+0.717
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.592
+</td>
+<td style="text-align:right;">
+0.843
+</td>
+<td style="text-align:right;">
+0.064
+</td>
+<td style="text-align:right;">
+11.207
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dem60
+</td>
+<td style="text-align:left;">
+y3
+</td>
+<td style="text-align:right;">
+0.722
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.596
+</td>
+<td style="text-align:right;">
+0.849
+</td>
+<td style="text-align:right;">
+0.064
+</td>
+<td style="text-align:right;">
+11.221
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dem60
+</td>
+<td style="text-align:left;">
+y4
+</td>
+<td style="text-align:right;">
+0.846
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.759
+</td>
+<td style="text-align:right;">
+0.933
+</td>
+<td style="text-align:right;">
+0.044
+</td>
+<td style="text-align:right;">
+19.020
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ind60
+</td>
+<td style="text-align:left;">
+x1
+</td>
+<td style="text-align:right;">
+0.920
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.874
+</td>
+<td style="text-align:right;">
+0.965
+</td>
+<td style="text-align:right;">
+0.023
+</td>
+<td style="text-align:right;">
+39.658
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ind60
+</td>
+<td style="text-align:left;">
+x2
+</td>
+<td style="text-align:right;">
+0.973
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.941
+</td>
+<td style="text-align:right;">
+1.005
+</td>
+<td style="text-align:right;">
+0.017
+</td>
+<td style="text-align:right;">
+58.917
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ind60
+</td>
+<td style="text-align:left;">
+x3
+</td>
+<td style="text-align:right;">
+0.872
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.812
+</td>
+<td style="text-align:right;">
+0.933
+</td>
+<td style="text-align:right;">
+0.031
+</td>
+<td style="text-align:right;">
+28.304
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dem65
+</td>
+<td style="text-align:left;">
+y5
+</td>
+<td style="text-align:right;">
+0.808
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.713
+</td>
+<td style="text-align:right;">
+0.903
+</td>
+<td style="text-align:right;">
+0.048
+</td>
+<td style="text-align:right;">
+16.698
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dem65
+</td>
+<td style="text-align:left;">
+y6
+</td>
+<td style="text-align:right;">
+0.746
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.634
+</td>
+<td style="text-align:right;">
+0.858
+</td>
+<td style="text-align:right;">
+0.057
+</td>
+<td style="text-align:right;">
+13.031
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dem65
+</td>
+<td style="text-align:left;">
+y7
+</td>
+<td style="text-align:right;">
+0.824
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.734
+</td>
+<td style="text-align:right;">
+0.913
+</td>
+<td style="text-align:right;">
+0.046
+</td>
+<td style="text-align:right;">
+18.063
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dem65
+</td>
+<td style="text-align:left;">
+y8
+</td>
+<td style="text-align:right;">
+0.828
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.738
+</td>
+<td style="text-align:right;">
+0.918
+</td>
+<td style="text-align:right;">
+0.046
+</td>
+<td style="text-align:right;">
+18.030
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_factorcor</span>(fit, <span class="dt">factors =</span> factors)</code></pre>
+<table class="table" style="width: auto !important; ">
+<caption>
+<span id="tab:unnamed-chunk-402">Table 23.1: </span>Latent Factor Correlations
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Factor 1
+</th>
+<th style="text-align:left;">
+Factor 2
+</th>
+<th style="text-align:right;">
+r
+</th>
+<th style="text-align:left;">
+sig
+</th>
+<th style="text-align:right;">
+p
+</th>
+<th style="text-align:right;">
+Lower.CI
+</th>
+<th style="text-align:right;">
+Upper.CI
+</th>
+<th style="text-align:right;">
+SE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+dem60
+</td>
+<td style="text-align:left;">
+ind60
+</td>
+<td style="text-align:right;">
+0.447
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.242
+</td>
+<td style="text-align:right;">
+0.652
+</td>
+<td style="text-align:right;">
+0.105
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dem60
+</td>
+<td style="text-align:left;">
+dem65
+</td>
+<td style="text-align:right;">
+0.967
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.909
+</td>
+<td style="text-align:right;">
+1.024
+</td>
+<td style="text-align:right;">
+0.029
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ind60
+</td>
+<td style="text-align:left;">
+dem65
+</td>
+<td style="text-align:right;">
+0.578
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.403
+</td>
+<td style="text-align:right;">
+0.753
+</td>
+<td style="text-align:right;">
+0.089
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_factorvar</span>(fit, <span class="dt">factors =</span> factors)</code></pre>
+<table class="table" style="width: auto !important; ">
+<caption>
+<span id="tab:unnamed-chunk-402">Table 23.1: </span>Latent Factor Variance/Residual Variance
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Factor 1
+</th>
+<th style="text-align:left;">
+Factor 2
+</th>
+<th style="text-align:right;">
+var
+</th>
+<th style="text-align:right;">
+var.std
+</th>
+<th style="text-align:left;">
+sig
+</th>
+<th style="text-align:right;">
+p
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+</tr>
+</tbody>
+</table>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_rsquared</span>(fit)</code></pre>
+<table class="table" style="width: auto !important; ">
+<caption>
+<span id="tab:unnamed-chunk-402">Table 23.1: </span>R-Squared Values
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:right;">
+R-Squared
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+y1
+</td>
+<td style="text-align:right;">
+0.7232242
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+y2
+</td>
+<td style="text-align:right;">
+0.5142640
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+y3
+</td>
+<td style="text-align:right;">
+0.5217883
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+y4
+</td>
+<td style="text-align:right;">
+0.7152245
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x1
+</td>
+<td style="text-align:right;">
+0.8461294
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x2
+</td>
+<td style="text-align:right;">
+0.9467924
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x3
+</td>
+<td style="text-align:right;">
+0.7606256
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+y5
+</td>
+<td style="text-align:right;">
+0.6528920
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+y6
+</td>
+<td style="text-align:right;">
+0.5565270
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+y7
+</td>
+<td style="text-align:right;">
+0.6784378
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+y8
+</td>
+<td style="text-align:right;">
+0.6853215
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">semPaths</span>(fit, <span class="dt">latents =</span> factors, <span class="dt">whatLabels =</span> <span class="st">&quot;std&quot;</span>, <span class="dt">layout =</span> <span class="st">&quot;tree2&quot;</span>, 
+         <span class="dt">rotation =</span> <span class="dv">2</span>, <span class="dt">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="dt">optimizeLatRes =</span> <span class="ot">TRUE</span>, 
+         <span class="dt">intercepts =</span> <span class="ot">FALSE</span>, <span class="dt">residuals =</span> <span class="ot">TRUE</span>, <span class="dt">curve =</span> <span class="dv">1</span>, <span class="dt">curvature =</span> <span class="dv">2</span>, 
+         <span class="dt">sizeLat =</span> <span class="dv">10</span>, <span class="dt">nCharNodes =</span> <span class="dv">8</span>, <span class="dt">sizeMan =</span> <span class="dv">11</span>, <span class="dt">sizeMan2 =</span> <span class="dv">4</span>, 
+         <span class="dt">edge.label.cex =</span> <span class="fl">1.2</span>, <span class="dt">edge.color =</span> <span class="st">&quot;#000000&quot;</span>)</code></pre>
+<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-403-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">modificationIndices</span>(fit, <span class="dt">sort. =</span> <span class="ot">TRUE</span>, <span class="dt">minimum.value =</span> <span class="dv">3</span>)</code></pre>
+<pre><code>##      lhs op rhs    mi    epc sepc.lv sepc.all sepc.nox
+## 59 ind60 =~  y4 4.796  0.577   0.577    0.174    0.174
+## 60 ind60 =~  y5 4.456  0.559   0.559    0.215    0.215
+## 67 dem65 =~  y4 4.260  2.986   2.986    0.898    0.898
+## 72    y1 ~~  y3 3.771  0.849   0.849    0.274    0.274
+## 81    y2 ~~  x1 3.040 -0.155  -0.155   -0.200   -0.200</code></pre>
+</div>
+<div id="sem-example" class="section level3">
+<h3><span class="header-section-number">23.2.3</span> SEM Example</h3>
+<p>Now let’s run the actual SEM model. Really the only difference is that we will add some regression paths</p>
+<pre class="sourceCode r"><code class="sourceCode r">factors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;dem60&quot;</span>, <span class="st">&quot;ind60&quot;</span>, <span class="st">&quot;dem65&quot;</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">model &lt;-<span class="st"> &#39;</span>
+<span class="st"># latent factors</span>
+<span class="st">dem60 =~ y1 + y2 + y3 + y4</span>
+<span class="st">ind60 =~ x1 + x2 + x3</span>
+<span class="st">dem65 =~ y5 + y6 + y7 + y8</span>
+
+<span class="st"># variances</span>
+
+<span class="st"># covariances</span>
+<span class="st">y1 ~~ y5</span>
+<span class="st">y2 ~~ y4</span>
+<span class="st">y2 ~~ y6</span>
+<span class="st">y3 ~~ y7</span>
+<span class="st">y4 ~~ y8</span>
+<span class="st">y6 ~~ y8</span>
+
+<span class="st"># regressions</span>
+<span class="st">dem65 ~ dem60 + ind60</span>
+<span class="st">dem60 ~ ind60</span>
+<span class="st">&#39;</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="dt">model =</span> model, <span class="dt">data =</span> data, 
+           <span class="dt">mimic =</span> params<span class="op">$</span>mimic, <span class="dt">missing =</span> params<span class="op">$</span>missing, 
+           <span class="dt">std.lv =</span> <span class="ot">FALSE</span>, <span class="dt">std.ov =</span> params<span class="op">$</span>std.ov,
+           <span class="dt">se =</span> params<span class="op">$</span>se, <span class="dt">bootstrap =</span> params<span class="op">$</span>bootstrap)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_sig</span>(fit)</code></pre>
+<table class="table" style="width: auto !important; ">
+<caption>
+<span id="tab:unnamed-chunk-408">Table 23.2: </span>Model Significance
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+Sample.Size
+</th>
+<th style="text-align:right;">
+Chi.Square
+</th>
+<th style="text-align:right;">
+df
+</th>
+<th style="text-align:right;">
+p.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+75
+</td>
+<td style="text-align:right;">
+38.125
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+0.329
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_fitmeasures</span>(fit)</code></pre>
+<table class="table" style="width: auto !important; ">
+<caption>
+<span id="tab:unnamed-chunk-408">Table 23.2: </span>Model Fit Measures
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+CFI
+</th>
+<th style="text-align:right;">
+RMSEA
+</th>
+<th style="text-align:right;">
+RMSEA.Lower
+</th>
+<th style="text-align:right;">
+RMSEA.Upper
+</th>
+<th style="text-align:right;">
+AIC
+</th>
+<th style="text-align:right;">
+BIC
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.995
+</td>
+<td style="text-align:right;">
+0.035
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.092
+</td>
+<td style="text-align:right;">
+3179.582
+</td>
+<td style="text-align:right;">
+3276.916
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_factorloadings</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">ci =</span> <span class="st">&quot;standardized&quot;</span>)</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-408">Table 23.2: </span>Factor Loadings
+</caption>
+<thead>
+<tr>
+<th style="border-bottom:hidden" colspan="1">
+</th>
+<th style="border-bottom:hidden" colspan="1">
+</th>
+<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="7">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Standardized
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+Latent Factor
+</th>
+<th style="text-align:left;">
+Indicator
+</th>
+<th style="text-align:right;">
+Loadings
+</th>
+<th style="text-align:left;">
+sig
+</th>
+<th style="text-align:right;">
+p
+</th>
+<th style="text-align:right;">
+Lower.CI
+</th>
+<th style="text-align:right;">
+Upper.CI
+</th>
+<th style="text-align:right;">
+SE
+</th>
+<th style="text-align:right;">
+z
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+dem60
+</td>
+<td style="text-align:left;">
+y1
+</td>
+<td style="text-align:right;">
+0.850
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.765
+</td>
+<td style="text-align:right;">
+0.936
+</td>
+<td style="text-align:right;">
+0.044
+</td>
+<td style="text-align:right;">
+19.435
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dem60
+</td>
+<td style="text-align:left;">
+y2
+</td>
+<td style="text-align:right;">
+0.717
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.592
+</td>
+<td style="text-align:right;">
+0.843
+</td>
+<td style="text-align:right;">
+0.064
+</td>
+<td style="text-align:right;">
+11.207
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dem60
+</td>
+<td style="text-align:left;">
+y3
+</td>
+<td style="text-align:right;">
+0.722
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.596
+</td>
+<td style="text-align:right;">
+0.849
+</td>
+<td style="text-align:right;">
+0.064
+</td>
+<td style="text-align:right;">
+11.221
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dem60
+</td>
+<td style="text-align:left;">
+y4
+</td>
+<td style="text-align:right;">
+0.846
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.759
+</td>
+<td style="text-align:right;">
+0.933
+</td>
+<td style="text-align:right;">
+0.044
+</td>
+<td style="text-align:right;">
+19.020
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ind60
+</td>
+<td style="text-align:left;">
+x1
+</td>
+<td style="text-align:right;">
+0.920
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.874
+</td>
+<td style="text-align:right;">
+0.965
+</td>
+<td style="text-align:right;">
+0.023
+</td>
+<td style="text-align:right;">
+39.658
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ind60
+</td>
+<td style="text-align:left;">
+x2
+</td>
+<td style="text-align:right;">
+0.973
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.941
+</td>
+<td style="text-align:right;">
+1.005
+</td>
+<td style="text-align:right;">
+0.017
+</td>
+<td style="text-align:right;">
+58.917
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ind60
+</td>
+<td style="text-align:left;">
+x3
+</td>
+<td style="text-align:right;">
+0.872
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.812
+</td>
+<td style="text-align:right;">
+0.933
+</td>
+<td style="text-align:right;">
+0.031
+</td>
+<td style="text-align:right;">
+28.304
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dem65
+</td>
+<td style="text-align:left;">
+y5
+</td>
+<td style="text-align:right;">
+0.808
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.713
+</td>
+<td style="text-align:right;">
+0.903
+</td>
+<td style="text-align:right;">
+0.048
+</td>
+<td style="text-align:right;">
+16.698
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dem65
+</td>
+<td style="text-align:left;">
+y6
+</td>
+<td style="text-align:right;">
+0.746
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.634
+</td>
+<td style="text-align:right;">
+0.858
+</td>
+<td style="text-align:right;">
+0.057
+</td>
+<td style="text-align:right;">
+13.031
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dem65
+</td>
+<td style="text-align:left;">
+y7
+</td>
+<td style="text-align:right;">
+0.824
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.734
+</td>
+<td style="text-align:right;">
+0.913
+</td>
+<td style="text-align:right;">
+0.046
+</td>
+<td style="text-align:right;">
+18.063
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dem65
+</td>
+<td style="text-align:left;">
+y8
+</td>
+<td style="text-align:right;">
+0.828
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.738
+</td>
+<td style="text-align:right;">
+0.918
+</td>
+<td style="text-align:right;">
+0.046
+</td>
+<td style="text-align:right;">
+18.030
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_paths</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">ci =</span> <span class="st">&quot;standardized&quot;</span>)</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-408">Table 23.2: </span>Regression Paths
+</caption>
+<thead>
+<tr>
+<th style="border-bottom:hidden" colspan="1">
+</th>
+<th style="border-bottom:hidden" colspan="1">
+</th>
+<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="7">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Standardized
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+Predictor
+</th>
+<th style="text-align:left;">
+DV
+</th>
+<th style="text-align:right;">
+Path Values
+</th>
+<th style="text-align:right;">
+SE
+</th>
+<th style="text-align:right;">
+z
+</th>
+<th style="text-align:left;">
+sig
+</th>
+<th style="text-align:right;">
+p
+</th>
+<th style="text-align:right;">
+Lower.CI
+</th>
+<th style="text-align:right;">
+Upper.CI
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+dem60
+</td>
+<td style="text-align:left;">
+dem65
+</td>
+<td style="text-align:right;">
+0.885
+</td>
+<td style="text-align:right;">
+0.052
+</td>
+<td style="text-align:right;">
+17.100
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.784
+</td>
+<td style="text-align:right;">
+0.987
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ind60
+</td>
+<td style="text-align:left;">
+dem65
+</td>
+<td style="text-align:right;">
+0.182
+</td>
+<td style="text-align:right;">
+0.073
+</td>
+<td style="text-align:right;">
+2.498
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:right;">
+0.013
+</td>
+<td style="text-align:right;">
+0.039
+</td>
+<td style="text-align:right;">
+0.325
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ind60
+</td>
+<td style="text-align:left;">
+dem60
+</td>
+<td style="text-align:right;">
+0.447
+</td>
+<td style="text-align:right;">
+0.105
+</td>
+<td style="text-align:right;">
+4.267
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.242
+</td>
+<td style="text-align:right;">
+0.652
+</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_factorcor</span>(fit, <span class="dt">factors =</span> factors)</code></pre>
+<table class="table" style="width: auto !important; ">
+<caption>
+<span id="tab:unnamed-chunk-408">Table 23.2: </span>Latent Factor Correlations
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Factor 1
+</th>
+<th style="text-align:left;">
+Factor 2
+</th>
+<th style="text-align:right;">
+r
+</th>
+<th style="text-align:left;">
+sig
+</th>
+<th style="text-align:right;">
+p
+</th>
+<th style="text-align:right;">
+Lower.CI
+</th>
+<th style="text-align:right;">
+Upper.CI
+</th>
+<th style="text-align:right;">
+SE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+</tr>
+</tbody>
+</table>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_factorvar</span>(fit, <span class="dt">factors =</span> factors)</code></pre>
+<table class="table" style="width: auto !important; ">
+<caption>
+<span id="tab:unnamed-chunk-408">Table 23.2: </span>Latent Factor Variance/Residual Variance
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Factor 1
+</th>
+<th style="text-align:left;">
+Factor 2
+</th>
+<th style="text-align:right;">
+var
+</th>
+<th style="text-align:right;">
+var.std
+</th>
+<th style="text-align:left;">
+sig
+</th>
+<th style="text-align:right;">
+p
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+dem60
+</td>
+<td style="text-align:left;">
+dem60
+</td>
+<td style="text-align:right;">
+3.956
+</td>
+<td style="text-align:right;">
+0.800
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ind60
+</td>
+<td style="text-align:left;">
+ind60
+</td>
+<td style="text-align:right;">
+0.448
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+<td style="text-align:left;">
+***
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dem65
+</td>
+<td style="text-align:left;">
+dem65
+</td>
+<td style="text-align:right;">
+0.172
+</td>
+<td style="text-align:right;">
+0.039
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+0.434
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_rsquared</span>(fit)</code></pre>
+<table class="table" style="width: auto !important; ">
+<caption>
+<span id="tab:unnamed-chunk-408">Table 23.2: </span>R-Squared Values
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:right;">
+R-Squared
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+y1
+</td>
+<td style="text-align:right;">
+0.7232243
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+y2
+</td>
+<td style="text-align:right;">
+0.5142639
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+y3
+</td>
+<td style="text-align:right;">
+0.5217879
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+y4
+</td>
+<td style="text-align:right;">
+0.7152243
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x1
+</td>
+<td style="text-align:right;">
+0.8461294
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x2
+</td>
+<td style="text-align:right;">
+0.9467924
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x3
+</td>
+<td style="text-align:right;">
+0.7606255
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+y5
+</td>
+<td style="text-align:right;">
+0.6528920
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+y6
+</td>
+<td style="text-align:right;">
+0.5565263
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+y7
+</td>
+<td style="text-align:right;">
+0.6784382
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+y8
+</td>
+<td style="text-align:right;">
+0.6853214
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dem60
+</td>
+<td style="text-align:right;">
+0.1995522
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dem65
+</td>
+<td style="text-align:right;">
+0.9609949
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">semPaths</span>(fit, <span class="dt">latents =</span> factors, <span class="dt">whatLabels =</span> <span class="st">&quot;std&quot;</span>, <span class="dt">layout =</span> <span class="st">&quot;tree2&quot;</span>, 
+         <span class="dt">rotation =</span> <span class="dv">2</span>, <span class="dt">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="dt">optimizeLatRes =</span> <span class="ot">TRUE</span>, 
+         <span class="dt">intercepts =</span> <span class="ot">FALSE</span>, <span class="dt">residuals =</span> <span class="ot">TRUE</span>, <span class="dt">curve =</span> <span class="dv">1</span>, <span class="dt">curvature =</span> <span class="dv">2</span>, 
+         <span class="dt">sizeLat =</span> <span class="dv">10</span>, <span class="dt">nCharNodes =</span> <span class="dv">8</span>, <span class="dt">sizeMan =</span> <span class="dv">11</span>, <span class="dt">sizeMan2 =</span> <span class="dv">4</span>, 
+         <span class="dt">edge.label.cex =</span> <span class="fl">1.2</span>, <span class="dt">edge.color =</span> <span class="st">&quot;#000000&quot;</span>)</code></pre>
+<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-409-1.png" width="672" /></p>
+<hr />
+<hr />
+<p><strong>Something</strong></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="statistics-in-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"],
+"instapper": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>

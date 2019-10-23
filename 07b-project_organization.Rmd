@@ -33,7 +33,7 @@ An advantage to this is that for each data analysis project, you will be able to
 
 A key part of this is that you copy **ONLY** the *tidy* raw data files from the central repository to a data analysis project. **You do not copy data files from one data analysis project to another!**
 
-You **CAN** copy R Scripts from one data analysis project to another. For instance, if you or someone else already created an R Script (for another data analysis project) to score a particular task that you are also using, then of course there is no problem in copying the R Script. 
+You **CAN** copy R Scripts from one data analysis project to another. For instance, if you or someone else already created an R Script (for another data analysis project) to score a particular task that you are also using, then there is no problem in copying the R Script. 
 
 **In general, you will probably copy R scripts from one project to another. The important point is that you are not copying _data files_ from one project to another!**
 
@@ -47,13 +47,15 @@ Unfortunately, you have to actually collect data before you can start analyzing 
 knitr::include_graphics(rep("images/repository_datacollection.png"))
 ```
 
-**Tasks** is where the E-Prime task files are that will be used to administer each task to the subjects. In our lab we typically have multiple *Sessions* and multiple *Tasks* in each session. As you begin data collection, **.edat** data files will start to accumulate in each *Task* folder.
+The **Tasks** folder is where the E-Prime task files are that will be used to administer each task to the subjects. This folder is synced (through Dropbox) to the running room computers. 
+
+In our lab we typically have multiple *Sessions* and multiple *Tasks* in each session. As you begin data collection, **.edat** data files will start to accumulate in each *Task* folder.
 
 **Documents** is where you may store various documents related to the study, such as a **Methods.docx** document describing each task in detail. This is an important document for archival purposes. Some of your other documents in this directory may not be as important for archival purposes, such as an informed consent form.
 
 ## Data Preparation
 
-At some point you will need to start analyzing the data. However, you first need to prepare the data so that it is ready to analyze. There are several steps in this processs and it can be quite tedious. Nevertheless, undergraduate RAs are trained on how to do this, so recruit their help.
+At some point you will need to start analyzing the data. However, you first need to prepare the data so that it is ready to analyze. There are several steps in this processs and it can be quite tedious. Nevertheless, undergraduate RAs are trained on how to do most of these steps, so recruit their help. There are also [step-by-step instructions for Data Preparation.](http://englelab.gatech.edu/dataprep/){target="_blank"}
 
 ```{r echo=FALSE, eval = TRUE, out.width='35%', fig.align='center'}
 knitr::include_graphics(rep("images/workflow_prep1.png"))
@@ -61,13 +63,7 @@ knitr::include_graphics(rep("images/workflow_prep1.png"))
 
 <br>
 
-In the **Data Collection** repository you will now also have a **Data Files** and **R Scripts** folders. During data collection the data files are sort of tedious to get to. They are created in the directory: *Tasks/Session #/#. Task/data*. The Data Files folder is where *ALL* the raw data files will eventually be stored. 
-
-```{r echo=FALSE, eval = TRUE, out.width='30%', fig.align='center'}
-knitr::include_graphics(rep("images/repository_central_rd.png"))
-```
-
-<br>
+Once you are ready for **Data Collection** you will need to create a **Data Files** and **R Scripts** folders. 
 
 There are two scenarios in which you may need to start processing and analyzing data:
 
@@ -79,7 +75,7 @@ There are two scenarios in which you may need to start processing and analyzing 
 
 For both of these scenarios, there are **4 data preparation steps:**
 
-1. **Organize the raw data files**. This involves moving the raw *.edat* files from *Tasks/Session #/#. Task/data* to *Data Files/edat/Task/*.
+1. **Organize the raw data files**. This involves moving the raw *.edat* files from *Tasks/Session #/#. Task/data* to *Data Files/subj/Task/*.
 
 2. **Merge** the individual *.edat* files into a single **task.emrg** file using *E-Merge*
 
@@ -93,7 +89,7 @@ See [Data Preparation Instructions](http://englelab.gatech.edu/dataprep/){target
 
 After performing the 4 data preparation steps you will have *tidy* raw data files for each task saved as **task_raw.csv** in the *Data Files* folder. It is these files that you can then copy over to a *Data Analysis* repository.
 
-The *Data Collection* repository that you started out with will serve as the *Central Repository* that you use to create separate *Data Analysis* repositories.
+The *Data Collection* repository will serve as the *Central Repository* that you use to create separate *Data Analysis* repositories from.
 
 ----
 
@@ -137,13 +133,13 @@ knitr::include_graphics(rep("images/workflow_analysis1.png"))
 
 You may have other directories in your **Data Analysis** repository:
 
-* Results/Figures
+* Figures
 
 * Manuscript
 
 * Presentations
 
-**Results/Figures** is where any image files, that are used in a manuscripta or presentations, are stored. You may also have a **PowerPoint** file stored here.
+**Figures** is where any image files, that are used in a manuscripta or presentations, are stored. You may also have a **PowerPoint** file stored here.
 
 **Manuscript** is where the manuscript and any drafts for this project are stored.
 
