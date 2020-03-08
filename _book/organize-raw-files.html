@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 10 Organize Raw Files | EngleLab: UseR Guide</title>
-  <meta name="description" content="This is a useR Guide for the EngleLab">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="This is a useR Guide for the EngleLab" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 10 Organize Raw Files | EngleLab: UseR Guide" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="This is a useR Guide for the EngleLab" />
   
 
-<meta name="author" content="Jason Tsukahara">
+<meta name="author" content="Jason Tsukahara" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="example-data-flanker-task.html">
-<link rel="next" href="merge-individual-subject-files.html">
+<link rel="prev" href="example-data-flanker-task.html"/>
+<link rel="next" href="merge-individual-subject-files.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -56,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -129,10 +130,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">EngleLab: UseR Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
-</ul></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="how-to-use-this-guide.html"><a href="how-to-use-this-guide.html"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li class="chapter" data-level="" data-path="reseach-project-workflow.html"><a href="reseach-project-workflow.html"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
 <li class="part"><span><b>I Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
 <li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
@@ -382,10 +382,10 @@ We only want to analyze the data for subjects that completed ALL sessions. This 
 <li><p>Separate the raw files for subjects that did not complete ALL sessions from those that did. The <strong>subjlist.csv</strong> file contains a list of subjects that completed ALL sessions.</p></li>
 </ol>
 <p>These two steps can easily be done with the following line of code. Just type this into the console</p>
-<pre class="sourceCode r"><code class="sourceCode r">workflow<span class="op">::</span><span class="kw">copy_raw</span>(<span class="dt">from =</span> <span class="st">&quot;Tasks/Session 1&quot;</span>, <span class="dt">to =</span> <span class="st">&quot;Data Files/subj&quot;</span>, 
-                   <span class="dt">filetype =</span> <span class="st">&quot;.edat&quot;</span>, 
-                   <span class="dt">subj.file =</span> <span class="st">&quot;Data Files/subjlist_final.csv&quot;</span>, 
-                   <span class="dt">remove =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" data-line-number="1">workflow<span class="op">::</span><span class="kw">copy_raw</span>(<span class="dt">from =</span> <span class="st">&quot;Tasks/Session 1&quot;</span>, <span class="dt">to =</span> <span class="st">&quot;Data Files/subj&quot;</span>, </a>
+<a class="sourceLine" id="cb177-2" data-line-number="2">                   <span class="dt">filetype =</span> <span class="st">&quot;.edat&quot;</span>, </a>
+<a class="sourceLine" id="cb177-3" data-line-number="3">                   <span class="dt">subj.file =</span> <span class="st">&quot;Data Files/subjlist_final.csv&quot;</span>, </a>
+<a class="sourceLine" id="cb177-4" data-line-number="4">                   <span class="dt">remove =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>Notice how at first there are no files in <strong>Data Files/subj/Flanker</strong>. Then after executing this line of code, it is now populated with <em>.edat</em> files.</p>
 <p>This function will perform the two steps for every task in the <strong>Session 1</strong> folder. To perform them for any other sessions just change it from <strong>Session 1</strong> to any <strong>Session #</strong>.</p>
 <p>You will also see a folder called <strong>Did not finish all sessions</strong>. The <strong>.edat</strong> files for subjects that did not finish all sessions will be in here.</p>
@@ -407,11 +407,13 @@ We only want to analyze the data for subjects that completed ALL sessions. This 
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -419,12 +421,12 @@ gitbook.start({
 "github": true,
 "facebook": false,
 "twitter": false,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"],
+"google": false,
 "instapper": false
 },
 "fontsettings": {
@@ -434,6 +436,10 @@ gitbook.start({
 },
 "edit": null,
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

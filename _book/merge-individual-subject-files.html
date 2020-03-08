@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 11 Merge Individual Subject Files | EngleLab: UseR Guide</title>
-  <meta name="description" content="This is a useR Guide for the EngleLab">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="This is a useR Guide for the EngleLab" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 11 Merge Individual Subject Files | EngleLab: UseR Guide" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="This is a useR Guide for the EngleLab" />
   
 
-<meta name="author" content="Jason Tsukahara">
+<meta name="author" content="Jason Tsukahara" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="organize-raw-files.html">
-<link rel="next" href="messy-to-tidy-0-task-raw-r.html">
+<link rel="prev" href="organize-raw-files.html"/>
+<link rel="next" href="messy-to-tidy-0-task-raw-r.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -56,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -129,10 +130,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">EngleLab: UseR Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
-</ul></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="how-to-use-this-guide.html"><a href="how-to-use-this-guide.html"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li class="chapter" data-level="" data-path="reseach-project-workflow.html"><a href="reseach-project-workflow.html"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
 <li class="part"><span><b>I Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
 <li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
@@ -385,7 +385,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>See <a href="http://englelab.gatech.edu/dataprep/" target="_blank">Data Preparation Instructions</a> for a detailed guide on how to use <em>E-Merge</em>.</p>
 <p>However, there may be cases where you have individual subject files not in <em>.edat2</em> but in <em>.txt</em>, <em>.csv</em>, or <em>.xlsx</em> file types. These can easily be merged into one data file using R.</p>
 <p>I have created a function to easily merge individual subject files together. The <code>files_bind()</code> function comes from my <code>datawrangling</code> To install <code>datawrangling</code>:</p>
-<pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/datawrangling&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/datawrangling&quot;</span>)</a></code></pre></div>
 <div id="files_bind" class="section level2">
 <h2><span class="header-section-number">11.1</span> <code>files_bind()</code></h2>
 <p>See <strong>Chapter 5: Importing and Outputing Data</strong> for more detailed information on <code>file_bind()</code>. The arguments you need to specify in <code>files_bind()</code> are:</p>
@@ -396,25 +396,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>By default the merged file will be saved as a <em>.csv</em> file. You can change this by setting <strong>output.delim</strong>.</p>
 <p>Using this function may look something like</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(here)
-<span class="kw">library</span>(datawrangling)
-
-<span class="kw">files_bind</span>(<span class="kw">here</span>(<span class="st">&quot;Data Files/subj/Flanker&quot;</span>), 
-           <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, 
-           <span class="dt">output.file =</span> <span class="kw">here</span>(<span class="st">&quot;Data Files/Merged&quot;</span>, <span class="st">&quot;Flanker.csv&quot;</span>))</code></pre>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" data-line-number="1"><span class="kw">library</span>(here)</a>
+<a class="sourceLine" id="cb179-2" data-line-number="2"><span class="kw">library</span>(datawrangling)</a>
+<a class="sourceLine" id="cb179-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb179-4" data-line-number="4"><span class="kw">files_bind</span>(<span class="kw">here</span>(<span class="st">&quot;Data Files/subj/Flanker&quot;</span>), </a>
+<a class="sourceLine" id="cb179-5" data-line-number="5">           <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, </a>
+<a class="sourceLine" id="cb179-6" data-line-number="6">           <span class="dt">output.file =</span> <span class="kw">here</span>(<span class="st">&quot;Data Files/Merged&quot;</span>, <span class="st">&quot;Flanker.csv&quot;</span>))</a></code></pre></div>
 <p>The first argument <code>here(&quot;Data Files/subj/Flanker&quot;)</code> is just specifiying the file directory path. Go ahead and type this in your console window to see how this is the case.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">here</span>(<span class="st">&quot;Data Files/subj/Flanker&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" data-line-number="1"><span class="kw">here</span>(<span class="st">&quot;Data Files/subj/Flanker&quot;</span>)</a></code></pre></div>
 <p>If you have more tasks in which you need to merge individual subject data files you would then just include a similar line of code specific for that task (different file path and different filename).</p>
 <p>You may want to use this function in one of two ways:</p>
 <ol style="list-style-type: decimal">
 <li><p>Execute it in the console window (do not save it to a script file) every time you need to merge files.</p></li>
 <li><p>Include it where you would normally import the already merged <em>messy</em> raw data file in the <strong>0_task_raw.R</strong> script.</p></li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#### Import ####</span>
-import &lt;-<span class="st"> </span><span class="kw">files_bind</span>(<span class="kw">here</span>(<span class="st">&quot;Data Files/subj/Flanker&quot;</span>), 
-                     <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, 
-                     <span class="dt">output.file =</span> <span class="kw">here</span>(<span class="st">&quot;Data Files/Merged&quot;</span>, <span class="st">&quot;Flanker.csv&quot;</span>))
-<span class="co">################</span></code></pre>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" data-line-number="1"><span class="co">#### Import ####</span></a>
+<a class="sourceLine" id="cb181-2" data-line-number="2">import &lt;-<span class="st"> </span><span class="kw">files_bind</span>(<span class="kw">here</span>(<span class="st">&quot;Data Files/subj/Flanker&quot;</span>), </a>
+<a class="sourceLine" id="cb181-3" data-line-number="3">                     <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, </a>
+<a class="sourceLine" id="cb181-4" data-line-number="4">                     <span class="dt">output.file =</span> <span class="kw">here</span>(<span class="st">&quot;Data Files/Merged&quot;</span>, <span class="st">&quot;Flanker.csv&quot;</span>))</a>
+<a class="sourceLine" id="cb181-5" data-line-number="5"><span class="co">################</span></a></code></pre></div>
 <hr />
 <hr />
 <p><strong>The next chapter is the whole point of this section on Data Preparation</strong></p>
@@ -432,11 +432,13 @@ import &lt;-<span class="st"> </span><span class="kw">files_bind</span>(<span cl
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -444,12 +446,12 @@ gitbook.start({
 "github": true,
 "facebook": false,
 "twitter": false,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"],
+"google": false,
 "instapper": false
 },
 "fontsettings": {
@@ -459,6 +461,10 @@ gitbook.start({
 },
 "edit": null,
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

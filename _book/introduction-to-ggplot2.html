@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 16 Introduction to ggplot2 | EngleLab: UseR Guide</title>
-  <meta name="description" content="This is a useR Guide for the EngleLab">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="This is a useR Guide for the EngleLab" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 16 Introduction to ggplot2 | EngleLab: UseR Guide" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="This is a useR Guide for the EngleLab" />
   
 
-<meta name="author" content="Jason Tsukahara">
+<meta name="author" content="Jason Tsukahara" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="fundamentals-of-data-visualization.html">
-<link rel="next" href="scatterplots.html">
+<link rel="prev" href="fundamentals-of-data-visualization.html"/>
+<link rel="next" href="scatterplots.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -56,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -129,10 +130,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">EngleLab: UseR Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
-</ul></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="how-to-use-this-guide.html"><a href="how-to-use-this-guide.html"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li class="chapter" data-level="" data-path="reseach-project-workflow.html"><a href="reseach-project-workflow.html"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
 <li class="part"><span><b>I Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
 <li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
@@ -391,8 +391,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/ge_data.png" width="300" style="display: block; margin: auto;" /></p>
 <p>Let’s see what this means more concretely with an example data set. A very popular data set used for teaching data science is the <code>iris</code> data set. In this data set various species of iris were measured on their sepal and petal length and width.</p>
 <p>This data set actually comes preloaded with R, so you can simply view it by typing in your console</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">View</span>(iris)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(iris)</code></pre>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" data-line-number="1"><span class="kw">View</span>(iris)</a></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1"><span class="kw">head</span>(iris)</a></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
@@ -402,9 +402,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
 <p>We can see that this data is in <strong>wide</strong> format. What type of graph we can visualize will depend on the format of the data set. On occassion, in order to visualize a certain pattern of the data will require you to change the formating of the data.</p>
 <p>Let’s go ahead and start building our graphical elements in <code>ggplot2</code>. Load the <code>ggplot2</code> library. Then:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
-<span class="kw">ggplot</span>(<span class="dt">data =</span> iris)</code></pre>
-<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-319-1.png" width="672" /></p>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb235-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> iris)</a></code></pre></div>
+<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-321-1.png" width="672" /></p>
 <p>You can see that we only have a blank square. This is becuase we have not added any other layers yet, we have only specified the data layer.</p>
 </div>
 <div id="aesthetic-layer" class="section level2">
@@ -412,8 +412,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The next grammatical element is the aesthetic layer, or <strong>aes</strong> for short. This layer specifies how we want to <em>map</em> our data onto the scales of the plot</p>
 <p><img src="images/ge_aes.png" width="300" style="display: block; margin: auto;" /></p>
 <p>The aesthetic layer <em>maps</em> variables in our data onto scales in our graphical visualization, such as the x and y coordinates. In <code>ggplot2</code> the aesthetic layer is specified using the <code>aes()</code> function. Let’s create a plot of the relationship between Sepal.Length and Sepal.Width, putting them on the x and y axis respectively.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Sepal.Width))</code></pre>
-<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-321-1.png" width="672" /></p>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Sepal.Width))</a></code></pre></div>
+<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-323-1.png" width="672" /></p>
 <p>You can see we went from a blank box to a graph with the variable and scales of Sepal.Length mapped onto the x-axis and Sepal.Width on the y-axis.</p>
 <p>However, there is no data yet :( What are we to do?</p>
 </div>
@@ -422,11 +422,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The next <em>essential</em> element for data visualization is the geometries layer or <strong>geom</strong> layer for short.</p>
 <p><img src="images/ge_geom.png" width="300" style="display: block; margin: auto;" /></p>
 <p>Just to demonstrate to you that <code>ggplot2</code> is creating R graphic objects that you can modify and not just static images, let’s assign the previous graph with data and aesthetics layers only onto an R object called <code>p</code>, for plot.</p>
-<pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Sepal.Width))</code></pre>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Sepal.Width))</a></code></pre></div>
 <p>Now let’s say we want to add the individual raw data points to create a scatterplot. To do this we can use the function <code>geom_point()</code>. This is a geom layer and the type of geom we want to add are points.</p>
 <p>In <code>ggplot2</code> there is a special notation that is similar to the pipe operator <code>%&gt;%</code> seen before. Except it is plus sign <code>+</code></p>
-<pre class="sourceCode r"><code class="sourceCode r">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre>
-<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-324-1.png" width="672" /></p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-326-1.png" width="672" /></p>
 <p>And walla! Now we have a scatterplot of the relationship between Sepal.Length and Sepal.Width. Cool.</p>
 <p>If we look at the scatterplot it appears that there are at least two groups or clusters of points. These clusters might represent the different species of flowers, represented in the <code>Species</code> column. There are different ways we can visualize or separate this grouping structure.</p>
 <p>First, we will consider how to plot these species in separate plots within the same visualization.</p>
@@ -437,10 +437,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/ge_facet.png" width="300" style="display: block; margin: auto;" /></p>
 <p>The previous three layers are the <strong>essential</strong> layers. The facet layer is not essential, however given your data you may find it helps you to explore or communicate your data.</p>
 <p>Let’s create facets of our scatterplot by <code>Species</code></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species)</code></pre>
-<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-326-1.png" width="672" /></p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" data-line-number="1"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb239-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb239-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species)</a></code></pre></div>
+<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-328-1.png" width="672" /></p>
 </div>
 <div id="statistics-layer" class="section level2">
 <h2><span class="header-section-number">16.6</span> Statistics Layer</h2>
@@ -448,15 +448,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/ge_stats.png" width="300" style="display: block; margin: auto;" /></p>
 <p>So far we have only plotted the raw data values. However, we may be interested in plotting some statistics or calculated values, such as a regression line, means, standard error bars, etc.</p>
 <p>Let’s add a regression line to the scatterplot. First without the facet layer then with the facet layer</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</code></pre>
-<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-328-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</code></pre>
-<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-329-1.png" width="672" /></p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb240-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb240-3" data-line-number="3"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-330-1.png" width="672" /></p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" data-line-number="1"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb241-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb241-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span></a>
+<a class="sourceLine" id="cb241-4" data-line-number="4"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-331-1.png" width="672" /></p>
 </div>
 <div id="coordinates-layer" class="section level2">
 <h2><span class="header-section-number">16.7</span> Coordinates Layer</h2>
@@ -464,31 +464,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/ge_coord.png" width="300" style="display: block; margin: auto;" /></p>
 <p>You can adjust the min and max values, as well as the major ticks. This is more useful when you have separate graphs (non-faceted) and you want to plot them on the same scale for comparison.</p>
 <p>This is actually a very important deisgn principle in data visualization. <strong>If you want to compare two separate graphs, then they need to be on the same scale!!!</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
-<span class="kw">ggplot</span>(<span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>), <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</code></pre>
-<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-331-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;versicolor&quot;</span>), <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</code></pre>
-<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-332-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
-<span class="kw">ggplot</span>(<span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>), <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">seq</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dt">by =</span> <span class="dv">1</span>), <span class="dt">ylim =</span> <span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">1</span>))</code></pre>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb242-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>), <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb242-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb242-4" data-line-number="4"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-333-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;versicolor&quot;</span>), <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">seq</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dt">by =</span> <span class="dv">1</span>), <span class="dt">ylim =</span> <span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">1</span>))</code></pre>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;versicolor&quot;</span>), <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb243-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb243-3" data-line-number="3"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-334-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>), <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">seq</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dt">by =</span> <span class="dv">1</span>), <span class="dt">ylim =</span> <span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">1</span>))</code></pre>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb244-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>), <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb244-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb244-4" data-line-number="4"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb244-5" data-line-number="5"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">seq</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dt">by =</span> <span class="dv">1</span>), <span class="dt">ylim =</span> <span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">1</span>))</a></code></pre></div>
 <p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-335-1.png" width="672" /></p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;versicolor&quot;</span>), <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb245-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb245-3" data-line-number="3"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb245-4" data-line-number="4"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">seq</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dt">by =</span> <span class="dv">1</span>), <span class="dt">ylim =</span> <span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">1</span>))</a></code></pre></div>
+<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-336-1.png" width="672" /></p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>), <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb246-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb246-3" data-line-number="3"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb246-4" data-line-number="4"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">seq</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dt">by =</span> <span class="dv">1</span>), <span class="dt">ylim =</span> <span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">1</span>))</a></code></pre></div>
+<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-337-1.png" width="672" /></p>
 <ul>
 <li>Just a note. I highly suggest not using <code>scale_x_continuous()</code> or <code>scale_y_continuous()</code> functions. The <code>coord_cartesian()</code> function is like zooming in and out of the plot area. The <code>scale_</code> functions actually change the shape of the data and statistics layers. If a data point falls outside of the <code>scale</code> limits then it will be removed from any statistical analyses (even if the individual data points are not plotted <code>geom_point()</code>)</li>
 </ul>
@@ -509,48 +509,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You can then control different features such as the color, linetype, size, font family, etc.</p>
 <p><img src="images/element_func.png" width="300" style="display: block; margin: auto;" /></p>
 <p>As an example let’s change some theme elements to our facet plot. Let’s change the axis value labels to <strong>red</strong> font and increase the <strong>size</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">14</span>))</code></pre>
-<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-339-1.png" width="672" /></p>
-<p>Now let’s only change the x-axis text and not the y-axis text.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">14</span>))</code></pre>
-<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-340-1.png" width="672" /></p>
-<p>It is a good idea to have a consistent theme across all your graphs. And so you might want to just create a theme object that you can add to all your graphs.</p>
-<pre class="sourceCode r"><code class="sourceCode r">a_theme &lt;-<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">14</span>),
-                 <span class="dt">panel.grid =</span> <span class="kw">element_blank</span>(),
-                 <span class="dt">panel.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">&quot;pink&quot;</span>))
-
-<span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">14</span>)) <span class="op">+</span>
-<span class="st">  </span>a_theme</code></pre>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb247-1" data-line-number="1"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb247-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb247-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span></a>
+<a class="sourceLine" id="cb247-4" data-line-number="4"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb247-5" data-line-number="5"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">14</span>))</a></code></pre></div>
 <p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-341-1.png" width="672" /></p>
+<p>Now let’s only change the x-axis text and not the y-axis text.</p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb248-1" data-line-number="1"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb248-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb248-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span></a>
+<a class="sourceLine" id="cb248-4" data-line-number="4"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb248-5" data-line-number="5"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">14</span>))</a></code></pre></div>
+<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-342-1.png" width="672" /></p>
+<p>It is a good idea to have a consistent theme across all your graphs. And so you might want to just create a theme object that you can add to all your graphs.</p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb249-1" data-line-number="1">a_theme &lt;-<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">14</span>),</a>
+<a class="sourceLine" id="cb249-2" data-line-number="2">                 <span class="dt">panel.grid =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb249-3" data-line-number="3">                 <span class="dt">panel.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">&quot;pink&quot;</span>))</a>
+<a class="sourceLine" id="cb249-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb249-5" data-line-number="5"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb249-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb249-7" data-line-number="7"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span></a>
+<a class="sourceLine" id="cb249-8" data-line-number="8"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb249-9" data-line-number="9"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">14</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb249-10" data-line-number="10"><span class="st">  </span>a_theme</a></code></pre></div>
+<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-343-1.png" width="672" /></p>
 <div id="built-in-themes" class="section level3">
 <h3><span class="header-section-number">16.8.1</span> Built-in Themes</h3>
 <p>For the most part you can probably avoid the <code>theme()</code> function by using built-in themes, unless there is a specific element you want to modify.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">14</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_linedraw</span>()</code></pre>
-<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-342-1.png" width="672" /></p>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" data-line-number="1"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb250-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb250-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span></a>
+<a class="sourceLine" id="cb250-4" data-line-number="4"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb250-5" data-line-number="5"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">14</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb250-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_linedraw</span>()</a></code></pre></div>
+<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-344-1.png" width="672" /></p>
 <p>You can also set a defeault theme for the rest of your ggplots at the top of your script. That way you do not have to keep on specifying the theme for evey ggplot.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">theme_set</span>(<span class="kw">theme_linedraw</span>())</code></pre>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" data-line-number="1"><span class="kw">theme_set</span>(<span class="kw">theme_linedraw</span>())</a></code></pre></div>
 <p>Now you can create a ggplot with <code>theme_linedraw()</code> without specifying <code>theme_linedraw()</code> every single time.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</code></pre>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" data-line-number="1"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb252-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb252-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span></a>
+<a class="sourceLine" id="cb252-4" data-line-number="4"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p>You can do a google search to easily find different types of theme templates. I personally like <code>theme_linedraw()</code></p>
 <hr />
 <hr />
@@ -570,11 +570,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -582,12 +584,12 @@ gitbook.start({
 "github": true,
 "facebook": false,
 "twitter": false,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"],
+"google": false,
 "instapper": false
 },
 "fontsettings": {
@@ -597,6 +599,10 @@ gitbook.start({
 },
 "edit": null,
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

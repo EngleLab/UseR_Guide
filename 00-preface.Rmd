@@ -1,0 +1,58 @@
+# How to use this guide {-}
+
+The best way to start learning R is if you have a data set to work on.
+
+It is true that, at first, it may take you longer to analyze data using R than your typical route of Excel, SPSS, or EQS. Because of this, it can be tempting to use those other programs to **quickly** analyze some data. You may even tell yourself that you will go back and do the analysis in R later when you have more time. But, be honest with yourself, will you really? Also, the daunting uncertainty of how to do anything in R may also make you reluctant to start using R with data you have now. 
+
+All this is just prioritizing short-term gains over long-term gains. **This is probably the biggest barrier that you will have to learning R**. STOP IT! This attitude will only keep you behind the times not just on using statistial software but other areas of your research career. 
+
+It is 100% okay to take longer to analyze some data if you are also aquiring skills that will greatly benefit you in the long-term. Randy is okay with this, you need to be too. 
+
+I would not even argue that you should stop using other programs. They have their own advantages. In my experience it is not so much of R vs. SPSS but rather R offers a functionality that SPSS just sucks at. And that is working with the data, transforming variables, merging data, filtering, grouping, aggregating scores, etc. Everything you do with your data immediately prior to running the ANOVA, correlation, regression, or latent analysis. **R is excellent at this**. 
+
+So if you still want to use SPSS or EQS for statistical analysis you can do so. But do everything prior to that in R. **Use R to work with your data** and use SPSS or EQS to conduct statistical analyses. **R is also amazing at data visualization**. I would take advantage of that as well.
+
+---
+
+There are two general ways you might use this guide:
+
+1. **Going through each chapter step-by-step as a tutorial**
+
+2. **Referencing sections of the guide as you work on your own projects**
+
+    * No matter what, you should first read through Section III: Reproducible Workflows
+
+    * If you need to prepare your messy raw data files so that you can start analyzing data, then you can move on to *Section IV: Data Preparation*. This will get you working on your project in R as soon as possible. You can always reference *Section I* and *Section II* when you need to.
+    
+    * If your data files are already prepared but you still need to clean and score your data, then you can move on to *Section V: Cleaning and Scoring Data*. 
+    
+    * If you need to work on statistical analyses and data visualization then you can move on to *Section VI: Data Visualization* and *Section VII: Statistical Analysis*. In these sections you only need to go through the Chapters that are relevant to your specific analysis.
+    
+---
+
+# Reseach Project Workflow {-}
+
+The image below represents the general data processing stages required to go from raw data to data visualization and statistical analyses. 
+
+```{r echo=FALSE}
+knitr::include_graphics(rep("images/workflow.png"))
+```
+
+The **Data Preparation** stage is only required because the data files created from the E-Prime or other software program are usually not in a format that is easy to use or understand. I am referring to this format as a "messy" data file. Also, there are typically other preparation steps one needs to take before they can start looking at the data. These might include merging individual subject data files and exporting the data to a non-proprietary format so we can import the data into R. The purpose of this stage is simply to create "tidy" raw data files. 
+
+"Tidy" raw data files are easy to use and understand. There will be one row per trial, column labels that are easy to understand (e.g. Trial, Condition, RT, Accuracy, etc.), and values in columns that make sense. If values in a column are categorical, then the category names will be used rather than numerical values. Ideally, someone not involved in the research project should be able to look at a "Tidy" raw data file and understand what each column represents, and what the values in the column refer to.
+
+Traditionally we have not cared so much about the data preparation stage. But it is required and there are many advantages to saving and storing "tidy" raw data files.
+
+What we actually care about is the **Data Analysis** phase. There are three main stages to data analsysis; 1) scoring and cleaning raw data files, 2) data visualization, and 3) statistical analyses. Data analysis tends to be more cyclic and iterative therefore you may end up going back and forth between these stages.
+
+The first stage takes the "tidy" raw data files from the data preparation stage and converts them into a scored data file, usually by aggregating performance across trials. Data cleaning procedures (such as removing outliers) also occurs during this stage. The format of the scored data file will depend on the type of statistical analysis one plans on performing.
+
+The second and third stage usually occurs in tandem with one another. Visualizing our data, running statistical analyses, visualizing our statistical models, etc. Based on these visualizations and analyses we may decide that we want to use different scoring or cleaning procedures. Or we want to explore our data to further understand our findings. We may then go back to the scoring and cleaning stage, and on and on. 
+
+The final phase in a research project is to **Write up a Manuscript** to share your study and findings with the scientific community. It is also a good idea to **Share your Data**, R scripts, and results. The [Open Science Framework](https://osf.io){target="_blank"} is a good place to openly share your projects with other researchers.
+
+```{r echo=FALSE}
+knitr::include_graphics(rep("images/workflow_pub_share.png"))
+```
+

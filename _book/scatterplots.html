@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 17 Scatterplots | EngleLab: UseR Guide</title>
-  <meta name="description" content="This is a useR Guide for the EngleLab">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="This is a useR Guide for the EngleLab" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 17 Scatterplots | EngleLab: UseR Guide" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="This is a useR Guide for the EngleLab" />
   
 
-<meta name="author" content="Jason Tsukahara">
+<meta name="author" content="Jason Tsukahara" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="introduction-to-ggplot2.html">
-<link rel="next" href="plotting-means.html">
+<link rel="prev" href="introduction-to-ggplot2.html"/>
+<link rel="next" href="plotting-means.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -56,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -129,10 +130,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">EngleLab: UseR Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
-</ul></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="how-to-use-this-guide.html"><a href="how-to-use-this-guide.html"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li class="chapter" data-level="" data-path="reseach-project-workflow.html"><a href="reseach-project-workflow.html"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
 <li class="part"><span><b>I Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
 <li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
@@ -375,7 +375,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="scatterplots" class="section level1">
 <h1><span class="header-section-number">Chapter 17</span> Scatterplots</h1>
 <p>You can go ahead and set a default theme for your plots</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">theme_set</span>(<span class="kw">theme_linedraw</span>())</code></pre>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb253-1" data-line-number="1"><span class="kw">theme_set</span>(<span class="kw">theme_linedraw</span>())</a></code></pre></div>
 <p>The main type of plots we typically want to create in psychological science are:</p>
 <ul>
 <li><p>Scatterplots</p></li>
@@ -389,37 +389,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>These two functions are essntially identical. In fact, many of the <code>geom_</code> functions are just wrappers around <code>stat_</code> functions.</p>
 <p><img src="images/stat_func.png" width="200" style="display: block; margin: auto;" /></p>
 <p>The scatterplot we created from last chapter is essentially an interaction plot. The interaction of Species x Sepal.Length on Sepal.Width.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width, <span class="dt">color =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</code></pre>
-<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-350-1.png" width="672" /></p>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" data-line-number="1"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width, <span class="dt">color =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb254-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb254-3" data-line-number="3"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-352-1.png" width="672" /></p>
 <p>For modelling an interaction effect in regression it is easier to interpret if the lines extend to all possible values - not just across the values within a group.</p>
 <p>We can do this by specifying the argument <code>geom_smooth(fullrange = TRUE)</code></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width, <span class="dt">color =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">fullrange =</span> <span class="ot">TRUE</span>)</code></pre>
-<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-351-1.png" width="672" /></p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb255-1" data-line-number="1"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width, <span class="dt">color =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb255-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb255-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">fullrange =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-353-1.png" width="672" /></p>
 <p>Now what if the moderator was a continuous variable and not categorical like <code>Species</code>? We would want to set the <code>color</code> aesthetic to be on +/- 1 SD on the mean. How would we go about doing this?</p>
 <p><em>The answer is</em>: It would be very difficult to do so. This is where the function <code>plot_model()</code> from the <code>sjPlot</code> package comes in handy.</p>
 <div id="adding-other-geoms" class="section level3">
 <h3><span class="header-section-number">17.1.1</span> Adding other geoms</h3>
 <p>There might be other <code>geoms</code> we want to add to a scatterplot. Let’s add some summary statistics to the graph. Specifically, a horizontal dashed line representing the mean on Sepal.Width and a vertical dashed line representing the mean on Sepal.Length. To make it more simple let’s only do this for <code>Species == &quot;setosa&quot;</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
-
-iris_means &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Sepal.Width_mean =</span> <span class="kw">mean</span>(Sepal.Width, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
-         <span class="dt">Sepal.Length_mean =</span> <span class="kw">mean</span>(Sepal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))
-
-<span class="kw">ggplot</span>(iris_means, 
-       <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">fullrange =</span> <span class="ot">TRUE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_hline</span>(<span class="kw">aes</span>(<span class="dt">yintercept =</span> Sepal.Width_mean), 
-             <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red4&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept =</span> Sepal.Length_mean), 
-             <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;green4&quot;</span>)</code></pre>
-<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-352-1.png" width="672" /></p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb256-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb256-3" data-line-number="3">iris_means &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb256-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb256-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Sepal.Width_mean =</span> <span class="kw">mean</span>(Sepal.Width, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb256-6" data-line-number="6">         <span class="dt">Sepal.Length_mean =</span> <span class="kw">mean</span>(Sepal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb256-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb256-8" data-line-number="8"><span class="kw">ggplot</span>(iris_means, </a>
+<a class="sourceLine" id="cb256-9" data-line-number="9">       <span class="kw">aes</span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb256-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb256-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">fullrange =</span> <span class="ot">TRUE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb256-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_hline</span>(<span class="kw">aes</span>(<span class="dt">yintercept =</span> Sepal.Width_mean), </a>
+<a class="sourceLine" id="cb256-13" data-line-number="13">             <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red4&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb256-14" data-line-number="14"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept =</span> Sepal.Length_mean), </a>
+<a class="sourceLine" id="cb256-15" data-line-number="15">             <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;green4&quot;</span>)</a></code></pre></div>
+<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-354-1.png" width="672" /></p>
 <hr />
 <hr />
 <p><strong>Next is plotting group means</strong></p>
@@ -438,11 +438,13 @@ iris_means &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -450,12 +452,12 @@ gitbook.start({
 "github": true,
 "facebook": false,
 "twitter": false,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"],
+"google": false,
 "instapper": false
 },
 "fontsettings": {
@@ -465,6 +467,10 @@ gitbook.start({
 },
 "edit": null,
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Data Preparation: Summary | EngleLab: UseR Guide</title>
-  <meta name="description" content="This is a useR Guide for the EngleLab">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="This is a useR Guide for the EngleLab" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Data Preparation: Summary | EngleLab: UseR Guide" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="This is a useR Guide for the EngleLab" />
   
 
-<meta name="author" content="Jason Tsukahara">
+<meta name="author" content="Jason Tsukahara" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="messy-to-tidy-0-task-raw-r.html">
-<link rel="next" href="cleaning-and-scoring-data-overview.html">
+<link rel="prev" href="messy-to-tidy-0-task-raw-r.html"/>
+<link rel="next" href="cleaning-and-scoring-data-overview.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -56,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -129,10 +130,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">EngleLab: UseR Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
-</ul></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="how-to-use-this-guide.html"><a href="how-to-use-this-guide.html"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li class="chapter" data-level="" data-path="reseach-project-workflow.html"><a href="reseach-project-workflow.html"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
 <li class="part"><span><b>I Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
 <li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
@@ -401,8 +401,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>These files were E-Merged files exported as <em>.txt</em> files. Move them to the current repository in <strong>Data Files/Merged</strong>.</p>
 <p>All of these tasks are standard tasks we have used in the Engle Lab for some time. Therefore, we can download the R Scripts using the <code>englelab::get_script()</code> function.</p>
-<pre class="sourceCode r"><code class="sourceCode r">englelab<span class="op">::</span><span class="kw">get_script</span>(<span class="dt">type =</span> <span class="st">&quot;raw&quot;</span>, <span class="dt">gf =</span> <span class="ot">TRUE</span>, <span class="dt">wmc =</span> <span class="ot">TRUE</span>, 
-                     <span class="dt">antisaccade =</span> <span class="ot">TRUE</span>, <span class="dt">stroop =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" data-line-number="1">englelab<span class="op">::</span><span class="kw">get_script</span>(<span class="dt">type =</span> <span class="st">&quot;raw&quot;</span>, <span class="dt">gf =</span> <span class="ot">TRUE</span>, <span class="dt">wmc =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb200-2" data-line-number="2">                     <span class="dt">antisaccade =</span> <span class="ot">TRUE</span>, <span class="dt">stroop =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><code>type = &quot;raw&quot;</code> tells the function to download scripts to create <strong>tidy</strong> raw data files. When you want to download scripts to create <strong>scored</strong> data files use <code>type = &quot;score&quot;</code>.</p>
 <p>You should now see more R Scripts corresponding to the tasks you downloaded.</p>
 <hr />
@@ -410,26 +410,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In <strong>0_antisaccade_raw.R</strong>, remomve the <code>StartTime =</code>, <code>FinishTime =</code>, and <code>AdminTime =</code> lines from the <code>mutate()</code> function. Remove the <code>AdminTime</code> from the <code>select()</code> function. Change <code>Mask.ACC</code> and <code>Mask.RT</code> to <code>masks.ACC</code> and <code>masks.RT</code> in the <code>select()</code> function.</p>
 <p>In <strong>0_symspan_raw.R</strong>, <strong>0_ospan_raw.R</strong>, and <strong>0_rotspan_raw.R</strong> add the argument <code>taskVersion = &quot;old&quot;</code> to the <code>raw_symspan()</code>, <code>raw_ospan()</code>, and <code>raw_rotspan()</code> functions.</p>
 <p>In <strong>0_stroop_raw.R</strong>, just replace the entire <code>data_raw &lt;- data_import %&gt;%</code> block with</p>
-<pre class="sourceCode r"><code class="sourceCode r">data_raw &lt;-<span class="st"> </span>data_import <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span> <span class="op">==</span><span class="st"> &quot;StoopTrial&quot;</span> <span class="op">|</span><span class="st"> </span>
-<span class="st">           `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span> <span class="op">==</span><span class="st"> &quot;stroopPRAC2&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;StoopTrial&quot;</span>, <span class="st">&quot;real&quot;</span>, <span class="st">&quot;practice&quot;</span>),
-         <span class="dt">Trial =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, List2.Sample, List5.Sample),
-         <span class="dt">Condition =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, trialType, pracTYPE),
-         <span class="dt">Condition =</span> <span class="kw">ifelse</span>(Condition <span class="op">==</span><span class="st"> &quot;Cong&quot;</span> <span class="op">|</span><span class="st"> </span>
-<span class="st">                              </span>Condition <span class="op">==</span><span class="st"> &quot;Filler&quot;</span>, 
-                            <span class="st">&quot;congruent&quot;</span>, <span class="st">&quot;incongruent&quot;</span>),
-         <span class="dt">RT =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, stim.RT, PracStim2.RT),
-         <span class="dt">Accuracy =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, stim.ACC, PracStim2.ACC),
-         <span class="dt">Response =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, stim.RESP, PracStim2.RESP),
-         <span class="dt">Response =</span> <span class="kw">ifelse</span>(Response <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;GREEN&quot;</span>, 
-                           <span class="kw">ifelse</span>(Response <span class="op">==</span><span class="st"> </span><span class="dv">2</span>, <span class="st">&quot;BLUE&quot;</span>, 
-                                  <span class="kw">ifelse</span>(Response <span class="op">==</span><span class="st"> </span><span class="dv">3</span>, <span class="st">&quot;RED&quot;</span>, <span class="ot">NA</span>))),
-         <span class="dt">Word =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, word, pracWORD),
-         <span class="dt">Hue =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, hue, pracHUE)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">select</span>(Subject, TrialProc, Trial, Condition, RT, Accuracy, Response, 
-         Word, Hue, SessionDate, SessionTime)</code></pre>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" data-line-number="1">data_raw &lt;-<span class="st"> </span>data_import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb201-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span> <span class="op">==</span><span class="st"> &quot;StoopTrial&quot;</span> <span class="op">|</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb201-3" data-line-number="3"><span class="st">           `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span> <span class="op">==</span><span class="st"> &quot;stroopPRAC2&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb201-4" data-line-number="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb201-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;StoopTrial&quot;</span>, <span class="st">&quot;real&quot;</span>, <span class="st">&quot;practice&quot;</span>),</a>
+<a class="sourceLine" id="cb201-6" data-line-number="6">         <span class="dt">Trial =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, List2.Sample, List5.Sample),</a>
+<a class="sourceLine" id="cb201-7" data-line-number="7">         <span class="dt">Condition =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, trialType, pracTYPE),</a>
+<a class="sourceLine" id="cb201-8" data-line-number="8">         <span class="dt">Condition =</span> <span class="kw">ifelse</span>(Condition <span class="op">==</span><span class="st"> &quot;Cong&quot;</span> <span class="op">|</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb201-9" data-line-number="9"><span class="st">                              </span>Condition <span class="op">==</span><span class="st"> &quot;Filler&quot;</span>, </a>
+<a class="sourceLine" id="cb201-10" data-line-number="10">                            <span class="st">&quot;congruent&quot;</span>, <span class="st">&quot;incongruent&quot;</span>),</a>
+<a class="sourceLine" id="cb201-11" data-line-number="11">         <span class="dt">RT =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, stim.RT, PracStim2.RT),</a>
+<a class="sourceLine" id="cb201-12" data-line-number="12">         <span class="dt">Accuracy =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, stim.ACC, PracStim2.ACC),</a>
+<a class="sourceLine" id="cb201-13" data-line-number="13">         <span class="dt">Response =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, stim.RESP, PracStim2.RESP),</a>
+<a class="sourceLine" id="cb201-14" data-line-number="14">         <span class="dt">Response =</span> <span class="kw">ifelse</span>(Response <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;GREEN&quot;</span>, </a>
+<a class="sourceLine" id="cb201-15" data-line-number="15">                           <span class="kw">ifelse</span>(Response <span class="op">==</span><span class="st"> </span><span class="dv">2</span>, <span class="st">&quot;BLUE&quot;</span>, </a>
+<a class="sourceLine" id="cb201-16" data-line-number="16">                                  <span class="kw">ifelse</span>(Response <span class="op">==</span><span class="st"> </span><span class="dv">3</span>, <span class="st">&quot;RED&quot;</span>, <span class="ot">NA</span>))),</a>
+<a class="sourceLine" id="cb201-17" data-line-number="17">         <span class="dt">Word =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, word, pracWORD),</a>
+<a class="sourceLine" id="cb201-18" data-line-number="18">         <span class="dt">Hue =</span> <span class="kw">ifelse</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span>, hue, pracHUE)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb201-19" data-line-number="19"><span class="st">  </span><span class="kw">select</span>(Subject, TrialProc, Trial, Condition, RT, Accuracy, Response, </a>
+<a class="sourceLine" id="cb201-20" data-line-number="20">         Word, Hue, SessionDate, SessionTime)</a></code></pre></div>
 <p>That should be all the changes you need.</p>
 <hr />
 <p>Add a line in the masterscript to <code>source()</code> each one of these scripts.</p>
@@ -455,11 +455,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -467,12 +469,12 @@ gitbook.start({
 "github": true,
 "facebook": false,
 "twitter": false,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"],
+"google": false,
 "instapper": false
 },
 "fontsettings": {
@@ -482,6 +484,10 @@ gitbook.start({
 },
 "edit": null,
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

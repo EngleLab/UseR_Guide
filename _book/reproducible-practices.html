@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Reproducible Practices | EngleLab: UseR Guide</title>
-  <meta name="description" content="This is a useR Guide for the EngleLab">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="This is a useR Guide for the EngleLab" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Reproducible Practices | EngleLab: UseR Guide" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="This is a useR Guide for the EngleLab" />
   
 
-<meta name="author" content="Jason Tsukahara">
+<meta name="author" content="Jason Tsukahara" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="project-organization.html">
-<link rel="next" href="r-script-templates.html">
+<link rel="prev" href="project-organization.html"/>
+<link rel="next" href="r-script-templates.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -56,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -129,10 +130,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">EngleLab: UseR Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
-</ul></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="how-to-use-this-guide.html"><a href="how-to-use-this-guide.html"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li class="chapter" data-level="" data-path="reseach-project-workflow.html"><a href="reseach-project-workflow.html"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
 <li class="part"><span><b>I Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
 <li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
@@ -453,7 +453,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Therefore, it is important that the <code>Environment</code> of each R Script within a Project are independent from one another.</strong> This means that an R Script should not depend on objects created or data imported in other R Scripts. Any packages required for an R Script should be loaded in THAT script and not depend on them being loaded in other R Scripts.</p>
 <p>As long as the data files required for an R Script are already created, you should be able to open a completely new and fresh session of R and succesfully execute all the lines of code in that one Script (without having ran any other scripts).</p>
 <p>At the end of each R Script I had you include the line of code</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</code></pre>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</a></code></pre></div>
 <p>This removes all Objects in your <strong>Environment</strong>. That way when you run the next R Script it is starting from a blank <strong>Environment</strong></p>
 <p>Some people in the R community say this is not a good practice, but in reality it is not harmful to add this line of code.</p>
 </div>
@@ -482,7 +482,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You working directory can be specified in various ways. By default, if you open up <strong>RStudio</strong> directly it will set the working directory to some default location such as your <em>User</em> root directory. <strong>This is not good</strong>.</p>
 <p>If you open up <strong>RStudio</strong> by directly opening an <em>R script file</em> then it will set the working directory to the location of that file. This is better but still not ideal.</p>
 <p>Because the working directory changes depending on how you open RStudio a lot of R Users will set a working directory at the top of their script using</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setwd</span>()</code></pre>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" data-line-number="1"><span class="kw">setwd</span>()</a></code></pre></div>
 <p>However, this is not good because it requires the use of an absolute filepath.</p>
 <p>Ideally, we should not even have to think about the working directory since it can change depending on how R is opened. Thankfully there is a solution to make our dreams come true!</p>
 <div id="rstudio-projects-and-herehere" class="section level4">
@@ -506,23 +506,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>First go ahead and install the <code>here</code> package, <code>install.packages(&quot;here&quot;)</code>.</p>
 <p>Basically, when the <code>here</code> package is loaded, <code>library(here)</code>, it will search for an .Rproj file and it will set a <strong>starting</strong> file path at that location when you use <code>here()</code>.</p>
 <p>For instance, I have an .Rproj file saved in my “UseR_Guide” folder. When I use <code>here()</code> it will output a file path to that location.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(here)
-<span class="kw">here</span>()</code></pre>
-<pre><code>## [1] &quot;/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/Books/UseR_Guide&quot;</code></pre>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" data-line-number="1"><span class="kw">library</span>(here)</a>
+<a class="sourceLine" id="cb156-2" data-line-number="2"><span class="kw">here</span>()</a></code></pre></div>
+<pre><code>## [1] &quot;/Users/jtsukahara3/Dropbox (GaTech)/My Work/Coding Projects/R/Books/UseR_Guide&quot;</code></pre>
 <p>You can then use <code>here()</code> to set a relative file path</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data/flanker_raw.csv&quot;</span>)</code></pre>
-<pre><code>## [1] &quot;/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/Books/UseR_Guide/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" data-line-number="1"><span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data/flanker_raw.csv&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;/Users/jtsukahara3/Dropbox (GaTech)/My Work/Coding Projects/R/Books/UseR_Guide/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
 <p>This is equivalent to</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">here</span>(<span class="st">&quot;Data Files&quot;</span>, <span class="st">&quot;Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>)</code></pre>
-<pre><code>## [1] &quot;/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/Books/UseR_Guide/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" data-line-number="1"><span class="kw">here</span>(<span class="st">&quot;Data Files&quot;</span>, <span class="st">&quot;Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;/Users/jtsukahara3/Dropbox (GaTech)/My Work/Coding Projects/R/Books/UseR_Guide/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
 <p><br></p>
 <p><strong>I typically like to set the first argument as the relative file path and the second argument as the filename</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>)</code></pre>
-<pre><code>## [1] &quot;/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/Books/UseR_Guide/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" data-line-number="1"><span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;/Users/jtsukahara3/Dropbox (GaTech)/My Work/Coding Projects/R/Books/UseR_Guide/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
 <p><strong>This visually separates the file path and the filename, making your script easier to read.</strong></p>
 <p>You can use <code>here()</code> directly in import and output functions:</p>
-<pre class="sourceCode r"><code class="sourceCode r">import &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>))</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_csv</span>(data, <span class="kw">here</span>(<span class="st">&quot;Data Files/Scored Data&quot;</span>, <span class="st">&quot;flanker_scored.csv&quot;</span>))</code></pre>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" data-line-number="1">import &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" data-line-number="1"><span class="kw">write_csv</span>(data, <span class="kw">here</span>(<span class="st">&quot;Data Files/Scored Data&quot;</span>, <span class="st">&quot;flanker_scored.csv&quot;</span>))</a></code></pre></div>
 <p>And you know that everytime you use <code>here()</code> that the file path will start at where you have your .Rproj file saved.</p>
 <hr />
 <div style="text-align: center; font-size: 1.25em">
@@ -561,11 +561,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -573,12 +575,12 @@ gitbook.start({
 "github": true,
 "facebook": false,
 "twitter": false,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"],
+"google": false,
 "instapper": false
 },
 "fontsettings": {
@@ -588,6 +590,10 @@ gitbook.start({
 },
 "edit": null,
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

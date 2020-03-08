@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 23 Structural Equation Modelling | EngleLab: UseR Guide</title>
-  <meta name="description" content="This is a useR Guide for the EngleLab">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="This is a useR Guide for the EngleLab" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 23 Structural Equation Modelling | EngleLab: UseR Guide" />
   <meta property="og:type" content="book" />
@@ -22,16 +21,16 @@
   <meta name="twitter:description" content="This is a useR Guide for the EngleLab" />
   
 
-<meta name="author" content="Jason Tsukahara">
+<meta name="author" content="Jason Tsukahara" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="statistics-in-r.html">
+<link rel="prev" href="statistics-in-r.html"/>
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -40,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -56,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -129,10 +130,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">EngleLab: UseR Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
-</ul></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="how-to-use-this-guide.html"><a href="how-to-use-this-guide.html"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li class="chapter" data-level="" data-path="reseach-project-workflow.html"><a href="reseach-project-workflow.html"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
 <li class="part"><span><b>I Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
 <li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
@@ -380,7 +380,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="lavaan" class="section level2">
 <h2><span class="header-section-number">23.1</span> <code>lavaan</code></h2>
 <p>Install the <code>lavaan</code> package</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;lavaan&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;lavaan&quot;</span>)</a></code></pre></div>
 <p>Visit the <a href="http://lavaan.ugent.be" target="_blank">lavaan website</a> and navigate to the <strong>Tutorial</strong> tab.</p>
 <p>This is an excellent resource for you to consult if you forget any syntax or want more details on using <em>lavaan</em>. You should go over the full tutorial yourself, but I will go ahead and cover the basics here.</p>
 <p>There are only two main steps to run a lavaan model.</p>
@@ -393,11 +393,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The model object is where you specify the model equation for the CFA or SEM. It is actually very easy and intuitive to do. Basically you specify the model equation within single quotes and pass it to an object called model. Let’s say we have want to run a model corresponding to this model diagram:</p>
 <p><img src="images/cfa_example.png" width="40%" /></p>
 <p>We would simply specify:</p>
-<pre class="sourceCode r"><code class="sourceCode r">model &lt;-<span class="st"> &#39; </span>
-<span class="st">visual  =~ x1 + x2 + x3 </span>
-<span class="st">textual =~ x4 + x5 + x6</span>
-<span class="st">speed   =~ x7 + x8 + x9 </span>
-<span class="st">&#39;</span></code></pre>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb274-1" data-line-number="1">model &lt;-<span class="st"> &#39; </span></a>
+<a class="sourceLine" id="cb274-2" data-line-number="2"><span class="st">visual  =~ x1 + x2 + x3 </span></a>
+<a class="sourceLine" id="cb274-3" data-line-number="3"><span class="st">textual =~ x4 + x5 + x6</span></a>
+<a class="sourceLine" id="cb274-4" data-line-number="4"><span class="st">speed   =~ x7 + x8 + x9 </span></a>
+<a class="sourceLine" id="cb274-5" data-line-number="5"><span class="st">&#39;</span></a></code></pre></div>
 <p>This defines a CFA model with three latent factors; <strong>visual</strong>, <strong>textual</strong>, and <strong>speed</strong> with ther respective indicators. The indicators need to correspond to column names in the dataframe.</p>
 <p>There are certain defaults that <code>lavaan</code> uses so that we do not have to specify every single path in the model. For instance, by default it will add correlations between the latent factors in a CFA model. That is why in the model example above, the latent correlations are not explicit, yet they are implicitly part of the model.</p>
 <p><strong>Model Syntax</strong></p>
@@ -436,28 +436,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="run-the-model" class="section level3">
 <h3><span class="header-section-number">23.1.2</span> Run the model</h3>
 <p>Then the model can be ran using <code>cfa()</code> or <code>sem()</code> functions</p>
-<pre class="sourceCode r"><code class="sourceCode r">fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(model, data)</code></pre>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" data-line-number="1">fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(model, data)</a></code></pre></div>
 <p>The first two arguments to pass onto the lavaan functions are <code>model</code> and <code>data</code>, respectively. There are other important arguments that we will cover later.</p>
 <p>The <code>summary(fit, fit.measures = TRUE, standardized = TRUE)</code> output to a lavaan model looks like</p>
-<pre><code>## lavaan 0.6-3 ended normally after 35 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                         21
-## 
-##   Number of observations                           301
+<pre><code>## lavaan 0.6-5 ended normally after 35 iterations
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                      85.306
+##   Optimization method                           NLMINB
+##   Number of free parameters                         21
+##                                                       
+##   Number of observations                           301
+##                                                       
+## Model Test User Model:
+##                                                       
+##   Test statistic                                85.306
 ##   Degrees of freedom                                24
 ##   P-value (Chi-square)                           0.000
 ## 
-## Model test baseline model:
+## Model Test Baseline Model:
 ## 
-##   Minimum Function Test Statistic              918.852
+##   Test statistic                               918.852
 ##   Degrees of freedom                                36
 ##   P-value                                        0.000
 ## 
-## User model versus baseline model:
+## User Model versus Baseline Model:
 ## 
 ##   Comparative Fit Index (CFI)                    0.931
 ##   Tucker-Lewis Index (TLI)                       0.896
@@ -466,8 +468,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ##   Loglikelihood user model (H0)              -3737.745
 ##   Loglikelihood unrestricted model (H1)      -3695.092
-## 
-##   Number of free parameters                         21
+##                                                       
 ##   Akaike (AIC)                                7517.490
 ##   Bayesian (BIC)                              7595.339
 ##   Sample-size adjusted Bayesian (BIC)         7528.739
@@ -475,7 +476,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.092
-##   90 Percent Confidence Interval          0.071  0.114
+##   90 Percent confidence interval - lower         0.071
+##   90 Percent confidence interval - upper         0.114
 ##   P-value RMSEA &lt;= 0.05                          0.001
 ## 
 ## Standardized Root Mean Square Residual:
@@ -486,45 +488,77 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
+##   Standard errors                             Standard
 ## 
 ## Latent Variables:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-##   visual =~                                                             
-##     x1                1.000                               0.900    0.772
-##     x2                0.554    0.100    5.554    0.000    0.498    0.424
-##     x3                0.729    0.109    6.685    0.000    0.656    0.581
-##   textual =~                                                            
-##     x4                1.000                               0.990    0.852
-##     x5                1.113    0.065   17.014    0.000    1.102    0.855
-##     x6                0.926    0.055   16.703    0.000    0.917    0.838
-##   speed =~                                                              
-##     x7                1.000                               0.619    0.570
-##     x8                1.180    0.165    7.152    0.000    0.731    0.723
-##     x9                1.082    0.151    7.155    0.000    0.670    0.665
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv
+##   visual =~                                                    
+##     x1                1.000                               0.900
+##     x2                0.554    0.100    5.554    0.000    0.498
+##     x3                0.729    0.109    6.685    0.000    0.656
+##   textual =~                                                   
+##     x4                1.000                               0.990
+##     x5                1.113    0.065   17.014    0.000    1.102
+##     x6                0.926    0.055   16.703    0.000    0.917
+##   speed =~                                                     
+##     x7                1.000                               0.619
+##     x8                1.180    0.165    7.152    0.000    0.731
+##     x9                1.082    0.151    7.155    0.000    0.670
+##   Std.all
+##          
+##     0.772
+##     0.424
+##     0.581
+##          
+##     0.852
+##     0.855
+##     0.838
+##          
+##     0.570
+##     0.723
+##     0.665
 ## 
 ## Covariances:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-##   visual ~~                                                             
-##     textual           0.408    0.074    5.552    0.000    0.459    0.459
-##     speed             0.262    0.056    4.660    0.000    0.471    0.471
-##   textual ~~                                                            
-##     speed             0.173    0.049    3.518    0.000    0.283    0.283
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv
+##   visual ~~                                                    
+##     textual           0.408    0.074    5.552    0.000    0.459
+##     speed             0.262    0.056    4.660    0.000    0.471
+##   textual ~~                                                   
+##     speed             0.173    0.049    3.518    0.000    0.283
+##   Std.all
+##          
+##     0.459
+##     0.471
+##          
+##     0.283
 ## 
 ## Variances:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-##    .x1                0.549    0.114    4.833    0.000    0.549    0.404
-##    .x2                1.134    0.102   11.146    0.000    1.134    0.821
-##    .x3                0.844    0.091    9.317    0.000    0.844    0.662
-##    .x4                0.371    0.048    7.779    0.000    0.371    0.275
-##    .x5                0.446    0.058    7.642    0.000    0.446    0.269
-##    .x6                0.356    0.043    8.277    0.000    0.356    0.298
-##    .x7                0.799    0.081    9.823    0.000    0.799    0.676
-##    .x8                0.488    0.074    6.573    0.000    0.488    0.477
-##    .x9                0.566    0.071    8.003    0.000    0.566    0.558
-##     visual            0.809    0.145    5.564    0.000    1.000    1.000
-##     textual           0.979    0.112    8.737    0.000    1.000    1.000
-##     speed             0.384    0.086    4.451    0.000    1.000    1.000</code></pre>
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv
+##    .x1                0.549    0.114    4.833    0.000    0.549
+##    .x2                1.134    0.102   11.146    0.000    1.134
+##    .x3                0.844    0.091    9.317    0.000    0.844
+##    .x4                0.371    0.048    7.779    0.000    0.371
+##    .x5                0.446    0.058    7.642    0.000    0.446
+##    .x6                0.356    0.043    8.277    0.000    0.356
+##    .x7                0.799    0.081    9.823    0.000    0.799
+##    .x8                0.488    0.074    6.573    0.000    0.488
+##    .x9                0.566    0.071    8.003    0.000    0.566
+##     visual            0.809    0.145    5.564    0.000    1.000
+##     textual           0.979    0.112    8.737    0.000    1.000
+##     speed             0.384    0.086    4.451    0.000    1.000
+##   Std.all
+##     0.404
+##     0.821
+##     0.662
+##     0.275
+##     0.269
+##     0.298
+##     0.676
+##     0.477
+##     0.558
+##     1.000
+##     1.000
+##     1.000</code></pre>
 <p><strong>Yikes!!</strong></p>
 <p>You really should learn to understand this output, but nicer looking output would be nice right?</p>
 <p>This is where my <code>semoutput</code> package comes in handy.</p>
@@ -541,10 +575,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>Save it to the folder <strong>Data Files</strong> of your project directory.</p>
 <p>Install <code>semoutput</code></p>
-<pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/semoutput&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb277-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/semoutput&quot;</span>)</a></code></pre></div>
 <p>Additional packages you will need to have installed</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;sjPlot&quot;</span>)
-<span class="kw">install.packages</span>(<span class="st">&quot;semPlot&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb278-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;sjPlot&quot;</span>)</a>
+<a class="sourceLine" id="cb278-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&quot;semPlot&quot;</span>)</a></code></pre></div>
 <p>Once you install <code>semoutput</code> you should Restart R by going to:</p>
 <p>Session -&gt; Restart R</p>
 <p>You can download an R Markdown template for doing CFA and SEM in <code>lavaan</code>. Go to:</p>
@@ -553,14 +587,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">23.2.1</span> YAML Header</h3>
 <p>At the top of the document is what is called the YAML header. Here is where you can specify certain parameters that you may want to use as default in your analyses.</p>
 <p>You also need to specify the location and name of the data file you will be working with</p>
-<pre class="sourceCode r"><code class="sourceCode r">params<span class="op">:</span>
-<span class="st">  </span>import.file<span class="op">:</span><span class="st"> &quot;&quot;</span>       <span class="co"># Relative file path to data</span>
-  mimic<span class="op">:</span><span class="st"> &quot;lavaan&quot;</span>       <span class="co"># Which software program to mimic for estimating models</span>
-  missing<span class="op">:</span><span class="st"> &quot;ML&quot;</span>         <span class="co"># How to deal with missing values: &quot;ML&quot; or &quot;listwise&quot;</span>
-  std.lv<span class="op">:</span><span class="st"> </span><span class="ot">TRUE</span>          <span class="co"># For CFAs, default setting whether to set latent variances to 1 or not</span>
-  std.ov<span class="op">:</span><span class="st"> </span><span class="ot">FALSE</span>         <span class="co"># Standardize all observed varialbes?</span>
-  se<span class="op">:</span><span class="st"> &quot;standard&quot;</span>        <span class="co"># How to calcualte standard errors: &quot;standard&quot; or &quot;bootstrap&quot;</span>
-  bootstrap<span class="op">:</span><span class="st"> </span><span class="dv">1000</span>       <span class="co"># If se = &quot;bootstrap&quot; how many boostrap samples?</span></code></pre>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb279-1" data-line-number="1">params<span class="op">:</span></a>
+<a class="sourceLine" id="cb279-2" data-line-number="2"><span class="st">  </span>import.file<span class="op">:</span><span class="st"> &quot;&quot;</span>       <span class="co"># Relative file path to data</span></a>
+<a class="sourceLine" id="cb279-3" data-line-number="3">  mimic<span class="op">:</span><span class="st"> &quot;lavaan&quot;</span>       <span class="co"># Which software program to mimic for estimating models</span></a>
+<a class="sourceLine" id="cb279-4" data-line-number="4">  missing<span class="op">:</span><span class="st"> &quot;ML&quot;</span>         <span class="co"># How to deal with missing values: &quot;ML&quot; or &quot;listwise&quot;</span></a>
+<a class="sourceLine" id="cb279-5" data-line-number="5">  std.lv<span class="op">:</span><span class="st"> </span><span class="ot">TRUE</span>          <span class="co"># For CFAs, default setting whether to set latent variances to 1 or not</span></a>
+<a class="sourceLine" id="cb279-6" data-line-number="6">  std.ov<span class="op">:</span><span class="st"> </span><span class="ot">FALSE</span>         <span class="co"># Standardize all observed varialbes?</span></a>
+<a class="sourceLine" id="cb279-7" data-line-number="7">  se<span class="op">:</span><span class="st"> &quot;standard&quot;</span>        <span class="co"># How to calcualte standard errors: &quot;standard&quot; or &quot;bootstrap&quot;</span></a>
+<a class="sourceLine" id="cb279-8" data-line-number="8">  bootstrap<span class="op">:</span><span class="st"> </span><span class="dv">1000</span>       <span class="co"># If se = &quot;bootstrap&quot; how many boostrap samples?</span></a></code></pre></div>
 <p><em>skipping the efa example for now</em></p>
 <p>The first R code chunk <strong>Required Packages</strong> is where you should load any packages used in the document.</p>
 <p>The next R code chunk is where the data file is imported.</p>
@@ -583,43 +617,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To correlate error residuals you would specify:</p>
 <pre><code>y1 ~~ y5</code></pre>
 <p>Move down to the CFA section. First, you need to create a list of the latent factor labels (this is for the output and not running a <code>lavaan</code> model).</p>
-<pre class="sourceCode r"><code class="sourceCode r">factors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;dem60&quot;</span>, <span class="st">&quot;ind60&quot;</span>, <span class="st">&quot;dem65&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb281-1" data-line-number="1">factors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;dem60&quot;</span>, <span class="st">&quot;ind60&quot;</span>, <span class="st">&quot;dem65&quot;</span>)</a></code></pre></div>
 <p>Then specify the model equation. The commented lines (e.g. # latent factors) are just optional and can be changed or removed. Remember, the factor correlations are implied.</p>
-<pre class="sourceCode r"><code class="sourceCode r">model &lt;-<span class="st"> &#39;</span>
-<span class="st"># latent factors</span>
-
-<span class="st"># correlated errors</span>
-
-<span class="st"># constraints</span>
-
-<span class="st">&#39;</span></code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">model &lt;-<span class="st"> &#39;</span>
-<span class="st"># latent factors</span>
-<span class="st">dem60 =~ y1 + y2 + y3 + y4</span>
-<span class="st">ind60 =~ x1 + x2 + x3</span>
-<span class="st">dem65 =~ y5 + y6 + y7 + y8</span>
-
-<span class="st"># correlated errors</span>
-<span class="st">y1 ~~ y5</span>
-<span class="st">y2 ~~ y4</span>
-<span class="st">y2 ~~ y6</span>
-<span class="st">y3 ~~ y7</span>
-<span class="st">y4 ~~ y8</span>
-<span class="st">y6 ~~ y8</span>
-
-<span class="st"># constraints</span>
-
-<span class="st">&#39;</span></code></pre>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" data-line-number="1">model &lt;-<span class="st"> &#39;</span></a>
+<a class="sourceLine" id="cb282-2" data-line-number="2"><span class="st"># latent factors</span></a>
+<a class="sourceLine" id="cb282-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb282-4" data-line-number="4"><span class="st"># correlated errors</span></a>
+<a class="sourceLine" id="cb282-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb282-6" data-line-number="6"><span class="st"># constraints</span></a>
+<a class="sourceLine" id="cb282-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb282-8" data-line-number="8"><span class="st">&#39;</span></a></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" data-line-number="1">model &lt;-<span class="st"> &#39;</span></a>
+<a class="sourceLine" id="cb283-2" data-line-number="2"><span class="st"># latent factors</span></a>
+<a class="sourceLine" id="cb283-3" data-line-number="3"><span class="st">dem60 =~ y1 + y2 + y3 + y4</span></a>
+<a class="sourceLine" id="cb283-4" data-line-number="4"><span class="st">ind60 =~ x1 + x2 + x3</span></a>
+<a class="sourceLine" id="cb283-5" data-line-number="5"><span class="st">dem65 =~ y5 + y6 + y7 + y8</span></a>
+<a class="sourceLine" id="cb283-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb283-7" data-line-number="7"><span class="st"># correlated errors</span></a>
+<a class="sourceLine" id="cb283-8" data-line-number="8"><span class="st">y1 ~~ y5</span></a>
+<a class="sourceLine" id="cb283-9" data-line-number="9"><span class="st">y2 ~~ y4</span></a>
+<a class="sourceLine" id="cb283-10" data-line-number="10"><span class="st">y2 ~~ y6</span></a>
+<a class="sourceLine" id="cb283-11" data-line-number="11"><span class="st">y3 ~~ y7</span></a>
+<a class="sourceLine" id="cb283-12" data-line-number="12"><span class="st">y4 ~~ y8</span></a>
+<a class="sourceLine" id="cb283-13" data-line-number="13"><span class="st">y6 ~~ y8</span></a>
+<a class="sourceLine" id="cb283-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb283-15" data-line-number="15"><span class="st"># constraints</span></a>
+<a class="sourceLine" id="cb283-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb283-17" data-line-number="17"><span class="st">&#39;</span></a></code></pre></div>
 <p>You do not need to change anything for <code>cfa()</code>. Unless you want to change some of the defaults you set in the YAML header.</p>
-<pre class="sourceCode r"><code class="sourceCode r">fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(<span class="dt">model =</span> model, <span class="dt">data =</span> data, 
-           <span class="dt">mimic =</span> params<span class="op">$</span>mimic, <span class="dt">missing =</span> params<span class="op">$</span>missing, 
-           <span class="dt">std.lv =</span> params<span class="op">$</span>std.lv, <span class="dt">std.ov =</span> params<span class="op">$</span>std.ov,
-           <span class="dt">se =</span> params<span class="op">$</span>se, <span class="dt">bootstrap =</span> params<span class="op">$</span>bootstrap)</code></pre>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" data-line-number="1">fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(<span class="dt">model =</span> model, <span class="dt">data =</span> data, </a>
+<a class="sourceLine" id="cb284-2" data-line-number="2">           <span class="dt">mimic =</span> params<span class="op">$</span>mimic, <span class="dt">missing =</span> params<span class="op">$</span>missing, </a>
+<a class="sourceLine" id="cb284-3" data-line-number="3">           <span class="dt">std.lv =</span> params<span class="op">$</span>std.lv, <span class="dt">std.ov =</span> params<span class="op">$</span>std.ov,</a>
+<a class="sourceLine" id="cb284-4" data-line-number="4">           <span class="dt">se =</span> params<span class="op">$</span>se, <span class="dt">bootstrap =</span> params<span class="op">$</span>bootstrap)</a></code></pre></div>
 <p>Run this R code chunk by pressing the green arrow button. Then run each R code chunk in each subsection to print the output.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_sig</span>(fit)</code></pre>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" data-line-number="1"><span class="kw">sem_sig</span>(fit)</a></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-402">Table 23.1: </span>Model Significance
+<span id="tab:unnamed-chunk-404">Table 23.1: </span>Model Significance
 </caption>
 <thead>
 <tr>
@@ -654,10 +688,10 @@ p.value
 </tr>
 </tbody>
 </table>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_fitmeasures</span>(fit)</code></pre>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" data-line-number="1"><span class="kw">sem_fitmeasures</span>(fit)</a></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-402">Table 23.1: </span>Model Fit Measures
+<span id="tab:unnamed-chunk-404">Table 23.1: </span>Model Fit Measures
 </caption>
 <thead>
 <tr>
@@ -704,10 +738,10 @@ BIC
 </tr>
 </tbody>
 </table>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_factorloadings</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">ci =</span> <span class="st">&quot;standardized&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" data-line-number="1"><span class="kw">sem_factorloadings</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">ci =</span> <span class="st">&quot;standardized&quot;</span>)</a></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-402">Table 23.1: </span>Factor Loadings
+<span id="tab:unnamed-chunk-404">Table 23.1: </span>Factor Loadings
 </caption>
 <thead>
 <tr>
@@ -1073,10 +1107,10 @@ y8
 </tr>
 </tbody>
 </table>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_factorcor</span>(fit, <span class="dt">factors =</span> factors)</code></pre>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb288-1" data-line-number="1"><span class="kw">sem_factorcor</span>(fit, <span class="dt">factors =</span> factors)</a></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-402">Table 23.1: </span>Latent Factor Correlations
+<span id="tab:unnamed-chunk-404">Table 23.1: </span>Latent Factor Correlations
 </caption>
 <thead>
 <tr>
@@ -1187,10 +1221,10 @@ dem65
 </tr>
 </tbody>
 </table>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_factorvar</span>(fit, <span class="dt">factors =</span> factors)</code></pre>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" data-line-number="1"><span class="kw">sem_factorvar</span>(fit, <span class="dt">factors =</span> factors)</a></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-402">Table 23.1: </span>Latent Factor Variance/Residual Variance
+<span id="tab:unnamed-chunk-404">Table 23.1: </span>Latent Factor Variance/Residual Variance
 </caption>
 <thead>
 <tr>
@@ -1219,10 +1253,10 @@ p
 </tr>
 </tbody>
 </table>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_rsquared</span>(fit)</code></pre>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" data-line-number="1"><span class="kw">sem_rsquared</span>(fit)</a></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-402">Table 23.1: </span>R-Squared Values
+<span id="tab:unnamed-chunk-404">Table 23.1: </span>R-Squared Values
 </caption>
 <thead>
 <tr>
@@ -1325,13 +1359,13 @@ y8
 </tr>
 </tbody>
 </table>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">semPaths</span>(fit, <span class="dt">latents =</span> factors, <span class="dt">whatLabels =</span> <span class="st">&quot;std&quot;</span>, <span class="dt">layout =</span> <span class="st">&quot;tree2&quot;</span>, 
-         <span class="dt">rotation =</span> <span class="dv">2</span>, <span class="dt">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="dt">optimizeLatRes =</span> <span class="ot">TRUE</span>, 
-         <span class="dt">intercepts =</span> <span class="ot">FALSE</span>, <span class="dt">residuals =</span> <span class="ot">TRUE</span>, <span class="dt">curve =</span> <span class="dv">1</span>, <span class="dt">curvature =</span> <span class="dv">2</span>, 
-         <span class="dt">sizeLat =</span> <span class="dv">10</span>, <span class="dt">nCharNodes =</span> <span class="dv">8</span>, <span class="dt">sizeMan =</span> <span class="dv">11</span>, <span class="dt">sizeMan2 =</span> <span class="dv">4</span>, 
-         <span class="dt">edge.label.cex =</span> <span class="fl">1.2</span>, <span class="dt">edge.color =</span> <span class="st">&quot;#000000&quot;</span>)</code></pre>
-<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-403-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">modificationIndices</span>(fit, <span class="dt">sort. =</span> <span class="ot">TRUE</span>, <span class="dt">minimum.value =</span> <span class="dv">3</span>)</code></pre>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" data-line-number="1"><span class="kw">semPaths</span>(fit, <span class="dt">latents =</span> factors, <span class="dt">whatLabels =</span> <span class="st">&quot;std&quot;</span>, <span class="dt">layout =</span> <span class="st">&quot;tree2&quot;</span>, </a>
+<a class="sourceLine" id="cb291-2" data-line-number="2">         <span class="dt">rotation =</span> <span class="dv">2</span>, <span class="dt">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="dt">optimizeLatRes =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb291-3" data-line-number="3">         <span class="dt">intercepts =</span> <span class="ot">FALSE</span>, <span class="dt">residuals =</span> <span class="ot">TRUE</span>, <span class="dt">curve =</span> <span class="dv">1</span>, <span class="dt">curvature =</span> <span class="dv">2</span>, </a>
+<a class="sourceLine" id="cb291-4" data-line-number="4">         <span class="dt">sizeLat =</span> <span class="dv">10</span>, <span class="dt">nCharNodes =</span> <span class="dv">8</span>, <span class="dt">sizeMan =</span> <span class="dv">11</span>, <span class="dt">sizeMan2 =</span> <span class="dv">4</span>, </a>
+<a class="sourceLine" id="cb291-5" data-line-number="5">         <span class="dt">edge.label.cex =</span> <span class="fl">1.2</span>, <span class="dt">edge.color =</span> <span class="st">&quot;#000000&quot;</span>)</a></code></pre></div>
+<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-405-1.png" width="672" /></p>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" data-line-number="1"><span class="kw">modificationIndices</span>(fit, <span class="dt">sort. =</span> <span class="ot">TRUE</span>, <span class="dt">minimum.value =</span> <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>##      lhs op rhs    mi    epc sepc.lv sepc.all sepc.nox
 ## 59 ind60 =~  y4 4.796  0.577   0.577    0.174    0.174
 ## 60 ind60 =~  y5 4.456  0.559   0.559    0.215    0.215
@@ -1342,35 +1376,35 @@ y8
 <div id="sem-example" class="section level3">
 <h3><span class="header-section-number">23.2.3</span> SEM Example</h3>
 <p>Now let’s run the actual SEM model. Really the only difference is that we will add some regression paths</p>
-<pre class="sourceCode r"><code class="sourceCode r">factors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;dem60&quot;</span>, <span class="st">&quot;ind60&quot;</span>, <span class="st">&quot;dem65&quot;</span>)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">model &lt;-<span class="st"> &#39;</span>
-<span class="st"># latent factors</span>
-<span class="st">dem60 =~ y1 + y2 + y3 + y4</span>
-<span class="st">ind60 =~ x1 + x2 + x3</span>
-<span class="st">dem65 =~ y5 + y6 + y7 + y8</span>
-
-<span class="st"># variances</span>
-
-<span class="st"># covariances</span>
-<span class="st">y1 ~~ y5</span>
-<span class="st">y2 ~~ y4</span>
-<span class="st">y2 ~~ y6</span>
-<span class="st">y3 ~~ y7</span>
-<span class="st">y4 ~~ y8</span>
-<span class="st">y6 ~~ y8</span>
-
-<span class="st"># regressions</span>
-<span class="st">dem65 ~ dem60 + ind60</span>
-<span class="st">dem60 ~ ind60</span>
-<span class="st">&#39;</span></code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="dt">model =</span> model, <span class="dt">data =</span> data, 
-           <span class="dt">mimic =</span> params<span class="op">$</span>mimic, <span class="dt">missing =</span> params<span class="op">$</span>missing, 
-           <span class="dt">std.lv =</span> <span class="ot">FALSE</span>, <span class="dt">std.ov =</span> params<span class="op">$</span>std.ov,
-           <span class="dt">se =</span> params<span class="op">$</span>se, <span class="dt">bootstrap =</span> params<span class="op">$</span>bootstrap)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_sig</span>(fit)</code></pre>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" data-line-number="1">factors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;dem60&quot;</span>, <span class="st">&quot;ind60&quot;</span>, <span class="st">&quot;dem65&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1">model &lt;-<span class="st"> &#39;</span></a>
+<a class="sourceLine" id="cb295-2" data-line-number="2"><span class="st"># latent factors</span></a>
+<a class="sourceLine" id="cb295-3" data-line-number="3"><span class="st">dem60 =~ y1 + y2 + y3 + y4</span></a>
+<a class="sourceLine" id="cb295-4" data-line-number="4"><span class="st">ind60 =~ x1 + x2 + x3</span></a>
+<a class="sourceLine" id="cb295-5" data-line-number="5"><span class="st">dem65 =~ y5 + y6 + y7 + y8</span></a>
+<a class="sourceLine" id="cb295-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb295-7" data-line-number="7"><span class="st"># variances</span></a>
+<a class="sourceLine" id="cb295-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb295-9" data-line-number="9"><span class="st"># covariances</span></a>
+<a class="sourceLine" id="cb295-10" data-line-number="10"><span class="st">y1 ~~ y5</span></a>
+<a class="sourceLine" id="cb295-11" data-line-number="11"><span class="st">y2 ~~ y4</span></a>
+<a class="sourceLine" id="cb295-12" data-line-number="12"><span class="st">y2 ~~ y6</span></a>
+<a class="sourceLine" id="cb295-13" data-line-number="13"><span class="st">y3 ~~ y7</span></a>
+<a class="sourceLine" id="cb295-14" data-line-number="14"><span class="st">y4 ~~ y8</span></a>
+<a class="sourceLine" id="cb295-15" data-line-number="15"><span class="st">y6 ~~ y8</span></a>
+<a class="sourceLine" id="cb295-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb295-17" data-line-number="17"><span class="st"># regressions</span></a>
+<a class="sourceLine" id="cb295-18" data-line-number="18"><span class="st">dem65 ~ dem60 + ind60</span></a>
+<a class="sourceLine" id="cb295-19" data-line-number="19"><span class="st">dem60 ~ ind60</span></a>
+<a class="sourceLine" id="cb295-20" data-line-number="20"><span class="st">&#39;</span></a></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" data-line-number="1">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="dt">model =</span> model, <span class="dt">data =</span> data, </a>
+<a class="sourceLine" id="cb296-2" data-line-number="2">           <span class="dt">mimic =</span> params<span class="op">$</span>mimic, <span class="dt">missing =</span> params<span class="op">$</span>missing, </a>
+<a class="sourceLine" id="cb296-3" data-line-number="3">           <span class="dt">std.lv =</span> <span class="ot">FALSE</span>, <span class="dt">std.ov =</span> params<span class="op">$</span>std.ov,</a>
+<a class="sourceLine" id="cb296-4" data-line-number="4">           <span class="dt">se =</span> params<span class="op">$</span>se, <span class="dt">bootstrap =</span> params<span class="op">$</span>bootstrap)</a></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1"><span class="kw">sem_sig</span>(fit)</a></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-408">Table 23.2: </span>Model Significance
+<span id="tab:unnamed-chunk-410">Table 23.2: </span>Model Significance
 </caption>
 <thead>
 <tr>
@@ -1405,10 +1439,10 @@ p.value
 </tr>
 </tbody>
 </table>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_fitmeasures</span>(fit)</code></pre>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" data-line-number="1"><span class="kw">sem_fitmeasures</span>(fit)</a></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-408">Table 23.2: </span>Model Fit Measures
+<span id="tab:unnamed-chunk-410">Table 23.2: </span>Model Fit Measures
 </caption>
 <thead>
 <tr>
@@ -1455,10 +1489,10 @@ BIC
 </tr>
 </tbody>
 </table>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_factorloadings</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">ci =</span> <span class="st">&quot;standardized&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1"><span class="kw">sem_factorloadings</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">ci =</span> <span class="st">&quot;standardized&quot;</span>)</a></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-408">Table 23.2: </span>Factor Loadings
+<span id="tab:unnamed-chunk-410">Table 23.2: </span>Factor Loadings
 </caption>
 <thead>
 <tr>
@@ -1824,10 +1858,10 @@ y8
 </tr>
 </tbody>
 </table>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_paths</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">ci =</span> <span class="st">&quot;standardized&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" data-line-number="1"><span class="kw">sem_paths</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">ci =</span> <span class="st">&quot;standardized&quot;</span>)</a></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-408">Table 23.2: </span>Regression Paths
+<span id="tab:unnamed-chunk-410">Table 23.2: </span>Regression Paths
 </caption>
 <thead>
 <tr>
@@ -1962,10 +1996,10 @@ dem60
 </tbody>
 </table></li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_factorcor</span>(fit, <span class="dt">factors =</span> factors)</code></pre>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="kw">sem_factorcor</span>(fit, <span class="dt">factors =</span> factors)</a></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-408">Table 23.2: </span>Latent Factor Correlations
+<span id="tab:unnamed-chunk-410">Table 23.2: </span>Latent Factor Correlations
 </caption>
 <thead>
 <tr>
@@ -2000,10 +2034,10 @@ SE
 </tr>
 </tbody>
 </table>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_factorvar</span>(fit, <span class="dt">factors =</span> factors)</code></pre>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" data-line-number="1"><span class="kw">sem_factorvar</span>(fit, <span class="dt">factors =</span> factors)</a></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-408">Table 23.2: </span>Latent Factor Variance/Residual Variance
+<span id="tab:unnamed-chunk-410">Table 23.2: </span>Latent Factor Variance/Residual Variance
 </caption>
 <thead>
 <tr>
@@ -2089,10 +2123,10 @@ dem65
 </tr>
 </tbody>
 </table>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sem_rsquared</span>(fit)</code></pre>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1"><span class="kw">sem_rsquared</span>(fit)</a></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-408">Table 23.2: </span>R-Squared Values
+<span id="tab:unnamed-chunk-410">Table 23.2: </span>R-Squared Values
 </caption>
 <thead>
 <tr>
@@ -2211,12 +2245,12 @@ dem65
 </tr>
 </tbody>
 </table>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">semPaths</span>(fit, <span class="dt">latents =</span> factors, <span class="dt">whatLabels =</span> <span class="st">&quot;std&quot;</span>, <span class="dt">layout =</span> <span class="st">&quot;tree2&quot;</span>, 
-         <span class="dt">rotation =</span> <span class="dv">2</span>, <span class="dt">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="dt">optimizeLatRes =</span> <span class="ot">TRUE</span>, 
-         <span class="dt">intercepts =</span> <span class="ot">FALSE</span>, <span class="dt">residuals =</span> <span class="ot">TRUE</span>, <span class="dt">curve =</span> <span class="dv">1</span>, <span class="dt">curvature =</span> <span class="dv">2</span>, 
-         <span class="dt">sizeLat =</span> <span class="dv">10</span>, <span class="dt">nCharNodes =</span> <span class="dv">8</span>, <span class="dt">sizeMan =</span> <span class="dv">11</span>, <span class="dt">sizeMan2 =</span> <span class="dv">4</span>, 
-         <span class="dt">edge.label.cex =</span> <span class="fl">1.2</span>, <span class="dt">edge.color =</span> <span class="st">&quot;#000000&quot;</span>)</code></pre>
-<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-409-1.png" width="672" /></p>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" data-line-number="1"><span class="kw">semPaths</span>(fit, <span class="dt">latents =</span> factors, <span class="dt">whatLabels =</span> <span class="st">&quot;std&quot;</span>, <span class="dt">layout =</span> <span class="st">&quot;tree2&quot;</span>, </a>
+<a class="sourceLine" id="cb304-2" data-line-number="2">         <span class="dt">rotation =</span> <span class="dv">2</span>, <span class="dt">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="dt">optimizeLatRes =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb304-3" data-line-number="3">         <span class="dt">intercepts =</span> <span class="ot">FALSE</span>, <span class="dt">residuals =</span> <span class="ot">TRUE</span>, <span class="dt">curve =</span> <span class="dv">1</span>, <span class="dt">curvature =</span> <span class="dv">2</span>, </a>
+<a class="sourceLine" id="cb304-4" data-line-number="4">         <span class="dt">sizeLat =</span> <span class="dv">10</span>, <span class="dt">nCharNodes =</span> <span class="dv">8</span>, <span class="dt">sizeMan =</span> <span class="dv">11</span>, <span class="dt">sizeMan2 =</span> <span class="dv">4</span>, </a>
+<a class="sourceLine" id="cb304-5" data-line-number="5">         <span class="dt">edge.label.cex =</span> <span class="fl">1.2</span>, <span class="dt">edge.color =</span> <span class="st">&quot;#000000&quot;</span>)</a></code></pre></div>
+<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-411-1.png" width="672" /></p>
 <hr />
 <hr />
 <p><strong>Something</strong></p>
@@ -2235,11 +2269,13 @@ dem65
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -2247,12 +2283,12 @@ gitbook.start({
 "github": true,
 "facebook": false,
 "twitter": false,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"],
+"google": false,
 "instapper": false
 },
 "fontsettings": {
@@ -2262,6 +2298,10 @@ gitbook.start({
 },
 "edit": null,
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

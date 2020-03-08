@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 12 Messy to Tidy: 0_task_raw.R | EngleLab: UseR Guide</title>
-  <meta name="description" content="This is a useR Guide for the EngleLab">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="This is a useR Guide for the EngleLab" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 12 Messy to Tidy: 0_task_raw.R | EngleLab: UseR Guide" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="This is a useR Guide for the EngleLab" />
   
 
-<meta name="author" content="Jason Tsukahara">
+<meta name="author" content="Jason Tsukahara" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="merge-individual-subject-files.html">
-<link rel="next" href="data-preparation-summary.html">
+<link rel="prev" href="merge-individual-subject-files.html"/>
+<link rel="next" href="data-preparation-summary.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -56,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -129,10 +130,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">EngleLab: UseR Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
-</ul></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="how-to-use-this-guide.html"><a href="how-to-use-this-guide.html"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li class="chapter" data-level="" data-path="reseach-project-workflow.html"><a href="reseach-project-workflow.html"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
 <li class="part"><span><b>I Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
 <li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
@@ -383,7 +383,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If you have not done so already, open RStudio by opening the <em>UseRGuide_DataCollection.Rproj</em> R Project file.</p>
 <p>In the folder <strong>R Scripts/templates</strong> open the file <strong>0_taskname_raw.R</strong> and save it as <strong>0_flanker_raw.R</strong> in the <strong>R Scripts</strong> folder.</p>
 <p>If you do not see the template file <strong>0_taskname_raw.R</strong>, you can download it. Just type in the following line of code in the console</p>
-<pre class="sourceCode r"><code class="sourceCode r">workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">rawscript =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1">workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">rawscript =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <hr />
 <p>In the script file take note of the import and output directories.</p>
 <p>Change <code>task &lt;- &quot;taskname&quot;</code> to <code>task &lt;- &quot;Flanker&quot;</code></p>
@@ -396,20 +396,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Now it happens on occasion that the wrong subject number is entered in when an RA is starting up a task. This can result in duplicate Subject numbers in the E-Merge file. Luckily I have created a function to remove the duplicate subjects, and put their information (with session date and time) into a specific file. This file will be created in a new folder called “duplicates”.</p>
 <p>The function is <code>duplicates_remove()</code> from the <code>datawrangling</code> package on my GitHub.</p>
 <p>It can be difficult to remember what arguments you need to include in a function. To see helpful documentation about a function you can type in the console</p>
-<pre class="sourceCode r"><code class="sourceCode r">?duplicates_remove</code></pre>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" data-line-number="1">?duplicates_remove</a></code></pre></div>
 <p>First, to the Setup section add the line of code to load the <code>datawrangling</code> package.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(datawrangling)</code></pre>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" data-line-number="1"><span class="kw">library</span>(datawrangling)</a></code></pre></div>
 <p>To the import section add the following line of code with the pipe operator <code>%&gt;%</code></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#### Import ####</span>
-import &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="kw">here</span>(import.dir, import.file), 
-                     <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">duplicates_remove</span>(<span class="dt">taskname =</span> task, 
-                    <span class="dt">output.folder =</span> <span class="kw">here</span>(output.dir, <span class="st">&quot;duplicates&quot;</span>))
-<span class="co">################</span></code></pre>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" data-line-number="1"><span class="co">#### Import ####</span></a>
+<a class="sourceLine" id="cb185-2" data-line-number="2">import &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="kw">here</span>(import.dir, import.file), </a>
+<a class="sourceLine" id="cb185-3" data-line-number="3">                     <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb185-4" data-line-number="4"><span class="st">  </span><span class="kw">duplicates_remove</span>(<span class="dt">taskname =</span> task, </a>
+<a class="sourceLine" id="cb185-5" data-line-number="5">                    <span class="dt">output.folder =</span> <span class="kw">here</span>(output.dir, <span class="st">&quot;duplicates&quot;</span>))</a>
+<a class="sourceLine" id="cb185-6" data-line-number="6"><span class="co">################</span></a></code></pre></div>
 <p>Execture the lines of code up to and including import.</p>
 <p>You will notice that there was a folder created called <strong>duplicates</strong> in the Data Files folder. Open the file contained in this folder, <strong>Flanker_duplicates.csv</strong>. These are duplicate subject numbers and must be taken care of. For the sake of this guide, however, we will not do anything with them now. Though, they have been removed from the data.</p>
 <p>View the dataframe by typing in the console</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">View</span>(import)</code></pre>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" data-line-number="1"><span class="kw">View</span>(import)</a></code></pre></div>
 <p>It is a mess, right? Here are some things you need to know about the <em>messy</em> raw data file. These are the columns and what type of values they contain:</p>
 <p><strong>Subject</strong>: Subject number</p>
 <p><strong>Procedure[Trial]</strong>: Procedure type (keep: TrialProc and PracTrialProc)</p>
@@ -440,43 +440,43 @@ import &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span cl
 <div id="filter-1" class="section level3">
 <h3><span class="header-section-number">12.3.1</span> Filter</h3>
 <p>Filter only relevant rows. We want to keep only the rows that contain trials from the practice and real trials (rows from the Instruction procedure and End Screen are in the imported data).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#### Tidy raw data ####</span>
-data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> </span>
-<span class="st">           `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>)
-<span class="co">#######################</span></code></pre>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" data-line-number="1"><span class="co">#### Tidy raw data ####</span></a>
+<a class="sourceLine" id="cb187-2" data-line-number="2">data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb187-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb187-4" data-line-number="4"><span class="st">           `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>)</a>
+<a class="sourceLine" id="cb187-5" data-line-number="5"><span class="co">#######################</span></a></code></pre></div>
 <p>The column names are contained in single ticks because the names contain the special characters <code>[ ]</code>. There are certain characters R does not like to use as variable names and one of them is square brackets.</p>
 <p>This line of code is saying only include (filter) rows where <code>Procedure[Trial]</code> is equal to <code>TrialProc</code> or (<code>|</code>) <code>Procedure[Trial]</code> is equal to <code>PracTrialProc</code>.</p>
 </div>
 <div id="rename-columns" class="section level3">
 <h3><span class="header-section-number">12.3.2</span> Rename Columns</h3>
 <p>Now the column specifying real vs practice trials is a little tedious to keep typing out since it requires the single quotes and brackets. To rename columns we can use <code>rename()</code> function in <code>dplyr</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#### Tidy raw data ####</span>
-data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> </span>
-<span class="st">           `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>)
-<span class="co">#######################</span></code></pre>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1"><span class="co">#### Tidy raw data ####</span></a>
+<a class="sourceLine" id="cb188-2" data-line-number="2">data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb188-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb188-4" data-line-number="4"><span class="st">           `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb188-5" data-line-number="5"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>)</a>
+<a class="sourceLine" id="cb188-6" data-line-number="6"><span class="co">#######################</span></a></code></pre></div>
 <p>This line of code renames the column <code>Procedure[Trial]</code> to <code>TrialProc</code>.</p>
 </div>
 <div id="change-values" class="section level3">
 <h3><span class="header-section-number">12.3.3</span> Change Values</h3>
 <p>We should change the values in <code>TrialProc</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unique</span>(data_raw<span class="op">$</span>TrialProc)</code></pre>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" data-line-number="1"><span class="kw">unique</span>(data_raw<span class="op">$</span>TrialProc)</a></code></pre></div>
 <pre><code>## [1] &quot;PracTrialProc&quot; &quot;TrialProc&quot;</code></pre>
 <p>Right now real trials have the value of <code>TrialProc</code>. The same name as the column, not good! And the “practice” trials have the value of <code>PractTrialProc</code>. Let’s change these values simply to <code>real</code> and <code>practice</code>, respectively.</p>
 <p>We can use a combination of <code>mutate()</code> and <code>case_when()</code> to change these values.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#### Tidy raw data ####</span>
-data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> </span>
-<span class="st">           `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;TrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;real&quot;</span>,
-                               TrialProc <span class="op">==</span><span class="st"> &quot;PracTrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;practice&quot;</span>))
-<span class="co">#######################</span></code></pre>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" data-line-number="1"><span class="co">#### Tidy raw data ####</span></a>
+<a class="sourceLine" id="cb191-2" data-line-number="2">data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb191-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb191-4" data-line-number="4"><span class="st">           `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb191-5" data-line-number="5"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb191-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;TrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;real&quot;</span>,</a>
+<a class="sourceLine" id="cb191-7" data-line-number="7">                               TrialProc <span class="op">==</span><span class="st"> &quot;PracTrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;practice&quot;</span>))</a>
+<a class="sourceLine" id="cb191-8" data-line-number="8"><span class="co">#######################</span></a></code></pre></div>
 <p><code>case_when()</code> is an alternative to an <code>ifelse()</code>. The second line of the <code>case_when()</code> might read something like: <em>when the value in the column <b style = "color: skyblue">TrialProc</b> is equal to “PracTrialProc” set (~) <b style = "color: indianred">TrialProc =</b> “practice”</em>.</p>
 <p>Evaluate that this worked</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unique</span>(data_raw<span class="op">$</span>TrialProc)</code></pre>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" data-line-number="1"><span class="kw">unique</span>(data_raw<span class="op">$</span>TrialProc)</a></code></pre></div>
 <pre><code>## [1] &quot;practice&quot; &quot;real&quot;</code></pre>
 <p>Okay now let’s move on to figuring out what other columns we want to keep and if we need to do any more computations on them.</p>
 <p>We want to keep the columns that specify the following information</p>
@@ -495,63 +495,63 @@ data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
 <p>This gets a little more tricky here because the information for some of these variables are in one column for practice trials and a different column for real trials. That means we need to merge the information from these two columns into one.</p>
 <p>For instance the RT data for practice trials is contained in the column <code>PracSlideTarget.RT</code> and for real trials RT data is in <code>SlideTarget.RT</code>.</p>
 <p>We can again use <code>case_when()</code> here. We can create a new column labeled <code>RT</code>, that when the values in the column <code>TrialProc</code> is equal to “real” then set (~) <code>RT</code> = <code>SlideTarget.RT</code>. And when <code>TrialProc</code> is equal to “practice” then set (~) <code>RT</code> = <code>PracSlideTarget.RT</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Tidy raw data ####</span>
-data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> </span>
-<span class="st">           `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;TrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;real&quot;</span>,
-                               TrialProc <span class="op">==</span><span class="st"> &quot;PracTrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;practice&quot;</span>),
-         <span class="dt">RT =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.RT,
-                        TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.RT,
-                        <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> </span><span class="kw">as.numeric</span>(<span class="ot">NA</span>)))
-<span class="co">#####################</span></code></pre>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1"><span class="co">## Tidy raw data ####</span></a>
+<a class="sourceLine" id="cb194-2" data-line-number="2">data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb194-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb194-4" data-line-number="4"><span class="st">           `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb194-5" data-line-number="5"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb194-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;TrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;real&quot;</span>,</a>
+<a class="sourceLine" id="cb194-7" data-line-number="7">                               TrialProc <span class="op">==</span><span class="st"> &quot;PracTrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;practice&quot;</span>),</a>
+<a class="sourceLine" id="cb194-8" data-line-number="8">         <span class="dt">RT =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.RT,</a>
+<a class="sourceLine" id="cb194-9" data-line-number="9">                        TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.RT,</a>
+<a class="sourceLine" id="cb194-10" data-line-number="10">                        <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> </span><span class="kw">as.numeric</span>(<span class="ot">NA</span>)))</a>
+<a class="sourceLine" id="cb194-11" data-line-number="11"><span class="co">#####################</span></a></code></pre></div>
 <p>It is not required in this scenario, however just as an illustration I added a third argument to <code>case_when()</code>, <code>TRUE ~ as.numeric(NA)</code></p>
 <p>Scenarios in which you cannot or do not need to specify all possible rows in a dataframe, you need to add an option to tell <code>case_when()</code> what to do for those rows. In this scenario, “real” and “practice” in the column <code>TrialProc</code> covers all possible rows in the dataframe. However, if this is not true, you need to add another argument</p>
 <p><code>TRUE ~</code> followed by the value or function that those rows should have. To add an extra layer of complexity, if you want those rows to have missing values <code>NA</code>, then you need to specify a typeof missing value. If the other values in the column are numerical then you should specify <code>as.numeric(NA)</code>. If the other values in the column are character strings then you should specify <code>as.character(NA)</code>.</p>
 <p>We can do the same thing for trial, accuracy, response, and target arrow direction. Combining them all into one <code>mutate()</code> function</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Tidy raw data ####</span>
-data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> </span>
-<span class="st">           `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;TrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;real&quot;</span>,
-                               TrialProc <span class="op">==</span><span class="st"> &quot;PracTrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;practice&quot;</span>),
-         <span class="dt">RT =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.RT,
-                        TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.RT,
-                        <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> </span><span class="kw">as.numeric</span>(<span class="ot">NA</span>)),
-         <span class="dt">Trial =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>TrialList.Sample,
-                           TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracTrialList.Sample),
-         <span class="dt">Accuracy =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.ACC,
-                              TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.ACC),
-         <span class="dt">Response =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.RESP,
-                              TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.RESP),
-         <span class="dt">TargetArrowDirection =</span> 
-           <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>TargetDirection,
-                     TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>TargerDirection))
-<span class="co">#####################</span></code></pre>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" data-line-number="1"><span class="co">## Tidy raw data ####</span></a>
+<a class="sourceLine" id="cb195-2" data-line-number="2">data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb195-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb195-4" data-line-number="4"><span class="st">           `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb195-5" data-line-number="5"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb195-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;TrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;real&quot;</span>,</a>
+<a class="sourceLine" id="cb195-7" data-line-number="7">                               TrialProc <span class="op">==</span><span class="st"> &quot;PracTrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;practice&quot;</span>),</a>
+<a class="sourceLine" id="cb195-8" data-line-number="8">         <span class="dt">RT =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.RT,</a>
+<a class="sourceLine" id="cb195-9" data-line-number="9">                        TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.RT,</a>
+<a class="sourceLine" id="cb195-10" data-line-number="10">                        <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> </span><span class="kw">as.numeric</span>(<span class="ot">NA</span>)),</a>
+<a class="sourceLine" id="cb195-11" data-line-number="11">         <span class="dt">Trial =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>TrialList.Sample,</a>
+<a class="sourceLine" id="cb195-12" data-line-number="12">                           TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracTrialList.Sample),</a>
+<a class="sourceLine" id="cb195-13" data-line-number="13">         <span class="dt">Accuracy =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.ACC,</a>
+<a class="sourceLine" id="cb195-14" data-line-number="14">                              TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.ACC),</a>
+<a class="sourceLine" id="cb195-15" data-line-number="15">         <span class="dt">Response =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.RESP,</a>
+<a class="sourceLine" id="cb195-16" data-line-number="16">                              TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.RESP),</a>
+<a class="sourceLine" id="cb195-17" data-line-number="17">         <span class="dt">TargetArrowDirection =</span> </a>
+<a class="sourceLine" id="cb195-18" data-line-number="18">           <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>TargetDirection,</a>
+<a class="sourceLine" id="cb195-19" data-line-number="19">                     TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>TargerDirection))</a>
+<a class="sourceLine" id="cb195-20" data-line-number="20"><span class="co">#####################</span></a></code></pre></div>
 <p>You might want to change the values in the Response and CorrectResponse columns to be more clear (left and right).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Tidy raw data ####</span>
-data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> </span>
-<span class="st">           `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;TrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;real&quot;</span>,
-                               TrialProc <span class="op">==</span><span class="st"> &quot;PracTrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;practice&quot;</span>),
-         <span class="dt">RT =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.RT,
-                        TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.RT),
-         <span class="dt">Trial =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>TrialList.Sample,
-                           TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracTrialList.Sample),
-         <span class="dt">Accuracy =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.ACC,
-                              TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.ACC),
-         <span class="dt">TargetArrowDirection =</span> 
-           <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>TargetDirection,
-                     TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>TargerDirection),
-         <span class="dt">Response =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.RESP,
-                              TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.RESP),
-         <span class="dt">Response =</span> <span class="kw">case_when</span>(Response <span class="op">==</span><span class="st"> &quot;z&quot;</span> <span class="op">~</span><span class="st"> &quot;left&quot;</span>,
-                              Response <span class="op">==</span><span class="st"> &quot;{/}&quot;</span> <span class="op">~</span><span class="st"> &quot;right&quot;</span>))
-<span class="co">#####################</span></code></pre>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" data-line-number="1"><span class="co">## Tidy raw data ####</span></a>
+<a class="sourceLine" id="cb196-2" data-line-number="2">data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb196-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb196-4" data-line-number="4"><span class="st">           `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb196-5" data-line-number="5"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb196-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;TrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;real&quot;</span>,</a>
+<a class="sourceLine" id="cb196-7" data-line-number="7">                               TrialProc <span class="op">==</span><span class="st"> &quot;PracTrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;practice&quot;</span>),</a>
+<a class="sourceLine" id="cb196-8" data-line-number="8">         <span class="dt">RT =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.RT,</a>
+<a class="sourceLine" id="cb196-9" data-line-number="9">                        TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.RT),</a>
+<a class="sourceLine" id="cb196-10" data-line-number="10">         <span class="dt">Trial =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>TrialList.Sample,</a>
+<a class="sourceLine" id="cb196-11" data-line-number="11">                           TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracTrialList.Sample),</a>
+<a class="sourceLine" id="cb196-12" data-line-number="12">         <span class="dt">Accuracy =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.ACC,</a>
+<a class="sourceLine" id="cb196-13" data-line-number="13">                              TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.ACC),</a>
+<a class="sourceLine" id="cb196-14" data-line-number="14">         <span class="dt">TargetArrowDirection =</span> </a>
+<a class="sourceLine" id="cb196-15" data-line-number="15">           <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>TargetDirection,</a>
+<a class="sourceLine" id="cb196-16" data-line-number="16">                     TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>TargerDirection),</a>
+<a class="sourceLine" id="cb196-17" data-line-number="17">         <span class="dt">Response =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.RESP,</a>
+<a class="sourceLine" id="cb196-18" data-line-number="18">                              TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.RESP),</a>
+<a class="sourceLine" id="cb196-19" data-line-number="19">         <span class="dt">Response =</span> <span class="kw">case_when</span>(Response <span class="op">==</span><span class="st"> &quot;z&quot;</span> <span class="op">~</span><span class="st"> &quot;left&quot;</span>,</a>
+<a class="sourceLine" id="cb196-20" data-line-number="20">                              Response <span class="op">==</span><span class="st"> &quot;{/}&quot;</span> <span class="op">~</span><span class="st"> &quot;right&quot;</span>))</a>
+<a class="sourceLine" id="cb196-21" data-line-number="21"><span class="co">#####################</span></a></code></pre></div>
 </div>
 <div id="select-columns" class="section level3">
 <h3><span class="header-section-number">12.3.4</span> Select Columns</h3>
@@ -568,30 +568,30 @@ data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
 <li>Session Date</li>
 <li>Session Time</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Tidy raw data ####</span>
-data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> </span>
-<span class="st">           `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;TrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;real&quot;</span>,
-                               TrialProc <span class="op">==</span><span class="st"> &quot;PracTrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;practice&quot;</span>),
-         <span class="dt">RT =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.RT,
-                        TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.RT),
-         <span class="dt">Trial =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>TrialList.Sample,
-                           TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracTrialList.Sample),
-         <span class="dt">Accuracy =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.ACC,
-                              TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.ACC),
-         <span class="dt">TargetArrowDirection =</span> 
-           <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>TargetDirection,
-                     TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>TargerDirection),
-         <span class="dt">Response =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.RESP,
-                              TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.RESP),
-         <span class="dt">Response =</span> <span class="kw">case_when</span>(Response <span class="op">==</span><span class="st"> &quot;z&quot;</span> <span class="op">~</span><span class="st"> &quot;left&quot;</span>,
-                              Response <span class="op">==</span><span class="st"> &quot;{/}&quot;</span> <span class="op">~</span><span class="st"> &quot;right&quot;</span>)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">select</span>(Subject, TrialProc, Trial, <span class="dt">Condition =</span> FlankerType, 
-         RT, Accuracy, Response, TargetArrowDirection, 
-         SessionDate, SessionTime)
-<span class="co">#####################</span></code></pre>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" data-line-number="1"><span class="co">## Tidy raw data ####</span></a>
+<a class="sourceLine" id="cb197-2" data-line-number="2">data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb197-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;TrialProc&quot;</span> <span class="op">|</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb197-4" data-line-number="4"><span class="st">           `</span><span class="dt">Procedure[Trial]</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;PracTrialProc&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb197-5" data-line-number="5"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">TrialProc =</span> <span class="st">`</span><span class="dt">Procedure[Trial]</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb197-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TrialProc =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;TrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;real&quot;</span>,</a>
+<a class="sourceLine" id="cb197-7" data-line-number="7">                               TrialProc <span class="op">==</span><span class="st"> &quot;PracTrialProc&quot;</span> <span class="op">~</span><span class="st"> &quot;practice&quot;</span>),</a>
+<a class="sourceLine" id="cb197-8" data-line-number="8">         <span class="dt">RT =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.RT,</a>
+<a class="sourceLine" id="cb197-9" data-line-number="9">                        TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.RT),</a>
+<a class="sourceLine" id="cb197-10" data-line-number="10">         <span class="dt">Trial =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>TrialList.Sample,</a>
+<a class="sourceLine" id="cb197-11" data-line-number="11">                           TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracTrialList.Sample),</a>
+<a class="sourceLine" id="cb197-12" data-line-number="12">         <span class="dt">Accuracy =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.ACC,</a>
+<a class="sourceLine" id="cb197-13" data-line-number="13">                              TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.ACC),</a>
+<a class="sourceLine" id="cb197-14" data-line-number="14">         <span class="dt">TargetArrowDirection =</span> </a>
+<a class="sourceLine" id="cb197-15" data-line-number="15">           <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>TargetDirection,</a>
+<a class="sourceLine" id="cb197-16" data-line-number="16">                     TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>TargerDirection),</a>
+<a class="sourceLine" id="cb197-17" data-line-number="17">         <span class="dt">Response =</span> <span class="kw">case_when</span>(TrialProc <span class="op">==</span><span class="st"> &quot;real&quot;</span> <span class="op">~</span><span class="st"> </span>SlideTarget.RESP,</a>
+<a class="sourceLine" id="cb197-18" data-line-number="18">                              TrialProc <span class="op">==</span><span class="st"> &quot;practice&quot;</span> <span class="op">~</span><span class="st"> </span>PracSlideTarget.RESP),</a>
+<a class="sourceLine" id="cb197-19" data-line-number="19">         <span class="dt">Response =</span> <span class="kw">case_when</span>(Response <span class="op">==</span><span class="st"> &quot;z&quot;</span> <span class="op">~</span><span class="st"> &quot;left&quot;</span>,</a>
+<a class="sourceLine" id="cb197-20" data-line-number="20">                              Response <span class="op">==</span><span class="st"> &quot;{/}&quot;</span> <span class="op">~</span><span class="st"> &quot;right&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb197-21" data-line-number="21"><span class="st">  </span><span class="kw">select</span>(Subject, TrialProc, Trial, <span class="dt">Condition =</span> FlankerType, </a>
+<a class="sourceLine" id="cb197-22" data-line-number="22">         RT, Accuracy, Response, TargetArrowDirection, </a>
+<a class="sourceLine" id="cb197-23" data-line-number="23">         SessionDate, SessionTime)</a>
+<a class="sourceLine" id="cb197-24" data-line-number="24"><span class="co">#####################</span></a></code></pre></div>
 <p>And that is it for the <em>Tidy raw data</em> block!</p>
 <p>Compare the <code>import</code> and <code>data_raw</code> dataframes. How many columns does each one have? Rows? View each one, which one is easier to understand?</p>
 </div>
@@ -599,9 +599,9 @@ data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
 <div id="output" class="section level2">
 <h2><span class="header-section-number">12.4</span> Output</h2>
 <p>You do not need to change anything in the output block</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#### Output ####</span>
-<span class="kw">write_csv</span>(data_raw, <span class="kw">here</span>(output.dir, output.file))
-<span class="co">################</span></code></pre>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" data-line-number="1"><span class="co">#### Output ####</span></a>
+<a class="sourceLine" id="cb198-2" data-line-number="2"><span class="kw">write_csv</span>(data_raw, <span class="kw">here</span>(output.dir, output.file))</a>
+<a class="sourceLine" id="cb198-3" data-line-number="3"><span class="co">################</span></a></code></pre></div>
 <p>That’s it!</p>
 <hr />
 <p>Great! You have written an R script for Data Preparation, converting a <em>messy</em> raw data file to a <em>tidy</em> raw data file.</p>
@@ -609,7 +609,7 @@ data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
 <div id="masterscript" class="section level2">
 <h2><span class="header-section-number">12.5</span> Masterscript</h2>
 <p>Finally, you should add a line of code to the masterscript that <em>sources</em> the file <strong>0_flanker_raw.R</strong>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="kw">here</span>(<span class="st">&quot;R Scripts&quot;</span>, <span class="st">&quot;0_flanker_raw.R&quot;</span>), <span class="dt">echo =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb199-1" data-line-number="1"><span class="kw">source</span>(<span class="kw">here</span>(<span class="st">&quot;R Scripts&quot;</span>, <span class="st">&quot;0_flanker_raw.R&quot;</span>), <span class="dt">echo =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <hr />
 <hr />
 <p><strong>The next Chapter goes over how to create tidy raw data files for the complex span tasks</strong></p>
@@ -627,11 +627,13 @@ data_raw &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -639,12 +641,12 @@ gitbook.start({
 "github": true,
 "facebook": false,
 "twitter": false,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"],
+"google": false,
 "instapper": false
 },
 "fontsettings": {
@@ -654,6 +656,10 @@ gitbook.start({
 },
 "edit": null,
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

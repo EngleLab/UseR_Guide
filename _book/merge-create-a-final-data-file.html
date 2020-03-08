@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 14 Merge: Create A Final Data File | EngleLab: UseR Guide</title>
-  <meta name="description" content="This is a useR Guide for the EngleLab">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="This is a useR Guide for the EngleLab" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 14 Merge: Create A Final Data File | EngleLab: UseR Guide" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="This is a useR Guide for the EngleLab" />
   
 
-<meta name="author" content="Jason Tsukahara">
+<meta name="author" content="Jason Tsukahara" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="tidy-to-scored-1-task-score-r.html">
-<link rel="next" href="cleaning-and-scoring-data-summary.html">
+<link rel="prev" href="tidy-to-scored-1-task-score-r.html"/>
+<link rel="next" href="cleaning-and-scoring-data-summary.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -56,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -129,10 +130,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">EngleLab: UseR Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
-</ul></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="how-to-use-this-guide.html"><a href="how-to-use-this-guide.html"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li class="chapter" data-level="" data-path="reseach-project-workflow.html"><a href="reseach-project-workflow.html"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
 <li class="part"><span><b>I Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
 <li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
@@ -382,8 +382,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In the previous Section, I had you create <strong>tidy</strong> raw data files in the <strong>Data Collection</strong> repository. If you did not complete the previous section you can download these files here:</p>
 <p>Copy these additional <strong>tidy</strong> raw data files to the current <strong>Data Analysis</strong> repository in <strong>Data Files/Raw Data</strong>.</p>
 <p>Since these are common tasks we use in the lab you can download the scripts to score each of these tasks using:</p>
-<pre class="sourceCode r"><code class="sourceCode r">englelab<span class="op">::</span><span class="kw">get_script</span>(<span class="dt">type =</span> <span class="st">&quot;score&quot;</span>, <span class="dt">wmc =</span> <span class="ot">TRUE</span>, <span class="dt">gf =</span> <span class="ot">TRUE</span>, 
-                     <span class="dt">antisaccade =</span> <span class="ot">TRUE</span>, <span class="dt">stroop =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1">englelab<span class="op">::</span><span class="kw">get_script</span>(<span class="dt">type =</span> <span class="st">&quot;score&quot;</span>, <span class="dt">wmc =</span> <span class="ot">TRUE</span>, <span class="dt">gf =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb225-2" data-line-number="2">                     <span class="dt">antisaccade =</span> <span class="ot">TRUE</span>, <span class="dt">stroop =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><strong>Notice</strong> how the complex span tasks are all scored in the same script, <strong>0_wmc_score.R</strong>, and all the fluid intelligence tasks are scored in the same script, <strong>0_gf_score.R</strong>.</p>
 <p>This procedure of copying <strong>tidy</strong> raw data files from a <strong>Central Repository</strong> and <strong>R Scripts</strong> from another student in the lab will be very common.</p>
 <hr />
@@ -391,7 +391,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In the masterscript add lines of code to <code>source()</code> the R Scripts you downloaded. Execute those lines of code. You should notice that there are now more files in Data Files/<strong>Scored Data</strong>. In this Chapter you will learn how to merge these files together.</p>
 <p>In the folder <strong>R Scripts</strong> open the file <strong>2_merge.R</strong>.</p>
 <p>If you do not see the file <strong>2_merge.R</strong>, you can download it. Just type in the following line of code in the console</p>
-<pre class="sourceCode r"><code class="sourceCode r">workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">mergescript =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" data-line-number="1">workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">mergescript =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <hr />
 <div id="setup-3" class="section level2">
 <h2><span class="header-section-number">14.1</span> Setup</h2>
@@ -406,32 +406,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>pattern</strong>: String pattern to uniquely identify files to be merged</p></li>
 <li><p><strong>id</strong>: Subject ID variable name.</p></li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Merge ####</span>
-import &lt;-<span class="st"> </span><span class="kw">files_join</span>(<span class="kw">here</span>(import.dir), <span class="dt">pattern =</span> <span class="st">&quot;Scores&quot;</span>, <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>)
-<span class="co">#############</span></code></pre>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1"><span class="co">## Merge ####</span></a>
+<a class="sourceLine" id="cb227-2" data-line-number="2">import &lt;-<span class="st"> </span><span class="kw">files_join</span>(<span class="kw">here</span>(import.dir), <span class="dt">pattern =</span> <span class="st">&quot;Scores&quot;</span>, <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>)</a>
+<a class="sourceLine" id="cb227-3" data-line-number="3"><span class="co">#############</span></a></code></pre></div>
 <p>View <code>import</code>. Notice that it contains A LOT of columns, most of which we may not be interested in for <em>Data Analysis</em>.</p>
 </div>
 <div id="select-and-trim" class="section level2">
 <h2><span class="header-section-number">14.3</span> Select and Trim</h2>
 <p>The next step is really straight forward. The <em>Scored</em> data files will each contain way more columns than we are actually interested in. Therefore, we should only select those columns that contain the variables we want to analyze in the <em>Data Analysis</em> stage.</p>
 <p>We can also remove Scores that are univariate outliers, using <code>trim()</code> from <code>datawrangling</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Select and Trim ####</span>
-data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">select</span>(Subject, <span class="dt">OSpan =</span> OSpan.Partial, <span class="dt">SymSpan =</span> SymSpan.Partial, 
-         <span class="dt">RotSpan =</span> RotSpan.Partial, <span class="dt">FlankerEffect =</span> FlankerEffect_RT,
-         <span class="dt">StroopEffect =</span> StroopEffect_RT) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">trim</span>(<span class="dt">variables =</span> <span class="st">&quot;all&quot;</span>, <span class="dt">cutoff =</span> <span class="fl">3.5</span>, <span class="dt">replace =</span> <span class="st">&quot;NA&quot;</span>, <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>)
-<span class="co">########################</span></code></pre>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1"><span class="co">## Select and Trim ####</span></a>
+<a class="sourceLine" id="cb228-2" data-line-number="2">data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb228-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(Subject, <span class="dt">OSpan =</span> OSpan.Partial, <span class="dt">SymSpan =</span> SymSpan.Partial, </a>
+<a class="sourceLine" id="cb228-4" data-line-number="4">         <span class="dt">RotSpan =</span> RotSpan.Partial, <span class="dt">FlankerEffect =</span> FlankerEffect_RT,</a>
+<a class="sourceLine" id="cb228-5" data-line-number="5">         <span class="dt">StroopEffect =</span> StroopEffect_RT) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb228-6" data-line-number="6"><span class="st">  </span><span class="kw">trim</span>(<span class="dt">variables =</span> <span class="st">&quot;all&quot;</span>, <span class="dt">cutoff =</span> <span class="fl">3.5</span>, <span class="dt">replace =</span> <span class="st">&quot;NA&quot;</span>, <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>)</a>
+<a class="sourceLine" id="cb228-7" data-line-number="7"><span class="co">########################</span></a></code></pre></div>
 <p>Notice how I am renaming some of the variable names to be more concise.</p>
 </div>
 <div id="output-2" class="section level2">
 <h2><span class="header-section-number">14.4</span> Output</h2>
 <p>Besides outputing the merged data file, I like to also output a file that simply has a list of all <code>Subjects</code> that made it through all the data cleaning procedures. This will be a list of the final subjects that go into <strong>Data Analysis</strong>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Output ##</span>
-subj.list &lt;-<span class="st"> </span><span class="kw">select</span>(data, Subject)
-<span class="kw">write_csv</span>(data, <span class="kw">here</span>(output.dir, output.file))
-<span class="kw">write_csv</span>(subj.list, <span class="kw">here</span>(output.dir, <span class="st">&quot;subjlist_final.csv&quot;</span>))
-<span class="co">############</span></code></pre>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" data-line-number="1"><span class="co">## Output ##</span></a>
+<a class="sourceLine" id="cb229-2" data-line-number="2">subj.list &lt;-<span class="st"> </span><span class="kw">select</span>(data, Subject)</a>
+<a class="sourceLine" id="cb229-3" data-line-number="3"><span class="kw">write_csv</span>(data, <span class="kw">here</span>(output.dir, output.file))</a>
+<a class="sourceLine" id="cb229-4" data-line-number="4"><span class="kw">write_csv</span>(subj.list, <span class="kw">here</span>(output.dir, <span class="st">&quot;subjlist_final.csv&quot;</span>))</a>
+<a class="sourceLine" id="cb229-5" data-line-number="5"><span class="co">############</span></a></code></pre></div>
 </div>
 <div id="masterscript-2" class="section level2">
 <h2><span class="header-section-number">14.5</span> Masterscript</h2>
@@ -454,11 +454,13 @@ subj.list &lt;-<span class="st"> </span><span class="kw">select</span>(data, Sub
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -466,12 +468,12 @@ gitbook.start({
 "github": true,
 "facebook": false,
 "twitter": false,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"],
+"google": false,
 "instapper": false
 },
 "fontsettings": {
@@ -481,6 +483,10 @@ gitbook.start({
 },
 "edit": null,
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

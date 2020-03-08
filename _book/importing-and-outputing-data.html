@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Importing and Outputing Data | EngleLab: UseR Guide</title>
-  <meta name="description" content="This is a useR Guide for the EngleLab">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="This is a useR Guide for the EngleLab" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Importing and Outputing Data | EngleLab: UseR Guide" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="This is a useR Guide for the EngleLab" />
   
 
-<meta name="author" content="Jason Tsukahara">
+<meta name="author" content="Jason Tsukahara" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="working-with-data-overview.html">
-<link rel="next" href="data-manipulation-using-dplyr.html">
+<link rel="prev" href="working-with-data-overview.html"/>
+<link rel="next" href="data-manipulation-using-dplyr.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -56,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -129,10 +130,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">EngleLab: UseR Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to use this guide</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
-</ul></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="how-to-use-this-guide.html"><a href="how-to-use-this-guide.html"><i class="fa fa-check"></i>How to use this guide</a></li>
+<li class="chapter" data-level="" data-path="reseach-project-workflow.html"><a href="reseach-project-workflow.html"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
 <li class="part"><span><b>I Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
 <li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
@@ -381,10 +381,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/readr_logo.png" width="125" style="display: block; margin: auto;" /></p>
 <p>The <code>readr</code> package contains useful functions for importing and outputing data files.</p>
 <p>Go ahead and install the <code>readr</code> package. In the console type:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;readr&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;readr&quot;</span>)</a></code></pre></div>
 <p>We will also use the <code>foreign</code> and <code>haven</code> packages for SPSS data files</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;foreign&quot;</span>)
-<span class="kw">install.packages</span>(<span class="st">&quot;haven&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;foreign&quot;</span>)</a>
+<a class="sourceLine" id="cb74-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&quot;haven&quot;</span>)</a></code></pre></div>
 <hr />
 <div style="text-align: center">
 <p><em>You do not really need to save an R script file for this Chapter.</em></p>
@@ -403,24 +403,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="import-.csv" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Import <code>.csv</code></h3>
 <p>We can import <code>csv</code> files using <code>read_csv()</code> from the <code>readr</code> package.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
-<span class="kw">read_csv</span>(<span class="st">&quot;filepath/datafile.csv&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb75-2" data-line-number="2"><span class="kw">read_csv</span>(<span class="st">&quot;filepath/datafile.csv&quot;</span>)</a></code></pre></div>
 <p>You can see this is very simple. We just need to specify a file path to the data. We will talk more about file paths later but for now we will use <code>absolute</code> file paths.</p>
 <p>First, figure out the <code>absolute</code> file path to your downloads folder (or wherever the unzipped data folder is located). On Windows the <code>absolute</code> file path will usually start from the <code>C:/</code> drive. On Macs, it starts from <code>~/</code></p>
 <p>Import the <code>Flanker_Scores.csv</code> file. You might have something that looks like</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read_csv</span>(<span class="st">&quot;~/Downloads/Flanker_Scores.csv&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="kw">read_csv</span>(<span class="st">&quot;~/Downloads/Flanker_Scores.csv&quot;</span>)</a></code></pre></div>
 <p>However, this just printed the output of <code>read_csv()</code> to the console. To actually import this file into R, we need to assign it to an object in our <code>Environment</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">import_csv &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;~/Downloads/Flanker_Scores.csv&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1">import_csv &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;~/Downloads/Flanker_Scores.csv&quot;</span>)</a></code></pre></div>
 <p>You can name the object whatever you like. I named it <code>import_csv</code>.</p>
 <p>To view the dataframe</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">View</span>(import_csv)</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1"><span class="kw">View</span>(import_csv)</a></code></pre></div>
 </div>
 <div id="output-.csv" class="section level3">
 <h3><span class="header-section-number">4.1.2</span> Output <code>.csv</code></h3>
 <p>We can output a <code>csv</code> file using <code>write_csv()</code> from the <code>readr</code> package.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_csv</span>(object, <span class="st">&quot;filepath/filename.csv&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="kw">write_csv</span>(object, <span class="st">&quot;filepath/filename.csv&quot;</span>)</a></code></pre></div>
 <p>Let’s output the object <code>import_csv</code> to a <code>csv</code> file named: <code>new_Flanker_Scores.csv</code> to the downloads folder</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_csv</span>(import_csv, <span class="st">&quot;~/Downloads/new_Flanker_Scores.csv&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1"><span class="kw">write_csv</span>(import_csv, <span class="st">&quot;~/Downloads/new_Flanker_Scores.csv&quot;</span>)</a></code></pre></div>
 <p>Note that whenever writeing (outputing) a file to our computer there is no need to assign the output to an object.</p>
 </div>
 </div>
@@ -430,18 +430,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="import-.txt" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> Import <code>.txt</code></h3>
 <p>To import a <code>tab-delimited</code> file we can use <code>read_delim()</code> from the <code>readr</code> package.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read_delim</span>(<span class="st">&quot;filepath/filename.txt&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="kw">read_delim</span>(<span class="st">&quot;filepath/filename.txt&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>There are three additional arguments we have to specify: <code>delim</code>, <code>escape_double</code>, and <code>trim_ws</code>. The notation for <code>tab-delimted</code> files is <code>&quot;\t&quot;</code>.</p>
 <p>Let’s import the <code>Flanker_raw.txt</code> file</p>
-<pre class="sourceCode r"><code class="sourceCode r">import_tab &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;~/Downloads/Flanker_raw.txt&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1">import_tab &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;~/Downloads/Flanker_raw.txt&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>View the <code>import_tab</code> object</p>
 </div>
 <div id="output-.txt" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Output <code>.txt</code></h3>
 <p>We can output a <code>tab-delimited</code> file using <code>write_delim()</code> from the <code>readr</code> package.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_delim</span>(object, <span class="dt">path =</span> <span class="st">&quot;filepath/filename.txt&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="kw">write_delim</span>(object, <span class="dt">path =</span> <span class="st">&quot;filepath/filename.txt&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</a></code></pre></div>
 <p>Output the <code>import_tab</code> object to a file named: <code>new_Flanker_raw.txt</code></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_delim</span>(import_tab, <span class="dt">path =</span> <span class="st">&quot;~/Downloads/Flanker_raw.txt&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="kw">write_delim</span>(import_tab, <span class="dt">path =</span> <span class="st">&quot;~/Downloads/Flanker_raw.txt&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</a></code></pre></div>
 </div>
 </div>
 <div id="spss" class="section level2">
@@ -452,19 +452,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="import-.sav" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> Import <code>.sav</code></h3>
 <p>To import an SPSS data file we can use <code>read.spss()</code> from the <code>foreign</code> package.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(foreign)
-<span class="kw">read.spss</span>(<span class="st">&quot;filepath/filename.sav&quot;</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>, <span class="dt">use.value.labels =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="kw">library</span>(foreign)</a>
+<a class="sourceLine" id="cb85-2" data-line-number="2"><span class="kw">read.spss</span>(<span class="st">&quot;filepath/filename.sav&quot;</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>, <span class="dt">use.value.labels =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>The <code>use.value.labels</code> argument allows us to import the value labels from an SPSS file.</p>
 <p>Import and View the <code>sav</code> file <code>CH9 Salary Ex04.sav</code></p>
-<pre class="sourceCode r"><code class="sourceCode r">import_sav &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;~/Downloads/CH9 Salary Ex04.sav&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">import_sav &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;~/Downloads/CH9 Salary Ex04.sav&quot;</span>)</a></code></pre></div>
 </div>
 <div id="output-.sav" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> Output <code>.sav</code></h3>
 <p>To output an SPSS data file we can use <code>write_sav()</code> from the <code>haven</code> packge.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(haven)
-<span class="kw">write_sav</span>(object, <span class="st">&quot;filepath/filename.sav&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1"><span class="kw">library</span>(haven)</a>
+<a class="sourceLine" id="cb87-2" data-line-number="2"><span class="kw">write_sav</span>(object, <span class="st">&quot;filepath/filename.sav&quot;</span>)</a></code></pre></div>
 <p>Go ahead and output the <code>import_sav</code> object to a file: <code>new_CH9 Salary Ex04.sav</code></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_sav</span>(import_sav, <span class="st">&quot;~/Downloads/new_CH9 Salary Ex04.sav&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="kw">write_sav</span>(import_sav, <span class="st">&quot;~/Downloads/new_CH9 Salary Ex04.sav&quot;</span>)</a></code></pre></div>
 </div>
 </div>
 <div id="rstudio-import-gui" class="section level2">
@@ -507,8 +507,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>id</strong>: Subject ID column name. <strong>ONLY for <code>files_join()</code></strong></p></li>
 </ul>
 <p>For example:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(datawrangling)
-<span class="kw">files_bind</span>(<span class="st">&quot;filepath/data/subj&quot;</span>, <span class="dt">pattern =</span> <span class="st">&quot;Flanker&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">output.file =</span> <span class="st">&quot;filepath/data/filename_merged.csv&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="kw">library</span>(datawrangling)</a>
+<a class="sourceLine" id="cb89-2" data-line-number="2"><span class="kw">files_bind</span>(<span class="st">&quot;filepath/data/subj&quot;</span>, <span class="dt">pattern =</span> <span class="st">&quot;Flanker&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">output.file =</span> <span class="st">&quot;filepath/data/filename_merged.csv&quot;</span>)</a></code></pre></div>
 <p>This will bind any files in the directory <code>filepath/data/subj</code> that contain the string <code>&quot;Flanker&quot;</code> and output the mergeed data to a file called <code>filename_merged.csv</code> to the directory <code>filepath/data</code>.</p>
 <hr />
 <hr />
@@ -527,11 +527,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -539,12 +541,12 @@ gitbook.start({
 "github": true,
 "facebook": false,
 "twitter": false,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper", "github"],
+"google": false,
 "instapper": false
 },
 "fontsettings": {
@@ -554,6 +556,10 @@ gitbook.start({
 },
 "edit": null,
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
