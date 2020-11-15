@@ -2,8 +2,16 @@
 .Rhistory
 .RData
 .Ruserdata
+.DS_Store
 *.txt
 *.csv
 *.emrg3
 *.edat2
 *.edat3
+Data Files/
+_book/
+_bookdown_files
+old/
+R Scripts/
+Results/
+Tasks/
