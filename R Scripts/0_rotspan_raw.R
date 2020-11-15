@@ -1,36 +1,28 @@
 ## Set up ####
 ## Load packages
 library(readr)
-library(dplyr)
 library(here)
-library(datawrangling)
 library(englelab)
 
 ## Set import/output directories
-import.dir <- "Data Files/Merged"
-output.dir <- "Data Files"
+import_dir <- "Data Files/Raw Data/Merged"
+output_dir <- "Data Files/Raw Data"
 
 ## Set import/output files
 task <- "RotSpan"
-import.file <- paste(task, ".txt", sep = "")
-output.file <- paste(task, "_raw.csv", sep = "")
+import_file <- paste(task, ".txt", sep = "")
+output_file <- paste(task, "_raw.csv", sep = "")
 ##############
 
 ## Import Data
-data_import <- read_delim(here(import.dir, import.file),
-                          "\t", escape_double = FALSE, trim_ws = TRUE) %>%
-  duplicates_remove(taskname = task,
-                    output.folder = here(output.dir, "duplicates"))
+data_import <- read_delim(here(import_dir, import_file), "\t",
+                          escape_double = FALSE, trim_ws = TRUE,
+                          guess_max = 10000)
 
-## Clean up raw data and save
-data_raw <- raw_rotspan(data_import, blocks = 2, taskVersion = "old") %>%
-  filter(Trial <= 12) %>%
-  group_by(Subject) %>%
-  mutate(RotSpan.Partial = RotSpan.Partial_Block1 + RotSpan.Partial_Block2,
-         RotSpan.RotationACC =
-           sum(Processing.total, na.rm = TRUE) / sum(SetSize))
+## Clean up raw data
+data_raw <- raw_rotspan(data_import, blocks = 2)
 
-## Output Data
-write_csv(data_raw, path = here(output.dir, output.file))
+## Save Data
+write_csv(data_raw, path = here(output_dir, output_file))
 
 rm(list=ls())

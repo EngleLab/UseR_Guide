@@ -1,6 +1,6 @@
-book_filename: "EngleLab UseR Guide"
+book_filename: "EngleLab useRguide"
 delete_merged_file: true
 before_chapter_script: "remove.R"
 language:
   ui:
-    chapter_name: "Chapter "
+    chapter_name: ""

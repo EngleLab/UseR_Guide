@@ -6,17 +6,17 @@ library(dplyr)
 library(datawrangling)
 
 ## Set Import/Output Directories
-import.dir <- "Data Files/Merged"
-output.dir <- "Data Files"
+import_dir <- "Data Files/Merged"
+output_dir <- "Data Files"
 
 ## Set Import/Output Filenames
 task <- "Flanker"
-import.file <- paste(task, ".txt", sep = "")
-output.file <- paste(task, "raw.csv", sep = "_")
+import_file <- paste(task, ".txt", sep = "")
+output_file <- paste(task, "raw.csv", sep = "_")
 ################
 
 #### Import ####
-import <- read_delim(here(import.dir, import.file),
+import <- read_delim(here(import_dir, import_file),
                      "\t", escape_double = FALSE, trim_ws = TRUE) %>%
   duplicates_remove(taskname = task,
                     output.folder = here(output.dir, "duplicates"))
@@ -48,7 +48,7 @@ data_raw <- import %>%
 #######################
 
 #### Output ####
-write_csv(data_raw, here(output.dir, output.file))
+write_csv(data_raw, here(output_dir, output_file))
 ################
 
 rm(list=ls())

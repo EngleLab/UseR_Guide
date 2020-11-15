@@ -4,9 +4,9 @@ bookdown::gitbook:
       collapse: section
       scroll_highlight: yes
       before: |
-        <li><a href="./">EngleLab: UseR Guide</a></li>
+        <li><a href="./">EngleLab: useRguide</a></li>
       after: |
-        <li><a href="http://englelab.gatech.edu/labuser">Lab User</a></li>
+        <li><a href="http://englelab.gatech.edu/useRguide/EngleLab_CheatSheet.pdf">Cheatsheet</a></li>
     toolbar:
       position: fixed
     edit : null

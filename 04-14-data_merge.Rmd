@@ -1,0 +1,167 @@
+# Data Analysis: Single Merged File
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+## Overview
+
+The two steps required to get the data ready for statistical analysis are:
+
+1. Create a scored data file for each task
+
+    At this stage we also remove any subjects that are suspect or have too poor of performance, and remove univariate outliers.
+
+2. Merge the scored data files into a single data file
+
+    At this stage we also can create composite factors if needed.
+    
+The first step was covered in the previous chapter. The second step will be covered in this chapter. However, I will not provide an example as it would require you to download several files and organize them... but I will explain how the script template works for creating a single merged file.
+
+As with all the other script templates we have used there are 4 sections in the merge script:
+
+1. Setup
+
+    This is where any required packages are loaded and the import/output file directories and names are set
+    
+2. Import files
+
+    This is where the multiple **\_Scores.csv** files are imported and merged
+   
+3. Select only important variables and create composite scores
+
+    This is where we select only the variables (columns) that we want to use for statistical analysis. We can also rename the variables to be shorter and more concise - this can make statistical analysis easier. 
+    
+    This is also where we can create composite scores.
+    
+4. Output
+
+    Finally we need to save the single merged data file.
+    
+## Set up
+
+This is what the **Setup** section looks like. We need the `datawrangling` package for the `files_join()` function.
+
+```{r eval = FALSE}
+#### Set up ####
+## Load packages
+library(here)
+library(datawrangling) # for files_join()
+library(dplyr)
+
+## Set import/output directories
+import_dir <- "Data Files/Scored Data"
+output_dir <- "Data Files"
+output_file <- "name_of_datafile.csv"
+################
+```
+
+## Import
+
+The `datawrangling::files_join()` function becomes very useful here. This function will import multiple files, that contain the string `"Scores"`, located in `import_dir` and merge them into a single data frame all in one line of code.
+
+```{r eval = FALSE}
+#### Import Files ####
+data_import <- files_join(here(import_dir), pattern = "Scores", id = "Subject")
+######################
+```
+
+## Select only important variables
+
+We can simply use the `select()` function to keep only the variables we need for statistical analysis and also rename variables. 
+
+```{r eval = FALSE}
+#### Select only important variables ####
+data_merge <- data_import %>%
+  select()
+
+## Create list of final subjects
+subj.list <- select(data_merge, Subject)
+#################################################################
+```
+
+Not shown here, but this would also be the place to create composite variables if needed using `datawrangling::composite()`. This function was explained in detail in Chapter 6.
+
+If you want to exclude subjects that have too much missing data across certain tasks this would be the place to do it.
+
+Finally, I think it is a good idea to create a data file that only contains one column - a list of subjects that have made it through to this stage of data cleaning and scoring.
+
+## Output
+
+The last thing to do is save `data_merge` and `subj.list`.
+
+```{r eval = FALSE}
+#### Output ####
+write_csv(data_merge, here(output_dir, output_file))
+write_csv(subj.list, here(output_dir, "subjlist_final.csv"))
+################
+
+rm(list=ls())
+```
+
+
+## masterscript.R
+
+The masterscript template for data analysis is explained in Chapter 9. This is what it looks like:
+
+*Notice the Create/Clear log file line - this only required if you are going to append log information from each of the _score.R script files.*
+
+```{r eval = FALSE}
+## Data Analysis for StudyName
+
+
+#################################################
+#------ 1. "tidy" raw data to Scored data ------#
+#################################################
+
+## Create/Clear log file
+write(paste("log: ", format(Sys.Date(), "%B %d %Y"), "\n", sep = ""),
+      file = "Data Files/Scored Data/log.txt", append = FALSE)
+
+source("R Scripts/1_taskname_score.R", echo=TRUE)
+
+rm(list=ls())
+#############################################################
+#------ 2. Create Final Merged Data File for Analysis ------#
+#############################################################
+
+source("R Scripts/2_merge.R", echo=TRUE)
+
+rm(list=ls())
+###############################
+#------ 3. Data Analysis ------#
+###############################
+library(rmarkdown)
+
+render("R Scripts/3_MainAnalyses.Rmd",
+       output_dir = "Results", 
+       output_file = "MainAnalyses.html")
+
+rm(list=ls())
+#################################################
+
+```
+
+
+----
+
+The organizational structure and workflow for data analysis is depcited here:
+
+<br>
+```{r echo=FALSE, eval = TRUE, out.width='40%', fig.align='left'}
+knitr::include_graphics(rep("images/workflows/repository_dataanalysis.png"))
+```
+<br>
+
+You start with only the **task_raw.csv** files located in **Data Files/Raw Data**, copied over from the *Data Collection* directory. 
+
+The **1_task_score.R** scripts imports a **task_raw.csv** file and performs data cleaning and scoring to create a **task_Scores.csv** file located in **Data Files/Scored Data**.
+
+The **2_merge.R** script merges all the **task_Scores.csv** files together into one **Merged_Data.csv** located in **Data Files**. This file is ready for statistical analysis, it will have all the variables you are interested in and univariate outliers removed.
+
+The **3_Analysis.Rmd** is an *R Markdown* script document for conducting statistical analyses and data visualization on **Merged_Data.csv**. The output of this script document is an **Analysis.html** results output file located in **Results**
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=ls())
+```
+
+

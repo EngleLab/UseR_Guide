@@ -1,0 +1,25 @@
+# (PART) Statistical Analysis {-}
+
+# Statistical Analysis: Overview {-}
+
+## R Markdown
+
+```{r include=FALSE, eval = TRUE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE)
+```
+
+This section will cover what RMarkdown documents are and how to use them. Coming Soon!
+
+For a brief intro to **R Markdown** see https://rmarkdown.rstudio.com/lesson-1.html
+
+There are various metadata options you can specify, such as if you want to include a table of contents. To learn about a few of them see https://bookdown.org/yihui/rmarkdown/html-document.html
+
+There are a lot of guides on how to use Markdown syntax. I will not cover this so you should check them out on your own. One guide that I frequently reference is https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
+----
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=ls())
+```
+
+

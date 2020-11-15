@@ -1,0 +1,24 @@
+# (PART) Working with Data {-}
+
+# Working with Data: Overview {-}
+
+In this section you will learn how to work with data in R by using a collection of packages known as the **tidyverse**
+
+The tidyverse is a collection of R packages that share an underlying design philosophy, grammar, and data structures. [Hadley Wickham](http://hadley.nz){target="_blank"} has been the main contributor to developing the tidyverse.
+
+```{r echo=FALSE, out.width = '40%', fig.show='hold'}
+knitr::include_graphics(rep("images/hadley.jpeg"))
+knitr::include_graphics(rep("images/tidyverse.png"))
+```
+
+Although you will be learning R in this tutorial, it might be more appropriate to say that you are learning the tidyverse.
+
+The tidyverse consists of packages that are simple and intuitive to use and will take you from importing data (with **readr**), to transforming and manipulating data structures (with **dplyr** and **tidyr**), and to data visualization (with **ggplot2**).
+
+
+----
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=ls())
+```
+

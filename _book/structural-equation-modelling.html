@@ -4,26 +4,27 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 23 Structural Equation Modelling | EngleLab: UseR Guide</title>
-  <meta name="description" content="This is a useR Guide for the EngleLab" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <title>21 Structural Equation Modelling | EngleLab: useRguide</title>
+  <meta name="description" content="This is a useRguide for the EngleLab" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 23 Structural Equation Modelling | EngleLab: UseR Guide" />
+  <meta property="og:title" content="21 Structural Equation Modelling | EngleLab: useRguide" />
   <meta property="og:type" content="book" />
   
-  
-  <meta property="og:description" content="This is a useR Guide for the EngleLab" />
+  <meta property="og:image" content="images/eagle.png" />
+  <meta property="og:description" content="This is a useRguide for the EngleLab" />
   <meta name="github-repo" content="EngleLab" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 23 Structural Equation Modelling | EngleLab: UseR Guide" />
+  <meta name="twitter:title" content="21 Structural Equation Modelling | EngleLab: useRguide" />
   
-  <meta name="twitter:description" content="This is a useR Guide for the EngleLab" />
-  
+  <meta name="twitter:description" content="This is a useRguide for the EngleLab" />
+  <meta name="twitter:image" content="images/eagle.png" />
 
 <meta name="author" content="Jason Tsukahara" />
 
 
+<meta name="date" content="2020-09-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,13 +50,15 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,14 +67,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +85,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -127,12 +132,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">EngleLab: UseR Guide</a></li>
+<li><a href="./">EngleLab: useRguide</a></li>
 
 <li class="divider"></li>
-<li><a href="index.html#section"></a></li>
-<li class="chapter" data-level="" data-path="how-to-use-this-guide.html"><a href="how-to-use-this-guide.html"><i class="fa fa-check"></i>How to use this guide</a></li>
-<li class="chapter" data-level="" data-path="reseach-project-workflow.html"><a href="reseach-project-workflow.html"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to the EngleLab useRguide</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i>Why R?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reproducibility-and-open-access"><i class="fa fa-check"></i>Reproducibility and Open Access</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#but-i-need-to-analyze-my-data-now"><i class="fa fa-check"></i>But I need to analyze my data NOW!</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-does-this-book-cover"><i class="fa fa-check"></i>What does this book cover?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
+</ul></li>
 <li class="part"><span><b>I Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
 <li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
@@ -176,7 +185,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.2" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#output-.sav"><i class="fa fa-check"></i><b>4.3.2</b> Output <code>.sav</code></a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#rstudio-import-gui"><i class="fa fa-check"></i><b>4.4</b> RStudio Import GUI</a></li>
-<li class="chapter" data-level="4.5" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#merging-data-files"><i class="fa fa-check"></i><b>4.5</b> Merging Data Files</a></li>
+<li class="chapter" data-level="4.5" data-path="importing-and-outputing-data.html"><a href="importing-and-outputing-data.html#import-and-merge-multiple-data-files"><i class="fa fa-check"></i><b>4.5</b> Import and Merge Multiple Data Files</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html"><i class="fa fa-check"></i><b>5</b> Data Manipulation using <code>dplyr</code></a><ul>
 <li class="chapter" data-level="5.1" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#setup"><i class="fa fa-check"></i><b>5.1</b> Setup</a></li>
@@ -188,10 +197,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.6.1" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#changing-values-in-an-existing-column"><i class="fa fa-check"></i><b>5.6.1</b> Changing values in an existing column</a></li>
 <li class="chapter" data-level="5.6.2" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#creating-a-new-column"><i class="fa fa-check"></i><b>5.6.2</b> Creating a new column</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#group_by"><i class="fa fa-check"></i><b>5.7</b> <code>group_by()</code></a></li>
-<li class="chapter" data-level="5.8" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#summarise"><i class="fa fa-check"></i><b>5.8</b> <code>summarise()</code></a></li>
-<li class="chapter" data-level="5.9" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#spread"><i class="fa fa-check"></i><b>5.9</b> <code>spread()</code></a></li>
-<li class="chapter" data-level="5.10" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#pipe-operator"><i class="fa fa-check"></i><b>5.10</b> Pipe Operator %&gt;%</a></li>
+<li class="chapter" data-level="5.7" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#case_when"><i class="fa fa-check"></i><b>5.7</b> <code>case_when()</code></a></li>
+<li class="chapter" data-level="5.8" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#group_by"><i class="fa fa-check"></i><b>5.8</b> <code>group_by()</code></a></li>
+<li class="chapter" data-level="5.9" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#summarise"><i class="fa fa-check"></i><b>5.9</b> <code>summarise()</code></a></li>
+<li class="chapter" data-level="5.10" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#pivot_wider"><i class="fa fa-check"></i><b>5.10</b> <code>pivot_wider()</code></a></li>
+<li class="chapter" data-level="5.11" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#pivot_longer"><i class="fa fa-check"></i><b>5.11</b> <code>pivot_longer()</code></a></li>
+<li class="chapter" data-level="5.12" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#pipe-operator"><i class="fa fa-check"></i><b>5.12</b> Pipe Operator %&gt;%</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html"><i class="fa fa-check"></i><b>6</b> Common Data Manipulations</a><ul>
 <li class="chapter" data-level="6.1" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#descriptive-statistics"><i class="fa fa-check"></i><b>6.1</b> Descriptive Statistics</a></li>
@@ -199,10 +210,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#trimming"><i class="fa fa-check"></i><b>6.3</b> Trimming</a></li>
 <li class="chapter" data-level="6.4" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#composites"><i class="fa fa-check"></i><b>6.4</b> Composites</a></li>
 <li class="chapter" data-level="6.5" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#scale-transformations"><i class="fa fa-check"></i><b>6.5</b> Scale Transformations</a><ul>
-<li class="chapter" data-level="6.5.1" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#log"><i class="fa fa-check"></i><b>6.5.1</b> log</a></li>
-<li class="chapter" data-level="6.5.2" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#polynomial"><i class="fa fa-check"></i><b>6.5.2</b> polynomial</a></li>
+<li class="chapter" data-level="6.5.1" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#polynomial"><i class="fa fa-check"></i><b>6.5.1</b> polynomial</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#custom-transformations"><i class="fa fa-check"></i><b>6.6</b> Custom Transformations</a></li>
+<li class="chapter" data-level="6.7" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#row-wise-computations"><i class="fa fa-check"></i><b>6.7</b> Row-wise Computations</a></li>
+<li class="chapter" data-level="6.8" data-path="common-data-manipulations.html"><a href="common-data-manipulations.html#remove-subjects-with-too-many-missing-values"><i class="fa fa-check"></i><b>6.8</b> Remove subjects with too many missing values</a></li>
 </ul></li>
 <li class="part"><span><b>III Reproducible Workflows</b></span></li>
 <li class="chapter" data-level="" data-path="reproducible-workflows-overview.html"><a href="reproducible-workflows-overview.html"><i class="fa fa-check"></i>Reproducible Workflows: Overview</a></li>
@@ -228,77 +240,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="r-script-templates.html"><a href="r-script-templates.html"><i class="fa fa-check"></i><b>9</b> R Script Templates</a><ul>
-<li class="chapter" data-level="9.1" data-path="r-script-templates.html"><a href="r-script-templates.html#download-templates"><i class="fa fa-check"></i><b>9.1</b> Download Templates</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="r-script-templates.html"><a href="r-script-templates.html#install-workflow-package"><i class="fa fa-check"></i><b>9.1.1</b> Install <code>workflow</code> package</a></li>
+<li class="chapter" data-level="9.1" data-path="r-script-templates.html"><a href="r-script-templates.html#install-workflow-package"><i class="fa fa-check"></i><b>9.1</b> Install <code>workflow</code> package</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="project-organization.html"><a href="project-organization.html#data-preparation"><i class="fa fa-check"></i><b>9.1.1</b> Data Preparation</a></li>
+<li class="chapter" data-level="9.1.2" data-path="r-script-templates.html"><a href="r-script-templates.html#messy-to-tidy-script"><i class="fa fa-check"></i><b>9.1.2</b> messy-to-tidy script</a></li>
+<li class="chapter" data-level="9.1.3" data-path="r-script-templates.html"><a href="r-script-templates.html#masterscript-data-preparation"><i class="fa fa-check"></i><b>9.1.3</b> masterscript: Data Preparation</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="r-script-templates.html"><a href="r-script-templates.html#data-preparation-1"><i class="fa fa-check"></i><b>9.2</b> Data Preparation</a><ul>
-<li class="chapter" data-level="9.2.1" data-path="r-script-templates.html"><a href="r-script-templates.html#messy-to-tidy-script"><i class="fa fa-check"></i><b>9.2.1</b> messy-to-tidy script</a></li>
-<li class="chapter" data-level="9.2.2" data-path="r-script-templates.html"><a href="r-script-templates.html#masterscript-data-preparation"><i class="fa fa-check"></i><b>9.2.2</b> masterscript: Data Preparation</a></li>
-</ul></li>
-<li class="chapter" data-level="9.3" data-path="r-script-templates.html"><a href="r-script-templates.html#data-analysis-1"><i class="fa fa-check"></i><b>9.3</b> Data Analysis</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="r-script-templates.html"><a href="r-script-templates.html#clean-and-score-script"><i class="fa fa-check"></i><b>9.3.1</b> clean and score script</a></li>
-<li class="chapter" data-level="9.3.2" data-path="r-script-templates.html"><a href="r-script-templates.html#merge-script"><i class="fa fa-check"></i><b>9.3.2</b> merge script</a></li>
-<li class="chapter" data-level="9.3.3" data-path="r-script-templates.html"><a href="r-script-templates.html#masterscript-data-analysis"><i class="fa fa-check"></i><b>9.3.3</b> masterscript: Data Analysis</a></li>
+<li class="chapter" data-level="9.2" data-path="project-organization.html"><a href="project-organization.html#data-analysis"><i class="fa fa-check"></i><b>9.2</b> Data Analysis</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="r-script-templates.html"><a href="r-script-templates.html#clean-and-score-script"><i class="fa fa-check"></i><b>9.2.1</b> clean and score script</a></li>
+<li class="chapter" data-level="9.2.2" data-path="r-script-templates.html"><a href="r-script-templates.html#merge-script"><i class="fa fa-check"></i><b>9.2.2</b> merge script</a></li>
+<li class="chapter" data-level="9.2.3" data-path="r-script-templates.html"><a href="r-script-templates.html#masterscript-data-analysis"><i class="fa fa-check"></i><b>9.2.3</b> masterscript: Data Analysis</a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>IV Data Preparation</b></span></li>
-<li class="chapter" data-level="" data-path="data-preparation-overview.html"><a href="data-preparation-overview.html"><i class="fa fa-check"></i>Data Preparation: Overview</a><ul>
-<li class="chapter" data-level="9.4" data-path="data-preparation-overview.html"><a href="data-preparation-overview.html#data-collection-repository"><i class="fa fa-check"></i><b>9.4</b> Data Collection Repository</a></li>
+<li class="part"><span><b>IV Create R Scripts</b></span></li>
+<li class="chapter" data-level="" data-path="create-r-scripts-overview.html"><a href="create-r-scripts-overview.html"><i class="fa fa-check"></i>Create R Scripts: Overview</a><ul>
+<li class="chapter" data-level="9.3" data-path="create-r-scripts-overview.html"><a href="create-r-scripts-overview.html#importing-and-outputting-data-files"><i class="fa fa-check"></i><b>9.3</b> Importing and Outputting Data Files</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="create-r-scripts-overview.html"><a href="create-r-scripts-overview.html#setting-a-working-directory"><i class="fa fa-check"></i><b>9.3.1</b> Setting a working directory</a></li>
+<li class="chapter" data-level="9.3.2" data-path="create-r-scripts-overview.html"><a href="create-r-scripts-overview.html#rproject-files-and-here"><i class="fa fa-check"></i><b>9.3.2</b> RProject Files and here</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="example-data-flanker-task.html"><a href="example-data-flanker-task.html"><i class="fa fa-check"></i>Example Data: Flanker Task</a></li>
-<li class="chapter" data-level="10" data-path="organize-raw-files.html"><a href="organize-raw-files.html"><i class="fa fa-check"></i><b>10</b> Organize Raw Files</a></li>
-<li class="chapter" data-level="11" data-path="merge-individual-subject-files.html"><a href="merge-individual-subject-files.html"><i class="fa fa-check"></i><b>11</b> Merge Individual Subject Files</a><ul>
-<li class="chapter" data-level="11.1" data-path="merge-individual-subject-files.html"><a href="merge-individual-subject-files.html#files_bind"><i class="fa fa-check"></i><b>11.1</b> <code>files_bind()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html"><i class="fa fa-check"></i><b>12</b> Messy to Tidy: 0_task_raw.R</a><ul>
-<li class="chapter" data-level="12.1" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#setup-1"><i class="fa fa-check"></i><b>12.1</b> Setup</a></li>
-<li class="chapter" data-level="12.2" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#import-1"><i class="fa fa-check"></i><b>12.2</b> Import</a></li>
-<li class="chapter" data-level="12.3" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#tidy-raw-data"><i class="fa fa-check"></i><b>12.3</b> Tidy raw data</a><ul>
-<li class="chapter" data-level="12.3.1" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#filter-1"><i class="fa fa-check"></i><b>12.3.1</b> Filter</a></li>
-<li class="chapter" data-level="12.3.2" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#rename-columns"><i class="fa fa-check"></i><b>12.3.2</b> Rename Columns</a></li>
-<li class="chapter" data-level="12.3.3" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#change-values"><i class="fa fa-check"></i><b>12.3.3</b> Change Values</a></li>
-<li class="chapter" data-level="12.3.4" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#select-columns"><i class="fa fa-check"></i><b>12.3.4</b> Select Columns</a></li>
+<li class="chapter" data-level="10" data-path="data-preparation-setup.html"><a href="data-preparation-setup.html"><i class="fa fa-check"></i><b>10</b> Data Preparation: Setup</a><ul>
+<li class="chapter" data-level="10.1" data-path="project-organization.html"><a href="project-organization.html#project-organization"><i class="fa fa-check"></i><b>10.1</b> Project Organization</a></li>
+<li class="chapter" data-level="10.2" data-path="data-preparation-setup.html"><a href="data-preparation-setup.html#setup-the-data-collection-directory"><i class="fa fa-check"></i><b>10.2</b> Setup the Data Collection Directory</a></li>
 </ul></li>
-<li class="chapter" data-level="12.4" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#output"><i class="fa fa-check"></i><b>12.4</b> Output</a></li>
-<li class="chapter" data-level="12.5" data-path="messy-to-tidy-0-task-raw-r.html"><a href="messy-to-tidy-0-task-raw-r.html#masterscript"><i class="fa fa-check"></i><b>12.5</b> Masterscript</a></li>
+<li class="chapter" data-level="11" data-path="data-preparation-messy-to-tidy.html"><a href="data-preparation-messy-to-tidy.html"><i class="fa fa-check"></i><b>11</b> Data Preparation: Messy to Tidy</a><ul>
+<li class="chapter" data-level="11.1" data-path="data-preparation-messy-to-tidy.html"><a href="data-preparation-messy-to-tidy.html#overview"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
+<li class="chapter" data-level="11.2" data-path="data-preparation-messy-to-tidy.html"><a href="data-preparation-messy-to-tidy.html#steps-of-data-preparation"><i class="fa fa-check"></i><b>11.2</b> Steps of Data Preparation</a></li>
+<li class="chapter" data-level="11.3" data-path="data-preparation-messy-to-tidy.html"><a href="data-preparation-messy-to-tidy.html#raw-script-template"><i class="fa fa-check"></i><b>11.3</b> Raw script template</a></li>
+<li class="chapter" data-level="11.4" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#setup"><i class="fa fa-check"></i><b>11.4</b> Setup</a></li>
+<li class="chapter" data-level="11.5" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#import"><i class="fa fa-check"></i><b>11.5</b> Import</a></li>
+<li class="chapter" data-level="11.6" data-path="data-preparation-messy-to-tidy.html"><a href="data-preparation-messy-to-tidy.html#tidy-raw-data"><i class="fa fa-check"></i><b>11.6</b> Tidy raw data</a><ul>
+<li class="chapter" data-level="11.6.1" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#filter"><i class="fa fa-check"></i><b>11.6.1</b> <code>filter()</code></a></li>
+<li class="chapter" data-level="11.6.2" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#mutate"><i class="fa fa-check"></i><b>11.6.2</b> <code>mutate()</code></a></li>
+<li class="chapter" data-level="11.6.3" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#select"><i class="fa fa-check"></i><b>11.6.3</b> <code>select()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="data-preparation-summary.html"><a href="data-preparation-summary.html"><i class="fa fa-check"></i>Data Preparation: Summary</a></li>
-<li class="part"><span><b>V Cleaning and Scoring Data</b></span></li>
-<li class="chapter" data-level="" data-path="cleaning-and-scoring-data-overview.html"><a href="cleaning-and-scoring-data-overview.html"><i class="fa fa-check"></i>Cleaning and Scoring Data: Overview</a><ul>
-<li class="chapter" data-level="12.6" data-path="cleaning-and-scoring-data-overview.html"><a href="cleaning-and-scoring-data-overview.html#data-analysis-repository"><i class="fa fa-check"></i><b>12.6</b> Data Analysis Repository</a></li>
-<li class="chapter" data-level="12.7" data-path="cleaning-and-scoring-data-overview.html"><a href="cleaning-and-scoring-data-overview.html#copy-tidy-raw-data"><i class="fa fa-check"></i><b>12.7</b> Copy tidy raw data</a></li>
+<li class="chapter" data-level="11.7" data-path="data-preparation-messy-to-tidy.html"><a href="data-preparation-messy-to-tidy.html#output"><i class="fa fa-check"></i><b>11.7</b> Output</a></li>
+<li class="chapter" data-level="11.8" data-path="data-preparation-messy-to-tidy.html"><a href="data-preparation-messy-to-tidy.html#final"><i class="fa fa-check"></i><b>11.8</b> Final</a></li>
+<li class="chapter" data-level="11.9" data-path="data-preparation-messy-to-tidy.html"><a href="data-preparation-messy-to-tidy.html#masterscript.r"><i class="fa fa-check"></i><b>11.9</b> masterscript.R</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="example-data-flanker.html"><a href="example-data-flanker.html"><i class="fa fa-check"></i>Example Data: Flanker</a></li>
-<li class="chapter" data-level="13" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html"><i class="fa fa-check"></i><b>13</b> Tidy to Scored: 1_task_score.R</a><ul>
-<li class="chapter" data-level="13.1" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#setup-2"><i class="fa fa-check"></i><b>13.1</b> Setup</a><ul>
-<li class="chapter" data-level="13.1.1" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#set-data-cleaning-parameters"><i class="fa fa-check"></i><b>13.1.1</b> Set Data Cleaning Parameters</a></li>
+<li class="chapter" data-level="12" data-path="data-analysis-setup.html"><a href="data-analysis-setup.html"><i class="fa fa-check"></i><b>12</b> Data Analysis: Setup</a><ul>
+<li class="chapter" data-level="12.1" data-path="project-organization.html"><a href="project-organization.html#project-organization"><i class="fa fa-check"></i><b>12.1</b> Project Organization</a></li>
+<li class="chapter" data-level="12.2" data-path="data-analysis-setup.html"><a href="data-analysis-setup.html#setup-data-analysis-directories"><i class="fa fa-check"></i><b>12.2</b> Setup Data Analysis Directories</a></li>
 </ul></li>
-<li class="chapter" data-level="13.2" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#data-cleaning-and-scoring"><i class="fa fa-check"></i><b>13.2</b> Data Cleaning and Scoring</a><ul>
-<li class="chapter" data-level="13.2.1" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#what-is-the-dependent-variable"><i class="fa fa-check"></i><b>13.2.1</b> What is the dependent variable?</a></li>
+<li class="chapter" data-level="13" data-path="data-analysis-tidy-to-scored.html"><a href="data-analysis-tidy-to-scored.html"><i class="fa fa-check"></i><b>13</b> Data Analysis: Tidy to Scored</a><ul>
+<li class="chapter" data-level="13.1" data-path="data-preparation-messy-to-tidy.html"><a href="data-preparation-messy-to-tidy.html#overview"><i class="fa fa-check"></i><b>13.1</b> Overview</a></li>
+<li class="chapter" data-level="13.2" data-path="data-analysis-tidy-to-scored.html"><a href="data-analysis-tidy-to-scored.html#score-script-template"><i class="fa fa-check"></i><b>13.2</b> Score script template</a></li>
+<li class="chapter" data-level="13.3" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#setup"><i class="fa fa-check"></i><b>13.3</b> Setup</a></li>
+<li class="chapter" data-level="13.4" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#import"><i class="fa fa-check"></i><b>13.4</b> Import</a></li>
+<li class="chapter" data-level="13.5" data-path="data-analysis-tidy-to-scored.html"><a href="data-analysis-tidy-to-scored.html#data-scoring"><i class="fa fa-check"></i><b>13.5</b> Data Scoring</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#filter"><i class="fa fa-check"></i><b>13.5.1</b> <code>filter()</code></a></li>
+<li class="chapter" data-level="13.5.2" data-path="data-analysis-tidy-to-scored.html"><a href="data-analysis-tidy-to-scored.html#group_by-and-summarise"><i class="fa fa-check"></i><b>13.5.2</b> <code>group_by()</code> and <code>summarise()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#trimming-1"><i class="fa fa-check"></i><b>13.3</b> Trimming</a></li>
-<li class="chapter" data-level="13.4" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#calculate-flankereffect"><i class="fa fa-check"></i><b>13.4</b> Calculate FlankerEffect</a></li>
-<li class="chapter" data-level="13.5" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#remove-subjects"><i class="fa fa-check"></i><b>13.5</b> Remove Subjects</a></li>
-<li class="chapter" data-level="13.6" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#calculate-binned-scores"><i class="fa fa-check"></i><b>13.6</b> Calculate Binned Scores</a></li>
-<li class="chapter" data-level="13.7" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#merge"><i class="fa fa-check"></i><b>13.7</b> Merge</a></li>
-<li class="chapter" data-level="13.8" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#output-1"><i class="fa fa-check"></i><b>13.8</b> Output</a></li>
-<li class="chapter" data-level="13.9" data-path="tidy-to-scored-1-task-score-r.html"><a href="tidy-to-scored-1-task-score-r.html#masterscript-1"><i class="fa fa-check"></i><b>13.9</b> Masterscript</a></li>
+<li class="chapter" data-level="13.6" data-path="data-analysis-tidy-to-scored.html"><a href="data-analysis-tidy-to-scored.html#data-cleaning"><i class="fa fa-check"></i><b>13.6</b> Data Cleaning</a><ul>
+<li class="chapter" data-level="13.6.1" data-path="data-analysis-tidy-to-scored.html"><a href="data-analysis-tidy-to-scored.html#remove-problematic-subjects"><i class="fa fa-check"></i><b>13.6.1</b> Remove problematic subjects</a></li>
+<li class="chapter" data-level="13.6.2" data-path="data-analysis-tidy-to-scored.html"><a href="data-analysis-tidy-to-scored.html#remove-univariate-outliers"><i class="fa fa-check"></i><b>13.6.2</b> Remove univariate outliers</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html"><i class="fa fa-check"></i><b>14</b> Merge: Create A Final Data File</a><ul>
-<li class="chapter" data-level="14.1" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#setup-3"><i class="fa fa-check"></i><b>14.1</b> Setup</a></li>
-<li class="chapter" data-level="14.2" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#merge-1"><i class="fa fa-check"></i><b>14.2</b> Merge</a></li>
-<li class="chapter" data-level="14.3" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#select-and-trim"><i class="fa fa-check"></i><b>14.3</b> Select and Trim</a></li>
-<li class="chapter" data-level="14.4" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#output-2"><i class="fa fa-check"></i><b>14.4</b> Output</a></li>
-<li class="chapter" data-level="14.5" data-path="merge-create-a-final-data-file.html"><a href="merge-create-a-final-data-file.html#masterscript-2"><i class="fa fa-check"></i><b>14.5</b> Masterscript</a></li>
+<li class="chapter" data-level="13.7" data-path="data-analysis-tidy-to-scored.html"><a href="data-analysis-tidy-to-scored.html#calculate-reliability"><i class="fa fa-check"></i><b>13.7</b> Calculate reliability</a></li>
+<li class="chapter" data-level="13.8" data-path="data-preparation-messy-to-tidy.html"><a href="data-preparation-messy-to-tidy.html#output"><i class="fa fa-check"></i><b>13.8</b> Output</a></li>
+<li class="chapter" data-level="13.9" data-path="data-analysis-tidy-to-scored.html"><a href="data-analysis-tidy-to-scored.html#create-a-data-cleaning-log"><i class="fa fa-check"></i><b>13.9</b> Create a data cleaning log</a></li>
+<li class="chapter" data-level="13.10" data-path="data-preparation-messy-to-tidy.html"><a href="data-preparation-messy-to-tidy.html#final"><i class="fa fa-check"></i><b>13.10</b> Final</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="cleaning-and-scoring-data-summary.html"><a href="cleaning-and-scoring-data-summary.html"><i class="fa fa-check"></i>Cleaning and Scoring Data: Summary</a></li>
-<li class="part"><span><b>VI Data Visualization</b></span></li>
+<li class="chapter" data-level="14" data-path="data-analysis-single-merged-file.html"><a href="data-analysis-single-merged-file.html"><i class="fa fa-check"></i><b>14</b> Data Analysis: Single Merged File</a><ul>
+<li class="chapter" data-level="14.1" data-path="data-preparation-messy-to-tidy.html"><a href="data-preparation-messy-to-tidy.html#overview"><i class="fa fa-check"></i><b>14.1</b> Overview</a></li>
+<li class="chapter" data-level="14.2" data-path="data-analysis-single-merged-file.html"><a href="data-analysis-single-merged-file.html#set-up"><i class="fa fa-check"></i><b>14.2</b> Set up</a></li>
+<li class="chapter" data-level="14.3" data-path="data-manipulation-using-dplyr.html"><a href="data-manipulation-using-dplyr.html#import"><i class="fa fa-check"></i><b>14.3</b> Import</a></li>
+<li class="chapter" data-level="14.4" data-path="data-analysis-single-merged-file.html"><a href="data-analysis-single-merged-file.html#select-only-important-variables"><i class="fa fa-check"></i><b>14.4</b> Select only important variables</a></li>
+<li class="chapter" data-level="14.5" data-path="data-preparation-messy-to-tidy.html"><a href="data-preparation-messy-to-tidy.html#output"><i class="fa fa-check"></i><b>14.5</b> Output</a></li>
+<li class="chapter" data-level="14.6" data-path="data-preparation-messy-to-tidy.html"><a href="data-preparation-messy-to-tidy.html#masterscript.r"><i class="fa fa-check"></i><b>14.6</b> masterscript.R</a></li>
+</ul></li>
+<li class="part"><span><b>V Data Visualization</b></span></li>
 <li class="chapter" data-level="" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html"><i class="fa fa-check"></i>Data Visualization: Overview</a><ul>
-<li class="chapter" data-level="14.6" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#r-markdown"><i class="fa fa-check"></i><b>14.6</b> R Markdown</a><ul>
-<li class="chapter" data-level="14.6.1" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#what-is-an-r-markdown-file"><i class="fa fa-check"></i><b>14.6.1</b> What is an R Markdown File?</a></li>
-<li class="chapter" data-level="14.6.2" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#yaml-header"><i class="fa fa-check"></i><b>14.6.2</b> YAML header</a></li>
-<li class="chapter" data-level="14.6.3" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#r-code-chunks"><i class="fa fa-check"></i><b>14.6.3</b> R code chunks</a></li>
-<li class="chapter" data-level="14.6.4" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#formatted-text"><i class="fa fa-check"></i><b>14.6.4</b> Formatted text</a></li>
+<li class="chapter" data-level="14.7" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#r-markdown"><i class="fa fa-check"></i><b>14.7</b> R Markdown</a><ul>
+<li class="chapter" data-level="14.7.1" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#what-is-an-r-markdown-file"><i class="fa fa-check"></i><b>14.7.1</b> What is an R Markdown File?</a></li>
+<li class="chapter" data-level="14.7.2" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#yaml-header"><i class="fa fa-check"></i><b>14.7.2</b> YAML header</a></li>
+<li class="chapter" data-level="14.7.3" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#r-code-chunks"><i class="fa fa-check"></i><b>14.7.3</b> R code chunks</a></li>
+<li class="chapter" data-level="14.7.4" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#formatted-text"><i class="fa fa-check"></i><b>14.7.4</b> Formatted text</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html"><i class="fa fa-check"></i><b>15</b> Fundamentals of Data Visualization</a><ul>
@@ -306,7 +321,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.2" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html#plotting-functions-in-r"><i class="fa fa-check"></i><b>15.2</b> Plotting Functions in R</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>16</b> Introduction to ggplot2</a><ul>
-<li class="chapter" data-level="16.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#grammar-of-graphics-1"><i class="fa fa-check"></i><b>16.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="16.1" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>16.1</b> Grammar of Graphics</a></li>
 <li class="chapter" data-level="16.2" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#data-layer"><i class="fa fa-check"></i><b>16.2</b> Data layer</a></li>
 <li class="chapter" data-level="16.3" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#aesthetic-layer"><i class="fa fa-check"></i><b>16.3</b> Aesthetic Layer</a></li>
 <li class="chapter" data-level="16.4" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#geometries-layer"><i class="fa fa-check"></i><b>16.4</b> Geometries Layer</a></li>
@@ -329,31 +344,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.4" data-path="plotting-means.html"><a href="plotting-means.html#three-way-interaction-plots"><i class="fa fa-check"></i><b>18.4</b> Three-Way Interaction Plots</a></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="univariate-plots.html"><a href="univariate-plots.html"><i class="fa fa-check"></i><b>19</b> Univariate Plots</a></li>
-<li class="chapter" data-level="20" data-path="sjplot.html"><a href="sjplot.html"><i class="fa fa-check"></i><b>20</b> <code>sjPlot</code></a></li>
-<li class="chapter" data-level="21" data-path="custom-tables.html"><a href="custom-tables.html"><i class="fa fa-check"></i><b>21</b> Custom Tables</a></li>
-<li class="part"><span><b>VII Statistical Analysis</b></span></li>
+<li class="part"><span><b>VI Statistical Analysis</b></span></li>
 <li class="chapter" data-level="" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html"><i class="fa fa-check"></i>Statistical Analysis: Overview</a><ul>
-<li class="chapter" data-level="21.1" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#r-markdown-1"><i class="fa fa-check"></i><b>21.1</b> R Markdown</a><ul>
-<li class="chapter" data-level="21.1.1" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#what-is-an-r-markdown-file-1"><i class="fa fa-check"></i><b>21.1.1</b> What is an R Markdown File?</a></li>
-<li class="chapter" data-level="21.1.2" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#yaml-header-1"><i class="fa fa-check"></i><b>21.1.2</b> YAML header</a></li>
-<li class="chapter" data-level="21.1.3" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#r-code-chunks-1"><i class="fa fa-check"></i><b>21.1.3</b> R code chunks</a></li>
-<li class="chapter" data-level="21.1.4" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#formatted-text-1"><i class="fa fa-check"></i><b>21.1.4</b> Formatted text</a></li>
+<li class="chapter" data-level="19.1" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#r-markdown"><i class="fa fa-check"></i><b>19.1</b> R Markdown</a></li>
 </ul></li>
+<li class="chapter" data-level="20" data-path="statistics-in-r.html"><a href="statistics-in-r.html"><i class="fa fa-check"></i><b>20</b> Statistics in R</a></li>
+<li class="chapter" data-level="21" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html"><i class="fa fa-check"></i><b>21</b> Structural Equation Modelling</a><ul>
+<li class="chapter" data-level="21.1" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#lavaan"><i class="fa fa-check"></i><b>21.1</b> <code>lavaan</code></a><ul>
+<li class="chapter" data-level="21.1.1" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#building-the-model-object"><i class="fa fa-check"></i><b>21.1.1</b> Building the model object</a></li>
+<li class="chapter" data-level="21.1.2" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#run-the-model"><i class="fa fa-check"></i><b>21.1.2</b> Run the model</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="statistics-in-r.html"><a href="statistics-in-r.html"><i class="fa fa-check"></i><b>22</b> Statistics in R</a></li>
-<li class="chapter" data-level="23" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html"><i class="fa fa-check"></i><b>23</b> Structural Equation Modelling</a><ul>
-<li class="chapter" data-level="23.1" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#lavaan"><i class="fa fa-check"></i><b>23.1</b> <code>lavaan</code></a><ul>
-<li class="chapter" data-level="23.1.1" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#building-the-model-object"><i class="fa fa-check"></i><b>23.1.1</b> Building the model object</a></li>
-<li class="chapter" data-level="23.1.2" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#run-the-model"><i class="fa fa-check"></i><b>23.1.2</b> Run the model</a></li>
-</ul></li>
-<li class="chapter" data-level="23.2" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#semoutput"><i class="fa fa-check"></i><b>23.2</b> <code>semoutput</code></a><ul>
-<li class="chapter" data-level="23.2.1" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#yaml-header-2"><i class="fa fa-check"></i><b>23.2.1</b> YAML Header</a></li>
-<li class="chapter" data-level="23.2.2" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#cfa-example"><i class="fa fa-check"></i><b>23.2.2</b> CFA Example</a></li>
-<li class="chapter" data-level="23.2.3" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#sem-example"><i class="fa fa-check"></i><b>23.2.3</b> SEM Example</a></li>
+<li class="chapter" data-level="21.2" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#semoutput"><i class="fa fa-check"></i><b>21.2</b> <code>semoutput</code></a><ul>
+<li class="chapter" data-level="21.2.1" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#yaml-header"><i class="fa fa-check"></i><b>21.2.1</b> YAML Header</a></li>
+<li class="chapter" data-level="21.2.2" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#cfa-example"><i class="fa fa-check"></i><b>21.2.2</b> CFA Example</a></li>
+<li class="chapter" data-level="21.2.3" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#sem-example"><i class="fa fa-check"></i><b>21.2.3</b> SEM Example</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="http://englelab.gatech.edu/labuser">Lab User</a></li>
+<li><a href="http://englelab.gatech.edu/useRguide/EngleLab_CheatSheet.pdf">Cheatsheet</a></li>
 
 </ul>
 
@@ -364,7 +372,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">EngleLab: UseR Guide</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">EngleLab: useRguide</a>
           </h1>
         </div>
 
@@ -373,14 +381,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="structural-equation-modelling" class="section level1">
-<h1><span class="header-section-number">Chapter 23</span> Structural Equation Modelling</h1>
+<h1><span class="header-section-number">21</span> Structural Equation Modelling</h1>
 <p><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"></p>
-<p>By far the most common statistical analyses we do in this lab are confirmatory factor analysis (CFA) and structural equation modelling (SEM).</p>
+<p>By far the most common statistical analyses we do in this lab are confirmatory factor analysis (CFA) and structural equation modeling (SEM).</p>
 <p>This Chapter will cover how to conduct CFA’s and SEM’s in R using the <code>lavaan</code> package.</p>
 <div id="lavaan" class="section level2">
-<h2><span class="header-section-number">23.1</span> <code>lavaan</code></h2>
+<h2><span class="header-section-number">21.1</span> <code>lavaan</code></h2>
 <p>Install the <code>lavaan</code> package</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;lavaan&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="structural-equation-modelling.html#cb320-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;lavaan&quot;</span>)</span></code></pre></div>
 <p>Visit the <a href="http://lavaan.ugent.be" target="_blank">lavaan website</a> and navigate to the <strong>Tutorial</strong> tab.</p>
 <p>This is an excellent resource for you to consult if you forget any syntax or want more details on using <em>lavaan</em>. You should go over the full tutorial yourself, but I will go ahead and cover the basics here.</p>
 <p>There are only two main steps to run a lavaan model.</p>
@@ -389,40 +397,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Run the model with <code>cfa()</code> or <code>sem()</code></p></li>
 </ol>
 <div id="building-the-model-object" class="section level3">
-<h3><span class="header-section-number">23.1.1</span> Building the model object</h3>
+<h3><span class="header-section-number">21.1.1</span> Building the model object</h3>
 <p>The model object is where you specify the model equation for the CFA or SEM. It is actually very easy and intuitive to do. Basically you specify the model equation within single quotes and pass it to an object called model. Let’s say we have want to run a model corresponding to this model diagram:</p>
-<p><img src="images/cfa_example.png" width="40%" /></p>
+<p><img src="images/stats/cfa_example.png" width="40%" /></p>
 <p>We would simply specify:</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb274-1" data-line-number="1">model &lt;-<span class="st"> &#39; </span></a>
-<a class="sourceLine" id="cb274-2" data-line-number="2"><span class="st">visual  =~ x1 + x2 + x3 </span></a>
-<a class="sourceLine" id="cb274-3" data-line-number="3"><span class="st">textual =~ x4 + x5 + x6</span></a>
-<a class="sourceLine" id="cb274-4" data-line-number="4"><span class="st">speed   =~ x7 + x8 + x9 </span></a>
-<a class="sourceLine" id="cb274-5" data-line-number="5"><span class="st">&#39;</span></a></code></pre></div>
-<p>This defines a CFA model with three latent factors; <strong>visual</strong>, <strong>textual</strong>, and <strong>speed</strong> with ther respective indicators. The indicators need to correspond to column names in the dataframe.</p>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="structural-equation-modelling.html#cb321-1"></a>model &lt;-<span class="st"> &#39; </span></span>
+<span id="cb321-2"><a href="structural-equation-modelling.html#cb321-2"></a><span class="st">visual  =~ x1 + x2 + x3 </span></span>
+<span id="cb321-3"><a href="structural-equation-modelling.html#cb321-3"></a><span class="st">textual =~ x4 + x5 + x6</span></span>
+<span id="cb321-4"><a href="structural-equation-modelling.html#cb321-4"></a><span class="st">speed   =~ x7 + x8 + x9 </span></span>
+<span id="cb321-5"><a href="structural-equation-modelling.html#cb321-5"></a><span class="st">&#39;</span></span></code></pre></div>
+<p>This defines a CFA model with three latent factors; <strong>visual</strong>, <strong>textual</strong>, and <strong>speed</strong> with their respective indicators. The indicators need to correspond to column names in the data frame.</p>
 <p>There are certain defaults that <code>lavaan</code> uses so that we do not have to specify every single path in the model. For instance, by default it will add correlations between the latent factors in a CFA model. That is why in the model example above, the latent correlations are not explicit, yet they are implicitly part of the model.</p>
 <p><strong>Model Syntax</strong></p>
 <table>
 <thead>
 <tr class="header">
 <th>formula type</th>
-<th>operator</th>
+<th>operator |</th>
 <th>mnemonic</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>latent variable definition</td>
-<td>=~</td>
+<td>=~ |</td>
 <td>is measured by</td>
 </tr>
 <tr class="even">
 <td>regression</td>
-<td>~</td>
+<td>~ | is re</td>
 <td>is regressed on</td>
 </tr>
 <tr class="odd">
 <td>variance/covariance</td>
-<td>~~</td>
+<td>~~ |</td>
 <td>is correlated with</td>
 </tr>
 <tr class="even">
@@ -434,12 +442,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 <div id="run-the-model" class="section level3">
-<h3><span class="header-section-number">23.1.2</span> Run the model</h3>
+<h3><span class="header-section-number">21.1.2</span> Run the model</h3>
 <p>Then the model can be ran using <code>cfa()</code> or <code>sem()</code> functions</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" data-line-number="1">fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(model, data)</a></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="structural-equation-modelling.html#cb322-1"></a>fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(model, data)</span></code></pre></div>
 <p>The first two arguments to pass onto the lavaan functions are <code>model</code> and <code>data</code>, respectively. There are other important arguments that we will cover later.</p>
 <p>The <code>summary(fit, fit.measures = TRUE, standardized = TRUE)</code> output to a lavaan model looks like</p>
-<pre><code>## lavaan 0.6-5 ended normally after 35 iterations
+<pre><code>## lavaan 0.6-7 ended normally after 35 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -486,86 +494,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Parameter Estimates:
 ## 
+##   Standard errors                             Standard
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
 ## 
 ## Latent Variables:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv
-##   visual =~                                                    
-##     x1                1.000                               0.900
-##     x2                0.554    0.100    5.554    0.000    0.498
-##     x3                0.729    0.109    6.685    0.000    0.656
-##   textual =~                                                   
-##     x4                1.000                               0.990
-##     x5                1.113    0.065   17.014    0.000    1.102
-##     x6                0.926    0.055   16.703    0.000    0.917
-##   speed =~                                                     
-##     x7                1.000                               0.619
-##     x8                1.180    0.165    7.152    0.000    0.731
-##     x9                1.082    0.151    7.155    0.000    0.670
-##   Std.all
-##          
-##     0.772
-##     0.424
-##     0.581
-##          
-##     0.852
-##     0.855
-##     0.838
-##          
-##     0.570
-##     0.723
-##     0.665
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   visual =~                                                             
+##     x1                1.000                               0.900    0.772
+##     x2                0.554    0.100    5.554    0.000    0.498    0.424
+##     x3                0.729    0.109    6.685    0.000    0.656    0.581
+##   textual =~                                                            
+##     x4                1.000                               0.990    0.852
+##     x5                1.113    0.065   17.014    0.000    1.102    0.855
+##     x6                0.926    0.055   16.703    0.000    0.917    0.838
+##   speed =~                                                              
+##     x7                1.000                               0.619    0.570
+##     x8                1.180    0.165    7.152    0.000    0.731    0.723
+##     x9                1.082    0.151    7.155    0.000    0.670    0.665
 ## 
 ## Covariances:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv
-##   visual ~~                                                    
-##     textual           0.408    0.074    5.552    0.000    0.459
-##     speed             0.262    0.056    4.660    0.000    0.471
-##   textual ~~                                                   
-##     speed             0.173    0.049    3.518    0.000    0.283
-##   Std.all
-##          
-##     0.459
-##     0.471
-##          
-##     0.283
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   visual ~~                                                             
+##     textual           0.408    0.074    5.552    0.000    0.459    0.459
+##     speed             0.262    0.056    4.660    0.000    0.471    0.471
+##   textual ~~                                                            
+##     speed             0.173    0.049    3.518    0.000    0.283    0.283
 ## 
 ## Variances:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv
-##    .x1                0.549    0.114    4.833    0.000    0.549
-##    .x2                1.134    0.102   11.146    0.000    1.134
-##    .x3                0.844    0.091    9.317    0.000    0.844
-##    .x4                0.371    0.048    7.779    0.000    0.371
-##    .x5                0.446    0.058    7.642    0.000    0.446
-##    .x6                0.356    0.043    8.277    0.000    0.356
-##    .x7                0.799    0.081    9.823    0.000    0.799
-##    .x8                0.488    0.074    6.573    0.000    0.488
-##    .x9                0.566    0.071    8.003    0.000    0.566
-##     visual            0.809    0.145    5.564    0.000    1.000
-##     textual           0.979    0.112    8.737    0.000    1.000
-##     speed             0.384    0.086    4.451    0.000    1.000
-##   Std.all
-##     0.404
-##     0.821
-##     0.662
-##     0.275
-##     0.269
-##     0.298
-##     0.676
-##     0.477
-##     0.558
-##     1.000
-##     1.000
-##     1.000</code></pre>
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .x1                0.549    0.114    4.833    0.000    0.549    0.404
+##    .x2                1.134    0.102   11.146    0.000    1.134    0.821
+##    .x3                0.844    0.091    9.317    0.000    0.844    0.662
+##    .x4                0.371    0.048    7.779    0.000    0.371    0.275
+##    .x5                0.446    0.058    7.642    0.000    0.446    0.269
+##    .x6                0.356    0.043    8.277    0.000    0.356    0.298
+##    .x7                0.799    0.081    9.823    0.000    0.799    0.676
+##    .x8                0.488    0.074    6.573    0.000    0.488    0.477
+##    .x9                0.566    0.071    8.003    0.000    0.566    0.558
+##     visual            0.809    0.145    5.564    0.000    1.000    1.000
+##     textual           0.979    0.112    8.737    0.000    1.000    1.000
+##     speed             0.384    0.086    4.451    0.000    1.000    1.000</code></pre>
 <p><strong>Yikes!!</strong></p>
 <p>You really should learn to understand this output, but nicer looking output would be nice right?</p>
 <p>This is where my <code>semoutput</code> package comes in handy.</p>
 </div>
 </div>
 <div id="semoutput" class="section level2">
-<h2><span class="header-section-number">23.2</span> <code>semoutput</code></h2>
+<h2><span class="header-section-number">21.2</span> <code>semoutput</code></h2>
 <p>If you have not done so already open the RStudio project file for this tutorial.</p>
 <hr />
 <div style="text-align: center; font-size: 1.25em">
@@ -575,30 +551,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>Save it to the folder <strong>Data Files</strong> of your project directory.</p>
 <p>Install <code>semoutput</code></p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb277-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/semoutput&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="structural-equation-modelling.html#cb324-1"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/semoutput&quot;</span>)</span></code></pre></div>
 <p>Additional packages you will need to have installed</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb278-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;sjPlot&quot;</span>)</a>
-<a class="sourceLine" id="cb278-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&quot;semPlot&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="structural-equation-modelling.html#cb325-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;sjPlot&quot;</span>)</span>
+<span id="cb325-2"><a href="structural-equation-modelling.html#cb325-2"></a><span class="kw">install.packages</span>(<span class="st">&quot;semPlot&quot;</span>)</span></code></pre></div>
 <p>Once you install <code>semoutput</code> you should Restart R by going to:</p>
 <p>Session -&gt; Restart R</p>
 <p>You can download an R Markdown template for doing CFA and SEM in <code>lavaan</code>. Go to:</p>
 <p>File -&gt; New File -&gt; R Markdown…From Template -&gt; CFA/SEM (lavaan)</p>
-<div id="yaml-header-2" class="section level3">
-<h3><span class="header-section-number">23.2.1</span> YAML Header</h3>
+<div id="yaml-header" class="section level3">
+<h3><span class="header-section-number">21.2.1</span> YAML Header</h3>
 <p>At the top of the document is what is called the YAML header. Here is where you can specify certain parameters that you may want to use as default in your analyses.</p>
 <p>You also need to specify the location and name of the data file you will be working with</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb279-1" data-line-number="1">params<span class="op">:</span></a>
-<a class="sourceLine" id="cb279-2" data-line-number="2"><span class="st">  </span>import.file<span class="op">:</span><span class="st"> &quot;&quot;</span>       <span class="co"># Relative file path to data</span></a>
-<a class="sourceLine" id="cb279-3" data-line-number="3">  mimic<span class="op">:</span><span class="st"> &quot;lavaan&quot;</span>       <span class="co"># Which software program to mimic for estimating models</span></a>
-<a class="sourceLine" id="cb279-4" data-line-number="4">  missing<span class="op">:</span><span class="st"> &quot;ML&quot;</span>         <span class="co"># How to deal with missing values: &quot;ML&quot; or &quot;listwise&quot;</span></a>
-<a class="sourceLine" id="cb279-5" data-line-number="5">  std.lv<span class="op">:</span><span class="st"> </span><span class="ot">TRUE</span>          <span class="co"># For CFAs, default setting whether to set latent variances to 1 or not</span></a>
-<a class="sourceLine" id="cb279-6" data-line-number="6">  std.ov<span class="op">:</span><span class="st"> </span><span class="ot">FALSE</span>         <span class="co"># Standardize all observed varialbes?</span></a>
-<a class="sourceLine" id="cb279-7" data-line-number="7">  se<span class="op">:</span><span class="st"> &quot;standard&quot;</span>        <span class="co"># How to calcualte standard errors: &quot;standard&quot; or &quot;bootstrap&quot;</span></a>
-<a class="sourceLine" id="cb279-8" data-line-number="8">  bootstrap<span class="op">:</span><span class="st"> </span><span class="dv">1000</span>       <span class="co"># If se = &quot;bootstrap&quot; how many boostrap samples?</span></a></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="structural-equation-modelling.html#cb326-1"></a>params<span class="op">:</span></span>
+<span id="cb326-2"><a href="structural-equation-modelling.html#cb326-2"></a><span class="st">  </span>import.file<span class="op">:</span><span class="st"> &quot;&quot;</span>       <span class="co"># Relative file path to data</span></span>
+<span id="cb326-3"><a href="structural-equation-modelling.html#cb326-3"></a>  mimic<span class="op">:</span><span class="st"> &quot;lavaan&quot;</span>       <span class="co"># Which software program to mimic for estimating models</span></span>
+<span id="cb326-4"><a href="structural-equation-modelling.html#cb326-4"></a>  missing<span class="op">:</span><span class="st"> &quot;ML&quot;</span>         <span class="co"># How to deal with missing values: &quot;ML&quot; or &quot;listwise&quot;</span></span>
+<span id="cb326-5"><a href="structural-equation-modelling.html#cb326-5"></a>  std.lv<span class="op">:</span><span class="st"> </span><span class="ot">TRUE</span>          <span class="co"># For CFAs, default setting whether to set latent variances to 1 or not</span></span>
+<span id="cb326-6"><a href="structural-equation-modelling.html#cb326-6"></a>  std.ov<span class="op">:</span><span class="st"> </span><span class="ot">FALSE</span>         <span class="co"># Standardize all observed varialbes?</span></span>
+<span id="cb326-7"><a href="structural-equation-modelling.html#cb326-7"></a>  se<span class="op">:</span><span class="st"> &quot;standard&quot;</span>        <span class="co"># How to calcualte standard errors: &quot;standard&quot; or &quot;bootstrap&quot;</span></span>
+<span id="cb326-8"><a href="structural-equation-modelling.html#cb326-8"></a>  bootstrap<span class="op">:</span><span class="st"> </span><span class="dv">1000</span>       <span class="co"># If se = &quot;bootstrap&quot; how many boostrap samples?</span></span></code></pre></div>
 <p><em>skipping the efa example for now</em></p>
 <p>The first R code chunk <strong>Required Packages</strong> is where you should load any packages used in the document.</p>
 <p>The next R code chunk is where the data file is imported.</p>
-<p>The next two R code chunk’s print out a descriptives and correlational tables.</p>
+<p>The next two R code chunk’s print out a descriptive and correlational tables.</p>
 <p>The next section is a template for conducting an exploratory factor analysis with <code>psych::fa()</code>. Let’s skip this for now.</p>
 <p>The next two sections are templates for CFA and SEM using <code>lavaan</code>. For each CFA and SEM section there are 4 subsections.</p>
 <ul>
@@ -609,51 +585,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="cfa-example" class="section level3">
-<h3><span class="header-section-number">23.2.2</span> CFA Example</h3>
+<h3><span class="header-section-number">21.2.2</span> CFA Example</h3>
 <p>Ultimately we will run the following SEM model. First let’s conduct a CFA of the model.</p>
-<p><img src="images/sem_example.png" width="60%" /></p>
+<p><img src="images/stats/sem_example.png" width="60%" /></p>
 <p>The following error residuals are correlated:</p>
 <p>y1 and y5; y2 and y4; y2 and y6; y3 and y7; y4 and y8; y6 and y8</p>
 <p>To correlate error residuals you would specify:</p>
 <pre><code>y1 ~~ y5</code></pre>
 <p>Move down to the CFA section. First, you need to create a list of the latent factor labels (this is for the output and not running a <code>lavaan</code> model).</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb281-1" data-line-number="1">factors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;dem60&quot;</span>, <span class="st">&quot;ind60&quot;</span>, <span class="st">&quot;dem65&quot;</span>)</a></code></pre></div>
-<p>Then specify the model equation. The commented lines (e.g. # latent factors) are just optional and can be changed or removed. Remember, the factor correlations are implied.</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" data-line-number="1">model &lt;-<span class="st"> &#39;</span></a>
-<a class="sourceLine" id="cb282-2" data-line-number="2"><span class="st"># latent factors</span></a>
-<a class="sourceLine" id="cb282-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb282-4" data-line-number="4"><span class="st"># correlated errors</span></a>
-<a class="sourceLine" id="cb282-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb282-6" data-line-number="6"><span class="st"># constraints</span></a>
-<a class="sourceLine" id="cb282-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb282-8" data-line-number="8"><span class="st">&#39;</span></a></code></pre></div>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" data-line-number="1">model &lt;-<span class="st"> &#39;</span></a>
-<a class="sourceLine" id="cb283-2" data-line-number="2"><span class="st"># latent factors</span></a>
-<a class="sourceLine" id="cb283-3" data-line-number="3"><span class="st">dem60 =~ y1 + y2 + y3 + y4</span></a>
-<a class="sourceLine" id="cb283-4" data-line-number="4"><span class="st">ind60 =~ x1 + x2 + x3</span></a>
-<a class="sourceLine" id="cb283-5" data-line-number="5"><span class="st">dem65 =~ y5 + y6 + y7 + y8</span></a>
-<a class="sourceLine" id="cb283-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb283-7" data-line-number="7"><span class="st"># correlated errors</span></a>
-<a class="sourceLine" id="cb283-8" data-line-number="8"><span class="st">y1 ~~ y5</span></a>
-<a class="sourceLine" id="cb283-9" data-line-number="9"><span class="st">y2 ~~ y4</span></a>
-<a class="sourceLine" id="cb283-10" data-line-number="10"><span class="st">y2 ~~ y6</span></a>
-<a class="sourceLine" id="cb283-11" data-line-number="11"><span class="st">y3 ~~ y7</span></a>
-<a class="sourceLine" id="cb283-12" data-line-number="12"><span class="st">y4 ~~ y8</span></a>
-<a class="sourceLine" id="cb283-13" data-line-number="13"><span class="st">y6 ~~ y8</span></a>
-<a class="sourceLine" id="cb283-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb283-15" data-line-number="15"><span class="st"># constraints</span></a>
-<a class="sourceLine" id="cb283-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb283-17" data-line-number="17"><span class="st">&#39;</span></a></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="structural-equation-modelling.html#cb328-1"></a>factors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;dem60&quot;</span>, <span class="st">&quot;ind60&quot;</span>, <span class="st">&quot;dem65&quot;</span>)</span></code></pre></div>
+<p>Then specify the model equation. The commented lines (e.g. # latent factors) are just optional and can be changed or removed. Remember, the factor correlations are implied.</p>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="structural-equation-modelling.html#cb329-1"></a>model &lt;-<span class="st"> &#39;</span></span>
+<span id="cb329-2"><a href="structural-equation-modelling.html#cb329-2"></a><span class="st"># latent factors</span></span>
+<span id="cb329-3"><a href="structural-equation-modelling.html#cb329-3"></a></span>
+<span id="cb329-4"><a href="structural-equation-modelling.html#cb329-4"></a><span class="st"># correlated errors</span></span>
+<span id="cb329-5"><a href="structural-equation-modelling.html#cb329-5"></a></span>
+<span id="cb329-6"><a href="structural-equation-modelling.html#cb329-6"></a><span class="st"># constraints</span></span>
+<span id="cb329-7"><a href="structural-equation-modelling.html#cb329-7"></a></span>
+<span id="cb329-8"><a href="structural-equation-modelling.html#cb329-8"></a><span class="st">&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="structural-equation-modelling.html#cb330-1"></a>model &lt;-<span class="st"> &#39;</span></span>
+<span id="cb330-2"><a href="structural-equation-modelling.html#cb330-2"></a><span class="st"># latent factors</span></span>
+<span id="cb330-3"><a href="structural-equation-modelling.html#cb330-3"></a><span class="st">dem60 =~ y1 + y2 + y3 + y4</span></span>
+<span id="cb330-4"><a href="structural-equation-modelling.html#cb330-4"></a><span class="st">ind60 =~ x1 + x2 + x3</span></span>
+<span id="cb330-5"><a href="structural-equation-modelling.html#cb330-5"></a><span class="st">dem65 =~ y5 + y6 + y7 + y8</span></span>
+<span id="cb330-6"><a href="structural-equation-modelling.html#cb330-6"></a></span>
+<span id="cb330-7"><a href="structural-equation-modelling.html#cb330-7"></a><span class="st"># correlated errors</span></span>
+<span id="cb330-8"><a href="structural-equation-modelling.html#cb330-8"></a><span class="st">y1 ~~ y5</span></span>
+<span id="cb330-9"><a href="structural-equation-modelling.html#cb330-9"></a><span class="st">y2 ~~ y4</span></span>
+<span id="cb330-10"><a href="structural-equation-modelling.html#cb330-10"></a><span class="st">y2 ~~ y6</span></span>
+<span id="cb330-11"><a href="structural-equation-modelling.html#cb330-11"></a><span class="st">y3 ~~ y7</span></span>
+<span id="cb330-12"><a href="structural-equation-modelling.html#cb330-12"></a><span class="st">y4 ~~ y8</span></span>
+<span id="cb330-13"><a href="structural-equation-modelling.html#cb330-13"></a><span class="st">y6 ~~ y8</span></span>
+<span id="cb330-14"><a href="structural-equation-modelling.html#cb330-14"></a></span>
+<span id="cb330-15"><a href="structural-equation-modelling.html#cb330-15"></a><span class="st"># constraints</span></span>
+<span id="cb330-16"><a href="structural-equation-modelling.html#cb330-16"></a></span>
+<span id="cb330-17"><a href="structural-equation-modelling.html#cb330-17"></a><span class="st">&#39;</span></span></code></pre></div>
 <p>You do not need to change anything for <code>cfa()</code>. Unless you want to change some of the defaults you set in the YAML header.</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" data-line-number="1">fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(<span class="dt">model =</span> model, <span class="dt">data =</span> data, </a>
-<a class="sourceLine" id="cb284-2" data-line-number="2">           <span class="dt">mimic =</span> params<span class="op">$</span>mimic, <span class="dt">missing =</span> params<span class="op">$</span>missing, </a>
-<a class="sourceLine" id="cb284-3" data-line-number="3">           <span class="dt">std.lv =</span> params<span class="op">$</span>std.lv, <span class="dt">std.ov =</span> params<span class="op">$</span>std.ov,</a>
-<a class="sourceLine" id="cb284-4" data-line-number="4">           <span class="dt">se =</span> params<span class="op">$</span>se, <span class="dt">bootstrap =</span> params<span class="op">$</span>bootstrap)</a></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="structural-equation-modelling.html#cb331-1"></a>fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(<span class="dt">model =</span> model, <span class="dt">data =</span> data, </span>
+<span id="cb331-2"><a href="structural-equation-modelling.html#cb331-2"></a>           <span class="dt">mimic =</span> params<span class="op">$</span>mimic, <span class="dt">missing =</span> params<span class="op">$</span>missing, </span>
+<span id="cb331-3"><a href="structural-equation-modelling.html#cb331-3"></a>           <span class="dt">std.lv =</span> params<span class="op">$</span>std.lv, <span class="dt">std.ov =</span> params<span class="op">$</span>std.ov,</span>
+<span id="cb331-4"><a href="structural-equation-modelling.html#cb331-4"></a>           <span class="dt">se =</span> params<span class="op">$</span>se, <span class="dt">bootstrap =</span> params<span class="op">$</span>bootstrap)</span></code></pre></div>
 <p>Run this R code chunk by pressing the green arrow button. Then run each R code chunk in each subsection to print the output.</p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" data-line-number="1"><span class="kw">sem_sig</span>(fit)</a></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="structural-equation-modelling.html#cb332-1"></a><span class="kw">sem_sig</span>(fit)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-404">Table 23.1: </span>Model Significance
+<span id="tab:unnamed-chunk-405">Table 21.1: </span>Model Significance
 </caption>
 <thead>
 <tr>
@@ -688,10 +664,10 @@ p.value
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" data-line-number="1"><span class="kw">sem_fitmeasures</span>(fit)</a></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="structural-equation-modelling.html#cb333-1"></a><span class="kw">sem_fitmeasures</span>(fit)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-404">Table 23.1: </span>Model Fit Measures
+<span id="tab:unnamed-chunk-405">Table 21.1: </span>Model Fit Measures
 </caption>
 <thead>
 <tr>
@@ -738,18 +714,18 @@ BIC
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" data-line-number="1"><span class="kw">sem_factorloadings</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">ci =</span> <span class="st">&quot;standardized&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="structural-equation-modelling.html#cb334-1"></a><span class="kw">sem_factorloadings</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">ci =</span> <span class="st">&quot;standardized&quot;</span>)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-404">Table 23.1: </span>Factor Loadings
+<span id="tab:unnamed-chunk-405">Table 21.1: </span>Factor Loadings
 </caption>
 <thead>
 <tr>
-<th style="border-bottom:hidden" colspan="1">
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
 </th>
-<th style="border-bottom:hidden" colspan="1">
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
 </th>
-<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="7">
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="7">
 <div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
 Standardized
 </div>
@@ -1107,10 +1083,10 @@ y8
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb288-1" data-line-number="1"><span class="kw">sem_factorcor</span>(fit, <span class="dt">factors =</span> factors)</a></code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="structural-equation-modelling.html#cb335-1"></a><span class="kw">sem_factorcor</span>(fit, <span class="dt">factors =</span> factors)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-404">Table 23.1: </span>Latent Factor Correlations
+<span id="tab:unnamed-chunk-405">Table 21.1: </span>Latent Factor Correlations
 </caption>
 <thead>
 <tr>
@@ -1221,10 +1197,10 @@ dem65
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" data-line-number="1"><span class="kw">sem_factorvar</span>(fit, <span class="dt">factors =</span> factors)</a></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="structural-equation-modelling.html#cb336-1"></a><span class="kw">sem_factorvar</span>(fit, <span class="dt">factors =</span> factors)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-404">Table 23.1: </span>Latent Factor Variance/Residual Variance
+<span id="tab:unnamed-chunk-405">Table 21.1: </span>Latent Factor Variance/Residual Variance
 </caption>
 <thead>
 <tr>
@@ -1253,10 +1229,10 @@ p
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" data-line-number="1"><span class="kw">sem_rsquared</span>(fit)</a></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="structural-equation-modelling.html#cb337-1"></a><span class="kw">sem_rsquared</span>(fit)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-404">Table 23.1: </span>R-Squared Values
+<span id="tab:unnamed-chunk-405">Table 21.1: </span>R-Squared Values
 </caption>
 <thead>
 <tr>
@@ -1359,13 +1335,13 @@ y8
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" data-line-number="1"><span class="kw">semPaths</span>(fit, <span class="dt">latents =</span> factors, <span class="dt">whatLabels =</span> <span class="st">&quot;std&quot;</span>, <span class="dt">layout =</span> <span class="st">&quot;tree2&quot;</span>, </a>
-<a class="sourceLine" id="cb291-2" data-line-number="2">         <span class="dt">rotation =</span> <span class="dv">2</span>, <span class="dt">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="dt">optimizeLatRes =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb291-3" data-line-number="3">         <span class="dt">intercepts =</span> <span class="ot">FALSE</span>, <span class="dt">residuals =</span> <span class="ot">TRUE</span>, <span class="dt">curve =</span> <span class="dv">1</span>, <span class="dt">curvature =</span> <span class="dv">2</span>, </a>
-<a class="sourceLine" id="cb291-4" data-line-number="4">         <span class="dt">sizeLat =</span> <span class="dv">10</span>, <span class="dt">nCharNodes =</span> <span class="dv">8</span>, <span class="dt">sizeMan =</span> <span class="dv">11</span>, <span class="dt">sizeMan2 =</span> <span class="dv">4</span>, </a>
-<a class="sourceLine" id="cb291-5" data-line-number="5">         <span class="dt">edge.label.cex =</span> <span class="fl">1.2</span>, <span class="dt">edge.color =</span> <span class="st">&quot;#000000&quot;</span>)</a></code></pre></div>
-<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-405-1.png" width="672" /></p>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" data-line-number="1"><span class="kw">modificationIndices</span>(fit, <span class="dt">sort. =</span> <span class="ot">TRUE</span>, <span class="dt">minimum.value =</span> <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="structural-equation-modelling.html#cb338-1"></a><span class="kw">semPaths</span>(fit, <span class="dt">latents =</span> factors, <span class="dt">whatLabels =</span> <span class="st">&quot;std&quot;</span>, <span class="dt">layout =</span> <span class="st">&quot;tree2&quot;</span>, </span>
+<span id="cb338-2"><a href="structural-equation-modelling.html#cb338-2"></a>         <span class="dt">rotation =</span> <span class="dv">2</span>, <span class="dt">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="dt">optimizeLatRes =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb338-3"><a href="structural-equation-modelling.html#cb338-3"></a>         <span class="dt">intercepts =</span> <span class="ot">FALSE</span>, <span class="dt">residuals =</span> <span class="ot">TRUE</span>, <span class="dt">curve =</span> <span class="dv">1</span>, <span class="dt">curvature =</span> <span class="dv">2</span>, </span>
+<span id="cb338-4"><a href="structural-equation-modelling.html#cb338-4"></a>         <span class="dt">sizeLat =</span> <span class="dv">10</span>, <span class="dt">nCharNodes =</span> <span class="dv">8</span>, <span class="dt">sizeMan =</span> <span class="dv">11</span>, <span class="dt">sizeMan2 =</span> <span class="dv">4</span>, </span>
+<span id="cb338-5"><a href="structural-equation-modelling.html#cb338-5"></a>         <span class="dt">edge.label.cex =</span> <span class="fl">1.2</span>, <span class="dt">edge.color =</span> <span class="st">&quot;#000000&quot;</span>)</span></code></pre></div>
+<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-406-1.png" width="672" /></p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="structural-equation-modelling.html#cb339-1"></a><span class="kw">modificationIndices</span>(fit, <span class="dt">sort. =</span> <span class="ot">TRUE</span>, <span class="dt">minimum.value =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##      lhs op rhs    mi    epc sepc.lv sepc.all sepc.nox
 ## 59 ind60 =~  y4 4.796  0.577   0.577    0.174    0.174
 ## 60 ind60 =~  y5 4.456  0.559   0.559    0.215    0.215
@@ -1374,37 +1350,37 @@ y8
 ## 81    y2 ~~  x1 3.040 -0.155  -0.155   -0.200   -0.200</code></pre>
 </div>
 <div id="sem-example" class="section level3">
-<h3><span class="header-section-number">23.2.3</span> SEM Example</h3>
+<h3><span class="header-section-number">21.2.3</span> SEM Example</h3>
 <p>Now let’s run the actual SEM model. Really the only difference is that we will add some regression paths</p>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" data-line-number="1">factors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;dem60&quot;</span>, <span class="st">&quot;ind60&quot;</span>, <span class="st">&quot;dem65&quot;</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1">model &lt;-<span class="st"> &#39;</span></a>
-<a class="sourceLine" id="cb295-2" data-line-number="2"><span class="st"># latent factors</span></a>
-<a class="sourceLine" id="cb295-3" data-line-number="3"><span class="st">dem60 =~ y1 + y2 + y3 + y4</span></a>
-<a class="sourceLine" id="cb295-4" data-line-number="4"><span class="st">ind60 =~ x1 + x2 + x3</span></a>
-<a class="sourceLine" id="cb295-5" data-line-number="5"><span class="st">dem65 =~ y5 + y6 + y7 + y8</span></a>
-<a class="sourceLine" id="cb295-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb295-7" data-line-number="7"><span class="st"># variances</span></a>
-<a class="sourceLine" id="cb295-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb295-9" data-line-number="9"><span class="st"># covariances</span></a>
-<a class="sourceLine" id="cb295-10" data-line-number="10"><span class="st">y1 ~~ y5</span></a>
-<a class="sourceLine" id="cb295-11" data-line-number="11"><span class="st">y2 ~~ y4</span></a>
-<a class="sourceLine" id="cb295-12" data-line-number="12"><span class="st">y2 ~~ y6</span></a>
-<a class="sourceLine" id="cb295-13" data-line-number="13"><span class="st">y3 ~~ y7</span></a>
-<a class="sourceLine" id="cb295-14" data-line-number="14"><span class="st">y4 ~~ y8</span></a>
-<a class="sourceLine" id="cb295-15" data-line-number="15"><span class="st">y6 ~~ y8</span></a>
-<a class="sourceLine" id="cb295-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb295-17" data-line-number="17"><span class="st"># regressions</span></a>
-<a class="sourceLine" id="cb295-18" data-line-number="18"><span class="st">dem65 ~ dem60 + ind60</span></a>
-<a class="sourceLine" id="cb295-19" data-line-number="19"><span class="st">dem60 ~ ind60</span></a>
-<a class="sourceLine" id="cb295-20" data-line-number="20"><span class="st">&#39;</span></a></code></pre></div>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" data-line-number="1">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="dt">model =</span> model, <span class="dt">data =</span> data, </a>
-<a class="sourceLine" id="cb296-2" data-line-number="2">           <span class="dt">mimic =</span> params<span class="op">$</span>mimic, <span class="dt">missing =</span> params<span class="op">$</span>missing, </a>
-<a class="sourceLine" id="cb296-3" data-line-number="3">           <span class="dt">std.lv =</span> <span class="ot">FALSE</span>, <span class="dt">std.ov =</span> params<span class="op">$</span>std.ov,</a>
-<a class="sourceLine" id="cb296-4" data-line-number="4">           <span class="dt">se =</span> params<span class="op">$</span>se, <span class="dt">bootstrap =</span> params<span class="op">$</span>bootstrap)</a></code></pre></div>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1"><span class="kw">sem_sig</span>(fit)</a></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="structural-equation-modelling.html#cb341-1"></a>factors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;dem60&quot;</span>, <span class="st">&quot;ind60&quot;</span>, <span class="st">&quot;dem65&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="structural-equation-modelling.html#cb342-1"></a>model &lt;-<span class="st"> &#39;</span></span>
+<span id="cb342-2"><a href="structural-equation-modelling.html#cb342-2"></a><span class="st"># latent factors</span></span>
+<span id="cb342-3"><a href="structural-equation-modelling.html#cb342-3"></a><span class="st">dem60 =~ y1 + y2 + y3 + y4</span></span>
+<span id="cb342-4"><a href="structural-equation-modelling.html#cb342-4"></a><span class="st">ind60 =~ x1 + x2 + x3</span></span>
+<span id="cb342-5"><a href="structural-equation-modelling.html#cb342-5"></a><span class="st">dem65 =~ y5 + y6 + y7 + y8</span></span>
+<span id="cb342-6"><a href="structural-equation-modelling.html#cb342-6"></a></span>
+<span id="cb342-7"><a href="structural-equation-modelling.html#cb342-7"></a><span class="st"># variances</span></span>
+<span id="cb342-8"><a href="structural-equation-modelling.html#cb342-8"></a></span>
+<span id="cb342-9"><a href="structural-equation-modelling.html#cb342-9"></a><span class="st"># covariances</span></span>
+<span id="cb342-10"><a href="structural-equation-modelling.html#cb342-10"></a><span class="st">y1 ~~ y5</span></span>
+<span id="cb342-11"><a href="structural-equation-modelling.html#cb342-11"></a><span class="st">y2 ~~ y4</span></span>
+<span id="cb342-12"><a href="structural-equation-modelling.html#cb342-12"></a><span class="st">y2 ~~ y6</span></span>
+<span id="cb342-13"><a href="structural-equation-modelling.html#cb342-13"></a><span class="st">y3 ~~ y7</span></span>
+<span id="cb342-14"><a href="structural-equation-modelling.html#cb342-14"></a><span class="st">y4 ~~ y8</span></span>
+<span id="cb342-15"><a href="structural-equation-modelling.html#cb342-15"></a><span class="st">y6 ~~ y8</span></span>
+<span id="cb342-16"><a href="structural-equation-modelling.html#cb342-16"></a></span>
+<span id="cb342-17"><a href="structural-equation-modelling.html#cb342-17"></a><span class="st"># regressions</span></span>
+<span id="cb342-18"><a href="structural-equation-modelling.html#cb342-18"></a><span class="st">dem65 ~ dem60 + ind60</span></span>
+<span id="cb342-19"><a href="structural-equation-modelling.html#cb342-19"></a><span class="st">dem60 ~ ind60</span></span>
+<span id="cb342-20"><a href="structural-equation-modelling.html#cb342-20"></a><span class="st">&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="structural-equation-modelling.html#cb343-1"></a>fit &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="dt">model =</span> model, <span class="dt">data =</span> data, </span>
+<span id="cb343-2"><a href="structural-equation-modelling.html#cb343-2"></a>           <span class="dt">mimic =</span> params<span class="op">$</span>mimic, <span class="dt">missing =</span> params<span class="op">$</span>missing, </span>
+<span id="cb343-3"><a href="structural-equation-modelling.html#cb343-3"></a>           <span class="dt">std.lv =</span> <span class="ot">FALSE</span>, <span class="dt">std.ov =</span> params<span class="op">$</span>std.ov,</span>
+<span id="cb343-4"><a href="structural-equation-modelling.html#cb343-4"></a>           <span class="dt">se =</span> params<span class="op">$</span>se, <span class="dt">bootstrap =</span> params<span class="op">$</span>bootstrap)</span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="structural-equation-modelling.html#cb344-1"></a><span class="kw">sem_sig</span>(fit)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-410">Table 23.2: </span>Model Significance
+<span id="tab:unnamed-chunk-411">Table 21.2: </span>Model Significance
 </caption>
 <thead>
 <tr>
@@ -1439,10 +1415,10 @@ p.value
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" data-line-number="1"><span class="kw">sem_fitmeasures</span>(fit)</a></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="structural-equation-modelling.html#cb345-1"></a><span class="kw">sem_fitmeasures</span>(fit)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-410">Table 23.2: </span>Model Fit Measures
+<span id="tab:unnamed-chunk-411">Table 21.2: </span>Model Fit Measures
 </caption>
 <thead>
 <tr>
@@ -1489,18 +1465,18 @@ BIC
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1"><span class="kw">sem_factorloadings</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">ci =</span> <span class="st">&quot;standardized&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="structural-equation-modelling.html#cb346-1"></a><span class="kw">sem_factorloadings</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">ci =</span> <span class="st">&quot;standardized&quot;</span>)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-410">Table 23.2: </span>Factor Loadings
+<span id="tab:unnamed-chunk-411">Table 21.2: </span>Factor Loadings
 </caption>
 <thead>
 <tr>
-<th style="border-bottom:hidden" colspan="1">
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
 </th>
-<th style="border-bottom:hidden" colspan="1">
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
 </th>
-<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="7">
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="7">
 <div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
 Standardized
 </div>
@@ -1858,18 +1834,18 @@ y8
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" data-line-number="1"><span class="kw">sem_paths</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">ci =</span> <span class="st">&quot;standardized&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="structural-equation-modelling.html#cb347-1"></a><span class="kw">sem_paths</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">ci =</span> <span class="st">&quot;standardized&quot;</span>)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-410">Table 23.2: </span>Regression Paths
+<span id="tab:unnamed-chunk-411">Table 21.2: </span>Regression Paths
 </caption>
 <thead>
 <tr>
-<th style="border-bottom:hidden" colspan="1">
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
 </th>
-<th style="border-bottom:hidden" colspan="1">
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
 </th>
-<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="7">
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="7">
 <div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
 Standardized
 </div>
@@ -1996,10 +1972,10 @@ dem60
 </tbody>
 </table></li>
 </ul>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="kw">sem_factorcor</span>(fit, <span class="dt">factors =</span> factors)</a></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="structural-equation-modelling.html#cb348-1"></a><span class="kw">sem_factorcor</span>(fit, <span class="dt">factors =</span> factors)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-410">Table 23.2: </span>Latent Factor Correlations
+<span id="tab:unnamed-chunk-411">Table 21.2: </span>Latent Factor Correlations
 </caption>
 <thead>
 <tr>
@@ -2034,10 +2010,10 @@ SE
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" data-line-number="1"><span class="kw">sem_factorvar</span>(fit, <span class="dt">factors =</span> factors)</a></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="structural-equation-modelling.html#cb349-1"></a><span class="kw">sem_factorvar</span>(fit, <span class="dt">factors =</span> factors)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-410">Table 23.2: </span>Latent Factor Variance/Residual Variance
+<span id="tab:unnamed-chunk-411">Table 21.2: </span>Latent Factor Variance/Residual Variance
 </caption>
 <thead>
 <tr>
@@ -2123,10 +2099,10 @@ dem65
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1"><span class="kw">sem_rsquared</span>(fit)</a></code></pre></div>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="structural-equation-modelling.html#cb350-1"></a><span class="kw">sem_rsquared</span>(fit)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-410">Table 23.2: </span>R-Squared Values
+<span id="tab:unnamed-chunk-411">Table 21.2: </span>R-Squared Values
 </caption>
 <thead>
 <tr>
@@ -2245,15 +2221,13 @@ dem65
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" data-line-number="1"><span class="kw">semPaths</span>(fit, <span class="dt">latents =</span> factors, <span class="dt">whatLabels =</span> <span class="st">&quot;std&quot;</span>, <span class="dt">layout =</span> <span class="st">&quot;tree2&quot;</span>, </a>
-<a class="sourceLine" id="cb304-2" data-line-number="2">         <span class="dt">rotation =</span> <span class="dv">2</span>, <span class="dt">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="dt">optimizeLatRes =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb304-3" data-line-number="3">         <span class="dt">intercepts =</span> <span class="ot">FALSE</span>, <span class="dt">residuals =</span> <span class="ot">TRUE</span>, <span class="dt">curve =</span> <span class="dv">1</span>, <span class="dt">curvature =</span> <span class="dv">2</span>, </a>
-<a class="sourceLine" id="cb304-4" data-line-number="4">         <span class="dt">sizeLat =</span> <span class="dv">10</span>, <span class="dt">nCharNodes =</span> <span class="dv">8</span>, <span class="dt">sizeMan =</span> <span class="dv">11</span>, <span class="dt">sizeMan2 =</span> <span class="dv">4</span>, </a>
-<a class="sourceLine" id="cb304-5" data-line-number="5">         <span class="dt">edge.label.cex =</span> <span class="fl">1.2</span>, <span class="dt">edge.color =</span> <span class="st">&quot;#000000&quot;</span>)</a></code></pre></div>
-<p><img src="EngleLab-UseR-Guide_files/figure-html/unnamed-chunk-411-1.png" width="672" /></p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="structural-equation-modelling.html#cb351-1"></a><span class="kw">semPaths</span>(fit, <span class="dt">latents =</span> factors, <span class="dt">whatLabels =</span> <span class="st">&quot;std&quot;</span>, <span class="dt">layout =</span> <span class="st">&quot;tree2&quot;</span>, </span>
+<span id="cb351-2"><a href="structural-equation-modelling.html#cb351-2"></a>         <span class="dt">rotation =</span> <span class="dv">2</span>, <span class="dt">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="dt">optimizeLatRes =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb351-3"><a href="structural-equation-modelling.html#cb351-3"></a>         <span class="dt">intercepts =</span> <span class="ot">FALSE</span>, <span class="dt">residuals =</span> <span class="ot">TRUE</span>, <span class="dt">curve =</span> <span class="dv">1</span>, <span class="dt">curvature =</span> <span class="dv">2</span>, </span>
+<span id="cb351-4"><a href="structural-equation-modelling.html#cb351-4"></a>         <span class="dt">sizeLat =</span> <span class="dv">10</span>, <span class="dt">nCharNodes =</span> <span class="dv">8</span>, <span class="dt">sizeMan =</span> <span class="dv">11</span>, <span class="dt">sizeMan2 =</span> <span class="dv">4</span>, </span>
+<span id="cb351-5"><a href="structural-equation-modelling.html#cb351-5"></a>         <span class="dt">edge.label.cex =</span> <span class="fl">1.2</span>, <span class="dt">edge.color =</span> <span class="st">&quot;#000000&quot;</span>)</span></code></pre></div>
+<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-412-1.png" width="672" /></p>
 <hr />
-<hr />
-<p><strong>Something</strong></p>
 
 </div>
 </div>

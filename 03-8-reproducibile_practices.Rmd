@@ -1,0 +1,277 @@
+# Reproducible Practices
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+```{r include=FALSE, eval = TRUE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE)
+```
+
+An advantage of using R is learning how to manage and handle your data processing workflow in a way that empowers your ability to analyze and explore your data. 
+
+If you treat R as just an alternative to SPSS, then it is all too easy to create poorly written scripts and disorganized projects that completely undermine reproducibility. Honestly, I am not sure if it is worth taking the time and effort to learn R as simply an alternative to SPSS. 
+
+In this chapter I will talk about how we need to think about interacting with the R Environment, R Scripts, and the data files on our computer in order to not undermine reproducibility.
+
+Parts of this next section are taken directly from the excellent book on Data Science in R
+
+----
+<div style="text-align: center; font-size: 1.25em">
+<i class="fas fa-book" style="font-size: 1.25em"></i> 
+[R for Data Science](https://r4ds.had.co.nz/workflow-projects.html)
+</div>
+----
+
+One day you will need to quit R, go do something else and return to your analysis the next day. One day you will be working on multiple analyses and/or projects simultaneously that all use R and you want to keep them separate. One day you will need to bring data from the outside world into R and send numerical results and figures from R back out into the world. To handle these real life situations, you need to make two decisions:
+
+1. What about your analysis is “real”, i.e. what will you save as your lasting record of what happened?
+
+2. Where does your analysis “live”?
+
+## What is real?
+
+As a beginner R user, it is tempting to consider whatever is in your `Environment` as *"real"* (i.e. data we have imported and objects we have created with <-). However, we should consider our **R Scripts** and **Data Files** saved on our computer as *real*. 
+
+With your R scripts (and your data files), you can recreate the `Environment`. It’s much harder to recreate R scripts from your `Environment`! You’ll either have to retype a lot of code from memory (making mistakes all the way) or you’ll have to carefully mine your R history.
+
+Think of the `Environment` as more of a temporary *workspace*. This *workspace* will get cleared out every time you Restart or Quit out of R and RStudio. If you treat your `Environment` as real this can have disastrous consequences and you can lose a lot of productivity and undermine your reproducibility.
+
+----
+<div style="text-align: center; font-size: 1.25em">
+Your R Scripts and Data Files are *real*
+</div>
+----
+
+Even if you need to Quit R, come back to an analysis the next day, or want to run your analysis on a different computer than you started with, you should be able to reproduce your analyses.
+
+----
+<div style="text-align: center; font-size: 1.25em">
+You should be able to **Reproduce** all your analyses from your saved R scripts and *original* data files. 
+</div>
+----
+
+## Where does your analysis live?
+
+"One day you will be working on multiple analyses and/or projects simultaneously that all use R and you want to keep them separate"
+
+There are two levels at which your analysis will live
+
+1. Project level
+
+2. Individual R Script level
+
+### Project Level
+
+The **Project Level** refers to where you are storing all your files associated with the project (i.e. R scripts, data files, figures, results) as well as to the organization of your folders and files. I talked about Project Organization in the previous chapter but now I want to talk about why using RStudio Projects is a good idea.
+
+If you are working on multiple projects at one time, then it is *vital* to:
+
+----
+<div style="text-align: center; font-size: 1.25em">
+Keep your analysis from different projects separated
+</div>
+----
+
+You do not want objects created in your `Environment` from one project to get mixed up with objects (perhaps with the same object names) in a different project. We have not talked about the concept of *Working Directories* yet, but you also need to ensure your working directory is correctly set in order to import and output files. If you are working on multiple projects at one time, not keeping them separated will create issues **Reproducing** your analysis because the working directory might not be set correctly.
+
+The three most important elements to an environment are:
+
+1. The working directory
+
+2. Loaded packages
+
+3. Objects
+
+**The best way to keep project `Environments` separated is to work on them in separate R Sessions**.
+
+You can have multiple Sessions of R open at one time. The three elements of an `Environment` in one R Session will be different and independent from those in another R Session. RStudio has an excellent way of managing separate projects with a feature called RStudio Projects.
+
+----
+<div style="text-align: center; font-size: 1.25em">
+Use **RStudio Projects** to create separate Environments for your projects 
+</div>
+----
+
+See below for more details on RStudio Projects.
+
+### Script Level
+
+Within a Project, you will have multiple R Scripts that are performing a different analysis. It is also important to keep the `Environment` of an R Script independent of the `Environment` from other R Scripts, even within the same project. 
+
+Obviously your R Scripts will be dependent on one another in the sense that one R Script might be creating data files that other R Scripts will later use. 
+
+For example, you might have an R Script (or multiple scripts) that prepare the data for statistical analysis by creating a *scored merged data file*. Then another R Script will actually run and output the statistical analyses. The statistical analysis R Script is dependent on a data file created by the first R Script. **However**, the `Environment` of the R Scripts are independent from one another.
+
+----
+<div style="text-align: center; font-size: 1.25em">
+R Scripts are linked in a data processing workflow through the data files they create not by the objects in the Environment
+</div>
+----
+
+**Therefore, it is important that the `Environment` of each R Script within a Project are independent from one another.** This means that an R Script should not depend on objects created or data imported in other R Scripts. Any packages required for an R Script should be loaded in THAT script and not depend on them being loaded in other R Scripts. 
+
+As long as the data files required for an R Script are already created, you should be able to open a completely new and fresh session of R and successfully execute all the lines of code in that one Script (without having ran any other scripts). 
+
+At the end of each R Script I had you include the line of code
+
+```{r}
+rm(list = ls())
+```
+
+This removes all Objects in your **Environment**. That way when you run the next R Script it is starting from a blank **Environment**
+
+Some people in the R community say this is not a good practice, but in reality it is not harmful to add this line of code.
+
+## Environment
+
+Because we should treat our **Environment** as a temporary *workspace* we need to make sure that our **Environments** are as independent as possible from one another, at both the Project and Scripts Levels. I mentioned above that the three most important elements to an environment are:
+
+1. The working directory
+
+2. Loaded packages
+
+3. Objects
+
+### Working Directory
+
+You could use what are referred to as _absolute_ file paths to import and export files but this is not good practice. The reason is that the _absolute_ file path is specific to a particular computer. No one computer is going to have the same _absolute_ file path. An _absolute_ file path starts from the root directory on your computer and may look something like:
+
+Mac:  `~/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/R-Tutorial`
+
+Windows:  `C:\Users\jasontsukahara\Dropbox (GaTech)\My Work\Coding Projects\R\R-Tutorial`
+
+__You do not want to write scripts that can only work on a specific computer!__ One of the great advantages to programming for data processing is reproducibility. You and your future self (and other researchers) can reproduce your exact same data processing steps. __If you use absolute file paths you are undermining the reproducibility of your scripts__.
+
+__It is good practice__ to use _relative_ file paths instead. _Relative_ file paths start from a **working directory**. Let's say you have a **working directory** set to the following location:
+
+`~/Users/jasontsukahara/Dropbox (GaTech)/My Work/Research Projects/Cool Study`
+
+And you want to import files from a *Raw Data* directory within *Cool Study*. The absolute path to raw data files in `Cool Study` might look like: 
+
+`~/Users/jasontsukahara/Dropbox (GaTech)/My Work/Research Projects/Cool Study/Data Files/Raw Data`
+
+Whereas a relative file path from the working directory would be:
+
+`Data Files/Raw Data`
+
+You can see that with _relative_ file paths, only the internal organization of the project directory matters. This allows your script to be ran on different computers, systems, and environments! 
+
+Your working directory can be specified in various ways. By default, if you open up __RStudio__ directly it will set the working directory to some default location such as your _User_ root directory. __This is not good__. 
+
+If you open up __RStudio__ by directly opening an _R script file_ then it will set the working directory to the location of that file. This is better but still not ideal. 
+
+Because the working directory changes depending on how you open RStudio a lot of R Users will set a working directory at the top of their script using 
+
+```{r eval=FALSE}
+setwd()
+```
+
+However, this is not good because it requires the use of an absolute file path. 
+
+Ideally, we should not even have to think about the working directory since it can change depending on how R is opened. Thankfully there is a solution to make our dreams come true!
+
+#### RStudio Projects and `here::here()`
+
+[Visit this page](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects){target="_blank"} for more details on R Projects.
+
+Using RStudio Projects, helps keep your scripts and *Environments* from one project to the next separate from each other. 
+
+RStudio Projects allow you to open a fresh session of R that automatically sets the working directory to the location where the R Project is saved. R Projects have the file extension `.Rproj`.
+
+----
+<div style="text-align: center; font-size: 1.25em">
+Save .Rproj to your project's root directory
+</div>
+----
+
+There are a couple of ways you can open an RStudio Project. 
+
+* One way is to just simply open the `.Rproj` file. This will open a new R Session (and RStudio window). 
+
+* If you already have an RStudio window open you can navigate to the very top-right of the application window and browse different projects you have recently worked on. This is where you can also see which Project you currently have open.
+
+```{r echo = FALSE, eval = TRUE, fig.align='center'}
+knitr::include_graphics(rep("images/workflows/rproj_open.png"))
+```
+
+The `here` package in combination with RStudio Projects allows you to not even have to think about working directories.
+   
+For a passionate ode to the `here` package see: https://github.com/jennybc/here_here
+
+First go ahead and install the `here` package, `install.packages("here")`.
+
+Basically, when the `here` package is loaded, `library(here)`, it will search for an .Rproj file and it will set a **starting** file path at that location when you use `here()`. (It is not technically changing the working directory though but that doesn't matter when using `here()`)
+
+For instance, I have an .Rproj file saved in my "UseR_Guide" folder. When I use `here()` it will output a file path to that location.
+
+```{r message = TRUE, warning = TRUE}
+library(here)
+here()
+```
+
+You can then use `here()` to set a relative file path
+
+```{r}
+here("Data Files/Raw Data/flanker_raw.csv")
+```
+
+This is equivalent to
+
+```{r}
+here("Data Files", "Raw Data", "flanker_raw.csv")
+```
+
+<br>
+
+**I typically like to set the first argument as the relative file path and the second argument as the file name**
+
+```{r}
+here("Data Files/Raw Data", "flanker_raw.csv")
+```
+
+**This visually separates the file path and the file name, making your script easier to read.**
+
+You can use `here()` directly in import and output functions:
+
+```{r eval = FALSE}
+import <- read_csv(here("Data Files/Raw Data", "flanker_raw.csv"))
+```
+
+
+```{r eval = FALSE}
+write_csv(data, here("Data Files/Scored Data", "flanker_scored.csv"))
+```
+
+And you know that everytime you use `here()` that the file path will start at where you have your .Rproj file saved. Instead of messing around with working directories with `setwd()` or `getwd()`, just use `here()` and RStudio Projects. This becomes especially helpful when working with RMarkdown documents.
+
+----
+<div style="text-align: center; font-size: 1.25em">
+Avoid using `setwd()` by using RStudio Projects and `here::here()`
+</div>
+----
+
+### Loaded Packages
+
+To make sure that the packages used in one R Script do not depend on the packages loaded in other R Scripts:
+
+__Load all required packages for that one R Script at the top of the script__
+
+This allows you to easily evaluate which packages are required for that script. 
+
+### Objects
+
+To make sure that the objects and functions created in one R Script do not depend on the objects and functions created in other R Scripts:
+
+__Include the following line of code at the bottom of the script__
+
+`rm(list=ls())`
+
+This will remove any objects and functions in the current environment. That way when the next R Script is ran, there will be no leftover objects or functions from previous R Scripts.
+
+----
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, echo=FALSE}
+rm(list=ls())
+```
+
+
+

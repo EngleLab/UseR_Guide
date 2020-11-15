@@ -1,0 +1,86 @@
+# Scatterplots
+
+```{r include=FALSE, eval = TRUE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE)
+```
+
+You can go ahead and set a default theme for your plots
+
+```{r}
+theme_set(theme_linedraw())
+```
+
+
+The main type of plots we typically want to create in psychological science are:
+
+* Scatterplots
+
+* Bar graphs
+
+* Line graphs
+
+* Histograms
+
+## Scatterplots
+
+We have already spent a good amount of time creating scatterplots using `stat_smooth()` and/or `geom_smooth()`. 
+
+These two functions are essentially identical. In fact, many of the `geom_` functions are just wrappers around `stat_` functions.
+
+```{r echo=FALSE, out.width = 200, fig.align='center'}
+knitr::include_graphics(rep("images/dataviz/stat_func.png"))
+```
+
+The scatterplot we created from last chapter is essentially an interaction plot. The interaction of Species x Sepal.Length on Sepal.Width. 
+
+```{r}
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  geom_point() +
+  stat_smooth(method = "lm", se = FALSE)
+```
+
+For modeling an interaction effect in regression it is easier to interpret if the lines extend to all possible values - not just across the values within a group. 
+
+We can do this by specifying the argument `geom_smooth(fullrange = TRUE)`
+
+```{r}
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
+```
+
+Now what if the moderator was a continuous variable and not categorical like `Species`? We would want to set the `color` aesthetic to be on +/- 1 SD on the mean. How would we go about doing this?
+
+*The answer is*: It would be very difficult to do so. This is where the function `plot_model()` from the `sjPlot` package comes in handy.
+
+### Adding other geoms
+
+There might be other `geoms` we want to add to a scatterplot. Let's add some summary statistics to the graph. Specifically, a horizontal dashed line representing the mean on Sepal.Width and a vertical dashed line representing the mean on Sepal.Length. To make it more simple let's only do this for `Species == "setosa"`.
+
+```{r}
+library(dplyr)
+
+iris_means <- iris %>%
+  filter(Species == "setosa") %>%
+  mutate(Sepal.Width_mean = mean(Sepal.Width, na.rm = TRUE),
+         Sepal.Length_mean = mean(Sepal.Length, na.rm = TRUE))
+
+ggplot(iris_means, 
+       aes(Sepal.Length, Sepal.Width)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE) +
+  geom_hline(aes(yintercept = Sepal.Width_mean), 
+             linetype = "dashed", color = "red4") +
+  geom_vline(aes(xintercept = Sepal.Length_mean), 
+             linetype = "dashed", color = "green4")
+```
+
+----
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=ls())
+```
+
+
+
+

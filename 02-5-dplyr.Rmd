@@ -1,0 +1,657 @@
+# Data Manipulation using `dplyr`
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+```{r include=FALSE, eval = TRUE}
+knitr::opts_chunk$set(collapse=FALSE)
+```
+
+In this Chapter you will learn the fundamentals of data manipulation in R. In the *Getting Started in R* section you learned about the various types of objects in R. The most important object you will be using is the `dataframe`. Last Chapter you learned how to import data files into R as `dataframe`s. Now you will learn how to *do stuff to that `data frame`* using the `dplyr` package (which is of course part of the `tidyverse`)
+
+```{r echo=FALSE, out.width=125, fig.align='center'}
+knitr::include_graphics(rep("images/dplyr_logo.png"))
+```
+
+`dplyr` is one of the most useful packages in R. It uses a *Grammar of Data Manipulation* that is intuitive and easy to learn. The language of `dplyr` will be the underlying framework for how you will think about manipulating a `dataframe`. 
+
+----
+
+Not only is the language of `dplyr` intuitive but it allows you to perform data manipulations all within the `dataframe` itself, without having to create external variables, lists, for loops, etc. 
+
+**It can be tempting to hold information outside of a data frame but in general I suggest avoiding this strategy. Instead, hold the information in a new column within the `data frame` itself.**
+
+For example: A common strategy I see any many R scripts is to hold the mean or count of a column of values outside the `dataframe` and in a new variable in the Environment.
+
+```{r include = FALSE}
+library(dplyr)
+```
+
+
+```{r}
+data <- data.frame(x = c(1,6,4,3,7,5,8,4), y = c(2,3,2,1,4,6,4,3))
+
+x_mean <- mean(data$x)
+```
+
+This variable then could be used to subtract out the mean from the values in column `y`
+
+```{r}
+data <- mutate(data, y_new = y - x_mean)
+head(data)
+```
+
+*`mutate()` is a dplyr function you will learn about in a second.*
+
+In general, I would advise against this strategy. A better strategy is to do all this without leaving the data frame `data`. 
+
+```{r}
+data <- data.frame(x = c(1,6,4,3,7,5,8,4), y = c(2,3,2,1,4,6,4,3))
+data <- mutate(data,
+               x_mean = mean(x),
+               y_new = y - x_mean)
+head(data)
+```
+
+It can tempting to also think about writing for loops in your R script, but honestly for the most part for loops are avoidable thanks to a dplyr function called `group_by()`. 
+
+The only time I end up needing a for loop is when importing a long list of files, or when creating code to put into a function.
+
+-----
+
+dplyr uses intuitive language that you are already familiar with. As with any R function, you can think of functions in the dplyr package as verbs - that refer to performing a particular action on a data frame. The core dplyr functions are:
+
+* `rename()`  renames columns
+
+* `filter()`  filters rows based on their values in specified columns
+
+* `select()`  selects (or removes) columns
+
+* `mutate()`  creates new columns based on transformation from other columns, edits values within existing columns
+
+* `group_by()`  splits data frame into separate groups based on specified columns
+
+* `summarise()`  aggregates across rows to create a summary statistic (means, standard deviations, etc.)
+
+For more information on these functions [Visit the dplyr webpage](https://dplyr.tidyverse.org){target="_blank"}
+
+If you have not done so already, install the dplyr package
+
+```{r eval=FALSE}
+install.packages("dplyr")
+```
+
+You will also need the `tidyr` package (a `tidyverse` package) for this Chapter
+
+```{r eval=FALSE}
+install.packages("tidyr")
+```
+
+----
+<div style="text-align: center; font-size: 1.25em">
+<i class="fas fa-save" style="font-size: 3em"></i> 
+
+Save a new R script file as `5_dplyr.R`
+
+</div>
+----
+
+For this Chapter we will use an example data set from the *Flanker* task. This data set is a *tidy* raw data file for over 100 subjects on the *Flanker* task. There is one row per `Trial` per `Subject` and there is `RT` and `Accuracy` data on each `Trial`. Each `Trial` is either `congruent` or `incongruent`. 
+
+What we will want to do is calculate a `FlankerEffect` for each `Subject` so that we end up with one score for each `Subject`.
+
+Go ahead and download the example data set and save it wherever you wish. We will talk about how to organize your data and R scripts in section *III. Workflow*.
+
+----
+
+<div style="text-align: center; font-size: 1.25em">
+[<i class="fas fa-download" style="font-size: 3em"></i> ](http://englelab.gatech.edu/useRguide/tidyverse_example.zip)
+
+[**Download Example Tidyverse Data**](http://englelab.gatech.edu/useRguide/tidyverse_example.zip)
+</div>
+
+----
+
+## Setup
+
+At the top of your script load the three packages you will need for this Chapter
+
+```{r}
+## Setup
+library(readr)
+library(dplyr)
+library(tidyr)
+```
+
+Notice how I added a *commented* line at the top. Adding *comments* to your scripts is highly advisable, as it will help you understand your scripts when you come back to them after not working on them for a while. You only need to add a single `#` to create a commented line.
+
+You will also notice that it printed out some *warning* messages. Sometimes different packages have the same function names. So when you load a package it may override or *mask* functions from other packages that are already loaded.
+
+## Import
+
+Import the data file you downloaded. Refer to **Chapter 5** for importing data into R.
+
+```{r message = FALSE}
+import <- read_csv("Data Files/tidyverse_example.csv")
+```
+
+It is always a good idea to get to know your `dataframe` before you start messing with it. What are the column names? What kind of values are stored in each column? How many observations are there? How many `Subjects`? How many `Trials`? etc.
+
+What are the column names? use `colnames()` for a quick glance at the column names
+
+```{r}
+colnames(import)
+```
+
+
+To take a quick look at the first few rows of a `dataframe` use `head()`. 
+
+```{r}
+head(import)
+```
+
+This gives you a good idea of what column names you will be working with and what kind of values they contain.
+
+To evaluate what are all the unique values in a column you can use `unique()`. You can also use this in combination with `length()` to evaluate how many unique values are in a column.
+
+```{r}
+unique(import$Condition)
+unique(import$Trial)
+max(import$Trial)
+length(unique(import$Subject))
+unique(import$TrialProc)
+unique(import$ACC)
+```
+
+All these functions we just used from `colnames()` to `unique()` were to temporarily evaluate our data. They are not required to perform the actual data analysis. Therefore, I usually just type these in the console. A general rule of thumb is that if it is not required to be saved in your Script file then just type it in the console.
+
+----
+
+Okay let's take a look at how to use the `dplyr` functions to score this data.
+
+## `rename()`
+
+We do not really need to, but let's go ahead and `rename()` a column. How about instead of `ACC` let's label it as `Accuracy`. Pretty simple
+
+```{r collapse=TRUE}
+data <- rename(import, Accuracy = ACC)
+```
+
+`rename()` is really only useful if you are not also using `select()` or `mutate()`. In `select()` you can also rename columns as you select them to keep. This will be illustrated this later
+
+Notice that I passed the output of this function to a new object `data`. I like to keep the object `import` as the original imported file and any changes will be passed onto a new data frame, such as `data`. This makes it easy to go back and see what the original data is. Because if we were to overwrite `import` then we would have to execute the `read_csv()` import function again to be able to see the original data file, just a little more tedious.
+
+## `filter()`
+
+`filter()` is an inclusive filter and requires the use of *logical* statements. In **Chapter 2: Basic R** I talked a little bit about logical statements. Here is a list of logical operators in R:
+
+```{r echo=FALSE, out.width=200}
+knitr::include_graphics(rep("images/logical-operations.png"))
+```
+
+In addition to these logical operators, these functions can be used in`filter()`:
+
+* `is.na()` - include if missing
+
+* `!is.na()` - include if not missing
+
+* `between()` - values that are between a certain range of numbers
+
+* `near()` - values that are near a certain value
+
+We do not want to include practice trials when calculating the mean on RTs. We will use `filter()` to remove these rows. First let's evaluate the values in these columns
+
+```{r collapse=TRUE}
+unique(import$TrialProc)
+unique(import$Condition)
+```
+  
+We can specify our `filter()` in a couple of different ways
+
+```{r collapse=TRUE}
+data <- filter(data, 
+               TrialProc != "practice", 
+               Condition != "neutral")
+```
+
+or
+
+```{r collapse=TRUE, eval=FALSE}
+data <- filter(import, 
+               TrialProc == "real", 
+               Condition == "congruent" | Condition == "incongruent")
+```
+
+Specifying multiple arguments separated by a comma `,` in `filter()` is equivalent to an `&` (`and`) statement. 
+
+In the second option, since there are two types of rows on `Condition` that we want to keep we need to specify `Condition ==` twice, separated by `|`  (`or`). We want to keep rows where `Condition == "congruent"` `or` `Condition == "incongruent"`
+
+Notice that the arguments have been separated on different lines. This is okay to do and makes it easier to read the code. Just make sure the end of the line still has a comma.
+
+Go ahead and view `data`. Did it properly remove `practice` trials? How about `neutral` trials?
+
+```{r collapse=TRUE}
+unique(data$TrialProc)
+unique(data$Condition)
+```
+
+**Again you should type these in the console NOT in the R Script!**
+
+There is a lot of consistency of how you specify arguments in the dplyr package. 
+
+1) You always first specify the data frame that the function is being performed on, followed by the arguments for that function. 
+
+2) Column names can be called just like regular R objects, that is without putting the column name in `" "` like you do with strings. If all you know is dplyr, then this might not seem like anything special but it is. Most non-tidyverse functions will require you to put `" "` around column names.
+
+
+## `select()`
+
+`select()` allows you to select which columns to keep and/or remove.
+
+Let's keep `Subject`, `Condition`, `RT`, `Trial`, and `Accuracy` and remove `TrialProc`, `TargetArrowDirection`, `SessionDate`, and `SessionTime`.
+
+`select()` is actually quite versatile - you can remove columns by specifying certain patterns. I will only cover a couple here, but to learn more [Visit the select() webpage](https://dplyr.tidyverse.org/reference/select.html){target="_blank"}
+
+We could just simply select all the columns we want to keep
+
+```{r collapse=TRUE, eval=FALSE}
+data <- select(data, Subject, Condition, RT, Trial, Accuracy)
+```
+
+alternatively we can specify which columns we want to remove by placing a `-` in front of the columns
+
+```{r collapse=TRUE, eval=FALSE}
+data <- select(data, -TrialProc, -TargetArrowDirection, 
+               -SessionDate, -SessionTime)
+```
+
+or we can remove (or keep) columns based on a pattern. For instance `SessionDate` and `SessionTime` both start with `Session`
+
+```{r collapse=TRUE, eval=FALSE}
+data <- select(data, -TrialProc, -TargetArrowDirection, 
+               -starts_with("Session"))
+```
+
+You might start realizing that there is always more than one way to perform the same operation. It is good to be aware of all the ways you can use a function because there might be certain scenarios where it is better or even required to use one method over another. In this example, you only need to know the most straightforward method of simply selecting which columns to keep. 
+
+You can also rename variables as you `select()` them... let's change `Accuracy` back to `ACC`... just because we are crazy!
+
+```{r collapse=TRUE}
+data <- select(data, Subject, Condition, RT, Trial, ACC = Accuracy)
+```
+
+We are keeping `Subject`, `Condition`, `RT`, `Trial`, and renaming `ACC` to `Accuracy`.
+
+## `mutate()`
+
+`mutate()` is a very powerful function. It basically allows you to do any computation or transformation on the values in the data frame. You can 
+
+1) change the values in already existing columns
+
+2) create new columns based on transformation of other columns
+
+### Changing values in an existing column
+
+Reaction times that are less than 200 milliseconds most likely do not reflect actual processing of the task. Therefore, it would be a good idea to not include these when calculating means.
+
+What we are going to do is is set any RTs that are less than `200` milliseconds to missing, `NA`. First let's make sure we even have trials that are less than `200` milliseconds. Two ways to do this. 1) View the data frame and click on the `RT` column to sort by RT. You can see there are RTs that are as small as 1 millisecond! Oh my, that is definitely not a real reaction time. 2) you can just evaluate the minimum value in the RT column:
+
+```{r collapse=TRUE}
+min(data$RT)
+```
+
+Now lets `mutate()`
+
+```{r collapse=TRUE, eval=FALSE}
+data <- mutate(data, RT = ifelse(RT < 200, NA, RT))
+```
+
+Since we are replacing values in an already existing column we can just specify that column name, `RT = ` followed by the transformation. Here we need to specify an if...then... else statement. To do so within the `mutate()` function we use the function called `ifelse()`. 
+
+`ifelse()` evaluates a logical statement specified in the first argument, `RT < 200`. `mutate()` works on a row-by-row basis. So for each row it will evaluate whether `RT` is less than 200. If this logical statement is `TRUE` then it will perform the next argument, in this case sets `RT = NA`. If the logical statement is `FALSE` then it will perform the last argument, in this case sets `RT = RT` (leaves the value unchanged). 
+
+### Creating a new column
+
+Let's say for whatever reason we want to calculate the difference between the RT on a trial minus the overall grand mean RT (for now, across all subjects and all trials). This is not necessary for what we want in the end but what the heck, let's be a little crazy. (I just need a good example to illustrate what `mutate()` can do.)
+
+So first we will want to calculate a "grand" mean RT. We can use the `mean()` function to calculate a mean. 
+
+```{r collapse=TRUE}
+mean(data$RT, na.rm = TRUE)
+```
+
+Since we replaced some of the `RT` values with `NA` we need to make sure we specify in the `mean()` function to remove `NAs` by setting `na.rm = TRUE`.
+
+We can use the `mean()` function inside of a `mutate()` function. Let's put this "grand" mean in a column labeled `grandRT`.
+
+First take note of how many columns there are in `data`
+
+```{r collapse=TRUE}
+ncol(data)
+```
+
+So after calculating the grandRT we should expect there to be one additional column for a total of `r ncol(data) + 1` columns
+
+```{r collapse=TRUE, eval=FALSE}
+data <- mutate(data, grandRT = mean(RT, na.rm=TRUE))
+```
+
+Cool! 
+
+Now let's calculate another column that is the difference between `RT` and `grandRT`.
+
+```{r collapse=TRUE, eval=FALSE}
+data <- mutate(data, RTdiff = RT - grandRT)
+```
+
+We can put all these `mutate()s` into one `mutate()`
+
+```{r collapse=TRUE}
+data <- mutate(data, 
+               RT = ifelse(RT < 200, NA, RT),
+               grandRT = mean(RT, na.rm = TRUE),
+               RTdiff = RT - grandRT)
+```
+
+Notice how I put each one on a separate line. This is just for ease of reading and so the line doesn't extend too far off the page. Just make sure the commas are still there at the end of each line.
+
+## `case_when()`
+
+Often times you will want to `mutate()` values conditionally based on values in other columns. There are two functions that will help you do this, `ifelse()` and `case_when()`. `ifelse()` is a base R function and `case_when()` is a dplyr function.
+
+`ifelse()` takes the format: `ifelse(conditional argument, value if TRUE, value if FALSE)`
+
+As an example, lets say we want to code a new variable that indicates whether the reaction time on a trial met a certain response deadline or not. Let's call this column `Met_ResponseDeadline` and give a value of `1` to trials that met the deadline and `0` to trials that did not meet the deadline. Let's set the response deadline at a reaction time of `500` milliseconds. 
+
+The conditional argument will take the form: `RT` is less than or equal to 500. If this statement is `TRUE`, then we will assign a value of `1` to the column `Met_ResponseDeadline`. If this statement is `FALSE`, then we will assign a value of `0` to the column `Met_ResponseDeadline`.
+
+The code looks like:
+
+```{r}
+data <- import %>%
+  mutate(Met_ResponseDeadline = ifelse(RT <= 500, 1, 0))
+```
+
+Check out `data` to make sure it worked.
+
+You can even combine multiple `ifelse()` statements into one. Let's say we actually want to recode the column `ACC` to reflect not just correct and incorrect response but also whether they met the response deadline or not. That is, a value of `1` will represent responses that were correct AND met the response deadline and values of `0` represent responses that were either incorrect, did not meet the response deadline, or both.
+
+```{r}
+data <- import %>%
+  mutate(ACC = ifelse(ACC == 1, ifelse(RT <= 500, 1, 0), 0))
+```
+
+The arguments for the first `ifelse()` are as follows: Accuracy is equal to 1. If TRUE, then second `ifelse()` statement. If FALSE, then 0.
+
+This makes sense because if the accuracy is `0` (incorrect), then the value needs to remain `0`. However, if the accuracy is `1`, the value will depend on whether the reaction time is less than `500` (thus the second `ifelse()`).
+
+If accuracy is equal to `1`, then if reaction time is less than or equal to `500`, then set accuracy to `1`. If FALSE, then set accuracy to `0`.
+
+*Know that you can place the additional `ifelse()` statement in either the TRUE or FALSE argument and can keep iterating on `ifelse()` statements for as long as you need (however that can get pretty complicated).*
+
+`case_when()` is an alternative to an `ifelse()`. Anytime you need multiple `ifelse()` statements `case_when()` tends to simplify the code and logic involved. 
+
+Let's see examples of the two examples provided for `ifelse()` as a comparison.
+
+```{r}
+data <- import %>%
+  mutate(Met_ResponseDeadline = case_when(RT <= 500 ~ 1,
+                                          RT > 500 ~ 0))
+```
+
+Notice that the notation is quite different here. Each argument contains the format: conditional statement followed by the symbol `~` (this should be read as "then set as") and then a value to be assigned **when** the conditional statement is `TRUE`. There is no value to specify **when** it is `FALSE`. 
+
+Therefore, it is important when using the `case_when()` function to either 1) include enough TRUE statement arguments to cover ALL possible values or 2) use the uncharacteristically non-intuitive notation - `TRUE ~ "some value"`. In the example above, all possible `RT` values are included in the two arguments `RT <= 500` and `RT > 500`. 
+
+To provide an example of the second option:
+
+```{r}
+data <- import %>%
+  mutate(Met_ResponseDeadline = case_when(RT <= 500 ~ 1,
+                                          TRUE ~ 0))
+```
+
+The `case_when()` function will evaluate each argument in sequential order. So when it gets to the last argument (and this should always be the last argument), this is basically saying, **when** it is `TRUE` that none of the above arguments were `TRUE` (hence why this argument is being evaluated) then (`~`) set the value to "some value" (whatever value you want to specify). 
+
+Now this function gets a little more complicated if you want to set values to `NA`. `NA` values are technically logical values like `TRUE` or `FALSE`. The values in a column can only be of one type; numerical, character, logical, etc. Therefore, if you have numerical values in a column but want to set some to `NA`, then this becomes an issue when using `case_when()` (hopefully this will be fixed in future updates to `dplyr`). For now, how to get around this is changing the type of value that `NA` is. For instance; `as.numeric(NA)`, `as.character(NA)`.
+
+```{r}
+data <- import %>%
+  mutate(Met_ResponseDeadline = case_when(RT <= 500 ~ 1,
+                                          RT > 500 ~ 0,
+                                          TRUE ~ as.numeric(NA)))
+```
+
+Now on to the example in which we used two `ifelse()` statements. 
+
+```{r}
+data <- import %>%
+  mutate(ACC = case_when(ACC == 1 & RT <= 500 ~ 1,
+                         ACC == 1 & RT > 500 ~ 0,
+                         ACC == 0 ~ 0))
+```
+
+When you have multiple `ifelse()` statements `case_when()` becomes easier to read. Compare this use of `case_when()` with the equivalent `ifelse()` above. 
+
+The `case_when()` function makes it very explicit what is happening. There are three conditional statements, therefore three categories of responses. 
+
+1. A correct response and reaction time that meets the deadline.
+
+2. A correct response and reaction time that DOES NOT meet the deadline.
+
+3. An incorrect response
+
+These three options cover all possible combinations between the the two columns `ACC` and `RT`. 
+
+Accuracy should only be set to `1` (correct) with the first option and that is made quite clearly because it is the only one with `~ 1`.
+
+This is not as obvious in the `ifelse()` example.
+
+Let's move on to the next `dplyr` function.
+
+## `group_by()`
+
+This function is very handy if we want to perform functions separately on different groups or splits of the data frame. For instance, maybe instead of calculating an overall "grand" mean we want to calculate a "grand" mean for each Subject separately. Instead of manually breaking the data frame up by Subject, the `group_by()` function does this automatically in the background. Like this...
+
+```{r collapse=TRUE, eval=FALSE}
+data <- group_by(data, Subject)
+data <- mutate(data, 
+               RT = ifelse(RT < 200, NA, RT),
+               grandRT = mean(RT, na.rm = TRUE),
+               RTdiff = RT - grandRT)
+```
+
+You will now notice that each subject has a different `grandRT`, simply because we specified `group_by(data, Subject)`. Let's say we want to do it not just grouped by Subject, but also Condition.
+
+```{r collapse=TRUE, eval=FALSE}
+data <- group_by(data, Subject, Condition)
+data <- mutate(data, 
+               RT = ifelse(RT < 200, NA, RT),
+               grandRT = mean(RT, na.rm = TRUE),
+               RTdiff = RT - grandRT)
+```
+
+`group_by()` does not only work on `mutate()` - it will work on any other functions you specify after `group_by()`. Therefore, it can essentially replace most uses of for loops.
+
+I suggest exercising caution when using `group_by()` because the grouping will be maintained until you specify a different `group_by()` or until you ungroup it using `ungroup()`. So I always like to `ungroup()` immediately after I am done with it.
+
+```{r collapse=TRUE, eval=FALSE}
+data <- group_by(data, Subject, Condition)
+data <- mutate(data, 
+               RT = ifelse(RT < 200, NA, RT),
+               grandRT = mean(RT, na.rm = TRUE),
+               RTdiff = RT - grandRT)
+data <- ungroup(data)
+```
+
+## `summarise()`
+
+The `summarise()` function will **reduce** a data frame by summarizing values in one or multiple columns. The values will be summarised on some statistical value, such as a mean, median, or standard deviation. 
+
+Remember that in order to calculate the `FlankerEffect` for each subject, we first need to calculate each subject's mean `RT` on `incongruent` trials and their mean `RT` on `congruent` trials
+
+We've done our filtering, selecting, mutating, now let's aggregate RTs across `Condition` to calculate mean `RT`. We will use a combo of `group_by()` and `summarise()`. `summarise()` is almost always used in conjunction with `group_by()`. 
+
+*Let's also summarise the mean accuracy across conditions.*
+
+```{r collapse=TRUE}
+data <- group_by(data, Subject, Condition)
+data <- summarise(data,
+                  RT.mean = mean(RT, na.rm = TRUE),
+                  ACC.mean = mean(ACC, na.rm = TRUE))
+data <- ungroup(data)
+```
+
+To `summarise()` you need to create new column names that will contain the aggregate values. `RT.mean` seems to make sense to me.
+
+What does the resulting data frame look like? There should be three rows per subject, one for incongruent trials, one for congruent trials, and one for neutral trials. You can see that we now have mean RTs on all conditions for each subject. 
+
+Also, notice how non-group_by columns got removed: `Trial`, and `ACC`.
+
+## `pivot_wider()`
+
+Our data frame now looks like
+
+```{r}
+head(data)
+```
+
+Ultimately, we want to have one row per subject and to calculate the difference in mean RT between incongruent and congruent conditions. It is easier to calculate the difference between two values when they are in the same row. Currently, the mean RT for each condition is on a different row. What we need to do is **reshape** the data frame. To do so we will use the `pivot_wider()` function from the `tidyr` package.
+
+The `tidyr` package, like `readr` and `dplyr`, is from the **tidyverse** set of packages. The `pivot_wider()` function will convert a long data frame to a wide data frame. In other words, it will spread values on different rows across different columns. 
+
+In our example, what we want to do is `pivot_wider()` the mean RT values for the two conditions across different columns. So we will end up with is one row per subject and one column for each condition. Rather than incongruent, and congruent trials being represented down rows we are spreading them across columns (widening the data frame).
+
+The three main arguments to specify in `pivot_wider()` are
+
+* __id_cols__: The column names that uniquely identifies (e.g. "Subject") each observation and that you want to be retained when **reshaping** the data frame.
+
+* __names_from__: The column name that contains the variables to create new columns by (e.g. "Condition"). The values in this column will become Column names in the wider data format
+
+* __values_from__: The column name that contains the values (e.g. "RT"). 
+
+```{r collapse = TRUE}
+data_wide <- pivot_wider(data, 
+                         id_cols = "Subject",
+                         names_from = "Condition", 
+                         values_from = "RT.mean")
+```
+
+Now our data frame looks like
+
+```{r}
+head(data_wide)
+```
+
+Notice that the ACC.mean column and values were dropped. To add more transparency to our data frame it would be a good idea to label what values the "congruent" and "incongruent" columns contain. You can do this with the optional `names_prefix` argument. For instance:
+
+```{r}
+data_wide <- pivot_wider(data, 
+                         id_cols = "Subject",
+                         names_from = "Condition", 
+                         values_from = "RT.mean",
+                         names_prefix = "RT_")
+```
+
+```{r}
+head(data_wide)
+```
+
+Now a stranger (or a future YOU) will be able to look at this data frame and immediately know that reaction time values are contained in these columns.
+
+From here it is pretty easy, we just need to create a new column that is the difference between incongruent and congruent columns. We can use the `mutate()` function to do this
+
+```{r collapse = TRUE}
+data_wide <- mutate(data_wide, FlankerEffect_RT = RT_incongruent - RT_congruent)
+```
+
+```{r}
+head(data_wide)
+```
+
+
+Perfect! Using the `readr`, `dplyr`, and `tidyr` packages we have gone from a "tidy" raw data file to a data frame with one row per subject and a column of FlankerEffect scores. 
+
+What if we have multiple columns we want to get **id_cols**, **names_from**, or **values_from**? `pivot_wider()` allows for this very easily. For instance:
+
+```{r}
+data_wide <- pivot_wider(data, 
+                         id_cols = "Subject",
+                         names_from = "Condition", 
+                         values_from = c("RT.mean", "ACC.mean"))
+```
+
+```{r}
+head(data_wide)
+```
+
+Now you can see that we have four columns corresponding to reaction times and accuracy values across the two conditions. You can use the same notation `c()` if you want to use multiple column for **id_cols**, **names_from**, **values_from**.
+
+Now we can calculate a FlankerEffect for both RT and Accuracy values
+
+```{r}
+data_wide <- mutate(data_wide, 
+                    FlankerEffect_RT = RT.mean_incongruent - RT.mean_congruent,
+                    FlankerEffect_ACC = ACC.mean_incongruent - ACC.mean_congruent)
+```
+
+## `pivot_longer()`
+
+For our goal with this data set, we do not need to switch back to a **longer** data format, however **reshaping** your data to a **longer** format may be something you want to do one day.
+
+Let's try to reshape the `data_wide` back to a long format that we originally started with.
+
+When you have multiple **value** columns this is not as intuitive as `pivot_wider()`. To see more documentation and examples use `?tidyr::pivot_longer()`.
+
+```{r}
+data_long <- pivot_longer(data_wide,
+                          contains("mean"),
+                          names_to = c(".value", "Condition"),
+                          names_sep = "_")
+```
+
+## Pipe Operator %>%
+
+One last thing about the `dplyr` package. `dplyr` allows for passing the output from one function to another using what is called a pipe operator.
+
+The pipe operator is: `%>%`
+
+This makes code more concise, easier to read, and easier to edit. When you pass the output of one function to another with `%>%` you do not need to specify the data frame (input) on the next function. `%>%` implies that the input is the output from the previous function, so this is made implicit.
+
+We can pipe all the functions in the chapter together as such
+
+```{r collapse=TRUE, message=FALSE}
+## Setup
+library(readr)
+library(dplyr)
+library(tidyr)
+
+## Import
+import <- read_csv("Data Files/tidyverse_example.csv")
+
+## Score
+data <- import %>%
+  rename(Accuracy = ACC) %>%
+  filter(TrialProc == "real") %>%
+  select(Subject, Condition, RT, Trial, ACC = Accuracy) %>%
+  group_by(Subject, Condition) %>%
+  mutate(RT = ifelse(RT<200, NA, RT),
+         grandRT = mean(RT, na.rm=TRUE),
+         RTdiff = RT - grandRT) %>%
+  summarise(RT.mean = mean(RT, na.rm = TRUE),
+            ACC.mean = mean(ACC, na.rm = TRUE)) %>%
+  ungroup() %>%
+  pivot_wider(id_cols = "Subject",
+              names_from = "Condition", 
+              values_from = c("RT.mean", "ACC.mean")) %>%
+  mutate(FlankerEffect_RT = RT.mean_incongruent - RT.mean_congruent,
+         FlankerEffect_ACC = ACC.mean_incongruent - ACC.mean_congruent)
+```
+
+----
+
+Virtually all the R scripts you write will require the `dplyr` package. The more you know what it can do, the easier it will be for you to write R Scripts. I highly suggest checking out these introductions to `dplyr`. 
+
+https://dplyr.tidyverse.org
+https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html
+
+
