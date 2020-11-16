@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Tsukahara" />
 
 
-<meta name="date" content="2020-09-21" />
+<meta name="date" content="2020-11-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -139,8 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i>Why R?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#reproducibility-and-open-access"><i class="fa fa-check"></i>Reproducibility and Open Access</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#but-i-need-to-analyze-my-data-now"><i class="fa fa-check"></i>But I need to analyze my data NOW!</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-does-this-book-cover"><i class="fa fa-check"></i>What does this book cover?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-does-this-guide-cover"><i class="fa fa-check"></i>What does this guide cover?</a></li>
 </ul></li>
 <li class="part"><span><b>I Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
@@ -219,12 +218,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>III Reproducible Workflows</b></span></li>
 <li class="chapter" data-level="" data-path="reproducible-workflows-overview.html"><a href="reproducible-workflows-overview.html"><i class="fa fa-check"></i>Reproducible Workflows: Overview</a></li>
 <li class="chapter" data-level="7" data-path="project-organization.html"><a href="project-organization.html"><i class="fa fa-check"></i><b>7</b> Project Organization</a><ul>
-<li class="chapter" data-level="7.1" data-path="project-organization.html"><a href="project-organization.html#data-collection"><i class="fa fa-check"></i><b>7.1</b> Data Collection</a></li>
-<li class="chapter" data-level="7.2" data-path="project-organization.html"><a href="project-organization.html#data-preparation"><i class="fa fa-check"></i><b>7.2</b> Data Preparation</a></li>
-<li class="chapter" data-level="7.3" data-path="project-organization.html"><a href="project-organization.html#data-analysis"><i class="fa fa-check"></i><b>7.3</b> Data Analysis</a></li>
-<li class="chapter" data-level="7.4" data-path="project-organization.html"><a href="project-organization.html#workflow-package"><i class="fa fa-check"></i><b>7.4</b> <code>workflow</code> package</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="project-organization.html"><a href="project-organization.html#install"><i class="fa fa-check"></i><b>7.4.1</b> Install</a></li>
-<li class="chapter" data-level="7.4.2" data-path="project-organization.html"><a href="project-organization.html#create-a-new-r-project"><i class="fa fa-check"></i><b>7.4.2</b> Create a New R Project</a></li>
+<li class="chapter" data-level="7.1" data-path="project-organization.html"><a href="project-organization.html#data-collection-vs.-data-analysis"><i class="fa fa-check"></i><b>7.1</b> Data Collection vs. Data Analysis</a></li>
+<li class="chapter" data-level="7.2" data-path="project-organization.html"><a href="project-organization.html#data-collection"><i class="fa fa-check"></i><b>7.2</b> Data Collection</a></li>
+<li class="chapter" data-level="7.3" data-path="project-organization.html"><a href="project-organization.html#data-preparation"><i class="fa fa-check"></i><b>7.3</b> Data Preparation</a></li>
+<li class="chapter" data-level="7.4" data-path="project-organization.html"><a href="project-organization.html#data-analysis"><i class="fa fa-check"></i><b>7.4</b> Data Analysis</a></li>
+<li class="chapter" data-level="7.5" data-path="project-organization.html"><a href="project-organization.html#workflow-package"><i class="fa fa-check"></i><b>7.5</b> <code>workflow</code> package</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="project-organization.html"><a href="project-organization.html#install"><i class="fa fa-check"></i><b>7.5.1</b> Install</a></li>
+<li class="chapter" data-level="7.5.2" data-path="project-organization.html"><a href="project-organization.html#create-a-new-r-project"><i class="fa fa-check"></i><b>7.5.2</b> Create a New R Project</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="reproducible-practices.html"><a href="reproducible-practices.html"><i class="fa fa-check"></i><b>8</b> Reproducible Practices</a><ul>
@@ -388,7 +388,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>For each of these steps, the script organization from one task, analysis, or project to the next will be more or less the same. This means we can take advantage of using R script templates. Using R Script templates will not just save time but help you stay organized and use reproducibility practices talked about in the previous chapters.</p>
 <div id="install-workflow-package" class="section level2">
 <h2><span class="header-section-number">9.1</span> Install <code>workflow</code> package</h2>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="r-script-templates.html#cb200-1"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/workflow&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="r-script-templates.html#cb202-1"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/workflow&quot;</span>)</span></code></pre></div>
 <p>I have created some templates you can easily download using a single R function <code>workflow::template()</code></p>
 <p>There are different types of templates you can download using <code>workflow::template()</code>. You can always use <code>?workflow::template</code> to see help documentation.</p>
 <div id="data-preparation" class="section level3">
@@ -400,43 +400,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="messy-to-tidy-script" class="section level3">
 <h3><span class="header-section-number">9.1.2</span> messy-to-tidy script</h3>
 <p>If you want to download a template script for the step of converting <em>messy</em> raw data files to <em>tidy</em> raw data files during data preparation you can simply specify:</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="r-script-templates.html#cb201-1"></a>workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">rawscript =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="r-script-templates.html#cb203-1"></a>workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">rawscript =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p>Let us take a look at what the <strong>rawscript</strong> template looks like</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="r-script-templates.html#cb202-1"></a><span class="co">#### Setup ####</span></span>
-<span id="cb202-2"><a href="r-script-templates.html#cb202-2"></a><span class="co">## Load packages</span></span>
-<span id="cb202-3"><a href="r-script-templates.html#cb202-3"></a><span class="kw">library</span>(here)</span>
-<span id="cb202-4"><a href="r-script-templates.html#cb202-4"></a><span class="kw">library</span>(readr)</span>
-<span id="cb202-5"><a href="r-script-templates.html#cb202-5"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb202-6"><a href="r-script-templates.html#cb202-6"></a></span>
-<span id="cb202-7"><a href="r-script-templates.html#cb202-7"></a><span class="co">## Set Import/Output Directories</span></span>
-<span id="cb202-8"><a href="r-script-templates.html#cb202-8"></a>import_dir &lt;-<span class="st"> &quot;Data Files/Merged&quot;</span></span>
-<span id="cb202-9"><a href="r-script-templates.html#cb202-9"></a>output_dir &lt;-<span class="st"> &quot;Data Files&quot;</span></span>
-<span id="cb202-10"><a href="r-script-templates.html#cb202-10"></a></span>
-<span id="cb202-11"><a href="r-script-templates.html#cb202-11"></a><span class="co">## Set Import/Output Filenames</span></span>
-<span id="cb202-12"><a href="r-script-templates.html#cb202-12"></a>task &lt;-<span class="st"> &quot;taskname&quot;</span></span>
-<span id="cb202-13"><a href="r-script-templates.html#cb202-13"></a>import_file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb202-14"><a href="r-script-templates.html#cb202-14"></a>output_file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;raw.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</span>
-<span id="cb202-15"><a href="r-script-templates.html#cb202-15"></a><span class="co">################</span></span>
-<span id="cb202-16"><a href="r-script-templates.html#cb202-16"></a></span>
-<span id="cb202-17"><a href="r-script-templates.html#cb202-17"></a><span class="co">#### Import ####</span></span>
-<span id="cb202-18"><a href="r-script-templates.html#cb202-18"></a>data_import &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="kw">here</span>(import_dir, import_file), <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, </span>
-<span id="cb202-19"><a href="r-script-templates.html#cb202-19"></a>                          <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb202-20"><a href="r-script-templates.html#cb202-20"></a>                          <span class="dt">guess_max =</span> <span class="dv">10000</span>)</span>
-<span id="cb202-21"><a href="r-script-templates.html#cb202-21"></a><span class="co">################</span></span>
-<span id="cb202-22"><a href="r-script-templates.html#cb202-22"></a></span>
-<span id="cb202-23"><a href="r-script-templates.html#cb202-23"></a><span class="co">#### Tidy raw data ####</span></span>
-<span id="cb202-24"><a href="r-script-templates.html#cb202-24"></a>data_raw &lt;-<span class="st"> </span>data_import <span class="op">%&gt;%</span></span>
-<span id="cb202-25"><a href="r-script-templates.html#cb202-25"></a><span class="st">  </span><span class="kw">filter</span>() <span class="op">%&gt;%</span></span>
-<span id="cb202-26"><a href="r-script-templates.html#cb202-26"></a><span class="st">  </span><span class="kw">rename</span>() <span class="op">%&gt;%</span></span>
-<span id="cb202-27"><a href="r-script-templates.html#cb202-27"></a><span class="st">  </span><span class="kw">mutate</span>() <span class="op">%&gt;%</span></span>
-<span id="cb202-28"><a href="r-script-templates.html#cb202-28"></a><span class="st">  </span><span class="kw">select</span>()</span>
-<span id="cb202-29"><a href="r-script-templates.html#cb202-29"></a><span class="co">#######################</span></span>
-<span id="cb202-30"><a href="r-script-templates.html#cb202-30"></a></span>
-<span id="cb202-31"><a href="r-script-templates.html#cb202-31"></a><span class="co">#### Output ####</span></span>
-<span id="cb202-32"><a href="r-script-templates.html#cb202-32"></a><span class="kw">write_csv</span>(data_raw, <span class="kw">here</span>(output_dir, output_file))</span>
-<span id="cb202-33"><a href="r-script-templates.html#cb202-33"></a><span class="co">################</span></span>
-<span id="cb202-34"><a href="r-script-templates.html#cb202-34"></a></span>
-<span id="cb202-35"><a href="r-script-templates.html#cb202-35"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="r-script-templates.html#cb204-1"></a><span class="co">#### Setup ####</span></span>
+<span id="cb204-2"><a href="r-script-templates.html#cb204-2"></a><span class="co">## Load packages</span></span>
+<span id="cb204-3"><a href="r-script-templates.html#cb204-3"></a><span class="kw">library</span>(here)</span>
+<span id="cb204-4"><a href="r-script-templates.html#cb204-4"></a><span class="kw">library</span>(readr)</span>
+<span id="cb204-5"><a href="r-script-templates.html#cb204-5"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb204-6"><a href="r-script-templates.html#cb204-6"></a></span>
+<span id="cb204-7"><a href="r-script-templates.html#cb204-7"></a><span class="co">## Set Import/Output Directories</span></span>
+<span id="cb204-8"><a href="r-script-templates.html#cb204-8"></a>import_dir &lt;-<span class="st"> &quot;Data Files/Merged&quot;</span></span>
+<span id="cb204-9"><a href="r-script-templates.html#cb204-9"></a>output_dir &lt;-<span class="st"> &quot;Data Files&quot;</span></span>
+<span id="cb204-10"><a href="r-script-templates.html#cb204-10"></a></span>
+<span id="cb204-11"><a href="r-script-templates.html#cb204-11"></a><span class="co">## Set Import/Output Filenames</span></span>
+<span id="cb204-12"><a href="r-script-templates.html#cb204-12"></a>task &lt;-<span class="st"> &quot;taskname&quot;</span></span>
+<span id="cb204-13"><a href="r-script-templates.html#cb204-13"></a>import_file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb204-14"><a href="r-script-templates.html#cb204-14"></a>output_file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;raw.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</span>
+<span id="cb204-15"><a href="r-script-templates.html#cb204-15"></a><span class="co">################</span></span>
+<span id="cb204-16"><a href="r-script-templates.html#cb204-16"></a></span>
+<span id="cb204-17"><a href="r-script-templates.html#cb204-17"></a><span class="co">#### Import ####</span></span>
+<span id="cb204-18"><a href="r-script-templates.html#cb204-18"></a>data_import &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="kw">here</span>(import_dir, import_file), <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, </span>
+<span id="cb204-19"><a href="r-script-templates.html#cb204-19"></a>                          <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb204-20"><a href="r-script-templates.html#cb204-20"></a>                          <span class="dt">guess_max =</span> <span class="dv">10000</span>)</span>
+<span id="cb204-21"><a href="r-script-templates.html#cb204-21"></a><span class="co">################</span></span>
+<span id="cb204-22"><a href="r-script-templates.html#cb204-22"></a></span>
+<span id="cb204-23"><a href="r-script-templates.html#cb204-23"></a><span class="co">#### Tidy raw data ####</span></span>
+<span id="cb204-24"><a href="r-script-templates.html#cb204-24"></a>data_raw &lt;-<span class="st"> </span>data_import <span class="op">%&gt;%</span></span>
+<span id="cb204-25"><a href="r-script-templates.html#cb204-25"></a><span class="st">  </span><span class="kw">filter</span>() <span class="op">%&gt;%</span></span>
+<span id="cb204-26"><a href="r-script-templates.html#cb204-26"></a><span class="st">  </span><span class="kw">rename</span>() <span class="op">%&gt;%</span></span>
+<span id="cb204-27"><a href="r-script-templates.html#cb204-27"></a><span class="st">  </span><span class="kw">mutate</span>() <span class="op">%&gt;%</span></span>
+<span id="cb204-28"><a href="r-script-templates.html#cb204-28"></a><span class="st">  </span><span class="kw">select</span>()</span>
+<span id="cb204-29"><a href="r-script-templates.html#cb204-29"></a><span class="co">#######################</span></span>
+<span id="cb204-30"><a href="r-script-templates.html#cb204-30"></a></span>
+<span id="cb204-31"><a href="r-script-templates.html#cb204-31"></a><span class="co">#### Output ####</span></span>
+<span id="cb204-32"><a href="r-script-templates.html#cb204-32"></a><span class="kw">write_csv</span>(data_raw, <span class="kw">here</span>(output_dir, output_file))</span>
+<span id="cb204-33"><a href="r-script-templates.html#cb204-33"></a><span class="co">################</span></span>
+<span id="cb204-34"><a href="r-script-templates.html#cb204-34"></a></span>
+<span id="cb204-35"><a href="r-script-templates.html#cb204-35"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span></code></pre></div>
 <p>There are 4 main blocks of R code:</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Set up</strong> the script</p>
@@ -465,18 +465,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <code>source()</code> function is a way to execute all the lines of code in a script file. Rather than having to manually open each script file and sourcing it from there you can control your entire data processing workflow from the masterscript using <code>source()</code>. The argument <code>echo = TRUE</code> will print the results of the script to the console that way you can still see what the script is doing.</p>
 <p>This allows you to run each script from the masterscript and control the order in which you run them. For Data Preparation the order does not really matter, but once you get to Data Analysis the order is crucial.</p>
 <p>The masterscript template for <em>Data Preparation</em> can be downloaded with:</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="r-script-templates.html#cb203-1"></a>workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">masterscript =</span> <span class="st">&quot;data preparation&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="r-script-templates.html#cb205-1"></a>workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">masterscript =</span> <span class="st">&quot;data preparation&quot;</span>)</span></code></pre></div>
 <p>This masterscript is simple:</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="r-script-templates.html#cb204-1"></a><span class="co">## Data Preparation for Study Name</span></span>
-<span id="cb204-2"><a href="r-script-templates.html#cb204-2"></a></span>
-<span id="cb204-3"><a href="r-script-templates.html#cb204-3"></a><span class="co">#############################################</span></span>
-<span id="cb204-4"><a href="r-script-templates.html#cb204-4"></a><span class="co">#------ 0. &quot;messy&quot; to &quot;tidy&quot; raw data ------#</span></span>
-<span id="cb204-5"><a href="r-script-templates.html#cb204-5"></a><span class="co">#############################################</span></span>
-<span id="cb204-6"><a href="r-script-templates.html#cb204-6"></a></span>
-<span id="cb204-7"><a href="r-script-templates.html#cb204-7"></a><span class="kw">source</span>(<span class="st">&quot;R Scripts/0_taskname_raw.R&quot;</span>, <span class="dt">echo=</span><span class="ot">TRUE</span>)</span>
-<span id="cb204-8"><a href="r-script-templates.html#cb204-8"></a></span>
-<span id="cb204-9"><a href="r-script-templates.html#cb204-9"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span>
-<span id="cb204-10"><a href="r-script-templates.html#cb204-10"></a><span class="co">#############################################</span></span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="r-script-templates.html#cb206-1"></a><span class="co">## Data Preparation for Study Name</span></span>
+<span id="cb206-2"><a href="r-script-templates.html#cb206-2"></a></span>
+<span id="cb206-3"><a href="r-script-templates.html#cb206-3"></a><span class="co">#############################################</span></span>
+<span id="cb206-4"><a href="r-script-templates.html#cb206-4"></a><span class="co">#------ 0. &quot;messy&quot; to &quot;tidy&quot; raw data ------#</span></span>
+<span id="cb206-5"><a href="r-script-templates.html#cb206-5"></a><span class="co">#############################################</span></span>
+<span id="cb206-6"><a href="r-script-templates.html#cb206-6"></a></span>
+<span id="cb206-7"><a href="r-script-templates.html#cb206-7"></a><span class="kw">source</span>(<span class="st">&quot;R Scripts/0_taskname_raw.R&quot;</span>, <span class="dt">echo=</span><span class="ot">TRUE</span>)</span>
+<span id="cb206-8"><a href="r-script-templates.html#cb206-8"></a></span>
+<span id="cb206-9"><a href="r-script-templates.html#cb206-9"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span>
+<span id="cb206-10"><a href="r-script-templates.html#cb206-10"></a><span class="co">#############################################</span></span></code></pre></div>
 </div>
 </div>
 <div id="data-analysis" class="section level2">
@@ -492,43 +492,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="clean-and-score-script" class="section level3">
 <h3><span class="header-section-number">9.2.1</span> clean and score script</h3>
 <p>If you want to download a template script for the step of cleaning and scoring a raw data file you can type in the console:</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="r-script-templates.html#cb205-1"></a>workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">scorescript =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="r-script-templates.html#cb207-1"></a>workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">scorescript =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p>Let us take a look at what the <strong>scorescript</strong> template looks like</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="r-script-templates.html#cb206-1"></a><span class="co">#### Setup ####</span></span>
-<span id="cb206-2"><a href="r-script-templates.html#cb206-2"></a><span class="co">## Load Packages</span></span>
-<span id="cb206-3"><a href="r-script-templates.html#cb206-3"></a><span class="kw">library</span>(here)</span>
-<span id="cb206-4"><a href="r-script-templates.html#cb206-4"></a><span class="kw">library</span>(readr)</span>
-<span id="cb206-5"><a href="r-script-templates.html#cb206-5"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb206-6"><a href="r-script-templates.html#cb206-6"></a></span>
-<span id="cb206-7"><a href="r-script-templates.html#cb206-7"></a><span class="co">## Set Import/Output Directories</span></span>
-<span id="cb206-8"><a href="r-script-templates.html#cb206-8"></a>import_dir &lt;-<span class="st"> &quot;Data Files/Raw Data&quot;</span></span>
-<span id="cb206-9"><a href="r-script-templates.html#cb206-9"></a>output_dir &lt;-<span class="st"> &quot;Data Files/Scored Data&quot;</span></span>
-<span id="cb206-10"><a href="r-script-templates.html#cb206-10"></a></span>
-<span id="cb206-11"><a href="r-script-templates.html#cb206-11"></a><span class="co">## Set Import/Output Filenames</span></span>
-<span id="cb206-12"><a href="r-script-templates.html#cb206-12"></a>task &lt;-<span class="st"> &quot;taskname&quot;</span></span>
-<span id="cb206-13"><a href="r-script-templates.html#cb206-13"></a>import_file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;raw.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</span>
-<span id="cb206-14"><a href="r-script-templates.html#cb206-14"></a>output_file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;Scores.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</span>
-<span id="cb206-15"><a href="r-script-templates.html#cb206-15"></a></span>
-<span id="cb206-16"><a href="r-script-templates.html#cb206-16"></a><span class="co">## Set Data Cleaning Params</span></span>
-<span id="cb206-17"><a href="r-script-templates.html#cb206-17"></a></span>
-<span id="cb206-18"><a href="r-script-templates.html#cb206-18"></a><span class="co">###############</span></span>
-<span id="cb206-19"><a href="r-script-templates.html#cb206-19"></a></span>
-<span id="cb206-20"><a href="r-script-templates.html#cb206-20"></a><span class="co">#### Import ####</span></span>
-<span id="cb206-21"><a href="r-script-templates.html#cb206-21"></a>data_import &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">here</span>(import_dir, import_file))</span>
-<span id="cb206-22"><a href="r-script-templates.html#cb206-22"></a><span class="co">################</span></span>
-<span id="cb206-23"><a href="r-script-templates.html#cb206-23"></a></span>
-<span id="cb206-24"><a href="r-script-templates.html#cb206-24"></a><span class="co">#### Data Cleaning and Scoring ####</span></span>
-<span id="cb206-25"><a href="r-script-templates.html#cb206-25"></a>data_scores &lt;-<span class="st"> </span>data_import <span class="op">%&gt;%</span></span>
-<span id="cb206-26"><a href="r-script-templates.html#cb206-26"></a><span class="st">  </span><span class="kw">filter</span>() <span class="op">%&gt;%</span></span>
-<span id="cb206-27"><a href="r-script-templates.html#cb206-27"></a><span class="st">  </span><span class="kw">group_by</span>() <span class="op">%&gt;%</span></span>
-<span id="cb206-28"><a href="r-script-templates.html#cb206-28"></a><span class="st">  </span><span class="kw">summarise</span>()</span>
-<span id="cb206-29"><a href="r-script-templates.html#cb206-29"></a><span class="co">###################################</span></span>
-<span id="cb206-30"><a href="r-script-templates.html#cb206-30"></a></span>
-<span id="cb206-31"><a href="r-script-templates.html#cb206-31"></a><span class="co">#### Output ####</span></span>
-<span id="cb206-32"><a href="r-script-templates.html#cb206-32"></a><span class="kw">write_csv</span>(data_scores, <span class="kw">here</span>(output_dir, output_file))</span>
-<span id="cb206-33"><a href="r-script-templates.html#cb206-33"></a><span class="co">################</span></span>
-<span id="cb206-34"><a href="r-script-templates.html#cb206-34"></a></span>
-<span id="cb206-35"><a href="r-script-templates.html#cb206-35"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="r-script-templates.html#cb208-1"></a><span class="co">#### Setup ####</span></span>
+<span id="cb208-2"><a href="r-script-templates.html#cb208-2"></a><span class="co">## Load Packages</span></span>
+<span id="cb208-3"><a href="r-script-templates.html#cb208-3"></a><span class="kw">library</span>(here)</span>
+<span id="cb208-4"><a href="r-script-templates.html#cb208-4"></a><span class="kw">library</span>(readr)</span>
+<span id="cb208-5"><a href="r-script-templates.html#cb208-5"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb208-6"><a href="r-script-templates.html#cb208-6"></a></span>
+<span id="cb208-7"><a href="r-script-templates.html#cb208-7"></a><span class="co">## Set Import/Output Directories</span></span>
+<span id="cb208-8"><a href="r-script-templates.html#cb208-8"></a>import_dir &lt;-<span class="st"> &quot;Data Files/Raw Data&quot;</span></span>
+<span id="cb208-9"><a href="r-script-templates.html#cb208-9"></a>output_dir &lt;-<span class="st"> &quot;Data Files/Scored Data&quot;</span></span>
+<span id="cb208-10"><a href="r-script-templates.html#cb208-10"></a></span>
+<span id="cb208-11"><a href="r-script-templates.html#cb208-11"></a><span class="co">## Set Import/Output Filenames</span></span>
+<span id="cb208-12"><a href="r-script-templates.html#cb208-12"></a>task &lt;-<span class="st"> &quot;taskname&quot;</span></span>
+<span id="cb208-13"><a href="r-script-templates.html#cb208-13"></a>import_file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;raw.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</span>
+<span id="cb208-14"><a href="r-script-templates.html#cb208-14"></a>output_file &lt;-<span class="st"> </span><span class="kw">paste</span>(task, <span class="st">&quot;Scores.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</span>
+<span id="cb208-15"><a href="r-script-templates.html#cb208-15"></a></span>
+<span id="cb208-16"><a href="r-script-templates.html#cb208-16"></a><span class="co">## Set Data Cleaning Params</span></span>
+<span id="cb208-17"><a href="r-script-templates.html#cb208-17"></a></span>
+<span id="cb208-18"><a href="r-script-templates.html#cb208-18"></a><span class="co">###############</span></span>
+<span id="cb208-19"><a href="r-script-templates.html#cb208-19"></a></span>
+<span id="cb208-20"><a href="r-script-templates.html#cb208-20"></a><span class="co">#### Import ####</span></span>
+<span id="cb208-21"><a href="r-script-templates.html#cb208-21"></a>data_import &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">here</span>(import_dir, import_file))</span>
+<span id="cb208-22"><a href="r-script-templates.html#cb208-22"></a><span class="co">################</span></span>
+<span id="cb208-23"><a href="r-script-templates.html#cb208-23"></a></span>
+<span id="cb208-24"><a href="r-script-templates.html#cb208-24"></a><span class="co">#### Data Cleaning and Scoring ####</span></span>
+<span id="cb208-25"><a href="r-script-templates.html#cb208-25"></a>data_scores &lt;-<span class="st"> </span>data_import <span class="op">%&gt;%</span></span>
+<span id="cb208-26"><a href="r-script-templates.html#cb208-26"></a><span class="st">  </span><span class="kw">filter</span>() <span class="op">%&gt;%</span></span>
+<span id="cb208-27"><a href="r-script-templates.html#cb208-27"></a><span class="st">  </span><span class="kw">group_by</span>() <span class="op">%&gt;%</span></span>
+<span id="cb208-28"><a href="r-script-templates.html#cb208-28"></a><span class="st">  </span><span class="kw">summarise</span>()</span>
+<span id="cb208-29"><a href="r-script-templates.html#cb208-29"></a><span class="co">###################################</span></span>
+<span id="cb208-30"><a href="r-script-templates.html#cb208-30"></a></span>
+<span id="cb208-31"><a href="r-script-templates.html#cb208-31"></a><span class="co">#### Output ####</span></span>
+<span id="cb208-32"><a href="r-script-templates.html#cb208-32"></a><span class="kw">write_csv</span>(data_scores, <span class="kw">here</span>(output_dir, output_file))</span>
+<span id="cb208-33"><a href="r-script-templates.html#cb208-33"></a><span class="co">################</span></span>
+<span id="cb208-34"><a href="r-script-templates.html#cb208-34"></a></span>
+<span id="cb208-35"><a href="r-script-templates.html#cb208-35"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span></code></pre></div>
 <p>Like the rawscript, there are 4 main blocks of R code:</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Set up</strong> the script</p>
@@ -556,38 +556,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="merge-script" class="section level3">
 <h3><span class="header-section-number">9.2.2</span> merge script</h3>
 <p>To download a template script to merge several Scored data files together:</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="r-script-templates.html#cb207-1"></a>workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">mergescript =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="r-script-templates.html#cb209-1"></a>workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">mergescript =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p>The template looks like this:</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="r-script-templates.html#cb208-1"></a><span class="co">#### Set up ####</span></span>
-<span id="cb208-2"><a href="r-script-templates.html#cb208-2"></a><span class="co">## Load packages</span></span>
-<span id="cb208-3"><a href="r-script-templates.html#cb208-3"></a><span class="kw">library</span>(here)</span>
-<span id="cb208-4"><a href="r-script-templates.html#cb208-4"></a><span class="kw">library</span>(datawrangling) <span class="co"># for files_join() and trim()</span></span>
-<span id="cb208-5"><a href="r-script-templates.html#cb208-5"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb208-6"><a href="r-script-templates.html#cb208-6"></a></span>
-<span id="cb208-7"><a href="r-script-templates.html#cb208-7"></a><span class="co">## Set import/output directories</span></span>
-<span id="cb208-8"><a href="r-script-templates.html#cb208-8"></a>import_dir &lt;-<span class="st"> &quot;Data Files/Scored Data&quot;</span></span>
-<span id="cb208-9"><a href="r-script-templates.html#cb208-9"></a>output_dir &lt;-<span class="st"> &quot;Data Files&quot;</span></span>
-<span id="cb208-10"><a href="r-script-templates.html#cb208-10"></a>output_file &lt;-<span class="st"> &quot;name_of_datafile.csv&quot;</span></span>
-<span id="cb208-11"><a href="r-script-templates.html#cb208-11"></a><span class="co">################</span></span>
-<span id="cb208-12"><a href="r-script-templates.html#cb208-12"></a></span>
-<span id="cb208-13"><a href="r-script-templates.html#cb208-13"></a><span class="co">#### Import Files ####</span></span>
-<span id="cb208-14"><a href="r-script-templates.html#cb208-14"></a>data_import &lt;-<span class="st"> </span><span class="kw">files_join</span>(<span class="kw">here</span>(import_dir), <span class="dt">pattern =</span> <span class="st">&quot;Scores&quot;</span>, <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>)</span>
-<span id="cb208-15"><a href="r-script-templates.html#cb208-15"></a><span class="co">######################</span></span>
-<span id="cb208-16"><a href="r-script-templates.html#cb208-16"></a></span>
-<span id="cb208-17"><a href="r-script-templates.html#cb208-17"></a><span class="co">#### Select only important variables ####</span></span>
-<span id="cb208-18"><a href="r-script-templates.html#cb208-18"></a>data_merge &lt;-<span class="st"> </span>data_import <span class="op">%&gt;%</span></span>
-<span id="cb208-19"><a href="r-script-templates.html#cb208-19"></a><span class="st">  </span><span class="kw">select</span>()</span>
-<span id="cb208-20"><a href="r-script-templates.html#cb208-20"></a></span>
-<span id="cb208-21"><a href="r-script-templates.html#cb208-21"></a><span class="co">## Create list of final subjects</span></span>
-<span id="cb208-22"><a href="r-script-templates.html#cb208-22"></a>subj.list &lt;-<span class="st"> </span><span class="kw">select</span>(data_merge, Subject)</span>
-<span id="cb208-23"><a href="r-script-templates.html#cb208-23"></a><span class="co">#################################################################</span></span>
-<span id="cb208-24"><a href="r-script-templates.html#cb208-24"></a></span>
-<span id="cb208-25"><a href="r-script-templates.html#cb208-25"></a><span class="co">#### Output ####</span></span>
-<span id="cb208-26"><a href="r-script-templates.html#cb208-26"></a><span class="kw">write_csv</span>(data_merge, <span class="kw">here</span>(output_dir, output_file))</span>
-<span id="cb208-27"><a href="r-script-templates.html#cb208-27"></a><span class="kw">write_csv</span>(subj.list, <span class="kw">here</span>(output_dir, <span class="st">&quot;subjlist_final.csv&quot;</span>))</span>
-<span id="cb208-28"><a href="r-script-templates.html#cb208-28"></a><span class="co">################</span></span>
-<span id="cb208-29"><a href="r-script-templates.html#cb208-29"></a></span>
-<span id="cb208-30"><a href="r-script-templates.html#cb208-30"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="r-script-templates.html#cb210-1"></a><span class="co">#### Set up ####</span></span>
+<span id="cb210-2"><a href="r-script-templates.html#cb210-2"></a><span class="co">## Load packages</span></span>
+<span id="cb210-3"><a href="r-script-templates.html#cb210-3"></a><span class="kw">library</span>(here)</span>
+<span id="cb210-4"><a href="r-script-templates.html#cb210-4"></a><span class="kw">library</span>(datawrangling) <span class="co"># for files_join() and trim()</span></span>
+<span id="cb210-5"><a href="r-script-templates.html#cb210-5"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb210-6"><a href="r-script-templates.html#cb210-6"></a></span>
+<span id="cb210-7"><a href="r-script-templates.html#cb210-7"></a><span class="co">## Set import/output directories</span></span>
+<span id="cb210-8"><a href="r-script-templates.html#cb210-8"></a>import_dir &lt;-<span class="st"> &quot;Data Files/Scored Data&quot;</span></span>
+<span id="cb210-9"><a href="r-script-templates.html#cb210-9"></a>output_dir &lt;-<span class="st"> &quot;Data Files&quot;</span></span>
+<span id="cb210-10"><a href="r-script-templates.html#cb210-10"></a>output_file &lt;-<span class="st"> &quot;name_of_datafile.csv&quot;</span></span>
+<span id="cb210-11"><a href="r-script-templates.html#cb210-11"></a><span class="co">################</span></span>
+<span id="cb210-12"><a href="r-script-templates.html#cb210-12"></a></span>
+<span id="cb210-13"><a href="r-script-templates.html#cb210-13"></a><span class="co">#### Import Files ####</span></span>
+<span id="cb210-14"><a href="r-script-templates.html#cb210-14"></a>data_import &lt;-<span class="st"> </span><span class="kw">files_join</span>(<span class="kw">here</span>(import_dir), <span class="dt">pattern =</span> <span class="st">&quot;Scores&quot;</span>, <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>)</span>
+<span id="cb210-15"><a href="r-script-templates.html#cb210-15"></a><span class="co">######################</span></span>
+<span id="cb210-16"><a href="r-script-templates.html#cb210-16"></a></span>
+<span id="cb210-17"><a href="r-script-templates.html#cb210-17"></a><span class="co">#### Select only important variables ####</span></span>
+<span id="cb210-18"><a href="r-script-templates.html#cb210-18"></a>data_merge &lt;-<span class="st"> </span>data_import <span class="op">%&gt;%</span></span>
+<span id="cb210-19"><a href="r-script-templates.html#cb210-19"></a><span class="st">  </span><span class="kw">select</span>()</span>
+<span id="cb210-20"><a href="r-script-templates.html#cb210-20"></a></span>
+<span id="cb210-21"><a href="r-script-templates.html#cb210-21"></a><span class="co">## Create list of final subjects</span></span>
+<span id="cb210-22"><a href="r-script-templates.html#cb210-22"></a>subj.list &lt;-<span class="st"> </span><span class="kw">select</span>(data_merge, Subject)</span>
+<span id="cb210-23"><a href="r-script-templates.html#cb210-23"></a><span class="co">#################################################################</span></span>
+<span id="cb210-24"><a href="r-script-templates.html#cb210-24"></a></span>
+<span id="cb210-25"><a href="r-script-templates.html#cb210-25"></a><span class="co">#### Output ####</span></span>
+<span id="cb210-26"><a href="r-script-templates.html#cb210-26"></a><span class="kw">write_csv</span>(data_merge, <span class="kw">here</span>(output_dir, output_file))</span>
+<span id="cb210-27"><a href="r-script-templates.html#cb210-27"></a><span class="kw">write_csv</span>(subj.list, <span class="kw">here</span>(output_dir, <span class="st">&quot;subjlist_final.csv&quot;</span>))</span>
+<span id="cb210-28"><a href="r-script-templates.html#cb210-28"></a><span class="co">################</span></span>
+<span id="cb210-29"><a href="r-script-templates.html#cb210-29"></a></span>
+<span id="cb210-30"><a href="r-script-templates.html#cb210-30"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span></code></pre></div>
 <p>Again, this template script has 4 main blocks:</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Set up</strong> the script</p>
@@ -608,35 +608,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="masterscript-data-analysis" class="section level3">
 <h3><span class="header-section-number">9.2.3</span> masterscript: Data Analysis</h3>
 <p>The masterscript template for <em>Data Analysis</em> can be downloaded with:</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="r-script-templates.html#cb209-1"></a>workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">masterscript =</span> <span class="st">&quot;data analysis&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="r-script-templates.html#cb210-1"></a><span class="co">## Data Analysis for StudyName</span></span>
-<span id="cb210-2"><a href="r-script-templates.html#cb210-2"></a></span>
-<span id="cb210-3"><a href="r-script-templates.html#cb210-3"></a></span>
-<span id="cb210-4"><a href="r-script-templates.html#cb210-4"></a><span class="co">#################################################</span></span>
-<span id="cb210-5"><a href="r-script-templates.html#cb210-5"></a><span class="co">#------ 1. &quot;tidy&quot; raw data to Scored data ------#</span></span>
-<span id="cb210-6"><a href="r-script-templates.html#cb210-6"></a><span class="co">#################################################</span></span>
-<span id="cb210-7"><a href="r-script-templates.html#cb210-7"></a></span>
-<span id="cb210-8"><a href="r-script-templates.html#cb210-8"></a><span class="kw">source</span>(<span class="st">&quot;R Scripts/1_taskname_score.R&quot;</span>, <span class="dt">echo=</span><span class="ot">TRUE</span>)</span>
-<span id="cb210-9"><a href="r-script-templates.html#cb210-9"></a></span>
-<span id="cb210-10"><a href="r-script-templates.html#cb210-10"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span>
-<span id="cb210-11"><a href="r-script-templates.html#cb210-11"></a><span class="co">#############################################################</span></span>
-<span id="cb210-12"><a href="r-script-templates.html#cb210-12"></a><span class="co">#------ 2. Create Final Merged Data File for Analysis ------#</span></span>
-<span id="cb210-13"><a href="r-script-templates.html#cb210-13"></a><span class="co">#############################################################</span></span>
-<span id="cb210-14"><a href="r-script-templates.html#cb210-14"></a></span>
-<span id="cb210-15"><a href="r-script-templates.html#cb210-15"></a><span class="kw">source</span>(<span class="st">&quot;R Scripts/2_merge.R&quot;</span>, <span class="dt">echo=</span><span class="ot">TRUE</span>)</span>
-<span id="cb210-16"><a href="r-script-templates.html#cb210-16"></a></span>
-<span id="cb210-17"><a href="r-script-templates.html#cb210-17"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span>
-<span id="cb210-18"><a href="r-script-templates.html#cb210-18"></a><span class="co">###############################</span></span>
-<span id="cb210-19"><a href="r-script-templates.html#cb210-19"></a><span class="co">#------ 3. Data Analysis ------#</span></span>
-<span id="cb210-20"><a href="r-script-templates.html#cb210-20"></a><span class="co">###############################</span></span>
-<span id="cb210-21"><a href="r-script-templates.html#cb210-21"></a><span class="kw">library</span>(rmarkdown)</span>
-<span id="cb210-22"><a href="r-script-templates.html#cb210-22"></a></span>
-<span id="cb210-23"><a href="r-script-templates.html#cb210-23"></a><span class="kw">render</span>(<span class="st">&quot;R Scripts/3_MainAnalyses.Rmd&quot;</span>,</span>
-<span id="cb210-24"><a href="r-script-templates.html#cb210-24"></a>       <span class="dt">output_dir =</span> <span class="st">&quot;Results&quot;</span>, </span>
-<span id="cb210-25"><a href="r-script-templates.html#cb210-25"></a>       <span class="dt">output_file =</span> <span class="st">&quot;MainAnalyses.html&quot;</span>)</span>
-<span id="cb210-26"><a href="r-script-templates.html#cb210-26"></a></span>
-<span id="cb210-27"><a href="r-script-templates.html#cb210-27"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span>
-<span id="cb210-28"><a href="r-script-templates.html#cb210-28"></a><span class="co">#################################################</span></span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="r-script-templates.html#cb211-1"></a>workflow<span class="op">::</span><span class="kw">template</span>(<span class="dt">masterscript =</span> <span class="st">&quot;data analysis&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="r-script-templates.html#cb212-1"></a><span class="co">## Data Analysis for StudyName</span></span>
+<span id="cb212-2"><a href="r-script-templates.html#cb212-2"></a></span>
+<span id="cb212-3"><a href="r-script-templates.html#cb212-3"></a></span>
+<span id="cb212-4"><a href="r-script-templates.html#cb212-4"></a><span class="co">#################################################</span></span>
+<span id="cb212-5"><a href="r-script-templates.html#cb212-5"></a><span class="co">#------ 1. &quot;tidy&quot; raw data to Scored data ------#</span></span>
+<span id="cb212-6"><a href="r-script-templates.html#cb212-6"></a><span class="co">#################################################</span></span>
+<span id="cb212-7"><a href="r-script-templates.html#cb212-7"></a></span>
+<span id="cb212-8"><a href="r-script-templates.html#cb212-8"></a><span class="kw">source</span>(<span class="st">&quot;R Scripts/1_taskname_score.R&quot;</span>, <span class="dt">echo=</span><span class="ot">TRUE</span>)</span>
+<span id="cb212-9"><a href="r-script-templates.html#cb212-9"></a></span>
+<span id="cb212-10"><a href="r-script-templates.html#cb212-10"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span>
+<span id="cb212-11"><a href="r-script-templates.html#cb212-11"></a><span class="co">#############################################################</span></span>
+<span id="cb212-12"><a href="r-script-templates.html#cb212-12"></a><span class="co">#------ 2. Create Final Merged Data File for Analysis ------#</span></span>
+<span id="cb212-13"><a href="r-script-templates.html#cb212-13"></a><span class="co">#############################################################</span></span>
+<span id="cb212-14"><a href="r-script-templates.html#cb212-14"></a></span>
+<span id="cb212-15"><a href="r-script-templates.html#cb212-15"></a><span class="kw">source</span>(<span class="st">&quot;R Scripts/2_merge.R&quot;</span>, <span class="dt">echo=</span><span class="ot">TRUE</span>)</span>
+<span id="cb212-16"><a href="r-script-templates.html#cb212-16"></a></span>
+<span id="cb212-17"><a href="r-script-templates.html#cb212-17"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span>
+<span id="cb212-18"><a href="r-script-templates.html#cb212-18"></a><span class="co">###############################</span></span>
+<span id="cb212-19"><a href="r-script-templates.html#cb212-19"></a><span class="co">#------ 3. Data Analysis ------#</span></span>
+<span id="cb212-20"><a href="r-script-templates.html#cb212-20"></a><span class="co">###############################</span></span>
+<span id="cb212-21"><a href="r-script-templates.html#cb212-21"></a><span class="kw">library</span>(rmarkdown)</span>
+<span id="cb212-22"><a href="r-script-templates.html#cb212-22"></a></span>
+<span id="cb212-23"><a href="r-script-templates.html#cb212-23"></a><span class="kw">render</span>(<span class="st">&quot;R Scripts/3_MainAnalyses.Rmd&quot;</span>,</span>
+<span id="cb212-24"><a href="r-script-templates.html#cb212-24"></a>       <span class="dt">output_dir =</span> <span class="st">&quot;Results&quot;</span>, </span>
+<span id="cb212-25"><a href="r-script-templates.html#cb212-25"></a>       <span class="dt">output_file =</span> <span class="st">&quot;MainAnalyses.html&quot;</span>)</span>
+<span id="cb212-26"><a href="r-script-templates.html#cb212-26"></a></span>
+<span id="cb212-27"><a href="r-script-templates.html#cb212-27"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span>
+<span id="cb212-28"><a href="r-script-templates.html#cb212-28"></a><span class="co">#################################################</span></span></code></pre></div>
 <p>You can see that it is organized in the order in which the scripts need to be ran and how the scripts are named.</p>
 <p>The <code>render()</code>, function seen in the “3. Data Analysis” section, is how to knit an RMarkdown document. We will see later that this creates a flexible way to knit RMarkdown documents because you can specify the output file name and location, as well as certain parameters for what data set to import or analysis parameters to set. <code>render()</code> comes from the package <code>rmarkdown</code> which is why it is loaded at the top of the data analysis section.</p>
 <hr />

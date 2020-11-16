@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Tsukahara" />
 
 
-<meta name="date" content="2020-09-21" />
+<meta name="date" content="2020-11-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -139,8 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i>Why R?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#reproducibility-and-open-access"><i class="fa fa-check"></i>Reproducibility and Open Access</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#but-i-need-to-analyze-my-data-now"><i class="fa fa-check"></i>But I need to analyze my data NOW!</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-does-this-book-cover"><i class="fa fa-check"></i>What does this book cover?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-does-this-guide-cover"><i class="fa fa-check"></i>What does this guide cover?</a></li>
 </ul></li>
 <li class="part"><span><b>I Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
@@ -219,12 +218,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>III Reproducible Workflows</b></span></li>
 <li class="chapter" data-level="" data-path="reproducible-workflows-overview.html"><a href="reproducible-workflows-overview.html"><i class="fa fa-check"></i>Reproducible Workflows: Overview</a></li>
 <li class="chapter" data-level="7" data-path="project-organization.html"><a href="project-organization.html"><i class="fa fa-check"></i><b>7</b> Project Organization</a><ul>
-<li class="chapter" data-level="7.1" data-path="project-organization.html"><a href="project-organization.html#data-collection"><i class="fa fa-check"></i><b>7.1</b> Data Collection</a></li>
-<li class="chapter" data-level="7.2" data-path="project-organization.html"><a href="project-organization.html#data-preparation"><i class="fa fa-check"></i><b>7.2</b> Data Preparation</a></li>
-<li class="chapter" data-level="7.3" data-path="project-organization.html"><a href="project-organization.html#data-analysis"><i class="fa fa-check"></i><b>7.3</b> Data Analysis</a></li>
-<li class="chapter" data-level="7.4" data-path="project-organization.html"><a href="project-organization.html#workflow-package"><i class="fa fa-check"></i><b>7.4</b> <code>workflow</code> package</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="project-organization.html"><a href="project-organization.html#install"><i class="fa fa-check"></i><b>7.4.1</b> Install</a></li>
-<li class="chapter" data-level="7.4.2" data-path="project-organization.html"><a href="project-organization.html#create-a-new-r-project"><i class="fa fa-check"></i><b>7.4.2</b> Create a New R Project</a></li>
+<li class="chapter" data-level="7.1" data-path="project-organization.html"><a href="project-organization.html#data-collection-vs.-data-analysis"><i class="fa fa-check"></i><b>7.1</b> Data Collection vs. Data Analysis</a></li>
+<li class="chapter" data-level="7.2" data-path="project-organization.html"><a href="project-organization.html#data-collection"><i class="fa fa-check"></i><b>7.2</b> Data Collection</a></li>
+<li class="chapter" data-level="7.3" data-path="project-organization.html"><a href="project-organization.html#data-preparation"><i class="fa fa-check"></i><b>7.3</b> Data Preparation</a></li>
+<li class="chapter" data-level="7.4" data-path="project-organization.html"><a href="project-organization.html#data-analysis"><i class="fa fa-check"></i><b>7.4</b> Data Analysis</a></li>
+<li class="chapter" data-level="7.5" data-path="project-organization.html"><a href="project-organization.html#workflow-package"><i class="fa fa-check"></i><b>7.5</b> <code>workflow</code> package</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="project-organization.html"><a href="project-organization.html#install"><i class="fa fa-check"></i><b>7.5.1</b> Install</a></li>
+<li class="chapter" data-level="7.5.2" data-path="project-organization.html"><a href="project-organization.html#create-a-new-r-project"><i class="fa fa-check"></i><b>7.5.2</b> Create a New R Project</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="reproducible-practices.html"><a href="reproducible-practices.html"><i class="fa fa-check"></i><b>8</b> Reproducible Practices</a><ul>
@@ -382,19 +382,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="reproducible-workflows-overview" class="section level1 unnumbered">
 <h1>Reproducible Workflows: Overview</h1>
-<p><img src="images/workflows/workflow_all.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>As you start becoming more proficient in R you will be able manage, process, and analyze your data at all stages of analysis through R scripts alone.</p>
 <hr />
 <div style="text-align: center; font-size: 1.25em">
 <p>Goodbye Excel, goodbye SPSS, and good riddance to EQS!</p>
 </div>
 <hr />
-<p>Although we deal with data all the time as scientists, we have never really been educated on what <strong>good data science practices</strong> look like. In psychology, I believe this is partly due to our reliance on programs like SPSS or Excel for data analysis and visualization. While these programs offer a nice user interface, they do not offer any tools to help us manage and process our data in a reproducible way.</p>
+<p>Although we deal with data all the time as psychologists, we have never really been educated on what <strong>good data science practices</strong> look like. In psychology, I believe this is partly due to our reliance on programs like SPSS or Excel for data analysis and visualization. While these programs offer a nice user interface, they do not offer any tools to help us manage and process our data in a reproducible way.</p>
 <p>Open Science and Reproducibility practices are <em>very</em> quickly becoming the norm in most fields of science. Programming languages like R are perfectly suited to help us implement these practices.</p>
 <p><strong>Reliance on programs like SPSS and Excel will hinder your ability to join the Open Science and Reproducibility movement.</strong></p>
 <p>However, <strong>simply learning the R syntax alone is not enough.</strong> You will need to start thinking about what are <strong>good data science practices</strong> that allow me to manage, process, and analyze my data in a way that is consistent with Open Science and Reproducibility?</p>
-<p>I think it is useful to start thinking and implementing these practices from the get go. You could go through a lot of trial and error (which is what I have done) but why not just build on what others have learned.</p>
-<p>This section is divided into 3 Chapters:</p>
+<p>In this Section I will provide an overview of how we implement these practices in our lab. This section is divided into 3 Chapters:</p>
 <ul>
 <li><p>Project Organization</p>
 <p>I will start at a higher level and consider how we organize our research projects from the data collection phase to the data analysis phase</p></li>
@@ -403,7 +401,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>R Script Templates</p>
 <p>The script workflow is more or less the same from one task and research project to another. I have developed generic script templates that you should use. This will help you more quickly start using R for your research projects.</p></li>
 </ul>
-<p>The purpose of this section is to get you thinking about these topics now and introduce you to ways of automating them so that you do not have to think about them later!</p>
+<p>The purpose of this section is to get you thinking about these topics now and introduce you to ways of automating them so that you do not have to think about them later.</p>
 <hr />
 
 </div>

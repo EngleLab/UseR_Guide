@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Tsukahara" />
 
 
-<meta name="date" content="2020-09-21" />
+<meta name="date" content="2020-11-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -139,8 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i>Why R?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#reproducibility-and-open-access"><i class="fa fa-check"></i>Reproducibility and Open Access</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#but-i-need-to-analyze-my-data-now"><i class="fa fa-check"></i>But I need to analyze my data NOW!</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-does-this-book-cover"><i class="fa fa-check"></i>What does this book cover?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-does-this-guide-cover"><i class="fa fa-check"></i>What does this guide cover?</a></li>
 </ul></li>
 <li class="part"><span><b>I Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
@@ -219,12 +218,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>III Reproducible Workflows</b></span></li>
 <li class="chapter" data-level="" data-path="reproducible-workflows-overview.html"><a href="reproducible-workflows-overview.html"><i class="fa fa-check"></i>Reproducible Workflows: Overview</a></li>
 <li class="chapter" data-level="7" data-path="project-organization.html"><a href="project-organization.html"><i class="fa fa-check"></i><b>7</b> Project Organization</a><ul>
-<li class="chapter" data-level="7.1" data-path="project-organization.html"><a href="project-organization.html#data-collection"><i class="fa fa-check"></i><b>7.1</b> Data Collection</a></li>
-<li class="chapter" data-level="7.2" data-path="project-organization.html"><a href="project-organization.html#data-preparation"><i class="fa fa-check"></i><b>7.2</b> Data Preparation</a></li>
-<li class="chapter" data-level="7.3" data-path="project-organization.html"><a href="project-organization.html#data-analysis"><i class="fa fa-check"></i><b>7.3</b> Data Analysis</a></li>
-<li class="chapter" data-level="7.4" data-path="project-organization.html"><a href="project-organization.html#workflow-package"><i class="fa fa-check"></i><b>7.4</b> <code>workflow</code> package</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="project-organization.html"><a href="project-organization.html#install"><i class="fa fa-check"></i><b>7.4.1</b> Install</a></li>
-<li class="chapter" data-level="7.4.2" data-path="project-organization.html"><a href="project-organization.html#create-a-new-r-project"><i class="fa fa-check"></i><b>7.4.2</b> Create a New R Project</a></li>
+<li class="chapter" data-level="7.1" data-path="project-organization.html"><a href="project-organization.html#data-collection-vs.-data-analysis"><i class="fa fa-check"></i><b>7.1</b> Data Collection vs. Data Analysis</a></li>
+<li class="chapter" data-level="7.2" data-path="project-organization.html"><a href="project-organization.html#data-collection"><i class="fa fa-check"></i><b>7.2</b> Data Collection</a></li>
+<li class="chapter" data-level="7.3" data-path="project-organization.html"><a href="project-organization.html#data-preparation"><i class="fa fa-check"></i><b>7.3</b> Data Preparation</a></li>
+<li class="chapter" data-level="7.4" data-path="project-organization.html"><a href="project-organization.html#data-analysis"><i class="fa fa-check"></i><b>7.4</b> Data Analysis</a></li>
+<li class="chapter" data-level="7.5" data-path="project-organization.html"><a href="project-organization.html#workflow-package"><i class="fa fa-check"></i><b>7.5</b> <code>workflow</code> package</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="project-organization.html"><a href="project-organization.html#install"><i class="fa fa-check"></i><b>7.5.1</b> Install</a></li>
+<li class="chapter" data-level="7.5.2" data-path="project-organization.html"><a href="project-organization.html#create-a-new-r-project"><i class="fa fa-check"></i><b>7.5.2</b> Create a New R Project</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="reproducible-practices.html"><a href="reproducible-practices.html"><i class="fa fa-check"></i><b>8</b> Reproducible Practices</a><ul>
@@ -383,89 +383,90 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="plotting-means" class="section level1">
 <h1><span class="header-section-number">18</span> Plotting Means</h1>
 <p>You can go ahead and set a default theme for your plots</p>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="plotting-means.html#cb306-1"></a><span class="kw">theme_set</span>(<span class="kw">theme_linedraw</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="plotting-means.html#cb308-1"></a><span class="kw">theme_set</span>(<span class="kw">theme_linedraw</span>())</span></code></pre></div>
 <div id="bar-graphs" class="section level2">
 <h2><span class="header-section-number">18.1</span> Bar Graphs</h2>
 <p>Bar graphs are the standard. They are ubiquitous across psychology. Basically everyone uses them. But in all honesty, <strong>Bar graphs SUCK!</strong>.</p>
 <p>The worst part about them is that they hide the distribution of the raw data points (even when error bars are included). Even worse, too often you will see bar graphs with NO ERROR BARS! Yikes! A bar graph with no error bars tells you almost NOTHING!</p>
 <p>To illustrate this let’s use a data set containing information on mammalian sleep patterns from the data set <code>msleep</code>.</p>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="plotting-means.html#cb307-1"></a><span class="kw">head</span>(msleep)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="plotting-means.html#cb309-1"></a><span class="kw">head</span>(msleep)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 11
-##   name  genus vore  order conservation sleep_total sleep_rem sleep_cycle awake  brainwt  bodywt
-##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
-## 1 Chee… Acin… carni Carn… lc                  12.1      NA        NA      11.9 NA        50    
-## 2 Owl … Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7    0.0155    0.48 
-## 3 Moun… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6 NA         1.35 
-## 4 Grea… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1  0.00029   0.019
-## 5 Cow   Bos   herbi Arti… domesticated         4         0.7       0.667  20    0.423   600    
-## 6 Thre… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6 NA         3.85</code></pre>
+##   name  genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
+## 1 Chee… Acin… carni Carn… lc                  12.1      NA        NA      11.9
+## 2 Owl … Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7  
+## 3 Moun… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6
+## 4 Grea… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1
+## 5 Cow   Bos   herbi Arti… domesticated         4         0.7       0.667  20  
+## 6 Thre… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6
+## # … with 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;</code></pre>
 <p>Let’s plot the relationship between the different eating habits (<code>vore</code>) and total sleep time (<code>sleep_total</code>).</p>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="plotting-means.html#cb309-1"></a>msleep1 &lt;-<span class="st"> </span><span class="kw">filter</span>(msleep, <span class="op">!</span><span class="kw">is.na</span>(vore))</span>
-<span id="cb309-2"><a href="plotting-means.html#cb309-2"></a></span>
-<span id="cb309-3"><a href="plotting-means.html#cb309-3"></a><span class="kw">ggplot</span>(msleep1, <span class="kw">aes</span>(vore, sleep_total)) <span class="op">+</span></span>
-<span id="cb309-4"><a href="plotting-means.html#cb309-4"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, <span class="dt">geom =</span> <span class="st">&quot;bar&quot;</span>)</span></code></pre></div>
-<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-369-1.png" width="672" /></p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="plotting-means.html#cb311-1"></a>msleep1 &lt;-<span class="st"> </span><span class="kw">filter</span>(msleep, <span class="op">!</span><span class="kw">is.na</span>(vore))</span>
+<span id="cb311-2"><a href="plotting-means.html#cb311-2"></a></span>
+<span id="cb311-3"><a href="plotting-means.html#cb311-3"></a><span class="kw">ggplot</span>(msleep1, <span class="kw">aes</span>(vore, sleep_total)) <span class="op">+</span></span>
+<span id="cb311-4"><a href="plotting-means.html#cb311-4"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, <span class="dt">geom =</span> <span class="st">&quot;bar&quot;</span>)</span></code></pre></div>
+<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-367-1.png" width="672" /></p>
 <p>This only tells us what the means are. We have no idea about the distributions. Well for this reason people usually like to see error bars. Okay well let’s add error bars.</p>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="plotting-means.html#cb310-1"></a><span class="kw">ggplot</span>(msleep1, <span class="kw">aes</span>(vore, sleep_total)) <span class="op">+</span></span>
-<span id="cb310-2"><a href="plotting-means.html#cb310-2"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, <span class="dt">geom =</span> <span class="st">&quot;bar&quot;</span>) <span class="op">+</span></span>
-<span id="cb310-3"><a href="plotting-means.html#cb310-3"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_cl_normal, <span class="dt">na.rm =</span><span class="ot">TRUE</span>, </span>
-<span id="cb310-4"><a href="plotting-means.html#cb310-4"></a>               <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">width =</span> <span class="fl">.2</span>)</span></code></pre></div>
-<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-370-1.png" width="672" /></p>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="plotting-means.html#cb312-1"></a><span class="kw">ggplot</span>(msleep1, <span class="kw">aes</span>(vore, sleep_total)) <span class="op">+</span></span>
+<span id="cb312-2"><a href="plotting-means.html#cb312-2"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, <span class="dt">geom =</span> <span class="st">&quot;bar&quot;</span>) <span class="op">+</span></span>
+<span id="cb312-3"><a href="plotting-means.html#cb312-3"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_cl_normal, <span class="dt">na.rm =</span><span class="ot">TRUE</span>, </span>
+<span id="cb312-4"><a href="plotting-means.html#cb312-4"></a>               <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">width =</span> <span class="fl">.2</span>)</span></code></pre></div>
+<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-368-1.png" width="672" /></p>
 <p>Okay better. But we still cannot see the underlying distribution.</p>
 </div>
 <div id="alternatives-to-bar-graphs" class="section level2">
 <h2><span class="header-section-number">18.2</span> Alternatives to Bar Graphs</h2>
 <p>Here is a crazy idea. What if we plotted the raw data points. Like we do with scatterplots! Whoa! What a concept</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="plotting-means.html#cb311-1"></a><span class="kw">ggplot</span>(msleep1, <span class="kw">aes</span>(vore, sleep_total)) <span class="op">+</span></span>
-<span id="cb311-2"><a href="plotting-means.html#cb311-2"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
-<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-371-1.png" width="672" /></p>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="plotting-means.html#cb313-1"></a><span class="kw">ggplot</span>(msleep1, <span class="kw">aes</span>(vore, sleep_total)) <span class="op">+</span></span>
+<span id="cb313-2"><a href="plotting-means.html#cb313-2"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
+<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-369-1.png" width="672" /></p>
 <p>When plotting raw data points with categorical variables on the x-axis it makes more sense to <code>jitter</code> the points so they are not all just lying on top of each other.</p>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="plotting-means.html#cb312-1"></a><span class="kw">ggplot</span>(msleep1, <span class="kw">aes</span>(vore, sleep_total)) <span class="op">+</span></span>
-<span id="cb312-2"><a href="plotting-means.html#cb312-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_jitter</span>(<span class="dt">width =</span> <span class="fl">.2</span>))</span></code></pre></div>
-<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-372-1.png" width="672" /></p>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="plotting-means.html#cb314-1"></a><span class="kw">ggplot</span>(msleep1, <span class="kw">aes</span>(vore, sleep_total)) <span class="op">+</span></span>
+<span id="cb314-2"><a href="plotting-means.html#cb314-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_jitter</span>(<span class="dt">width =</span> <span class="fl">.2</span>))</span></code></pre></div>
+<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-370-1.png" width="672" /></p>
 <p>Wow! Does this give you a completely different picture than the bar graph with error bars? It does to me! Especially look at the <code>insecti</code> and <code>omni</code> eating habits. There is definitely a bi-modal distribution happening there.</p>
 <p>From the bar graph with error bars, we might be fooled into thinking that the distributions for <code>carni</code> and <code>omnie</code> are pretty similar. But are they? Not at all!</p>
 <p><strong>THIS IS WHY YOU SHOULD ALWAYS PLOT THE RAW DATA POINTS</strong></p>
 <p>But means and error bars are also useful information so let’s add those</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="plotting-means.html#cb313-1"></a><span class="kw">ggplot</span>(msleep1, <span class="kw">aes</span>(vore, sleep_total)) <span class="op">+</span></span>
-<span id="cb313-2"><a href="plotting-means.html#cb313-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_jitter</span>(<span class="dt">width =</span> <span class="fl">.2</span>)) <span class="op">+</span></span>
-<span id="cb313-3"><a href="plotting-means.html#cb313-3"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, </span>
-<span id="cb313-4"><a href="plotting-means.html#cb313-4"></a>               <span class="dt">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;dodgerblue&quot;</span>) <span class="op">+</span></span>
-<span id="cb313-5"><a href="plotting-means.html#cb313-5"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_cl_normal, <span class="dt">na.rm =</span><span class="ot">TRUE</span>, </span>
-<span id="cb313-6"><a href="plotting-means.html#cb313-6"></a>               <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">width =</span> <span class="fl">.2</span>, <span class="dt">color =</span> <span class="st">&quot;dodgerblue&quot;</span>)</span></code></pre></div>
-<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-373-1.png" width="672" /></p>
-<p>Another aesthetic option that is useful when we are plotting means and error bars on top of raw data is the <code>alpha</code> aesthetic. This can allow us to make the raw data points more transparent, fade into the background a little more.</p>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="plotting-means.html#cb314-1"></a><span class="kw">ggplot</span>(msleep1, <span class="kw">aes</span>(vore, sleep_total)) <span class="op">+</span></span>
-<span id="cb314-2"><a href="plotting-means.html#cb314-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_jitter</span>(<span class="dt">width =</span> <span class="fl">.2</span>), <span class="dt">alpha =</span> <span class="fl">.3</span>) <span class="op">+</span></span>
-<span id="cb314-3"><a href="plotting-means.html#cb314-3"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, </span>
-<span id="cb314-4"><a href="plotting-means.html#cb314-4"></a>               <span class="dt">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;dodgerblue&quot;</span>, </span>
-<span id="cb314-5"><a href="plotting-means.html#cb314-5"></a>               <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">shape =</span> <span class="st">&quot;diamond&quot;</span>) <span class="op">+</span></span>
-<span id="cb314-6"><a href="plotting-means.html#cb314-6"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_cl_normal, <span class="dt">na.rm =</span><span class="ot">TRUE</span>, </span>
-<span id="cb314-7"><a href="plotting-means.html#cb314-7"></a>               <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">width =</span> <span class="fl">.2</span>, <span class="dt">color =</span> <span class="st">&quot;dodgerblue&quot;</span>)</span></code></pre></div>
-<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-374-1.png" width="672" /></p>
 <div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="plotting-means.html#cb315-1"></a><span class="kw">ggplot</span>(msleep1, <span class="kw">aes</span>(vore, sleep_total)) <span class="op">+</span></span>
-<span id="cb315-2"><a href="plotting-means.html#cb315-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_jitter</span>(<span class="dt">width =</span> <span class="fl">.2</span>), <span class="dt">alpha =</span> <span class="fl">.3</span>) <span class="op">+</span></span>
-<span id="cb315-3"><a href="plotting-means.html#cb315-3"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb315-4"><a href="plotting-means.html#cb315-4"></a>               <span class="dt">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;dodgerblue&quot;</span>, </span>
-<span id="cb315-5"><a href="plotting-means.html#cb315-5"></a>               <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">shape =</span> <span class="st">&quot;diamond&quot;</span>) <span class="op">+</span></span>
-<span id="cb315-6"><a href="plotting-means.html#cb315-6"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_cl_normal, <span class="dt">na.rm =</span><span class="ot">TRUE</span>, </span>
-<span id="cb315-7"><a href="plotting-means.html#cb315-7"></a>               <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">width =</span> <span class="fl">.2</span>, <span class="dt">color =</span> <span class="st">&quot;dodgerblue&quot;</span>) <span class="op">+</span></span>
-<span id="cb315-8"><a href="plotting-means.html#cb315-8"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, <span class="kw">aes</span>(<span class="dt">group =</span> <span class="dv">1</span>),</span>
-<span id="cb315-9"><a href="plotting-means.html#cb315-9"></a>               <span class="dt">geom =</span> <span class="st">&quot;line&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;dodgerblue&quot;</span>, </span>
-<span id="cb315-10"><a href="plotting-means.html#cb315-10"></a>               <span class="dt">size =</span> <span class="fl">.75</span>, <span class="dt">shape =</span> <span class="st">&quot;diamond&quot;</span>) </span></code></pre></div>
-<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-375-1.png" width="672" /></p>
+<span id="cb315-2"><a href="plotting-means.html#cb315-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_jitter</span>(<span class="dt">width =</span> <span class="fl">.2</span>)) <span class="op">+</span></span>
+<span id="cb315-3"><a href="plotting-means.html#cb315-3"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb315-4"><a href="plotting-means.html#cb315-4"></a>               <span class="dt">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;dodgerblue&quot;</span>) <span class="op">+</span></span>
+<span id="cb315-5"><a href="plotting-means.html#cb315-5"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_cl_normal, <span class="dt">na.rm =</span><span class="ot">TRUE</span>, </span>
+<span id="cb315-6"><a href="plotting-means.html#cb315-6"></a>               <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">width =</span> <span class="fl">.2</span>, <span class="dt">color =</span> <span class="st">&quot;dodgerblue&quot;</span>)</span></code></pre></div>
+<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-371-1.png" width="672" /></p>
+<p>Another aesthetic option that is useful when we are plotting means and error bars on top of raw data is the <code>alpha</code> aesthetic. This can allow us to make the raw data points more transparent, fade into the background a little more.</p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="plotting-means.html#cb316-1"></a><span class="kw">ggplot</span>(msleep1, <span class="kw">aes</span>(vore, sleep_total)) <span class="op">+</span></span>
+<span id="cb316-2"><a href="plotting-means.html#cb316-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_jitter</span>(<span class="dt">width =</span> <span class="fl">.2</span>), <span class="dt">alpha =</span> <span class="fl">.3</span>) <span class="op">+</span></span>
+<span id="cb316-3"><a href="plotting-means.html#cb316-3"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb316-4"><a href="plotting-means.html#cb316-4"></a>               <span class="dt">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;dodgerblue&quot;</span>, </span>
+<span id="cb316-5"><a href="plotting-means.html#cb316-5"></a>               <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">shape =</span> <span class="st">&quot;diamond&quot;</span>) <span class="op">+</span></span>
+<span id="cb316-6"><a href="plotting-means.html#cb316-6"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_cl_normal, <span class="dt">na.rm =</span><span class="ot">TRUE</span>, </span>
+<span id="cb316-7"><a href="plotting-means.html#cb316-7"></a>               <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">width =</span> <span class="fl">.2</span>, <span class="dt">color =</span> <span class="st">&quot;dodgerblue&quot;</span>)</span></code></pre></div>
+<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-372-1.png" width="672" /></p>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="plotting-means.html#cb317-1"></a><span class="kw">ggplot</span>(msleep1, <span class="kw">aes</span>(vore, sleep_total)) <span class="op">+</span></span>
+<span id="cb317-2"><a href="plotting-means.html#cb317-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_jitter</span>(<span class="dt">width =</span> <span class="fl">.2</span>), <span class="dt">alpha =</span> <span class="fl">.3</span>) <span class="op">+</span></span>
+<span id="cb317-3"><a href="plotting-means.html#cb317-3"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb317-4"><a href="plotting-means.html#cb317-4"></a>               <span class="dt">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;dodgerblue&quot;</span>, </span>
+<span id="cb317-5"><a href="plotting-means.html#cb317-5"></a>               <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">shape =</span> <span class="st">&quot;diamond&quot;</span>) <span class="op">+</span></span>
+<span id="cb317-6"><a href="plotting-means.html#cb317-6"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_cl_normal, <span class="dt">na.rm =</span><span class="ot">TRUE</span>, </span>
+<span id="cb317-7"><a href="plotting-means.html#cb317-7"></a>               <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">width =</span> <span class="fl">.2</span>, <span class="dt">color =</span> <span class="st">&quot;dodgerblue&quot;</span>) <span class="op">+</span></span>
+<span id="cb317-8"><a href="plotting-means.html#cb317-8"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, <span class="kw">aes</span>(<span class="dt">group =</span> <span class="dv">1</span>),</span>
+<span id="cb317-9"><a href="plotting-means.html#cb317-9"></a>               <span class="dt">geom =</span> <span class="st">&quot;line&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;dodgerblue&quot;</span>, </span>
+<span id="cb317-10"><a href="plotting-means.html#cb317-10"></a>               <span class="dt">size =</span> <span class="fl">.75</span>, <span class="dt">shape =</span> <span class="st">&quot;diamond&quot;</span>) </span></code></pre></div>
+<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-373-1.png" width="672" /></p>
 </div>
 <div id="two-way-interaction-plots" class="section level2">
 <h2><span class="header-section-number">18.3</span> Two-Way Interaction Plots</h2>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="plotting-means.html#cb316-1"></a><span class="kw">library</span>(tidyr)</span>
-<span id="cb316-2"><a href="plotting-means.html#cb316-2"></a>iris.long &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span></span>
-<span id="cb316-3"><a href="plotting-means.html#cb316-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Flower =</span> <span class="kw">row_number</span>()) <span class="op">%&gt;%</span></span>
-<span id="cb316-4"><a href="plotting-means.html#cb316-4"></a><span class="st">  </span><span class="kw">gather</span>(<span class="st">&quot;Part&quot;</span>, <span class="st">&quot;Inches&quot;</span>, <span class="op">-</span>Flower, <span class="op">-</span>Species) <span class="op">%&gt;%</span></span>
-<span id="cb316-5"><a href="plotting-means.html#cb316-5"></a><span class="st">  </span><span class="kw">separate</span>(Part, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;Part&quot;</span>, <span class="st">&quot;Measurement&quot;</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb316-6"><a href="plotting-means.html#cb316-6"></a><span class="st">  </span><span class="kw">arrange</span>(Flower, Species) <span class="op">%&gt;%</span></span>
-<span id="cb316-7"><a href="plotting-means.html#cb316-7"></a><span class="st">  </span><span class="kw">select</span>(Flower, Species, Part, Measurement, Inches)</span>
-<span id="cb316-8"><a href="plotting-means.html#cb316-8"></a></span>
-<span id="cb316-9"><a href="plotting-means.html#cb316-9"></a><span class="kw">head</span>(iris.long)</span></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="plotting-means.html#cb318-1"></a><span class="kw">library</span>(tidyr)</span>
+<span id="cb318-2"><a href="plotting-means.html#cb318-2"></a>iris.long &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span></span>
+<span id="cb318-3"><a href="plotting-means.html#cb318-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Flower =</span> <span class="kw">row_number</span>()) <span class="op">%&gt;%</span></span>
+<span id="cb318-4"><a href="plotting-means.html#cb318-4"></a><span class="st">  </span><span class="kw">gather</span>(<span class="st">&quot;Part&quot;</span>, <span class="st">&quot;Inches&quot;</span>, <span class="op">-</span>Flower, <span class="op">-</span>Species) <span class="op">%&gt;%</span></span>
+<span id="cb318-5"><a href="plotting-means.html#cb318-5"></a><span class="st">  </span><span class="kw">separate</span>(Part, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;Part&quot;</span>, <span class="st">&quot;Measurement&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb318-6"><a href="plotting-means.html#cb318-6"></a><span class="st">  </span><span class="kw">arrange</span>(Flower, Species) <span class="op">%&gt;%</span></span>
+<span id="cb318-7"><a href="plotting-means.html#cb318-7"></a><span class="st">  </span><span class="kw">select</span>(Flower, Species, Part, Measurement, Inches)</span>
+<span id="cb318-8"><a href="plotting-means.html#cb318-8"></a></span>
+<span id="cb318-9"><a href="plotting-means.html#cb318-9"></a><span class="kw">head</span>(iris.long)</span></code></pre></div>
 <pre><code>##   Flower Species  Part Measurement Inches
 ## 1      1  setosa Sepal      Length    5.1
 ## 2      1  setosa Sepal       Width    3.5
@@ -473,39 +474,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4      1  setosa Petal       Width    0.2
 ## 5      2  setosa Sepal      Length    4.9
 ## 6      2  setosa Sepal       Width    3.0</code></pre>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="plotting-means.html#cb318-1"></a><span class="kw">ggplot</span>(iris.long, <span class="kw">aes</span>(Measurement, Inches, </span>
-<span id="cb318-2"><a href="plotting-means.html#cb318-2"></a>                      <span class="dt">group =</span> Species, <span class="dt">color =</span> Species)) <span class="op">+</span></span>
-<span id="cb318-3"><a href="plotting-means.html#cb318-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_jitterdodge</span>(<span class="dt">jitter.width =</span> <span class="fl">.2</span>, </span>
-<span id="cb318-4"><a href="plotting-means.html#cb318-4"></a>                                             <span class="dt">dodge.width =</span> <span class="fl">.7</span>), </span>
-<span id="cb318-5"><a href="plotting-means.html#cb318-5"></a>             <span class="dt">alpha =</span> <span class="fl">.1</span>) <span class="op">+</span></span>
-<span id="cb318-6"><a href="plotting-means.html#cb318-6"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, </span>
-<span id="cb318-7"><a href="plotting-means.html#cb318-7"></a>               <span class="dt">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="dt">shape =</span> <span class="st">&quot;diamond&quot;</span>,</span>
-<span id="cb318-8"><a href="plotting-means.html#cb318-8"></a>               <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, </span>
-<span id="cb318-9"><a href="plotting-means.html#cb318-9"></a>               <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">.7</span>)) <span class="op">+</span></span>
-<span id="cb318-10"><a href="plotting-means.html#cb318-10"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_cl_normal, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, </span>
-<span id="cb318-11"><a href="plotting-means.html#cb318-11"></a>               <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">width =</span> <span class="fl">.2</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>,</span>
-<span id="cb318-12"><a href="plotting-means.html#cb318-12"></a>               <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">.7</span>)) <span class="op">+</span></span>
-<span id="cb318-13"><a href="plotting-means.html#cb318-13"></a><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
-<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-376-1.png" width="672" /></p>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="plotting-means.html#cb320-1"></a><span class="kw">ggplot</span>(iris.long, <span class="kw">aes</span>(Measurement, Inches, </span>
+<span id="cb320-2"><a href="plotting-means.html#cb320-2"></a>                      <span class="dt">group =</span> Species, <span class="dt">color =</span> Species)) <span class="op">+</span></span>
+<span id="cb320-3"><a href="plotting-means.html#cb320-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_jitterdodge</span>(<span class="dt">jitter.width =</span> <span class="fl">.2</span>, </span>
+<span id="cb320-4"><a href="plotting-means.html#cb320-4"></a>                                             <span class="dt">dodge.width =</span> <span class="fl">.7</span>), </span>
+<span id="cb320-5"><a href="plotting-means.html#cb320-5"></a>             <span class="dt">alpha =</span> <span class="fl">.1</span>) <span class="op">+</span></span>
+<span id="cb320-6"><a href="plotting-means.html#cb320-6"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb320-7"><a href="plotting-means.html#cb320-7"></a>               <span class="dt">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="dt">shape =</span> <span class="st">&quot;diamond&quot;</span>,</span>
+<span id="cb320-8"><a href="plotting-means.html#cb320-8"></a>               <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, </span>
+<span id="cb320-9"><a href="plotting-means.html#cb320-9"></a>               <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">.7</span>)) <span class="op">+</span></span>
+<span id="cb320-10"><a href="plotting-means.html#cb320-10"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_cl_normal, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb320-11"><a href="plotting-means.html#cb320-11"></a>               <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">width =</span> <span class="fl">.2</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>,</span>
+<span id="cb320-12"><a href="plotting-means.html#cb320-12"></a>               <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">.7</span>)) <span class="op">+</span></span>
+<span id="cb320-13"><a href="plotting-means.html#cb320-13"></a><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
+<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-374-1.png" width="672" /></p>
 </div>
 <div id="three-way-interaction-plots" class="section level2">
 <h2><span class="header-section-number">18.4</span> Three-Way Interaction Plots</h2>
 <p>Just add <code>facet_wrap(~ Part)</code> after the first <code>ggplot()</code> line.</p>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="plotting-means.html#cb319-1"></a><span class="kw">ggplot</span>(iris.long, <span class="kw">aes</span>(Measurement, Inches, </span>
-<span id="cb319-2"><a href="plotting-means.html#cb319-2"></a>                      <span class="dt">group =</span> Species, <span class="dt">color =</span> Species)) <span class="op">+</span></span>
-<span id="cb319-3"><a href="plotting-means.html#cb319-3"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Part) <span class="op">+</span></span>
-<span id="cb319-4"><a href="plotting-means.html#cb319-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_jitterdodge</span>(<span class="dt">jitter.width =</span> <span class="fl">.2</span>, </span>
-<span id="cb319-5"><a href="plotting-means.html#cb319-5"></a>                                             <span class="dt">dodge.width =</span> <span class="fl">.7</span>), </span>
-<span id="cb319-6"><a href="plotting-means.html#cb319-6"></a>             <span class="dt">alpha =</span> <span class="fl">.1</span>) <span class="op">+</span></span>
-<span id="cb319-7"><a href="plotting-means.html#cb319-7"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, </span>
-<span id="cb319-8"><a href="plotting-means.html#cb319-8"></a>               <span class="dt">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="dt">shape =</span> <span class="st">&quot;diamond&quot;</span>,</span>
-<span id="cb319-9"><a href="plotting-means.html#cb319-9"></a>               <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, </span>
-<span id="cb319-10"><a href="plotting-means.html#cb319-10"></a>               <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">.7</span>)) <span class="op">+</span></span>
-<span id="cb319-11"><a href="plotting-means.html#cb319-11"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_cl_normal, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, </span>
-<span id="cb319-12"><a href="plotting-means.html#cb319-12"></a>               <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">width =</span> <span class="fl">.2</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>,</span>
-<span id="cb319-13"><a href="plotting-means.html#cb319-13"></a>               <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">.7</span>)) <span class="op">+</span></span>
-<span id="cb319-14"><a href="plotting-means.html#cb319-14"></a><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
-<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-377-1.png" width="672" /></p>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="plotting-means.html#cb321-1"></a><span class="kw">ggplot</span>(iris.long, <span class="kw">aes</span>(Measurement, Inches, </span>
+<span id="cb321-2"><a href="plotting-means.html#cb321-2"></a>                      <span class="dt">group =</span> Species, <span class="dt">color =</span> Species)) <span class="op">+</span></span>
+<span id="cb321-3"><a href="plotting-means.html#cb321-3"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Part) <span class="op">+</span></span>
+<span id="cb321-4"><a href="plotting-means.html#cb321-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_jitterdodge</span>(<span class="dt">jitter.width =</span> <span class="fl">.2</span>, </span>
+<span id="cb321-5"><a href="plotting-means.html#cb321-5"></a>                                             <span class="dt">dodge.width =</span> <span class="fl">.7</span>), </span>
+<span id="cb321-6"><a href="plotting-means.html#cb321-6"></a>             <span class="dt">alpha =</span> <span class="fl">.1</span>) <span class="op">+</span></span>
+<span id="cb321-7"><a href="plotting-means.html#cb321-7"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb321-8"><a href="plotting-means.html#cb321-8"></a>               <span class="dt">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="dt">shape =</span> <span class="st">&quot;diamond&quot;</span>,</span>
+<span id="cb321-9"><a href="plotting-means.html#cb321-9"></a>               <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, </span>
+<span id="cb321-10"><a href="plotting-means.html#cb321-10"></a>               <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">.7</span>)) <span class="op">+</span></span>
+<span id="cb321-11"><a href="plotting-means.html#cb321-11"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_cl_normal, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb321-12"><a href="plotting-means.html#cb321-12"></a>               <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">width =</span> <span class="fl">.2</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>,</span>
+<span id="cb321-13"><a href="plotting-means.html#cb321-13"></a>               <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">.7</span>)) <span class="op">+</span></span>
+<span id="cb321-14"><a href="plotting-means.html#cb321-14"></a><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
+<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-375-1.png" width="672" /></p>
 <p>Therefore, you can see how to plot interactions using <code>group/color</code> and <code>facet_wrap()</code>.</p>
 <hr />
 

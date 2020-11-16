@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Tsukahara" />
 
 
-<meta name="date" content="2020-09-21" />
+<meta name="date" content="2020-11-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -139,8 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i>Why R?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#reproducibility-and-open-access"><i class="fa fa-check"></i>Reproducibility and Open Access</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#but-i-need-to-analyze-my-data-now"><i class="fa fa-check"></i>But I need to analyze my data NOW!</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-does-this-book-cover"><i class="fa fa-check"></i>What does this book cover?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-does-this-guide-cover"><i class="fa fa-check"></i>What does this guide cover?</a></li>
 </ul></li>
 <li class="part"><span><b>I Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
@@ -219,12 +218,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>III Reproducible Workflows</b></span></li>
 <li class="chapter" data-level="" data-path="reproducible-workflows-overview.html"><a href="reproducible-workflows-overview.html"><i class="fa fa-check"></i>Reproducible Workflows: Overview</a></li>
 <li class="chapter" data-level="7" data-path="project-organization.html"><a href="project-organization.html"><i class="fa fa-check"></i><b>7</b> Project Organization</a><ul>
-<li class="chapter" data-level="7.1" data-path="project-organization.html"><a href="project-organization.html#data-collection"><i class="fa fa-check"></i><b>7.1</b> Data Collection</a></li>
-<li class="chapter" data-level="7.2" data-path="project-organization.html"><a href="project-organization.html#data-preparation"><i class="fa fa-check"></i><b>7.2</b> Data Preparation</a></li>
-<li class="chapter" data-level="7.3" data-path="project-organization.html"><a href="project-organization.html#data-analysis"><i class="fa fa-check"></i><b>7.3</b> Data Analysis</a></li>
-<li class="chapter" data-level="7.4" data-path="project-organization.html"><a href="project-organization.html#workflow-package"><i class="fa fa-check"></i><b>7.4</b> <code>workflow</code> package</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="project-organization.html"><a href="project-organization.html#install"><i class="fa fa-check"></i><b>7.4.1</b> Install</a></li>
-<li class="chapter" data-level="7.4.2" data-path="project-organization.html"><a href="project-organization.html#create-a-new-r-project"><i class="fa fa-check"></i><b>7.4.2</b> Create a New R Project</a></li>
+<li class="chapter" data-level="7.1" data-path="project-organization.html"><a href="project-organization.html#data-collection-vs.-data-analysis"><i class="fa fa-check"></i><b>7.1</b> Data Collection vs. Data Analysis</a></li>
+<li class="chapter" data-level="7.2" data-path="project-organization.html"><a href="project-organization.html#data-collection"><i class="fa fa-check"></i><b>7.2</b> Data Collection</a></li>
+<li class="chapter" data-level="7.3" data-path="project-organization.html"><a href="project-organization.html#data-preparation"><i class="fa fa-check"></i><b>7.3</b> Data Preparation</a></li>
+<li class="chapter" data-level="7.4" data-path="project-organization.html"><a href="project-organization.html#data-analysis"><i class="fa fa-check"></i><b>7.4</b> Data Analysis</a></li>
+<li class="chapter" data-level="7.5" data-path="project-organization.html"><a href="project-organization.html#workflow-package"><i class="fa fa-check"></i><b>7.5</b> <code>workflow</code> package</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="project-organization.html"><a href="project-organization.html#install"><i class="fa fa-check"></i><b>7.5.1</b> Install</a></li>
+<li class="chapter" data-level="7.5.2" data-path="project-organization.html"><a href="project-organization.html#create-a-new-r-project"><i class="fa fa-check"></i><b>7.5.2</b> Create a New R Project</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="reproducible-practices.html"><a href="reproducible-practices.html"><i class="fa fa-check"></i><b>8</b> Reproducible Practices</a><ul>
@@ -514,23 +514,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>First go ahead and install the <code>here</code> package, <code>install.packages("here")</code>.</p>
 <p>Basically, when the <code>here</code> package is loaded, <code>library(here)</code>, it will search for an .Rproj file and it will set a <strong>starting</strong> file path at that location when you use <code>here()</code>. (It is not technically changing the working directory though but that doesn’t matter when using <code>here()</code>)</p>
 <p>For instance, I have an .Rproj file saved in my “UseR_Guide” folder. When I use <code>here()</code> it will output a file path to that location.</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="reproducible-practices.html#cb190-1"></a><span class="kw">library</span>(here)</span>
-<span id="cb190-2"><a href="reproducible-practices.html#cb190-2"></a><span class="kw">here</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;/Users/jtsukahara3/Dropbox (GaTech)/My Work/Coding/R/R Books/UseR_Guide&quot;</code></pre>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="reproducible-practices.html#cb190-1"></a><span class="kw">library</span>(here)</span></code></pre></div>
+<pre><code>## here() starts at /Users/jtsukahara3/Dropbox (GaTech)/My Work/Programming/R Books/UseR_Guide</code></pre>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="reproducible-practices.html#cb192-1"></a><span class="kw">here</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;/Users/jtsukahara3/Dropbox (GaTech)/My Work/Programming/R Books/UseR_Guide&quot;</code></pre>
 <p>You can then use <code>here()</code> to set a relative file path</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="reproducible-practices.html#cb192-1"></a><span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data/flanker_raw.csv&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;/Users/jtsukahara3/Dropbox (GaTech)/My Work/Coding/R/R Books/UseR_Guide/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="reproducible-practices.html#cb194-1"></a><span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data/flanker_raw.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;/Users/jtsukahara3/Dropbox (GaTech)/My Work/Programming/R Books/UseR_Guide/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
 <p>This is equivalent to</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="reproducible-practices.html#cb194-1"></a><span class="kw">here</span>(<span class="st">&quot;Data Files&quot;</span>, <span class="st">&quot;Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;/Users/jtsukahara3/Dropbox (GaTech)/My Work/Coding/R/R Books/UseR_Guide/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="reproducible-practices.html#cb196-1"></a><span class="kw">here</span>(<span class="st">&quot;Data Files&quot;</span>, <span class="st">&quot;Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;/Users/jtsukahara3/Dropbox (GaTech)/My Work/Programming/R Books/UseR_Guide/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
 <p><br></p>
 <p><strong>I typically like to set the first argument as the relative file path and the second argument as the file name</strong></p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="reproducible-practices.html#cb196-1"></a><span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;/Users/jtsukahara3/Dropbox (GaTech)/My Work/Coding/R/R Books/UseR_Guide/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="reproducible-practices.html#cb198-1"></a><span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;/Users/jtsukahara3/Dropbox (GaTech)/My Work/Programming/R Books/UseR_Guide/Data Files/Raw Data/flanker_raw.csv&quot;</code></pre>
 <p><strong>This visually separates the file path and the file name, making your script easier to read.</strong></p>
 <p>You can use <code>here()</code> directly in import and output functions:</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="reproducible-practices.html#cb198-1"></a>import &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>))</span></code></pre></div>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="reproducible-practices.html#cb199-1"></a><span class="kw">write_csv</span>(data, <span class="kw">here</span>(<span class="st">&quot;Data Files/Scored Data&quot;</span>, <span class="st">&quot;flanker_scored.csv&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="reproducible-practices.html#cb200-1"></a>import &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">here</span>(<span class="st">&quot;Data Files/Raw Data&quot;</span>, <span class="st">&quot;flanker_raw.csv&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="reproducible-practices.html#cb201-1"></a><span class="kw">write_csv</span>(data, <span class="kw">here</span>(<span class="st">&quot;Data Files/Scored Data&quot;</span>, <span class="st">&quot;flanker_scored.csv&quot;</span>))</span></code></pre></div>
 <p>And you know that everytime you use <code>here()</code> that the file path will start at where you have your .Rproj file saved. Instead of messing around with working directories with <code>setwd()</code> or <code>getwd()</code>, just use <code>here()</code> and RStudio Projects. This becomes especially helpful when working with RMarkdown documents.</p>
 <hr />
 <div style="text-align: center; font-size: 1.25em">

@@ -33,15 +33,15 @@ I would not even argue that you should stop using other programs. They have thei
 
 So if you still want to use SPSS for statistical analysis you can do so. But do everything prior to that in R. **Use R to work with your data** and use SPSS to conduct statistical analyses. **R is also amazing at data visualization**. I would take advantage of that as well.
 
-**What about Python**? Python is an extremely powerful programming language and is a more general purpose language than R. One advantage to R over Python for psychological and behavioral sciences is that **R was created for statisticians by statisticians**. There will be more package options to do the type of analysis you want to do and there will be a larger and more specific community to get help from. Also the **tidyverse** set of packages is a huge advantage to R. Ultimately, you can always learn both R and Python.
+**What about Python**? Python is a versatile programming language and is a more general purpose language than R. One advantage to R over Python for psychological and behavioral sciences is that **R was created for statisticians by statisticians**. There will be more package options to do the type of analysis you want to do and there will be a larger and more specific community to get help from. Also the **tidyverse** set of packages is a huge advantage to R. Ultimately, you can always learn both R and Python.
 
 ## Reproducibility and Open Access {-}
 
 As Open Science principles such as Open Access to Data becomes the standard in your field - learning to manage and process your data in a Reproducible way that is **accessible** to other researchers (and your future self!) is going to be vital to your career in science. 
 
-The problem is that most of us have not been trained in how to properly manage, store, and process data in a way that is both reproducible and accessible. While using a coding/script based language like **R** allows us to create reproducible steps as we analyze our data it does not necessarily mean that it will be accessible. **Accessibility means that both your code and data files are easy to read and understand by a wide audience (or your future self) that does not know the details of how your data were created**. This means you need to have intuitive column labels, variables names, and a workflow that is easy to follow. 
+The problem is that most of us have not been trained in how to properly manage, store, and process data in a way that is both reproducible and accessible. While using a coding/script based language like **R** allows you to create reproducible steps as we analyze your data it does not necessarily mean that it will be accessible. **Accessibility means that both your code and data files are easy to read and understand by a wide audience (or your future self) that does not know the details of how your data were created**. This means you need to have intuitive column labels, variables names, and a workflow that is easy to follow. 
 
-The reason I emphasize this so much is that I have seen too many data files and scripts posted on open access repositories but they were nearly impossible to understand. **Is that really Open Access**? I don't think so. Open access does not simply mean being able to download some files to your computer from a shared server - it also means that you can understand the data and script files. Obviously if they use a different programming language than what you know then you may not understand the scripts, but there should be a workflow structure of the scripts that you can generally understand. There should also be documentation like a *Code Book* describing in plain English all the variables, data cleaning procedures, and workflow that you used.
+The reason I emphasize this so much is that I have seen too many data files and scripts posted on open access repositories but they were nearly impossible to understand. **Is that really Open Access**? I don't think so. Open access does not simply mean being able to download some files to your computer from a shared server - it also means that you can understand the data and script files. 
 
 ## But I need to analyze my data NOW! {-}
 
@@ -51,7 +51,7 @@ All this is just prioritizing short-term gains over long-term gains. **This is p
 
 **It is 100% okay to take longer to analyze some data if you are also acquiring skills that will greatly benefit you in the long-term**.
 
-## What does this book cover? {-}
+## What does this guide cover? {-}
 
 In **Section I** I will introduce you to the **basics of using R**, from installing R and various packages, basic R skills, and more intermediate skills such as creating your own functions or using for loops.
 
@@ -77,28 +77,6 @@ In **Section V** I introduce the fundamentals of data visualization in R using `
 
 In **Section VI** I cover how to perform statistical analyses that I frequently use in my own research. In addition, I will show you how to create "nice looking" output of your results and create graphs and tables of your statistical models. *[STILL WORKING ON THIS SECTION]*
 
-
-## Reseach Project Workflow {-}
-
-The image below represents the general data processing stages required to go from raw data to data visualization and statistical analyses. For our lab it is important to take note that Data Preparation happens in the **Data Collection** repository whereas Data Analysis happens in the **Data Analysis** repository. Section III will cover the reason for this in more detail.
-
-```{r echo=FALSE, out.width = '100%'}
-knitr::include_graphics(rep("images/workflows/workflow_all.png"))
-```
-
-The **Data Preparation** stage is only required because the data files created from the E-Prime or other software program are usually not in a format that is easy to use or understand. I am referring to this format as a **messy raw data** file. Also, there are typically other preparation steps one needs to take before they can start looking at the data. These might include merging individual subject data files and exporting the data to a non-proprietary format so we can import the data into R. The purpose of the data preparation stage is simply to create **tidy raw data** files from the messy raw data files.
-
-**Tidy raw data** files are easy to use and understand. There will be one row per trial, column labels that are easy to understand (e.g. Trial, Condition, RT, Accuracy, etc.), and values in columns that make sense. If values in a column are categorical, then the category names will be used rather than numerical values. Ideally, someone not involved in the research project should be able to look at a tidy raw data file and understand what each column represents, and what the values in the column refer to.
-
-Often times the data preparation stage is treated as temporary status of our data and we may not save or store *tidy* data files at this time. **This is a big mistake and will cause more headaches down the road**. I believe this tendency is there because we want to quickly move on to the more interesting phase - **Data Analysis**. As scientists, we should learn to take our time to work with our data. There are many advantages to saving and storing tidy raw data files - this will be explored more throughout this guide.
-
-What we actually care about is the **Data Analysis** phase. There are three main stages to data analysis; **1**) scoring, cleaning, and merging data **2**) data visualization, and **3**) statistical analyses. Data analysis tends to be more cyclic and iterative therefore you may end up going back and forth between these stages.
-
-The first stage takes the tidy raw data files from the data preparation stage and converts them into a scored data file, usually by aggregating performance across trials. Data cleaning procedures (such as removing outliers) also occurs during this stage. The format of the scored data file will depend on the type of statistical analysis one plans on performing.
-
-The data analysis stages usually occurs in tandem with one another. Visualizing our data, running statistical analyses, visualizing our statistical models, etc. If we have more exploratory data, then based on these visualizations and analyses we may decide that we want to use different scoring or cleaning procedures. Or we want to explore our data to further understand our findings. We may then go back to the scoring and cleaning stage, and on and on. 
-
-The final phase in a research project is to **Write up a Manuscript** to share your study and findings with the scientific community. It is also a good idea to **Share your Data**, R scripts, and results. The [Open Science Framework](https://osf.io){target="_blank"} is a good place to openly share your projects with other researchers.
 
 ```{r echo=FALSE, out.width="100%"}
 knitr::include_graphics(rep("images/workflows/workflow_pub_share.png"))

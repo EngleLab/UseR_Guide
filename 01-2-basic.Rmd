@@ -10,7 +10,7 @@ If you have not done so already, open a new R script file. To create a new R scr
 
 This should have opened a blank **Script** window called **Untitled**.
 
-The **Script** window is your workspace. This is where you will write, edit, delete, re-write, your code.
+The **Script** window is a file where you are saving your code. This is where you will write, edit, delete, re-write, your code.
 
 To follow along with the tutorial, you should type the lines of code I display in the tutorial into your script.
 

@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Tsukahara" />
 
 
-<meta name="date" content="2020-09-21" />
+<meta name="date" content="2020-11-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -139,8 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i>Why R?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#reproducibility-and-open-access"><i class="fa fa-check"></i>Reproducibility and Open Access</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#but-i-need-to-analyze-my-data-now"><i class="fa fa-check"></i>But I need to analyze my data NOW!</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-does-this-book-cover"><i class="fa fa-check"></i>What does this book cover?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-does-this-guide-cover"><i class="fa fa-check"></i>What does this guide cover?</a></li>
 </ul></li>
 <li class="part"><span><b>I Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
@@ -219,12 +218,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>III Reproducible Workflows</b></span></li>
 <li class="chapter" data-level="" data-path="reproducible-workflows-overview.html"><a href="reproducible-workflows-overview.html"><i class="fa fa-check"></i>Reproducible Workflows: Overview</a></li>
 <li class="chapter" data-level="7" data-path="project-organization.html"><a href="project-organization.html"><i class="fa fa-check"></i><b>7</b> Project Organization</a><ul>
-<li class="chapter" data-level="7.1" data-path="project-organization.html"><a href="project-organization.html#data-collection"><i class="fa fa-check"></i><b>7.1</b> Data Collection</a></li>
-<li class="chapter" data-level="7.2" data-path="project-organization.html"><a href="project-organization.html#data-preparation"><i class="fa fa-check"></i><b>7.2</b> Data Preparation</a></li>
-<li class="chapter" data-level="7.3" data-path="project-organization.html"><a href="project-organization.html#data-analysis"><i class="fa fa-check"></i><b>7.3</b> Data Analysis</a></li>
-<li class="chapter" data-level="7.4" data-path="project-organization.html"><a href="project-organization.html#workflow-package"><i class="fa fa-check"></i><b>7.4</b> <code>workflow</code> package</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="project-organization.html"><a href="project-organization.html#install"><i class="fa fa-check"></i><b>7.4.1</b> Install</a></li>
-<li class="chapter" data-level="7.4.2" data-path="project-organization.html"><a href="project-organization.html#create-a-new-r-project"><i class="fa fa-check"></i><b>7.4.2</b> Create a New R Project</a></li>
+<li class="chapter" data-level="7.1" data-path="project-organization.html"><a href="project-organization.html#data-collection-vs.-data-analysis"><i class="fa fa-check"></i><b>7.1</b> Data Collection vs. Data Analysis</a></li>
+<li class="chapter" data-level="7.2" data-path="project-organization.html"><a href="project-organization.html#data-collection"><i class="fa fa-check"></i><b>7.2</b> Data Collection</a></li>
+<li class="chapter" data-level="7.3" data-path="project-organization.html"><a href="project-organization.html#data-preparation"><i class="fa fa-check"></i><b>7.3</b> Data Preparation</a></li>
+<li class="chapter" data-level="7.4" data-path="project-organization.html"><a href="project-organization.html#data-analysis"><i class="fa fa-check"></i><b>7.4</b> Data Analysis</a></li>
+<li class="chapter" data-level="7.5" data-path="project-organization.html"><a href="project-organization.html#workflow-package"><i class="fa fa-check"></i><b>7.5</b> <code>workflow</code> package</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="project-organization.html"><a href="project-organization.html#install"><i class="fa fa-check"></i><b>7.5.1</b> Install</a></li>
+<li class="chapter" data-level="7.5.2" data-path="project-organization.html"><a href="project-organization.html#create-a-new-r-project"><i class="fa fa-check"></i><b>7.5.2</b> Create a New R Project</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="reproducible-practices.html"><a href="reproducible-practices.html"><i class="fa fa-check"></i><b>8</b> Reproducible Practices</a><ul>
@@ -382,34 +382,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="project-organization" class="section level1">
 <h1><span class="header-section-number">7</span> Project Organization</h1>
-<p>In the EngleLab, we often conduct large-scale data collection studies in which there are many research projects going on at once. Although many of the tasks will be shared between these research projects, there will be unique tasks for each project. This overlap in shared tasks can make it difficult to figure out how and at what stage to separate data preparation and analysis between these projects.</p>
-<p>I will suggest a particular organizational method to deal with this issue. This method will also make it easier in the future to go back and work with unanalyzed or archival data.</p>
-<p>The basic idea is that you have a data collection directory for a study - where data collection happens. That directory will store:</p>
-<ul>
-<li><p>Raw data files</p></li>
-<li><p>R Scripts</p>
-<ul>
-<li>To convert <em>messy</em> raw data files to <em>tidy</em> raw data files
-<br><br></li>
-</ul></li>
-<li><p>The programmed tasks administered to subjects</p></li>
-<li><p>Any documents related to the study</p>
-<ul>
-<li>Methods document, Consent form, demographic forms, etc.</li>
-</ul></li>
-</ul>
-<p><br></p>
-<p>Essentially the initial directory used for <strong>data collection</strong> will become an archival directory you can use to grab raw data files to start an analysis project.</p>
-<p>From this data collection directory you can create separate directories for different data analysis projects. To do so, <em>and this is the key part</em>, you only need to copy and paste the <em>tidy</em> raw data files. (The <em>tidy</em> raw data files are created during the data preparation stage and I will discuss this more below.)</p>
+<p>In this chapter I will explain a particular organizational method for data collection and data analysis projects.</p>
+<hr />
+<div id="data-collection-vs.-data-analysis" class="section level2">
+<h2><span class="header-section-number">7.1</span> Data Collection vs. Data Analysis</h2>
+<p>In the EngleLab, we often conduct large-scale data collection studies in which there are many research projects going on at once. Although many of the tasks will be shared between these research projects, there will be a unique set of tasks for each project. This overlap in shared tasks can make it difficult to figure out how and when to separate data preparation and data analysis steps between these projects.</p>
+<p>Essentially, every data analysis project should contain the raw (tidy) data files for the tasks relevant to that research project. From these raw data files, performance should be aggregated to calculate a <em>score</em> on each task. <strong>That way every data analysis project will be fully reproducible starting from the raw data files.</strong></p>
+<p>The <strong>Data Collection</strong> directory will serve as a central repository for the raw data files from the study. A new <strong>Data Analysis</strong> directory can be created by copying over the raw data files for the tasks relevant to that research project. This relationship between Data Collection and Data Analysis Repositories are depicted here:</p>
 <p><img src="images/workflows/workflow_relations.png" width="60%" style="display: block; margin: auto;" /></p>
-<p>An advantage to this is that for each data analysis project, you will be able to <em>FULLY</em> reproduce your data processing and analyses <em>independently</em> of other data analysis projects.</p>
-<p><em>(This is very different from how we have done it in the past. In the past, we have typically shared a single “final” data file that contains scores for all the tasks. The problem with this is you have no idea how those scores were created, how the data were cleaned, you cannot calculate reliability or look at trial level data, and you cannot go back and re-analyze the data with different scoring or cleaning methods.)</em></p>
-<p>It is critical that you copy the <em>tidy</em> raw data files <strong>ONLY</strong> from the data collection directory to a data analysis directory <strong>You do not copy data files from one data analysis directory to another!</strong></p>
+<p><em>In the past, we would create a “final” data file with task scores from all the main tasks and share this with each other to use for our own data analysis projects. The problem with this was that not only was the analysis not fully reproducible but it creates a lack of transparency as to how the scores were calculated and the data cleaned. This also does not allow one to estimate reliability since they will not have the raw data files.</em></p>
+<p>It is critical that you copy the raw data files <strong>ONLY</strong> from the data collection directory to a data analysis directory. <strong>You do not copy data files from one data analysis directory to another!</strong></p>
 <p>You <strong>CAN</strong> copy R Scripts from one data analysis directory to another. For instance, if you or someone else already created an R Script (for a separate data analysis project) to score a particular task that you are also using, then there is no problem in copying the R Script.</p>
 <p><strong>In general, you will probably copy R scripts from one project to another. The important point is that you are not copying <em>data files</em> from one project to another!</strong></p>
 <p>This is because you can reproduce the data files from your R Scripts but not vice-versa. If you copy data files you lose reproducibility and the transparency of how the data file was created.</p>
+</div>
 <div id="data-collection" class="section level2">
-<h2><span class="header-section-number">7.1</span> Data Collection</h2>
+<h2><span class="header-section-number">7.2</span> Data Collection</h2>
 <p>Unfortunately, you have to actually collect data before you can start analyzing anything. Therefore, you start out with a single directory: <strong>Data Collection</strong>. At the start all the folders in this directory that you really need are:</p>
 <ul>
 <li><p>Tasks</p></li>
@@ -420,9 +408,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Documents</strong> is where you may store various documents related to the study, such as a <strong>Methods.docx</strong> document describing each task in detail. This is an important document for archival purposes. Some of your other documents in this directory may not be as important for archival purposes, such as an informed consent form.</p>
 </div>
 <div id="data-preparation" class="section level2">
-<h2><span class="header-section-number">7.2</span> Data Preparation</h2>
+<h2><span class="header-section-number">7.3</span> Data Preparation</h2>
 <p>At some point you will need to start analyzing the data. However, you first need to prepare the data so that it is ready to analyze. There are several steps in this process and it can be quite tedious. Nevertheless, undergraduate RAs are trained on how to do most of these steps, so recruit their help. There are also <a href="http://englelab.gatech.edu/dataprep/" target="_blank">step-by-step instructions for Data Preparation.</a></p>
-<p><br></p>
 <p>Once you are ready for <strong>Data Preparation</strong> you will need to create a <strong>Data Files</strong> and <strong>R Scripts</strong> folders in the Data Collection directory.</p>
 <p>There are two scenarios in which you may need to start processing and analyzing data:</p>
 <ul>
@@ -430,12 +417,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>After data collection has finished</p></li>
 </ul>
 <p>For both of these scenarios, you will start with messy raw data files in some file format. Messy raw data files are hard to understand, have poor column and value labels, contain way too many columns and rows, and are just hard to work with. <strong>Data preparation is all about getting raw data files that are easy to work with.</strong></p>
-<p>The end product of the data preparation stage is <em>tidy</em> raw data files. Tidy raw data files are easy to understand, have sensible column and value labels, contain only relevant columns and rows, and are very easy to work with.</p>
 <p><img src="images/workflows/workflow_messy-tidy.png" width="35%" style="display: block; margin: auto;" /></p>
-<hr />
+<p>The end product of the data preparation stage is <em>tidy</em> raw data files. Tidy raw data files are easy to understand, have sensible column and value labels, contain only relevant columns and rows, and are very easy to work with.</p>
+<p>The <strong>Data Preparation</strong> stage is only required because the data files created from the E-Prime or other software program are usually not in a format that is easy to use or understand. I am referring to this format as a <strong>messy raw data</strong> file. Also, there are typically other preparation steps one needs to take before they can start looking at the data. These might include merging individual subject data files and exporting the data to a non-proprietary format so we can import the data into R. The purpose of the data preparation stage is simply to create <strong>tidy raw data</strong> files from the messy raw data files.</p>
+<p><strong>Tidy raw data</strong> files are easy to use and understand. There will be one row per trial, column labels that are easy to understand (e.g. Trial, Condition, RT, Accuracy, etc.), and values in columns that make sense. If values in a column are categorical, then the category names will be used rather than numerical values. Ideally, someone not involved in the research project should be able to look at a tidy raw data file and understand what each column represents, and what the values in the column refer to.</p>
 </div>
 <div id="data-analysis" class="section level2">
-<h2><span class="header-section-number">7.3</span> Data Analysis</h2>
+<h2><span class="header-section-number">7.4</span> Data Analysis</h2>
 <p>Okay, now say you are ready to analyze some data! It is tempting to do your analysis in the original <em>Data Collection</em> directory where the data are already stored. <strong>I highly suggest not doing this.</strong> You will be mixing up a <em>Data Collection</em> directory with a <em>Data Analysis</em> directory. This distinction is particularly important when we conduct large-scale studies with many data analysis projects for a single data collection study.</p>
 <p>Instead, you should copy over the <em>tidy</em> raw data files from the data preparation stage to a separate <em>Data Analysis</em> directory.</p>
 <p><img src="images/workflows/workflow_copyover.png" width="70%" style="display: block; margin: auto;" /></p>
@@ -449,9 +437,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Data Files</strong> is where you will store tidy raw data files, scored data files, and a single merged data file ready for statistical analysis.</p>
 <p>It is advisable to store <strong>ALL</strong> your <strong>R scripts</strong> in one single place. I also like to prefix them with numbers corresponding to the order they need to be executed - that way they will be organized in an easy to find way.</p>
 <p>Finally, you should create a separate folder to hold all your outputs from statistical analysis and data visualization in a <strong>Results</strong> folder.</p>
-<p>The overall workflow for data analysis looks like:</p>
+<p>There are three main stages to data analysis; <strong>1</strong>) scoring, cleaning, and merging data <strong>2</strong>) data visualization, and <strong>3</strong>) statistical analyses. Data analysis tends to be more cyclic and iterative therefore you may end up going back and forth between these stages.</p>
 <p><img src="images/workflows/workflow_dataanalysis.png" width="50%" style="display: block; margin: auto;" /></p>
-<p>We will get into more of the details in the next section.</p>
+<p>The first stage takes the tidy raw data files from the data preparation stage and converts them into a scored data file, usually by aggregating performance across trials. Data cleaning procedures (such as removing outliers) also occurs during this stage. The format of the scored data file will depend on the type of statistical analysis one plans on performing.</p>
+<p>The data analysis stages usually occurs in tandem with one another. Visualizing our data, running statistical analyses, visualizing our statistical models, etc. If we have more exploratory data, then based on these visualizations and analyses we may decide that we want to use different scoring or cleaning procedures. Or we want to explore our data to further understand our findings. We may then go back to the scoring and cleaning stage, and on and on.</p>
 <p>You may have other folders in your <strong>Data Analysis</strong> directory:</p>
 <ul>
 <li><p>Figures</p></li>
@@ -465,18 +454,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 </div>
 <div id="workflow-package" class="section level2">
-<h2><span class="header-section-number">7.4</span> <code>workflow</code> package</h2>
+<h2><span class="header-section-number">7.5</span> <code>workflow</code> package</h2>
 <p>I will show you how to automatically create <strong>Data Collection</strong> and <strong>Data Analysis</strong> directories using RStudio Projects and my <a href="https://dr-jt.github.io/workflow/" target="_blank"><strong>workflow</strong> package</a></p>
 <p>The most important thing to remember is that you need to copy and paste the <em>tidy</em> <strong>task_raw.csv</strong> data files from a <strong>Data Collection</strong> directory to a <em>Data Analysis</em> directory - <strong>but never copy and paste data files from one <em>Data Analysis</em> directory to another</strong>.</p>
 <p><img src="images/workflows/workflow_copyover.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>When should you create a separate <strong>Data Analysis</strong> directory? Basically, if the set of analyses is going to be it’s own <strong>Manuscript</strong> then create a new directory. If the set of analyses (whether exploratory or supplemental) is part of a larger set of analyses already in the works for a manuscript then no need to create a separate directory.</p>
 <div id="install" class="section level3">
-<h3><span class="header-section-number">7.4.1</span> Install</h3>
+<h3><span class="header-section-number">7.5.1</span> Install</h3>
 <p>Install the <code>workflow</code> package</p>
 <div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="project-organization.html#cb187-1"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/workflow&quot;</span>)</span></code></pre></div>
 </div>
 <div id="create-a-new-r-project" class="section level3">
-<h3><span class="header-section-number">7.4.2</span> Create a New R Project</h3>
+<h3><span class="header-section-number">7.5.2</span> Create a New R Project</h3>
 <p>One of the features this package allows is for you to automatically setup the organization of a <strong>Data Collection</strong> or <strong>Data Analysis</strong> project.</p>
 <p>Navigate to __File -&gt; New Project… -&gt; New Directory</p>
 <p>And browse until you see the option: <strong>Research Study</strong></p>

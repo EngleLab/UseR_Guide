@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Tsukahara" />
 
 
-<meta name="date" content="2020-09-21" />
+<meta name="date" content="2020-11-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -139,8 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i>Why R?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#reproducibility-and-open-access"><i class="fa fa-check"></i>Reproducibility and Open Access</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#but-i-need-to-analyze-my-data-now"><i class="fa fa-check"></i>But I need to analyze my data NOW!</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-does-this-book-cover"><i class="fa fa-check"></i>What does this book cover?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reseach-project-workflow"><i class="fa fa-check"></i>Reseach Project Workflow</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-does-this-guide-cover"><i class="fa fa-check"></i>What does this guide cover?</a></li>
 </ul></li>
 <li class="part"><span><b>I Getting Started in R</b></span></li>
 <li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a><ul>
@@ -219,12 +218,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>III Reproducible Workflows</b></span></li>
 <li class="chapter" data-level="" data-path="reproducible-workflows-overview.html"><a href="reproducible-workflows-overview.html"><i class="fa fa-check"></i>Reproducible Workflows: Overview</a></li>
 <li class="chapter" data-level="7" data-path="project-organization.html"><a href="project-organization.html"><i class="fa fa-check"></i><b>7</b> Project Organization</a><ul>
-<li class="chapter" data-level="7.1" data-path="project-organization.html"><a href="project-organization.html#data-collection"><i class="fa fa-check"></i><b>7.1</b> Data Collection</a></li>
-<li class="chapter" data-level="7.2" data-path="project-organization.html"><a href="project-organization.html#data-preparation"><i class="fa fa-check"></i><b>7.2</b> Data Preparation</a></li>
-<li class="chapter" data-level="7.3" data-path="project-organization.html"><a href="project-organization.html#data-analysis"><i class="fa fa-check"></i><b>7.3</b> Data Analysis</a></li>
-<li class="chapter" data-level="7.4" data-path="project-organization.html"><a href="project-organization.html#workflow-package"><i class="fa fa-check"></i><b>7.4</b> <code>workflow</code> package</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="project-organization.html"><a href="project-organization.html#install"><i class="fa fa-check"></i><b>7.4.1</b> Install</a></li>
-<li class="chapter" data-level="7.4.2" data-path="project-organization.html"><a href="project-organization.html#create-a-new-r-project"><i class="fa fa-check"></i><b>7.4.2</b> Create a New R Project</a></li>
+<li class="chapter" data-level="7.1" data-path="project-organization.html"><a href="project-organization.html#data-collection-vs.-data-analysis"><i class="fa fa-check"></i><b>7.1</b> Data Collection vs. Data Analysis</a></li>
+<li class="chapter" data-level="7.2" data-path="project-organization.html"><a href="project-organization.html#data-collection"><i class="fa fa-check"></i><b>7.2</b> Data Collection</a></li>
+<li class="chapter" data-level="7.3" data-path="project-organization.html"><a href="project-organization.html#data-preparation"><i class="fa fa-check"></i><b>7.3</b> Data Preparation</a></li>
+<li class="chapter" data-level="7.4" data-path="project-organization.html"><a href="project-organization.html#data-analysis"><i class="fa fa-check"></i><b>7.4</b> Data Analysis</a></li>
+<li class="chapter" data-level="7.5" data-path="project-organization.html"><a href="project-organization.html#workflow-package"><i class="fa fa-check"></i><b>7.5</b> <code>workflow</code> package</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="project-organization.html"><a href="project-organization.html#install"><i class="fa fa-check"></i><b>7.5.1</b> Install</a></li>
+<li class="chapter" data-level="7.5.2" data-path="project-organization.html"><a href="project-organization.html#create-a-new-r-project"><i class="fa fa-check"></i><b>7.5.2</b> Create a New R Project</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="reproducible-practices.html"><a href="reproducible-practices.html"><i class="fa fa-check"></i><b>8</b> Reproducible Practices</a><ul>
@@ -513,11 +513,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb56-2"><a href="intermediate-r.html#cb56-2"></a><span class="co">##  [1]  10  20  30  40  50  60  70  80  90 100</span></span></code></pre></div>
 <p>In the <code>seq()</code> function the <code>by</code> argument is not required. This is because there is a default <code>by</code> value of 1.</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="intermediate-r.html#cb57-1"></a><span class="kw">seq</span>(<span class="dv">10</span>, <span class="dv">100</span>)</span>
-<span id="cb57-2"><a href="intermediate-r.html#cb57-2"></a><span class="co">##  [1]  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31</span></span>
-<span id="cb57-3"><a href="intermediate-r.html#cb57-3"></a><span class="co">## [23]  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53</span></span>
-<span id="cb57-4"><a href="intermediate-r.html#cb57-4"></a><span class="co">## [45]  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75</span></span>
-<span id="cb57-5"><a href="intermediate-r.html#cb57-5"></a><span class="co">## [67]  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97</span></span>
-<span id="cb57-6"><a href="intermediate-r.html#cb57-6"></a><span class="co">## [89]  98  99 100</span></span></code></pre></div>
+<span id="cb57-2"><a href="intermediate-r.html#cb57-2"></a><span class="co">##  [1]  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28</span></span>
+<span id="cb57-3"><a href="intermediate-r.html#cb57-3"></a><span class="co">## [20]  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47</span></span>
+<span id="cb57-4"><a href="intermediate-r.html#cb57-4"></a><span class="co">## [39]  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66</span></span>
+<span id="cb57-5"><a href="intermediate-r.html#cb57-5"></a><span class="co">## [58]  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85</span></span>
+<span id="cb57-6"><a href="intermediate-r.html#cb57-6"></a><span class="co">## [77]  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100</span></span></code></pre></div>
 <p>Obviously if you want to specify a different interval, then you will need to specify <code>by =</code>.</p>
 <div id="creating-your-own-functions" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Creating Your Own Functions</h3>
