@@ -8,6 +8,7 @@
 *.emrg3
 *.edat2
 *.edat3
+*.html
 Data Files/*
 _book/*
 _bookdown_files/*
