@@ -2,7 +2,7 @@
 
 # Data Visualization: Overview {-}
 
-## R Markdown
+## R Markdown {-}
 
 ```{r include=FALSE, eval = TRUE}
 knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE)
@@ -22,7 +22,7 @@ In programs like SPSS when you run a statistical analysis, it will be outputted 
 
 One downfall about R is that unlike SPSS, there is not a native way to create output documents from statistical analyses. Fortunately, RStudio has an output document format called **R Markdown**. 
 
-### What is an R Markdown File?
+### What is an R Markdown File? {-}
 
 **R Markdown** is a powerful way to create reports of statistical analyses. Reports can be outputted in a lot of different formats; html, Microsoft Word, PDF, presentation slides, and more. In fact, this guide was created using **R Markdown**. 
 
@@ -63,7 +63,7 @@ output: html_document
 
 There are various metadata options you can specify, such as if you want to include a table of contents. To learn about a few of them see https://bookdown.org/yihui/rmarkdown/html-document.html
 
-### R code chunks
+### R code chunks {-}
 
 Unlike a typical R script file (.R), an R Markdown document (.Rmd) is a mixture of formatted text and R code chunks. Not everything in an R Markdown document is executed in the R console, only the R code chunks. 
 
@@ -73,7 +73,7 @@ We have not gone over these functions yet, but you can see that the results of t
 
 The first R code chunk is just setting some default options of how the output of R code chunks should be displayed. We will cover these options in more detail later.
 
-### Formatted text
+### Formatted text {-}
 
 The formatted text sections are more than just adding comments to lines of code. You can write up descriptive reports, create bulletted or numbered lists, embed images or web links, create tables, and more. 
 

@@ -2,7 +2,7 @@
 
 # Statistical Analysis: Overview {-}
 
-## R Markdown
+## R Markdown {-}
 
 ```{r include=FALSE, eval = TRUE}
 knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE)
