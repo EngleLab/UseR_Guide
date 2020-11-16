@@ -8,10 +8,10 @@
 *.emrg3
 *.edat2
 *.edat3
-Data Files/
-_book/
-_bookdown_files
-old/
-R Scripts/
-Results/
-Tasks/
+Data Files/*
+_book/*
+_bookdown_files/*
+old/*
+R Scripts/*
+Results/*
+Tasks/*
