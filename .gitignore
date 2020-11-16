@@ -15,4 +15,4 @@ old/*
 R Scripts/*
 Results/*
 Tasks/*
-*.html
+_book/*.html
