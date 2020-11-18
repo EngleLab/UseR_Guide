@@ -19,6 +19,19 @@ always_allow_html: true
 
 ----
 
+```{r echo=FALSE, eval=TRUE}
+library(bslib)
+bs_global_theme()
+bs_global_add_rules(
+  ".my-class { 
+     background-color: mix($body-bg, $body-color, 90%);
+     border: 0px solid $primary;
+     @include border_radius($border-radius);
+   }
+  "
+)
+```
+
 ```{r echo=FALSE, fig.align='center', out.width = '75%'}
 knitr::include_graphics(rep("images/eagle.png"))
 ```
