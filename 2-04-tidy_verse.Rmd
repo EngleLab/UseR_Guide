@@ -1,6 +1,6 @@
 # (PART) Working with Data {-}
 
-# Working with Data: Overview {-}
+# Tidyverse
 
 In this section you will learn how to work with data in R by using a collection of packages known as the **tidyverse**
 

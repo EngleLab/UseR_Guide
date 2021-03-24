@@ -1,7 +1,4 @@
-bookdown::bs4_book:
-  theme:
-    primary: "#23559A"
-    secondary: "#4B7DC7"
+bookdown::gitbook:
   config:
     toc:
       collapse: section

@@ -1,0 +1,124 @@
+# Tidy Raw Data
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+```{r eval = TRUE, echo=FALSE, out.width='50%', fig.align='center'}
+knitr::include_graphics(rep("images/workflows/workflow_messy-tidy.png"))
+```
+
+It is easiest to start an R script from a template. You can download an R script template for tidying raw data with `workflow::template(raw = TRUE)`
+
+## Raw Script Template
+
+```{r eval = FALSE}
+#### Setup ####
+## Load packages
+library(here)
+library(readr)
+library(dplyr)
+
+## Set Import/Output Directories
+import_dir <- "Data Files/Merged"
+output_dir <- "Data Files"
+
+## Set Import/Output Filenames
+task <- "taskname"
+import_file <- paste(task, ".txt", sep = "")
+output_file <- paste(task, "raw.csv", sep = "_")
+################
+
+#### Import ####
+data_import <- read_delim(here(import_dir, import_file), "\t",
+                          escape_double = FALSE, trim_ws = TRUE)
+################
+
+#### Tidy raw data ####
+data_raw <- data_import %>%
+  rename() %>%
+  filter() %>%
+  mutate() %>%
+  select()
+#######################
+
+#### Output ####
+write_csv(data_raw, here(output_dir, output_file))
+################
+
+rm(list=ls())
+```
+
+### Setup
+
+- Load packages
+
+    Any packages required for this script are loaded at the top. For this task all we will need are the `here`, `readr`, and `dplyr` packages so we do not need to change anything.
+    
+- Set Import/Output Directories
+
+    To make this example easier you will not have to actually import/output any files.
+    
+- Set Import/Output Filenames
+
+    The only line we need to change here is the `task <- "taskname"` to `task <- "VAorient_S"`.
+    
+### Import
+
+This section can stay exactly the same. As long as you are using these templates this line of code can always remain untouched.
+
+In fact, if you are using these templates, every line of code except `task <- "taskname"` can likely stay exactly the same.
+
+### Tidy raw data
+
+This is the meat of the script, where the action happens. It will also be different for every task - obviously. I will cover some common steps that you will need to tidy raw data.
+
+## Filter Rows
+
+One of the first things that is useful to do is get rid of rows in the messy data file that you don't need. 
+
+For E-Prime data, `Procedure[Trial]` is usually the column name you need to only keep rows for practice and real trials procedures. 
+
+**Hint**: Type `colnames(data_import)` in the console window to get a read out of all the column names in your data. It is much faster and easier to see column names in the console than navigating the data frame itself.
+
+You need to figure out the value names that correspond to the rows you want to keep. Use `unique(``Procedure[Trial]``)`
+
+Let's say we only want to keep rows that have a value in the `Procedure[Trial]` column as either `TrialProc` or `PracProc`.
+
+```{r eval=FALSE}
+rename(TrialProc = `Procedure[Trial]`)
+filter(TrialProc == "TrialProc" | TrialProc == "PracProc")
+```
+
+## Change Values in Columns
+
+You will likely want to change some of the value labels in columns to make more sense and standardize it across tasks. In general, you should avoid numeric labels for categorical data. Instead, you should just use word strings that describe the category intuitively (e.g., "red", "blue", "green" instead of 1, 2, 3).
+
+Let's change the `TrialProc` values so they are more simple and easy to read. 
+
+```{r eval=FALSE}
+mutate(TrialProc = case_when(TrialProc == "TrialProc" ~ "real", 
+                             TrialProc == "PracProc" ~ "practice",
+                             TRUE ~ as.character(NA))) 
+```
+
+You may want to do more complex changing of values or creating entirely new columns. See the **Working with Data* section for more details.
+
+## Keep only a few Columns
+
+You will also likely want to select only a subset of columns to keep in the tidy raw data file.
+
+```{r eval=FALSE}
+select(Subject, TrialProc, Trial, Condition, Accuracy, RT, Response,
+       CorrectResponse, AdminTime, SessionDate, SessionTime)
+```
+
+----
+
+The organization structure and workflow for data preparation is depicted below:
+
+```{r echo=FALSE, eval = TRUE, out.width='40%', fig.align='left'}
+knitr::include_graphics(rep("images/workflows/repository_datacollection.png"))
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=ls())
+```

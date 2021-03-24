@@ -1,20 +1,8 @@
-# Data Analysis: Single Merged File
+# Single Merged File
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-## Overview
-
-The two steps required to get the data ready for statistical analysis are:
-
-1. Create a scored data file for each task
-
-    At this stage we also remove any subjects that are suspect or have too poor of performance, and remove univariate outliers.
-
-2. Merge the scored data files into a single data file
-
-    At this stage we also can create composite factors if needed.
-    
-The first step was covered in the previous chapter. The second step will be covered in this chapter. However, I will not provide an example as it would require you to download several files and organize them... but I will explain how the script template works for creating a single merged file.
+It is easiest to start an R script from a template. You can download an R script template for creating a merged file `workflow::template(merge = TRUE)`
 
 As with all the other script templates we have used there are 4 sections in the merge script:
 
@@ -78,7 +66,7 @@ subj.list <- select(data_merge, Subject)
 #################################################################
 ```
 
-Not shown here, but this would also be the place to create composite variables if needed using `datawrangling::composite()`. This function was explained in detail in Chapter 6.
+Not shown here, but this would also be the place to create composite variables if needed using `datawrangling::composite()`. This function was explained in detail in Chapter 7.
 
 If you want to exclude subjects that have too much missing data across certain tasks this would be the place to do it.
 
@@ -96,50 +84,6 @@ write_csv(subj.list, here(output_dir, "subjlist_final.csv"))
 
 rm(list=ls())
 ```
-
-
-## masterscript.R
-
-The masterscript template for data analysis is explained in Chapter 9. This is what it looks like:
-
-*Notice the Create/Clear log file line - this only required if you are going to append log information from each of the _score.R script files.*
-
-```{r eval = FALSE}
-## Data Analysis for StudyName
-
-
-#################################################
-#------ 1. "tidy" raw data to Scored data ------#
-#################################################
-
-## Create/Clear log file
-write(paste("log: ", format(Sys.Date(), "%B %d %Y"), "\n", sep = ""),
-      file = "Data Files/Scored Data/log.txt", append = FALSE)
-
-source("R Scripts/1_taskname_score.R", echo=TRUE)
-
-rm(list=ls())
-#############################################################
-#------ 2. Create Final Merged Data File for Analysis ------#
-#############################################################
-
-source("R Scripts/2_merge.R", echo=TRUE)
-
-rm(list=ls())
-###############################
-#------ 3. Data Analysis ------#
-###############################
-library(rmarkdown)
-
-render("R Scripts/3_MainAnalyses.Rmd",
-       output_dir = "Results", 
-       output_file = "MainAnalyses.html")
-
-rm(list=ls())
-#################################################
-
-```
-
 
 ----
 
