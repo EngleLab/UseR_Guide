@@ -32,7 +32,7 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome to the EngleLab useRguide</a></li>
+<li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Getting Started in R</li>
 <li><a class="" href="installation.html"><span class="header-section-number">1</span> Installation</a></li>
 <li><a class="" href="basic-r.html"><span class="header-section-number">2</span> Basic R</a></li>
@@ -154,13 +154,13 @@
 </h3>
 <p>Within a Project, you will have multiple R Scripts that are performing a different analysis. It is also important to keep the <code>Environment</code> of an R Script independent of the <code>Environment</code> from other R Scripts, even within the same project.</p>
 <p>Obviously your R Scripts will be dependent on one another in the sense that one R Script might be creating data files that other R Scripts will later use.</p>
-<p>For example, you might have an R Script (or multiple scripts) that prepare the data for statistical analysis by creating a <em>scored merged data file</em>. Then another R Script will actually run and output the statistical analyses. The statistical analysis R Script is dependent on a data file created by the first R Script. <strong>However</strong>, the <code>Environment</code> of the R Scripts are independent from one another.</p>
+<p>For example, you might have an R Script (or multiple scripts) that prepare the data for statistical analysis by creating a <em>scored merged data file</em>. Then another R Script will actually run and output the statistical analyses. The statistical analysis R Script is dependent on a data file created by the first R Script. However, the <code>Environment</code> of the R Scripts are independent from one another.</p>
 <hr>
 <div style="text-align: center; font-size: 1.25em">
 <p>R Scripts are linked in a data processing workflow through the data files they create not by the objects in the Environment</p>
 </div>
 <hr>
-<p><strong>Therefore, it is important that the <code>Environment</code> of each R Script within a Project are independent from one another.</strong> This means that an R Script should not depend on objects created or data imported in other R Scripts. Any packages required for an R Script should be loaded in THAT script and not depend on them being loaded in other R Scripts.</p>
+<p>Therefore, it is important that the <code>Environment</code> of each R Script within a Project are independent from one another. This means that an R Script should not depend on objects created or data imported in other R Scripts. Any packages required for an R Script should be loaded in THAT script and not depend on them being loaded in other R Scripts.</p>
 <p>As long as the data files required for an R Script are already created, you should be able to open a completely new and fresh session of R and successfully execute all the lines of code in that one Script (without having ran any other scripts).</p>
 <p>At the end of each R Script I had you include the line of code</p>
 <div class="sourceCode" id="cb188"><pre class="downlit">
@@ -187,15 +187,15 @@
 <p>You could use what are referred to as <em>absolute</em> file paths to import and export files but this is not good practice. The reason is that the <em>absolute</em> file path is specific to a particular computer. No one computer is going to have the same <em>absolute</em> file path. An <em>absolute</em> file path starts from the root directory on your computer and may look something like:</p>
 <p>Mac: <code>~/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/R-Tutorial</code></p>
 <p>Windows: <code>C:\Users\jasontsukahara\Dropbox (GaTech)\My Work\Coding Projects\R\R-Tutorial</code></p>
-<p><strong>You do not want to write scripts that can only work on a specific computer!</strong> One of the great advantages to programming for data processing is reproducibility. You and your future self (and other researchers) can reproduce your exact same data processing steps. <strong>If you use absolute file paths you are undermining the reproducibility of your scripts</strong>.</p>
-<p><strong>It is good practice</strong> to use <em>relative</em> file paths instead. <em>Relative</em> file paths start from a <strong>working directory</strong>. Let’s say you have a <strong>working directory</strong> set to the following location:</p>
+<p>You do not want to write scripts that can only work on a specific computer! One of the great advantages to programming for data processing is reproducibility. You and your future self (and other researchers) can reproduce your exact same data processing steps. If you use absolute file paths you are undermining the reproducibility of your scripts.</p>
+<p>It is good practice to use <em>relative</em> file paths instead. <em>Relative</em> file paths start from a <strong>working directory</strong>. Let’s say you have a <strong>working directory</strong> set to the following location:</p>
 <p><code>~/Users/jasontsukahara/Dropbox (GaTech)/My Work/Research Projects/Cool Study</code></p>
 <p>And you want to import files from a <em>Raw Data</em> directory within <em>Cool Study</em>. The absolute path to raw data files in <code>Cool Study</code> might look like:</p>
 <p><code>~/Users/jasontsukahara/Dropbox (GaTech)/My Work/Research Projects/Cool Study/Data Files/Raw Data</code></p>
 <p>Whereas a relative file path from the working directory would be:</p>
 <p><code>Data Files/Raw Data</code></p>
 <p>You can see that with <em>relative</em> file paths, only the internal organization of the project directory matters. This allows your script to be ran on different computers, systems, and environments!</p>
-<p>Your working directory can be specified in various ways. By default, if you open up <strong>RStudio</strong> directly it will set the working directory to some default location such as your <em>User</em> root directory. <strong>This is not good</strong>.</p>
+<p>Your working directory can be specified in various ways. By default, if you open up <strong>RStudio</strong> directly it will set the working directory to some default location such as your <em>User</em> root directory. This is not good.</p>
 <p>If you open up <strong>RStudio</strong> by directly opening an <em>R script file</em> then it will set the working directory to the location of that file. This is better but still not ideal.</p>
 <p>Because the working directory changes depending on how you open RStudio a lot of R Users will set a working directory at the top of their script using</p>
 <div class="sourceCode" id="cb189"><pre class="downlit">
@@ -224,7 +224,7 @@
 <p>The <code>here</code> package in combination with RStudio Projects allows you to not even have to think about working directories.</p>
 <p>For a passionate ode to the <code>here</code> package see: <a href="https://github.com/jennybc/here_here" class="uri">https://github.com/jennybc/here_here</a></p>
 <p>First go ahead and install the <code>here</code> package, <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("here")</a></code>.</p>
-<p>Basically, when the <code>here</code> package is loaded, <code><a href="https://github.com/krlmlr/here">library(here)</a></code>, it will search for an .Rproj file and it will set a <strong>starting</strong> file path at that location when you use <code><a href="https://rdrr.io/pkg/here/man/here.html">here()</a></code>. (It is not technically changing the working directory though but that doesn’t matter when using <code><a href="https://rdrr.io/pkg/here/man/here.html">here()</a></code>)</p>
+<p>Basically, when the <code>here</code> package is loaded, <code><a href="https://github.com/krlmlr/here">library(here)</a></code>, it will search for an .Rproj file and it will set a starting file path at that location when you use <code><a href="https://rdrr.io/pkg/here/man/here.html">here()</a></code>. (It is not technically changing the working directory though but that doesn’t matter when using <code><a href="https://rdrr.io/pkg/here/man/here.html">here()</a></code>)</p>
 <p>For instance, I have an .Rproj file saved in my “UseR_Guide” folder. When I use <code><a href="https://rdrr.io/pkg/here/man/here.html">here()</a></code> it will output a file path to that location.</p>
 <div class="sourceCode" id="cb190"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/krlmlr/here">here</a></span>)
@@ -242,12 +242,12 @@
 </pre></div>
 <pre><code>## [1] "/Users/jtsukahara3/Dropbox (GaTech)/My Work/Programming/R Books/UseR_Guide/Data Files/Raw Data/flanker_raw.csv"</code></pre>
 <p><br></p>
-<p><strong>I typically like to set the first argument as the relative file path and the second argument as the file name</strong></p>
+<p>I typically like to set the first argument as the relative file path and the second argument as the file name.</p>
 <div class="sourceCode" id="cb196"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/pkg/here/man/here.html">here</a></span>(<span class="st">"Data Files/Raw Data"</span>, <span class="st">"flanker_raw.csv"</span>)
 </pre></div>
 <pre><code>## [1] "/Users/jtsukahara3/Dropbox (GaTech)/My Work/Programming/R Books/UseR_Guide/Data Files/Raw Data/flanker_raw.csv"</code></pre>
-<p><strong>This visually separates the file path and the file name, making your script easier to read.</strong></p>
+<p>This visually separates the file path and the file name, making your script easier to read.</p>
 <p>You can use <code><a href="https://rdrr.io/pkg/here/man/here.html">here()</a></code> directly in import and output functions:</p>
 <div class="sourceCode" id="cb198"><pre class="downlit">
 <span class="kw">import</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/here/man/here.html">here</a></span>(<span class="st">"Data Files/Raw Data"</span>, <span class="st">"flanker_raw.csv"</span>))
@@ -268,7 +268,6 @@
 <span class="header-section-number">8.3.2</span> Loaded Packages<a class="anchor" aria-label="anchor" href="#loaded-packages"><i class="fas fa-link"></i></a>
 </h3>
 <p>To make sure that the packages used in one R Script do not depend on the packages loaded in other R Scripts:</p>
-<p><strong>Load all required packages for that one R Script at the top of the script</strong></p>
 <p>This allows you to easily evaluate which packages are required for that script.</p>
 </div>
 <div id="objects" class="section level3">
@@ -320,7 +319,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EngleLab: useRguide</strong>" was written by Jason Tsukahara. It was last built on 2020-11-17.</p>
+    <p>"<strong>EngleLab: useRguide</strong>" was written by Jason Tsukahara. </p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

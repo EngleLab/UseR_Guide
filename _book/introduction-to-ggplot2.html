@@ -32,7 +32,7 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome to the EngleLab useRguide</a></li>
+<li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Getting Started in R</li>
 <li><a class="" href="installation.html"><span class="header-section-number">1</span> Installation</a></li>
 <li><a class="" href="basic-r.html"><span class="header-section-number">2</span> Basic R</a></li>
@@ -116,7 +116,7 @@
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span>)
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(data = <span class="kw">iris</span>)
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-329-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-326-1.png" width="672"></div>
 <p>You can see that we only have a blank square. This is because we have not added any other layers yet, we have only specified the data layer.</p>
 </div>
 <div id="aesthetic-layer" class="section level2">
@@ -129,7 +129,7 @@
 <div class="sourceCode" id="cb285"><pre class="downlit">
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">Sepal.Length</span>, y = <span class="kw">Sepal.Width</span>))
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-331-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-328-1.png" width="672"></div>
 <p>You can see we went from a blank box to a graph with the variable and scales of Sepal.Length mapped onto the x-axis and Sepal.Width on the y-axis.</p>
 <p>However, there is no data yet :( What are we to do?</p>
 </div>
@@ -148,7 +148,7 @@
 <div class="sourceCode" id="cb287"><pre class="downlit">
 <span class="kw">p</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>()
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-334-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-331-1.png" width="672"></div>
 <p>And walla! Now we have a scatterplot of the relationship between Sepal.Length and Sepal.Width. Cool.</p>
 <p>If we look at the scatterplot it appears that there are at least two groups or clusters of points. These clusters might represent the different species of flowers, represented in the <code>Species</code> column. There are different ways we can visualize or separate this grouping structure.</p>
 <p>First, we will consider how to plot these species in separate plots within the same visualization.</p>
@@ -166,7 +166,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span> <span class="kw">Species</span>)
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-336-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-333-1.png" width="672"></div>
 </div>
 <div id="statistics-layer" class="section level2">
 <h2>
@@ -181,14 +181,14 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span>(method = <span class="st">"lm"</span>, se = <span class="fl">FALSE</span>)
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-338-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-335-1.png" width="672"></div>
 <div class="sourceCode" id="cb290"><pre class="downlit">
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">Sepal.Length</span>, <span class="kw">Sepal.Width</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span> <span class="kw">Species</span>) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span>(method = <span class="st">"lm"</span>, se = <span class="fl">FALSE</span>)
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-339-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-336-1.png" width="672"></div>
 </div>
 <div id="coordinates-layer" class="section level2">
 <h2>
@@ -204,13 +204,13 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span>(method = <span class="st">"lm"</span>, se = <span class="fl">FALSE</span>)
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-341-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-338-1.png" width="672"></div>
 <div class="sourceCode" id="cb292"><pre class="downlit">
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw">iris</span>, <span class="kw">Species</span> <span class="op">==</span> <span class="st">"versicolor"</span>), <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">Sepal.Length</span>, <span class="kw">Sepal.Width</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span>(method = <span class="st">"lm"</span>, se = <span class="fl">FALSE</span>)
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-342-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-339-1.png" width="672"></div>
 <div class="sourceCode" id="cb293"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org">dplyr</a></span>)
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw">iris</span>, <span class="kw">Species</span> <span class="op">==</span> <span class="st">"setosa"</span>), <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">Sepal.Length</span>, <span class="kw">Sepal.Width</span>)) <span class="op">+</span>
@@ -218,21 +218,21 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span>(method = <span class="st">"lm"</span>, se = <span class="fl">FALSE</span>) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html">coord_cartesian</a></span>(xlim = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4</span>, <span class="fl">8</span>), ylim = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>, <span class="fl">5</span>))
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-343-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-340-1.png" width="672"></div>
 <div class="sourceCode" id="cb294"><pre class="downlit">
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw">iris</span>, <span class="kw">Species</span> <span class="op">==</span> <span class="st">"versicolor"</span>), <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">Sepal.Length</span>, <span class="kw">Sepal.Width</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span>(method = <span class="st">"lm"</span>, se = <span class="fl">FALSE</span>) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html">coord_cartesian</a></span>(xlim = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4</span>, <span class="fl">8</span>), ylim = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>, <span class="fl">5</span>))
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-344-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-341-1.png" width="672"></div>
 <div class="sourceCode" id="cb295"><pre class="downlit">
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw">iris</span>, <span class="kw">Species</span> <span class="op">==</span> <span class="st">"virginica"</span>), <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">Sepal.Length</span>, <span class="kw">Sepal.Width</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span>(method = <span class="st">"lm"</span>, se = <span class="fl">FALSE</span>) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html">coord_cartesian</a></span>(xlim = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4</span>, <span class="fl">8</span>), ylim = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>, <span class="fl">5</span>))
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-345-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-342-1.png" width="672"></div>
 <ul>
 <li>Just a note. I highly suggest not using <code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous()</a></code> or <code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous()</a></code> functions. The <code><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html">coord_cartesian()</a></code> function is like zooming in and out of the plot area. The <code>scale_</code> functions actually change the shape of the data and statistics layers. If a data point falls outside of the <code>scale</code> limits then it will be removed from any statistical analyses (even if the individual data points are not plotted <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code>)</li>
 </ul>
@@ -262,7 +262,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span>(method = <span class="st">"lm"</span>, se = <span class="fl">FALSE</span>) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(axis.text = <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(color = <span class="st">"red"</span>, size = <span class="fl">14</span>))
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-349-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-346-1.png" width="672"></div>
 <p>Now let’s only change the x-axis text and not the y-axis text.</p>
 <div class="sourceCode" id="cb297"><pre class="downlit">
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">Sepal.Length</span>, <span class="kw">Sepal.Width</span>)) <span class="op">+</span>
@@ -271,7 +271,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span>(method = <span class="st">"lm"</span>, se = <span class="fl">FALSE</span>) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(axis.text.x = <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(color = <span class="st">"red"</span>, size = <span class="fl">14</span>))
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-350-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-347-1.png" width="672"></div>
 <p>It is a good idea to have a consistent theme across all your graphs. And so you might want to just create a theme object that you can add to all your graphs.</p>
 <div class="sourceCode" id="cb298"><pre class="downlit">
 <span class="kw">a_theme</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(axis.text.x = <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(color = <span class="st">"red"</span>, size = <span class="fl">14</span>),
@@ -285,7 +285,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(axis.text.x = <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(color = <span class="st">"red"</span>, size = <span class="fl">14</span>)) <span class="op">+</span>
   <span class="kw">a_theme</span>
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-351-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-348-1.png" width="672"></div>
 <div id="built-in-themes" class="section level3">
 <h3>
 <span class="header-section-number">16.8.1</span> Built-in Themes<a class="anchor" aria-label="anchor" href="#built-in-themes"><i class="fas fa-link"></i></a>
@@ -299,7 +299,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(axis.text.x = <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(color = <span class="st">"red"</span>, size = <span class="fl">14</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_linedraw</a></span>()
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-352-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-349-1.png" width="672"></div>
 <p>You can also set a default theme for the rest of your ggplots at the top of your script. That way you do not have to keep on specifying the theme for evey ggplot.</p>
 <div class="sourceCode" id="cb300"><pre class="downlit">
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_linedraw</a></span>())
@@ -349,7 +349,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EngleLab: useRguide</strong>" was written by Jason Tsukahara. It was last built on 2020-11-17.</p>
+    <p>"<strong>EngleLab: useRguide</strong>" was written by Jason Tsukahara. </p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

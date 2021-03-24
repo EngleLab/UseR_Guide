@@ -198,7 +198,7 @@ In the **Environment** window click on **"Import Dataset"**. You will see severa
 
 You will see a data import window open up that looks like this
 
-```{r echo=FALSE, dpi = 50}
+```{r echo=FALSE, out.width="75%", fig.align='center'}
 knitr::include_graphics(rep("images/rstudioGUI-readr.png"))
 ```
 

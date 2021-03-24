@@ -32,7 +32,7 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome to the EngleLab useRguide</a></li>
+<li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Getting Started in R</li>
 <li><a class="" href="installation.html"><span class="header-section-number">1</span> Installation</a></li>
 <li><a class="" href="basic-r.html"><span class="header-section-number">2</span> Basic R</a></li>
@@ -83,13 +83,13 @@
 <span class="header-section-number">7.1</span> Data Collection vs. Data Analysis<a class="anchor" aria-label="anchor" href="#data-collection-vs.-data-analysis"><i class="fas fa-link"></i></a>
 </h2>
 <p>In the EngleLab, we often conduct large-scale data collection studies in which there are many research projects going on at once. Although many of the tasks will be shared between these research projects, there will be a unique set of tasks for each project. This overlap in shared tasks can make it difficult to figure out how and when to separate data preparation and data analysis steps between these projects.</p>
-<p>Essentially, every data analysis project should contain the raw (tidy) data files for the tasks relevant to that research project. From these raw data files, performance should be aggregated to calculate a <em>score</em> on each task. <strong>That way every data analysis project will be fully reproducible starting from the raw data files.</strong></p>
+<p>Essentially, every data analysis project should contain the raw (tidy) data files for the tasks relevant to that research project. From these raw data files, performance should be aggregated to calculate a <em>score</em> on each task. That way every data analysis project will be fully reproducible starting from the raw data files.</p>
 <p>The <strong>Data Collection</strong> directory will serve as a central repository for the raw data files from the study. A new <strong>Data Analysis</strong> directory can be created by copying over the raw data files for the tasks relevant to that research project. This relationship between Data Collection and Data Analysis Repositories are depicted here:</p>
 <div class="inline-figure"><img src="images/workflows/workflow_relations.png" width="60%" style="display: block; margin: auto;"></div>
 <p><em>In the past, we would create a “final” data file with task scores from all the main tasks and share this with each other to use for our own data analysis projects. The problem with this was that not only was the analysis not fully reproducible but it creates a lack of transparency as to how the scores were calculated and the data cleaned. This also does not allow one to estimate reliability since they will not have the raw data files.</em></p>
-<p>It is critical that you copy the raw data files <strong>ONLY</strong> from the data collection directory to a data analysis directory. <strong>You do not copy data files from one data analysis directory to another!</strong></p>
-<p>You <strong>CAN</strong> copy R Scripts from one data analysis directory to another. For instance, if you or someone else already created an R Script (for a separate data analysis project) to score a particular task that you are also using, then there is no problem in copying the R Script.</p>
-<p><strong>In general, you will probably copy R scripts from one project to another. The important point is that you are not copying <em>data files</em> from one project to another!</strong></p>
+<p>It is critical that you copy the raw data files only from the data collection directory to a data analysis directory. You do not copy data files from one data analysis directory to another.</p>
+<p>You can copy R Scripts from one data analysis directory to another. For instance, if you or someone else already created an R Script (for a separate data analysis project) to score a particular task that you are also using, then there is no problem in copying the R Script.</p>
+<p><strong>In general, you will probably copy R scripts from one project to another. The important point is that you are not copying <em>data files</em> from one project to another.</strong></p>
 <p>This is because you can reproduce the data files from your R Scripts but not vice-versa. If you copy data files you lose reproducibility and the transparency of how the data file was created.</p>
 </div>
 <div id="data-collection" class="section level2">
@@ -116,7 +116,7 @@
 <li><p>Before data collection has finished</p></li>
 <li><p>After data collection has finished</p></li>
 </ul>
-<p>For both of these scenarios, you will start with messy raw data files in some file format. Messy raw data files are hard to understand, have poor column and value labels, contain way too many columns and rows, and are just hard to work with. <strong>Data preparation is all about getting raw data files that are easy to work with.</strong></p>
+<p>For both of these scenarios, you will start with messy raw data files in some file format. Messy raw data files are hard to understand, have poor column and value labels, contain way too many columns and rows, and are just hard to work with. Data preparation is all about getting raw data files that are easy to work with.</p>
 <div class="inline-figure"><img src="images/workflows/workflow_messy-tidy.png" width="35%" style="display: block; margin: auto;"></div>
 <p>The end product of the data preparation stage is <em>tidy</em> raw data files. Tidy raw data files are easy to understand, have sensible column and value labels, contain only relevant columns and rows, and are very easy to work with.</p>
 <p>The <strong>Data Preparation</strong> stage is only required because the data files created from the E-Prime or other software program are usually not in a format that is easy to use or understand. I am referring to this format as a <strong>messy raw data</strong> file. Also, there are typically other preparation steps one needs to take before they can start looking at the data. These might include merging individual subject data files and exporting the data to a non-proprietary format so we can import the data into R. The purpose of the data preparation stage is simply to create <strong>tidy raw data</strong> files from the messy raw data files.</p>
@@ -126,7 +126,7 @@
 <h2>
 <span class="header-section-number">7.4</span> Data Analysis<a class="anchor" aria-label="anchor" href="#data-analysis"><i class="fas fa-link"></i></a>
 </h2>
-<p>Okay, now say you are ready to analyze some data! It is tempting to do your analysis in the original <em>Data Collection</em> directory where the data are already stored. <strong>I highly suggest not doing this.</strong> You will be mixing up a <em>Data Collection</em> directory with a <em>Data Analysis</em> directory. This distinction is particularly important when we conduct large-scale studies with many data analysis projects for a single data collection study.</p>
+<p>Okay, now say you are ready to analyze some data! It is tempting to do your analysis in the original <em>Data Collection</em> directory where the data are already stored. I highly suggest not doing this. You will be mixing up a <em>Data Collection</em> directory with a <em>Data Analysis</em> directory. This distinction is particularly important when we conduct large-scale studies with many data analysis projects for a single data collection study.</p>
 <p>Instead, you should copy over the <em>tidy</em> raw data files from the data preparation stage to a separate <em>Data Analysis</em> directory.</p>
 <div class="inline-figure"><img src="images/workflows/workflow_copyover.png" width="70%" style="display: block; margin: auto;"></div>
 <p>You also might as well create an <strong>Archival Backup</strong> of the <strong>Data Collection</strong> directory on some other hard drive. That way you are at less risk of a hard drive crashing and losing all your precious data.</p>
@@ -137,7 +137,7 @@
 <li><p>Results</p></li>
 </ul>
 <p><strong>Data Files</strong> is where you will store tidy raw data files, scored data files, and a single merged data file ready for statistical analysis.</p>
-<p>It is advisable to store <strong>ALL</strong> your <strong>R scripts</strong> in one single place. I also like to prefix them with numbers corresponding to the order they need to be executed - that way they will be organized in an easy to find way.</p>
+<p>It is advisable to store all your <strong>R scripts</strong> in one single place. I also like to prefix them with numbers corresponding to the order they need to be executed - that way they will be organized in an easy to find way.</p>
 <p>Finally, you should create a separate folder to hold all your outputs from statistical analysis and data visualization in a <strong>Results</strong> folder.</p>
 <p>There are three main stages to data analysis; <strong>1</strong>) scoring, cleaning, and merging data <strong>2</strong>) data visualization, and <strong>3</strong>) statistical analyses. Data analysis tends to be more cyclic and iterative therefore you may end up going back and forth between these stages.</p>
 <div class="inline-figure"><img src="images/workflows/workflow_dataanalysis.png" width="50%" style="display: block; margin: auto;"></div>
@@ -160,7 +160,7 @@
 <span class="header-section-number">7.5</span> <code>workflow</code> package<a class="anchor" aria-label="anchor" href="#workflow-package"><i class="fas fa-link"></i></a>
 </h2>
 <p>I will show you how to automatically create <strong>Data Collection</strong> and <strong>Data Analysis</strong> directories using RStudio Projects and my <a href="https://dr-jt.github.io/workflow/" target="_blank"><strong>workflow</strong> package</a></p>
-<p>The most important thing to remember is that you need to copy and paste the <em>tidy</em> <strong>task_raw.csv</strong> data files from a <strong>Data Collection</strong> directory to a <em>Data Analysis</em> directory - <strong>but never copy and paste data files from one <em>Data Analysis</em> directory to another</strong>.</p>
+<p>The most important thing to remember is that you need to copy and paste the <em>tidy</em> <strong>task_raw.csv</strong> data files from a <strong>Data Collection</strong> directory to a <em>Data Analysis</em> directory - but never copy and paste data files from one <em>Data Analysis</em> directory to another.</p>
 <div class="inline-figure"><img src="images/workflows/workflow_copyover.png" width="60%" style="display: block; margin: auto;"></div>
 <p>When should you create a separate <strong>Data Analysis</strong> directory? Basically, if the set of analyses is going to be it’s own <strong>Manuscript</strong> then create a new directory. If the set of analyses (whether exploratory or supplemental) is part of a larger set of analyses already in the works for a manuscript then no need to create a separate directory.</p>
 <div id="install" class="section level3">
@@ -193,7 +193,6 @@
 <li><p><strong># of Sessions</strong>: How many sessions will the study have? This will create folders in the <code>Tasks</code> folder for each session. For instance, if there will be 4 sessions it will create the the folders “Session 1”, “Session 2”, “Session 3”, and “Session 4”. Obviously this is not needed for a <strong>data analysis</strong> repository.</p></li>
 <li><p><strong>Other Directories</strong>: I talked earlier about some other folders you may want to include in a <strong>Data Analysis</strong> repository. Well you can automatically add them here.</p></li>
 </ul>
-<p><strong>Go ahead and play around with creating different types of repositories.</strong></p>
 <hr>
 </div>
 </div>
@@ -231,7 +230,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EngleLab: useRguide</strong>" was written by Jason Tsukahara. It was last built on 2020-11-17.</p>
+    <p>"<strong>EngleLab: useRguide</strong>" was written by Jason Tsukahara. </p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

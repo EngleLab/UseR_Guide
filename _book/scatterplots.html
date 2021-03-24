@@ -32,7 +32,7 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome to the EngleLab useRguide</a></li>
+<li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Getting Started in R</li>
 <li><a class="" href="installation.html"><span class="header-section-number">1</span> Installation</a></li>
 <li><a class="" href="basic-r.html"><span class="header-section-number">2</span> Basic R</a></li>
@@ -100,7 +100,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span>(method = <span class="st">"lm"</span>, se = <span class="fl">FALSE</span>)
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-360-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-357-1.png" width="672"></div>
 <p>For modeling an interaction effect in regression it is easier to interpret if the lines extend to all possible values - not just across the values within a group.</p>
 <p>We can do this by specifying the argument <code><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth(fullrange = TRUE)</a></code></p>
 <div class="sourceCode" id="cb304"><pre class="downlit">
@@ -108,7 +108,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span>(method = <span class="st">"lm"</span>, se = <span class="fl">FALSE</span>, fullrange = <span class="fl">TRUE</span>)
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-361-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-358-1.png" width="672"></div>
 <p>Now what if the moderator was a continuous variable and not categorical like <code>Species</code>? We would want to set the <code>color</code> aesthetic to be on +/- 1 SD on the mean. How would we go about doing this?</p>
 <p><em>The answer is</em>: It would be very difficult to do so. This is where the function <code>plot_model()</code> from the <code>sjPlot</code> package comes in handy.</p>
 <div id="adding-other-geoms" class="section level3">
@@ -133,7 +133,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(xintercept = <span class="kw">Sepal.Length_mean</span>), 
              linetype = <span class="st">"dashed"</span>, color = <span class="st">"green4"</span>)
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-362-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-359-1.png" width="672"></div>
 <hr>
 </div>
 </div>
@@ -164,7 +164,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EngleLab: useRguide</strong>" was written by Jason Tsukahara. It was last built on 2020-11-17.</p>
+    <p>"<strong>EngleLab: useRguide</strong>" was written by Jason Tsukahara. </p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

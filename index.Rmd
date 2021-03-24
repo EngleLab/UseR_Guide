@@ -1,96 +1,16 @@
 --- 
 title: "EngleLab: useRguide"
 author: "Jason Tsukahara"
-date: "`r Sys.Date()`"
 cover-image: "images/eagle.png"
-bibliography:
-- book.bib
-- packages.bib
 description: This is a useRguide for the EngleLab
 documentclass: book
-link-citations: yes
 site: bookdown::bookdown_site
-biblio-style: apalike
 github-repo: "EngleLab"
 always_allow_html: true
 ---
 
-# Welcome to the EngleLab useRguide {-}
+# Welcome {-}
 
-----
+<img src="images/eagle.png" width="250" height="250" class="cover"/> This is a guide on how to use R for common data procedures and analyses we conduct in the Attention and Working Memory Lab (EngleLab) at Georgia Tech. This guide is in no way a comprehensive guide on using R. A more comprehensive guide to working with data in R is provided in the popular <a href="https://r4ds.had.co.nz" target="_blank">R for Data Science</a>. 
 
-```{r echo=FALSE, eval=TRUE}
-library(bslib)
-bs_global_theme()
-bs_global_add_rules(
-  ".my-class { 
-     background-color: mix($body-bg, $body-color, 90%);
-     border: 0px solid $primary;
-     @include border_radius($border-radius);
-   }
-  "
-)
-```
-
-```{r echo=FALSE, fig.align='center', out.width = '75%'}
-knitr::include_graphics(rep("images/eagle.png"))
-```
-
-**R** is a free software environment for statistical computing and graphics. It is quickly becoming the go-to software for psychologists to manage, process, and analyze data. While there are many advantages to using R over other software, such as SPSS, there is a considerable learning curve because there is no GUI - it is code based. Therefore, I decided to write this use**R**guide to help you become proficient in using R in our lab more quickly.
-
-## Why R? {-}
-
-The way I see it, the main advantage to learning **R** is not about replacing other statistical software you might use - though you may choose to do so - but it is about developing the skills and expertise in how to manage and process your data. You just cannot learn those skills using only SPSS and Excel. R is a great tool to help you implement reproducible and accessible data science practices. 
-
-I would not even argue that you should stop using other programs. They have their own advantages. In my experience it is not so much of R vs. SPSS but rather that **R offers a functionality that SPSS just sucks at**. And that is working with the data, transforming variables, merging data, filtering, grouping, aggregating scores, etc. Everything you need to do with your data before running the ANOVA, correlation, regression, or latent analysis. R is excellent at this. 
-
-So if you still want to use SPSS for statistical analysis you can do so. But do everything prior to that in R. **Use R to work with your data** and use SPSS to conduct statistical analyses. **R is also amazing at data visualization**. I would take advantage of that as well.
-
-**What about Python**? Python is a versatile programming language and is a more general purpose language than R. One advantage to R over Python for psychological and behavioral sciences is that **R was created for statisticians by statisticians**. There will be more package options to do the type of analysis you want to do and there will be a larger and more specific community to get help from. Also the **tidyverse** set of packages is a huge advantage to R. Ultimately, you can always learn both R and Python.
-
-## Reproducibility and Open Access {-}
-
-As Open Science principles such as Open Access to Data becomes the standard in your field - learning to manage and process your data in a Reproducible way that is **accessible** to other researchers (and your future self!) is going to be vital to your career in science. 
-
-The problem is that most of us have not been trained in how to properly manage, store, and process data in a way that is both reproducible and accessible. While using a coding/script based language like **R** allows you to create reproducible steps as we analyze your data it does not necessarily mean that it will be accessible. **Accessibility means that both your code and data files are easy to read and understand by a wide audience (or your future self) that does not know the details of how your data were created**. This means you need to have intuitive column labels, variables names, and a workflow that is easy to follow. 
-
-The reason I emphasize this so much is that I have seen too many data files and scripts posted on open access repositories but they were nearly impossible to understand. **Is that really Open Access**? I don't think so. Open access does not simply mean being able to download some files to your computer from a shared server - it also means that you can understand the data and script files. 
-
-## But I need to analyze my data NOW! {-}
-
-It is true that, at first, it may take you longer to analyze data using R than your typical route of Excel or SPSS. Because of this, **it can be tempting to use those other programs to quickly analyze some data**. You may even tell yourself that you will go back and do the analysis in R later when you have more time. But, be honest with yourself, will you really? Also, the daunting uncertainty of how to do anything in R may also make you reluctant to start using R with data you have now. 
-
-All this is just prioritizing short-term gains over long-term gains. **This is probably the biggest barrier that you will have to learning R**. STOP IT! This attitude will only keep you behind the times not just on using statistical software but other areas of your research career. 
-
-**It is 100% okay to take longer to analyze some data if you are also acquiring skills that will greatly benefit you in the long-term**.
-
-## What does this guide cover? {-}
-
-In **Section I** I will introduce you to the **basics of using R**, from installing R and various packages, basic R skills, and more intermediate skills such as creating your own functions or using for loops.
-
-In **Section II** I will introduce you to the **fundamentals of working with data** in R, from importing and outputting data to performing manipulations on data. These are basic skills that anyone working with data in R needs to know. This section relies heavily on the `tidyverse` set of packages.
- 
-The first two sections are meant to provide you the fundamentals of working with data in R. Later sections will build off these skills and provide an overall workflow of how we process and analyze data in the EngleLab. 
-
-In **Section III** I will take a step back and discuss one of the major strengths of using R. There is a lot of excitement around using R in the psychological community. Much of this excitement is coming from the **Open Science** movement. Using code to process and analyze data allows a lot more transparency, reproducibility, and sharing of data and scripts. Open Science practices are quickly becoming the norm. 
-
-However, **one thing I am very adamant about is that simply using R does not mean your are effectively practicing Open Science principles**. I have seen countless R scripts and data files that are a complete mess. This is why people say we should "comment" our code. But honestly, this is not enough. We need to figure out a workflow and consistency in our R scripts and data files that make it VERY easy for other researchers to interpret exactly how you are processing and analyzing your data. Otherwise, we will undermine the main strengths of using R; that is, transparency, reproducibility, and sharing of data and scripts. 
-
-Besides, finding a workflow and consistency in R scripts will also make it easier for you to not only start learning R but to continue using it very efficiently. Eventually, you may find that you can start doing data processing and analysis in R much faster than GUI based systems.
-
-Therefore, in **Section III**, I introduce a **reproducible workflow** and discuss how we can effectively practice Open Science principles in R. I also provide some **R script templates** for each stage of data processing.
-
-In **Section IV** I cover in more detail each line of code in the R script templates and **provide an example** of how one would use them. In order to be more concise, this section will assume you have the knowledge and skills from the previous sections. 
-
-**Sections I - IV** will provide you everything you need to know to create a data file that is ready for statistical analysis. In my opinion this is where R excels over other GUI programs, and it may be that this is where your R journey ends. This is okay, you can then take the data file that is ready for analysis and perform statistical analysis in other programs like SPSS, EQS, Jamovi, JASP, or any other software. 
-
-However, if you want to continue using R to perform statistical analysis and create data visualizations then you may want to continue your R journey in **Sections V and VI**.
-
-In **Section V** I introduce the fundamentals of data visualization in R using `ggplot2`. I walk through how to build commonly used graphs.
-
-In **Section VI** I cover how to perform statistical analyses that I frequently use in my own research. In addition, I will show you how to create "nice looking" output of your results and create graphs and tables of your statistical models. *[STILL WORKING ON THIS SECTION]*
-
-
-```{r echo=FALSE, out.width="100%"}
-knitr::include_graphics(rep("images/workflows/workflow_pub_share.png"))
-```
+The first two sections of this guide are about basic R skills and working with data. The **Reproducible Workflows** section is all about the reproducible workflows and project organization that we implement in the EngleLab. The **Create R Scripts** section is a step-by-step walkthrough of creating R scripts for the various stages of data preparation and data analysis that we use in the EngleLab. This section will be the most useful for getting started quickly on using R in our lab. The last two sections cover **Data Visualization** (something that R is excellent at) and **Statistical Analysis**.

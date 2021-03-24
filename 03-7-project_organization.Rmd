@@ -8,7 +8,7 @@ In this chapter I will explain a particular organizational method for data colle
 
 In the EngleLab, we often conduct large-scale data collection studies in which there are many research projects going on at once. Although many of the tasks will be shared between these research projects, there will be a unique set of tasks for each project. This overlap in shared tasks can make it difficult to figure out how and when to separate data preparation and data analysis steps between these projects.
 
-Essentially, every data analysis project should contain the raw (tidy) data files for the tasks relevant to that research project. From these raw data files, performance should be aggregated to calculate a *score* on each task. **That way every data analysis project will be fully reproducible starting from the raw data files.**
+Essentially, every data analysis project should contain the raw (tidy) data files for the tasks relevant to that research project. From these raw data files, performance should be aggregated to calculate a *score* on each task. That way every data analysis project will be fully reproducible starting from the raw data files.
 
 The **Data Collection** directory will serve as a central repository for the raw data files from the study. A new **Data Analysis** directory can be created by copying over the raw data files for the tasks relevant to that research project. This relationship between Data Collection and Data Analysis Repositories are depicted here:
 
@@ -18,11 +18,11 @@ knitr::include_graphics(rep("images/workflows/workflow_relations.png"))
 
 *In the past, we would create a "final" data file with task scores from all the main tasks and share this with each other to use for our own data analysis projects. The problem with this was that not only was the analysis not fully reproducible but it creates a lack of transparency as to how the scores were calculated and the data cleaned. This also does not allow one to estimate reliability since they will not have the raw data files.*
 
-It is critical that you copy the raw data files **ONLY** from the data collection directory to a data analysis directory. **You do not copy data files from one data analysis directory to another!**
+It is critical that you copy the raw data files only from the data collection directory to a data analysis directory. You do not copy data files from one data analysis directory to another.
 
-You **CAN** copy R Scripts from one data analysis directory to another. For instance, if you or someone else already created an R Script (for a separate data analysis project) to score a particular task that you are also using, then there is no problem in copying the R Script.
+You can copy R Scripts from one data analysis directory to another. For instance, if you or someone else already created an R Script (for a separate data analysis project) to score a particular task that you are also using, then there is no problem in copying the R Script.
 
-**In general, you will probably copy R scripts from one project to another. The important point is that you are not copying _data files_ from one project to another!**
+**In general, you will probably copy R scripts from one project to another. The important point is that you are not copying _data files_ from one project to another.**
 
 This is because you can reproduce the data files from your R Scripts but not vice-versa. If you copy data files you lose reproducibility and the transparency of how the data file was created. 
 
@@ -52,7 +52,7 @@ There are two scenarios in which you may need to start processing and analyzing 
 
 - After data collection has finished
 
-For both of these scenarios, you will start with messy raw data files in some file format. Messy raw data files are hard to understand, have poor column and value labels, contain way too many columns and rows, and are just hard to work with. **Data preparation is all about getting raw data files that are easy to work with.**
+For both of these scenarios, you will start with messy raw data files in some file format. Messy raw data files are hard to understand, have poor column and value labels, contain way too many columns and rows, and are just hard to work with. Data preparation is all about getting raw data files that are easy to work with.
 
 ```{r echo=FALSE, eval = TRUE, out.width='35%', fig.align='center'}
 knitr::include_graphics(rep("images/workflows/workflow_messy-tidy.png"))
@@ -66,7 +66,7 @@ The **Data Preparation** stage is only required because the data files created f
 
 ## Data Analysis
 
-Okay, now say you are ready to analyze some data! It is tempting to do your analysis in the original *Data Collection* directory where the data are already stored. **I highly suggest not doing this.** You will be mixing up a *Data Collection* directory with a *Data Analysis* directory. This distinction is particularly important when we conduct large-scale studies with many data analysis projects for a single data collection study.
+Okay, now say you are ready to analyze some data! It is tempting to do your analysis in the original *Data Collection* directory where the data are already stored. I highly suggest not doing this. You will be mixing up a *Data Collection* directory with a *Data Analysis* directory. This distinction is particularly important when we conduct large-scale studies with many data analysis projects for a single data collection study.
 
 Instead, you should copy over the *tidy* raw data files from the data preparation stage to a separate *Data Analysis* directory.
 
@@ -86,7 +86,7 @@ In the **Data Analysis** directory you have three main folders:
 
 **Data Files** is where you will store tidy raw data files, scored data files, and a single merged data file ready for statistical analysis.
 
-It is advisable to store **ALL** your **R scripts** in one single place. I also like to prefix them with numbers corresponding to the order they need to be executed - that way they will be organized in an easy to find way.
+It is advisable to store all your **R scripts** in one single place. I also like to prefix them with numbers corresponding to the order they need to be executed - that way they will be organized in an easy to find way.
 
 Finally, you should create a separate folder to hold all your outputs from statistical analysis and data visualization in a **Results** folder.
 
@@ -122,7 +122,7 @@ These other folders are more optional.
 
 I will show you how to automatically create **Data Collection** and **Data Analysis** directories using RStudio Projects and my [**workflow** package](https://dr-jt.github.io/workflow/){target="_blank"}
 
-The most important thing to remember is that you need to copy and paste the *tidy* **task_raw.csv** data files from a **Data Collection** directory to a *Data Analysis* directory - **but never copy and paste data files from one _Data Analysis_ directory to another**.
+The most important thing to remember is that you need to copy and paste the *tidy* **task_raw.csv** data files from a **Data Collection** directory to a *Data Analysis* directory - but never copy and paste data files from one _Data Analysis_ directory to another.
 
 ```{r echo=FALSE, eval = TRUE, out.width='60%', fig.align='center'}
 knitr::include_graphics(rep("images/workflows/workflow_copyover.png"))
@@ -169,9 +169,6 @@ Notice that if you choose the **data collection** repository it will download a 
 * __# of Sessions__: How many sessions will the study have? This will create folders in the `Tasks` folder for each session. For instance, if there will be 4 sessions it will create the the folders "Session 1", "Session 2", "Session 3", and "Session 4". Obviously this is not needed for a **data analysis** repository.
 
 * __Other Directories__: I talked earlier about some other folders you may want to include in a **Data Analysis** repository. Well you can automatically add them here. 
-
-**Go ahead and play around with creating different types of repositories.**
-
 
 ----
 

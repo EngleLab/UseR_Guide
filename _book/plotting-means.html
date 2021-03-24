@@ -32,7 +32,7 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome to the EngleLab useRguide</a></li>
+<li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Getting Started in R</li>
 <li><a class="" href="installation.html"><span class="header-section-number">1</span> Installation</a></li>
 <li><a class="" href="basic-r.html"><span class="header-section-number">2</span> Basic R</a></li>
@@ -91,14 +91,15 @@
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="kw">msleep</span>)
 </pre></div>
 <pre><code>## # A tibble: 6 x 11
-##   name                       genus      vore  order        conservation sleep_total sleep_rem sleep_cycle awake  brainwt  bodywt
-##   &lt;chr&gt;                      &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
-## 1 Cheetah                    Acinonyx   carni Carnivora    lc                  12.1      NA        NA      11.9 NA        50    
-## 2 Owl monkey                 Aotus      omni  Primates     &lt;NA&gt;                17         1.8      NA       7    0.0155    0.48 
-## 3 Mountain beaver            Aplodontia herbi Rodentia     nt                  14.4       2.4      NA       9.6 NA         1.35 
-## 4 Greater short-tailed shrew Blarina    omni  Soricomorpha lc                  14.9       2.3       0.133   9.1  0.00029   0.019
-## 5 Cow                        Bos        herbi Artiodactyla domesticated         4         0.7       0.667  20    0.423   600    
-## 6 Three-toed sloth           Bradypus   herbi Pilosa       &lt;NA&gt;                14.4       2.2       0.767   9.6 NA         3.85</code></pre>
+##   name  genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
+## 1 Chee… Acin… carni Carn… lc                  12.1      NA        NA      11.9
+## 2 Owl … Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7  
+## 3 Moun… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6
+## 4 Grea… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1
+## 5 Cow   Bos   herbi Arti… domesticated         4         0.7       0.667  20  
+## 6 Thre… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6
+## # … with 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;</code></pre>
 <p>Let’s plot the relationship between the different eating habits (<code>vore</code>) and total sleep time (<code>sleep_total</code>).</p>
 <div class="sourceCode" id="cb309"><pre class="downlit">
 <span class="kw">msleep1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw">msleep</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span>(<span class="kw">vore</span>))
@@ -106,7 +107,7 @@
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">msleep1</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">vore</span>, <span class="kw">sleep_total</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/stat_summary.html">stat_summary</a></span>(fun.y = <span class="kw">mean</span>, na.rm = <span class="fl">TRUE</span>, geom = <span class="st">"bar"</span>)
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-368-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-365-1.png" width="672"></div>
 <p>This only tells us what the means are. We have no idea about the distributions. Well for this reason people usually like to see error bars. Okay well let’s add error bars.</p>
 <div class="sourceCode" id="cb310"><pre class="downlit">
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">msleep1</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">vore</span>, <span class="kw">sleep_total</span>)) <span class="op">+</span>
@@ -114,7 +115,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/stat_summary.html">stat_summary</a></span>(fun.data = <span class="kw">mean_cl_normal</span>, na.rm =<span class="fl">TRUE</span>, 
                geom = <span class="st">"errorbar"</span>, width = <span class="fl">.2</span>)
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-369-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-366-1.png" width="672"></div>
 <p>Okay better. But we still cannot see the underlying distribution.</p>
 </div>
 <div id="alternatives-to-bar-graphs" class="section level2">
@@ -126,13 +127,13 @@
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">msleep1</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">vore</span>, <span class="kw">sleep_total</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>()
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-370-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-367-1.png" width="672"></div>
 <p>When plotting raw data points with categorical variables on the x-axis it makes more sense to <code>jitter</code> the points so they are not all just lying on top of each other.</p>
 <div class="sourceCode" id="cb312"><pre class="downlit">
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">msleep1</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">vore</span>, <span class="kw">sleep_total</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(position = <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_jitter.html">position_jitter</a></span>(width = <span class="fl">.2</span>))
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-371-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-368-1.png" width="672"></div>
 <p>Wow! Does this give you a completely different picture than the bar graph with error bars? It does to me! Especially look at the <code>insecti</code> and <code>omni</code> eating habits. There is definitely a bi-modal distribution happening there.</p>
 <p>From the bar graph with error bars, we might be fooled into thinking that the distributions for <code>carni</code> and <code>omnie</code> are pretty similar. But are they? Not at all!</p>
 <p><strong>THIS IS WHY YOU SHOULD ALWAYS PLOT THE RAW DATA POINTS</strong></p>
@@ -145,7 +146,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/stat_summary.html">stat_summary</a></span>(fun.data = <span class="kw">mean_cl_normal</span>, na.rm =<span class="fl">TRUE</span>, 
                geom = <span class="st">"errorbar"</span>, width = <span class="fl">.2</span>, color = <span class="st">"dodgerblue"</span>)
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-372-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-369-1.png" width="672"></div>
 <p>Another aesthetic option that is useful when we are plotting means and error bars on top of raw data is the <code>alpha</code> aesthetic. This can allow us to make the raw data points more transparent, fade into the background a little more.</p>
 <div class="sourceCode" id="cb314"><pre class="downlit">
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">msleep1</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">vore</span>, <span class="kw">sleep_total</span>)) <span class="op">+</span>
@@ -156,7 +157,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/stat_summary.html">stat_summary</a></span>(fun.data = <span class="kw">mean_cl_normal</span>, na.rm =<span class="fl">TRUE</span>, 
                geom = <span class="st">"errorbar"</span>, width = <span class="fl">.2</span>, color = <span class="st">"dodgerblue"</span>)
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-373-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-370-1.png" width="672"></div>
 <div class="sourceCode" id="cb315"><pre class="downlit">
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">msleep1</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">vore</span>, <span class="kw">sleep_total</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(position = <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_jitter.html">position_jitter</a></span>(width = <span class="fl">.2</span>), alpha = <span class="fl">.3</span>) <span class="op">+</span>
@@ -169,7 +170,7 @@
                geom = <span class="st">"line"</span>, color = <span class="st">"dodgerblue"</span>, 
                size = <span class="fl">.75</span>, shape = <span class="st">"diamond"</span>) 
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-374-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-371-1.png" width="672"></div>
 </div>
 <div id="two-way-interaction-plots" class="section level2">
 <h2>
@@ -208,7 +209,7 @@
                position = <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span>(width = <span class="fl">.7</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer</a></span>(palette = <span class="st">"Set1"</span>)
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-375-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-372-1.png" width="672"></div>
 </div>
 <div id="three-way-interaction-plots" class="section level2">
 <h2>
@@ -231,7 +232,7 @@
                position = <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span>(width = <span class="fl">.7</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer</a></span>(palette = <span class="st">"Set1"</span>)
 </pre></div>
-<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-376-1.png" width="672"></div>
+<div class="inline-figure"><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-373-1.png" width="672"></div>
 <p>Therefore, you can see how to plot interactions using <code>group/color</code> and <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></code>.</p>
 <hr>
 </div>
@@ -263,7 +264,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EngleLab: useRguide</strong>" was written by Jason Tsukahara. It was last built on 2020-11-17.</p>
+    <p>"<strong>EngleLab: useRguide</strong>" was written by Jason Tsukahara. </p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

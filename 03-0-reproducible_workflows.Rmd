@@ -8,19 +8,11 @@ knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE
 
 As you start becoming more proficient in R you will be able manage, process, and analyze your data at all stages of analysis through R scripts alone. 
 
-----
-<div style="text-align: center; font-size: 1.25em">
-Goodbye Excel, goodbye SPSS, and good riddance to EQS!
-</div>
-----
+Although we deal with data all the time as psychologists, we have never really been educated on what good data science practices look like. In psychology, I believe this is partly due to our reliance on programs like SPSS or Excel for data analysis and visualization. While these programs offer a nice user interface, they do not offer any tools to help us manage and process our data in a reproducible way. 
 
-Although we deal with data all the time as psychologists, we have never really been educated on what **good data science practices** look like. In psychology, I believe this is partly due to our reliance on programs like SPSS or Excel for data analysis and visualization. While these programs offer a nice user interface, they do not offer any tools to help us manage and process our data in a reproducible way. 
+Open Science and Reproducibility practices are quickly becoming the norm in most fields of science. Programming languages like R are perfectly suited to help us implement these practices. 
 
-Open Science and Reproducibility practices are *very* quickly becoming the norm in most fields of science. Programming languages like R are perfectly suited to help us implement these practices. 
-
-**Reliance on programs like SPSS and Excel will hinder your ability to join the Open Science and Reproducibility movement.** 
-
-However, **simply learning the R syntax alone is not enough.** You will need to start thinking about what are **good data science practices** that allow me to manage, process, and analyze my data in a way that is consistent with Open Science and Reproducibility?
+However, simply learning the R syntax alone is not enough. You will need to start thinking about what are good data science practices that allow me to manage, process, and analyze my data in a way that is consistent with Open Science and Reproducibility?
 
 In this Section I will provide an overview of how we implement these practices in our lab. This section is divided into 3 Chapters:
 
