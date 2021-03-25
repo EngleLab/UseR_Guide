@@ -24,7 +24,7 @@ knitr::include_graphics(rep("images/workflows/workflow_dataanalysis.png"))
 
 ## Score Script Template
 
-It is easiest to start an R script from a template. You can download an R script template for scoring and cleaning data `workflow::template(score = TRUE)`
+It is easiest to start an R script from a template. You can download an R script template for scoring and cleaning data `workflow::template(scorescript = TRUE)`
 
 ```{r eval = FALSE}
 #### Setup ####

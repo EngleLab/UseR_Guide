@@ -451,38 +451,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>It is always a good idea to get to know your <code>dataframe</code> before you start messing with it. What are the column names? What kind of values are stored in each column? How many observations are there? How many <code>Subjects</code>? How many <code>Trials</code>? etc.</p>
 <p>What are the column names? use <code>colnames()</code> for a quick glance at the column names</p>
 <div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-manipulation-using-dplyr.html#cb99-1"></a><span class="kw">colnames</span>(import)</span></code></pre></div>
-<pre><code>##  [1] &quot;Subject&quot;              &quot;TrialProc&quot;            &quot;Trial&quot;               
-##  [4] &quot;Condition&quot;            &quot;RT&quot;                   &quot;ACC&quot;                 
-##  [7] &quot;Response&quot;             &quot;TargetArrowDirection&quot; &quot;SessionDate&quot;         
-## [10] &quot;SessionTime&quot;</code></pre>
+<pre><code>##  [1] &quot;Subject&quot;              &quot;TrialProc&quot;            &quot;Trial&quot;                &quot;Condition&quot;           
+##  [5] &quot;RT&quot;                   &quot;ACC&quot;                  &quot;Response&quot;             &quot;TargetArrowDirection&quot;
+##  [9] &quot;SessionDate&quot;          &quot;SessionTime&quot;</code></pre>
 <p>To take a quick look at the first few rows of a <code>dataframe</code> use <code>head()</code>.</p>
 <div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-manipulation-using-dplyr.html#cb101-1"></a><span class="kw">head</span>(import)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 10
-##   Subject TrialProc Trial Condition    RT   ACC Response TargetArrowDire…
-##     &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;           
-## 1   14000 practice      1 incongru…  1086     1 left     left            
-## 2   14000 practice      2 incongru…   863     1 left     left            
-## 3   14000 practice      3 congruent   488     1 right    right           
-## 4   14000 practice      4 incongru…   588     1 right    right           
-## 5   14000 practice      5 congruent   581     1 right    right           
-## 6   14000 practice      6 incongru…   544     1 right    right           
-## # … with 2 more variables: SessionDate &lt;chr&gt;, SessionTime &lt;time&gt;</code></pre>
+##   Subject TrialProc Trial Condition     RT   ACC Response TargetArrowDirect… SessionDate SessionTime
+##     &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;              &lt;chr&gt;       &lt;time&gt;     
+## 1   14000 practice      1 incongrue…  1086     1 left     left               08-30-2017  10:30:25   
+## 2   14000 practice      2 incongrue…   863     1 left     left               08-30-2017  10:30:25   
+## 3   14000 practice      3 congruent    488     1 right    right              08-30-2017  10:30:25   
+## 4   14000 practice      4 incongrue…   588     1 right    right              08-30-2017  10:30:25   
+## 5   14000 practice      5 congruent    581     1 right    right              08-30-2017  10:30:25   
+## 6   14000 practice      6 incongrue…   544     1 right    right              08-30-2017  10:30:25</code></pre>
 <p>This gives you a good idea of what column names you will be working with and what kind of values they contain.</p>
 <p>To evaluate what are all the unique values in a column you can use <code>unique()</code>. You can also use this in combination with <code>length()</code> to evaluate how many unique values are in a column.</p>
 <div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-manipulation-using-dplyr.html#cb103-1"></a><span class="kw">unique</span>(import<span class="op">$</span>Condition)</span></code></pre></div>
 <pre><code>## [1] &quot;incongruent&quot; &quot;congruent&quot;</code></pre>
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="data-manipulation-using-dplyr.html#cb105-1"></a><span class="kw">unique</span>(import<span class="op">$</span>Trial)</span></code></pre></div>
-<pre><code>##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
-##  [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
-##  [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
-##  [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
-##  [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
-##  [91]  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107 108
-## [109] 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126
-## [127] 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144
-## [145] 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162
-## [163] 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180
-## [181] 181 182 183 184 185 186 187 188 189 190 191 192</code></pre>
+<pre><code>##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23
+##  [24]  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46
+##  [47]  47  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69
+##  [70]  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92
+##  [93]  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115
+## [116] 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138
+## [139] 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161
+## [162] 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184
+## [185] 185 186 187 188 189 190 191 192</code></pre>
 <div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="data-manipulation-using-dplyr.html#cb107-1"></a><span class="kw">max</span>(import<span class="op">$</span>Trial)</span></code></pre></div>
 <pre><code>## [1] 192</code></pre>
 <div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="data-manipulation-using-dplyr.html#cb109-1"></a><span class="kw">length</span>(<span class="kw">unique</span>(import<span class="op">$</span>Subject))</span></code></pre></div>
@@ -764,14 +760,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb152-4"><a href="data-manipulation-using-dplyr.html#cb152-4"></a>                         <span class="dt">values_from =</span> <span class="kw">c</span>(<span class="st">&quot;RT.mean&quot;</span>, <span class="st">&quot;ACC.mean&quot;</span>))</span></code></pre></div>
 <div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="data-manipulation-using-dplyr.html#cb153-1"></a><span class="kw">head</span>(data_wide)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 5
-##   Subject RT.mean_congruent RT.mean_incongr… ACC.mean_congru… ACC.mean_incong…
-##     &lt;dbl&gt;             &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-## 1   14000              401.             510.            0.931           0.574 
-## 2   14001              392.             423.            0.980           0.852 
-## 3   14002              462.             536.            0.765           0.463 
-## 4   14003              567.             679.            0.294           0.0926
-## 5   14004              548.             655.            0.5             0.0370
-## 6   14005              472.             559.            0.686           0.204</code></pre>
+##   Subject RT.mean_congruent RT.mean_incongruent ACC.mean_congruent ACC.mean_incongruent
+##     &lt;dbl&gt;             &lt;dbl&gt;               &lt;dbl&gt;              &lt;dbl&gt;                &lt;dbl&gt;
+## 1   14000              401.                510.              0.931               0.574 
+## 2   14001              392.                423.              0.980               0.852 
+## 3   14002              462.                536.              0.765               0.463 
+## 4   14003              567.                679.              0.294               0.0926
+## 5   14004              548.                655.              0.5                 0.0370
+## 6   14005              472.                559.              0.686               0.204</code></pre>
 <p>Now you can see that we have four columns corresponding to reaction times and accuracy values across the two conditions. You can use the same notation <code>c()</code> if you want to use multiple column for <strong>id_cols</strong>, <strong>names_from</strong>, <strong>values_from</strong>.</p>
 <p>Now we can calculate a FlankerEffect for both RT and Accuracy values</p>
 <div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="data-manipulation-using-dplyr.html#cb155-1"></a>data_wide &lt;-<span class="st"> </span><span class="kw">mutate</span>(data_wide, </span>

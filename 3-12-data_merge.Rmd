@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-It is easiest to start an R script from a template. You can download an R script template for creating a merged file `workflow::template(merge = TRUE)`
+It is easiest to start an R script from a template. You can download an R script template for creating a merged file `workflow::template(mergescript = TRUE)`
 
 As with all the other script templates we have used there are 4 sections in the merge script:
 

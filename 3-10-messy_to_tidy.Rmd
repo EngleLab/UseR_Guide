@@ -6,9 +6,27 @@
 knitr::include_graphics(rep("images/workflows/workflow_messy-tidy.png"))
 ```
 
-It is easiest to start an R script from a template. You can download an R script template for tidying raw data with `workflow::template(raw = TRUE)`
+<hr>
+
+<h2><a href="https://youtu.be/k3EyhSwdJwA" target="_blank">**Watch a video tutorial of this chapter!**</a></h2>
+
+For this chapter you will need to:
+
+- install the `workflow` package
+
+```{r eval=FALSE}
+# if you do not have devtools installed then do this first
+install.packages("devtools")
+# install workflow
+devtools::install_github("dr-JT/workflow")
+```
+
+- be familiar with using dplyr (see chapter on *Data Manipulation using dplyr*)
+
 
 ## Raw Script Template
+
+It is easiest to start an R script from a template. You can download an R script template for tidying raw data with `workflow::template(rawscript = TRUE)`
 
 ```{r eval = FALSE}
 #### Setup ####
