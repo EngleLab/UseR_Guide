@@ -8,7 +8,7 @@ knitr::include_graphics(rep("images/workflows/workflow_messy-tidy.png"))
 
 <hr>
 
-<h2><a href="https://youtu.be/k3EyhSwdJwA" target="_blank">**Watch a video tutorial of this chapter!**</a></h2>
+<h2><a href="https://youtu.be/g9KiPKA-dDw" target="_blank">**Watch a video tutorial of this chapter!**</a></h2>
 
 For this chapter you will need to:
 

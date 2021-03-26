@@ -8,40 +8,6 @@ In the next few chapters we will dive into more of the details for actually crea
 
 First let's talk about importing and outputting data files in R.
 
-## File Paths
-
-If you are not familiar with coding, then you may have difficulty just importing or outputting a data file. This can become very annoying as it should be such a simple step and may discourage you a bit.
-
-The first thing to get a hang of is how to specify the file path and file name. There are different ways of doing this, some good and some bad.
-
-A bad way of doing this is using what is called an **absolute** file path. The reason is that the _absolute_ file path is specific to a particular computer. No one computer is going to have the same _absolute_ file path. An _absolute_ file path starts from the root directory on your computer and may look something like:
-
-Mac:  `~/Users/jasontsukahara/Dropbox (GaTech)/My Work/Coding Projects/R/R-Tutorial`
-
-Windows:  `C:\Users\jasontsukahara\Dropbox (GaTech)\My Work\Coding Projects\R\R-Tutorial`
-
-__You do not want to write scripts that can only work on a specific computer!__ One of the great advantages to programming for data processing is reproducibility. You and your future self (and other researchers) can reproduce your exact same data processing steps. __If you use absolute file paths you are undermining the reproducibility of your scripts__.
-
-__It is good practice__ to use _relative_ file paths instead. _Relative_ file paths start from what is called a **working directory**. Let's say you have a **working directory** set to the following location:
-
-`~/Users/jasontsukahara/Dropbox (GaTech)/My Work/Research Projects/Cool Study`
-
-And you want to import files from a *Raw Data* directory within *Cool Study*. The absolute path to raw data files in `Cool Study` might look like: 
-
-`~/Users/jasontsukahara/Dropbox (GaTech)/My Work/Research Projects/Cool Study/Data Files/Raw Data`
-
-Whereas a relative file path starting from the working directory would be:
-
-`Data Files/Raw Data`
-
-You can see that with _relative_ file paths, only the internal organization of the project directory matters. This allows your script to be ran on different computers, systems, and environments! 
-
-Then to import a file you would specify the file with it's relative file path using some import function:
-
-```{r eval = FALSE}
-some_import_function("Data Files/Raw Data/a_data_file.csv")
-```
-
 ## RStudio Projects and here
 
 You need to be using RStudio Projects for anything you do in R.
@@ -50,12 +16,12 @@ RStudio Projects allow you to open isolated instances of R and RStudio for each 
 
 For instance, I have an .Rproj file saved in my "UseR_Guide" folder. When I use `here()` it will output a file path to that location.
 
-```{r message = TRUE, warning = TRUE}
+```{r message = FALSE, warning = TRUE}
 library(here)
 here()
 ```
 
-You can then use `here()` to set a relative file path
+You can then use a relative file path inside of `here()`.
 
 ```{r}
 here("Data Files/Raw Data/flanker_raw.csv")
@@ -69,15 +35,13 @@ here("Data Files", "Raw Data", "flanker_raw.csv")
 
 <br>
 
-I typically like to set the first argument as the relative file path and the second argument as the file name.
+I typically like to set the first argument as the relative file path and the second argument as the file name. This visually separates the file path and the file name, making your script easier to read.
 
 ```{r}
 here("Data Files/Raw Data", "flanker_raw.csv")
 ```
 
-This visually separates the file path and the file name, making your script easier to read.
-
-You can use `here()` directly in import and output functions:
+You can then use `here()` directly in import and output functions:
 
 ```{r eval = FALSE}
 import <- read_csv(here("Data Files/Raw Data", "flanker_raw.csv"))
@@ -88,7 +52,7 @@ import <- read_csv(here("Data Files/Raw Data", "flanker_raw.csv"))
 write_csv(data, here("Data Files/Scored Data", "flanker_scored.csv"))
 ```
 
-And you know that everytime you use `here()` that the file path will start at where you have your .Rproj file saved. Instead of messing around with working directories with `setwd()` or `getwd()`, just use `here()` and RStudio Projects. This becomes especially helpful when working with RMarkdown documents.
+Every time you use `here()` you know that the file path will start at where you have your .Rproj file saved. Instead of messing around with working directories with `setwd()` or `getwd()`, just use `here()` and RStudio Projects. This becomes especially helpful when working with RMarkdown documents.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 rm(list=ls())

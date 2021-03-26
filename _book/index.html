@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>EngleLab: useRguide</title>
   <meta name="description" content="This is a useRguide for the EngleLab" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21.4 and GitBook 2.6.7" />
 
   <meta property="og:title" content="EngleLab: useRguide" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="images/eagle.png" />
+  <meta property="og:image" content="/images/eagle.png" />
   <meta property="og:description" content="This is a useRguide for the EngleLab" />
   <meta name="github-repo" content="EngleLab" />
 
@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="EngleLab: useRguide" />
   
   <meta name="twitter:description" content="This is a useRguide for the EngleLab" />
-  <meta name="twitter:image" content="images/eagle.png" />
+  <meta name="twitter:image" content="/images/eagle.png" />
 
 <meta name="author" content="Jason Tsukahara" />
 
@@ -32,7 +32,7 @@
   
 
 <link rel="next" href="installation.html"/>
-<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,13 +50,17 @@
 
 
 
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -236,8 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9" data-path="import-and-output-data-files.html"><a href="import-and-output-data-files.html"><i class="fa fa-check"></i><b>9</b> Import and Output Data Files</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="import-and-output-data-files.html"><a href="import-and-output-data-files.html#file-paths"><i class="fa fa-check"></i><b>9.1</b> File Paths</a></li>
-<li class="chapter" data-level="9.2" data-path="import-and-output-data-files.html"><a href="import-and-output-data-files.html#rstudio-projects-and-here"><i class="fa fa-check"></i><b>9.2</b> RStudio Projects and here</a></li>
+<li class="chapter" data-level="9.1" data-path="import-and-output-data-files.html"><a href="import-and-output-data-files.html#rstudio-projects-and-here"><i class="fa fa-check"></i><b>9.1</b> RStudio Projects and here</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="tidy-raw-data.html"><a href="tidy-raw-data.html"><i class="fa fa-check"></i><b>10</b> Tidy Raw Data</a>
 <ul>
@@ -369,7 +372,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1 class="title">EngleLab: useRguide</h1>
 <p class="author"><em>Jason Tsukahara</em></p>
 </div>
-<div id="welcome" class="section level1 unnumbered" number="">
+<div id="welcome" class="section level1 unnumbered">
 <h1>Welcome</h1>
 <p><img src="images/eagle.png" width="250" height="250" class="cover"/> This is a guide on how to use R for common data procedures and analyses we conduct in the Attention and Working Memory Lab (EngleLab) at Georgia Tech. This guide is in no way a comprehensive guide on using R. A more comprehensive guide to working with data in R is provided in the popular <a href="https://r4ds.had.co.nz" target="_blank">R for Data Science</a>.</p>
 <p>The first two sections of this guide are about basic R skills and working with data. The <strong>Analyze Data</strong> section will be the most useful for getting started quickly on using R in our lab. It will cover common steps for tidying raw data, scoring and cleaning data, and merging data. The last two sections cover <strong>Data Visualization</strong> (something that R is excellent at) and <strong>Statistical Analysis</strong>.</p>

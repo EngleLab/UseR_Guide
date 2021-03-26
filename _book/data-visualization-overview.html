@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Data Visualization: Overview | EngleLab: useRguide</title>
   <meta name="description" content="This is a useRguide for the EngleLab" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21.4 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Data Visualization: Overview | EngleLab: useRguide" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="images/eagle.png" />
+  <meta property="og:image" content="/images/eagle.png" />
   <meta property="og:description" content="This is a useRguide for the EngleLab" />
   <meta name="github-repo" content="EngleLab" />
 
@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Data Visualization: Overview | EngleLab: useRguide" />
   
   <meta name="twitter:description" content="This is a useRguide for the EngleLab" />
-  <meta name="twitter:image" content="images/eagle.png" />
+  <meta name="twitter:image" content="/images/eagle.png" />
 
 <meta name="author" content="Jason Tsukahara" />
 
@@ -32,7 +32,7 @@
   
 <link rel="prev" href="single-merged-file.html"/>
 <link rel="next" href="fundamentals-of-data-visualization.html"/>
-<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,13 +50,17 @@
 
 
 
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -236,8 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9" data-path="import-and-output-data-files.html"><a href="import-and-output-data-files.html"><i class="fa fa-check"></i><b>9</b> Import and Output Data Files</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="import-and-output-data-files.html"><a href="import-and-output-data-files.html#file-paths"><i class="fa fa-check"></i><b>9.1</b> File Paths</a></li>
-<li class="chapter" data-level="9.2" data-path="import-and-output-data-files.html"><a href="import-and-output-data-files.html#rstudio-projects-and-here"><i class="fa fa-check"></i><b>9.2</b> RStudio Projects and here</a></li>
+<li class="chapter" data-level="9.1" data-path="import-and-output-data-files.html"><a href="import-and-output-data-files.html#rstudio-projects-and-here"><i class="fa fa-check"></i><b>9.1</b> RStudio Projects and here</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="tidy-raw-data.html"><a href="tidy-raw-data.html"><i class="fa fa-check"></i><b>10</b> Tidy Raw Data</a>
 <ul>
@@ -365,9 +368,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-visualization-overview" class="section level1 unnumbered" number="">
+<div id="data-visualization-overview" class="section level1 unnumbered">
 <h1>Data Visualization: Overview</h1>
-<div id="r-markdown" class="section level2 unnumbered" number="">
+<div id="r-markdown" class="section level2 unnumbered">
 <h2>R Markdown</h2>
 <p><img src="images/workflows/workflow_all.png" width="530" style="display: block; margin: auto;" /></p>
 <p>Phew! You’ve made it this far, good job. Up until now you have been learning how to do data preparation steps in R. Now for the fun part, statistical analyses and data visualization!</p>
@@ -375,13 +378,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Writing scripts to do statistical analyses is an entirely different process than writing scripts for data preparation. Therefore, we should first go over the general process of conducting and outputting statistical analyses in R.</p>
 <p>In programs like SPSS when you run a statistical analysis, it will be outputted to a viewable <code>.spv</code> document. One downfall of this is that <code>.spv</code> files are propriety format so can only be opened if you have SPSS installed. However, there is the option to export a <code>.spv</code> file as a <code>PDF</code>.</p>
 <p>One downfall about R is that unlike SPSS, there is not a native way to create output documents from statistical analyses. Fortunately, RStudio has an output document format called <strong>R Markdown</strong>.</p>
-<div id="what-is-an-r-markdown-file" class="section level3 unnumbered" number="">
+<div id="what-is-an-r-markdown-file" class="section level3 unnumbered">
 <h3>What is an R Markdown File?</h3>
 <p><strong>R Markdown</strong> is a powerful way to create reports of statistical analyses. Reports can be outputted in a lot of different formats; html, Microsoft Word, PDF, presentation slides, and more. In fact, this guide was created using <strong>R Markdown</strong>.</p>
 <p>The easiest format to output as is <strong>html</strong>. html documents are opened in a web browser and therefore can be opened on any computer and device (phones, tablets, Windows, Mac).</p>
 <p>Follow this link for a brief Intro to <a href="https://rmarkdown.rstudio.com/lesson-1.html" target="_blank"><strong>R Markdown</strong></a></p>
 <p>First, you need to install the <code>rmarkdown</code> package</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="data-visualization-overview.html#cb220-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="data-visualization-overview.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>)</span></code></pre></div>
 <p>To open an <strong>R Markdown</strong> document go to</p>
 <p>File -&gt; New File -&gt; R Markdown…</p>
 <p>Select HTML and click OK</p>
@@ -401,14 +404,14 @@ output: html_document
 ---</code></pre>
 <p>There are various metadata options you can specify, such as if you want to include a table of contents. To learn about a few of them see <a href="https://bookdown.org/yihui/rmarkdown/html-document.html" class="uri">https://bookdown.org/yihui/rmarkdown/html-document.html</a></p>
 </div>
-<div id="r-code-chunks" class="section level3 unnumbered" number="">
+<div id="r-code-chunks" class="section level3 unnumbered">
 <h3>R code chunks</h3>
 <p>Unlike a typical R script file (.R), an R Markdown document (.Rmd) is a mixture of formatted text and R code chunks. Not everything in an R Markdown document is executed in the R console, only the R code chunks.</p>
 <p>To run chunks of R code you can click on the green “play” button on the top right of the R code chunk. Go ahead and do this for the three R code chunks in the R Markdown document you opened. (<code>cars</code> and <code>pressure</code> are just example data frames that come pre-loaded with R).</p>
 <p>We have not gone over these functions yet, but you can see that the results of the R code are now displayed in the document.</p>
 <p>The first R code chunk is just setting some default options of how the output of R code chunks should be displayed. We will cover these options in more detail later.</p>
 </div>
-<div id="formatted-text" class="section level3 unnumbered" number="">
+<div id="formatted-text" class="section level3 unnumbered">
 <h3>Formatted text</h3>
 <p>The formatted text sections are more than just adding comments to lines of code. You can write up descriptive reports, create bulletted or numbered lists, embed images or web links, create tables, and more.</p>
 <p>The text is formatted using a language known as <strong>Markdown</strong>, hence the name R Markdown. Markdown is a convenient and flexible way to format text. When a Markdown document is rendered into some output (such as html or PDF), the text will be formatted as specified by the Markdown syntax.</p>

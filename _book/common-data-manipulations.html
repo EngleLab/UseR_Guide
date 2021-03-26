@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 Common Data Manipulations | EngleLab: useRguide</title>
   <meta name="description" content="This is a useRguide for the EngleLab" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21.4 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 Common Data Manipulations | EngleLab: useRguide" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="images/eagle.png" />
+  <meta property="og:image" content="/images/eagle.png" />
   <meta property="og:description" content="This is a useRguide for the EngleLab" />
   <meta name="github-repo" content="EngleLab" />
 
@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="7 Common Data Manipulations | EngleLab: useRguide" />
   
   <meta name="twitter:description" content="This is a useRguide for the EngleLab" />
-  <meta name="twitter:image" content="images/eagle.png" />
+  <meta name="twitter:image" content="/images/eagle.png" />
 
 <meta name="author" content="Jason Tsukahara" />
 
@@ -32,7 +32,7 @@
   
 <link rel="prev" href="data-manipulation-using-dplyr.html"/>
 <link rel="next" href="project-organization.html"/>
-<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,13 +50,17 @@
 
 
 
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -236,8 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9" data-path="import-and-output-data-files.html"><a href="import-and-output-data-files.html"><i class="fa fa-check"></i><b>9</b> Import and Output Data Files</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="import-and-output-data-files.html"><a href="import-and-output-data-files.html#file-paths"><i class="fa fa-check"></i><b>9.1</b> File Paths</a></li>
-<li class="chapter" data-level="9.2" data-path="import-and-output-data-files.html"><a href="import-and-output-data-files.html#rstudio-projects-and-here"><i class="fa fa-check"></i><b>9.2</b> RStudio Projects and here</a></li>
+<li class="chapter" data-level="9.1" data-path="import-and-output-data-files.html"><a href="import-and-output-data-files.html#rstudio-projects-and-here"><i class="fa fa-check"></i><b>9.1</b> RStudio Projects and here</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="tidy-raw-data.html"><a href="tidy-raw-data.html"><i class="fa fa-check"></i><b>10</b> Tidy Raw Data</a>
 <ul>
@@ -372,9 +375,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/datawrangling_logo.png" width="125" style="display: block; margin: auto;" /></p>
 <p>There are certain data transformations we use on a regular basis that would require several steps and lines of code to do. <code>datawrangling</code> allows you to perform these transformation in a single line of code.</p>
 <p>I am hosting the <code>datawrangling</code> package on GitHub. To download packages on GitHub you first need to download the <code>devtools</code> package.</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="common-data-manipulations.html#cb158-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="common-data-manipulations.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span></code></pre></div>
 <p>Now install the <code>datawrangling</code> package:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="common-data-manipulations.html#cb159-1"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dr-JT/datawrangling&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="common-data-manipulations.html#cb159-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;dr-JT/datawrangling&quot;</span>)</span></code></pre></div>
 <hr />
 <div style="text-align: center; font-size: 1.25em">
 <p><i class="fas fa-save" style="font-size: 3em"></i></p>
@@ -382,21 +385,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <hr />
 <p>For this Chapter, let’s create a data frame to use as an example for common data manipulations using <code>datawrangling</code>. Don’t worry about what this code means for now, just copy it into your script and run it.</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="common-data-manipulations.html#cb160-1"></a>import &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ID =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>), </span>
-<span id="cb160-2"><a href="common-data-manipulations.html#cb160-2"></a>                     <span class="dt">Group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>), <span class="dv">50</span>),</span>
-<span id="cb160-3"><a href="common-data-manipulations.html#cb160-3"></a>                     <span class="dt">Score1 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="fl">.8</span>), </span>
-<span id="cb160-4"><a href="common-data-manipulations.html#cb160-4"></a>                     <span class="dt">Score2 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">7</span>, <span class="dt">sd =</span> <span class="fl">1.1</span>), </span>
-<span id="cb160-5"><a href="common-data-manipulations.html#cb160-5"></a>                     <span class="dt">Score3 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="fl">1.8</span>), </span>
-<span id="cb160-6"><a href="common-data-manipulations.html#cb160-6"></a>                     <span class="dt">Score4 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">20</span>, <span class="dt">sd =</span> <span class="fl">2.3</span>))</span>
-<span id="cb160-7"><a href="common-data-manipulations.html#cb160-7"></a></span>
-<span id="cb160-8"><a href="common-data-manipulations.html#cb160-8"></a><span class="kw">head</span>(import)</span>
-<span id="cb160-9"><a href="common-data-manipulations.html#cb160-9"></a><span class="co">##   ID Group   Score1   Score2    Score3   Score4</span></span>
-<span id="cb160-10"><a href="common-data-manipulations.html#cb160-10"></a><span class="co">## 1  1     1 2.108583 6.909211  9.569533 21.10629</span></span>
-<span id="cb160-11"><a href="common-data-manipulations.html#cb160-11"></a><span class="co">## 2  2     2 1.729564 6.348592  9.488073 17.62381</span></span>
-<span id="cb160-12"><a href="common-data-manipulations.html#cb160-12"></a><span class="co">## 3  3     1 1.168912 8.357614 12.028537 21.40660</span></span>
-<span id="cb160-13"><a href="common-data-manipulations.html#cb160-13"></a><span class="co">## 4  4     2 1.612341 5.694310 11.830850 22.75000</span></span>
-<span id="cb160-14"><a href="common-data-manipulations.html#cb160-14"></a><span class="co">## 5  5     1 3.006348 6.261088 14.137273 20.82632</span></span>
-<span id="cb160-15"><a href="common-data-manipulations.html#cb160-15"></a><span class="co">## 6  6     2 2.751853 6.430017 12.013493 21.24679</span></span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="common-data-manipulations.html#cb160-1" aria-hidden="true" tabindex="-1"></a>import <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ID =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>), </span>
+<span id="cb160-2"><a href="common-data-manipulations.html#cb160-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Group =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="dv">50</span>),</span>
+<span id="cb160-3"><a href="common-data-manipulations.html#cb160-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Score1 =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> .<span class="dv">8</span>), </span>
+<span id="cb160-4"><a href="common-data-manipulations.html#cb160-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Score2 =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">7</span>, <span class="at">sd =</span> <span class="fl">1.1</span>), </span>
+<span id="cb160-5"><a href="common-data-manipulations.html#cb160-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Score3 =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="fl">1.8</span>), </span>
+<span id="cb160-6"><a href="common-data-manipulations.html#cb160-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Score4 =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">20</span>, <span class="at">sd =</span> <span class="fl">2.3</span>))</span>
+<span id="cb160-7"><a href="common-data-manipulations.html#cb160-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb160-8"><a href="common-data-manipulations.html#cb160-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(import)</span>
+<span id="cb160-9"><a href="common-data-manipulations.html#cb160-9" aria-hidden="true" tabindex="-1"></a><span class="do">##   ID Group   Score1   Score2    Score3   Score4</span></span>
+<span id="cb160-10"><a href="common-data-manipulations.html#cb160-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 1  1     1 2.108583 6.909211  9.569533 21.10629</span></span>
+<span id="cb160-11"><a href="common-data-manipulations.html#cb160-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 2  2     2 1.729564 6.348592  9.488073 17.62381</span></span>
+<span id="cb160-12"><a href="common-data-manipulations.html#cb160-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 3  3     1 1.168912 8.357614 12.028537 21.40660</span></span>
+<span id="cb160-13"><a href="common-data-manipulations.html#cb160-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 4  4     2 1.612341 5.694310 11.830850 22.75000</span></span>
+<span id="cb160-14"><a href="common-data-manipulations.html#cb160-14" aria-hidden="true" tabindex="-1"></a><span class="do">## 5  5     1 3.006348 6.261088 14.137273 20.82632</span></span>
+<span id="cb160-15"><a href="common-data-manipulations.html#cb160-15" aria-hidden="true" tabindex="-1"></a><span class="do">## 6  6     2 2.751853 6.430017 12.013493 21.24679</span></span></code></pre></div>
 <hr />
 <div id="descriptive-statistics" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Descriptive Statistics</h2>
@@ -421,12 +424,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>kurtosis</strong>: <code>kurtosis(variable, na.rm = TRUE, type = 2)</code></p></li>
 </ul>
 <p>For all of these you need to specify <code>na.rm = TRUE</code> if the variable column has missing data. It is best to just always set <code>na.rm = TRUE</code>. For example,</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="common-data-manipulations.html#cb161-1"></a><span class="kw">mean</span>(variable, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="common-data-manipulations.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(variable, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>To calculate the overall mean on <code>Score1</code> would look like</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="common-data-manipulations.html#cb162-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb162-2"><a href="common-data-manipulations.html#cb162-2"></a></span>
-<span id="cb162-3"><a href="common-data-manipulations.html#cb162-3"></a>data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></span>
-<span id="cb162-4"><a href="common-data-manipulations.html#cb162-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score1.mean =</span> <span class="kw">mean</span>(Score1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="common-data-manipulations.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb162-2"><a href="common-data-manipulations.html#cb162-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-3"><a href="common-data-manipulations.html#cb162-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> import <span class="sc">%&gt;%</span></span>
+<span id="cb162-4"><a href="common-data-manipulations.html#cb162-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Score1.mean =</span> <span class="fu">mean</span>(Score1, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 </div>
 <div id="centering-and-standardizing-variables" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Centering and Standardizing Variables</h2>
@@ -437,19 +440,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>standardize</strong>: Logical. Do you want to calculate zscores? (Default = FALSE)</p></li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="common-data-manipulations.html#cb163-1"></a><span class="kw">library</span>(datawrangling)</span>
-<span id="cb163-2"><a href="common-data-manipulations.html#cb163-2"></a></span>
-<span id="cb163-3"><a href="common-data-manipulations.html#cb163-3"></a>data &lt;-<span class="st"> </span><span class="kw">center</span>(import, </span>
-<span id="cb163-4"><a href="common-data-manipulations.html#cb163-4"></a>               <span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, <span class="st">&quot;Score4&quot;</span>), </span>
-<span id="cb163-5"><a href="common-data-manipulations.html#cb163-5"></a>               <span class="dt">standardize =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="common-data-manipulations.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datawrangling)</span>
+<span id="cb163-2"><a href="common-data-manipulations.html#cb163-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-3"><a href="common-data-manipulations.html#cb163-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">center</span>(import, </span>
+<span id="cb163-4"><a href="common-data-manipulations.html#cb163-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">variables =</span> <span class="fu">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, <span class="st">&quot;Score4&quot;</span>), </span>
+<span id="cb163-5"><a href="common-data-manipulations.html#cb163-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">standardize =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>View the data frame <code>data</code>. You will notice that there are now 4 additional columns: <code>Score1_z</code>, <code>Score2_z</code>, <code>Score3_z</code>, and <code>Score4_z</code>.</p>
 <p>If you choose to to calculate centered (unstandardized) scores, then <code>standardize = FALSE</code>. And it will create variables with the suffix <code>_c</code>.</p>
 <p>This can be combined with a <code>group_by()</code> to calculate standardized values within each group separately.</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="common-data-manipulations.html#cb164-1"></a>data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></span>
-<span id="cb164-2"><a href="common-data-manipulations.html#cb164-2"></a><span class="st">  </span><span class="kw">group_by</span>(Group) <span class="op">%&gt;%</span></span>
-<span id="cb164-3"><a href="common-data-manipulations.html#cb164-3"></a><span class="st">  </span><span class="kw">center</span>(<span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, <span class="st">&quot;Score4&quot;</span>), </span>
-<span id="cb164-4"><a href="common-data-manipulations.html#cb164-4"></a>         <span class="dt">standardize =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
-<span id="cb164-5"><a href="common-data-manipulations.html#cb164-5"></a><span class="st">  </span><span class="kw">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="common-data-manipulations.html#cb164-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> import <span class="sc">%&gt;%</span></span>
+<span id="cb164-2"><a href="common-data-manipulations.html#cb164-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
+<span id="cb164-3"><a href="common-data-manipulations.html#cb164-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">center</span>(<span class="at">variables =</span> <span class="fu">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, <span class="st">&quot;Score4&quot;</span>), </span>
+<span id="cb164-4"><a href="common-data-manipulations.html#cb164-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">standardize =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb164-5"><a href="common-data-manipulations.html#cb164-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 </div>
 <div id="trimming" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> Trimming</h2>
@@ -470,21 +473,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>id</strong>: Column name that contains subject IDs. **ONLY needs to be used if <code>variables = "all"</code></p></li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="common-data-manipulations.html#cb165-1"></a>data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></span>
-<span id="cb165-2"><a href="common-data-manipulations.html#cb165-2"></a><span class="st">  </span><span class="kw">trim</span>(<span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, <span class="st">&quot;Score4&quot;</span>), </span>
-<span id="cb165-3"><a href="common-data-manipulations.html#cb165-3"></a>       <span class="dt">cutoff =</span> <span class="fl">3.5</span>, </span>
-<span id="cb165-4"><a href="common-data-manipulations.html#cb165-4"></a>       <span class="dt">replace =</span> <span class="st">&quot;NA&quot;</span>, <span class="dt">id =</span> <span class="st">&quot;ID&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="common-data-manipulations.html#cb165-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> import <span class="sc">%&gt;%</span></span>
+<span id="cb165-2"><a href="common-data-manipulations.html#cb165-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">trim</span>(<span class="at">variables =</span> <span class="fu">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, <span class="st">&quot;Score4&quot;</span>), </span>
+<span id="cb165-3"><a href="common-data-manipulations.html#cb165-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">cutoff =</span> <span class="fl">3.5</span>, </span>
+<span id="cb165-4"><a href="common-data-manipulations.html#cb165-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">replace =</span> <span class="st">&quot;NA&quot;</span>, <span class="at">id =</span> <span class="st">&quot;ID&quot;</span>)</span></code></pre></div>
 <p>Notice how you don’t even need to <code>center()</code> the variables first. The centering is being done inside of <code>trim()</code>. You can evaluate outliers and replace with different values (<code>replace =</code>) all in one function and one line of code.</p>
 </div>
 <div id="composites" class="section level2" number="7.4">
 <h2><span class="header-section-number">7.4</span> Composites</h2>
 <p>The <code>datawrangling::composite()</code> function allows you to easily create a composite score from multiple variables and also specify a certain criteria for how many missing values are allowed.</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="common-data-manipulations.html#cb166-1"></a>data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></span>
-<span id="cb166-2"><a href="common-data-manipulations.html#cb166-2"></a><span class="st">  </span><span class="kw">composite</span>(<span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>), </span>
-<span id="cb166-3"><a href="common-data-manipulations.html#cb166-3"></a>            <span class="dt">name =</span> <span class="st">&quot;Score_comp&quot;</span>,</span>
-<span id="cb166-4"><a href="common-data-manipulations.html#cb166-4"></a>            <span class="dt">type =</span> <span class="st">&quot;mean&quot;</span>,</span>
-<span id="cb166-5"><a href="common-data-manipulations.html#cb166-5"></a>            <span class="dt">standardize =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb166-6"><a href="common-data-manipulations.html#cb166-6"></a>            <span class="dt">missing.allowed =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="common-data-manipulations.html#cb166-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> import <span class="sc">%&gt;%</span></span>
+<span id="cb166-2"><a href="common-data-manipulations.html#cb166-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">composite</span>(<span class="at">variables =</span> <span class="fu">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>), </span>
+<span id="cb166-3"><a href="common-data-manipulations.html#cb166-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">name =</span> <span class="st">&quot;Score_comp&quot;</span>,</span>
+<span id="cb166-4"><a href="common-data-manipulations.html#cb166-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">type =</span> <span class="st">&quot;mean&quot;</span>,</span>
+<span id="cb166-5"><a href="common-data-manipulations.html#cb166-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">standardize =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb166-6"><a href="common-data-manipulations.html#cb166-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">missing.allowed =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p>The function <code>composite()</code> will create composite scores out of specified columns. Right now you can only create “mean” composite scores. In the future I plan on adding “sum” and “factor score” composite types.</p>
 <p>Here is a list of the arguments you can specify:</p>
 <ul>
@@ -504,15 +507,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="polynomial" class="section level3" number="7.5.1">
 <h3><span class="header-section-number">7.5.1</span> polynomial</h3>
 <p>You can create orthogonal polynomials of variables using the <code>poly()</code> function and specify the degree of polynomial to go up to with <code>degree =</code></p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="common-data-manipulations.html#cb167-1"></a><span class="kw">poly</span>(import<span class="op">$</span>Score1, <span class="dt">degree =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="common-data-manipulations.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">poly</span>(import<span class="sc">$</span>Score1, <span class="at">degree =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p>You can see it creates up to three degrees of polynomials on the Score1 variable. The first degree is a linear, second is a quadratic, and third is cubic. Let’s say we want to create three new columns with each of these three polynomials. To do so we need to individually access each vector such as</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="common-data-manipulations.html#cb168-1"></a><span class="kw">poly</span>(import<span class="op">$</span>Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[,<span class="dv">1</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="common-data-manipulations.html#cb169-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb169-2"><a href="common-data-manipulations.html#cb169-2"></a></span>
-<span id="cb169-3"><a href="common-data-manipulations.html#cb169-3"></a>data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></span>
-<span id="cb169-4"><a href="common-data-manipulations.html#cb169-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score1.linear =</span> <span class="kw">poly</span>(Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[ , <span class="dv">1</span>],</span>
-<span id="cb169-5"><a href="common-data-manipulations.html#cb169-5"></a>         <span class="dt">Score1.quadratic =</span> <span class="kw">poly</span>(Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[ , <span class="dv">2</span>],</span>
-<span id="cb169-6"><a href="common-data-manipulations.html#cb169-6"></a>         <span class="dt">Score1.cubic =</span> <span class="kw">poly</span>(Score1, <span class="dt">degree =</span> <span class="dv">3</span>)[ , <span class="dv">3</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="common-data-manipulations.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">poly</span>(import<span class="sc">$</span>Score1, <span class="at">degree =</span> <span class="dv">3</span>)[,<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="common-data-manipulations.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb169-2"><a href="common-data-manipulations.html#cb169-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-3"><a href="common-data-manipulations.html#cb169-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> import <span class="sc">%&gt;%</span></span>
+<span id="cb169-4"><a href="common-data-manipulations.html#cb169-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Score1.linear =</span> <span class="fu">poly</span>(Score1, <span class="at">degree =</span> <span class="dv">3</span>)[ , <span class="dv">1</span>],</span>
+<span id="cb169-5"><a href="common-data-manipulations.html#cb169-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">Score1.quadratic =</span> <span class="fu">poly</span>(Score1, <span class="at">degree =</span> <span class="dv">3</span>)[ , <span class="dv">2</span>],</span>
+<span id="cb169-6"><a href="common-data-manipulations.html#cb169-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">Score1.cubic =</span> <span class="fu">poly</span>(Score1, <span class="at">degree =</span> <span class="dv">3</span>)[ , <span class="dv">3</span>])</span></code></pre></div>
 <p>Here is plot to show you visually what happened</p>
 <p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-174-1.png" width="672" /></p>
 </div>
@@ -520,33 +523,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="custom-transformations" class="section level2" number="7.6">
 <h2><span class="header-section-number">7.6</span> Custom Transformations</h2>
 <p>In general, with <code>mutate()</code> you can specify any custom transformation you want to do on a variable. For instance, if you want to subtract each score by <code>5</code>, and divide by <code>10</code> then you can do it! I don’t know why you would ever want to do that, but you can.</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="common-data-manipulations.html#cb170-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb170-2"><a href="common-data-manipulations.html#cb170-2"></a></span>
-<span id="cb170-3"><a href="common-data-manipulations.html#cb170-3"></a>data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></span>
-<span id="cb170-4"><a href="common-data-manipulations.html#cb170-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score_crazy =</span> (Score1 <span class="op">-</span><span class="st"> </span><span class="dv">5</span>) <span class="op">/</span><span class="st"> </span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="common-data-manipulations.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb170-2"><a href="common-data-manipulations.html#cb170-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb170-3"><a href="common-data-manipulations.html#cb170-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> import <span class="sc">%&gt;%</span></span>
+<span id="cb170-4"><a href="common-data-manipulations.html#cb170-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Score_crazy =</span> (Score1 <span class="sc">-</span> <span class="dv">5</span>) <span class="sc">/</span> <span class="dv">10</span>)</span></code></pre></div>
 <p>Or take the sum of <code>Score1</code> and <code>Score2</code> and divide by the difference between <code>Score3</code> and <code>Score4</code>.</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="common-data-manipulations.html#cb171-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb171-2"><a href="common-data-manipulations.html#cb171-2"></a></span>
-<span id="cb171-3"><a href="common-data-manipulations.html#cb171-3"></a>data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></span>
-<span id="cb171-4"><a href="common-data-manipulations.html#cb171-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score_crazy =</span> (Score1 <span class="op">+</span><span class="st"> </span>Score2) <span class="op">/</span><span class="st"> </span>(Score3 <span class="op">-</span><span class="st"> </span>Score4))</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="common-data-manipulations.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb171-2"><a href="common-data-manipulations.html#cb171-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-3"><a href="common-data-manipulations.html#cb171-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> import <span class="sc">%&gt;%</span></span>
+<span id="cb171-4"><a href="common-data-manipulations.html#cb171-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Score_crazy =</span> (Score1 <span class="sc">+</span> Score2) <span class="sc">/</span> (Score3 <span class="sc">-</span> Score4))</span></code></pre></div>
 </div>
 <div id="row-wise-computations" class="section level2" number="7.7">
 <h2><span class="header-section-number">7.7</span> Row-wise Computations</h2>
 <p>The examples for <em>Custom Transformations</em> allowed you to calculate a new variable across multiple columns and within a row. For those examples that was no problem. However, sometimes you want to do more complicated computations or use certain functions such as <code>mean()</code> to calculate the average score across multiple columns. The problem is that <code>mean()</code> works across rows and only within one column.</p>
 <p>How can we get around that? In the near future (May 15th, 2020), <code>dplyr</code> version 1.0.0 will be released and includes a new function <code>rowwise()</code> for this very purpose. Until then we can use a base R function <code>rowMeans()</code> and <code>rowSums()</code>.</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="common-data-manipulations.html#cb172-1"></a>data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></span>
-<span id="cb172-2"><a href="common-data-manipulations.html#cb172-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">score_mean =</span> <span class="kw">rowMeans</span>(data[ ,<span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, <span class="st">&quot;Score4&quot;</span>)]))</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="common-data-manipulations.html#cb172-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> import <span class="sc">%&gt;%</span></span>
+<span id="cb172-2"><a href="common-data-manipulations.html#cb172-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">score_mean =</span> <span class="fu">rowMeans</span>(data[ ,<span class="fu">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, <span class="st">&quot;Score4&quot;</span>)]))</span></code></pre></div>
 </div>
 <div id="remove-subjects-with-too-many-missing-values" class="section level2" number="7.8">
 <h2><span class="header-section-number">7.8</span> Remove subjects with too many missing values</h2>
 <p>In our lab, when doing latent variable analyses we often times like to remove subjects that have too many missing values on any given latent factor. For instance, we often times have three task indicators for a latent factor. If a subject has missing values for 2 out of 3 of those task indicators (therefore only has one indicator) then we will remove them. But how do go about doing this in R?</p>
 <p>First let’s modify the <code>import</code> data frame to be more suited for this by adding some missing values</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="common-data-manipulations.html#cb173-1"></a>import &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></span>
-<span id="cb173-2"><a href="common-data-manipulations.html#cb173-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Score1 =</span> <span class="kw">ifelse</span>(Score1 <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>, <span class="ot">NA</span>, Score1),</span>
-<span id="cb173-3"><a href="common-data-manipulations.html#cb173-3"></a>         <span class="dt">Score2 =</span> <span class="kw">ifelse</span>(Score2 <span class="op">&lt;</span><span class="st"> </span><span class="dv">6</span>, <span class="ot">NA</span>, Score2),</span>
-<span id="cb173-4"><a href="common-data-manipulations.html#cb173-4"></a>         <span class="dt">Score3 =</span> <span class="kw">ifelse</span>(Score3 <span class="op">&lt;</span><span class="st"> </span><span class="dv">9</span>, <span class="ot">NA</span>, Score3),</span>
-<span id="cb173-5"><a href="common-data-manipulations.html#cb173-5"></a>         <span class="dt">Score4 =</span> <span class="kw">ifelse</span>(Score4 <span class="op">&lt;</span><span class="st"> </span><span class="dv">16</span>, <span class="ot">NA</span>, Score4),</span>
-<span id="cb173-6"><a href="common-data-manipulations.html#cb173-6"></a>         <span class="dt">Score5 =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">13</span>, <span class="dt">sd =</span> <span class="dv">5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="common-data-manipulations.html#cb173-1" aria-hidden="true" tabindex="-1"></a>import <span class="ot">&lt;-</span> import <span class="sc">%&gt;%</span></span>
+<span id="cb173-2"><a href="common-data-manipulations.html#cb173-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Score1 =</span> <span class="fu">ifelse</span>(Score1 <span class="sc">&lt;</span> <span class="dv">1</span>, <span class="cn">NA</span>, Score1),</span>
+<span id="cb173-3"><a href="common-data-manipulations.html#cb173-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">Score2 =</span> <span class="fu">ifelse</span>(Score2 <span class="sc">&lt;</span> <span class="dv">6</span>, <span class="cn">NA</span>, Score2),</span>
+<span id="cb173-4"><a href="common-data-manipulations.html#cb173-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">Score3 =</span> <span class="fu">ifelse</span>(Score3 <span class="sc">&lt;</span> <span class="dv">9</span>, <span class="cn">NA</span>, Score3),</span>
+<span id="cb173-5"><a href="common-data-manipulations.html#cb173-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">Score4 =</span> <span class="fu">ifelse</span>(Score4 <span class="sc">&lt;</span> <span class="dv">16</span>, <span class="cn">NA</span>, Score4),</span>
+<span id="cb173-6"><a href="common-data-manipulations.html#cb173-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">Score5 =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">13</span>, <span class="at">sd =</span> <span class="dv">5</span>))</span></code></pre></div>
 <p>View the data frame and notice how there are quite a few missing values. Some subjects have missing values on multiple columns. The steps to get rid of subjects with too many missing values on a select number of columns are:</p>
 <ol style="list-style-type: decimal">
 <li><p>Create a column with a count of how many columns has missing values for each subject (a row-wise computation)</p></li>
@@ -554,35 +557,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>Just to get a sense of how these steps work we can do this in multiple ways.</p>
 <p>First let’s calculate the total number of missing values across all columns and remove subjects that have missing values on 3 of the columns.</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="common-data-manipulations.html#cb174-1"></a>data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></span>
-<span id="cb174-2"><a href="common-data-manipulations.html#cb174-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">missing.total =</span> </span>
-<span id="cb174-3"><a href="common-data-manipulations.html#cb174-3"></a>           <span class="kw">rowSums</span>(<span class="kw">is.na</span>(import[,<span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, </span>
-<span id="cb174-4"><a href="common-data-manipulations.html#cb174-4"></a>                                   <span class="st">&quot;Score4&quot;</span>, <span class="st">&quot;Score5&quot;</span>)])))</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="common-data-manipulations.html#cb174-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> import <span class="sc">%&gt;%</span></span>
+<span id="cb174-2"><a href="common-data-manipulations.html#cb174-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">missing.total =</span> </span>
+<span id="cb174-3"><a href="common-data-manipulations.html#cb174-3" aria-hidden="true" tabindex="-1"></a>           <span class="fu">rowSums</span>(<span class="fu">is.na</span>(import[,<span class="fu">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, </span>
+<span id="cb174-4"><a href="common-data-manipulations.html#cb174-4" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;Score4&quot;</span>, <span class="st">&quot;Score5&quot;</span>)])))</span></code></pre></div>
 <p>View the data frame and notice that some subjects have 0, 1, 2, or 3 columns with missing values.</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="common-data-manipulations.html#cb175-1"></a><span class="kw">unique</span>(data<span class="op">$</span>missing.total)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="common-data-manipulations.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(data<span class="sc">$</span>missing.total)</span></code></pre></div>
 <pre><code>## [1] 0 1 2 3</code></pre>
 <p>Now let’s remove those with 3 or more columns missing. What we will actually specify is to keep those with less than 3 missing columns</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="common-data-manipulations.html#cb177-1"></a>data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></span>
-<span id="cb177-2"><a href="common-data-manipulations.html#cb177-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">missing.total =</span> </span>
-<span id="cb177-3"><a href="common-data-manipulations.html#cb177-3"></a>           <span class="kw">rowSums</span>(<span class="kw">is.na</span>(import[,<span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, </span>
-<span id="cb177-4"><a href="common-data-manipulations.html#cb177-4"></a>                                   <span class="st">&quot;Score4&quot;</span>, <span class="st">&quot;Score5&quot;</span>)]))) <span class="op">%&gt;%</span></span>
-<span id="cb177-5"><a href="common-data-manipulations.html#cb177-5"></a><span class="st">  </span><span class="kw">filter</span>(missing.total <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="common-data-manipulations.html#cb177-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> import <span class="sc">%&gt;%</span></span>
+<span id="cb177-2"><a href="common-data-manipulations.html#cb177-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">missing.total =</span> </span>
+<span id="cb177-3"><a href="common-data-manipulations.html#cb177-3" aria-hidden="true" tabindex="-1"></a>           <span class="fu">rowSums</span>(<span class="fu">is.na</span>(import[,<span class="fu">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>, <span class="st">&quot;Score3&quot;</span>, </span>
+<span id="cb177-4"><a href="common-data-manipulations.html#cb177-4" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;Score4&quot;</span>, <span class="st">&quot;Score5&quot;</span>)]))) <span class="sc">%&gt;%</span></span>
+<span id="cb177-5"><a href="common-data-manipulations.html#cb177-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(missing.total <span class="sc">&lt;</span> <span class="dv">3</span>)</span></code></pre></div>
 <p>Compare the number of rows between <code>import</code> and <code>data</code></p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="common-data-manipulations.html#cb178-1"></a><span class="kw">nrow</span>(import)</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="common-data-manipulations.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(import)</span></code></pre></div>
 <pre><code>## [1] 100</code></pre>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="common-data-manipulations.html#cb180-1"></a><span class="kw">nrow</span>(data)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="common-data-manipulations.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(data)</span></code></pre></div>
 <pre><code>## [1] 98</code></pre>
 <p>Two subjects were removed.</p>
 <p>Now let’s calculate the total number of missing values for two different latent factors. Let’s say latent factor 1, <code>latent1</code>, includes the column indicators <code>Score1</code> and <code>Score2</code>, whereas latent factor 2, <code>latent2</code>, includes the column indicators <code>Score3</code>, <code>Score4</code>, and <code>Score5</code>. Let’s remove subjects that have missing values on 1 out of the 2 columns for <code>latent1</code> and 2 out of 3 for <code>latent2</code>.</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="common-data-manipulations.html#cb182-1"></a>data &lt;-<span class="st"> </span>import <span class="op">%&gt;%</span></span>
-<span id="cb182-2"><a href="common-data-manipulations.html#cb182-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">missing.1 =</span> <span class="kw">rowSums</span>(<span class="kw">is.na</span>(import[,<span class="kw">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>)])),</span>
-<span id="cb182-3"><a href="common-data-manipulations.html#cb182-3"></a>         <span class="dt">missing.2 =</span> </span>
-<span id="cb182-4"><a href="common-data-manipulations.html#cb182-4"></a>           <span class="kw">rowSums</span>(<span class="kw">is.na</span>(import[,<span class="kw">c</span>(<span class="st">&quot;Score3&quot;</span>, <span class="st">&quot;Score4&quot;</span>, <span class="st">&quot;Score5&quot;</span>)]))) <span class="op">%&gt;%</span></span>
-<span id="cb182-5"><a href="common-data-manipulations.html#cb182-5"></a><span class="st">  </span><span class="kw">filter</span>(missing<span class="fl">.1</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>, missing<span class="fl">.2</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="common-data-manipulations.html#cb182-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> import <span class="sc">%&gt;%</span></span>
+<span id="cb182-2"><a href="common-data-manipulations.html#cb182-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">missing.1 =</span> <span class="fu">rowSums</span>(<span class="fu">is.na</span>(import[,<span class="fu">c</span>(<span class="st">&quot;Score1&quot;</span>, <span class="st">&quot;Score2&quot;</span>)])),</span>
+<span id="cb182-3"><a href="common-data-manipulations.html#cb182-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">missing.2 =</span> </span>
+<span id="cb182-4"><a href="common-data-manipulations.html#cb182-4" aria-hidden="true" tabindex="-1"></a>           <span class="fu">rowSums</span>(<span class="fu">is.na</span>(import[,<span class="fu">c</span>(<span class="st">&quot;Score3&quot;</span>, <span class="st">&quot;Score4&quot;</span>, <span class="st">&quot;Score5&quot;</span>)]))) <span class="sc">%&gt;%</span></span>
+<span id="cb182-5"><a href="common-data-manipulations.html#cb182-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(missing<span class="fl">.1</span> <span class="sc">&lt;</span> <span class="dv">1</span>, missing<span class="fl">.2</span> <span class="sc">&lt;</span> <span class="dv">2</span>)</span></code></pre></div>
 <p>View and evaluate <code>data</code>. Also compare the number of rows</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="common-data-manipulations.html#cb183-1"></a><span class="kw">nrow</span>(import)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="common-data-manipulations.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(import)</span></code></pre></div>
 <pre><code>## [1] 100</code></pre>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="common-data-manipulations.html#cb185-1"></a><span class="kw">nrow</span>(data)</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="common-data-manipulations.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(data)</span></code></pre></div>
 <pre><code>## [1] 70</code></pre>
 <p>There are now only 70 subjects, we removed 30 total subjects! Yikes.</p>
 <hr />
