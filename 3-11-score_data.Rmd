@@ -274,6 +274,7 @@ cronbachalpha <- data_raw %>%
   pivot_wider(id_cols = "Subject",
               names_from = "Trial",
               values_from = "Accuracy") %>%
+  select(-Subject) %>%
   alpha()  # from the psych package
 
 data_scores$Score_cronbachalpha <- cronbachalpha$total$std.alpha
