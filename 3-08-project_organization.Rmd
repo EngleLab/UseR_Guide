@@ -4,51 +4,51 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-In this chapter I will explain a particular organizational method for data collection and data analysis projects.
+```{r echo=FALSE, eval = TRUE, out.width='75%', fig.align='center'}
+knitr::include_graphics(rep("images/workflows/workflow_all.png"))
+```
+
+In the EngleLab, we often conduct large-scale data collection studies in which there are many research projects (with their own research questions and analyses) going on at once. Although many of the tasks will be shared between these research projects, there will be a unique set of tasks for each project. Ideally, for the tasks that are shared between research projects, the scoring methods and data cleaning criteria are the same across projects. In practice, this might not actually be the case but we do try to standardize across projects when we can. 
+
+In the past, the way we achieved this was sharing a data file that contained the scores for every task across research projects. However, there are some serious issues with this. 
+
+1. You cannot calculate reliability with just the task scores, you need the raw data.
+
+2. There is no transparency as to how the scores were calculated. Although whoever created the shared data file might know, this information will get lost over time. This is not good for reproducibility and open science practices.
+
+3. You cannot go back and calculate task scores using different criteria and decisions, again you need the raw data to do that. 
+
+R provides a convenient way to solve these problems. The solution is to share only the raw data files and R scripts used to score the tasks. 
+
+- Sharing the raw data files allows you to calculate reliability and to go back and make different decisions on how to score the task. It also makes it much easier for someone to go back and use the data from a research project and do reanalyses. 
+
+- Sharing the R scripts allows for transparency in how task scores were calculated.
+
+In other words, **DO NOT SHARE** scored data files from one research project to another.
 
 ----
 
 ## Data Collection vs. Data Analysis
 
-In the EngleLab, we often conduct large-scale data collection studies in which there are many research projects going on at once. Although many of the tasks will be shared between these research projects, there will be a unique set of tasks for each project. This overlap in shared tasks can make it difficult to figure out how and when to separate data preparation and data analysis steps between these projects.
-
-Essentially, every data analysis project should contain the raw (tidy) data files for the tasks relevant to that research project. From these raw data files, performance should be aggregated to calculate a *score* on each task. That way every data analysis project will be fully reproducible starting from the raw data files.
-
-The **Data Collection** directory will serve as a central repository for the raw data files from the study. A new **Data Analysis** directory can be created by copying over the raw data files for the tasks relevant to that research project. This relationship between Data Collection and Data Analysis Repositories are depicted here:
+The organizational structure we use in the lab is to have separate directories for the data collection study and for the various data analysis projects. The **Data Collection** directory will serve as a central repository for the raw data files from the study. A new **Data Analysis** directory can be created by copying over the raw data files for the tasks relevant to that research project. This relationship between Data Collection and Data Analysis Repositories are depicted here:
 
 ```{r echo=FALSE, eval = TRUE, out.width='60%', fig.align='center'}
 knitr::include_graphics(rep("images/workflows/workflow_relations.png"))
 ```
 
-*In the past, we would create a "final" data file with task scores from all the main tasks and share this with each other to use for our own data analysis projects. The problem with this was that not only was the analysis not fully reproducible but it creates a lack of transparency as to how the scores were calculated and the data cleaned. This also does not allow one to estimate reliability since they will not have the raw data files.*
-
 It is critical that you copy the raw data files only from the data collection directory to a data analysis directory. You do not copy data files from one data analysis directory to another.
 
 You can copy R Scripts from one data analysis directory to another. For instance, if you or someone else already created an R Script (for a separate data analysis project) to score a particular task that you are also using, then there is no problem in copying the R Script.
 
-**In general, you will probably copy R scripts from one project to another. The important point is that you are not copying _data files_ from one project to another.**
-
 This is because you can reproduce the data files from your R Scripts but not vice-versa. If you copy data files you lose reproducibility and the transparency of how the data file was created. 
-
-## Data Collection
-
-Unfortunately, you have to actually collect data before you can start analyzing anything. Therefore, you start out with a single directory: **Data Collection**. At the start all the folders in this directory that you really need are:
-
-* Tasks
-
-* Documents
-
-The **Tasks** folder is where the E-Prime task files are that will be used to administer each task to the subjects.
-
-In our lab we typically have multiple *Sessions* and multiple *Tasks* in each session. As you begin data collection, **.edat** data files will start to accumulate in each *Task* folder.
-
-**Documents** is where you may store various documents related to the study, such as a **Methods.docx** document describing each task in detail. This is an important document for archival purposes. Some of your other documents in this directory may not be as important for archival purposes, such as an informed consent form.
 
 ## Data Preparation
 
+**This step is performed in the data collection directory**.
+
 At some point you will need to start analyzing the data. However, you first need to prepare the data so that it is ready to analyze. There are several steps in this process and it can be quite tedious. Nevertheless, undergraduate RAs are trained on how to do most of these steps, so recruit their help. There are also [step-by-step instructions for Data Preparation.](http://englelab.gatech.edu/dataprep/){target="_blank"}
 
-Once you are ready for **Data Preparation** you will need to create a **Data Files** and **R Scripts** folders in the Data Collection directory. 
+Once you are ready for **Data Preparation** you will need to create a **Data Files** and **R Scripts** folders in the **Data Collection** directory. 
 
 There are two scenarios in which you may need to start processing and analyzing data:
 
@@ -126,19 +126,14 @@ These other folders are more optional.
 
 I will show you how to automatically create **Data Collection** and **Data Analysis** directories using RStudio Projects and my [**workflow** package](https://dr-jt.github.io/workflow/){target="_blank"}
 
-The most important thing to remember is that you need to copy and paste the *tidy* **task_raw.csv** data files from a **Data Collection** directory to a *Data Analysis* directory - but never copy and paste data files from one _Data Analysis_ directory to another.
-
-```{r echo=FALSE, eval = TRUE, out.width='60%', fig.align='center'}
-knitr::include_graphics(rep("images/workflows/workflow_copyover.png"))
-```
-
-When should you create a separate **Data Analysis** directory? Basically, if the set of analyses is going to be it's own **Manuscript** then create a new directory. If the set of analyses (whether exploratory or supplemental) is part of a larger set of analyses already in the works for a manuscript then no need to create a separate directory. 
-
 ### Install
 
 Install the `workflow` package
 
 ```{r eval = FALSE}
+# if you do not have devtools installed then do this first
+install.packages("devtools")
+# install workflow
 devtools::install_github("dr-JT/workflow")
 ```
 

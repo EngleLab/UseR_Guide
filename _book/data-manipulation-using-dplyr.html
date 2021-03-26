@@ -249,6 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1.1" data-path="tidy-raw-data.html"><a href="tidy-raw-data.html#setup-1"><i class="fa fa-check"></i><b>10.1.1</b> Setup</a></li>
 <li class="chapter" data-level="10.1.2" data-path="tidy-raw-data.html"><a href="tidy-raw-data.html#import-1"><i class="fa fa-check"></i><b>10.1.2</b> Import</a></li>
 <li class="chapter" data-level="10.1.3" data-path="tidy-raw-data.html"><a href="tidy-raw-data.html#tidy-raw-data-1"><i class="fa fa-check"></i><b>10.1.3</b> Tidy raw data</a></li>
+<li class="chapter" data-level="10.1.4" data-path="tidy-raw-data.html"><a href="tidy-raw-data.html#output-data"><i class="fa fa-check"></i><b>10.1.4</b> Output data</a></li>
 </ul></li>
 <li class="chapter" data-level="10.2" data-path="tidy-raw-data.html"><a href="tidy-raw-data.html#filter-rows"><i class="fa fa-check"></i><b>10.2</b> Filter Rows</a></li>
 <li class="chapter" data-level="10.3" data-path="tidy-raw-data.html"><a href="tidy-raw-data.html#change-values-in-columns"><i class="fa fa-check"></i><b>10.3</b> Change Values in Columns</a></li>
@@ -460,14 +461,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To take a quick look at the first few rows of a <code>dataframe</code> use <code>head()</code>.</p>
 <div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-manipulation-using-dplyr.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(import)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 10
-##   Subject TrialProc Trial Condition    RT   ACC Response TargetArrowDire… SessionDate SessionTime
-##     &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt;       &lt;time&gt;     
-## 1   14000 practice      1 incongru…  1086     1 left     left             08-30-2017  10:30:25   
-## 2   14000 practice      2 incongru…   863     1 left     left             08-30-2017  10:30:25   
-## 3   14000 practice      3 congruent   488     1 right    right            08-30-2017  10:30:25   
-## 4   14000 practice      4 incongru…   588     1 right    right            08-30-2017  10:30:25   
-## 5   14000 practice      5 congruent   581     1 right    right            08-30-2017  10:30:25   
-## 6   14000 practice      6 incongru…   544     1 right    right            08-30-2017  10:30:25</code></pre>
+##   Subject TrialProc Trial Condition     RT   ACC Response TargetArrowDire… SessionDate SessionTime
+##     &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt;       &lt;time&gt;     
+## 1   14000 practice      1 incongrue…  1086     1 left     left             08-30-2017  10:30:25   
+## 2   14000 practice      2 incongrue…   863     1 left     left             08-30-2017  10:30:25   
+## 3   14000 practice      3 congruent    488     1 right    right            08-30-2017  10:30:25   
+## 4   14000 practice      4 incongrue…   588     1 right    right            08-30-2017  10:30:25   
+## 5   14000 practice      5 congruent    581     1 right    right            08-30-2017  10:30:25   
+## 6   14000 practice      6 incongrue…   544     1 right    right            08-30-2017  10:30:25</code></pre>
 <p>This gives you a good idea of what column names you will be working with and what kind of values they contain.</p>
 <p>To evaluate what are all the unique values in a column you can use <code>unique()</code>. You can also use this in combination with <code>length()</code> to evaluate how many unique values are in a column.</p>
 <div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-manipulation-using-dplyr.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(import<span class="sc">$</span>Condition)</span></code></pre></div>

@@ -1,0 +1,77 @@
+# A Masterscript
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+When you have a lot of R scripts it can become tedious to open up and source each script one at a time. Instead, what you can do is have a **masterscript** file that executes (or *sources*) each R script file from one place.
+
+The masterscript file essentially just contains lines of code using the `source()` function. For instance a masterscript in a **Data Collection** repository might look like:
+
+```{r eval=FALSE}
+## fluid intelligence
+source("R Scripts/fluid intelligence/rapm_raw.R")
+source("R Scripts/fluid intelligence/lettersets_raw.R")
+source("R Scripts/fluid intelligence/numberseries_raw.R")
+
+## working memory capacity
+source("R Scripts/working memory capacity/symspan_raw.R")
+source("R Scripts/working memory capacity/rotspan_raw.R")
+source("R Scripts/working memory capacity/runletter_raw.R")
+source("R Scripts/working memory capacity/rundigit_raw.R")
+source("R Scripts/working memory capacity/mentalcounters_raw.R")
+
+## attention control
+source("R Scripts/attention control/antisaccade_raw.R")
+source("R Scripts/attention control/sact_raw.R")
+source("R Scripts/attention control/visual_flankerDL_raw.R")
+source("R Scripts/attention control/visual_stroopDL_raw.R")
+
+## other
+source("R Scripts/demographics_raw.R")
+```
+
+This script will *source* all these R scripts without having to open them.
+
+For **Data Analysis** a masterscript can also help to organize your data analysis procedure and the order in which certain R scripts need to be ran. For instance:
+
+```{r eval = FALSE}
+#################################################
+#------ 1. Scored data ------# 
+#################################################
+
+source("R Scripts/1_baseline_score.R")
+source("R Scripts/1_gf_score.R")
+source("R Scripts/1_wmc_score.R")
+source("R Scripts/1_antisaccade_score.R")
+source("R Scripts/1_sact_score.R")
+source("R Scripts/1_visualarrays_score.R")
+source("R Scripts/1_questionnaires_score.R")
+
+rm(list = ls())
+#############################################################
+#------ 2. Create Final Merged Data File for Analysis ------# 
+#############################################################
+
+source("R Scripts/2_merge.R", echo = TRUE)
+
+rm(list = ls())
+################################
+#------ 3. Data Analysis ------# 
+################################
+
+rmarkdown::render("R Scripts/3_MainAnalyses.Rmd", 
+                  output_dir = "Results", 
+                  output_file = "MainAnalyses.html")
+rmarkdown::render("R Scripts/3_Reliabilities.Rmd", 
+                  output_dir = "Results", 
+                  output_file = "Reliabilities.html")
+rmarkdown::render("R Scripts/3_Demographics.Rmd", 
+                  output_dir = "Results", 
+                  output_file = "Demographics.html")
+
+rm(list = ls())
+#################################################
+```
+
+
+----
+

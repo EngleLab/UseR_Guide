@@ -249,6 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1.1" data-path="tidy-raw-data.html"><a href="tidy-raw-data.html#setup-1"><i class="fa fa-check"></i><b>10.1.1</b> Setup</a></li>
 <li class="chapter" data-level="10.1.2" data-path="tidy-raw-data.html"><a href="tidy-raw-data.html#import-1"><i class="fa fa-check"></i><b>10.1.2</b> Import</a></li>
 <li class="chapter" data-level="10.1.3" data-path="tidy-raw-data.html"><a href="tidy-raw-data.html#tidy-raw-data-1"><i class="fa fa-check"></i><b>10.1.3</b> Tidy raw data</a></li>
+<li class="chapter" data-level="10.1.4" data-path="tidy-raw-data.html"><a href="tidy-raw-data.html#output-data"><i class="fa fa-check"></i><b>10.1.4</b> Output data</a></li>
 </ul></li>
 <li class="chapter" data-level="10.2" data-path="tidy-raw-data.html"><a href="tidy-raw-data.html#filter-rows"><i class="fa fa-check"></i><b>10.2</b> Filter Rows</a></li>
 <li class="chapter" data-level="10.3" data-path="tidy-raw-data.html"><a href="tidy-raw-data.html#change-values-in-columns"><i class="fa fa-check"></i><b>10.3</b> Change Values in Columns</a></li>
@@ -376,7 +377,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="lavaan" class="section level2" number="19.1">
 <h2><span class="header-section-number">19.1</span> <code>lavaan</code></h2>
 <p>Install the <code>lavaan</code> package</p>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="structural-equation-modelling.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;lavaan&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="structural-equation-modelling.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;lavaan&quot;</span>)</span></code></pre></div>
 <p>Visit the <a href="http://lavaan.ugent.be" target="_blank">lavaan website</a> and navigate to the <strong>Tutorial</strong> tab.</p>
 <p>This is an excellent resource for you to consult if you forget any syntax or want more details on using <em>lavaan</em>. You should go over the full tutorial yourself, but I will go ahead and cover the basics here.</p>
 <p>There are only two main steps to run a lavaan model.</p>
@@ -389,11 +390,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The model object is where you specify the model equation for the CFA or SEM. It is actually very easy and intuitive to do. Basically you specify the model equation within single quotes and pass it to an object called model. Let’s say we have want to run a model corresponding to this model diagram:</p>
 <p><img src="images/stats/cfa_example.png" width="40%" /></p>
 <p>We would simply specify:</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="structural-equation-modelling.html#cb260-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">&#39; </span></span>
-<span id="cb260-2"><a href="structural-equation-modelling.html#cb260-2" aria-hidden="true" tabindex="-1"></a><span class="st">visual  =~ x1 + x2 + x3 </span></span>
-<span id="cb260-3"><a href="structural-equation-modelling.html#cb260-3" aria-hidden="true" tabindex="-1"></a><span class="st">textual =~ x4 + x5 + x6</span></span>
-<span id="cb260-4"><a href="structural-equation-modelling.html#cb260-4" aria-hidden="true" tabindex="-1"></a><span class="st">speed   =~ x7 + x8 + x9 </span></span>
-<span id="cb260-5"><a href="structural-equation-modelling.html#cb260-5" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="structural-equation-modelling.html#cb264-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">&#39; </span></span>
+<span id="cb264-2"><a href="structural-equation-modelling.html#cb264-2" aria-hidden="true" tabindex="-1"></a><span class="st">visual  =~ x1 + x2 + x3 </span></span>
+<span id="cb264-3"><a href="structural-equation-modelling.html#cb264-3" aria-hidden="true" tabindex="-1"></a><span class="st">textual =~ x4 + x5 + x6</span></span>
+<span id="cb264-4"><a href="structural-equation-modelling.html#cb264-4" aria-hidden="true" tabindex="-1"></a><span class="st">speed   =~ x7 + x8 + x9 </span></span>
+<span id="cb264-5"><a href="structural-equation-modelling.html#cb264-5" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span></code></pre></div>
 <p>This defines a CFA model with three latent factors; <strong>visual</strong>, <strong>textual</strong>, and <strong>speed</strong> with their respective indicators. The indicators need to correspond to column names in the data frame.</p>
 <p>There are certain defaults that <code>lavaan</code> uses so that we do not have to specify every single path in the model. For instance, by default it will add correlations between the latent factors in a CFA model. That is why in the model example above, the latent correlations are not explicit, yet they are implicitly part of the model.</p>
 <p><strong>Model Syntax</strong></p>
@@ -432,7 +433,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="run-the-model" class="section level3" number="19.1.2">
 <h3><span class="header-section-number">19.1.2</span> Run the model</h3>
 <p>Then the model can be ran using <code>cfa()</code> or <code>sem()</code> functions</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="structural-equation-modelling.html#cb261-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">cfa</span>(model, data)</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="structural-equation-modelling.html#cb265-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">cfa</span>(model, data)</span></code></pre></div>
 <p>The first two arguments to pass onto the lavaan functions are <code>model</code> and <code>data</code>, respectively. There are other important arguments that we will cover later.</p>
 <p>The <code>summary(fit, fit.measures = TRUE, standardized = TRUE)</code> output to a lavaan model looks like</p>
 <pre><code>## lavaan 0.6-7 ended normally after 35 iterations
@@ -539,10 +540,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>Save it to the folder <strong>Data Files</strong> of your project directory.</p>
 <p>Install <code>semoutput</code></p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="structural-equation-modelling.html#cb263-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;dr-JT/semoutput&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="structural-equation-modelling.html#cb267-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;dr-JT/semoutput&quot;</span>)</span></code></pre></div>
 <p>Additional packages you will need to have installed</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="structural-equation-modelling.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;sjPlot&quot;</span>)</span>
-<span id="cb264-2"><a href="structural-equation-modelling.html#cb264-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;semPlot&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="structural-equation-modelling.html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;sjPlot&quot;</span>)</span>
+<span id="cb268-2"><a href="structural-equation-modelling.html#cb268-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;semPlot&quot;</span>)</span></code></pre></div>
 <p>Once you install <code>semoutput</code> you should Restart R by going to:</p>
 <p>Session -&gt; Restart R</p>
 <p>You can download an R Markdown template for doing CFA and SEM in <code>lavaan</code>. Go to:</p>
@@ -551,14 +552,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">19.2.1</span> YAML Header</h3>
 <p>At the top of the document is what is called the YAML header. Here is where you can specify certain parameters that you may want to use as default in your analyses.</p>
 <p>You also need to specify the location and name of the data file you will be working with</p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="structural-equation-modelling.html#cb265-1" aria-hidden="true" tabindex="-1"></a>params<span class="sc">:</span></span>
-<span id="cb265-2"><a href="structural-equation-modelling.html#cb265-2" aria-hidden="true" tabindex="-1"></a>  import.file<span class="sc">:</span> <span class="st">&quot;&quot;</span>       <span class="co"># Relative file path to data</span></span>
-<span id="cb265-3"><a href="structural-equation-modelling.html#cb265-3" aria-hidden="true" tabindex="-1"></a>  mimic<span class="sc">:</span> <span class="st">&quot;lavaan&quot;</span>       <span class="co"># Which software program to mimic for estimating models</span></span>
-<span id="cb265-4"><a href="structural-equation-modelling.html#cb265-4" aria-hidden="true" tabindex="-1"></a>  missing<span class="sc">:</span> <span class="st">&quot;ML&quot;</span>         <span class="co"># How to deal with missing values: &quot;ML&quot; or &quot;listwise&quot;</span></span>
-<span id="cb265-5"><a href="structural-equation-modelling.html#cb265-5" aria-hidden="true" tabindex="-1"></a>  std.lv<span class="sc">:</span> <span class="cn">TRUE</span>          <span class="co"># For CFAs, default setting whether to set latent variances to 1 or not</span></span>
-<span id="cb265-6"><a href="structural-equation-modelling.html#cb265-6" aria-hidden="true" tabindex="-1"></a>  std.ov<span class="sc">:</span> <span class="cn">FALSE</span>         <span class="co"># Standardize all observed varialbes?</span></span>
-<span id="cb265-7"><a href="structural-equation-modelling.html#cb265-7" aria-hidden="true" tabindex="-1"></a>  se<span class="sc">:</span> <span class="st">&quot;standard&quot;</span>        <span class="co"># How to calcualte standard errors: &quot;standard&quot; or &quot;bootstrap&quot;</span></span>
-<span id="cb265-8"><a href="structural-equation-modelling.html#cb265-8" aria-hidden="true" tabindex="-1"></a>  bootstrap<span class="sc">:</span> <span class="dv">1000</span>       <span class="co"># If se = &quot;bootstrap&quot; how many boostrap samples?</span></span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="structural-equation-modelling.html#cb269-1" aria-hidden="true" tabindex="-1"></a>params<span class="sc">:</span></span>
+<span id="cb269-2"><a href="structural-equation-modelling.html#cb269-2" aria-hidden="true" tabindex="-1"></a>  import.file<span class="sc">:</span> <span class="st">&quot;&quot;</span>       <span class="co"># Relative file path to data</span></span>
+<span id="cb269-3"><a href="structural-equation-modelling.html#cb269-3" aria-hidden="true" tabindex="-1"></a>  mimic<span class="sc">:</span> <span class="st">&quot;lavaan&quot;</span>       <span class="co"># Which software program to mimic for estimating models</span></span>
+<span id="cb269-4"><a href="structural-equation-modelling.html#cb269-4" aria-hidden="true" tabindex="-1"></a>  missing<span class="sc">:</span> <span class="st">&quot;ML&quot;</span>         <span class="co"># How to deal with missing values: &quot;ML&quot; or &quot;listwise&quot;</span></span>
+<span id="cb269-5"><a href="structural-equation-modelling.html#cb269-5" aria-hidden="true" tabindex="-1"></a>  std.lv<span class="sc">:</span> <span class="cn">TRUE</span>          <span class="co"># For CFAs, default setting whether to set latent variances to 1 or not</span></span>
+<span id="cb269-6"><a href="structural-equation-modelling.html#cb269-6" aria-hidden="true" tabindex="-1"></a>  std.ov<span class="sc">:</span> <span class="cn">FALSE</span>         <span class="co"># Standardize all observed varialbes?</span></span>
+<span id="cb269-7"><a href="structural-equation-modelling.html#cb269-7" aria-hidden="true" tabindex="-1"></a>  se<span class="sc">:</span> <span class="st">&quot;standard&quot;</span>        <span class="co"># How to calcualte standard errors: &quot;standard&quot; or &quot;bootstrap&quot;</span></span>
+<span id="cb269-8"><a href="structural-equation-modelling.html#cb269-8" aria-hidden="true" tabindex="-1"></a>  bootstrap<span class="sc">:</span> <span class="dv">1000</span>       <span class="co"># If se = &quot;bootstrap&quot; how many boostrap samples?</span></span></code></pre></div>
 <p><em>skipping the efa example for now</em></p>
 <p>The first R code chunk <strong>Required Packages</strong> is where you should load any packages used in the document.</p>
 <p>The next R code chunk is where the data file is imported.</p>
@@ -581,43 +582,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To correlate error residuals you would specify:</p>
 <pre><code>y1 ~~ y5</code></pre>
 <p>Move down to the CFA section. First, you need to create a list of the latent factor labels (this is for the output and not running a <code>lavaan</code> model).</p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="structural-equation-modelling.html#cb267-1" aria-hidden="true" tabindex="-1"></a>factors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;dem60&quot;</span>, <span class="st">&quot;ind60&quot;</span>, <span class="st">&quot;dem65&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="structural-equation-modelling.html#cb271-1" aria-hidden="true" tabindex="-1"></a>factors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;dem60&quot;</span>, <span class="st">&quot;ind60&quot;</span>, <span class="st">&quot;dem65&quot;</span>)</span></code></pre></div>
 <p>Then specify the model equation. The commented lines (e.g. # latent factors) are just optional and can be changed or removed. Remember, the factor correlations are implied.</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="structural-equation-modelling.html#cb268-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
-<span id="cb268-2"><a href="structural-equation-modelling.html#cb268-2" aria-hidden="true" tabindex="-1"></a><span class="st"># latent factors</span></span>
-<span id="cb268-3"><a href="structural-equation-modelling.html#cb268-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb268-4"><a href="structural-equation-modelling.html#cb268-4" aria-hidden="true" tabindex="-1"></a><span class="st"># correlated errors</span></span>
-<span id="cb268-5"><a href="structural-equation-modelling.html#cb268-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb268-6"><a href="structural-equation-modelling.html#cb268-6" aria-hidden="true" tabindex="-1"></a><span class="st"># constraints</span></span>
-<span id="cb268-7"><a href="structural-equation-modelling.html#cb268-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb268-8"><a href="structural-equation-modelling.html#cb268-8" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span></code></pre></div>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="structural-equation-modelling.html#cb269-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
-<span id="cb269-2"><a href="structural-equation-modelling.html#cb269-2" aria-hidden="true" tabindex="-1"></a><span class="st"># latent factors</span></span>
-<span id="cb269-3"><a href="structural-equation-modelling.html#cb269-3" aria-hidden="true" tabindex="-1"></a><span class="st">dem60 =~ y1 + y2 + y3 + y4</span></span>
-<span id="cb269-4"><a href="structural-equation-modelling.html#cb269-4" aria-hidden="true" tabindex="-1"></a><span class="st">ind60 =~ x1 + x2 + x3</span></span>
-<span id="cb269-5"><a href="structural-equation-modelling.html#cb269-5" aria-hidden="true" tabindex="-1"></a><span class="st">dem65 =~ y5 + y6 + y7 + y8</span></span>
-<span id="cb269-6"><a href="structural-equation-modelling.html#cb269-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb269-7"><a href="structural-equation-modelling.html#cb269-7" aria-hidden="true" tabindex="-1"></a><span class="st"># correlated errors</span></span>
-<span id="cb269-8"><a href="structural-equation-modelling.html#cb269-8" aria-hidden="true" tabindex="-1"></a><span class="st">y1 ~~ y5</span></span>
-<span id="cb269-9"><a href="structural-equation-modelling.html#cb269-9" aria-hidden="true" tabindex="-1"></a><span class="st">y2 ~~ y4</span></span>
-<span id="cb269-10"><a href="structural-equation-modelling.html#cb269-10" aria-hidden="true" tabindex="-1"></a><span class="st">y2 ~~ y6</span></span>
-<span id="cb269-11"><a href="structural-equation-modelling.html#cb269-11" aria-hidden="true" tabindex="-1"></a><span class="st">y3 ~~ y7</span></span>
-<span id="cb269-12"><a href="structural-equation-modelling.html#cb269-12" aria-hidden="true" tabindex="-1"></a><span class="st">y4 ~~ y8</span></span>
-<span id="cb269-13"><a href="structural-equation-modelling.html#cb269-13" aria-hidden="true" tabindex="-1"></a><span class="st">y6 ~~ y8</span></span>
-<span id="cb269-14"><a href="structural-equation-modelling.html#cb269-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb269-15"><a href="structural-equation-modelling.html#cb269-15" aria-hidden="true" tabindex="-1"></a><span class="st"># constraints</span></span>
-<span id="cb269-16"><a href="structural-equation-modelling.html#cb269-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb269-17"><a href="structural-equation-modelling.html#cb269-17" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="structural-equation-modelling.html#cb272-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
+<span id="cb272-2"><a href="structural-equation-modelling.html#cb272-2" aria-hidden="true" tabindex="-1"></a><span class="st"># latent factors</span></span>
+<span id="cb272-3"><a href="structural-equation-modelling.html#cb272-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb272-4"><a href="structural-equation-modelling.html#cb272-4" aria-hidden="true" tabindex="-1"></a><span class="st"># correlated errors</span></span>
+<span id="cb272-5"><a href="structural-equation-modelling.html#cb272-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb272-6"><a href="structural-equation-modelling.html#cb272-6" aria-hidden="true" tabindex="-1"></a><span class="st"># constraints</span></span>
+<span id="cb272-7"><a href="structural-equation-modelling.html#cb272-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb272-8"><a href="structural-equation-modelling.html#cb272-8" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="structural-equation-modelling.html#cb273-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
+<span id="cb273-2"><a href="structural-equation-modelling.html#cb273-2" aria-hidden="true" tabindex="-1"></a><span class="st"># latent factors</span></span>
+<span id="cb273-3"><a href="structural-equation-modelling.html#cb273-3" aria-hidden="true" tabindex="-1"></a><span class="st">dem60 =~ y1 + y2 + y3 + y4</span></span>
+<span id="cb273-4"><a href="structural-equation-modelling.html#cb273-4" aria-hidden="true" tabindex="-1"></a><span class="st">ind60 =~ x1 + x2 + x3</span></span>
+<span id="cb273-5"><a href="structural-equation-modelling.html#cb273-5" aria-hidden="true" tabindex="-1"></a><span class="st">dem65 =~ y5 + y6 + y7 + y8</span></span>
+<span id="cb273-6"><a href="structural-equation-modelling.html#cb273-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb273-7"><a href="structural-equation-modelling.html#cb273-7" aria-hidden="true" tabindex="-1"></a><span class="st"># correlated errors</span></span>
+<span id="cb273-8"><a href="structural-equation-modelling.html#cb273-8" aria-hidden="true" tabindex="-1"></a><span class="st">y1 ~~ y5</span></span>
+<span id="cb273-9"><a href="structural-equation-modelling.html#cb273-9" aria-hidden="true" tabindex="-1"></a><span class="st">y2 ~~ y4</span></span>
+<span id="cb273-10"><a href="structural-equation-modelling.html#cb273-10" aria-hidden="true" tabindex="-1"></a><span class="st">y2 ~~ y6</span></span>
+<span id="cb273-11"><a href="structural-equation-modelling.html#cb273-11" aria-hidden="true" tabindex="-1"></a><span class="st">y3 ~~ y7</span></span>
+<span id="cb273-12"><a href="structural-equation-modelling.html#cb273-12" aria-hidden="true" tabindex="-1"></a><span class="st">y4 ~~ y8</span></span>
+<span id="cb273-13"><a href="structural-equation-modelling.html#cb273-13" aria-hidden="true" tabindex="-1"></a><span class="st">y6 ~~ y8</span></span>
+<span id="cb273-14"><a href="structural-equation-modelling.html#cb273-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb273-15"><a href="structural-equation-modelling.html#cb273-15" aria-hidden="true" tabindex="-1"></a><span class="st"># constraints</span></span>
+<span id="cb273-16"><a href="structural-equation-modelling.html#cb273-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb273-17"><a href="structural-equation-modelling.html#cb273-17" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span></code></pre></div>
 <p>You do not need to change anything for <code>cfa()</code>. Unless you want to change some of the defaults you set in the YAML header.</p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="structural-equation-modelling.html#cb270-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">cfa</span>(<span class="at">model =</span> model, <span class="at">data =</span> data, </span>
-<span id="cb270-2"><a href="structural-equation-modelling.html#cb270-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">mimic =</span> params<span class="sc">$</span>mimic, <span class="at">missing =</span> params<span class="sc">$</span>missing, </span>
-<span id="cb270-3"><a href="structural-equation-modelling.html#cb270-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">std.lv =</span> params<span class="sc">$</span>std.lv, <span class="at">std.ov =</span> params<span class="sc">$</span>std.ov,</span>
-<span id="cb270-4"><a href="structural-equation-modelling.html#cb270-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">se =</span> params<span class="sc">$</span>se, <span class="at">bootstrap =</span> params<span class="sc">$</span>bootstrap)</span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="structural-equation-modelling.html#cb274-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">cfa</span>(<span class="at">model =</span> model, <span class="at">data =</span> data, </span>
+<span id="cb274-2"><a href="structural-equation-modelling.html#cb274-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">mimic =</span> params<span class="sc">$</span>mimic, <span class="at">missing =</span> params<span class="sc">$</span>missing, </span>
+<span id="cb274-3"><a href="structural-equation-modelling.html#cb274-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">std.lv =</span> params<span class="sc">$</span>std.lv, <span class="at">std.ov =</span> params<span class="sc">$</span>std.ov,</span>
+<span id="cb274-4"><a href="structural-equation-modelling.html#cb274-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">se =</span> params<span class="sc">$</span>se, <span class="at">bootstrap =</span> params<span class="sc">$</span>bootstrap)</span></code></pre></div>
 <p>Run this R code chunk by pressing the green arrow button. Then run each R code chunk in each subsection to print the output.</p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="structural-equation-modelling.html#cb271-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_sig</span>(fit)</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="structural-equation-modelling.html#cb275-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_sig</span>(fit)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-328">Table 19.1: </span>Model Significance
+<span id="tab:unnamed-chunk-332">Table 19.1: </span>Model Significance
 </caption>
 <thead>
 <tr>
@@ -652,10 +653,10 @@ p.value
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="structural-equation-modelling.html#cb272-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_fitmeasures</span>(fit)</span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="structural-equation-modelling.html#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_fitmeasures</span>(fit)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-328">Table 19.1: </span>Model Fit Measures
+<span id="tab:unnamed-chunk-332">Table 19.1: </span>Model Fit Measures
 </caption>
 <thead>
 <tr>
@@ -702,10 +703,10 @@ BIC
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="structural-equation-modelling.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_factorloadings</span>(fit, <span class="at">standardized =</span> <span class="cn">TRUE</span>, <span class="at">ci =</span> <span class="st">&quot;standardized&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="structural-equation-modelling.html#cb277-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_factorloadings</span>(fit, <span class="at">standardized =</span> <span class="cn">TRUE</span>, <span class="at">ci =</span> <span class="st">&quot;standardized&quot;</span>)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-328">Table 19.1: </span>Factor Loadings
+<span id="tab:unnamed-chunk-332">Table 19.1: </span>Factor Loadings
 </caption>
 <thead>
 <tr>
@@ -1071,10 +1072,10 @@ y8
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="structural-equation-modelling.html#cb274-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_factorcor</span>(fit, <span class="at">factors =</span> factors)</span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="structural-equation-modelling.html#cb278-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_factorcor</span>(fit, <span class="at">factors =</span> factors)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-328">Table 19.1: </span>Latent Factor Correlations
+<span id="tab:unnamed-chunk-332">Table 19.1: </span>Latent Factor Correlations
 </caption>
 <thead>
 <tr>
@@ -1185,10 +1186,10 @@ dem65
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="structural-equation-modelling.html#cb275-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_factorvar</span>(fit, <span class="at">factors =</span> factors)</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="structural-equation-modelling.html#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_factorvar</span>(fit, <span class="at">factors =</span> factors)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-328">Table 19.1: </span>Latent Factor Variance/Residual Variance
+<span id="tab:unnamed-chunk-332">Table 19.1: </span>Latent Factor Variance/Residual Variance
 </caption>
 <thead>
 <tr>
@@ -1217,10 +1218,10 @@ p
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="structural-equation-modelling.html#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_rsquared</span>(fit)</span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="structural-equation-modelling.html#cb280-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_rsquared</span>(fit)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-328">Table 19.1: </span>R-Squared Values
+<span id="tab:unnamed-chunk-332">Table 19.1: </span>R-Squared Values
 </caption>
 <thead>
 <tr>
@@ -1323,13 +1324,13 @@ y8
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="structural-equation-modelling.html#cb277-1" aria-hidden="true" tabindex="-1"></a><span class="fu">semPaths</span>(fit, <span class="at">latents =</span> factors, <span class="at">whatLabels =</span> <span class="st">&quot;std&quot;</span>, <span class="at">layout =</span> <span class="st">&quot;tree2&quot;</span>, </span>
-<span id="cb277-2"><a href="structural-equation-modelling.html#cb277-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">rotation =</span> <span class="dv">2</span>, <span class="at">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="at">optimizeLatRes =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb277-3"><a href="structural-equation-modelling.html#cb277-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">intercepts =</span> <span class="cn">FALSE</span>, <span class="at">residuals =</span> <span class="cn">TRUE</span>, <span class="at">curve =</span> <span class="dv">1</span>, <span class="at">curvature =</span> <span class="dv">2</span>, </span>
-<span id="cb277-4"><a href="structural-equation-modelling.html#cb277-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">sizeLat =</span> <span class="dv">10</span>, <span class="at">nCharNodes =</span> <span class="dv">8</span>, <span class="at">sizeMan =</span> <span class="dv">11</span>, <span class="at">sizeMan2 =</span> <span class="dv">4</span>, </span>
-<span id="cb277-5"><a href="structural-equation-modelling.html#cb277-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">edge.label.cex =</span> <span class="fl">1.2</span>, <span class="at">edge.color =</span> <span class="st">&quot;#000000&quot;</span>)</span></code></pre></div>
-<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-329-1.png" width="672" /></p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="structural-equation-modelling.html#cb278-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modificationIndices</span>(fit, <span class="at">sort. =</span> <span class="cn">TRUE</span>, <span class="at">minimum.value =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="structural-equation-modelling.html#cb281-1" aria-hidden="true" tabindex="-1"></a><span class="fu">semPaths</span>(fit, <span class="at">latents =</span> factors, <span class="at">whatLabels =</span> <span class="st">&quot;std&quot;</span>, <span class="at">layout =</span> <span class="st">&quot;tree2&quot;</span>, </span>
+<span id="cb281-2"><a href="structural-equation-modelling.html#cb281-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">rotation =</span> <span class="dv">2</span>, <span class="at">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="at">optimizeLatRes =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb281-3"><a href="structural-equation-modelling.html#cb281-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">intercepts =</span> <span class="cn">FALSE</span>, <span class="at">residuals =</span> <span class="cn">TRUE</span>, <span class="at">curve =</span> <span class="dv">1</span>, <span class="at">curvature =</span> <span class="dv">2</span>, </span>
+<span id="cb281-4"><a href="structural-equation-modelling.html#cb281-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">sizeLat =</span> <span class="dv">10</span>, <span class="at">nCharNodes =</span> <span class="dv">8</span>, <span class="at">sizeMan =</span> <span class="dv">11</span>, <span class="at">sizeMan2 =</span> <span class="dv">4</span>, </span>
+<span id="cb281-5"><a href="structural-equation-modelling.html#cb281-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">edge.label.cex =</span> <span class="fl">1.2</span>, <span class="at">edge.color =</span> <span class="st">&quot;#000000&quot;</span>)</span></code></pre></div>
+<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-333-1.png" width="672" /></p>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="structural-equation-modelling.html#cb282-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modificationIndices</span>(fit, <span class="at">sort. =</span> <span class="cn">TRUE</span>, <span class="at">minimum.value =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##      lhs op rhs    mi    epc sepc.lv sepc.all sepc.nox
 ## 59 ind60 =~  y4 4.796  0.577   0.577    0.174    0.174
 ## 60 ind60 =~  y5 4.456  0.559   0.559    0.215    0.215
@@ -1340,35 +1341,35 @@ y8
 <div id="sem-example" class="section level3" number="19.2.3">
 <h3><span class="header-section-number">19.2.3</span> SEM Example</h3>
 <p>Now let’s run the actual SEM model. Really the only difference is that we will add some regression paths</p>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="structural-equation-modelling.html#cb280-1" aria-hidden="true" tabindex="-1"></a>factors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;dem60&quot;</span>, <span class="st">&quot;ind60&quot;</span>, <span class="st">&quot;dem65&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="structural-equation-modelling.html#cb281-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
-<span id="cb281-2"><a href="structural-equation-modelling.html#cb281-2" aria-hidden="true" tabindex="-1"></a><span class="st"># latent factors</span></span>
-<span id="cb281-3"><a href="structural-equation-modelling.html#cb281-3" aria-hidden="true" tabindex="-1"></a><span class="st">dem60 =~ y1 + y2 + y3 + y4</span></span>
-<span id="cb281-4"><a href="structural-equation-modelling.html#cb281-4" aria-hidden="true" tabindex="-1"></a><span class="st">ind60 =~ x1 + x2 + x3</span></span>
-<span id="cb281-5"><a href="structural-equation-modelling.html#cb281-5" aria-hidden="true" tabindex="-1"></a><span class="st">dem65 =~ y5 + y6 + y7 + y8</span></span>
-<span id="cb281-6"><a href="structural-equation-modelling.html#cb281-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb281-7"><a href="structural-equation-modelling.html#cb281-7" aria-hidden="true" tabindex="-1"></a><span class="st"># variances</span></span>
-<span id="cb281-8"><a href="structural-equation-modelling.html#cb281-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb281-9"><a href="structural-equation-modelling.html#cb281-9" aria-hidden="true" tabindex="-1"></a><span class="st"># covariances</span></span>
-<span id="cb281-10"><a href="structural-equation-modelling.html#cb281-10" aria-hidden="true" tabindex="-1"></a><span class="st">y1 ~~ y5</span></span>
-<span id="cb281-11"><a href="structural-equation-modelling.html#cb281-11" aria-hidden="true" tabindex="-1"></a><span class="st">y2 ~~ y4</span></span>
-<span id="cb281-12"><a href="structural-equation-modelling.html#cb281-12" aria-hidden="true" tabindex="-1"></a><span class="st">y2 ~~ y6</span></span>
-<span id="cb281-13"><a href="structural-equation-modelling.html#cb281-13" aria-hidden="true" tabindex="-1"></a><span class="st">y3 ~~ y7</span></span>
-<span id="cb281-14"><a href="structural-equation-modelling.html#cb281-14" aria-hidden="true" tabindex="-1"></a><span class="st">y4 ~~ y8</span></span>
-<span id="cb281-15"><a href="structural-equation-modelling.html#cb281-15" aria-hidden="true" tabindex="-1"></a><span class="st">y6 ~~ y8</span></span>
-<span id="cb281-16"><a href="structural-equation-modelling.html#cb281-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb281-17"><a href="structural-equation-modelling.html#cb281-17" aria-hidden="true" tabindex="-1"></a><span class="st"># regressions</span></span>
-<span id="cb281-18"><a href="structural-equation-modelling.html#cb281-18" aria-hidden="true" tabindex="-1"></a><span class="st">dem65 ~ dem60 + ind60</span></span>
-<span id="cb281-19"><a href="structural-equation-modelling.html#cb281-19" aria-hidden="true" tabindex="-1"></a><span class="st">dem60 ~ ind60</span></span>
-<span id="cb281-20"><a href="structural-equation-modelling.html#cb281-20" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span></code></pre></div>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="structural-equation-modelling.html#cb282-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(<span class="at">model =</span> model, <span class="at">data =</span> data, </span>
-<span id="cb282-2"><a href="structural-equation-modelling.html#cb282-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">mimic =</span> params<span class="sc">$</span>mimic, <span class="at">missing =</span> params<span class="sc">$</span>missing, </span>
-<span id="cb282-3"><a href="structural-equation-modelling.html#cb282-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">std.lv =</span> <span class="cn">FALSE</span>, <span class="at">std.ov =</span> params<span class="sc">$</span>std.ov,</span>
-<span id="cb282-4"><a href="structural-equation-modelling.html#cb282-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">se =</span> params<span class="sc">$</span>se, <span class="at">bootstrap =</span> params<span class="sc">$</span>bootstrap)</span></code></pre></div>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="structural-equation-modelling.html#cb283-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_sig</span>(fit)</span></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="structural-equation-modelling.html#cb284-1" aria-hidden="true" tabindex="-1"></a>factors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;dem60&quot;</span>, <span class="st">&quot;ind60&quot;</span>, <span class="st">&quot;dem65&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="structural-equation-modelling.html#cb285-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
+<span id="cb285-2"><a href="structural-equation-modelling.html#cb285-2" aria-hidden="true" tabindex="-1"></a><span class="st"># latent factors</span></span>
+<span id="cb285-3"><a href="structural-equation-modelling.html#cb285-3" aria-hidden="true" tabindex="-1"></a><span class="st">dem60 =~ y1 + y2 + y3 + y4</span></span>
+<span id="cb285-4"><a href="structural-equation-modelling.html#cb285-4" aria-hidden="true" tabindex="-1"></a><span class="st">ind60 =~ x1 + x2 + x3</span></span>
+<span id="cb285-5"><a href="structural-equation-modelling.html#cb285-5" aria-hidden="true" tabindex="-1"></a><span class="st">dem65 =~ y5 + y6 + y7 + y8</span></span>
+<span id="cb285-6"><a href="structural-equation-modelling.html#cb285-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb285-7"><a href="structural-equation-modelling.html#cb285-7" aria-hidden="true" tabindex="-1"></a><span class="st"># variances</span></span>
+<span id="cb285-8"><a href="structural-equation-modelling.html#cb285-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb285-9"><a href="structural-equation-modelling.html#cb285-9" aria-hidden="true" tabindex="-1"></a><span class="st"># covariances</span></span>
+<span id="cb285-10"><a href="structural-equation-modelling.html#cb285-10" aria-hidden="true" tabindex="-1"></a><span class="st">y1 ~~ y5</span></span>
+<span id="cb285-11"><a href="structural-equation-modelling.html#cb285-11" aria-hidden="true" tabindex="-1"></a><span class="st">y2 ~~ y4</span></span>
+<span id="cb285-12"><a href="structural-equation-modelling.html#cb285-12" aria-hidden="true" tabindex="-1"></a><span class="st">y2 ~~ y6</span></span>
+<span id="cb285-13"><a href="structural-equation-modelling.html#cb285-13" aria-hidden="true" tabindex="-1"></a><span class="st">y3 ~~ y7</span></span>
+<span id="cb285-14"><a href="structural-equation-modelling.html#cb285-14" aria-hidden="true" tabindex="-1"></a><span class="st">y4 ~~ y8</span></span>
+<span id="cb285-15"><a href="structural-equation-modelling.html#cb285-15" aria-hidden="true" tabindex="-1"></a><span class="st">y6 ~~ y8</span></span>
+<span id="cb285-16"><a href="structural-equation-modelling.html#cb285-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb285-17"><a href="structural-equation-modelling.html#cb285-17" aria-hidden="true" tabindex="-1"></a><span class="st"># regressions</span></span>
+<span id="cb285-18"><a href="structural-equation-modelling.html#cb285-18" aria-hidden="true" tabindex="-1"></a><span class="st">dem65 ~ dem60 + ind60</span></span>
+<span id="cb285-19"><a href="structural-equation-modelling.html#cb285-19" aria-hidden="true" tabindex="-1"></a><span class="st">dem60 ~ ind60</span></span>
+<span id="cb285-20"><a href="structural-equation-modelling.html#cb285-20" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="structural-equation-modelling.html#cb286-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(<span class="at">model =</span> model, <span class="at">data =</span> data, </span>
+<span id="cb286-2"><a href="structural-equation-modelling.html#cb286-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">mimic =</span> params<span class="sc">$</span>mimic, <span class="at">missing =</span> params<span class="sc">$</span>missing, </span>
+<span id="cb286-3"><a href="structural-equation-modelling.html#cb286-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">std.lv =</span> <span class="cn">FALSE</span>, <span class="at">std.ov =</span> params<span class="sc">$</span>std.ov,</span>
+<span id="cb286-4"><a href="structural-equation-modelling.html#cb286-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">se =</span> params<span class="sc">$</span>se, <span class="at">bootstrap =</span> params<span class="sc">$</span>bootstrap)</span></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="structural-equation-modelling.html#cb287-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_sig</span>(fit)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-334">Table 19.2: </span>Model Significance
+<span id="tab:unnamed-chunk-338">Table 19.2: </span>Model Significance
 </caption>
 <thead>
 <tr>
@@ -1403,10 +1404,10 @@ p.value
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="structural-equation-modelling.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_fitmeasures</span>(fit)</span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="structural-equation-modelling.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_fitmeasures</span>(fit)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-334">Table 19.2: </span>Model Fit Measures
+<span id="tab:unnamed-chunk-338">Table 19.2: </span>Model Fit Measures
 </caption>
 <thead>
 <tr>
@@ -1453,10 +1454,10 @@ BIC
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="structural-equation-modelling.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_factorloadings</span>(fit, <span class="at">standardized =</span> <span class="cn">TRUE</span>, <span class="at">ci =</span> <span class="st">&quot;standardized&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="structural-equation-modelling.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_factorloadings</span>(fit, <span class="at">standardized =</span> <span class="cn">TRUE</span>, <span class="at">ci =</span> <span class="st">&quot;standardized&quot;</span>)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-334">Table 19.2: </span>Factor Loadings
+<span id="tab:unnamed-chunk-338">Table 19.2: </span>Factor Loadings
 </caption>
 <thead>
 <tr>
@@ -1822,10 +1823,10 @@ y8
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="structural-equation-modelling.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_paths</span>(fit, <span class="at">standardized =</span> <span class="cn">TRUE</span>, <span class="at">ci =</span> <span class="st">&quot;standardized&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="structural-equation-modelling.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_paths</span>(fit, <span class="at">standardized =</span> <span class="cn">TRUE</span>, <span class="at">ci =</span> <span class="st">&quot;standardized&quot;</span>)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-334">Table 19.2: </span>Regression Paths
+<span id="tab:unnamed-chunk-338">Table 19.2: </span>Regression Paths
 </caption>
 <thead>
 <tr>
@@ -1960,10 +1961,10 @@ dem60
 </tbody>
 </table></li>
 </ul>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="structural-equation-modelling.html#cb287-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_factorcor</span>(fit, <span class="at">factors =</span> factors)</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="structural-equation-modelling.html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_factorcor</span>(fit, <span class="at">factors =</span> factors)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-334">Table 19.2: </span>Latent Factor Correlations
+<span id="tab:unnamed-chunk-338">Table 19.2: </span>Latent Factor Correlations
 </caption>
 <thead>
 <tr>
@@ -1998,10 +1999,10 @@ SE
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="structural-equation-modelling.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_factorvar</span>(fit, <span class="at">factors =</span> factors)</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="structural-equation-modelling.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_factorvar</span>(fit, <span class="at">factors =</span> factors)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-334">Table 19.2: </span>Latent Factor Variance/Residual Variance
+<span id="tab:unnamed-chunk-338">Table 19.2: </span>Latent Factor Variance/Residual Variance
 </caption>
 <thead>
 <tr>
@@ -2087,10 +2088,10 @@ dem65
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="structural-equation-modelling.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_rsquared</span>(fit)</span></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="structural-equation-modelling.html#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem_rsquared</span>(fit)</span></code></pre></div>
 <table class="table" style="width: auto !important; ">
 <caption>
-<span id="tab:unnamed-chunk-334">Table 19.2: </span>R-Squared Values
+<span id="tab:unnamed-chunk-338">Table 19.2: </span>R-Squared Values
 </caption>
 <thead>
 <tr>
@@ -2209,12 +2210,12 @@ dem65
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="structural-equation-modelling.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="fu">semPaths</span>(fit, <span class="at">latents =</span> factors, <span class="at">whatLabels =</span> <span class="st">&quot;std&quot;</span>, <span class="at">layout =</span> <span class="st">&quot;tree2&quot;</span>, </span>
-<span id="cb290-2"><a href="structural-equation-modelling.html#cb290-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">rotation =</span> <span class="dv">2</span>, <span class="at">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="at">optimizeLatRes =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb290-3"><a href="structural-equation-modelling.html#cb290-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">intercepts =</span> <span class="cn">FALSE</span>, <span class="at">residuals =</span> <span class="cn">TRUE</span>, <span class="at">curve =</span> <span class="dv">1</span>, <span class="at">curvature =</span> <span class="dv">2</span>, </span>
-<span id="cb290-4"><a href="structural-equation-modelling.html#cb290-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">sizeLat =</span> <span class="dv">10</span>, <span class="at">nCharNodes =</span> <span class="dv">8</span>, <span class="at">sizeMan =</span> <span class="dv">11</span>, <span class="at">sizeMan2 =</span> <span class="dv">4</span>, </span>
-<span id="cb290-5"><a href="structural-equation-modelling.html#cb290-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">edge.label.cex =</span> <span class="fl">1.2</span>, <span class="at">edge.color =</span> <span class="st">&quot;#000000&quot;</span>)</span></code></pre></div>
-<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-335-1.png" width="672" /></p>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="structural-equation-modelling.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="fu">semPaths</span>(fit, <span class="at">latents =</span> factors, <span class="at">whatLabels =</span> <span class="st">&quot;std&quot;</span>, <span class="at">layout =</span> <span class="st">&quot;tree2&quot;</span>, </span>
+<span id="cb294-2"><a href="structural-equation-modelling.html#cb294-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">rotation =</span> <span class="dv">2</span>, <span class="at">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="at">optimizeLatRes =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb294-3"><a href="structural-equation-modelling.html#cb294-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">intercepts =</span> <span class="cn">FALSE</span>, <span class="at">residuals =</span> <span class="cn">TRUE</span>, <span class="at">curve =</span> <span class="dv">1</span>, <span class="at">curvature =</span> <span class="dv">2</span>, </span>
+<span id="cb294-4"><a href="structural-equation-modelling.html#cb294-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">sizeLat =</span> <span class="dv">10</span>, <span class="at">nCharNodes =</span> <span class="dv">8</span>, <span class="at">sizeMan =</span> <span class="dv">11</span>, <span class="at">sizeMan2 =</span> <span class="dv">4</span>, </span>
+<span id="cb294-5"><a href="structural-equation-modelling.html#cb294-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">edge.label.cex =</span> <span class="fl">1.2</span>, <span class="at">edge.color =</span> <span class="st">&quot;#000000&quot;</span>)</span></code></pre></div>
+<p><img src="EngleLab-useRguide_files/figure-html/unnamed-chunk-339-1.png" width="672" /></p>
 <hr />
 
 </div>

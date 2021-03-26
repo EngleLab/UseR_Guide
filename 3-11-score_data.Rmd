@@ -2,17 +2,38 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-## Overview
-
-```{r echo=FALSE, out.width='70%', fig.align='center'}
+```{r echo=FALSE, out.width='50%', fig.align='center'}
 knitr::include_graphics(rep("images/workflows/workflow_dataanalysis.png"))
 ```
+
+For this chapter you will need to:
+
+- install the `workflow` package
+
+```{r eval=FALSE}
+# if you do not have devtools installed then do this first
+install.packages("devtools")
+# install workflow
+devtools::install_github("dr-JT/workflow")
+```
+
+- be familiar with using `dplyr` (see chapter on *Data Manipulation using dplyr*)
+
+- install the `psych` package
+
+```{r eval=FALSE}
+install.packages("psych")
+```
+
+----
+
+## Overview
 
 **Data Analysis** requires many steps and decisions that need to be made along the way. Often times the goal is to create a single data file that is ready for statistical analysis. But before we can get to this single data file a couple of steps are involved.
 
 1. Create a scored data file for each task
 
-    At this stage we also remove any subjects that are suspect or have too poor of performance, and remove univariate outliers.
+    At this stage we also remove any subjects that are suspect or have too poor of performance, and remove univariate outliers. This is also a good place to calculate reliability estimates.
 
 2. Merge the scored data files into a single data file
 
@@ -21,56 +42,9 @@ knitr::include_graphics(rep("images/workflows/workflow_dataanalysis.png"))
 
 **Hint**: You should create a separate project folder for each data analysis project and create an RStudio Project file in that directory.
 
-
 ## Score Script Template
 
 It is easiest to start an R script from a template. You can download an R script template for scoring and cleaning data `workflow::template(scorescript = TRUE)`
-
-```{r eval = FALSE}
-#### Setup ####
-## Load Packages
-library(here)
-library(readr)
-library(dplyr)
-
-## Set Import/Output Directories
-import_dir <- "Data Files/Raw Data"
-output_dir <- "Data Files/Scored Data"
-
-## Set Import/Output Filenames
-task <- "taskname"
-import_file <- paste(task, "raw.csv", sep = "_")
-output_file <- paste(task, "Scores.csv", sep = "_")
-
-## Set Data Cleaning Params
-
-###############
-
-#### Import ####
-data_import <- read_csv(here(import_dir, import_file)) %>%
-  filter() 
-################
-
-#### Score Data ####
-data_scores <- data_import %>%
-  group_by() %>%
-  summarise()
-####################
-
-#### Clean Data ####
-
-####################
-
-#### Calculate Reliability ####
-
-###############################
-
-#### Output ####
-write_csv(data_scores, here(output_dir, output_file))
-################
-
-rm(list=ls())
-```
 
 ### Setup
 
@@ -96,18 +70,56 @@ rm(list=ls())
     
     Optionally it would be a good idea to add a comment about what this criteria is for.
     
-    
+```{r eval=FALSE}
+#### Setup ####
+## Load Packages
+library(here)
+library(readr)
+library(dplyr)
+
+## Set Import/Output Directories
+import_dir <- "Data Files/Raw Data"
+output_dir <- "Data Files/Scored Data"
+
+## Set Import/Output Filenames
+task <- "taskname"
+import_file <- paste(task, "raw.csv", sep = "_")
+output_file <- paste(task, "Scores.csv", sep = "_")
+
+## Set Data Cleaning Params
+
+###############
+```
+
+
 ### Import
 
 As long as you are using these templates this first line of code can always remain untouched.
 
 The second line `filter()` should be used to filter out practice trials or anything you defintely do not want to analyze.
 
-### Data Scoring
+```{r eval=FALSE}
+#### Import ####
+data_import <- read_csv(here(import_dir, import_file)) %>%
+  filter() 
+################
+```
 
-This is the meat of the script, where the action happens. It will also be different for every task - obviously. However, there are a few steps that are pretty common.
 
-## Group by Columns
+## Data Scoring
+
+This is where the action happens. It will also be different for every task - obviously. However, there are a few steps that are pretty common.
+
+```{r eval=FALSE}
+#### Score Data ####
+data_scores <- data_import %>%
+  group_by() %>%
+  summarise()
+####################
+```
+
+
+### Group by Columns
 
 You will almost certainly use this step everytime you score data because you will want to aggregate scores grouped by Subject, Condition, or other variables.
 
@@ -121,7 +133,7 @@ group_by(Subject)
 group_by(Subject, Condition)
 ```
 
-## Trim Reaction Time
+### Trim Reaction Time
 
 To trim reaction times less than 200ms:
 
@@ -135,7 +147,7 @@ To trim reaction times less than 200ms or greater than 10000ms
 mutate(RT = ifelse(RT < 200 | RT > 10000, NA, RT))
 ```
 
-## Summary Statistic
+### Summary Statistic
 
 Once you group and clean the data, you can calculate a summary statistic such as a mean, median, or standard deviation.
 
@@ -146,9 +158,11 @@ summarise(Accuracy.mean = mean(Accuracy, na.rm = TRUE),
           RT.mean = mean(RT, na.rm = TRUE))
 ```
 
-## Transform Data to Wide
+### Transform Data to Wide
 
 If you are grouping by Subject and Condition, then you will likely want to transform the aggregated data into a wide format. This is because `summarise()` will produce a row for each Condition per Subject. What you might want is a single row per subject, with the conditions spread out across columns.
+
+**Hint**: If you forget how to use a function or what the argument names are then type `?functionName()` in the console (e.g. `?pivot_wider()`).
 
 ```{r eval=FALSE}
 pivot_wider(id_cols = "Subject",
@@ -156,7 +170,7 @@ pivot_wider(id_cols = "Subject",
             values_from = "Accuracy.mean")
 ```
 
-## More Complex Scoring
+### More Complex Scoring
 
 This is an example of how to calculate *k* scores for the visual arrays task. You can see this is a little more involved.
 
@@ -178,7 +192,18 @@ data_scores <- data_import %>%
 ```
 
 
-## Remove Problematic Subjects
+
+## Clean Data
+
+The next section of the script template is for cleaning the data by removing problematic subjects and/or removing outliers.
+
+```{r eval = FALSE}
+#### Clean Data ####
+
+####################
+```
+
+### Remove Problematic Subjects
 
 If the score for the task is not simply an aggregate of accuracy or reaction time, then you may want to evaluate problematic subjects based on their aggregated accuracy.
 
@@ -193,7 +218,7 @@ data_remove <- data_scores %>%
 data_scores <- filter(data_scores, !(Subject %in% data_remove$Subject))
 ```
 
-## Remove Outliers
+### Remove Outliers
 
 Remove outliers based on their final task scores.
 
@@ -210,6 +235,12 @@ data_scores <- filter(data_scores, !(Subject %in% data_outliers$Subject))
 ```
 
 ## Calculate Reliability
+
+```{r eval=FALSE}
+#### Calculate Reliability ####
+
+###############################
+```
 
 There are two standard ways of calculating reliability: split-half and cronbach's alpha.
 
@@ -243,7 +274,7 @@ cronbachalpha <- data_raw %>%
   pivot_wider(id_cols = "Subject",
               names_from = "Trial",
               values_from = "Accuracy") %>%
-  alpha()
+  alpha()  # from the psych package
 
 data_scores$Score_cronbachalpha <- cronbachalpha$total$std.alpha
 ```
