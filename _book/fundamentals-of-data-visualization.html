@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>13 Fundamentals of Data Visualization | EngleLab: useRguide</title>
+  <title>14 Fundamentals of Data Visualization | EngleLab: useRguide</title>
   <meta name="description" content="This is a useRguide for the EngleLab" />
   <meta name="generator" content="bookdown 0.21.4 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="13 Fundamentals of Data Visualization | EngleLab: useRguide" />
+  <meta property="og:title" content="14 Fundamentals of Data Visualization | EngleLab: useRguide" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="/images/eagle.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="EngleLab" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="13 Fundamentals of Data Visualization | EngleLab: useRguide" />
+  <meta name="twitter:title" content="14 Fundamentals of Data Visualization | EngleLab: useRguide" />
   
   <meta name="twitter:description" content="This is a useRguide for the EngleLab" />
   <meta name="twitter:image" content="/images/eagle.png" />
@@ -52,8 +52,74 @@
 
 <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 </head>
 
@@ -222,69 +288,70 @@
 <li class="chapter" data-level="12.3" data-path="single-merged-file.html"><a href="single-merged-file.html#select-only-important-variables"><i class="fa fa-check"></i><b>12.3</b> Select only important variables</a></li>
 <li class="chapter" data-level="12.4" data-path="single-merged-file.html"><a href="single-merged-file.html#output"><i class="fa fa-check"></i><b>12.4</b> Output</a></li>
 </ul></li>
+<li class="chapter" data-level="13" data-path="a-masterscript.html"><a href="a-masterscript.html"><i class="fa fa-check"></i><b>13</b> A Masterscript</a></li>
 <li class="part"><span><b>IV Data Visualization</b></span></li>
 <li class="chapter" data-level="" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html"><i class="fa fa-check"></i>Data Visualization: Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#r-markdown"><i class="fa fa-check"></i>R Markdown</a>
 <ul>
 <li class="chapter" data-level="" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#what-is-an-r-markdown-file"><i class="fa fa-check"></i>What is an R Markdown File?</a></li>
-<li class="chapter" data-level="12.4.1" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#yaml-header"><i class="fa fa-check"></i><b>12.4.1</b> YAML header</a></li>
+<li class="chapter" data-level="13.0.1" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#yaml-header"><i class="fa fa-check"></i><b>13.0.1</b> YAML header</a></li>
 <li class="chapter" data-level="" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#r-code-chunks"><i class="fa fa-check"></i>R code chunks</a></li>
 <li class="chapter" data-level="" data-path="data-visualization-overview.html"><a href="data-visualization-overview.html#formatted-text"><i class="fa fa-check"></i>Formatted text</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html"><i class="fa fa-check"></i><b>13</b> Fundamentals of Data Visualization</a>
+<li class="chapter" data-level="14" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html"><i class="fa fa-check"></i><b>14</b> Fundamentals of Data Visualization</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>13.1</b> Grammar of Graphics</a></li>
-<li class="chapter" data-level="13.2" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html#plotting-functions-in-r"><i class="fa fa-check"></i><b>13.2</b> Plotting Functions in R</a></li>
+<li class="chapter" data-level="14.1" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>14.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="14.2" data-path="fundamentals-of-data-visualization.html"><a href="fundamentals-of-data-visualization.html#plotting-functions-in-r"><i class="fa fa-check"></i><b>14.2</b> Plotting Functions in R</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>14</b> Introduction to ggplot2</a>
+<li class="chapter" data-level="15" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>15</b> Introduction to ggplot2</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#grammar-of-graphics-1"><i class="fa fa-check"></i><b>14.1</b> Grammar of Graphics</a></li>
-<li class="chapter" data-level="14.2" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#data-layer"><i class="fa fa-check"></i><b>14.2</b> Data layer</a></li>
-<li class="chapter" data-level="14.3" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#aesthetic-layer"><i class="fa fa-check"></i><b>14.3</b> Aesthetic Layer</a></li>
-<li class="chapter" data-level="14.4" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#geometries-layer"><i class="fa fa-check"></i><b>14.4</b> Geometries Layer</a></li>
-<li class="chapter" data-level="14.5" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#facets-layer"><i class="fa fa-check"></i><b>14.5</b> Facets Layer</a></li>
-<li class="chapter" data-level="14.6" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#statistics-layer"><i class="fa fa-check"></i><b>14.6</b> Statistics Layer</a></li>
-<li class="chapter" data-level="14.7" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#coordinates-layer"><i class="fa fa-check"></i><b>14.7</b> Coordinates Layer</a></li>
-<li class="chapter" data-level="14.8" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#themes-layer"><i class="fa fa-check"></i><b>14.8</b> Themes Layer</a>
+<li class="chapter" data-level="15.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#grammar-of-graphics-1"><i class="fa fa-check"></i><b>15.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="15.2" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#data-layer"><i class="fa fa-check"></i><b>15.2</b> Data layer</a></li>
+<li class="chapter" data-level="15.3" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#aesthetic-layer"><i class="fa fa-check"></i><b>15.3</b> Aesthetic Layer</a></li>
+<li class="chapter" data-level="15.4" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#geometries-layer"><i class="fa fa-check"></i><b>15.4</b> Geometries Layer</a></li>
+<li class="chapter" data-level="15.5" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#facets-layer"><i class="fa fa-check"></i><b>15.5</b> Facets Layer</a></li>
+<li class="chapter" data-level="15.6" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#statistics-layer"><i class="fa fa-check"></i><b>15.6</b> Statistics Layer</a></li>
+<li class="chapter" data-level="15.7" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#coordinates-layer"><i class="fa fa-check"></i><b>15.7</b> Coordinates Layer</a></li>
+<li class="chapter" data-level="15.8" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#themes-layer"><i class="fa fa-check"></i><b>15.8</b> Themes Layer</a>
 <ul>
-<li class="chapter" data-level="14.8.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#built-in-themes"><i class="fa fa-check"></i><b>14.8.1</b> Built-in Themes</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i><b>15</b> Scatterplots</a>
-<ul>
-<li class="chapter" data-level="15.1" data-path="scatterplots.html"><a href="scatterplots.html#scatterplots-1"><i class="fa fa-check"></i><b>15.1</b> Scatterplots</a>
-<ul>
-<li class="chapter" data-level="15.1.1" data-path="scatterplots.html"><a href="scatterplots.html#adding-other-geoms"><i class="fa fa-check"></i><b>15.1.1</b> Adding other geoms</a></li>
+<li class="chapter" data-level="15.8.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#built-in-themes"><i class="fa fa-check"></i><b>15.8.1</b> Built-in Themes</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="plotting-means.html"><a href="plotting-means.html"><i class="fa fa-check"></i><b>16</b> Plotting Means</a>
+<li class="chapter" data-level="16" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i><b>16</b> Scatterplots</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="plotting-means.html"><a href="plotting-means.html#bar-graphs"><i class="fa fa-check"></i><b>16.1</b> Bar Graphs</a></li>
-<li class="chapter" data-level="16.2" data-path="plotting-means.html"><a href="plotting-means.html#alternatives-to-bar-graphs"><i class="fa fa-check"></i><b>16.2</b> Alternatives to Bar Graphs</a></li>
-<li class="chapter" data-level="16.3" data-path="plotting-means.html"><a href="plotting-means.html#two-way-interaction-plots"><i class="fa fa-check"></i><b>16.3</b> Two-Way Interaction Plots</a></li>
-<li class="chapter" data-level="16.4" data-path="plotting-means.html"><a href="plotting-means.html#three-way-interaction-plots"><i class="fa fa-check"></i><b>16.4</b> Three-Way Interaction Plots</a></li>
+<li class="chapter" data-level="16.1" data-path="scatterplots.html"><a href="scatterplots.html#scatterplots-1"><i class="fa fa-check"></i><b>16.1</b> Scatterplots</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="scatterplots.html"><a href="scatterplots.html#adding-other-geoms"><i class="fa fa-check"></i><b>16.1.1</b> Adding other geoms</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="univariate-plots.html"><a href="univariate-plots.html"><i class="fa fa-check"></i><b>17</b> Univariate Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="plotting-means.html"><a href="plotting-means.html"><i class="fa fa-check"></i><b>17</b> Plotting Means</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="plotting-means.html"><a href="plotting-means.html#bar-graphs"><i class="fa fa-check"></i><b>17.1</b> Bar Graphs</a></li>
+<li class="chapter" data-level="17.2" data-path="plotting-means.html"><a href="plotting-means.html#alternatives-to-bar-graphs"><i class="fa fa-check"></i><b>17.2</b> Alternatives to Bar Graphs</a></li>
+<li class="chapter" data-level="17.3" data-path="plotting-means.html"><a href="plotting-means.html#two-way-interaction-plots"><i class="fa fa-check"></i><b>17.3</b> Two-Way Interaction Plots</a></li>
+<li class="chapter" data-level="17.4" data-path="plotting-means.html"><a href="plotting-means.html#three-way-interaction-plots"><i class="fa fa-check"></i><b>17.4</b> Three-Way Interaction Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="univariate-plots.html"><a href="univariate-plots.html"><i class="fa fa-check"></i><b>18</b> Univariate Plots</a></li>
 <li class="part"><span><b>V Statistical Analysis</b></span></li>
 <li class="chapter" data-level="" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html"><i class="fa fa-check"></i>Statistical Analysis: Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="statistical-analysis-overview.html"><a href="statistical-analysis-overview.html#r-markdown-1"><i class="fa fa-check"></i>R Markdown</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="statistics-in-r.html"><a href="statistics-in-r.html"><i class="fa fa-check"></i><b>18</b> Statistics in R</a></li>
-<li class="chapter" data-level="19" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html"><i class="fa fa-check"></i><b>19</b> Structural Equation Modelling</a>
+<li class="chapter" data-level="19" data-path="statistics-in-r.html"><a href="statistics-in-r.html"><i class="fa fa-check"></i><b>19</b> Statistics in R</a></li>
+<li class="chapter" data-level="20" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html"><i class="fa fa-check"></i><b>20</b> Structural Equation Modelling</a>
 <ul>
-<li class="chapter" data-level="19.1" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#lavaan"><i class="fa fa-check"></i><b>19.1</b> <code>lavaan</code></a>
+<li class="chapter" data-level="20.1" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#lavaan"><i class="fa fa-check"></i><b>20.1</b> <code>lavaan</code></a>
 <ul>
-<li class="chapter" data-level="19.1.1" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#building-the-model-object"><i class="fa fa-check"></i><b>19.1.1</b> Building the model object</a></li>
-<li class="chapter" data-level="19.1.2" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#run-the-model"><i class="fa fa-check"></i><b>19.1.2</b> Run the model</a></li>
+<li class="chapter" data-level="20.1.1" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#building-the-model-object"><i class="fa fa-check"></i><b>20.1.1</b> Building the model object</a></li>
+<li class="chapter" data-level="20.1.2" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#run-the-model"><i class="fa fa-check"></i><b>20.1.2</b> Run the model</a></li>
 </ul></li>
-<li class="chapter" data-level="19.2" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#semoutput"><i class="fa fa-check"></i><b>19.2</b> <code>semoutput</code></a>
+<li class="chapter" data-level="20.2" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#semoutput"><i class="fa fa-check"></i><b>20.2</b> <code>semoutput</code></a>
 <ul>
-<li class="chapter" data-level="19.2.1" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#yaml-header-1"><i class="fa fa-check"></i><b>19.2.1</b> YAML Header</a></li>
-<li class="chapter" data-level="19.2.2" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#cfa-example"><i class="fa fa-check"></i><b>19.2.2</b> CFA Example</a></li>
-<li class="chapter" data-level="19.2.3" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#sem-example"><i class="fa fa-check"></i><b>19.2.3</b> SEM Example</a></li>
+<li class="chapter" data-level="20.2.1" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#yaml-header-1"><i class="fa fa-check"></i><b>20.2.1</b> YAML Header</a></li>
+<li class="chapter" data-level="20.2.2" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#cfa-example"><i class="fa fa-check"></i><b>20.2.2</b> CFA Example</a></li>
+<li class="chapter" data-level="20.2.3" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#sem-example"><i class="fa fa-check"></i><b>20.2.3</b> SEM Example</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -307,8 +374,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="fundamentals-of-data-visualization" class="section level1" number="13">
-<h1><span class="header-section-number">13</span> Fundamentals of Data Visualization</h1>
+<div id="fundamentals-of-data-visualization" class="section level1" number="14">
+<h1><span class="header-section-number">14</span> Fundamentals of Data Visualization</h1>
 <p>Data visualization is an essential skill for anyone working with data. It is a combination of statistical understanding and design principles. In this way, data visualization is about <strong>graphical data analysis</strong> and <strong>communication and perception</strong>.</p>
 <p><img src="images/dataviz/dataviz_general.png" width="333" style="display: block; margin: auto;" /></p>
 <p>Data visualization is often times glossed over in our stats courses. This is unfortunate because it is so important for better understanding our data, for communicating our results to others, and frankly it is too easy to create poorly designed visualizations.</p>
@@ -322,8 +389,8 @@
 <li>Explain and Communicate: You will also need to explain and communicate your results to colleagues or in scientific publications.</li>
 </ol>
 <p>The same data visualization principles apply to both purposes, however for communicating your results you may want to place more emphasis on aesthetics and readability. For data exploration your visualizations do not have to be pretty.</p>
-<div id="grammar-of-graphics" class="section level2" number="13.1">
-<h2><span class="header-section-number">13.1</span> Grammar of Graphics</h2>
+<div id="grammar-of-graphics" class="section level2" number="14.1">
+<h2><span class="header-section-number">14.1</span> Grammar of Graphics</h2>
 <p>Leland Wilkinson (Grammar of Graphics, 1999) formalized two main principles in his plotting framework:</p>
 <ol style="list-style-type: decimal">
 <li><p>Graphics = distinct <em>layers</em> of grammatical elements</p></li>
@@ -332,8 +399,8 @@
 <p>The essential grammatical elements to create any visualization are:</p>
 <p><img src="images/dataviz/ge_essentials.png" width="846" /></p>
 </div>
-<div id="plotting-functions-in-r" class="section level2" number="13.2">
-<h2><span class="header-section-number">13.2</span> Plotting Functions in R</h2>
+<div id="plotting-functions-in-r" class="section level2" number="14.2">
+<h2><span class="header-section-number">14.2</span> Plotting Functions in R</h2>
 <p>It is possible to create plots in R using the base R function <code>plot()</code>. The neat thing about <code>plot()</code> is that it is really good at knowing what kind of plot you want without you having to specify. However, these are not easy to customize and the output is a static image not an R object that can be modified.</p>
 <p>To allow for data visualization that is more in line with the principles for a grammar of graphics, Hadley Wickham (pictured below) created the <code>ggplot2</code> package. This by far the most popular package for data visualization in R.</p>
 <p><img src="images/hadley.jpeg" width="230" /></p>
