@@ -1,10 +1,10 @@
-# A Masterscript
+# A Mainscript
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-When you have a lot of R scripts it can become tedious to open up and source each script one at a time. Instead, what you can do is have a **masterscript** file that executes (or *sources*) each R script file from one place.
+When you have a lot of R scripts it can become tedious to open up and source each script one at a time. Instead, what you can do is have a **mainscript** file that executes (or *sources*) each R script file from one place.
 
-The masterscript file essentially just contains lines of code using the `source()` function. For instance a masterscript in a **Data Collection** repository might look like:
+The mainscript file essentially just contains lines of code using the `source()` function. For instance a mainscript in a **Data Collection** repository might look like:
 
 ```{r eval=FALSE}
 ## fluid intelligence
@@ -31,7 +31,7 @@ source("R Scripts/demographics_raw.R")
 
 This script will *source* all these R scripts without having to open them.
 
-For **Data Analysis** a masterscript can also help to organize your data analysis procedure and the order in which certain R scripts need to be ran. For instance:
+For **Data Analysis** a mainscript can also help to organize your data analysis procedure and the order in which certain R scripts need to be ran. For instance:
 
 ```{r eval = FALSE}
 #################################################
